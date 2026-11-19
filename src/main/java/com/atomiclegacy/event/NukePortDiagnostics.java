@@ -189,30 +189,21 @@ public final class NukePortDiagnostics {
 
 	private static void finish(MinecraftServer server) {
 		index = -1;
-		// user decision 2026-11-17: the fallout places active sellafield near ground zero, which feeds chunk radiation
+		// FalloutConfigJSON: stone inside the fallout radius always becomes the inert sellafield_slaked (as in 1.7.10)
 		try {
 			ServerLevel level = server.overworld();
 			BlockPos base = CASES.get(0).pos.above(20);
-			Block sellafield = BuiltInRegistries.BLOCK.get(AtomicLegacy.id("sellafield"));
 			double[] percents = {2, 12, 27, 40};
-			int[] expected = {5, 3, 0, -1};
 			StringBuilder sb = new StringBuilder("fallout stone conversion:");
 			for(int i = 0; i < percents.length; i++) {
 				BlockPos p = base.east(i * 2);
 				level.setBlock(p, Blocks.STONE.defaultBlockState(), 2);
 				com.atomiclegacy.worldgen.NuclearFalloutTerrainEffects.diagnosticConvert(level, p, percents[i]);
-				BlockState state = level.getBlockState(p);
-				int got = state.is(sellafield) ? state.getValue(com.atomiclegacy.blocks.SellafieldBlock.LEVEL) : -1;
-				String id = BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath();
-				sb.append(' ').append(percents[i]).append("%=").append(id).append(got >= 0 ? ":" + got : "");
-				if(got != expected[i] || (expected[i] < 0 && !id.equals("sellafield_slaked"))) PROBLEMS.add("Fallout at " + percents[i] + "% gave " + id + " level " + got);
+				String id = BuiltInRegistries.BLOCK.getKey(level.getBlockState(p).getBlock()).getPath();
+				sb.append(' ').append(percents[i]).append("%=").append(id);
+				if(!id.equals("sellafield_slaked")) PROBLEMS.add("Fallout at " + percents[i] + "% gave " + id + " instead of sellafield_slaked");
 			}
-			double before = com.atomiclegacy.radiation.HbmRadiationWorlds.getRadiation(level, base);
-			level.getBlockState(base).randomTick(level, base, level.random);
-			double after = com.atomiclegacy.radiation.HbmRadiationWorlds.getRadiation(level, base);
-			sb.append(" chunkRad ").append(before).append(" -> ").append(after);
 			REPORT.add(sb.toString());
-			if(after - before < 2.9) PROBLEMS.add("Active sellafield level 5 random tick did not add 3 RAD to the chunk");
 		} catch(Throwable t) {
 			PROBLEMS.add("crater radiation check failed: " + t);
 		}

@@ -191,9 +191,6 @@ public final class NuclearFalloutTerrainEffects {
         }
     }
 
-    /** User decision 2026-11-17: active sellafield replaces sellafield_slaked this close to ground zero. */
-    private static final double ACTIVE_SELLAFIELD_RANGE_PERCENT = 30.0D;
-
     /** Diagnostics hook: one conversion of the fallout table at the given distance (percent of the fallout radius). */
     public static boolean diagnosticConvert(ServerLevel level, BlockPos pos, double distancePercent) {
         return convert(level, pos, level.getBlockState(pos), distancePercent, level.random);
@@ -262,20 +259,8 @@ public final class NuclearFalloutTerrainEffects {
             }
             if (state.is(BlockTags.BASE_STONE_OVERWORLD) || state.is(BlockTags.BASE_STONE_NETHER)
                     || state.is(BlockTags.SAND) || state.is(BlockTags.DIRT)) {
-                // [user decision 2026-11-17, deviation from 1.7.10] FalloutConfigJSON only ever places the inert
-                // sellafield_slaked, so a crater has no chunk radiation. Near the centre the active sellafield is
-                // placed instead, hotter towards ground zero: 0-5 % level 5 ... 25-30 % level 0 (the 5 % bands of
-                // the original table); it emits 0.5 x (level + 1) per random tick and decays to slaked as in
-                // BlockSellafield.
-                if (distancePercent <= ACTIVE_SELLAFIELD_RANGE_PERCENT) {
-                    Block active = block("sellafield");
-                    if (active != Blocks.AIR) {
-                        int band = Math.min(5, (int) (distancePercent / 5.0D));
-                        level.setBlock(pos, active.defaultBlockState()
-                                .setValue(com.atomiclegacy.blocks.SellafieldBlock.LEVEL, 5 - band), Block.UPDATE_CLIENTS);
-                        return true;
-                    }
-                }
+                // FalloutConfigJSON: stone/sand/dirt -> the inert sellafield_slaked at every distance (the 2026-11-17
+                // active-sellafield deviation was withdrawn by the user on 2026-11-19).
                 return setIfPresent(level, pos, "sellafield_slaked");
             }
         }
