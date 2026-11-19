@@ -1,0 +1,15 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer.crystal",
+  "ingredient": {
+    "item": "atomiclegacy:powder_impure_osmiridium"
+  },
+  "acid": {
+    "fluid": "schrabidic",
+    "amount": 1000
+  },
+  "duration": 600,
+  "result": {
+    "id": "atomiclegacy:crystal_osmiridium"
+  }
+}

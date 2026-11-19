@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/red_cable_base"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

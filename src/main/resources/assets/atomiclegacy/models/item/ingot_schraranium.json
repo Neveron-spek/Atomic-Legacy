@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:item/ingot_schraranium"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "atomiclegacy:lbsm_full_schrab": 1.0
+      },
+      "model": "atomiclegacy:item/ingot_nikonium"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "top": "atomiclegacy:block/brick_fire",
+    "bottom": "atomiclegacy:block/brick_fire",
+    "side": "atomiclegacy:block/difurnace_side_tall",
+    "front": "atomiclegacy:block/difurnace_front_on_tall"
+  }
+}

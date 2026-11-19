@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:ingots/polonium"
+    }
+  },
+  "pattern": [
+    "#"
+  ],
+  "result": {
+    "id": "atomiclegacy:nugget_polonium",
+    "count": 9
+  }
+}

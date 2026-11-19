@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "item": "atomiclegacy:ore_copper"
+  },
+  "result": {
+    "id": "minecraft:copper_ingot"
+  },
+  "experience": 2.5,
+  "cookingtime": 200
+}

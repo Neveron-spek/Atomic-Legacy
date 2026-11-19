@@ -1,0 +1,7 @@
+﻿{
+    "variants":  {
+                     "":  {
+                              "model":  "atomiclegacy:block/struct_launcher_core"
+                          }
+                 }
+}

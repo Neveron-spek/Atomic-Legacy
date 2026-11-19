@@ -1,0 +1,39 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.m44_ap",
+  "order": 10,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/weaponsteel"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      },
+      "count": 2
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_small_steel"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 6,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "m44_ap"
+      },
+      "minecraft:custom_model_data": 46
+    }
+  }
+}

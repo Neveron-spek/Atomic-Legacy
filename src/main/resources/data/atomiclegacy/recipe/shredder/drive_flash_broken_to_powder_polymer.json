@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:drive_flash_broken"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_polymer",
+    "count": 2
+  }
+}

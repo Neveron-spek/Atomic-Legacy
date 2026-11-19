@@ -1,0 +1,46 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.radar",
+  "duration": 300,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_heavy_frame"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:magnetron"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:motor"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_circuit"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:crt_display"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:machine_radar"
+  }
+}

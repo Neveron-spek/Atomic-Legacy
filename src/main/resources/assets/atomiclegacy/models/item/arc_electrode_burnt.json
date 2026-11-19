@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "atomiclegacy:item/arc_electrode_burnt_graphite"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 1
+      },
+      "model": "atomiclegacy:item/arc_electrode_burnt_lanthanium"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 2
+      },
+      "model": "atomiclegacy:item/arc_electrode_burnt_desh"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 3
+      },
+      "model": "atomiclegacy:item/arc_electrode_burnt_saturnite"
+    }
+  ]
+}

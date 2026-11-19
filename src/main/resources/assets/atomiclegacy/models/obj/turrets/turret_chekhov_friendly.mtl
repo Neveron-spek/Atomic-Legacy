@@ -1,0 +1,25 @@
+newmtl base
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:models/turrets/base_friendly
+
+newmtl carriage
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:models/turrets/carriage_friendly
+
+newmtl connector
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:models/turrets/connector
+
+newmtl body
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:models/turrets/chekhov
+
+newmtl barrels
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:models/turrets/chekhov_barrels
+

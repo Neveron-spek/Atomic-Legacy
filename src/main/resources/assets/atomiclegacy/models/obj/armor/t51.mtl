@@ -1,0 +1,24 @@
+newmtl Helmet
+map_Kd atomiclegacy:armor/t51_helmet
+
+newmtl Chest
+map_Kd atomiclegacy:armor/t51_chest
+
+newmtl LeftArm
+map_Kd atomiclegacy:armor/t51_arm
+
+newmtl RightArm
+map_Kd atomiclegacy:armor/t51_arm
+
+newmtl LeftLeg
+map_Kd atomiclegacy:armor/t51_leg
+
+newmtl RightLeg
+map_Kd atomiclegacy:armor/t51_leg
+
+newmtl LeftBoot
+map_Kd atomiclegacy:armor/t51_leg
+
+newmtl RightBoot
+map_Kd atomiclegacy:armor/t51_leg
+

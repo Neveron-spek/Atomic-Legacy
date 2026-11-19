@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ingot_desh"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_desh"
+  }
+}

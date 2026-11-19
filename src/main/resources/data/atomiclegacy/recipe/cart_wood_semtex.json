@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "S",
+    "C"
+  ],
+  "key": {
+    "S": {
+      "item": "atomiclegacy:semtex"
+    },
+    "C": {
+      "type": "neoforge:components",
+      "items": "atomiclegacy:cart",
+      "components": {
+        "atomiclegacy:cart_type": 0
+      }
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:cart",
+    "count": 1,
+    "components": {
+      "atomiclegacy:cart_type": 4,
+      "atomiclegacy:cart_base": 1
+    }
+  }
+}

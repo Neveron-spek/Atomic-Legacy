@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WHW",
+    "CTP",
+    "WOW"
+  ],
+  "key": {
+    "W": {
+      "tag": "minecraft:planks"
+    },
+    "T": {
+      "item": "minecraft:tnt"
+    },
+    "H": {
+      "item": "atomiclegacy:flame_pony"
+    },
+    "C": {
+      "item": "atomiclegacy:flame_conspiracy"
+    },
+    "P": {
+      "item": "atomiclegacy:flame_politics"
+    },
+    "O": {
+      "item": "atomiclegacy:flame_opinion"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:flame_war"
+  }
+}

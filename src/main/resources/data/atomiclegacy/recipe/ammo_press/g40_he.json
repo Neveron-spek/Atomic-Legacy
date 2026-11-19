@@ -1,0 +1,38 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.g40_he",
+  "order": 56,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:ball_dynamite"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_large"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 4,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "g40_he"
+      },
+      "minecraft:custom_model_data": 68
+    }
+  }
+}

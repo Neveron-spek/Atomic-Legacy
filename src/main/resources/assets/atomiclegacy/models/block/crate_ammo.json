@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "atomiclegacy:block/crate_ammo_bottom",
+    "up": "atomiclegacy:block/crate_ammo_top",
+    "north": "atomiclegacy:block/crate_ammo_side",
+    "south": "atomiclegacy:block/crate_ammo_side",
+    "west": "atomiclegacy:block/crate_ammo_side",
+    "east": "atomiclegacy:block/crate_ammo_side",
+    "particle": "atomiclegacy:block/crate_ammo_side"
+  }
+}

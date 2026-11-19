@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "G",
+    "S",
+    "C"
+  ],
+  "key": {
+    "G": { "item": "minecraft:glowstone" },
+    "S": { "tag": "c:storage_blocks/steel" },
+    "C": { "item": "atomiclegacy:coil_copper_torus" }
+  },
+  "result": {
+    "id": "atomiclegacy:charger",
+    "count": 16
+  }
+}

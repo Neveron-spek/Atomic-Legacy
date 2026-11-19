@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:item/circuit.vacuum_tube"
+  },
+  "overrides": [
+    { "predicate": { "minecraft:custom_model_data": 1 }, "model": "atomiclegacy:item/circuit_capacitor" },
+    { "predicate": { "minecraft:custom_model_data": 2 }, "model": "atomiclegacy:item/circuit_capacitor_tantalium" },
+    { "predicate": { "minecraft:custom_model_data": 3 }, "model": "atomiclegacy:item/circuit_pcb" },
+    { "predicate": { "minecraft:custom_model_data": 4 }, "model": "atomiclegacy:item/circuit_silicon" },
+    { "predicate": { "minecraft:custom_model_data": 5 }, "model": "atomiclegacy:item/circuit_chip" },
+    { "predicate": { "minecraft:custom_model_data": 6 }, "model": "atomiclegacy:item/circuit_chip_bismoid" },
+    { "predicate": { "minecraft:custom_model_data": 7 }, "model": "atomiclegacy:item/circuit_analog" },
+    { "predicate": { "minecraft:custom_model_data": 8 }, "model": "atomiclegacy:item/circuit_basic" },
+    { "predicate": { "minecraft:custom_model_data": 9 }, "model": "atomiclegacy:item/circuit_advanced" },
+    { "predicate": { "minecraft:custom_model_data": 10 }, "model": "atomiclegacy:item/circuit_capacitor_board" },
+    { "predicate": { "minecraft:custom_model_data": 11 }, "model": "atomiclegacy:item/circuit_bismoid" },
+    { "predicate": { "minecraft:custom_model_data": 12 }, "model": "atomiclegacy:item/circuit_controller_chassis" },
+    { "predicate": { "minecraft:custom_model_data": 13 }, "model": "atomiclegacy:item/circuit_controller" },
+    { "predicate": { "minecraft:custom_model_data": 14 }, "model": "atomiclegacy:item/circuit_controller_advanced" },
+    { "predicate": { "minecraft:custom_model_data": 15 }, "model": "atomiclegacy:item/circuit_quantum" },
+    { "predicate": { "minecraft:custom_model_data": 16 }, "model": "atomiclegacy:item/circuit_chip_quantum" },
+    { "predicate": { "minecraft:custom_model_data": 17 }, "model": "atomiclegacy:item/circuit_controller_quantum" },
+    { "predicate": { "minecraft:custom_model_data": 18 }, "model": "atomiclegacy:item/circuit_atomic_clock" },
+    { "predicate": { "minecraft:custom_model_data": 19 }, "model": "atomiclegacy:item/circuit_numitron" }
+  ]
+}

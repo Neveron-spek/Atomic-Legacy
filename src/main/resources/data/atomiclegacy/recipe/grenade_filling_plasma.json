@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":[" C ","KWK"],"key":{"C":{"item":"atomiclegacy:circuit_capacitor_board"},"K":{"item":"atomiclegacy:cell_tritium"},"W":{"item":"atomiclegacy:plate_weaponsteel"}},"result":{"id":"atomiclegacy:grenade_filling_plasma","count":4}}

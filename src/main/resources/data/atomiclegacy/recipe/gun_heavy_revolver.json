@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BRM",
+    "  G"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:gun_parts/barrel_light/desh"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_light/desh"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/gunmetal"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/wood"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_heavy_revolver",
+    "count": 1
+  }
+}

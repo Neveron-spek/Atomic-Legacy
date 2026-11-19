@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:electrolyzer_metal","ingredient":{"item":"atomiclegacy:crystal_beryllium"},"output1":{"material":"beryllium","amount":432},"output2":{"material":"lead","amount":32},"byproducts":[{"id":"atomiclegacy:powder_lithium_tiny","count":3},{"id":"atomiclegacy:powder_quartz","count":2}]}

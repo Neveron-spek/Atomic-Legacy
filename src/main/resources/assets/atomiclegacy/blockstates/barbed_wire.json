@@ -1,0 +1,8 @@
+﻿{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/barbed_wire" },
+    "facing=south": { "model": "atomiclegacy:block/barbed_wire", "y": 180 },
+    "facing=west": { "model": "atomiclegacy:block/barbed_wire", "y": 270 },
+    "facing=east": { "model": "atomiclegacy:block/barbed_wire", "y": 90 }
+  }
+}

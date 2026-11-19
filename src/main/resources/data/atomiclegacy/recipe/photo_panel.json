@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " G ",
+    "IPI",
+    " C "
+  ],
+  "key": {
+    "G": { "tag": "c:glass_panes" },
+    "I": { "tag": "c:plates/polymer" },
+    "P": { "item": "atomiclegacy:billet_silicon" },
+    "C": { "item": "atomiclegacy:circuit_pcb" }
+  },
+  "result": {
+    "id": "atomiclegacy:photo_panel",
+    "count": 1
+  }
+}

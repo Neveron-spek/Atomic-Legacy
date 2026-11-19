@@ -1,0 +1,48 @@
+{
+    "type":  "atomiclegacy:silex",
+    "group":  "silex.rbmk_pellet_flashlead_0",
+    "ingredient":  {
+                       "type":  "neoforge:components",
+                       "items":  [
+                                     "atomiclegacy:rbmk_pellet_flashlead"
+                                 ],
+                       "components":  {
+                                          "minecraft:custom_model_data":  0
+                                      }
+                   },
+    "fluid_produced":  600,
+    "fluid_consumed":  100,
+    "wavelength":  "visible",
+    "outputs":  [
+                    {
+                        "item":  {
+                                     "id":  "atomiclegacy:nugget_au198"
+                                 },
+                        "weight":  44
+                    },
+                    {
+                        "item":  {
+                                     "id":  "atomiclegacy:nugget_pb209"
+                                 },
+                        "weight":  44
+                    },
+                    {
+                        "item":  {
+                                     "id":  "atomiclegacy:nugget_bismuth"
+                                 },
+                        "weight":  1
+                    },
+                    {
+                        "item":  {
+                                     "id":  "atomiclegacy:nugget_mercury"
+                                 },
+                        "weight":  1
+                    },
+                    {
+                        "item":  {
+                                     "id":  "atomiclegacy:nugget_gh336"
+                                 },
+                        "weight":  10
+                    }
+                ]
+}

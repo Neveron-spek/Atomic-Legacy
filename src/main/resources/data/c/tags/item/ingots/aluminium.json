@@ -1,0 +1,10 @@
+{
+    "replace":  false,
+    "values":  [
+                   "atomiclegacy:ingot_aluminium",
+                   {
+                       "id": "immersiveengineering:ingot_aluminum",
+                       "required": false
+                   }
+               ]
+}

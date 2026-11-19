@@ -1,0 +1,16 @@
+﻿{
+	"ctm": {
+		"ctm_version": 1,
+		"type": "CTM",
+		"textures": [
+			"atomiclegacy:block/deco_steel_ctm"
+		],
+        "extra": {
+            "connect_to": [
+                { "block": "atomiclegacy:deco_rusty_steel" },
+                { "block": "atomiclegacy:deco_steel" }
+            ]
+        }
+	}
+}
+

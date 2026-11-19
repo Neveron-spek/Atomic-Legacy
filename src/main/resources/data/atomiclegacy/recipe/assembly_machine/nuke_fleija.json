@@ -1,0 +1,38 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.fleija",
+  "duration": 300,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:shell_aluminium"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:fins_quad_titanium"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:dyes/white"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:nuke_fleija"
+  },
+  "blueprint_pools": [
+    "528.controller"
+  ]
+}

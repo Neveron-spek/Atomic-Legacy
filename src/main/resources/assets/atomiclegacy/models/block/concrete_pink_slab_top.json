@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "atomiclegacy:block/concrete_pink",
+    "top": "atomiclegacy:block/concrete_pink",
+    "side": "atomiclegacy:block/concrete_pink"
+  }
+}

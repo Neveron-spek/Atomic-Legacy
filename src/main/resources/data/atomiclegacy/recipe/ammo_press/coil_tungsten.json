@@ -1,0 +1,30 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.coil_tungsten",
+  "order": 80,
+  "input": [
+    {},
+    {},
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/tungsten"
+      }
+    },
+    {},
+    {},
+    {},
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 4,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "coil_tungsten"
+      },
+      "minecraft:custom_model_data": 79
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/syringe_antidote"
+                 },
+    "parent":  "minecraft:item/generated"
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "P P",
+    "IPI"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:plates/steel"
+    },
+    "I": {
+      "tag": "c:ingots/steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:cart",
+    "count": 1,
+    "components": {
+      "atomiclegacy:cart_type": 0,
+      "atomiclegacy:cart_base": 2
+    }
+  }
+}

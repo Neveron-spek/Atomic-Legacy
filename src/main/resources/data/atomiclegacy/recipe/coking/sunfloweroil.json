@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:coking","group":"coking.sunfloweroil","input":{"fluid":"sunfloweroil","amount":16000},"output":{"id":"atomiclegacy:coke_petroleum"},"byproduct":{"fluid":"gas_coker","amount":1600}}

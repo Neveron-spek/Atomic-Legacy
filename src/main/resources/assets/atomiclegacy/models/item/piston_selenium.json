@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/piston_selenium"
+                 },
+    "parent":  "minecraft:item/generated"
+}

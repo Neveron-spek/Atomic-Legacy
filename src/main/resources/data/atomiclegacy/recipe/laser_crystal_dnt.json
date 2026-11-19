@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":["QDQ","SBS","QDQ"],"key":{"Q":{"tag": "c:glass_blocks/quartz"},"D":{"tag":"c:ingots/dineutronium"},"B":{"item":"atomiclegacy:egg_balefire"},"S":{"tag":"c:dusts/spark_mix"}},"result":{"id":"atomiclegacy:laser_crystal_dnt"}}

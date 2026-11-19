@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " GL",
+    "IBP",
+    " GL"
+  ],
+  "key": {
+    "G": {
+      "tag": "c:ingots/gunmetal"
+    },
+    "L": {
+      "tag": "c:ingots/any_rubber"
+    },
+    "I": {
+      "tag": "c:ingots/titanium"
+    },
+    "B": {
+      "tag": "c:storage_blocks/steel"
+    },
+    "P": {
+      "item": "atomiclegacy:piston_selenium"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_drill",
+    "count": 1
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WIW",
+    "PCP",
+    "WIW"
+  ],
+  "key": {
+    "W": {
+      "item": "atomiclegacy:wire_copper"
+    },
+    "I": {
+      "tag": "c:plates/iron"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_analog"
+    },
+    "P": {
+      "tag": "c:plates/polymer"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:upgrade_template"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "FSF",
+    "   ",
+    "FSF"
+  ],
+  "key": {
+    "F": {
+      "item": "atomiclegacy:rag"
+    },
+    "S": {
+      "item": "atomiclegacy:ring_starmetal"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:bismuth_legs"
+  }
+}

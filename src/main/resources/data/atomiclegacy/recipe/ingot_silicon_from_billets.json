@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:billet_silicon"
+    },
+    {
+      "item": "atomiclegacy:billet_silicon"
+    },
+    {
+      "item": "atomiclegacy:billet_silicon"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:ingot_silicon",
+    "count": 2
+  }
+}

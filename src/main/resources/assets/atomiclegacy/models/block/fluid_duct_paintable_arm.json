@@ -1,0 +1,7 @@
+{
+  "parent": "atomiclegacy:block/fluid_pipe_arm",
+  "textures": {
+    "pipe": "atomiclegacy:block/fluid_duct_paintable",
+    "overlay": "atomiclegacy:block/fluid_duct_paintable_overlay"
+  }
+}

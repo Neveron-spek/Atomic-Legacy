@@ -1,0 +1,37 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.rbmk",
+  "blueprint_pools": [
+    "528.ferrouranium"
+  ],
+  "duration": 100,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:concrete_asbestos"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_lead_plating"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/copper"
+      },
+      "count": 16
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:rbmk_blank"
+  }
+}

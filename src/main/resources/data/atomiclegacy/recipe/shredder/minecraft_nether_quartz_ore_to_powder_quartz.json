@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "minecraft:nether_quartz_ore"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_quartz",
+    "count": 2
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.capacitor_ir",
+  "order": 78,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/plastic"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/niobium"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/plastic"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 4,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "capacitor_ir"
+      },
+      "minecraft:custom_model_data": 78
+    }
+  }
+}

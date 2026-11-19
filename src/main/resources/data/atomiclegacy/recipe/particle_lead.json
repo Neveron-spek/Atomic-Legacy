@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:particle_empty"
+    },
+    {
+      "tag": "c:dusts/lead"
+    },
+    {
+      "item": "atomiclegacy:pellet_charged"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:particle_lead"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "atomiclegacy:ingot_aluminium"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:nugget_raw_aluminium",
+    "count": 9
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.g12_bp",
+  "order": 41,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:nuggets/lead"
+      },
+      "count": 6
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "minecraft:gunpowder"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_shotshell"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 6,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "g12_bp"
+      },
+      "minecraft:custom_model_data": 56
+    }
+  }
+}

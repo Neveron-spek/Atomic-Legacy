@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:combination_oven",
+  "group": "combination_oven.oil_tar",
+  "input": {
+    "item": "atomiclegacy:oil_tar_wood"
+  },
+  "output": {
+    "id": "atomiclegacy:coke_coal"
+  }
+}

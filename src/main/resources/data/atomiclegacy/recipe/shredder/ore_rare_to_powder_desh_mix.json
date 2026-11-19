@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ore_rare"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_desh_mix"
+  }
+}

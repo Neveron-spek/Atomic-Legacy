@@ -1,0 +1,1 @@
+{ "parent": "minecraft:block/snow_height12", "textures": { "particle": "atomiclegacy:block/block_foam", "texture": "atomiclegacy:block/block_foam" } }

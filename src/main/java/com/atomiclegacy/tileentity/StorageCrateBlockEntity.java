@@ -1,0 +1,684 @@
+package com.atomiclegacy.tileentity;
+
+import com.atomiclegacy.AtomicLegacy;
+import com.atomiclegacy.blocks.StorageCrateBlock;
+import com.atomiclegacy.inventory.container.StorageCrateMenu;
+import com.atomiclegacy.power.PowerEndpoint;
+import com.atomiclegacy.power.PowerNetworkManager;
+import com.atomiclegacy.registry.HbmBlockEntities;
+import com.atomiclegacy.registry.HbmItems;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.Container;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.WorldlyContainer;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.monster.CaveSpider;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
+import net.minecraft.world.item.crafting.SmeltingRecipe;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.Random;
+
+public class StorageCrateBlockEntity extends BlockEntity implements MenuProvider, WorldlyContainer, MachineInventory, LegacyCrate, PowerEndpoint, DfcLaserTarget { // [parity R4: crates]
+    public static final String ITEM_DATA_KEY = "crate_data";
+    private static final long TUNGSTEN_PULSE_REQUEST = 10_000_001L;
+    private static final ResourceLocation BILLET_POLONIUM = AtomicLegacy.id("billet_polonium");
+    private static final ResourceLocation BILLET_YHARONITE = AtomicLegacy.id("billet_yharonite");
+
+    private final ItemStack[] items;
+    private final Kind kind;
+    private final int[] slotsForFace;
+    private int heatTimer;
+    private int lock;
+    private boolean locked;
+    private double lockMod = 0.1D;
+    private boolean cheesable = true;
+    private boolean hasSpiders;
+    // [parity R4: crates] TileEntityCrateBase.customName and BlockStorageCrate.dropInv
+    @Nullable
+    private String customName;
+    private boolean keepContentsOnRemove;
+    private ItemStack pendingDrop = ItemStack.EMPTY;
+
+    public StorageCrateBlockEntity(BlockPos pos, BlockState blockState) {
+        super(HbmBlockEntities.STORAGE_CRATE.get(), pos, blockState);
+        this.kind = blockState.getBlock() instanceof StorageCrateBlock crate ? crate.kind() : Kind.IRON;
+        this.items = new ItemStack[this.kind.slots()];
+        Arrays.fill(this.items, ItemStack.EMPTY);
+        this.slotsForFace = new int[this.items.length];
+        for (int i = 0; i < this.slotsForFace.length; i++) {
+            this.slotsForFace[i] = i;
+        }
+    }
+
+    public static void tick(Level level, BlockPos pos, BlockState state, StorageCrateBlockEntity crate) {
+        if (crate.kind == Kind.TUNGSTEN && !level.isClientSide) {
+            PowerNetworkManager.tickFromEndpoint(level, crate);
+        }
+        if (crate.heatTimer > 0) {
+            crate.heatTimer--;
+            if (crate.heatTimer == 0) {
+                crate.sync();
+            }
+        }
+        if (level.isClientSide && crate.kind == Kind.TUNGSTEN && crate.heatTimer > 0) {
+            crate.spawnLegacyHeatParticles(level, pos);
+        }
+    }
+
+    public Kind kind() {
+        return this.kind;
+    }
+
+    public int heatTimer() {
+        return this.heatTimer;
+    }
+
+    /** TileEntityCrateBase#fillWithSpiders. */
+    public void fillWithSpiders() {
+        this.hasSpiders = true;
+        sync();
+    }
+
+    /**
+     * TileEntityCrateBase#spawnSpiders for a placed crate: three cave spiders
+     * use a newly constructed Java Random, the crate origin, y + 1, and the
+     * opening player as their target.
+     */
+    public void releaseSpiders(Player player) {
+        if (!this.hasSpiders || this.level == null || this.level.isClientSide) {
+            return;
+        }
+        Random random = new Random();
+        for (int index = 0; index < 3; index++) {
+            CaveSpider spider = new CaveSpider(EntityType.CAVE_SPIDER, this.level);
+            spider.moveTo(this.worldPosition.getX() + random.nextGaussian() * 2.0D,
+                    this.worldPosition.getY() + 1.0D,
+                    this.worldPosition.getZ() + random.nextGaussian() * 2.0D,
+                    random.nextFloat(), 0.0F);
+            spider.setTarget(player);
+            this.level.addFreshEntity(spider);
+        }
+        this.hasSpiders = false;
+        sync();
+    }
+
+    @Override
+    public int getContainerSize() {
+        return this.items.length;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        for (ItemStack stack : this.items) {
+            if (!stack.isEmpty()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public ItemStack getItem(int slot) {
+        return isValidSlot(slot) ? this.items[slot] : ItemStack.EMPTY;
+    }
+
+    @Override
+    public ItemStack removeItem(int slot, int amount) {
+        ItemStack stack = getItem(slot);
+        if (stack.isEmpty() || amount <= 0) {
+            return ItemStack.EMPTY;
+        }
+        ItemStack removed = stack.split(amount);
+        if (stack.isEmpty()) {
+            this.items[slot] = ItemStack.EMPTY;
+        }
+        setChanged();
+        return removed;
+    }
+
+    @Override
+    public ItemStack removeItemNoUpdate(int slot) {
+        if (!isValidSlot(slot)) {
+            return ItemStack.EMPTY;
+        }
+        ItemStack stack = this.items[slot];
+        this.items[slot] = ItemStack.EMPTY;
+        return stack;
+    }
+
+    @Override
+    public void setItem(int slot, ItemStack stack) {
+        if (!isValidSlot(slot)) {
+            return;
+        }
+        this.items[slot] = stack;
+        if (!stack.isEmpty() && stack.getCount() > this.getMaxStackSize(stack)) {
+            stack.setCount(this.getMaxStackSize(stack));
+        }
+        setChanged();
+    }
+
+    @Override
+    public boolean canPlaceItem(int slot, ItemStack stack) {
+        return isValidSlot(slot);
+    }
+
+    @Override
+    public int[] getSlotsForFace(Direction side) {
+        return this.slotsForFace;
+    }
+
+    @Override
+    public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction side) {
+        return canPlaceItem(slot, stack) && !this.locked; // [parity R4: crates] canInsertItem
+    }
+
+    @Override
+    public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) {
+        if (!isValidSlot(slot) || this.locked) {
+            return false;
+        }
+        return this.kind != Kind.TUNGSTEN || tungstenCanExtract(stack);
+    }
+
+    @Override
+    public BlockPos getPowerPos() {
+        return this.worldPosition;
+    }
+
+    @Override
+    public long getAvailableOutput() {
+        return 0L;
+    }
+
+    @Override
+    public long getRequestedInput() {
+        // [parity M3: dfc] TileEntityCrateTungsten is only ILaserable (DFC emitter beam), not an HE receiver.
+        return 0L;
+    }
+
+    @Override
+    public void addDfcEnergy(long energy, net.minecraft.core.Direction beamDirection) {
+        // [parity M3: dfc] TileEntityCrateTungsten.addEnergy
+        if (this.kind == Kind.TUNGSTEN) {
+            applyPower(0L, energy);
+        }
+    }
+
+    @Override
+    public void applyPower(long usedOutput, long receivedInput) {
+        if (this.kind != Kind.TUNGSTEN || receivedInput <= 0L || this.level == null) {
+            return;
+        }
+
+        this.heatTimer = 5;
+        for (int slot = 0; slot < this.items.length; slot++) {
+            ItemStack input = this.items[slot];
+            if (input.isEmpty()) {
+                continue;
+            }
+            ItemStack result = tungstenResult(input, receivedInput);
+            if (!result.isEmpty() && result.getCount() * input.getCount() <= result.getMaxStackSize()) {
+                result.setCount(result.getCount() * input.getCount());
+                this.items[slot] = result;
+            }
+        }
+        sync();
+    }
+
+    @Override
+    public Component getPowerStatus() {
+        return Component.translatable("block.atomiclegacy.crate_tungsten");
+    }
+
+    @Override
+    public boolean stillValid(Player player) {
+        return MachineDummyMenuAccess.stillValid(this, player);
+    }
+
+    @Override
+    public void clearContent() {
+        Arrays.fill(this.items, ItemStack.EMPTY);
+        setChanged();
+    }
+
+    @Override
+    public Component getDisplayName() {
+        return hasCustomName() ? Component.literal(this.customName) : Component.translatable(this.kind.containerKey());
+    }
+
+    @Override
+    @Nullable
+    public String customName() {
+        return this.customName;
+    }
+
+    @Override
+    public void setCustomName(@Nullable String name) {
+        this.customName = name;
+        sync();
+    }
+
+    @Override
+    public boolean hasSpiders() {
+        return this.hasSpiders;
+    }
+
+    @Override
+    public void setHasSpiders(boolean spiders) {
+        this.hasSpiders = spiders;
+        setChanged();
+    }
+
+    @Override
+    public boolean keepContentsOnRemove() {
+        return this.keepContentsOnRemove;
+    }
+
+    @Override
+    public void setKeepContentsOnRemove(boolean keep) {
+        this.keepContentsOnRemove = keep;
+    }
+
+    @Override
+    public ItemStack pendingDrop() {
+        return this.pendingDrop;
+    }
+
+    @Override
+    public void setPendingDrop(ItemStack stack) {
+        this.pendingDrop = stack;
+    }
+
+    /** TileEntityCrateBase#openInventory / #closeInventory. */
+    @Override
+    public void startOpen(Player player) {
+        if (this.level != null && !this.level.isClientSide) {
+            this.level.playSound(null, this.worldPosition.getX() + 0.5D, this.worldPosition.getY() + 0.5D, this.worldPosition.getZ() + 0.5D,
+                    com.atomiclegacy.registry.HbmSoundEvents.CRATE_OPEN.get(), net.minecraft.sounds.SoundSource.BLOCKS, 1.0F, 1.0F);
+        }
+    }
+
+    @Override
+    public void stopOpen(Player player) {
+        if (this.level != null && !this.level.isClientSide) {
+            this.level.playSound(null, this.worldPosition.getX() + 0.5D, this.worldPosition.getY() + 0.5D, this.worldPosition.getZ() + 0.5D,
+                    com.atomiclegacy.registry.HbmSoundEvents.CRATE_CLOSE.get(), net.minecraft.sounds.SoundSource.BLOCKS, 1.0F, 1.0F);
+        }
+    }
+
+    @Nullable
+    @Override
+    public AbstractContainerMenu createMenu(int containerId, Inventory playerInventory, Player player) {
+        return new StorageCrateMenu(containerId, playerInventory, this);
+    }
+
+    @Override
+    public boolean isLocked() {
+        return this.locked;
+    }
+
+    @Override
+    public void lock() {
+        this.locked = true;
+        lockChanged();
+    }
+
+    @Override
+    public void unlock() {
+        this.locked = false;
+        lockChanged();
+    }
+
+    @Override
+    public int pins() {
+        return this.lock;
+    }
+
+    @Override
+    public void setPins(int pins) {
+        this.lock = pins;
+        lockChanged();
+    }
+
+    @Override
+    public double lockMod() {
+        return this.lockMod;
+    }
+
+    @Override
+    public void setLockMod(double mod) {
+        this.lockMod = mod;
+        lockChanged();
+    }
+
+    @Override
+    public boolean cheesable() {
+        return this.cheesable;
+    }
+
+    @Override
+    public void setCheesable(boolean cheesable) {
+        this.cheesable = cheesable;
+        lockChanged();
+    }
+
+    @Override
+    public void lockChanged() {
+        sync();
+    }
+
+    @Override
+    public void dropContents(Level level, BlockPos pos) {
+        for (int i = 0; i < this.items.length; i++) {
+            drop(level, pos, this.items[i]);
+            this.items[i] = ItemStack.EMPTY;
+        }
+    }
+
+    public void loadFromItem(ItemStack stack, HolderLookup.Provider registries) {
+        com.atomiclegacy.blocks.LegacyCrateLogic.loadFromItem(this, stack, registries); // [parity R4: crates]
+        sync();
+    }
+
+    public static int usedSlots(ItemStack stack, int maxSlots) {
+        CompoundTag root = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        if (!root.contains(ITEM_DATA_KEY)) {
+            return 0;
+        }
+        CompoundTag data = root.getCompound(ITEM_DATA_KEY);
+        int used = 0;
+        for (int i = 0; i < maxSlots; i++) {
+            if (data.contains("slot" + i)) {
+                used++;
+            }
+        }
+        return used;
+    }
+
+    public static void copyData(ItemStack source, ItemStack result) {
+        CustomData data = source.get(DataComponents.CUSTOM_DATA);
+        if (data != null) {
+            result.set(DataComponents.CUSTOM_DATA, data);
+        }
+    }
+
+    private CompoundTag writeItemData(HolderLookup.Provider registries) {
+        CompoundTag data = new CompoundTag();
+        for (int i = 0; i < this.items.length; i++) {
+            if (!this.items[i].isEmpty()) {
+                data.put("slot" + i, this.items[i].saveOptional(registries));
+            }
+        }
+        if (this.lock != 0 || this.locked || this.lockMod != 0.1D || !this.cheesable) {
+            data.putInt("lock", this.lock);
+            data.putBoolean("isLocked", this.locked);
+            data.putDouble("lockMod", this.lockMod);
+            data.putBoolean("cheesable", this.cheesable);
+        }
+        if (this.hasSpiders) {
+            data.putBoolean("spiders", true);
+        }
+        return data;
+    }
+
+    private void readItemData(CompoundTag data, HolderLookup.Provider registries) {
+        for (int i = 0; i < this.items.length; i++) {
+            this.items[i] = ItemStack.parseOptional(registries, data.getCompound("slot" + i));
+        }
+        this.lock = data.getInt("lock");
+        this.locked = data.getBoolean("isLocked");
+        this.lockMod = data.contains("lockMod") ? data.getDouble("lockMod") : 0.1D;
+        this.cheesable = !data.contains("cheesable") || data.getBoolean("cheesable");
+        this.hasSpiders = data.getBoolean("spiders");
+    }
+
+    private boolean isValidSlot(int slot) {
+        return slot >= 0 && slot < this.items.length;
+    }
+
+    private boolean tungstenCanExtract(ItemStack stack) {
+        if (isItem(stack, BILLET_POLONIUM) || (stack.is(HbmItems.CRUCIBLE.get()) && stack.getDamageValue() > 0)) {
+            return false;
+        }
+        return smeltingResult(stack).isEmpty();
+    }
+
+    private ItemStack tungstenResult(ItemStack input, long pulse) {
+        if (pulse > 10_000_000L) {
+            if (isItem(input, BILLET_POLONIUM)) {
+                return new ItemStack(net.minecraft.core.registries.BuiltInRegistries.ITEM.get(BILLET_YHARONITE));
+            }
+            if (input.is(HbmItems.CRUCIBLE.get()) && input.getDamageValue() > 0) {
+                return new ItemStack(HbmItems.CRUCIBLE.get());
+            }
+        }
+        return smeltingResult(input);
+    }
+
+    private ItemStack smeltingResult(ItemStack input) {
+        if (this.level == null || input.isEmpty()) {
+            return ItemStack.EMPTY;
+        }
+        Optional<RecipeHolder<SmeltingRecipe>> recipe = this.level.getRecipeManager().getRecipeFor(
+                RecipeType.SMELTING, new SingleRecipeInput(input), this.level
+        );
+        return recipe.map(holder -> holder.value().assemble(new SingleRecipeInput(input), this.level.registryAccess()))
+                .orElse(ItemStack.EMPTY);
+    }
+
+    private static boolean isItem(ItemStack stack, ResourceLocation id) {
+        return net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(stack.getItem()).equals(id);
+    }
+
+    private void spawnLegacyHeatParticles(Level level, BlockPos pos) {
+        for (int side = 0; side < 5; side++) {
+            double x = pos.getX() + level.random.nextDouble();
+            double y = pos.getY() + level.random.nextDouble();
+            double z = pos.getZ() + level.random.nextDouble();
+            if (side == 0) {
+                y = pos.getY() + 1.1D;
+            } else if (side == 1) {
+                x = pos.getX() - 0.1D;
+            } else if (side == 2) {
+                x = pos.getX() + 1.1D;
+            } else if (side == 3) {
+                z = pos.getZ() - 0.1D;
+            } else {
+                z = pos.getZ() + 1.1D;
+            }
+            level.addParticle(ParticleTypes.FLAME, x, y, z, 0.0D, 0.0D, 0.0D);
+            level.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0D, 0.0D, 0.0D);
+        }
+    }
+
+    private static void drop(Level level, BlockPos pos, ItemStack stack) {
+        if (!stack.isEmpty()) {
+            level.addFreshEntity(new ItemEntity(level, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, stack.copy()));
+        }
+    }
+
+    @Override
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.saveAdditional(tag, registries);
+        tag.put("Items", writeItemData(registries));
+        tag.putInt("HeatTimer", this.heatTimer);
+        tag.putInt("lock", this.lock);
+        tag.putBoolean("isLocked", this.locked);
+        tag.putDouble("lockMod", this.lockMod);
+        tag.putBoolean("cheesable", this.cheesable);
+        tag.putBoolean("spiders", this.hasSpiders);
+        if (this.customName != null) {
+            tag.putString("name", this.customName);
+        }
+    }
+
+    @Override
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.loadAdditional(tag, registries);
+        readItemData(tag.getCompound("Items"), registries);
+        this.heatTimer = tag.getInt("HeatTimer");
+        this.lock = tag.getInt("lock");
+        this.locked = tag.getBoolean("isLocked");
+        this.lockMod = tag.getDouble("lockMod");
+        this.cheesable = tag.getBoolean("cheesable");
+        this.hasSpiders = tag.getBoolean("spiders");
+        this.customName = tag.contains("name") ? tag.getString("name") : null;
+    }
+
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+        CompoundTag tag = super.getUpdateTag(registries);
+        saveAdditional(tag, registries);
+        return tag;
+    }
+
+    @Nullable
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    private void sync() {
+        setChanged();
+        if (this.level != null) {
+            this.level.invalidateCapabilities(this.worldPosition);
+            this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), Block.UPDATE_CLIENTS);
+        }
+    }
+
+    public enum Kind {
+        IRON("crate_iron", 36, 9, 4, 8, 18, 8, 104, 162, 176, 186, 8, 0x404040, 0x404040, "gui_crate_iron.png"),
+        STEEL("crate_steel", 54, 9, 6, 8, 18, 8, 140, 198, 176, 222, 8, 0x404040, 0x404040, "gui_crate_steel.png"), // [parity R4: crates] GUI colours 4210752
+        DESH("crate_desh", 104, 13, 8, 8, 18, 44, 174, 232, 248, 256, 44, 0x404040, 0x404040, "gui_crate_desh.png"),
+        TEMPLATE("crate_template", 27, 9, 3, 8, 18, 8, 86, 144, 176, 168, 8, 0x404040, 0x404040, "gui_crate_template.png"),
+        TUNGSTEN("crate_tungsten", 27, 9, 3, 8, 18, 8, 86, 144, 176, 168, 8, 0xFFFFFF, 0xFFFFFF, "gui_crate_tungsten.png"),
+        SAFE("safe", 15, 5, 3, 44, 18, 8, 86, 144, 176, 168, 8, 0x404040, 0x404040, "gui_safe.png"); // [parity R4: crates] ContainerSafe/GUISafe
+
+        private final String id;
+        private final int slots;
+        private final int columns;
+        private final int rows;
+        private final int crateX;
+        private final int crateY;
+        private final int playerInventoryX;
+        private final int playerInventoryY;
+        private final int hotbarY;
+        private final int guiWidth;
+        private final int guiHeight;
+        private final int inventoryLabelX;
+        private final int titleColor;
+        private final int inventoryLabelColor;
+        private final ResourceLocation texture;
+        private final ResourceLocation hotTexture;
+
+        Kind(String id, int slots, int columns, int rows, int crateX, int crateY, int playerInventoryX, int playerInventoryY,
+             int hotbarY, int guiWidth, int guiHeight, int inventoryLabelX, int titleColor, int inventoryLabelColor, String texture) {
+            this.id = id;
+            this.slots = slots;
+            this.columns = columns;
+            this.rows = rows;
+            this.crateX = crateX;
+            this.crateY = crateY;
+            this.playerInventoryX = playerInventoryX;
+            this.playerInventoryY = playerInventoryY;
+            this.hotbarY = hotbarY;
+            this.guiWidth = guiWidth;
+            this.guiHeight = guiHeight;
+            this.inventoryLabelX = inventoryLabelX;
+            this.titleColor = titleColor;
+            this.inventoryLabelColor = inventoryLabelColor;
+            this.texture = AtomicLegacy.id("textures/gui/storage/" + texture);
+            this.hotTexture = "crate_tungsten".equals(id) ? AtomicLegacy.id("textures/gui/storage/gui_crate_tungsten_hot.png") : this.texture;
+        }
+
+        public String id() {
+            return id;
+        }
+
+        public int slots() {
+            return slots;
+        }
+
+        public int columns() {
+            return columns;
+        }
+
+        public int rows() {
+            return rows;
+        }
+
+        public int crateX() {
+            return crateX;
+        }
+
+        public int crateY() {
+            return crateY;
+        }
+
+        public int playerInventoryX() {
+            return playerInventoryX;
+        }
+
+        public int playerInventoryY() {
+            return playerInventoryY;
+        }
+
+        public int hotbarY() {
+            return hotbarY;
+        }
+
+        public int guiWidth() {
+            return guiWidth;
+        }
+
+        public int guiHeight() {
+            return guiHeight;
+        }
+
+        public int inventoryLabelX() {
+            return inventoryLabelX;
+        }
+
+        public int titleColor(boolean hot) {
+            return titleColor;
+        }
+
+        public int inventoryLabelColor(boolean hot) {
+            return inventoryLabelColor;
+        }
+
+        public ResourceLocation texture(boolean hot) {
+            return hot ? hotTexture : texture;
+        }
+
+        public String containerKey() {
+            return "container.atomiclegacy." + this.id;
+        }
+    }
+}

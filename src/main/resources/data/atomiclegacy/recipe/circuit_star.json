@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:circuit_star_component_chipset"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_component_cpu"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_component_ram"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_component_card"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_piece_board_transistor"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_piece_board_converter"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_piece_board_blank"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:circuit_star"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "atomiclegacy:chemical_plant",
+  "group": "chem.mutateanthrax",
+  "duration": 600,
+  "power": 2000,
+  "input_items": [
+    { "ingredient": { "item": "atomiclegacy:bacteria_anthrax_inert" }, "count": 1 },
+    { "ingredient": { "item": "atomiclegacy:bacteria_agar" }, "count": 1 },
+    { "ingredient": { "tag": "c:nuggets/co60" }, "count": 1 }
+  ],
+  "input_fluids": [
+    { "fluid": "water", "amount": 4000 }
+  ],
+  "output_items": [
+    { "multi": [
+      { "stack": { "id": "atomiclegacy:bacteria_anthrax_mutated", "count": 1 }, "weight": 1 },
+      { "stack": { "id": "atomiclegacy:bacteria_anthrax_dead", "count": 1 }, "weight": 79 },
+      { "stack": { "id": "atomiclegacy:bacteria_anthrax_inert", "count": 1 }, "weight": 20 }
+    ] },
+    { "id": "atomiclegacy:nuclear_waste_tiny", "count": 1 }
+  ],
+  "output_fluids": []
+}

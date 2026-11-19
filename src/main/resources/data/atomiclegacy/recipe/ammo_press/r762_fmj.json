@@ -1,0 +1,41 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.r762_fmj",
+  "order": 30,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/steel"
+      },
+      "count": 2
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      },
+      "count": 2
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_small"
+      },
+      "count": 2
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 12,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "r762_fmj"
+      },
+      "minecraft:custom_model_data": 49
+    }
+  }
+}

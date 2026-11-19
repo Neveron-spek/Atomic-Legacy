@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:sellafield_slaked"
+  },
+  "result": {
+    "id": "minecraft:gravel"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "atomiclegacy:block/capacitor_tantalium",
+      "x": 180
+    },
+    "facing=up": {
+      "model": "atomiclegacy:block/capacitor_tantalium"
+    },
+    "facing=north": {
+      "model": "atomiclegacy:block/capacitor_tantalium",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "atomiclegacy:block/capacitor_tantalium",
+      "x": 270
+    },
+    "facing=west": {
+      "model": "atomiclegacy:block/capacitor_tantalium",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east": {
+      "model": "atomiclegacy:block/capacitor_tantalium",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

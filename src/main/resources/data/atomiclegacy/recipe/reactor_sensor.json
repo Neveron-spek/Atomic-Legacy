@@ -1,0 +1,34 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_528_mode"
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WPW",
+    "CMC",
+    "PPP"
+  ],
+  "key": {
+    "W": {
+      "item": "atomiclegacy:wire_tungsten"
+    },
+    "P": {
+      "tag": "c:plates/lead"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_basic"
+    },
+    "M": {
+      "item": "atomiclegacy:magnetron"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:reactor_sensor"
+  }
+}

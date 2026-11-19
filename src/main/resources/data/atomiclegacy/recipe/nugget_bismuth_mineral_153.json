@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:billet_bismuth"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:nugget_bismuth",
+    "count": 6
+  }
+}

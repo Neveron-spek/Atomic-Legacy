@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "minecraft:lapis_lazuli"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_lapis"
+  }
+}

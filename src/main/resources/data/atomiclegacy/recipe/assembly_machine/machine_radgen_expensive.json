@@ -1,0 +1,55 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.radgen",
+  "blueprint_pools": [
+    "discover.radgen"
+  ],
+  "duration": 400,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_heavy_frame"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:coil_magnetized_tungsten"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:reactor_core"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/starmetal"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:dyes/red"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_circuit"
+      },
+      "count": 3
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:machine_radgen"
+  }
+}

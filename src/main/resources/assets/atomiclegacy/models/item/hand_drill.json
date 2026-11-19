@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/hand_drill"
+                 },
+    "parent":  "minecraft:item/handheld"
+}

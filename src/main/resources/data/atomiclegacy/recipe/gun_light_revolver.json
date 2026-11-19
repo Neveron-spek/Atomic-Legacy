@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BRM",
+    "  G"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:gun_parts/barrel_light/steel"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_light/steel"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/gunmetal"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/wood"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_light_revolver",
+    "count": 1
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/static_sandwich"
+                 },
+    "parent":  "minecraft:item/generated"
+}

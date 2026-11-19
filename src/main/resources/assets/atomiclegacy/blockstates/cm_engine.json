@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "variant=0": { "model": "atomiclegacy:block/cm_engine_standard" },
+    "variant=1": { "model": "atomiclegacy:block/cm_engine_desh" },
+    "variant=2": { "model": "atomiclegacy:block/cm_engine_bismuth" },
+    "variant=3": { "model": "atomiclegacy:block/cm_engine_bismuth" },
+    "variant=4": { "model": "atomiclegacy:block/cm_engine_bismuth" },
+    "variant=5": { "model": "atomiclegacy:block/cm_engine_bismuth" },
+    "variant=6": { "model": "atomiclegacy:block/cm_engine_bismuth" },
+    "variant=7": { "model": "atomiclegacy:block/cm_engine_bismuth" }
+  }
+}

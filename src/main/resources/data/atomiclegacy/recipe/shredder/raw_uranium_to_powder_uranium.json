@@ -1,0 +1,11 @@
+﻿{
+    "type":  "atomiclegacy:shredder",
+    "ingredient":  {
+                       "item":  "atomiclegacy:raw_uranium"
+                   },
+    "input_count":  2,
+    "result":  {
+                   "id":  "atomiclegacy:powder_uranium",
+                       "count": 3
+               }
+}

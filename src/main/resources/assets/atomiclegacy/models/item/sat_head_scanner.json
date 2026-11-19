@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/sat_head_scanner"
+                 },
+    "parent":  "minecraft:item/generated"
+}

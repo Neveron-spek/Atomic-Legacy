@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/powder_desh"
+                 },
+    "parent":  "minecraft:item/generated"
+}

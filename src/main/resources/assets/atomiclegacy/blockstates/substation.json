@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=down": { "model": "atomiclegacy:block/particle/substation" },
+    "facing=up": { "model": "atomiclegacy:block/particle/substation" },
+    "facing=north": { "model": "atomiclegacy:block/particle/substation" },
+    "facing=south": { "model": "atomiclegacy:block/particle/substation" },
+    "facing=west": { "model": "atomiclegacy:block/particle/substation" },
+    "facing=east": { "model": "atomiclegacy:block/particle/substation" }
+  }
+}

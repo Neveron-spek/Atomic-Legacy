@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": { "item": "atomiclegacy:lodestone" },
+  "result": { "id": "atomiclegacy:crystal_iron" },
+  "experience": 5.0,
+  "cookingtime": 200
+}

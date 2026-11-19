@@ -1,0 +1,146 @@
+package com.atomiclegacy.items;
+
+import com.atomiclegacy.render.StirlingGeneratorItemRenderer;
+import com.atomiclegacy.blocks.LargeMachineBlock;
+import com.atomiclegacy.blocks.MachineDummyBlock;
+import com.atomiclegacy.blocks.StirlingGeneratorBlock;
+import com.atomiclegacy.tileentity.HeatSourceBlockEntity;
+import com.atomiclegacy.tileentity.MachineDummyBlockEntity;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
+
+import java.util.function.Consumer;
+
+public class StirlingGeneratorBlockItem extends BlockItem {
+    private static final String NO_COG_TAG = "NoCog";
+
+    public StirlingGeneratorBlockItem(Block block, Item.Properties properties) {
+        super(block, properties);
+    }
+
+    public static boolean hasCog(ItemStack stack) {
+        return !stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean(NO_COG_TAG);
+    }
+
+    public static void setHasCog(ItemStack stack, boolean hasCog) {
+        CompoundTag tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        if (hasCog) {
+            tag.remove(NO_COG_TAG);
+        } else {
+            tag.putBoolean(NO_COG_TAG, true);
+        }
+        if (tag.isEmpty()) {
+            stack.remove(DataComponents.CUSTOM_DATA);
+        } else {
+            stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
+        }
+    }
+
+    @Override
+    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+        consumer.accept(new IClientItemExtensions() {
+            private final StirlingGeneratorItemRenderer renderer = new StirlingGeneratorItemRenderer();
+
+            @Override
+            public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                return this.renderer;
+            }
+        });
+    }
+
+    @Override
+    public InteractionResult useOn(UseOnContext context) {
+        Level level = context.getLevel();
+        if (context.getClickedFace() == Direction.UP) {
+            BlockPos heatCore = heatCorePos(level, context.getClickedPos());
+            if (heatCore != null) {
+                return placeCenteredOnHeatSource(context, heatCore);
+            }
+        }
+        return super.useOn(context);
+    }
+
+    private InteractionResult placeCenteredOnHeatSource(UseOnContext context, BlockPos heatCore) {
+        Level level = context.getLevel();
+        Direction facing = context.getPlayer() == null ? Direction.NORTH : context.getPlayer().getDirection().getOpposite();
+        BlockPos placePos = new BlockPos(heatCore.getX(), topOfHeatMachine(level, heatCore).getY() + 1, heatCore.getZ());
+        BlockPlaceContext placeContext = new BlockPlaceContext(context);
+        LargeMachineBlock.Footprint footprint = LargeMachineBlock.Footprint.centered(1, 2, 1);
+        if (!level.getBlockState(placePos).canBeReplaced(placeContext)) {
+            return InteractionResult.FAIL;
+        }
+        if (!(getBlock() instanceof StirlingGeneratorBlock stirlingBlock)) {
+            return InteractionResult.FAIL;
+        }
+        boolean canPlace = switch (stirlingBlock.kind()) {
+            case NORMAL -> LargeMachineBlock.canPlaceFootprintAt(level, placePos, facing, footprint, placeContext,
+                    StirlingGeneratorBlock::mapNormalStirlingFootprintOffset);
+            case STEEL -> LargeMachineBlock.canPlaceFootprintAt(level, placePos, facing, footprint, placeContext,
+                    StirlingGeneratorBlock::mapSteelStirlingFootprintOffset);
+            case CREATIVE -> LargeMachineBlock.canPlaceFootprintAt(level, placePos, facing, footprint, placeContext,
+                    StirlingGeneratorBlock::mapCreativeStirlingFootprintOffset);
+        };
+        if (!canPlace) {
+            return InteractionResult.FAIL;
+        }
+
+        BlockState state = getBlock().defaultBlockState().setValue(StirlingGeneratorBlock.FACING, facing);
+        if (!level.setBlock(placePos, state, Block.UPDATE_ALL)) {
+            return InteractionResult.FAIL;
+        }
+        getBlock().setPlacedBy(level, placePos, state, context.getPlayer(), context.getItemInHand());
+        if (context.getPlayer() == null || !context.getPlayer().getAbilities().instabuild) {
+            context.getItemInHand().shrink(1);
+        }
+        return InteractionResult.sidedSuccess(level.isClientSide);
+    }
+
+    private static BlockPos heatCorePos(Level level, BlockPos clickedPos) {
+        BlockEntity clickedEntity = level.getBlockEntity(clickedPos);
+        if (clickedEntity instanceof HeatSourceBlockEntity) {
+            return clickedPos;
+        }
+        if (clickedEntity instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof HeatSourceBlockEntity) {
+            return dummy.getCorePos();
+        }
+        if (level.getBlockState(clickedPos).getBlock() instanceof MachineDummyBlock
+                && clickedEntity instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof HeatSourceBlockEntity) {
+            return dummy.getCorePos();
+        }
+        return null;
+    }
+
+    private static BlockPos topOfHeatMachine(Level level, BlockPos corePos) {
+        BlockPos top = corePos;
+        for (int y = corePos.getY(); y <= corePos.getY() + 4; y++) {
+            for (int x = corePos.getX() - 2; x <= corePos.getX() + 2; x++) {
+                for (int z = corePos.getZ() - 2; z <= corePos.getZ() + 2; z++) {
+                    BlockPos pos = new BlockPos(x, y, z);
+                    if (pos.equals(corePos) && level.getBlockEntity(pos) instanceof HeatSourceBlockEntity) {
+                        top = top.getY() < y ? pos : top;
+                    } else if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy && dummy.getCorePos().equals(corePos)) {
+                        top = top.getY() < y ? pos : top;
+                    }
+                }
+            }
+        }
+        return top;
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/designator_range"
+                 },
+    "parent":  "minecraft:item/handheld"
+}

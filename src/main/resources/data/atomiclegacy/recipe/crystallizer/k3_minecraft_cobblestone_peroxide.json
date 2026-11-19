@@ -1,0 +1,15 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "item": "minecraft:cobblestone"
+  },
+  "acid": {
+    "fluid": "peroxide",
+    "amount": 500
+  },
+  "duration": 100,
+  "result": {
+    "id": "atomiclegacy:reinforced_stone"
+  }
+}

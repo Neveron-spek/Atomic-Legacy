@@ -1,0 +1,100 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_expensive_mode"
+      }
+    }
+  ],
+  "type": "atomiclegacy:plasma_forge",
+  "group": "ass.fensusan",
+  "duration": 6000,
+  "power": 50000000,
+  "ignition_temp": 50000000,
+  "input_items": [
+    {
+      "ingredient": {
+        "tag": "c:ingots/electronium"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "type": "atomiclegacy:battery",
+        "items": "atomiclegacy:battery_pack",
+        "components": {
+          "minecraft:custom_data": {
+            "variant": "battery_quantum"
+          },
+          "minecraft:custom_model_data": 5
+        }
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_welded_osmiridium"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_welded_osmiridium"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_arsenic_bronze"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_combine_steel"
+      },
+      "count": 32
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_dense_magnetized_tungsten"
+      },
+      "count": 32
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_dineutronium"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:powder_magic"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:ingot_u238m2"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/cft"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/cft"
+      },
+      "count": 64
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:machine_battery_redd",
+    "count": 1
+  }
+}

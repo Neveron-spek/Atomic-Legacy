@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "variant=0": { "model": "atomiclegacy:block/icf_component_scaffold" },
+    "variant=1": { "model": "atomiclegacy:block/icf_component_vessel" },
+    "variant=2": { "model": "atomiclegacy:block/icf_component_vessel_welded" },
+    "variant=3": { "model": "atomiclegacy:block/icf_component_structure" },
+    "variant=4": { "model": "atomiclegacy:block/icf_component_structure_bolted" },
+    "variant=5": { "model": "atomiclegacy:block/icf_component_structure_bolted" },
+    "variant=6": { "model": "atomiclegacy:block/icf_component_structure_bolted" },
+    "variant=7": { "model": "atomiclegacy:block/icf_component_structure_bolted" }
+  }
+}

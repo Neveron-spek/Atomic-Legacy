@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "RRR",
+    "WWW",
+    "III"
+  ],
+  "key": {
+    "R": {
+      "item": "atomiclegacy:circuit_capacitor"
+    },
+    "W": {
+      "tag": "c:dusts/redstone"
+    },
+    "I": {
+      "tag": "c:ingots/steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:machine_converter_he_rf"
+  }
+}

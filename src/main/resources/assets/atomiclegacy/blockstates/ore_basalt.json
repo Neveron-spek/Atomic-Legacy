@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "variant=0": { "model": "atomiclegacy:block/ore_basalt_sulfur" },
+    "variant=1": { "model": "atomiclegacy:block/ore_basalt_fluorite" },
+    "variant=2": { "model": "atomiclegacy:block/ore_basalt_asbestos" },
+    "variant=3": { "model": "atomiclegacy:block/ore_basalt_gem" },
+    "variant=4": { "model": "atomiclegacy:block/ore_basalt_molysite" },
+    "variant=5": { "model": "atomiclegacy:block/ore_basalt_sulfur" },
+    "variant=6": { "model": "atomiclegacy:block/ore_basalt_sulfur" },
+    "variant=7": { "model": "atomiclegacy:block/ore_basalt_sulfur" }
+  }
+}

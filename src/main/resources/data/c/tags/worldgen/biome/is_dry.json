@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:crater",
+    "atomiclegacy:crater_inner",
+    "atomiclegacy:crater_outer"
+  ]
+}

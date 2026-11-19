@@ -1,0 +1,8 @@
+{
+  "type": "atomiclegacy:hot_smelting",
+  "category": "misc",
+  "ingredient": { "item": "atomiclegacy:ingot_meteorite_forged" },
+  "result": { "id": "atomiclegacy:ingot_meteorite_forged" },
+  "experience": 0.0,
+  "cookingtime": 200
+}

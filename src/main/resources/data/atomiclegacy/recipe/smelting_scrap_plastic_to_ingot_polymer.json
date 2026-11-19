@@ -1,0 +1,69 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": [
+    {
+      "item": "atomiclegacy:scrap_plastic_board_blank"
+    },
+    {
+      "item": "atomiclegacy:scrap_plastic_board_converter"
+    },
+    {
+      "item": "atomiclegacy:scrap_plastic_board_transistor"
+    },
+    {
+      "item": "atomiclegacy:scrap_plastic_bridge_bios"
+    },
+    {
+      "item": "atomiclegacy:scrap_plastic_bridge_bus"
+    },
+    {
+      "item": "atomiclegacy:scrap_plastic_bridge_chipset"
+    },
+    {
+      "item": "atomiclegacy:scrap_plastic_bridge_cmos"
+    },
+    {
+      "item": "atomiclegacy:scrap_plastic_bridge_io"
+    },
+    {
+      "item": "atomiclegacy:scrap_plastic_bridge_north"
+    },
+    {
+      "item": "atomiclegacy:scrap_plastic_bridge_south"
+    },
+    {
+      "item": "atomiclegacy:scrap_plastic_card_board"
+    },
+    {
+      "item": "atomiclegacy:scrap_plastic_card_processor"
+    },
+    {
+      "item": "atomiclegacy:scrap_plastic_cpu_cache"
+    },
+    {
+      "item": "atomiclegacy:scrap_plastic_cpu_clock"
+    },
+    {
+      "item": "atomiclegacy:scrap_plastic_cpu_ext"
+    },
+    {
+      "item": "atomiclegacy:scrap_plastic_cpu_logic"
+    },
+    {
+      "item": "atomiclegacy:scrap_plastic_cpu_register"
+    },
+    {
+      "item": "atomiclegacy:scrap_plastic_cpu_socket"
+    },
+    {
+      "item": "atomiclegacy:scrap_plastic_mem_socket"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:ingot_polymer",
+    "count": 1
+  },
+  "experience": 0.1,
+  "cookingtime": 200
+}

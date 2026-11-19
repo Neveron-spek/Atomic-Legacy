@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "W ",
+    " W",
+    " W"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:bone"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:part_grip_bone",
+    "count": 1
+  }
+}

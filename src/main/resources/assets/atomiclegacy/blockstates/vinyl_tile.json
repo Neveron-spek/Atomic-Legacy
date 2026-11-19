@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "meta=0": { "model": "atomiclegacy:block/vinyl_tile_large" },
+    "meta=1": { "model": "atomiclegacy:block/vinyl_tile_small" }
+  }
+}

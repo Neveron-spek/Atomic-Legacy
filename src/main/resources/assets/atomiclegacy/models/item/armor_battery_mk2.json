@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/armor_battery_mk2"
+                 },
+    "parent":  "minecraft:item/generated"
+}

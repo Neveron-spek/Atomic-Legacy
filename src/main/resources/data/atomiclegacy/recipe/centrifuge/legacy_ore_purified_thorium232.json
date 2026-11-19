@@ -1,0 +1,55 @@
+{
+  "type": "atomiclegacy:centrifuge",
+  "group": "centrifuge",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:ore_purified"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "ore_type": "thorium232"
+      },
+      "minecraft:custom_model_data": 9
+    }
+  },
+  "input_count": 1,
+  "results": [
+    {
+      "id": "atomiclegacy:ore_enriched",
+      "components": {
+        "minecraft:custom_data": {
+          "ore_type": "thorium232"
+        },
+        "minecraft:custom_model_data": 9
+      }
+    },
+    {
+      "id": "atomiclegacy:ore_enriched",
+      "components": {
+        "minecraft:custom_data": {
+          "ore_type": "thorium232"
+        },
+        "minecraft:custom_model_data": 9
+      }
+    },
+    {
+      "id": "atomiclegacy:ore_enriched",
+      "components": {
+        "minecraft:custom_data": {
+          "ore_type": "thorium232"
+        },
+        "minecraft:custom_model_data": 9
+      }
+    },
+    {
+      "id": "atomiclegacy:ore_enriched",
+      "components": {
+        "minecraft:custom_data": {
+          "ore_type": "thorium232"
+        },
+        "minecraft:custom_model_data": 9
+      }
+    }
+  ]
+}

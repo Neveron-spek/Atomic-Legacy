@@ -1,0 +1,40 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.compactcompressor",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_steel_plating"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:pipe_copper"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:motor"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_circuit"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:machine_compressor_compact"
+  }
+}

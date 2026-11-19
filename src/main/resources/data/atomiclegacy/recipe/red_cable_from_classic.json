@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "atomiclegacy:red_cable_classic" }
+  ],
+  "result": { "id": "atomiclegacy:red_cable" }
+}

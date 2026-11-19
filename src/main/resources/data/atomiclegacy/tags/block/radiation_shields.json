@@ -1,0 +1,28 @@
+{
+  "replace": false,
+  "values": [
+    "#c:storage_blocks/lead",
+    "atomiclegacy:block_lead",
+    "atomiclegacy:glass_lead",
+    "atomiclegacy:reinforced_stone",
+    "atomiclegacy:reinforced_stone_stairs",
+    "atomiclegacy:reinforced_brick",
+    "atomiclegacy:reinforced_brick_stairs",
+    "atomiclegacy:reinforced_ducrete",
+    "atomiclegacy:reinforced_glass",
+    "atomiclegacy:reinforced_glass_pane",
+    "atomiclegacy:reinforced_laminate",
+    "atomiclegacy:reinforced_laminate_pane",
+    "atomiclegacy:concrete_super",
+    "atomiclegacy:concrete_super_broken",
+    "atomiclegacy:cmb_brick",
+    "atomiclegacy:cmb_brick_reinforced",
+    "atomiclegacy:cmb_brick_reinforced_stairs",
+    "atomiclegacy:ducrete",
+    "atomiclegacy:ducrete_smooth",
+    "atomiclegacy:ducrete_stairs",
+    "atomiclegacy:ducrete_smooth_stairs",
+    "atomiclegacy:brick_ducrete",
+    "atomiclegacy:brick_ducrete_stairs"
+  ]
+}

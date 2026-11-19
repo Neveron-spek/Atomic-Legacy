@@ -1,0 +1,14 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.silohatchlarge",
+  "duration": 300,
+  "power": 100,
+  "ingredients": [
+    { "ingredient": { "tag": "c:plates/welded_steel" }, "count": 6 },
+    { "ingredient": { "item": "atomiclegacy:plate_polymer" }, "count": 8 },
+    { "ingredient": { "item": "atomiclegacy:motor" }, "count": 2 },
+    { "ingredient": { "tag": "c:bolts/steel" }, "count": 16 },
+    { "ingredient": { "tag": "c:dyes/green" }, "count": 8 }
+  ],
+  "result": { "id": "atomiclegacy:silo_hatch_large" }
+}

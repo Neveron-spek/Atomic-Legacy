@@ -1,0 +1,44 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_expensive_mode"
+      }
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.watzrod",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_steel"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/zirconium"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/saturnite"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/hard_plastic"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:watz_element",
+    "count": 3
+  }
+}

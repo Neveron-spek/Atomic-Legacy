@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:steel_scaffold_yellow"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_steel_tiny",
+    "count": 4
+  }
+}

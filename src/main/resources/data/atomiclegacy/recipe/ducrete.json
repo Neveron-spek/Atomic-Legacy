@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "DD",
+    "DD"
+  ],
+  "key": {
+    "D": {
+      "item": "atomiclegacy:ducrete_smooth"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:ducrete",
+    "count": 4
+  }
+}

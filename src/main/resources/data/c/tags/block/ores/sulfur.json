@@ -1,0 +1,8 @@
+{
+    "replace":  false,
+    "values":  [
+                   "atomiclegacy:ore_sulfur",
+                   "atomiclegacy:ore_deepslate_sulfur",
+                   "atomiclegacy:stone_resource_sulfur"
+               ]
+}

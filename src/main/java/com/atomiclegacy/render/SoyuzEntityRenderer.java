@@ -1,0 +1,68 @@
+package com.atomiclegacy.render;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.atomiclegacy.AtomicLegacy;
+import com.atomiclegacy.entity.SoyuzEntity;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.culling.Frustum;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
+import net.neoforged.neoforge.client.event.ModelEvent;
+
+public class SoyuzEntityRenderer extends EntityRenderer<SoyuzEntity> {
+    private static final ModelResourceLocation MODEL = MachineModelRenderer.standalone("entity/soyuz");
+    private static final LegacyEntityObjMesh BOUNDS_MODEL = LegacyEntityObjMesh.load(
+            AtomicLegacy.id("models/obj/entity/soyuz.obj"));
+    private static final BlockState RENDER_STATE = Blocks.IRON_BLOCK.defaultBlockState();
+    private static final AABB LOCAL_VISUAL_BOUNDS = buildLocalVisualBounds();
+
+    public SoyuzEntityRenderer(EntityRendererProvider.Context context) {
+        super(context);
+    }
+
+    static void registerAdditionalModels(ModelEvent.RegisterAdditional event) {
+        for (ModelResourceLocation skin : SoyuzLaunchpadBlockEntityRenderer.SKINS) event.register(skin);
+    }
+
+    @Override
+    public void render(SoyuzEntity entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
+        int skin = entity.skin();
+        // [parity P2: soyuz skins] RenderSoyuz -> SoyuzPronter.prontSoyuz(getSkin())
+        if (skin < 0 || skin >= SoyuzLaunchpadBlockEntityRenderer.SKINS.length) {
+            super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+            return;
+        }
+        poseStack.pushPose();
+        poseStack.translate(0.0D, -0.5D, 0.0D);
+        MachineModelRenderer.renderUnculled(MachineModelRenderer.model(SoyuzLaunchpadBlockEntityRenderer.SKINS[skin]),
+                poseStack, bufferSource, RENDER_STATE, packedLight, 0);
+        poseStack.popPose();
+        super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+    }
+
+    @Override
+    public boolean shouldRender(SoyuzEntity entity, Frustum frustum,
+                                double cameraX, double cameraY, double cameraZ) {
+        return EntityRenderBounds.shouldRender(entity,
+                EntityRenderBounds.moveToEntity(LOCAL_VISUAL_BOUNDS, entity),
+                frustum, cameraX, cameraY, cameraZ);
+    }
+
+    @Override
+    public ResourceLocation getTextureLocation(SoyuzEntity entity) {
+        return net.minecraft.client.renderer.texture.TextureAtlas.LOCATION_BLOCKS;
+    }
+
+    private static AABB buildLocalVisualBounds() {
+        PoseStack poseStack = new PoseStack();
+        poseStack.translate(0.0D, -0.5D, 0.0D);
+        EntityRenderBounds.FloatBuilder bounds = new EntityRenderBounds.FloatBuilder();
+        BOUNDS_MODEL.includeAllFacePositions(poseStack, bounds);
+        return bounds.buildLocal();
+    }
+}

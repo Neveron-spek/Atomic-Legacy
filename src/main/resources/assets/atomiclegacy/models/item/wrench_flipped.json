@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/wrench_flipped"
+                 },
+    "parent":  "minecraft:item/handheld"
+}

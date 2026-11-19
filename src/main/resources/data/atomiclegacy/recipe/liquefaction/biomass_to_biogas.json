@@ -1,0 +1,11 @@
+{
+  "type": "atomiclegacy:liquefaction",
+  "group": "liquefactor.biogas",
+  "ingredient": {
+    "item": "atomiclegacy:biomass"
+  },
+  "output": {
+    "fluid": "biogas",
+    "amount": 125
+  }
+}

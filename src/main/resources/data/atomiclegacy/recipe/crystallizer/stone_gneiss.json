@@ -1,0 +1,16 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "item": "atomiclegacy:stone_gneiss"
+  },
+  "acid": {
+    "fluid": "peroxide",
+    "amount": 500
+  },
+  "duration": 100,
+  "productivity": 0.25,
+  "result": {
+    "id": "atomiclegacy:powder_lithium"
+  }
+}

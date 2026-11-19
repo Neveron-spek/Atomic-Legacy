@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "minecraft:anvil"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_iron",
+    "count": 31
+  }
+}

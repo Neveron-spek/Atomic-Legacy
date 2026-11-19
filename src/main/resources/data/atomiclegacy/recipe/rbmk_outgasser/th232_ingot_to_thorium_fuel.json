@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:rbmk_outgasser",
+  "group": "outgasser.thorium",
+  "ingredient": {
+    "tag": "c:ingots/th232"
+  },
+  "item_output": {
+    "id": "atomiclegacy:ingot_thorium_fuel"
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/ncrpa_legs"
+                 },
+    "parent":  "minecraft:item/generated"
+}

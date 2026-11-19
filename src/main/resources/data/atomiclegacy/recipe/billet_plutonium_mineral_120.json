@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AAA",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "item": "atomiclegacy:nugget_plutonium"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:billet_plutonium",
+    "count": 1
+  }
+}

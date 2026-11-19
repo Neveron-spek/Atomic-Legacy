@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "atomiclegacy:block/particle/chimney_industrial"
+    },
+    "facing=east": {
+      "model": "atomiclegacy:block/particle/chimney_industrial"
+    },
+    "facing=south": {
+      "model": "atomiclegacy:block/particle/chimney_industrial"
+    },
+    "facing=west": {
+      "model": "atomiclegacy:block/particle/chimney_industrial"
+    }
+  }
+}

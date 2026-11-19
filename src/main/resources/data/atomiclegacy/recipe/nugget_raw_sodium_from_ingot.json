@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "atomiclegacy:ingot_raw_sodium"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:nugget_raw_sodium",
+    "count": 9
+  }
+}

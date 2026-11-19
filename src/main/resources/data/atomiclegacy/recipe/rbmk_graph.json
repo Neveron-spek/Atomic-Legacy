@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "R",
+    "C",
+    "B"
+  ],
+  "key": {
+    "R": {
+      "item": "atomiclegacy:radio_torch_receiver"
+    },
+    "B": {
+      "item": "atomiclegacy:rbmk_display_blank"
+    },
+    "C": {
+      "item": "atomiclegacy:crt_display"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:rbmk_graph"
+  }
+}

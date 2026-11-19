@@ -1,0 +1,68 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_expensive_mode"
+      }
+    }
+  ],
+
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.exposurechamber",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_aluminium"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/resistant_alloy"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/hard_plastic"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_dense_gold"
+      },
+      "count": 32
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:motor_desh"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_bismoid"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:battery_pack_capacitor_tantalum"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:glass_blocks/quartz"
+      },
+      "count": 16
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:machine_exposure_chamber"
+  }
+}

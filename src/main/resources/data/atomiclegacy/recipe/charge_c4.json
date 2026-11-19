@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "atomiclegacy:stick_c4" },
+    { "item": "atomiclegacy:stick_c4" },
+    { "item": "atomiclegacy:stick_c4" },
+    { "item": "atomiclegacy:ducttape" }
+  ],
+  "result": { "id": "atomiclegacy:charge_c4" }
+}

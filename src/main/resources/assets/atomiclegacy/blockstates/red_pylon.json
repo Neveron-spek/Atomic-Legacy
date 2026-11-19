@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=down": { "model": "atomiclegacy:block/particle/red_pylon" },
+    "facing=up": { "model": "atomiclegacy:block/particle/red_pylon" },
+    "facing=north": { "model": "atomiclegacy:block/particle/red_pylon" },
+    "facing=south": { "model": "atomiclegacy:block/particle/red_pylon" },
+    "facing=west": { "model": "atomiclegacy:block/particle/red_pylon" },
+    "facing=east": { "model": "atomiclegacy:block/particle/red_pylon" }
+  }
+}

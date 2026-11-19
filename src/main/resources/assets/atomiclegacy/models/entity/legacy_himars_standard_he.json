@@ -1,0 +1,7 @@
+{
+  "parent": "atomiclegacy:entity/legacy_himars_standard",
+  "textures": {
+    "standard": "atomiclegacy:models/projectiles/himars_standard_he",
+    "particle": "atomiclegacy:models/projectiles/himars_standard_he"
+  }
+}

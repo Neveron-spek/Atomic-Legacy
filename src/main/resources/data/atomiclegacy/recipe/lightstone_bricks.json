@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "BB",
+    "BB"
+  ],
+  "key": {
+    "B": {
+      "item": "atomiclegacy:lightstone_tile"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:lightstone_bricks",
+    "count": 4
+  }
+}

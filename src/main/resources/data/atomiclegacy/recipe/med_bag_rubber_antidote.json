@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LLL",
+    "SIS",
+    "LLL"
+  ],
+  "key": {
+    "L": {
+      "tag": "c:ingots/any_rubber"
+    },
+    "S": {
+      "item": "atomiclegacy:syringe_metal_stimpak"
+    },
+    "I": {
+      "item": "atomiclegacy:syringe_antidote"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:med_bag"
+  }
+}

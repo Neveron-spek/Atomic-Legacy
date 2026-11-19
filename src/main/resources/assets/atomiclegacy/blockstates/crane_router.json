@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,active=true": {
+      "model": "atomiclegacy:block/crane_router"
+    },
+    "facing=south,active=true": {
+      "model": "atomiclegacy:block/crane_router"
+    },
+    "facing=west,active=true": {
+      "model": "atomiclegacy:block/crane_router"
+    },
+    "facing=north,active=true": {
+      "model": "atomiclegacy:block/crane_router"
+    },
+    "facing=east,active=false": {
+      "model": "atomiclegacy:block/crane_router"
+    },
+    "facing=south,active=false": {
+      "model": "atomiclegacy:block/crane_router"
+    },
+    "facing=west,active=false": {
+      "model": "atomiclegacy:block/crane_router"
+    },
+    "facing=north,active=false": {
+      "model": "atomiclegacy:block/crane_router"
+    }
+  }
+}

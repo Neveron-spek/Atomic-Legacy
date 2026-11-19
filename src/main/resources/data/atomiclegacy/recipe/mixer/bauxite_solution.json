@@ -1,0 +1,19 @@
+﻿{
+    "type":  "atomiclegacy:mixer",
+    "group":  "mixer.bauxite_solution",
+    "output":  {
+                   "fluid":  "bauxite_solution",
+                   "amount":  300
+               },
+    "duration":  80,
+    "input1":  {
+                   "fluid":  "lye",
+                   "amount":  50
+               },
+    "solid_input":  {
+                        "ingredient":  {
+                                           "item":  "atomiclegacy:stone_resource_bauxite"
+                                       },
+                        "count":  1
+                    }
+}

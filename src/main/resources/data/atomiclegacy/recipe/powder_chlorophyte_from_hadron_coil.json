@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:hadron_coil_chlorophyte"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:powder_chlorophyte",
+    "count": 2
+  }
+}

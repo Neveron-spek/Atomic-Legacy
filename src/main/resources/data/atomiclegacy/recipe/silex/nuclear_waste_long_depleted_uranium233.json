@@ -1,0 +1,36 @@
+{
+    "type": "atomiclegacy:silex",
+    "group": "silex.nuclear_waste_long_depleted_uranium233",
+    "ingredient": {
+        "type": "neoforge:components",
+        "items": [
+            "atomiclegacy:nuclear_waste_long_depleted"
+        ],
+        "components": {
+            "minecraft:custom_data": "{waste_class:1}"
+        }
+    },
+    "fluid_produced": 900,
+    "fluid_consumed": 100,
+    "wavelength": "ir",
+    "outputs": [
+        {
+            "item": {
+                "id": "atomiclegacy:nugget_lead"
+            },
+            "weight": 60
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:nugget_bismuth"
+            },
+            "weight": 25
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:dust_tiny"
+            },
+            "weight": 15
+        }
+    ]
+}

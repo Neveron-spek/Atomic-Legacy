@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/forgefluid/toxic_still"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

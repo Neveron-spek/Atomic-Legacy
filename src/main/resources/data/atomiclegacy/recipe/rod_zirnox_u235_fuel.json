@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "atomiclegacy:rod_zirnox_empty" },
+    { "item": "atomiclegacy:billet_u235" },
+    { "item": "atomiclegacy:billet_u235" }
+  ],
+  "result": {
+    "id": "atomiclegacy:rod_zirnox",
+    "components": {
+      "minecraft:custom_data": { "variant": "u235_fuel" },
+      "minecraft:custom_model_data": 7
+    }
+  }
+}

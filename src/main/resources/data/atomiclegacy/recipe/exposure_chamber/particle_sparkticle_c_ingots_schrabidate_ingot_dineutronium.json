@@ -1,0 +1,21 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_expensive_mode"
+      }
+    }
+  ],
+  "type": "atomiclegacy:exposure_chamber",
+  "group": "exposure_chamber",
+  "particle": {
+    "item": "atomiclegacy:particle_sparkticle"
+  },
+  "ingredient": {
+    "tag": "c:ingots/schrabidate"
+  },
+  "output": {
+    "id": "atomiclegacy:ingot_dineutronium"
+  }
+}

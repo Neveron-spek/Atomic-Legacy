@@ -1,0 +1,7 @@
+{
+    "textures":  {
+                     "top":  "atomiclegacy:block/door_metal_upper",
+                     "bottom":  "atomiclegacy:block/door_metal_lower"
+                 },
+    "parent":  "minecraft:block/door_bottom_right"
+}

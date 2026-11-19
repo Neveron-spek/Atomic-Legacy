@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " A ",
+    "BCB",
+    "BDB"
+  ],
+  "key": {
+    "A": {
+      "tag": "c:wires_dense/magnetized_tungsten"
+    },
+    "B": {
+      "tag": "c:plates/cast_saturnite"
+    },
+    "C": {
+      "item": "atomiclegacy:crystal_trixite"
+    },
+    "D": {
+      "item": "atomiclegacy:powder_power"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:battery_trixite",
+    "count": 1
+  }
+}

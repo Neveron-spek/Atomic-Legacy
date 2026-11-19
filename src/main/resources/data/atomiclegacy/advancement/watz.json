@@ -1,0 +1,28 @@
+{
+  "parent": "atomiclegacy:schrab",
+  "display": {
+    "icon": {
+      "id": "atomiclegacy:watz_pellet"
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.watz.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.watz.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "triggered"
+    ]
+  ]
+}

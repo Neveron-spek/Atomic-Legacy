@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":[" C ","PMP"," P "],"key":{"P":{"tag":"c:ingots/desh"},"C":{"item":"atomiclegacy:circuit_chip"},"M":{"item":"atomiclegacy:mass_storage_iron"}},"result":{"id":"atomiclegacy:mass_storage_desh"}}

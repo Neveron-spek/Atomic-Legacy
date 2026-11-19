@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "RRR",
+    "R R",
+    "RRR"
+  ],
+  "key": {
+    "R": {
+      "item": "atomiclegacy:deco_rbmk_smooth"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:rbmk_blank"
+  }
+}

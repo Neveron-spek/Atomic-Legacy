@@ -1,0 +1,10 @@
+﻿{
+  "variants": {
+    "facing=down": { "model": "atomiclegacy:block/red_pylon_medium_wood_empty" },
+    "facing=up": { "model": "atomiclegacy:block/red_pylon_medium_wood_empty" },
+    "facing=north": { "model": "atomiclegacy:block/red_pylon_medium_wood_empty" },
+    "facing=south": { "model": "atomiclegacy:block/red_pylon_medium_wood_empty" },
+    "facing=west": { "model": "atomiclegacy:block/red_pylon_medium_wood_empty" },
+    "facing=east": { "model": "atomiclegacy:block/red_pylon_medium_wood_empty" }
+  }
+}

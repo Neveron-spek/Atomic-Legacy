@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["R ", "CD", "B "],
+  "key": {
+    "R": { "item": "atomiclegacy:radio_torch_sender" },
+    "C": { "item": "atomiclegacy:circuit_analog" },
+    "D": { "item": "atomiclegacy:crt_display" },
+    "B": { "item": "atomiclegacy:rbmk_display_blank" }
+  },
+  "result": { "id": "atomiclegacy:rbmk_terminal" }
+}

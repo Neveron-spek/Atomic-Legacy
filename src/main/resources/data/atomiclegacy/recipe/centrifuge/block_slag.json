@@ -1,0 +1,22 @@
+{
+    "type":  "atomiclegacy:centrifuge",
+    "group":  "centrifuge",
+    "ingredient":  {
+                       "item":  "atomiclegacy:block_slag"
+                   },
+    "input_count":  1,
+    "results":  [
+                    {
+                        "id":  "minecraft:gravel"
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_fire"
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_calcium"
+                    },
+                    {
+                        "id":  "atomiclegacy:dust"
+                    }
+                ]
+}

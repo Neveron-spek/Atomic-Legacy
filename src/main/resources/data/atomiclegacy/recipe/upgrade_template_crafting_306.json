@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ABA",
+    "CDC",
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "tag": "c:wires/copper"
+    },
+    "B": {
+      "tag": "c:ingots/plastic"
+    },
+    "C": {
+      "item": "atomiclegacy:plate_polymer"
+    },
+    "D": {
+      "item": "atomiclegacy:circuit_basic"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:upgrade_template",
+    "count": 1
+  }
+}

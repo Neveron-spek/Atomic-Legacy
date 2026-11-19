@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/gas_mask_filter_piss"
+                 },
+    "parent":  "minecraft:item/generated"
+}

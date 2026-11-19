@@ -1,0 +1,6 @@
+{
+  "type": "atomiclegacy:coking",
+  "group": "coking.watz",
+  "input": { "fluid": "watz", "amount": 4000 },
+  "output": { "id": "atomiclegacy:ingot_mud", "count": 4 }
+}

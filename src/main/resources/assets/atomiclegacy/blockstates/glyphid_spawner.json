@@ -1,0 +1,12 @@
+﻿{
+    "variants": {
+        "variant=0": { "model": "atomiclegacy:block/glyphid_spawner" },
+        "variant=1": { "model": "atomiclegacy:block/glyphid_spawner_infested" },
+        "variant=2": { "model": "atomiclegacy:block/glyphid_spawner_rad" },
+        "variant=3": { "model": "atomiclegacy:block/glyphid_spawner_rad" },
+        "variant=4": { "model": "atomiclegacy:block/glyphid_spawner_rad" },
+        "variant=5": { "model": "atomiclegacy:block/glyphid_spawner_rad" },
+        "variant=6": { "model": "atomiclegacy:block/glyphid_spawner_rad" },
+        "variant=7": { "model": "atomiclegacy:block/glyphid_spawner_rad" }
+    }
+}

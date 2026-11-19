@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/rebar_placer"
+                 },
+    "parent":  "minecraft:item/generated"
+}

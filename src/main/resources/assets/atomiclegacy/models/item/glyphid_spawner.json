@@ -1,0 +1,13 @@
+{
+    "parent": "atomiclegacy:block/glyphid_spawner",
+    "overrides": [
+        {
+            "predicate": { "minecraft:custom_model_data": 1 },
+            "model": "atomiclegacy:item/glyphid_spawner_infested"
+        },
+        {
+            "predicate": { "minecraft:custom_model_data": 2 },
+            "model": "atomiclegacy:item/glyphid_spawner_rad"
+        }
+    ]
+}

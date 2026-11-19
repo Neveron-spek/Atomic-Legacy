@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": { "item": "atomiclegacy:crystal_rare" },
+  "result": { "id": "atomiclegacy:powder_desh_mix", "count": 1 },
+  "experience": 2.0,
+  "cookingtime": 200
+}

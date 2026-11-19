@@ -1,0 +1,41 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.soliniumcharge",
+  "duration": 300,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "tag": "c:ingots/high_explosive"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:neutron_reflector"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_polymer"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_tungsten"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:biomass_compressed"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:solinium_propellant"
+  }
+}

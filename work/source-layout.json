@@ -1,0 +1,12 @@
+{
+  "moves": {
+    "block": "blocks",
+    "item": "items",
+    "blockentity": "tileentity",
+    "menu": "inventory/container",
+    "recipe": "inventory/recipes",
+    "client/screen": "inventory/gui",
+    "client/render": "render"
+  },
+  "java_files_in_aligned_sections": 1600
+}

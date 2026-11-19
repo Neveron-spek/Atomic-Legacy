@@ -1,0 +1,187 @@
+package com.atomiclegacy.items;
+
+import com.atomiclegacy.config.HbmConfig;
+import com.atomiclegacy.registry.HbmItems;
+import net.minecraft.ChatFormatting;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.item.component.CustomModelData;
+import net.minecraft.world.level.Level;
+
+import java.util.List;
+import java.util.Optional;
+
+public class BlueprintItem extends Item {
+    public static final String POOL_PREFIX_ALT = "alt.";
+    public static final String POOL_PREFIX_DISCOVER = "discover.";
+    public static final String POOL_PREFIX_528 = "528.";
+    /** GenericRecipes.POOL_PREFIX_SECRET: black icon, never copied, not listed in the creative tab. */
+    public static final String POOL_PREFIX_SECRET = "secret.";
+
+    private static final String POOL_TAG = "pool";
+    private static final List<String> CREATIVE_POOLS = List.of(
+            "alt..birkeland",
+            "alt..biosolidfuel",
+            "alt..circuit",
+            "alt..electrodes",
+            "alt..lube",
+            "alt..xenonoxy",
+            "alt.plates",
+            "discover..rpa",
+            "discover..stone",
+            "discover.radgen",
+            "discover.silverstorm",
+            "528.arty",
+            "528.bmg",
+            "528.chip",
+            "528.chip_bismoid",
+            "528.chip_quantum",
+            "528.chlorophyte",
+            "528.controller",
+            "528.ferrouranium",
+            "528.gascent",
+            "528.hardplastic",
+            "528.plastic",
+            "528.rubber",
+            "528.soyuz",
+            "528.steel",
+            "528.strontium",
+            "528.tcalloy"
+    );
+
+    public BlueprintItem(Properties properties) {
+        super(properties);
+    }
+
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
+        ItemStack stack = player.getItemInHand(usedHand);
+        Optional<String> pool = pool(stack);
+        if (pool.isEmpty() || pool.get().startsWith(POOL_PREFIX_SECRET)) {
+            return InteractionResultHolder.pass(stack);
+        }
+
+        if (!player.getInventory().contains(new ItemStack(Items.PAPER))) {
+            return InteractionResultHolder.pass(stack);
+        }
+        if (level.isClientSide) {
+            return InteractionResultHolder.sidedSuccess(stack, true);
+        }
+        if (!consumePaper(player)) {
+            return InteractionResultHolder.pass(stack);
+        }
+
+        ItemStack copy = stack.copy();
+        copy.setCount(1);
+        if (player.getAbilities().instabuild) {
+            player.drop(copy, false);
+        } else if (stack.getCount() < stack.getMaxStackSize()) {
+            stack.grow(1);
+        } else if (!player.getInventory().add(copy)) {
+            player.drop(copy, false);
+        }
+        player.swing(usedHand);
+        return InteractionResultHolder.sidedSuccess(stack, false);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+        Optional<String> pool = pool(stack);
+        if (pool.isEmpty()) {
+            return;
+        }
+        if (pool.get().startsWith(POOL_PREFIX_SECRET)) {
+            tooltip.add(Component.translatable("item.atomiclegacy.blueprints.nocopy").withStyle(ChatFormatting.RED));
+        } else {
+            tooltip.add(Component.translatable("item.atomiclegacy.blueprints.copy").withStyle(ChatFormatting.YELLOW));
+        }
+        tooltip.add(Component.translatable("item.atomiclegacy.blueprints.pool", pool.get()).withStyle(ChatFormatting.GRAY));
+    }
+
+    public void addCreativeVariants(CreativeModeTab.Output output) {
+        for (String pool : CREATIVE_POOLS) {
+            output.accept(stackFor(pool));
+        }
+    }
+
+    public static boolean isBlueprint(ItemStack stack) {
+        return !stack.isEmpty() && stack.is(HbmItems.BLUEPRINTS.get());
+    }
+
+    public static Optional<String> pool(ItemStack stack) {
+        if (!isBlueprint(stack)) {
+            return Optional.empty();
+        }
+        CompoundTag tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        if (!tag.contains(POOL_TAG)) {
+            return Optional.empty();
+        }
+        String pool = tag.getString(POOL_TAG);
+        return pool.isBlank() ? Optional.empty() : Optional.of(pool);
+    }
+
+    /**
+     * [parity K3: GenericRecipe.setPools/setPools528] alternate, discovery and secret pools always
+     * require their blueprint; 528.* pools exist only while 528 mode is enabled, and then they replace
+     * the regular pools of the recipe (setPools528 overwrites blueprintPools).
+     */
+    public static boolean isRecipeVisibleForPool(List<String> recipePools, Optional<String> installedPool) {
+        List<String> activePools = activeRecipePools(recipePools);
+        if (activePools.isEmpty()) {
+            return true;
+        }
+        return installedPool.filter(activePools::contains).isPresent();
+    }
+
+    /** Returns the blueprint requirements that are active under the current gameplay mode. */
+    public static List<String> activeRecipePools(List<String> recipePools) {
+        boolean enable528 = HbmConfig.ENABLE_528_MODE.get();
+        if (enable528 && recipePools.stream().noneMatch(pool -> pool.startsWith(POOL_PREFIX_528))) {
+            return recipePools;
+        }
+        return recipePools.stream().filter(pool -> pool.startsWith(POOL_PREFIX_528) == enable528).toList();
+    }
+
+    public static ItemStack stackFor(String pool) {
+        ItemStack stack = new ItemStack(HbmItems.BLUEPRINTS.get());
+        CompoundTag tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        tag.putString(POOL_TAG, pool);
+        stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
+        stack.set(DataComponents.CUSTOM_MODEL_DATA, new CustomModelData(modelData(pool)));
+        return stack;
+    }
+
+    private static int modelData(String pool) {
+        if (pool.startsWith(POOL_PREFIX_DISCOVER)) {
+            return 1;
+        }
+        if (pool.startsWith(POOL_PREFIX_SECRET)) {
+            return 2;
+        }
+        if (pool.startsWith(POOL_PREFIX_528)) {
+            return 3;
+        }
+        return 0;
+    }
+
+    private static boolean consumePaper(Player player) {
+        for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
+            ItemStack stack = player.getInventory().getItem(slot);
+            if (stack.is(Items.PAPER)) {
+                player.getInventory().removeItem(slot, 1);
+                return true;
+            }
+        }
+        return false;
+    }
+}

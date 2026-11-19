@@ -1,0 +1,35 @@
+{
+  "parent": "atomiclegacy:root",
+  "display": {
+    "icon": {
+      "id": "atomiclegacy:fluid_icon",
+      "components": {
+        "minecraft:custom_data": {
+          "fluid": "ASCHRAB",
+          "amount": 0,
+          "pressure": 0
+        }
+      }
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.tasteofblood.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.tasteofblood.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "triggered"
+    ]
+  ]
+}

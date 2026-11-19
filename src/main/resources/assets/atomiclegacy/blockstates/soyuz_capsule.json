@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "atomiclegacy:block/soyuz_capsule_empty"
+    }
+  }
+}

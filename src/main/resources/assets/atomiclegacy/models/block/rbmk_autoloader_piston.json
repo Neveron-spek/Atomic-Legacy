@@ -1,0 +1,7 @@
+{
+  "parent": "atomiclegacy:block/rbmk_autoloader",
+  "visibility": {
+    "Piston": true,
+    "Base": false
+  }
+}

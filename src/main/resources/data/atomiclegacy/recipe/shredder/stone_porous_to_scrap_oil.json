@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "group": "shredder.oil_field_scrap",
+  "ingredient": {
+    "item": "atomiclegacy:stone_porous"
+  },
+  "result": {
+    "id": "atomiclegacy:scrap_oil"
+  }
+}

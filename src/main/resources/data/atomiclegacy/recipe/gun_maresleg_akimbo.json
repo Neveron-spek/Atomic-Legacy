@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SMS"
+  ],
+  "key": {
+    "S": {
+      "item": "atomiclegacy:gun_maresleg"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_maresleg_akimbo",
+    "count": 1
+  }
+}

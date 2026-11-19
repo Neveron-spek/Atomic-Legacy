@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "PPP",
+    "PDP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "atomiclegacy:platemetal"
+    },
+    "D": {
+      "tag": "c:dyes/light_gray"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:platemetal_light_gray",
+    "count": 8
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "atomiclegacy:block/red_wire_coated",
+    "north": "atomiclegacy:block/red_wire_coated_states/10_north",
+    "south": "atomiclegacy:block/red_wire_coated_states/10_south",
+    "east": "atomiclegacy:block/red_wire_coated_states/10_east",
+    "west": "atomiclegacy:block/red_wire_coated_states/10_west",
+    "up": "atomiclegacy:block/red_wire_coated_states/10_up",
+    "down": "atomiclegacy:block/red_wire_coated_states/10_down"
+  }
+}

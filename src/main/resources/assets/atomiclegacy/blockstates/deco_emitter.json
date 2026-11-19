@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=down": { "model": "atomiclegacy:block/deco_emitter" },
+    "facing=up": { "model": "atomiclegacy:block/deco_emitter" },
+    "facing=north": { "model": "atomiclegacy:block/deco_emitter" },
+    "facing=south": { "model": "atomiclegacy:block/deco_emitter" },
+    "facing=west": { "model": "atomiclegacy:block/deco_emitter" },
+    "facing=east": { "model": "atomiclegacy:block/deco_emitter" }
+  }
+}

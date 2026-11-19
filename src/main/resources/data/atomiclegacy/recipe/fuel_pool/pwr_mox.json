@@ -1,0 +1,25 @@
+{
+  "type": "atomiclegacy:fuel_pool",
+  "group": "pwr",
+  "input": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:pwr_fuel_hot"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "mox"
+      },
+      "minecraft:custom_model_data": 5
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:pwr_fuel_depleted",
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "mox"
+      },
+      "minecraft:custom_model_data": 5
+    }
+  }
+}

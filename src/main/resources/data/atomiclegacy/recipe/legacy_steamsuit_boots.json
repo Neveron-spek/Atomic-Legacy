@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "C C",
+    "DXD"
+  ],
+  "key": {
+    "D": {
+      "tag": "c:ingots/desh"
+    },
+    "C": {
+      "tag": "c:plates/copper"
+    },
+    "X": {
+      "item": "atomiclegacy:steel_boots"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:steamsuit_boots"
+  }
+}

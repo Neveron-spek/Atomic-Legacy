@@ -1,0 +1,46 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_expensive_mode"
+      }
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.rbmk",
+  "blueprint_pools": [
+    "528.ferrouranium"
+  ],
+  "duration": 100,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:concrete_asbestos"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/cast_steel"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/copper"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/rubber"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:rbmk_blank"
+  }
+}

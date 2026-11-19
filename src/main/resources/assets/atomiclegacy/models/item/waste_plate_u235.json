@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/waste_plate_u235"
+                 },
+    "parent":  "minecraft:item/generated"
+}

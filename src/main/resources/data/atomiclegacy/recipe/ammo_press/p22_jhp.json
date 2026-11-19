@@ -1,0 +1,42 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.p22_jhp",
+  "order": 14,
+  "input": [
+    {
+      "ingredient": {
+        "tag": "c:ingots/plastic"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/copper"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_small"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 24,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "p22_jhp"
+      },
+      "minecraft:custom_model_data": 30
+    }
+  }
+}

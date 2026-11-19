@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/sand_uranium"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

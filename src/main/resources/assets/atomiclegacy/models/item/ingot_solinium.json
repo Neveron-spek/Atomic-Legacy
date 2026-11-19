@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/ingot_solinium"
+                 },
+    "parent":  "minecraft:item/generated"
+}

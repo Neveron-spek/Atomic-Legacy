@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "C",
+    "W",
+    "P"
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:circuit_basic"
+    },
+    "P": {
+      "tag": "c:ingots/plastic"
+    },
+    "W": {
+      "tag": "c:wires_dense/gold"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_pa_ranged",
+    "count": 1
+  }
+}

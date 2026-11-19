@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:billet_u238"
+    },
+    {
+      "tag": "c:nuggets/u238"
+    },
+    {
+      "tag": "c:nuggets/u238"
+    },
+    {
+      "tag": "c:nuggets/u238"
+    },
+    {
+      "tag": "c:nuggets/u238"
+    },
+    {
+      "tag": "c:nuggets/u238"
+    },
+    {
+      "tag": "c:nuggets/u235"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:billet_uranium",
+    "count": 2
+  }
+}

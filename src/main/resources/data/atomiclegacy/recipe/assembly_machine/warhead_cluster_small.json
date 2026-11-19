@@ -1,0 +1,24 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.warheadcl1",
+  "duration": 100,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:warhead_generic_small"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:pellet_cluster"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:warhead_cluster_small",
+    "count": 1
+  }
+}

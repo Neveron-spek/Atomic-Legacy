@@ -1,0 +1,24 @@
+{
+    "type":  "atomiclegacy:centrifuge",
+    "group":  "centrifuge",
+    "ingredient":  {
+                       "item":  "atomiclegacy:crystal_sulfur"
+                   },
+    "input_count":  1,
+    "results":  [
+                    {
+                        "id":  "atomiclegacy:sulfur",
+                        "count":  4
+                    },
+                    {
+                        "id":  "atomiclegacy:sulfur",
+                        "count":  4
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_iron"
+                    },
+                    {
+                        "id":  "atomiclegacy:nugget_mercury"
+                    }
+                ]
+}

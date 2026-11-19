@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:storage_blocks/solinium"
+    }
+  },
+  "pattern": [
+    "#"
+  ],
+  "result": {
+    "id": "atomiclegacy:ingot_solinium",
+    "count": 9
+  }
+}

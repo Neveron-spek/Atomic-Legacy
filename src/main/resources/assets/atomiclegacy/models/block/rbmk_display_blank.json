@@ -1,0 +1,6 @@
+{
+  "parent": "atomiclegacy:block/template/rbmk_mini_panel",
+  "textures": {
+    "all": "atomiclegacy:block/rbmk/rbmk_display"
+  }
+}

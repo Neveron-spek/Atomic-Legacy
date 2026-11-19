@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "atomiclegacy:falloutitem"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:fallout",
+    "count": 2
+  }
+}

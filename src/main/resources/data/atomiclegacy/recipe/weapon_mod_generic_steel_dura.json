@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:plates/gunmetal"
+    },
+    {
+      "tag": "c:plates/cast_steel"
+    },
+    {
+      "item": "atomiclegacy:ducttape"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:weapon_mod_generic_steel_dura",
+    "count": 1
+  }
+}

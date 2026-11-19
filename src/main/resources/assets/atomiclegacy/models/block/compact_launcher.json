@@ -1,0 +1,13 @@
+{
+    "loader":  "neoforge:obj",
+    "model":  "atomiclegacy:models/obj/launch/compact_launcher.obj",
+    "mtl_override":  "atomiclegacy:models/obj/launch/compact_launcher.mtl",
+    "automatic_culling":  false,
+    "shade_quads":  true,
+    "flip_v":  true,
+    "emissive_ambient":  false,
+    "textures":  {
+                     "particle":  "atomiclegacy:models/compact_launcher",
+                     "texture":  "atomiclegacy:models/compact_launcher"
+                 }
+}

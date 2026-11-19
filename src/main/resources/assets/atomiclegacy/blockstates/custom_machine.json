@@ -1,0 +1,1 @@
+{"variants":{"facing=north":{"model":"atomiclegacy:block/custom_machine"},"facing=south":{"model":"atomiclegacy:block/custom_machine","y":180},"facing=west":{"model":"atomiclegacy:block/custom_machine","y":270},"facing=east":{"model":"atomiclegacy:block/custom_machine","y":90}}}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:rod_dual_empty"
+    },
+    {
+      "item": "atomiclegacy:billet_actinium"
+    },
+    {
+      "item": "atomiclegacy:billet_actinium"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:rod_dual",
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "ac227"
+      },
+      "minecraft:custom_model_data": 16
+    }
+  }
+}

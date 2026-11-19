@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:coil_copper"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_red_copper"
+  }
+}

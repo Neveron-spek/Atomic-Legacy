@@ -1,0 +1,504 @@
+{
+  "Item": {
+    "declarations": 1749,
+    "unmatched_names": {
+      "ammo_debug": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/GunFactory.java"
+      },
+      "ammo_secret": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/GunFactory.java"
+      },
+      "bacteria": "requires_review",
+      "ballistic_gauntlet": "requires_review",
+      "bedrock_ore_fragment": {
+        "status": "metadata_family_with_variant_models",
+        "examples": [
+          "bedrock_ore_fragment_asbestos",
+          "bedrock_ore_fragment_bauxite",
+          "bedrock_ore_fragment_beryllium"
+        ],
+        "model_count": 43,
+        "behavior": "unchecked"
+      },
+      "bolt": {
+        "status": "metadata_family_with_variant_models",
+        "examples": [
+          "bolt_compound",
+          "bolt_dura_steel",
+          "bolt_lead"
+        ],
+        "model_count": 6,
+        "behavior": "unchecked"
+      },
+      "casing_bag": "requires_review",
+      "cinnebar": "renamed: cinnabar",
+      "crystal_cinnebar": "renamed: crystal_cinnabar",
+      "drillbit": "requires_review",
+      "drive": "requires_review",
+      "flask_empty": "no_assignment_in_original_declarations_file",
+      "gun_aberrator": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory35800.java"
+      },
+      "gun_aberrator_eott": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory35800.java"
+      },
+      "gun_am180": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory22lr.java"
+      },
+      "gun_amat": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory50.java"
+      },
+      "gun_amat_penance": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory50.java"
+      },
+      "gun_amat_subtlety": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory50.java"
+      },
+      "gun_autoshotgun": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory12ga.java"
+      },
+      "gun_autoshotgun_heretic": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory10ga.java"
+      },
+      "gun_autoshotgun_sexy": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory12ga.java"
+      },
+      "gun_autoshotgun_shredder": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory12ga.java"
+      },
+      "gun_bolter": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory75Bolt.java"
+      },
+      "gun_carbine": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory762mm.java"
+      },
+      "gun_charge_thrower": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryTool.java"
+      },
+      "gun_chemthrower": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryFlamer.java"
+      },
+      "gun_coilgun": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryAccelerator.java"
+      },
+      "gun_congolake": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory40mm.java"
+      },
+      "gun_debug": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/GunFactory.java"
+      },
+      "gun_double_barrel": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory10ga.java"
+      },
+      "gun_double_barrel_sacred_dragon": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory10ga.java"
+      },
+      "gun_drill": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryDrill.java"
+      },
+      "gun_fatman": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryCatapult.java"
+      },
+      "gun_fireext": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryTool.java"
+      },
+      "gun_flamer": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryFlamer.java"
+      },
+      "gun_flamer_daybreaker": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryFlamer.java"
+      },
+      "gun_flamer_topaz": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryFlamer.java"
+      },
+      "gun_flaregun": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory40mm.java"
+      },
+      "gun_fliegerfaust": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryRocket.java"
+      },
+      "gun_folly": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryFolly.java"
+      },
+      "gun_g3": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory556mm.java"
+      },
+      "gun_g3_zebra": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory556mm.java"
+      },
+      "gun_greasegun": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory9mm.java"
+      },
+      "gun_hangman": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory44.java"
+      },
+      "gun_heavy_revolver": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory44.java"
+      },
+      "gun_heavy_revolver_lilmac": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory44.java"
+      },
+      "gun_heavy_revolver_protege": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory44.java"
+      },
+      "gun_henry": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory44.java"
+      },
+      "gun_henry_lincoln": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory44.java"
+      },
+      "gun_kit_1": "weapon_outside_building_and_component_scope",
+      "gun_kit_2": "weapon_outside_building_and_component_scope",
+      "gun_lag": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory9mm.java"
+      },
+      "gun_laser_pistol": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryEnergy.java"
+      },
+      "gun_laser_pistol_morning_glory": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryEnergy.java"
+      },
+      "gun_laser_pistol_pew_pew": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryEnergy.java"
+      },
+      "gun_lasrifle": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryEnergy.java"
+      },
+      "gun_liberator": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory12ga.java"
+      },
+      "gun_light_revolver": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory357.java"
+      },
+      "gun_light_revolver_atlas": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory357.java"
+      },
+      "gun_light_revolver_dani": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory357.java"
+      },
+      "gun_m2": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory50.java"
+      },
+      "gun_maresleg": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory12ga.java"
+      },
+      "gun_maresleg_akimbo": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory12ga.java"
+      },
+      "gun_maresleg_broken": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory12ga.java"
+      },
+      "gun_mas36": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory762mm.java"
+      },
+      "gun_minigun": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory762mm.java"
+      },
+      "gun_minigun_dual": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory762mm.java"
+      },
+      "gun_minigun_lacunae": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory762mm.java"
+      },
+      "gun_missile_launcher": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryRocket.java"
+      },
+      "gun_mk108": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory40mm.java"
+      },
+      "gun_n_i_4_n_i": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryAccelerator.java"
+      },
+      "gun_pa_melee": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryPA.java"
+      },
+      "gun_pa_ranged": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryPA.java"
+      },
+      "gun_panzerschreck": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryRocket.java"
+      },
+      "gun_pepperbox": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryBlackPowder.java"
+      },
+      "gun_quadro": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryRocket.java"
+      },
+      "gun_spas12": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory12ga.java"
+      },
+      "gun_star_f": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory22lr.java"
+      },
+      "gun_star_f_akimbo": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory22lr.java"
+      },
+      "gun_stg77": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory556mm.java"
+      },
+      "gun_stinger": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryRocket.java"
+      },
+      "gun_tau": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryAccelerator.java"
+      },
+      "gun_tesla_cannon": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactoryEnergy.java"
+      },
+      "gun_uzi": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory9mm.java"
+      },
+      "gun_uzi_akimbo": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/XFactory9mm.java"
+      },
+      "ingot_copper": "requires_review",
+      "ingot_mercury": "original_resource_name: nugget_mercury",
+      "ingot_pet": "no_assignment_in_original_declarations_file",
+      "ingot_raw": {
+        "status": "metadata_family_with_variant_models",
+        "examples": [
+          "ingot_raw_borax",
+          "ingot_raw_neodymium",
+          "ingot_raw_redstone"
+        ],
+        "model_count": 6,
+        "behavior": "unchecked"
+      },
+      "ingot_tetraneutronium": "no_assignment_in_original_declarations_file",
+      "mold": "requires_review",
+      "mp_chip_1": "original_resource_name: mp_c_1",
+      "mp_chip_2": "original_resource_name: mp_c_2",
+      "mp_chip_3": "original_resource_name: mp_c_3",
+      "mp_chip_4": "original_resource_name: mp_c_4",
+      "mp_chip_5": "original_resource_name: mp_c_5",
+      "mp_stability_20_flat": "original_resource_name: mp_s_20",
+      "nugget_raw": "requires_review",
+      "nugget_tetraneutronium": "no_assignment_in_original_declarations_file",
+      "orbital_assembly": "requires_review",
+      "part_barrel_heavy": "requires_review",
+      "part_barrel_light": "requires_review",
+      "part_grip": "requires_review",
+      "part_mechanism": {
+        "status": "metadata_family_with_variant_models",
+        "examples": [
+          "part_mechanism_gunmetal",
+          "part_mechanism_saturnite",
+          "part_mechanism_weaponsteel"
+        ],
+        "model_count": 3,
+        "behavior": "unchecked"
+      },
+      "part_receiver_heavy": "requires_review",
+      "part_receiver_light": "requires_review",
+      "part_stock": "requires_review",
+      "pch": "requires_review",
+      "pile_rod": "requires_review",
+      "pipe": {
+        "status": "metadata_family_with_variant_models",
+        "examples": [
+          "pipe_aluminium",
+          "pipe_anchor",
+          "pipe_copper"
+        ],
+        "model_count": 8,
+        "behavior": "unchecked"
+      },
+      "plate_cast": {
+        "status": "metadata_family_with_variant_models",
+        "examples": [
+          "plate_cast_advanced_alloy",
+          "plate_cast_aluminium",
+          "plate_cast_arsenic_bronze"
+        ],
+        "model_count": 24,
+        "behavior": "unchecked"
+      },
+      "plate_welded": {
+        "status": "metadata_family_with_variant_models",
+        "examples": [
+          "plate_welded_aluminium",
+          "plate_welded_cdalloy",
+          "plate_welded_combine_steel"
+        ],
+        "model_count": 11,
+        "behavior": "unchecked"
+      },
+      "powder_tetraneutronium": "no_assignment_in_original_declarations_file",
+      "quesadilla": "original_resource_name: cheese_quesadilla",
+      "remote": "no_assignment_in_original_declarations_file",
+      "rtty_card": "requires_review",
+      "satellite": "requires_review",
+      "scraps": "requires_review",
+      "shell": {
+        "status": "metadata_family_with_variant_models",
+        "examples": [
+          "shell_aluminium",
+          "shell_copper",
+          "shell_saturnite"
+        ],
+        "model_count": 6,
+        "behavior": "unchecked"
+      },
+      "spawn_chopper": "original_resource_name: chopper",
+      "wand": "original_resource_name: wand_k",
+      "weapon_mod_caliber": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/GunFactory.java"
+      },
+      "weapon_mod_generic": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/GunFactory.java"
+      },
+      "weapon_mod_special": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/GunFactory.java"
+      },
+      "weapon_mod_test": {
+        "status": "weapon_outside_building_and_component_scope",
+        "source": "com/hbm/items/weapon/sedna/factory/GunFactory.java"
+      },
+      "wire_dense": {
+        "status": "metadata_family_with_variant_models",
+        "examples": [
+          "wire_dense_bscco",
+          "wire_dense_copper",
+          "wire_dense_dineutronium"
+        ],
+        "model_count": 14,
+        "behavior": "unchecked"
+      },
+      "wire_fine": "requires_review"
+    }
+  },
+  "Block": {
+    "declarations": 981,
+    "unmatched_names": {
+      "block_copper": "requires_review",
+      "capacitor_gold": "requires_review",
+      "capacitor_niobium": "requires_review",
+      "capacitor_schrabidate": "requires_review",
+      "capacitor_tantalium": "requires_review",
+      "chain": "renamed: dungeon_chain",
+      "cluster_depth_iron": "requires_review",
+      "cluster_depth_titanium": "requires_review",
+      "cluster_depth_tungsten": "requires_review",
+      "cm_anchor": "original_resource_name: custom_machine_anchor",
+      "concrete_liquid": "requires_review",
+      "crashed_balefire": "original_resource_name: crashed_bomb",
+      "depth_brick": "excluded_by_user",
+      "depth_dnt": "requires_review",
+      "depth_nether_brick": "excluded_by_user",
+      "depth_nether_tiles": "excluded_by_user",
+      "depth_tiles": "excluded_by_user",
+      "dirt": "ntm_dirt_registered_without_item; swamp_variant_access_requires_review",
+      "event_tester": "requires_review",
+      "flow_control_pump": "requires_review",
+      "hev_battery": "renamed: hev_battery_block",
+      "machine_converter_he_rf": "active_in_original; absent_as_standalone_converter_in_port",
+      "machine_converter_rf_he": "active_in_original; absent_as_standalone_converter_in_port",
+      "machine_difurnace_extension": "requires_review",
+      "machine_difurnace_off": "requires_review",
+      "machine_difurnace_on": "requires_review",
+      "machine_difurnace_rtg_off": "requires_review",
+      "machine_difurnace_rtg_on": "requires_review",
+      "machine_rtg": "renamed: machine_rtg_grey",
+      "network_separator": "requires_review",
+      "oc_cable_paintable": "requires_review",
+      "ore_cinnebar": "renamed: ore_cinnabar",
+      "ore_copper": "requires_review",
+      "ore_depth_borax": "requires_review",
+      "ore_depth_cinnebar": "requires_review",
+      "ore_depth_nether_neodymium": "requires_review",
+      "ore_depth_zirconium": "requires_review",
+      "ore_gneiss_copper": "requires_review",
+      "pile_device": "requires_review",
+      "pipe_anchor_exhaust": "requires_review",
+      "pipe_anchor_pneumatic": "requires_review",
+      "plant_flower": "requires_review",
+      "plant_tall": "requires_review",
+      "radio_torch_relay": "requires_review",
+      "reactor_research": "original_resource_name: machine_reactor_small",
+      "reactor_zirnox": "original_resource_name: machine_zirnox",
+      "reeds": "original_resource_name: plant_reeds",
+      "soyuz_launcher": "requires_review",
+      "stone_depth": "excluded_by_user",
+      "stone_depth_nether": "excluded_by_user",
+      "stone_resource": "requires_review",
+      "struct_soyuz_core": "requires_review",
+      "tnt": "original_resource_name: tnt_ntm"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+package com.atomiclegacy.items;
+
+import com.atomiclegacy.fluid.CombustibleFuelGrade;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+
+import java.util.List;
+
+public class CombustionPistonSetItem extends Item {
+    private final PistonType type;
+
+    public CombustionPistonSetItem(Properties properties, String variantId) {
+        super(properties.stacksTo(1));
+        this.type = PistonType.byId(variantId);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+        tooltip.add(Component.translatable("tooltip.atomiclegacy.piston_set.fuel_efficiency").withStyle(ChatFormatting.YELLOW));
+        PistonType type = pistonType(stack);
+        CombustibleFuelGrade[] grades = CombustibleFuelGrade.values();
+        for (int index = 0; index < type.efficiency.length && index < grades.length; index++) {
+            // [parity Q3: ItemPistons.addInformation - percentage in red]
+            tooltip.add(Component.literal("-").append(Component.translatable(grades[index].translationKey())).append(": ").withStyle(ChatFormatting.YELLOW)
+                    .append(Component.literal((int) (type.efficiency[index] * 100) + "%").withStyle(ChatFormatting.RED)));
+        }
+    }
+
+    public PistonType pistonType(ItemStack stack) {
+        return this.type;
+    }
+
+    public enum PistonType {
+        STEEL("steel", 1.00D, 0.75D, 0.25D, 0.00D, 0.00D),
+        DURA("dura", 0.50D, 1.00D, 0.90D, 0.50D, 0.00D),
+        DESH("desh", 0.00D, 0.50D, 1.00D, 0.75D, 0.00D),
+        STARMETAL("starmetal", 0.50D, 0.75D, 1.00D, 0.90D, 0.50D);
+
+        private final String id;
+        private final double[] efficiency;
+
+        PistonType(String id, double... efficiency) {
+            this.id = id;
+            this.efficiency = efficiency;
+        }
+
+        public String id() {
+            return this.id;
+        }
+
+        public static PistonType byId(String id) {
+            for (PistonType type : PistonType.values()) {
+                if (type.id.equals(id)) {
+                    return type;
+                }
+            }
+            return PistonType.STEEL;
+        }
+
+        public double efficiency(CombustibleFuelGrade grade) {
+            int index = grade.ordinal();
+            return index >= 0 && index < this.efficiency.length ? this.efficiency[index] : 0.0D;
+        }
+    }
+}

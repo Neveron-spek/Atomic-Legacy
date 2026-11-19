@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:coking","group":"coking.naphtha_crack","input":{"fluid":"naphtha_crack","amount":6400},"output":{"id":"atomiclegacy:coke_petroleum"},"byproduct":{"fluid":"naphtha_coker","amount":640}}

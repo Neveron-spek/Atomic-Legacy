@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "ZZZ",
+    "ZCZ",
+    "ZZZ"
+  ],
+  "key": {
+    "Z": {
+      "tag": "c:nuggets/zirconium"
+    },
+    "C": {
+      "item": "atomiclegacy:catalyst_clay"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gas_mask_filter_mono"
+  }
+}

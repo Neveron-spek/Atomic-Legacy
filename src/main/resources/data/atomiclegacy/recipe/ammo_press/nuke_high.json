@@ -1,0 +1,34 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.nuke_high",
+  "order": 84,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:nuggets/pu239"
+      },
+      "count": 4
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:assembly_nuke"
+      }
+    },
+    {},
+    {},
+    {},
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "nuke_high"
+      },
+      "minecraft:custom_model_data": 22
+    }
+  }
+}

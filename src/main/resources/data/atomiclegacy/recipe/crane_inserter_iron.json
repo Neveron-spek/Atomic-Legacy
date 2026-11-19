@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":["CCC","C C","CBC"],"key":{"C":{"tag":"c:ingots/iron"},"B":{"item":"atomiclegacy:conveyor"}},"result":{"id":"atomiclegacy:crane_inserter","count":2}}

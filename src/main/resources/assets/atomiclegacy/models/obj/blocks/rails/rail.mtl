@@ -1,0 +1,8 @@
+# [parity S1: rails] ObjUtil.renderWithIcon / renderPartWithIcon draw every part with one block icon
+newmtl rail
+Kd 1.0 1.0 1.0
+map_Kd #rail
+
+newmtl sign
+Kd 1.0 1.0 1.0
+map_Kd #sign

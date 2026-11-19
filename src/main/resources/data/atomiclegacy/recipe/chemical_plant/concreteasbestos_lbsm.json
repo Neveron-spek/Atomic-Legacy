@@ -1,0 +1,45 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:less_bullshit_mode",
+      "feature": "simple_chemistry"
+    }
+  ],
+  "type": "atomiclegacy:chemical_plant",
+  "group": "chem.concreteasbestos",
+  "duration": 100,
+  "power": 100,
+  "input_items": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:powder_cement"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/asbestos"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:sands"
+      },
+      "count": 8
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "water",
+      "amount": 2000
+    }
+  ],
+  "output_items": [
+    {
+      "id": "atomiclegacy:concrete_asbestos",
+      "count": 16
+    }
+  ],
+  "output_fluids": []
+}

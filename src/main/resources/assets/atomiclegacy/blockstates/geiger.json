@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/geiger" },
+    "facing=west": { "model": "atomiclegacy:block/particle/geiger" },
+    "facing=south": { "model": "atomiclegacy:block/particle/geiger" },
+    "facing=east": { "model": "atomiclegacy:block/particle/geiger" }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "type": "atomiclegacy:electrolyzer_metal",
+  "group": "electrolyzer_bedrock_ore",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:bedrock_ore_new"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "grade": "primary_first",
+        "type": "nonmetal"
+      }
+    }
+  },
+  "output1": {
+    "material": "slag",
+    "amount": 144
+  },
+  "duration": 20,
+  "byproducts": [
+    {
+      "id": "atomiclegacy:bedrock_ore_fragment_coal",
+      "count": 64
+    },
+    {
+      "id": "atomiclegacy:bedrock_ore_fragment_sulfur",
+      "count": 36
+    },
+    {
+      "id": "atomiclegacy:bedrock_ore_new",
+      "components": {
+        "minecraft:custom_data": {
+          "grade": "crumbs",
+          "type": "nonmetal"
+        }
+      }
+    }
+  ]
+}

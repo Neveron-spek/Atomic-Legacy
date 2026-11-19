@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:rbmk_outgasser",
+  "group": "outgasser.gold",
+  "ingredient": {
+    "tag": "c:ingots/gold"
+  },
+  "item_output": {
+    "id": "atomiclegacy:ingot_au198"
+  }
+}

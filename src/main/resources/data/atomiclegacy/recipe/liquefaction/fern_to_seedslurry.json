@@ -1,0 +1,11 @@
+{
+  "type": "atomiclegacy:liquefaction",
+  "group": "liquefactor.seedslurry",
+  "ingredient": {
+    "item": "minecraft:fern"
+  },
+  "output": {
+    "fluid": "seedslurry",
+    "amount": 100
+  }
+}

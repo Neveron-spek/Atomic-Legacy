@@ -1,0 +1,35 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.pwrheatex",
+  "duration": 200,
+  "power": 500,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_steel_plating"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_copper"
+      },
+      "count": 4
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "perfluoromethyl",
+      "amount": 4000
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:pwr_heatex",
+    "count": 4
+  }
+}

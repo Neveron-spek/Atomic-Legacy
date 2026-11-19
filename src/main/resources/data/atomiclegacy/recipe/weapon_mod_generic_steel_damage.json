@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:gun_parts/mechanism/gunmetal"
+    },
+    {
+      "tag": "c:plates/cast_steel"
+    },
+    {
+      "tag": "c:plates/cast_steel"
+    },
+    {
+      "tag": "c:plates/cast_steel"
+    },
+    {
+      "item": "atomiclegacy:ducttape"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:weapon_mod_generic_steel_damage",
+    "count": 1
+  }
+}

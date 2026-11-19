@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:ingots/schrabidium"
+    }
+  },
+  "pattern": [
+    "#"
+  ],
+  "result": {
+    "id": "atomiclegacy:nugget_schrabidium",
+    "count": 9
+  }
+}

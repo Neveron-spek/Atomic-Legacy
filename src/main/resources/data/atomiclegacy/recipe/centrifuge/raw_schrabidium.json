@@ -1,0 +1,26 @@
+{
+    "type":  "atomiclegacy:centrifuge",
+    "group":  "centrifuge",
+    "ingredient":  {
+                       "tag":  "c:raw_materials/schrabidium"
+                   },
+    "input_count":  4,
+    "results":  [
+                    {
+                        "id":  "atomiclegacy:powder_schrabidium",
+                        "count":  3
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_schrabidium",
+                        "count":  3
+                    },
+                    {
+                        "id":  "atomiclegacy:nugget_solinium",
+                        "count":  3
+                    },
+                    {
+                        "id":  "minecraft:gravel",
+                        "count":  4
+                    }
+                ]
+}

@@ -1,0 +1,42 @@
+{
+    "type":  "atomiclegacy:silex",
+    "group":  "silex.rbmk_pellet_leaus_5",
+    "ingredient":  {
+                       "type":  "neoforge:components",
+                       "items":  [
+                                     "atomiclegacy:rbmk_pellet_leaus"
+                                 ],
+                       "components":  {
+                                          "minecraft:custom_model_data":  5
+                                      }
+                   },
+    "fluid_produced":  600,
+    "fluid_consumed":  100,
+    "wavelength":  "visible",
+    "outputs":  [
+                    {
+                        "item":  {
+                                     "id":  "atomiclegacy:powder_xe135_tiny"
+                                 },
+                        "weight":  1
+                    },
+                    {
+                        "item":  {
+                                     "id":  "atomiclegacy:nugget_australium_lesser"
+                                 },
+                        "weight":  89
+                    },
+                    {
+                        "item":  {
+                                     "id":  "atomiclegacy:nugget_lead"
+                                 },
+                        "weight":  6
+                    },
+                    {
+                        "item":  {
+                                     "id":  "atomiclegacy:nugget_pb209"
+                                 },
+                        "weight":  4
+                    }
+                ]
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "atomiclegacy:block/cm_terminal_front",
+    "side": "atomiclegacy:block/cm_terminal_side",
+    "top": "atomiclegacy:block/cm_terminal_side"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "F",
+    "I",
+    "F"
+  ],
+  "key": {
+    "F": {
+      "item": "atomiclegacy:ball_dynamite"
+    },
+    "I": {
+      "tag": "c:plates/polymer"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:grenade_filling_he",
+    "count": 4
+  }
+}

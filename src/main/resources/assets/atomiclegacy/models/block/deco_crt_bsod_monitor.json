@@ -1,0 +1,10 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/blocks/crt.obj",
+  "mtl_override": "atomiclegacy:models/obj/blocks/crt_bsod.mtl",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "visibility": { "Screen": false, "Monitor": true },
+  "textures": { "particle": "atomiclegacy:block/crt_bsod" }
+}

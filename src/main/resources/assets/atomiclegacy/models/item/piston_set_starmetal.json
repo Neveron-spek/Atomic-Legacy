@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:item/piston_set_starmetal"
+  }
+}

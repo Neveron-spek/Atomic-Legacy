@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/wings_murk"
+                 },
+    "parent":  "minecraft:item/generated"
+}

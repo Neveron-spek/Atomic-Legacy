@@ -1,0 +1,9 @@
+﻿{
+  "variants": {
+    "mode=0": { "model": "atomiclegacy:block/volcano_rad_core" },
+    "mode=1": { "model": "atomiclegacy:block/volcano_rad_core" },
+    "mode=2": { "model": "atomiclegacy:block/volcano_rad_core" },
+    "mode=3": { "model": "atomiclegacy:block/volcano_rad_core" },
+    "mode=4": { "model": "atomiclegacy:block/volcano_rad_core" }
+  }
+}

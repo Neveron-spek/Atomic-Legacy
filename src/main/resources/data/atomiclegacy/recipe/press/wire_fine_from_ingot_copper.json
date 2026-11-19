@@ -1,0 +1,12 @@
+{
+  "type": "atomiclegacy:press",
+  "group": "press.wire",
+  "stamp": "wire",
+  "ingredient": {
+    "tag": "c:ingots/copper"
+  },
+  "result": {
+    "id": "atomiclegacy:wire_copper",
+    "count": 8
+  }
+}

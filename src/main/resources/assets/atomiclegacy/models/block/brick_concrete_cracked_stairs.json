@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "atomiclegacy:block/brick_concrete_cracked",
+    "top": "atomiclegacy:block/brick_concrete_cracked",
+    "side": "atomiclegacy:block/brick_concrete_cracked"
+  }
+}

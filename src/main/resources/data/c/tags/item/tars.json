@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:oil_tar",
+    "atomiclegacy:oil_tar_crack",
+    "atomiclegacy:oil_tar_coal",
+    "atomiclegacy:oil_tar_wood"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+    "type":  "minecraft:smelting",
+    "category":  "misc",
+    "ingredient":  {
+                       "tag":  "c:dusts/tcalloy"
+                   },
+    "result":  {
+                   "id":  "atomiclegacy:ingot_tcalloy"
+               },
+    "experience":  1,
+    "cookingtime":  200
+}

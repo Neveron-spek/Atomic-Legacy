@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "minecraft:creeper_head"
+  },
+  "result": {
+    "id": "atomiclegacy:biomass",
+    "count": 4
+  }
+}

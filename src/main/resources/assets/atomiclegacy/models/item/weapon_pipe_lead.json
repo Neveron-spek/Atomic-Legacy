@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/weapon_pipe_lead"
+                 },
+    "parent":  "minecraft:item/generated"
+}

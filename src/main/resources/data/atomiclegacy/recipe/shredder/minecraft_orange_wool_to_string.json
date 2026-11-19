@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "minecraft:orange_wool"
+  },
+  "result": {
+    "id": "minecraft:string",
+    "count": 4
+  }
+}

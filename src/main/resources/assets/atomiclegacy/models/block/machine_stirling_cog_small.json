@@ -1,0 +1,8 @@
+{
+  "parent": "atomiclegacy:block/machine_stirling",
+  "visibility": {
+    "Piston": false,
+    "Cog": false,
+    "Base": false
+  }
+}

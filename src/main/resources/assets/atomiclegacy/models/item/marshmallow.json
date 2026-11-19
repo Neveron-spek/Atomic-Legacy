@@ -1,0 +1,11 @@
+{
+    "parent":  "atomiclegacy:item/marshmallow.raw",
+    "overrides":  [
+                      {
+                          "predicate":  {
+                                            "minecraft:custom_model_data":  1
+                                        },
+                          "model":  "atomiclegacy:item/marshmallow_roasted"
+                      }
+                  ]
+}

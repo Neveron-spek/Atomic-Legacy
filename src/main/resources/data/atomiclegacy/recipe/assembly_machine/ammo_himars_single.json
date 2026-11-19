@@ -1,0 +1,14 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.himarslarge",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    { "ingredient": { "tag": "c:plates/steel" }, "count": 24 },
+    { "ingredient": { "tag": "c:ingots/hard_plastic" }, "count": 12 },
+    { "ingredient": { "item": "atomiclegacy:rocket_fuel" }, "count": 36 },
+    { "ingredient": { "item": "atomiclegacy:ball_tatb" }, "count": 16 },
+    { "ingredient": { "item": "atomiclegacy:circuit_advanced" }, "count": 1 }
+  ],
+  "result": { "id": "atomiclegacy:ammo_himars", "components": { "minecraft:custom_data": { "variant": "single" }, "minecraft:custom_model_data": 1 } }
+}

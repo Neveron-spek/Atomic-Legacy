@@ -1,0 +1,28 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_infinite_water_tank_recipes"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BPB",
+    "PTP",
+    "BPB"
+  ],
+  "key": {
+    "B": {
+      "item": "atomiclegacy:inf_water"
+    },
+    "P": {
+      "item": "atomiclegacy:pipe_steel"
+    },
+    "T": {
+      "item": "atomiclegacy:shell_steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:inf_water_mk2"
+  }
+}

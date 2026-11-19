@@ -1,0 +1,30 @@
+{
+  "type": "atomiclegacy:chemical_plant",
+  "group": "chem.napalm",
+  "duration": 40,
+  "power": 100,
+  "input_items": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:canister_empty"
+      },
+      "count": 1
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "gasoline",
+      "amount": 100
+    },
+    {
+      "fluid": "aromatics",
+      "amount": 50
+    }
+  ],
+  "output_items": [
+    {
+      "id": "atomiclegacy:canister_napalm"
+    }
+  ],
+  "output_fluids": []
+}

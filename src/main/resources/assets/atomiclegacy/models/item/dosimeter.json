@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/dosimeter"
+                 },
+    "parent":  "minecraft:item/generated"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:storage_blocks/u235"
+    }
+  },
+  "pattern": [
+    "#"
+  ],
+  "result": {
+    "id": "atomiclegacy:ingot_u235",
+    "count": 9
+  }
+}

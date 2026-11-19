@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:billet_sr90"
+    },
+    {
+      "item": "atomiclegacy:billet_sr90"
+    },
+    {
+      "item": "atomiclegacy:billet_sr90"
+    },
+    {
+      "tag": "c:plates/iron"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:pellet_rtg_strontium"
+  }
+}

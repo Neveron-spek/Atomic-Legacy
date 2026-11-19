@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "atomiclegacy:stick_semtex" },
+    { "item": "atomiclegacy:stick_semtex" },
+    { "item": "atomiclegacy:stick_semtex" },
+    { "item": "atomiclegacy:ducttape" }
+  ],
+  "result": { "id": "atomiclegacy:charge_semtex" }
+}

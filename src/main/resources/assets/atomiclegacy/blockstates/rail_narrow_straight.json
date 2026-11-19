@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "meta=0": {
+      "model": "atomiclegacy:block/rails/rail_narrow_straight_0"
+    },
+    "meta=1": {
+      "model": "atomiclegacy:block/rails/rail_narrow_straight_1"
+    },
+    "meta=2": {
+      "model": "atomiclegacy:block/rails/rail_narrow_straight_2"
+    },
+    "meta=3": {
+      "model": "atomiclegacy:block/rails/rail_narrow_straight_3"
+    },
+    "meta=4": {
+      "model": "atomiclegacy:block/rails/rail_narrow_straight_4"
+    },
+    "meta=5": {
+      "model": "atomiclegacy:block/rails/rail_narrow_straight_5"
+    },
+    "meta=6": {
+      "model": "atomiclegacy:block/rails/rail_narrow_straight_6"
+    },
+    "meta=7": {
+      "model": "atomiclegacy:block/rails/rail_narrow_straight_7"
+    },
+    "meta=8": {
+      "model": "atomiclegacy:block/rails/rail_narrow_straight_8"
+    },
+    "meta=9": {
+      "model": "atomiclegacy:block/rails/rail_narrow_straight_9"
+    },
+    "meta=10": {
+      "model": "atomiclegacy:block/rails/rail_narrow_straight_10"
+    },
+    "meta=11": {
+      "model": "atomiclegacy:block/rails/rail_narrow_straight_11"
+    },
+    "meta=12": {
+      "model": "atomiclegacy:block/rails/rail_narrow_straight_12"
+    },
+    "meta=13": {
+      "model": "atomiclegacy:block/rails/rail_narrow_straight_13"
+    },
+    "meta=14": {
+      "model": "atomiclegacy:block/rails/rail_narrow_straight_14"
+    },
+    "meta=15": {
+      "model": "atomiclegacy:block/rails/rail_narrow_straight_15"
+    }
+  }
+}

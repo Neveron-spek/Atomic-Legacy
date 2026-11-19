@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "C",
+    "F"
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:circuit_chip"
+    },
+    "F": {
+      "item": "atomiclegacy:safety_fuse"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:grenade_extra_proxy_fuze"
+  }
+}

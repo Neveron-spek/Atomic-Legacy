@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/ammo_45"
+                 },
+    "parent":  "minecraft:item/generated"
+}

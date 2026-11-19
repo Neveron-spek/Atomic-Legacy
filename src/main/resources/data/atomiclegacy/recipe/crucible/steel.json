@@ -1,0 +1,28 @@
+{
+  "type": "atomiclegacy:crucible",
+  "group": "crucible.steel",
+  "frequency": 20,
+  "icon": {
+    "id": "atomiclegacy:ingot_steel"
+  },
+  "input": [
+    {
+      "material": "iron",
+      "amount": 16
+    },
+    {
+      "material": "carbon",
+      "amount": 24
+    },
+    {
+      "material": "flux",
+      "amount": 8
+    }
+  ],
+  "output": [
+    {
+      "material": "steel",
+      "amount": 16
+    }
+  ]
+}

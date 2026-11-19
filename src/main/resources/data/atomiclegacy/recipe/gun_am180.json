@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BRS",
+    "GMG"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:gun_parts/barrel_light/dura_steel"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_light/dura_steel"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/gunmetal"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/wood"
+    },
+    "S": {
+      "tag": "c:gun_parts/stock/wood"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_am180",
+    "count": 1
+  }
+}

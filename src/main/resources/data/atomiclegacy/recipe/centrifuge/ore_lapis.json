@@ -1,0 +1,23 @@
+{
+    "type":  "atomiclegacy:centrifuge",
+    "group":  "centrifuge",
+    "ingredient":  {
+                       "tag":  "c:ores/lapis"
+                   },
+    "input_count":  1,
+    "results":  [
+                    {
+                        "id":  "atomiclegacy:powder_lapis",
+                        "count":  6
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_cobalt_tiny"
+                    },
+                    {
+                        "id":  "atomiclegacy:gem_sodalite"
+                    },
+                    {
+                        "id":  "minecraft:gravel"
+                    }
+                ]
+}

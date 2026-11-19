@@ -1,0 +1,14 @@
+{
+  "type": "atomiclegacy:combination_oven",
+  "group": "combination_oven.chlorocalcite",
+  "input": {
+    "tag": "c:dusts/chlorocalcite"
+  },
+  "output": {
+    "id": "atomiclegacy:powder_calcium"
+  },
+  "fluid": {
+    "fluid": "chlorine",
+    "amount": 250
+  }
+}

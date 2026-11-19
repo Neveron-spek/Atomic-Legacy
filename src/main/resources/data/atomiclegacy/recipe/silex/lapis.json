@@ -1,0 +1,33 @@
+{
+  "type": "atomiclegacy:silex",
+  "group": "silex.lapis",
+  "ingredient": {
+    "tag": "atomiclegacy:silex/lapis_inputs"
+  },
+  "fluid_produced": 100,
+  "fluid_consumed": 100,
+  "wavelength": "ir",
+  "outputs": [
+    {
+      "item": {
+        "id": "atomiclegacy:sulfur",
+        "count": 1
+      },
+      "weight": 4
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:powder_aluminium",
+        "count": 1
+      },
+      "weight": 3
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:powder_cobalt",
+        "count": 1
+      },
+      "weight": 3
+    }
+  ]
+}

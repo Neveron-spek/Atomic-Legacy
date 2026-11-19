@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "item": "atomiclegacy:arc_electrode_burnt_desh"
+  },
+  "result": {
+    "id": "atomiclegacy:ingot_desh"
+  },
+  "experience": 3.0,
+  "cookingtime": 200
+}

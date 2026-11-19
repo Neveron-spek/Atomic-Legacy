@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:crafting_shapeless", "category": "misc",
+  "ingredients": [
+    { "item": "atomiclegacy:billet_schrabidium" }, { "item": "atomiclegacy:billet_schrabidium" }, { "item": "atomiclegacy:billet_schrabidium" }
+  ],
+  "result": { "id": "atomiclegacy:ingot_schrabidium", "count": 2 }
+}

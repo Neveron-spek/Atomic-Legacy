@@ -1,0 +1,58 @@
+package com.atomiclegacy.items;
+
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+
+import java.util.List;
+import java.util.Locale;
+
+public class PACoilItem extends Item {
+    private final Spec spec;
+
+    public PACoilItem(Properties properties, String variantId) {
+        super(properties.stacksTo(1));
+        this.spec = Spec.byId(variantId);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+        Spec spec = spec(stack);
+        // ItemPACoil.addInformation (literal lines; EnumChatFormatting.RESET before the values = white)
+        LegacyTooltips.pair(tooltip, ChatFormatting.BLUE, "Quadrupole operational range: ", ChatFormatting.WHITE,
+                number(spec.quadMin) + " - " + number(spec.quadMax));
+        LegacyTooltips.pair(tooltip, ChatFormatting.BLUE, "Dipole operational range: ", ChatFormatting.WHITE,
+                number(spec.dipoleMin) + " - " + number(spec.dipoleMax));
+        LegacyTooltips.pair(tooltip, ChatFormatting.BLUE, "Dipole minimum side length: ", ChatFormatting.WHITE,
+                String.valueOf(spec.dipoleDistanceMin));
+        LegacyTooltips.line(tooltip, ChatFormatting.RED, "Minimums not met result in a power draw penalty!");
+        LegacyTooltips.line(tooltip, ChatFormatting.RED, "Maximums exceeded result in the particle crashing!");
+        LegacyTooltips.line(tooltip, ChatFormatting.RED, "Particles will crash in dipoles if both penalties take effect!");
+    }
+
+    public Spec spec(ItemStack stack) {
+        return this.spec;
+    }
+
+    private static String number(int value) {
+        return String.format(Locale.US, "%,d", value);
+    }
+
+    public record Spec(int quadMin, int quadMax, int dipoleMin, int dipoleMax, int dipoleDistanceMin) {
+        private static final Spec GOLD = new Spec(0, 2_200, 0, 2_200, 15);
+        private static final Spec NIOBIUM = new Spec(1_500, 8_400, 1_500, 8_400, 21);
+        private static final Spec BSCCO = new Spec(7_500, 15_000, 7_500, 15_000, 27);
+        private static final Spec CHLOROPHYTE = new Spec(14_500, 75_000, 14_500, 75_000, 51);
+
+        public static Spec byId(String id) {
+            return switch (id) {
+                case "niobium" -> NIOBIUM;
+                case "bscco" -> BSCCO;
+                case "chlorophyte" -> CHLOROPHYTE;
+                default -> GOLD;
+            };
+        }
+    }
+}

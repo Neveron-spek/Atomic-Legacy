@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AAA",
+    "AAA",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "item": "atomiclegacy:cell_balefire"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:egg_balefire_shard",
+    "count": 1
+  }
+}

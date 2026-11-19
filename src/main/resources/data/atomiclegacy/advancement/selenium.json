@@ -1,0 +1,28 @@
+{
+  "parent": "atomiclegacy:burner_press",
+  "display": {
+    "icon": {
+      "id": "atomiclegacy:ingot_starmetal"
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.selenium.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.selenium.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "triggered"
+    ]
+  ]
+}

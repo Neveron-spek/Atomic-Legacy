@@ -1,0 +1,28 @@
+{
+  "parent": "atomiclegacy:root",
+  "display": {
+    "icon": {
+      "id": "atomiclegacy:achievement_icon_questionmark"
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.c20_5.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.c20_5.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "triggered"
+    ]
+  ]
+}

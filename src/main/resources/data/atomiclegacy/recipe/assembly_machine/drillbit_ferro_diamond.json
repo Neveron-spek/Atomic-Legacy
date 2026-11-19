@@ -1,0 +1,23 @@
+﻿{
+    "type":  "atomiclegacy:assembly_machine",
+    "group":  "ass.drillferrodiamond",
+    "duration":  100,
+    "power":  100,
+    "ingredients":  [
+                        {
+                            "count":  1,
+                            "ingredient":  {
+                                               "item":  "atomiclegacy:drillbit_ferro"
+                                           }
+                        },
+                        {
+                            "count":  56,
+                            "ingredient":  {
+                                               "tag":  "c:dusts/diamond"
+                                           }
+                        }
+                    ],
+    "result":  {
+                   "id":  "atomiclegacy:drillbit_ferro_diamond"
+               }
+}

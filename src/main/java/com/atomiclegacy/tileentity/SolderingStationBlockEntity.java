@@ -1,0 +1,1033 @@
+package com.atomiclegacy.tileentity;
+
+import com.atomiclegacy.blocks.SolderingStationBlock;
+import com.atomiclegacy.fluid.HbmFluidDefinition;
+import com.atomiclegacy.fluid.HbmFluidStack;
+import com.atomiclegacy.fluid.HbmFluidTank;
+import com.atomiclegacy.items.BatteryPackItem;
+import com.atomiclegacy.items.FluidIdentifierItem;
+import com.atomiclegacy.items.MachineUpgradeItem;
+import com.atomiclegacy.inventory.container.SolderingStationMenu;
+import com.atomiclegacy.power.PowerEndpoint;
+import com.atomiclegacy.power.PowerNetworkManager;
+import com.atomiclegacy.inventory.recipes.MachineRecipeCache;
+import com.atomiclegacy.inventory.recipes.SolderingStationRecipe;
+import com.atomiclegacy.registry.HbmBlockEntities;
+import com.atomiclegacy.registry.HbmFluids;
+import com.atomiclegacy.registry.HbmParticleTypes;
+import com.atomiclegacy.registry.HbmRecipeTypes;
+import com.atomiclegacy.registry.HbmSoundEvents;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.Container;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.WorldlyContainer;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+
+import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+
+public class SolderingStationBlockEntity extends BlockEntity implements PowerEndpoint, MachineInventory, WorldlyContainer, MenuProvider, com.atomiclegacy.fluid.HbmFluidNetUser { // [parity V1: fluid net]
+    public static final int TOPPING_START = 0;
+    public static final int TOPPING_END = 3;
+    public static final int PCB_START = 3;
+    public static final int PCB_END = 5;
+    public static final int SOLDER_SLOT = 5;
+    public static final int OUTPUT_SLOT = 6;
+    public static final int BATTERY_SLOT = 7;
+    public static final int FLUID_IDENTIFIER_SLOT = 8;
+    public static final int UPGRADE_START = 9;
+    public static final int UPGRADE_END = 11;
+    public static final int SLOT_COUNT = 11;
+    public static final int DATA_COUNT = 12;
+    public static final int TANK_CAPACITY = 8_000;
+    public static final long BASE_MAX_POWER = 2_000L;
+
+    private static final int[] AUTOMATION_SLOTS = {0, 1, 2, 3, 4, 5, 6};
+    // [parity K3: the original station is IFluidStandardReceiverMK2 only, pipes cannot drain it]
+    private static final boolean RECEIVER_ONLY = true;
+
+    private final NonNullList<ItemStack> items = NonNullList.withSize(SLOT_COUNT, ItemStack.EMPTY);
+    private final NonNullList<ItemStack> observedWorkItems = NonNullList.withSize(SLOT_COUNT, ItemStack.EMPTY);
+    private final HbmFluidTank tank = new HbmFluidTank(TANK_CAPACITY);
+    private long power;
+    private long maxPower = BASE_MAX_POWER;
+    private long lastInput;
+    private long consumption = 100L;
+    private int progress;
+    private int processTime = 1;
+    private int completedCycles;
+    private boolean hasRecipe;
+    private int progressStep = 1;
+    // [parity K3: TileEntityMachineSolderingStation.collisionPrevention, toggled from the GUI]
+    private boolean collisionPrevention;
+    private long observedRecipeCacheGeneration = Long.MIN_VALUE;
+    private boolean recipeCatalogDirty = true;
+    private boolean recipeMatchDirty = true;
+    private boolean statsDirty = true;
+    private boolean identifierDirty = true;
+    private boolean recipeStateInitialized;
+    private List<RecipeHolder<SolderingStationRecipe>> cachedRecipeCatalog = List.of();
+    @Nullable
+    private RecipeHolder<SolderingStationRecipe> cachedRecipe;
+    private final ContainerData menuData = new ContainerData() {
+        @Override
+        public int get(int index) {
+            return switch (index) {
+                case 0 -> (int) SolderingStationBlockEntity.this.power;
+                case 1 -> (int) SolderingStationBlockEntity.this.lastInput;
+                case 2 -> SolderingStationBlockEntity.this.progress;
+                case 3 -> SolderingStationBlockEntity.this.processTime;
+                case 4 -> (int) SolderingStationBlockEntity.this.consumption;
+                case 5 -> (int) SolderingStationBlockEntity.this.maxPower;
+                case 6 -> SolderingStationBlockEntity.this.hasRecipe ? 1 : 0;
+                case 7 -> SolderingStationBlockEntity.this.completedCycles;
+                case 8 -> SolderingStationBlockEntity.this.tank.type().oldId();
+                case 9 -> SolderingStationBlockEntity.this.tank.amount();
+                case 10 -> SolderingStationBlockEntity.this.tank.capacity();
+                case 11 -> SolderingStationBlockEntity.this.collisionPrevention ? 1 : 0;
+                default -> 0;
+            };
+        }
+
+        @Override
+        public void set(int index, int value) {
+            switch (index) {
+                case 0 -> SolderingStationBlockEntity.this.power = value;
+                case 1 -> SolderingStationBlockEntity.this.lastInput = value;
+                case 2 -> SolderingStationBlockEntity.this.progress = value;
+                case 3 -> SolderingStationBlockEntity.this.processTime = Math.max(1, value);
+                case 4 -> SolderingStationBlockEntity.this.consumption = Math.max(1, value);
+                case 5 -> SolderingStationBlockEntity.this.maxPower = Math.max(BASE_MAX_POWER, value);
+                case 6 -> SolderingStationBlockEntity.this.hasRecipe = value != 0;
+                case 7 -> SolderingStationBlockEntity.this.completedCycles = value;
+                case 8 -> SolderingStationBlockEntity.this.tank.setType(HbmFluids.byOldId(value).orElse(HbmFluids.none()));
+                case 9 -> SolderingStationBlockEntity.this.tank.setAmount(value);
+                case 11 -> SolderingStationBlockEntity.this.collisionPrevention = value != 0;
+                default -> {
+                }
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return DATA_COUNT;
+        }
+    };
+
+    public SolderingStationBlockEntity(BlockPos pos, BlockState blockState) {
+        super(HbmBlockEntities.SOLDERING_STATION.get(), pos, blockState);
+    }
+
+    public static void tick(Level level, BlockPos pos, BlockState state, SolderingStationBlockEntity blockEntity) {
+        if (level.isClientSide) {
+            blockEntity.tickClient(level, state);
+            return;
+        }
+        PowerNetworkManager.tickFromEndpoint(level, blockEntity);
+        blockEntity.tickWork(level);
+    }
+
+    @Override
+    public BlockPos getPowerPos() {
+        return this.worldPosition;
+    }
+
+    @Override
+    public List<BlockPos> getPowerConnectorPositions(LevelAccessor level) {
+        return connectorPositions().stream().map(Port::pos).toList();
+    }
+
+    @Override
+    public boolean canConnectPower(LevelAccessor level, BlockPos connectorPos, Direction machineSide) {
+        for (Port port : connectorPositions()) {
+            if (port.pos().equals(connectorPos)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public long getAvailableOutput() {
+        return 0L;
+    }
+
+    @Override
+    public long getRequestedInput() {
+        if (this.power >= this.maxPower) {
+            return 0L;
+        }
+        // [parity K3: IEnergyReceiverMK2.getReceiverSpeed() = getMaxPower(); the whole free buffer is requested]
+        return this.maxPower - this.power;
+    }
+
+    @Override
+    public void applyPower(long usedOutput, long receivedInput) {
+        long previousPower = this.power;
+        long previousLastInput = this.lastInput;
+        this.power = Math.min(this.maxPower, this.power + receivedInput);
+        this.lastInput = receivedInput;
+        if (this.power != previousPower || this.lastInput != previousLastInput) {
+            markRuntimeChanged();
+        }
+    }
+
+    @Override
+    public Component getPowerStatus() {
+        int percent = this.processTime <= 0 ? 0 : this.progress * 100 / this.processTime;
+        return Component.translatable(
+                "message.atomiclegacy.power.soldering_station",
+                this.lastInput,
+                this.consumption,
+                this.power,
+                this.maxPower,
+                percent,
+                this.completedCycles
+        );
+    }
+
+    @Override
+    public int getContainerSize() {
+        return SLOT_COUNT;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        for (ItemStack stack : this.items) {
+            if (!stack.isEmpty()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public ItemStack getItem(int slot) {
+        return isValidSlot(slot) ? this.items.get(slot) : ItemStack.EMPTY;
+    }
+
+    @Override
+    public ItemStack removeItem(int slot, int amount) {
+        if (!isValidSlot(slot) || amount <= 0) {
+            return ItemStack.EMPTY;
+        }
+
+        ItemStack stack = this.items.get(slot);
+        if (stack.isEmpty()) {
+            return ItemStack.EMPTY;
+        }
+
+        ItemStack removed = stack.split(amount);
+        if (stack.isEmpty()) {
+            this.items.set(slot, ItemStack.EMPTY);
+        }
+        if (!removed.isEmpty()) {
+            inventoryChanged(slot);
+            setChanged();
+        }
+        return removed;
+    }
+
+    @Override
+    public ItemStack removeItemNoUpdate(int slot) {
+        if (!isValidSlot(slot)) {
+            return ItemStack.EMPTY;
+        }
+        ItemStack removed = this.items.get(slot);
+        this.items.set(slot, ItemStack.EMPTY);
+        if (!removed.isEmpty()) {
+            inventoryChanged(slot);
+        }
+        return removed;
+    }
+
+    @Override
+    public void setItem(int slot, ItemStack stack) {
+        if (!isValidSlot(slot)) {
+            return;
+        }
+        ItemStack oldStack = this.items.get(slot).copy();
+        this.items.set(slot, stack);
+        if (!stack.isEmpty() && stack.getCount() > this.getMaxStackSize(stack)) {
+            stack.setCount(this.getMaxStackSize(stack));
+        }
+        if (slot >= UPGRADE_START && slot < UPGRADE_END
+                && MachineUpgradeItem.isMachineUpgrade(stack)
+                && (oldStack.isEmpty() || !ItemStack.isSameItemSameComponents(oldStack, stack))
+                && this.level != null
+                && !this.level.isClientSide) {
+            this.level.playSound(null, this.worldPosition, HbmSoundEvents.UPGRADE_PLUG.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
+        }
+        inventoryChanged(slot);
+        setChanged();
+    }
+
+    @Override
+    public boolean canPlaceItem(int slot, ItemStack stack) {
+        if (stack.isEmpty()) {
+            return false;
+        }
+        if (slot >= TOPPING_START && slot < TOPPING_END) {
+            return !hasDuplicateInGroup(slot, stack, TOPPING_START, TOPPING_END) && isIngredientForGroup(stack, Group.TOPPING);
+        }
+        if (slot >= PCB_START && slot < PCB_END) {
+            return !hasDuplicateInGroup(slot, stack, PCB_START, PCB_END) && isIngredientForGroup(stack, Group.PCB);
+        }
+        if (slot == SOLDER_SLOT) {
+            return isIngredientForGroup(stack, Group.SOLDER);
+        }
+        if (slot == BATTERY_SLOT) {
+            return ShredderBlockEntity.isBattery(stack);
+        }
+        if (slot == FLUID_IDENTIFIER_SLOT) {
+            return stack.getItem() instanceof FluidIdentifierItem;
+        }
+        if (slot >= UPGRADE_START && slot < UPGRADE_END) {
+            return isSupportedUpgrade(stack);
+        }
+        return false;
+    }
+
+    @Override
+    public int[] getSlotsForFace(Direction side) {
+        return AUTOMATION_SLOTS;
+    }
+
+    @Override
+    public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction side) {
+        return slot >= TOPPING_START && slot <= SOLDER_SLOT && canPlaceItem(slot, stack);
+    }
+
+    @Override
+    public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) {
+        return slot == OUTPUT_SLOT;
+    }
+
+    @Override
+    public boolean stillValid(Player player) {
+        return MachineDummyMenuAccess.stillValid(this, player);
+    }
+
+    @Override
+    public void clearContent() {
+        for (int slot = 0; slot < this.items.size(); slot++) {
+            this.items.set(slot, ItemStack.EMPTY);
+        }
+        this.progress = 0;
+        invalidateRecipeMatch();
+        setChanged();
+    }
+
+    @Override
+    public Component getDisplayName() {
+        return Component.translatable("container.atomiclegacy.soldering_station");
+    }
+
+    @Override
+    public AbstractContainerMenu createMenu(int containerId, Inventory playerInventory, Player player) {
+        return new SolderingStationMenu(containerId, playerInventory, this, this.menuData);
+    }
+
+    public ContainerData getMenuData() {
+        return this.menuData;
+    }
+
+    public IFluidHandler fluidHandler(@Nullable Direction side) {
+        return new SolderingStationFluidHandler();
+    }
+
+    @Nullable
+    public IFluidHandler fluidHandler(BlockPos queryPos, @Nullable Direction side) {
+        return allowsAutomationPort(queryPos) ? new SolderingStationFluidHandler() : null;
+    }
+
+    public boolean allowsAutomationPort(BlockPos queryPos) {
+        for (BlockPos bodyPos : bodyPositions()) {
+            if (bodyPos.equals(queryPos)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean canAcceptInput(ItemStack stack, Group group) {
+        return !stack.isEmpty() && isIngredientForGroup(stack, group);
+    }
+
+    @Override
+    public void dropContents(Level level, BlockPos pos) {
+        for (int slot = 0; slot < this.items.size(); slot++) {
+            drop(level, pos, this.items.get(slot));
+            this.items.set(slot, ItemStack.EMPTY);
+        }
+    }
+
+    // [parity d3: TileEntityMachineSolderingStation#serialize sends the matched recipe's output as "display" for the TESR]
+    private ItemStack display = ItemStack.EMPTY;
+
+    public ItemStack getDisplay() {
+        return this.display;
+    }
+
+    private void updateDisplay() {
+        ItemStack next = this.cachedRecipe == null ? ItemStack.EMPTY : this.cachedRecipe.value().result().copyWithCount(1);
+        if (ItemStack.matches(next, this.display)) {
+            return;
+        }
+        this.display = next;
+        if (this.level != null && !this.level.isClientSide) {
+            BlockState state = getBlockState();
+            this.level.sendBlockUpdated(this.worldPosition, state, state, 2);
+        }
+    }
+
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+        CompoundTag tag = new CompoundTag();
+        tag.put("Display", this.display.saveOptional(registries));
+        return tag;
+    }
+
+    @Override
+    public net.minecraft.network.protocol.Packet<net.minecraft.network.protocol.game.ClientGamePacketListener> getUpdatePacket() {
+        return net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    @Override
+    public void handleUpdateTag(CompoundTag tag, HolderLookup.Provider registries) {
+        this.display = ItemStack.parseOptional(registries, tag.getCompound("Display"));
+    }
+
+    @Override
+    public void onDataPacket(net.minecraft.network.Connection connection, net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket packet, HolderLookup.Provider registries) {
+        handleUpdateTag(packet.getTag(), registries);
+    }
+
+    @Override
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.saveAdditional(tag, registries);
+        for (int slot = 0; slot < this.items.size(); slot++) {
+            tag.put("Slot" + slot, this.items.get(slot).saveOptional(registries));
+        }
+        tag.putLong("Power", this.power);
+        tag.putLong("MaxPower", this.maxPower);
+        tag.putLong("LastInput", this.lastInput);
+        tag.putLong("Consumption", this.consumption);
+        tag.putInt("Progress", this.progress);
+        tag.putInt("ProcessTime", this.processTime);
+        tag.putInt("CompletedCycles", this.completedCycles);
+        tag.putBoolean("collisionPrevention", this.collisionPrevention);
+        tag.put("Tank", this.tank.save());
+    }
+
+    @Override
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.loadAdditional(tag, registries);
+        for (int slot = 0; slot < this.items.size(); slot++) {
+            this.items.set(slot, ItemStack.parseOptional(registries, tag.getCompound("Slot" + slot)));
+        }
+        this.power = tag.getLong("Power");
+        this.maxPower = Math.max(BASE_MAX_POWER, tag.getLong("MaxPower"));
+        this.lastInput = tag.getLong("LastInput");
+        this.consumption = Math.max(1L, tag.getLong("Consumption"));
+        this.progress = tag.getInt("Progress");
+        this.processTime = Math.max(1, tag.getInt("ProcessTime"));
+        this.completedCycles = tag.getInt("CompletedCycles");
+        this.collisionPrevention = tag.getBoolean("collisionPrevention");
+        this.tank.load(tag.getCompound("Tank"));
+        invalidateRecipeCatalog();
+        this.identifierDirty = true;
+        this.recipeStateInitialized = false;
+    }
+
+    private void tickClient(Level level, BlockState state) {
+        // [parity K3: no client-side work; the "tau" particles are sent by the server while processing]
+    }
+
+    /** [parity K3: AuxParticlePacketNT {type: "tau", count: 3} every 20 world ticks while processing] */
+    private void spawnTauParticles(Level level) {
+        if (!(level instanceof ServerLevel serverLevel) || level.getGameTime() % 20L != 0L) {
+            return;
+        }
+        BlockState state = getBlockState();
+        Direction facing = state.hasProperty(SolderingStationBlock.FACING)
+                ? state.getValue(SolderingStationBlock.FACING)
+                : Direction.NORTH;
+        // ForgeDirection.getOrientation(meta - 10) and its rotation around UP
+        Direction dir = facing;
+        Direction rot = dir.getClockWise();
+        double x = this.worldPosition.getX() + 0.5D - dir.getStepX() * 0.5D + rot.getStepX() * 0.5D;
+        double y = this.worldPosition.getY() + 1.125D;
+        double z = this.worldPosition.getZ() + 0.5D - dir.getStepZ() * 0.5D + rot.getStepZ() * 0.5D;
+        for (int i = 0; i < 3; i++) {
+            serverLevel.sendParticles(HbmParticleTypes.TAU_SPARK.get(), x, y, z, 0,
+                    level.random.nextGaussian() * 0.05D, 0.05D, level.random.nextGaussian() * 0.05D, 1.0D);
+        }
+        serverLevel.sendParticles(HbmParticleTypes.TAU_HADRON.get(), x, y, z, 1, 0.0D, 0.0D, 0.0D, 0.0D);
+    }
+
+    public boolean collisionPrevention() {
+        return this.collisionPrevention;
+    }
+
+    public void toggleCollisionPrevention() {
+        this.collisionPrevention = !this.collisionPrevention;
+        invalidateRecipeMatch();
+        setChanged();
+    }
+
+    public int progress() {
+        return this.progress;
+    }
+
+    public int processTime() {
+        return this.processTime;
+    }
+
+    public long consumption() {
+        return this.consumption;
+    }
+
+    public long power() {
+        return this.power;
+    }
+
+    public long maxPower() {
+        return this.maxPower;
+    }
+
+    public void setPowerForDiagnostics(long power) {
+        this.power = power;
+    }
+
+    public HbmFluidTank tank() {
+        return this.tank;
+    }
+
+    private void tickWork(Level level) {
+        com.atomiclegacy.fluid.HbmFluidNetworks.subscribe(this.level, this); // [parity V1: fluid net] setupAllPorts + updatePort*FIFO
+        applyIdentifierSlot();
+        refreshWorkState(level);
+        SolderingStationRecipe recipe = this.cachedRecipe == null ? null : this.cachedRecipe.value();
+        if (recipe == null) {
+            this.maxPower = Math.max(BASE_MAX_POWER, this.power);
+            boolean batteryDischarged = dischargeBattery();
+            setLit(false);
+            if (batteryDischarged) {
+                markRuntimeChanged();
+            }
+            return;
+        }
+
+        this.maxPower = Math.max(this.consumption * 20L, this.power);
+        boolean batteryDischarged = dischargeBattery();
+
+        // [parity K3: canProcess - power, recipe fluid type and amount, collision prevention, output slot;
+        // the original resets the progress whenever the recipe cannot run]
+        if (!canProcess(recipe)) {
+            this.progress = 0;
+            setLit(false);
+            markRuntimeChanged();
+            return;
+        }
+
+        this.progress += this.progressStep;
+        this.power -= this.consumption;
+        setLit(true);
+
+        if (this.progress >= this.processTime) {
+            this.progress = 0;
+            consumeInputs(recipe);
+            insertOutput(recipe.result());
+            this.completedCycles++;
+            captureRecipeSlotSnapshot();
+            invalidateRecipeMatch();
+        }
+        spawnTauParticles(level);
+        markRuntimeChanged();
+    }
+
+    private boolean canProcess(SolderingStationRecipe recipe) {
+        if (this.power < this.consumption) return false;
+        if (recipe.fluid().isPresent()) {
+            SolderingStationRecipe.FluidIngredient fluid = recipe.fluid().get();
+            if (this.tank.type() != fluid.fluid()) return false;
+            if (this.tank.amount() < fluid.amount()) return false;
+        }
+        if (this.collisionPrevention && recipe.fluid().isEmpty() && this.tank.amount() > 0) return false;
+        return canOutput(recipe.result());
+    }
+
+    private boolean dischargeBattery() {
+        long previousPower = this.power;
+        this.power = BatteryPackItem.dischargeIntoMachine(this.items.get(BATTERY_SLOT), this.power, this.maxPower);
+        return this.power != previousPower;
+    }
+
+    private void markRuntimeChanged() {
+        // Internal progress and battery changes do not alter the capability
+        // provider or require another inventory snapshot comparison.
+        super.setChanged();
+    }
+
+    private void captureRecipeSlotSnapshot() {
+        // Completing a cycle mutates ingredient stacks internally. Use the
+        // post-cycle counts as the baseline so an automation system restoring
+        // the same batch cannot be mistaken for an unchanged inventory.
+        for (int slot = TOPPING_START; slot <= SOLDER_SLOT; slot++) {
+            this.observedWorkItems.set(slot, this.items.get(slot).copy());
+        }
+    }
+
+    private void refreshWorkState(Level level) {
+        ensureRecipeCatalog(level);
+        if (this.recipeMatchDirty) {
+            this.recipeMatchDirty = false;
+            ResourceLocation previousId = this.cachedRecipe == null ? null : this.cachedRecipe.id();
+            // [parity K3: SolderingRecipes.getRecipe compares the three item groups only]
+            SolderingStationRecipe.Input input = recipeInput();
+            this.cachedRecipe = null;
+            for (RecipeHolder<SolderingStationRecipe> holder : this.cachedRecipeCatalog) {
+                if (holder.value().matchesItems(input)) {
+                    this.cachedRecipe = holder;
+                    break;
+                }
+            }
+            ResourceLocation nextId = this.cachedRecipe == null ? null : this.cachedRecipe.id();
+            if (this.recipeStateInitialized) {
+                if (!Objects.equals(previousId, nextId)) {
+                    this.progress = 0;
+                }
+            } else {
+                this.recipeStateInitialized = true;
+                if (nextId == null) {
+                    this.progress = 0;
+                }
+            }
+            this.hasRecipe = this.cachedRecipe != null;
+            updateDisplay(); // [parity d3: display]
+            this.statsDirty = true;
+        }
+        if (!this.statsDirty) {
+            return;
+        }
+        this.statsDirty = false;
+        if (this.cachedRecipe == null) {
+            this.processTime = 1;
+            this.consumption = 100L;
+            this.progressStep = 1;
+        } else {
+            updateUpgradeAdjustedStats(this.cachedRecipe.value());
+        }
+    }
+
+    private SolderingStationRecipe.Input recipeInput() {
+        return new SolderingStationRecipe.Input(
+                stacks(TOPPING_START, TOPPING_END),
+                stacks(PCB_START, PCB_END),
+                stacks(SOLDER_SLOT, SOLDER_SLOT + 1),
+                this.tank.type(),
+                this.tank.amount()
+        );
+    }
+
+    private List<ItemStack> stacks(int start, int end) {
+        List<ItemStack> stacks = new ArrayList<>(end - start);
+        for (int slot = start; slot < end; slot++) {
+            stacks.add(this.items.get(slot));
+        }
+        return stacks;
+    }
+
+    private void updateUpgradeAdjustedStats(SolderingStationRecipe recipe) {
+        int redLevel = upgradeLevel(MachineUpgradeItem.UpgradeType.SPEED);
+        int blueLevel = upgradeLevel(MachineUpgradeItem.UpgradeType.POWER);
+        int blackLevel = overdriveLevel();
+
+        this.processTime = Math.max(1, recipe.duration() - (recipe.duration() * redLevel / 6) + (recipe.duration() * blueLevel / 3));
+        this.consumption = Math.max(1L, recipe.consumption() + (recipe.consumption() * redLevel) - (recipe.consumption() * blueLevel / 6));
+        this.consumption *= 1L << blackLevel;
+        this.progressStep = 1 + blackLevel;
+    }
+
+    private int upgradeLevel(MachineUpgradeItem.UpgradeType type) {
+        int level = 0;
+        for (int slot = UPGRADE_START; slot < UPGRADE_END; slot++) {
+            ItemStack stack = this.items.get(slot);
+            if (MachineUpgradeItem.upgradeType(stack) == type) {
+                level += Math.max(0, MachineUpgradeItem.upgradeTier(stack));
+            }
+        }
+        return Math.min(3, level);
+    }
+
+    private int overdriveLevel() {
+        return upgradeLevel(MachineUpgradeItem.UpgradeType.OVERDRIVE);
+    }
+
+    private boolean canOutput(ItemStack result) {
+        if (result.isEmpty()) {
+            return false;
+        }
+        ItemStack output = this.items.get(OUTPUT_SLOT);
+        if (output.isEmpty()) {
+            return true;
+        }
+        return ItemStack.isSameItemSameComponents(output, result)
+                && output.getCount() + result.getCount() <= output.getMaxStackSize();
+    }
+
+    private void insertOutput(ItemStack result) {
+        ItemStack copy = result.copy();
+        ItemStack output = this.items.get(OUTPUT_SLOT);
+        if (output.isEmpty()) {
+            this.items.set(OUTPUT_SLOT, copy);
+        } else {
+            output.grow(copy.getCount());
+        }
+    }
+
+    private void consumeInputs(SolderingStationRecipe recipe) {
+        consumeGroup(recipe.toppings(), TOPPING_START, TOPPING_END);
+        consumeGroup(recipe.pcb(), PCB_START, PCB_END);
+        consumeGroup(recipe.solder(), SOLDER_SLOT, SOLDER_SLOT + 1);
+        recipe.fluid().ifPresent(fluid -> this.tank.drain(fluid.fluid(), fluid.amount(), false));
+    }
+
+    private void consumeGroup(List<SolderingStationRecipe.CountedIngredient> ingredients, int start, int end) {
+        for (SolderingStationRecipe.CountedIngredient ingredient : ingredients) {
+            for (int slot = start; slot < end; slot++) {
+                ItemStack stack = this.items.get(slot);
+                if (!stack.isEmpty() && stack.getCount() >= ingredient.count() && ingredient.ingredient().test(stack)) {
+                    stack.shrink(ingredient.count());
+                    if (stack.isEmpty()) {
+                        this.items.set(slot, ItemStack.EMPTY);
+                    }
+                    break;
+                }
+            }
+        }
+    }
+
+    private boolean isIngredientForGroup(ItemStack stack, Group group) {
+        if (this.level == null || stack.isEmpty()) {
+            return false;
+        }
+        ensureRecipeCatalog(this.level);
+        return this.cachedRecipeCatalog.stream()
+                .map(RecipeHolder::value)
+                .anyMatch(recipe -> switch (group) {
+                    case TOPPING -> containsIngredient(recipe.toppings(), stack);
+                    case PCB -> containsIngredient(recipe.pcb(), stack);
+                    case SOLDER -> containsIngredient(recipe.solder(), stack);
+                });
+    }
+
+    private static boolean containsIngredient(List<SolderingStationRecipe.CountedIngredient> ingredients, ItemStack stack) {
+        for (SolderingStationRecipe.CountedIngredient ingredient : ingredients) {
+            if (ingredient.ingredient().test(stack)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean hasDuplicateInGroup(int slot, ItemStack stack, int start, int end) {
+        for (int otherSlot = start; otherSlot < end; otherSlot++) {
+            if (otherSlot == slot) {
+                continue;
+            }
+            ItemStack other = this.items.get(otherSlot);
+            if (!other.isEmpty() && ItemStack.isSameItemSameComponents(other, stack)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void setLit(boolean lit) {
+        if (this.level == null) {
+            return;
+        }
+
+        BlockState state = this.level.getBlockState(this.worldPosition);
+        if (state.getBlock() instanceof SolderingStationBlock && state.getValue(SolderingStationBlock.LIT) != lit) {
+            this.level.setBlock(this.worldPosition, state.setValue(SolderingStationBlock.LIT, lit), Block.UPDATE_CLIENTS);
+        }
+    }
+
+    private static boolean isRecipeSlot(int slot) {
+        return slot >= TOPPING_START && slot <= SOLDER_SLOT;
+    }
+
+    private void applyIdentifierSlot() {
+        if (!this.identifierDirty) {
+            return;
+        }
+        this.identifierDirty = false;
+        ItemStack identifier = this.items.get(FLUID_IDENTIFIER_SLOT);
+        if (!(identifier.getItem() instanceof FluidIdentifierItem)) {
+            return;
+        }
+
+        HbmFluidDefinition fluid = FluidIdentifierItem.primary(identifier);
+        if (fluid.isNone()) {
+            return;
+        }
+        // [parity K3: FluidTank.setType(in, slots) switches the type and empties the tank]
+        if (this.tank.type() != fluid) {
+            this.tank.setType(fluid);
+            invalidateRecipeMatch();
+        }
+    }
+
+    private boolean acceptsRecipeFluid(HbmFluidDefinition fluid) {
+        if (fluid == null || fluid.isNone() || this.level == null) {
+            return false;
+        }
+
+        ensureRecipeCatalog(this.level);
+        return this.cachedRecipeCatalog.stream()
+                .map(RecipeHolder::value)
+                .map(SolderingStationRecipe::fluid)
+                .flatMap(Optional::stream)
+                .anyMatch(ingredient -> ingredient.fluid() == fluid);
+    }
+
+    private void syncFluidCapability() {
+        invalidateRecipeMatch();
+        setChanged();
+        if (this.level != null) {
+            this.level.invalidateCapabilities(this.worldPosition);
+        }
+    }
+
+    private List<BlockPos> bodyPositions() {
+        Direction facing = this.getBlockState().hasProperty(SolderingStationBlock.FACING)
+                ? this.getBlockState().getValue(SolderingStationBlock.FACING)
+                : Direction.NORTH;
+        Direction right = facing.getClockWise();
+        Direction back = facing.getOpposite();
+        return List.of(
+                this.worldPosition,
+                this.worldPosition.relative(right),
+                this.worldPosition.relative(back),
+                this.worldPosition.relative(back).relative(right)
+        );
+    }
+
+    private List<Port> connectorPositions() {
+        Direction facing = this.getBlockState().hasProperty(SolderingStationBlock.FACING)
+                ? this.getBlockState().getValue(SolderingStationBlock.FACING)
+                : Direction.NORTH;
+        Direction right = facing.getClockWise();
+        Direction back = facing.getOpposite();
+        Direction left = right.getOpposite();
+        return List.of(
+                new Port(this.worldPosition.relative(facing), facing),
+                new Port(this.worldPosition.relative(right).relative(facing), facing),
+                new Port(this.worldPosition.relative(back, 2), back),
+                new Port(this.worldPosition.relative(right).relative(back, 2), back),
+                new Port(this.worldPosition.relative(left), left),
+                new Port(this.worldPosition.relative(back).relative(left), left),
+                new Port(this.worldPosition.relative(right, 2), right),
+                new Port(this.worldPosition.relative(back).relative(right, 2), right)
+        );
+    }
+
+    private record Port(BlockPos pos, Direction direction) {
+    }
+
+    private final class SolderingStationFluidHandler implements IFluidHandler {
+        @Override
+        public int getTanks() {
+            return 1;
+        }
+
+        @Override
+        public FluidStack getFluidInTank(int tank) {
+            return SolderingStationBlockEntity.this.tank.getFluidInTank(tank);
+        }
+
+        @Override
+        public int getTankCapacity(int tank) {
+            return SolderingStationBlockEntity.this.tank.getTankCapacity(tank);
+        }
+
+        @Override
+        public boolean isFluidValid(int tank, FluidStack stack) {
+            if (tank != 0 || stack.isEmpty()) {
+                return false;
+            }
+            // [parity K3: IFluidStandardReceiverMK2 - only the identifier-set tank type is received]
+            return HbmFluids.fromNeoFluid(stack.getFluid())
+                    .filter(fluid -> !fluid.isNone() && fluid == SolderingStationBlockEntity.this.tank.type())
+                    .isPresent();
+        }
+
+        @Override
+        public int fill(FluidStack resource, FluidAction action) {
+            if (resource.isEmpty()) {
+                return 0;
+            }
+            Optional<HbmFluidDefinition> fluid = HbmFluids.fromNeoFluid(resource.getFluid());
+            if (fluid.isEmpty() || fluid.get().isNone() || SolderingStationBlockEntity.this.tank.type() != fluid.get()) {
+                return 0;
+            }
+
+            int accepted = SolderingStationBlockEntity.this.tank.fill(fluid.get(), resource.getAmount(), action.simulate());
+            if (accepted > 0 && action.execute()) {
+                syncFluidCapability();
+            }
+            return accepted;
+        }
+
+        @Override
+        public FluidStack drain(FluidStack resource, FluidAction action) {
+            if (resource.isEmpty() || RECEIVER_ONLY) {
+                return FluidStack.EMPTY;
+            }
+            Optional<HbmFluidDefinition> requested = HbmFluids.fromNeoFluid(resource.getFluid());
+            if (requested.isEmpty()) {
+                return FluidStack.EMPTY;
+            }
+            HbmFluidStack drained = SolderingStationBlockEntity.this.tank.drain(requested.get(), resource.getAmount(), action.simulate());
+            if (!drained.isEmpty() && action.execute()) {
+                syncFluidCapability();
+            }
+            return drained.isEmpty() ? FluidStack.EMPTY : HbmFluids.toNeoStack(drained.type(), drained.amount());
+        }
+
+        @Override
+        public FluidStack drain(int maxDrain, FluidAction action) {
+            if (RECEIVER_ONLY) {
+                return FluidStack.EMPTY;
+            }
+            HbmFluidStack drained = SolderingStationBlockEntity.this.tank.drain(null, maxDrain, action.simulate());
+            if (!drained.isEmpty() && action.execute()) {
+                syncFluidCapability();
+            }
+            return drained.isEmpty() ? FluidStack.EMPTY : HbmFluids.toNeoStack(drained.type(), drained.amount());
+        }
+    }
+
+    private static boolean isValidSlot(int slot) {
+        return slot >= 0 && slot < SLOT_COUNT;
+    }
+
+    private void ensureRecipeCatalog(Level level) {
+        long generation = MachineRecipeCache.generation();
+        if (this.observedRecipeCacheGeneration != generation) {
+            this.observedRecipeCacheGeneration = generation;
+            invalidateRecipeCatalog();
+        }
+        if (!this.recipeCatalogDirty) {
+            return;
+        }
+        this.cachedRecipeCatalog = List.copyOf(level.getRecipeManager().getAllRecipesFor(HbmRecipeTypes.SOLDERING_STATION.get()));
+        this.recipeCatalogDirty = false;
+        this.recipeMatchDirty = true;
+    }
+
+    private void invalidateRecipeCatalog() {
+        this.recipeCatalogDirty = true;
+        this.cachedRecipeCatalog = List.of();
+        invalidateRecipeMatch();
+    }
+
+    private void invalidateRecipeMatch() {
+        this.recipeMatchDirty = true;
+    }
+
+    private void inventoryChanged(int slot) {
+        if (isRecipeSlot(slot)) {
+            invalidateRecipeMatch();
+        } else if (slot == FLUID_IDENTIFIER_SLOT) {
+            this.identifierDirty = true;
+        } else if (slot >= UPGRADE_START && slot < UPGRADE_END) {
+            this.statsDirty = true;
+        }
+    }
+
+    @Override
+    public void setChanged() {
+        // Hoppers and capability wrappers may grow an ItemStack in place and
+        // report only Container#setChanged. Observe the slots which affect the
+        // cached recipe and derived processing stats so that path also wakes it.
+        for (int slot = 0; slot < SLOT_COUNT; slot++) {
+            if (!isRecipeSlot(slot) && slot != FLUID_IDENTIFIER_SLOT
+                    && (slot < UPGRADE_START || slot >= UPGRADE_END)) {
+                continue;
+            }
+            ItemStack current = this.items.get(slot);
+            ItemStack observed = this.observedWorkItems.get(slot);
+            if (current.getCount() == observed.getCount()
+                    && ItemStack.isSameItemSameComponents(current, observed)) {
+                continue;
+            }
+            this.observedWorkItems.set(slot, current.copy());
+            inventoryChanged(slot);
+        }
+        super.setChanged();
+    }
+
+    private static boolean isSupportedUpgrade(ItemStack stack) {
+        if (!MachineUpgradeItem.isMachineUpgrade(stack)) {
+            return false;
+        }
+        MachineUpgradeItem.UpgradeType type = MachineUpgradeItem.upgradeType(stack);
+        return type == MachineUpgradeItem.UpgradeType.SPEED
+                || type == MachineUpgradeItem.UpgradeType.POWER
+                || type == MachineUpgradeItem.UpgradeType.OVERDRIVE;
+    }
+
+    private static void drop(Level level, BlockPos pos, ItemStack stack) {
+        if (stack.isEmpty()) {
+            return;
+        }
+
+        level.addFreshEntity(new ItemEntity(
+                level,
+                pos.getX() + 0.5D,
+                pos.getY() + 0.5D,
+                pos.getZ() + 0.5D,
+                stack.copy()
+        ));
+    }
+
+    public enum Group {
+        TOPPING,
+        PCB,
+        SOLDER
+    }
+
+    // [parity V1: fluid net] TileEntityMachineSolderingStation as IFluidStandard*MK2 with TilePort nodes (getPorts)
+    @Override public com.atomiclegacy.fluid.HbmFluidTank[] fluidReceivingTanks() { return new com.atomiclegacy.fluid.HbmFluidTank[]{this.tank}; }
+    @Override public java.util.List<FluidPort> fluidPorts(com.atomiclegacy.fluid.HbmFluidDefinition type) {
+        return com.atomiclegacy.fluid.HbmPortDefs.solderer(this.worldPosition, com.atomiclegacy.fluid.HbmPortDefs.dir(this));
+    }
+}

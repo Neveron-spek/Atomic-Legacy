@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "item": "atomiclegacy:briquette_coal"
+  },
+  "result": {
+    "id": "atomiclegacy:coke_coal",
+    "count": 1
+  },
+  "experience": 1.0,
+  "cookingtime": 200
+}

@@ -1,0 +1,7 @@
+{
+  "type":"minecraft:crafting_shaped",
+  "category":"equipment",
+  "pattern":["XXX","X X","X X"],
+  "key":{"X":{"item":"atomiclegacy:rag"}},
+  "result":{"id":"atomiclegacy:robes_legs"}
+}

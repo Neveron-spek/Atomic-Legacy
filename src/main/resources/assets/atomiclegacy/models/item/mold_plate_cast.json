@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/mold_plate_cast"
+                 },
+    "parent":  "minecraft:item/generated"
+}

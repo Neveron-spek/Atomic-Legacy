@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BRM",
+    " P "
+  ],
+  "key": {
+    "B": {
+      "tag": "c:gun_parts/barrel_light/saturnite"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_light/saturnite"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/saturnite"
+    },
+    "P": {
+      "tag": "c:plates/saturnite"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_skin_saturnite",
+    "count": 1
+  }
+}

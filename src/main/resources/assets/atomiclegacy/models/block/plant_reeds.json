@@ -1,0 +1,4 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": { "cross": "atomiclegacy:block/reeds_top", "particle": "atomiclegacy:block/reeds_top" }
+}

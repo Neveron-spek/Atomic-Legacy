@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SPS",
+    "G G",
+    "SPS"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:ingots/plastic"
+    },
+    "S": {
+      "tag": "c:plates/steel"
+    },
+    "G": {
+      "tag": "c:glass_panes"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_scope",
+    "count": 1
+  }
+}

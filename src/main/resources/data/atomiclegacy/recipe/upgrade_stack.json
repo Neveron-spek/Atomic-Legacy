@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " C ",
+    "PUP",
+    " C "
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:circuit_vacuum_tube"
+    },
+    "P": {
+      "item": "atomiclegacy:part_generic_piston_pneumatic"
+    },
+    "U": {
+      "item": "atomiclegacy:upgrade_template"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:upgrade_stack",
+    "count": 1
+  }
+}

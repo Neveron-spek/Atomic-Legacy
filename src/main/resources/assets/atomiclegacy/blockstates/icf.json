@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/icf" },
+    "facing=east": { "model": "atomiclegacy:block/particle/icf" },
+    "facing=south": { "model": "atomiclegacy:block/particle/icf" },
+    "facing=west": { "model": "atomiclegacy:block/particle/icf" }
+  }
+}

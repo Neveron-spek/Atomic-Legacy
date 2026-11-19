@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/schnitzel_vegan"
+                 },
+    "parent":  "minecraft:item/generated"
+}

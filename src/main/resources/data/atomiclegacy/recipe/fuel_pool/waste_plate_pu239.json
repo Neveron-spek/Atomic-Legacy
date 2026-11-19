@@ -1,0 +1,18 @@
+{
+  "type": "atomiclegacy:fuel_pool",
+  "group": "waste_plate",
+  "input": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:waste_plate_pu239"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "spentFuelPoolCooling": true
+      }
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:waste_plate_pu239"
+  }
+}

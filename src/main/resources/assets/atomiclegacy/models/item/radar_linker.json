@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/radar_linker"
+                 },
+    "parent":  "minecraft:item/generated"
+}

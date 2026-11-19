@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:block_beryllium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_beryllium",
+    "count": 9
+  }
+}

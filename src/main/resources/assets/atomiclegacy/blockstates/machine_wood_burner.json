@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "facing=north,lit=false": {"model": "atomiclegacy:block/particle/machine_wood_burner"},
+        "facing=east,lit=false": {"model": "atomiclegacy:block/particle/machine_wood_burner"},
+        "facing=south,lit=false": {"model": "atomiclegacy:block/particle/machine_wood_burner"},
+        "facing=west,lit=false": {"model": "atomiclegacy:block/particle/machine_wood_burner"},
+        "facing=north,lit=true": {"model": "atomiclegacy:block/particle/machine_wood_burner"},
+        "facing=east,lit=true": {"model": "atomiclegacy:block/particle/machine_wood_burner"},
+        "facing=south,lit=true": {"model": "atomiclegacy:block/particle/machine_wood_burner"},
+        "facing=west,lit=true": {"model": "atomiclegacy:block/particle/machine_wood_burner"}
+    }
+}

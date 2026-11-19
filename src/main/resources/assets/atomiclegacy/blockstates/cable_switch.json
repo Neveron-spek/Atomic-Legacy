@@ -1,0 +1,10 @@
+﻿{
+    "variants": {
+        "powered=false": {
+            "model": "atomiclegacy:block/cable_switch_off"
+        },
+        "powered=true": {
+            "model": "atomiclegacy:block/cable_switch_on"
+        }
+    }
+}

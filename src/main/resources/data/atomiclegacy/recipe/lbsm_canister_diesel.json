@@ -1,0 +1,37 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:less_bullshit_mode",
+      "feature": "simple_crafting"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:canister_full"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "fluid": "oil"
+        }
+      }
+    },
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "item": "atomiclegacy:canister_empty"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:canister_full",
+    "components": {
+      "minecraft:custom_data": {
+        "fluid": "diesel"
+      }
+    }
+  }
+}

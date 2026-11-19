@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["SS", "HC", "SS"],
+  "key": {
+    "S": { "tag": "c:plates/titanium" },
+    "H": { "item": "atomiclegacy:part_generic_piston_hydraulic" },
+    "C": { "item": "atomiclegacy:circuit_basic" }
+  },
+  "result": { "id": "atomiclegacy:refueler" }
+}

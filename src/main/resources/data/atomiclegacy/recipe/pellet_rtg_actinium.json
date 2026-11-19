@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:billet_actinium"
+    },
+    {
+      "item": "atomiclegacy:billet_actinium"
+    },
+    {
+      "item": "atomiclegacy:billet_actinium"
+    },
+    {
+      "tag": "c:plates/iron"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:pellet_rtg_actinium"
+  }
+}

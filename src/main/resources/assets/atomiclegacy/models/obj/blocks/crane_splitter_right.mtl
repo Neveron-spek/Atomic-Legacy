@@ -1,0 +1,55 @@
+newmtl Top
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_top_right
+
+newmtl Bottom
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_top_left
+
+newmtl Left
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_left
+
+newmtl Right
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_right
+
+newmtl Back
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_back_right
+
+newmtl Front
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_front_right
+
+newmtl Inner
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_inner
+
+newmtl InnerLeft
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_inner_side
+
+newmtl InnerRight
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_inner_side
+
+newmtl InnerTop
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_inner_side
+
+newmtl InnerBottom
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_belt
+

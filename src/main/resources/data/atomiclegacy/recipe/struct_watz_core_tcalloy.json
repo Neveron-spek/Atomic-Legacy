@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CBC",
+    "BHB",
+    "CBC"
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:circuit_advanced"
+    },
+    "B": {
+      "item": "atomiclegacy:plate_cast_tcalloy"
+    },
+    "H": {
+      "item": "atomiclegacy:watz_cooler"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:struct_watz_core"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PPP",
+    "CCC",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:plates/steel"
+    },
+    "C": {
+      "item": "atomiclegacy:concrete_asbestos"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:rbmk_lid",
+    "count": 4
+  }
+}

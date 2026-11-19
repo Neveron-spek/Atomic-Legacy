@@ -1,0 +1,30 @@
+{
+    "type":  "atomiclegacy:silex",
+    "group":  "silex.rbmk_pellet_balefire_gold_3",
+    "ingredient":  {
+                       "type":  "neoforge:components",
+                       "items":  [
+                                     "atomiclegacy:rbmk_pellet_balefire_gold"
+                                 ],
+                       "components":  {
+                                          "minecraft:custom_model_data":  3
+                                      }
+                   },
+    "fluid_produced":  600,
+    "fluid_consumed":  100,
+    "wavelength":  "visible",
+    "outputs":  [
+                    {
+                        "item":  {
+                                     "id":  "atomiclegacy:nugget_au198"
+                                 },
+                        "weight":  30
+                    },
+                    {
+                        "item":  {
+                                     "id":  "atomiclegacy:powder_balefire"
+                                 },
+                        "weight":  70
+                    }
+                ]
+}

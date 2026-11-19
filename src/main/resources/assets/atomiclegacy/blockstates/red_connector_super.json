@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=down": { "model": "atomiclegacy:block/particle/red_connector_super" },
+    "facing=up": { "model": "atomiclegacy:block/particle/red_connector_super" },
+    "facing=north": { "model": "atomiclegacy:block/particle/red_connector_super" },
+    "facing=south": { "model": "atomiclegacy:block/particle/red_connector_super" },
+    "facing=west": { "model": "atomiclegacy:block/particle/red_connector_super" },
+    "facing=east": { "model": "atomiclegacy:block/particle/red_connector_super" }
+  }
+}

@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":[" BM","BPB","TB "],"key":{"B":{"item":"atomiclegacy:gem_volcanic"},"M":{"tag":"c:ingots/meteorite"},"P":{"item":"atomiclegacy:starmetal_pickaxe"},"T":{"item":"atomiclegacy:bolt_tungsten"}},"result":{"id":"atomiclegacy:volcanic_pickaxe"}}

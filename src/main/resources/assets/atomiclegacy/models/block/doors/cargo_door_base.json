@@ -1,0 +1,13 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/doors/cargo_door.obj",
+  "mtl_override": "atomiclegacy:models/obj/doors/cargo_door.mtl",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": false,
+  "textures": {
+    "door": "atomiclegacy:block/doors/cargo_door",
+    "particle": "atomiclegacy:block/doors/cargo_door"
+  }
+}

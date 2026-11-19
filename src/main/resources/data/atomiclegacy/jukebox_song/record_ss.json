@@ -1,0 +1,6 @@
+{
+  "comparator_output": 1,
+  "description": {"translate": "jukebox_song.atomiclegacy.record_ss"},
+  "length_in_seconds": 166.504,
+  "sound_event": "atomiclegacy:music.record_sector_sweep"
+}

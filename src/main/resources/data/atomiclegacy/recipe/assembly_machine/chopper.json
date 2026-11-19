@@ -1,0 +1,41 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.chopper",
+  "duration": 1200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_combine_steel"
+      },
+      "count": 24
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/steel"
+      },
+      "count": 32
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_magnetized_tungsten"
+      },
+      "count": 48
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:motor_desh"
+      },
+      "count": 5
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller_advanced"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:chopper"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:ingots/pu241"
+    }
+  },
+  "pattern": [
+    "#"
+  ],
+  "result": {
+    "id": "atomiclegacy:nugget_pu241",
+    "count": 9
+  }
+}

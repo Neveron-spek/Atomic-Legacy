@@ -1,0 +1,12 @@
+{
+    "type":  "minecraft:smelting",
+    "category":  "misc",
+    "ingredient":  {
+                       "item":  "atomiclegacy:raw_coltan"
+                   },
+    "result":  {
+                   "id":  "atomiclegacy:fragment_coltan"
+               },
+    "experience":  20,
+    "cookingtime":  200
+}

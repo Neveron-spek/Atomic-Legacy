@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/launchpad_soyuz" },
+    "facing=east": { "model": "atomiclegacy:block/particle/launchpad_soyuz" },
+    "facing=south": { "model": "atomiclegacy:block/particle/launchpad_soyuz" },
+    "facing=west": { "model": "atomiclegacy:block/particle/launchpad_soyuz" }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless", "category": "misc",
+  "ingredients": [
+    { "item": "atomiclegacy:billet_schrabidium" },
+    { "item": "atomiclegacy:billet_neptunium" },
+    { "item": "atomiclegacy:billet_beryllium" }
+  ],
+  "result": { "id": "atomiclegacy:billet_schrabidium_fuel", "count": 3 }
+}

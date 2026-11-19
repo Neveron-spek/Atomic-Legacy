@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless", "category": "misc",
+  "ingredients": [
+    { "item": "atomiclegacy:billet_am241" },
+    { "item": "atomiclegacy:billet_am242" },
+    { "item": "atomiclegacy:billet_am242" }
+  ],
+  "result": { "id": "atomiclegacy:billet_am_mix", "count": 3 }
+}

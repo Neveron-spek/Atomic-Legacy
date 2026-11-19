@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/bobmazon_hidden"
+                 },
+    "parent":  "minecraft:item/generated"
+}

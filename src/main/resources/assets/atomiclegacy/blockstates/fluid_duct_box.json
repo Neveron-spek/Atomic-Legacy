@@ -1,0 +1,5 @@
+{
+  "multipart": [
+    { "apply": { "model": "atomiclegacy:block/fluid_duct_box" } }
+  ]
+}

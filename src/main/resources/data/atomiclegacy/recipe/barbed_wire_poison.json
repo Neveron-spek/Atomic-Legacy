@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "BBB",
+    "BIB",
+    "BBB"
+  ],
+  "key": {
+    "B": { "item": "atomiclegacy:barbed_wire" },
+    "I": { "tag": "c:dusts/poison" }
+  },
+  "result": { "id": "atomiclegacy:barbed_wire_poison", "count": 8 }
+}

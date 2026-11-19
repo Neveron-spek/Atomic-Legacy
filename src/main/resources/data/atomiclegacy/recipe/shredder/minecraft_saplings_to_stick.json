@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "tag": "minecraft:saplings"
+  },
+  "result": {
+    "id": "minecraft:stick"
+  }
+}

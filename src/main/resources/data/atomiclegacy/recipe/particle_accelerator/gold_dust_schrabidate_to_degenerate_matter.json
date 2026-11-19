@@ -1,0 +1,13 @@
+{
+  "type": "atomiclegacy:particle_accelerator",
+  "input1": {
+    "item": "atomiclegacy:item_expensive_gold_dust"
+  },
+  "input2": {
+    "tag": "c:ingots/schrabidate"
+  },
+  "momentum": 10000,
+  "output1": {
+    "id": "atomiclegacy:item_expensive_degenerate_matter"
+  }
+}

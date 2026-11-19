@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "P",
+    "P",
+    "S"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:plates/welded_copper"
+    },
+    "S": {
+      "tag": "c:ingots/any_rubber"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:pipe_anchor_pneumatic",
+    "count": 2
+  }
+}

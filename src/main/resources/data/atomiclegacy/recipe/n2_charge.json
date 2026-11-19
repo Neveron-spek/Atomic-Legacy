@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":[" D ","ERE"," D "],"key":{"D":{"item":"atomiclegacy:ducttape"},"E":{"item":"atomiclegacy:det_charge"},"R":{"item":"minecraft:redstone_block"}},"result":{"id":"atomiclegacy:n2_charge"}}

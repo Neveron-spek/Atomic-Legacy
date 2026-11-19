@@ -1,0 +1,38 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.ct_hook",
+  "order": 88,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/steel"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:pipes/steel"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 16,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "ct_hook"
+      },
+      "minecraft:custom_model_data": 92
+    }
+  }
+}

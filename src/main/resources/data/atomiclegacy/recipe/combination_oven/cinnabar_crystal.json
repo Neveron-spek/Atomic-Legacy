@@ -1,0 +1,14 @@
+{
+  "type": "atomiclegacy:combination_oven",
+  "group": "combination_oven.cinnabar",
+  "input": {
+    "tag": "c:gems/cinnabar"
+  },
+  "output": {
+    "id": "atomiclegacy:sulfur"
+  },
+  "fluid": {
+    "fluid": "mercury",
+    "amount": 100
+  }
+}

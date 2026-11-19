@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/neutrino_lens"
+                 },
+    "parent":  "minecraft:item/generated"
+}

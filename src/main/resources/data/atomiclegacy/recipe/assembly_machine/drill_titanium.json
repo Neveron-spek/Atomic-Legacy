@@ -1,0 +1,23 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.titaniumdrill",
+  "duration": 100,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_dura_steel"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/titanium"
+      },
+      "count": 8
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:drill_titanium"
+  }
+}

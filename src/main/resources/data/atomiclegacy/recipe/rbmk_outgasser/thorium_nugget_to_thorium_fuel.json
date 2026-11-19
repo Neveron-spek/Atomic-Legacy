@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:rbmk_outgasser",
+  "group": "outgasser.thorium",
+  "ingredient": {
+    "tag": "c:nuggets/thorium"
+  },
+  "item_output": {
+    "id": "atomiclegacy:nugget_thorium_fuel"
+  }
+}

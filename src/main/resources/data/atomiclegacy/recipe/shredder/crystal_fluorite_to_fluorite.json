@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:crystal_fluorite"
+  },
+  "result": {
+    "id": "atomiclegacy:fluorite",
+    "count": 8
+  }
+}

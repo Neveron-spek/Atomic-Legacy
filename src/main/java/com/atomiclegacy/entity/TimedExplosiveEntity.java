@@ -1,0 +1,211 @@
+package com.atomiclegacy.entity;
+
+import com.atomiclegacy.registry.HbmEntityTypes;
+import com.atomiclegacy.blocks.DetonatableBlock;
+import com.atomiclegacy.blocks.LegacyBarrelBlock;
+import com.atomiclegacy.tileentity.WallChargeExplosions;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.util.StringRepresentable;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MoverType;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
+
+/** Moving 1.7.10 EntityTNTPrimedBase for the Semtex and C-4 blocks. */
+public final class TimedExplosiveEntity extends Entity {
+    private static final EntityDataAccessor<Integer> FUSE =
+            SynchedEntityData.defineId(TimedExplosiveEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> KIND =
+            SynchedEntityData.defineId(TimedExplosiveEntity.class, EntityDataSerializers.INT);
+    private Entity owner;
+
+    public TimedExplosiveEntity(EntityType<? extends TimedExplosiveEntity> type, Level level) {
+        super(type, level);
+    }
+
+    public TimedExplosiveEntity(Level level, double x, double y, double z, Entity owner, int fuse, Kind kind) {
+        this(HbmEntityTypes.TIMED_EXPLOSIVE.get(), level);
+        setPos(x, y, z);
+        this.owner = owner;
+        setFuse(fuse);
+        setKind(kind);
+        float angle = (float) (random.nextDouble() * Math.PI * 2.0D);
+        setDeltaMovement(-Math.sin(angle) * 0.02D, 0.2D, -Math.cos(angle) * 0.02D);
+    }
+
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        builder.define(FUSE, 80);
+        builder.define(KIND, Kind.SEMTEX.ordinal());
+    }
+
+    public int fuse() {
+        return entityData.get(FUSE);
+    }
+
+    public void setFuse(int fuse) {
+        entityData.set(FUSE, fuse);
+    }
+
+    public Kind kind() {
+        return Kind.byOrdinal(entityData.get(KIND));
+    }
+
+    public void setKind(Kind kind) {
+        entityData.set(KIND, kind.ordinal());
+    }
+
+    public Entity getOwner() {
+        return owner;
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        xo = getX();
+        yo = getY();
+        zo = getZ();
+
+        // EntityTNTPrimedBase.onUpdate: motionY -= 0.04 is kept, so the entity hops and falls back
+        // (move() does not store the vector it is given; gravity has to be written to the motion first).
+        setDeltaMovement(getDeltaMovement().add(0.0D, -0.04D, 0.0D));
+        move(MoverType.SELF, getDeltaMovement());
+        Vec3 motion = getDeltaMovement().scale(0.98D);
+        if (onGround()) {
+            motion = new Vec3(motion.x * 0.7D, motion.y * -0.5D, motion.z * 0.7D);
+        }
+        setDeltaMovement(motion);
+
+        int fuse = fuse();
+        Kind currentKind = kind();
+        if (fuse <= 0 || (currentKind.detonatesOnCollision() && (horizontalCollision || verticalCollision))) {
+            discard();
+            if (!level().isClientSide) {
+                if (level() instanceof ServerLevel server
+                        && isDetonatableKind(currentKind)) {
+                    DetonatableBlock.detonatePrimed(server,
+                            net.minecraft.core.BlockPos.containing(getX(), getY(), getZ()), currentKind, owner);
+                } else if (currentKind == Kind.FISSURE && level() instanceof ServerLevel server) {
+                    com.atomiclegacy.blocks.FissureBombBehavior.detonate(server, this, new Vec3(getX(), getY(), getZ()));
+                } else if (currentKind.isLegacyBarrel() && level() instanceof ServerLevel server) {
+                    LegacyBarrelBlock.detonatePrimed(server, new Vec3(getX(), getY(), getZ()), currentKind, this);
+                } else {
+                    // world.createExplosion(entity, x, y, z, size, true): smoking, not flaming
+                    com.atomiclegacy.explosion.LegacyVnt.vanilla((ServerLevel) level(), this,
+                            getX(), getY(), getZ(), currentKind.explosionRadius(), false, true);
+                }
+            }
+            return;
+        }
+        setFuse(fuse - 1);
+        if (level().isClientSide) {
+            level().addParticle(ParticleTypes.SMOKE, getX(), getY() + 0.5D, getZ(), 0.0D, 0.0D, 0.0D);
+        }
+    }
+
+    private static boolean isDetonatableKind(Kind kind) {
+        return switch (kind) {
+            case DET_CORD, DET_CHARGE, DET_NUKE, DET_MINER -> true;
+            default -> false;
+        };
+    }
+
+    @Override
+    public boolean isPickable() {
+        return isAlive();
+    }
+
+    @Override
+    public boolean canBeCollidedWith() {
+        return isAlive();
+    }
+
+    /** Direct modern equivalent of EntityTNTPrimedBase#canTriggerWalking() == false. */
+    @Override
+    public boolean isIgnoringBlockTriggers() {
+        return true;
+    }
+
+    @Override
+    protected void addAdditionalSaveData(CompoundTag tag) {
+        tag.putInt("Fuse", fuse());
+        tag.putString("Kind", kind().getSerializedName());
+    }
+
+    @Override
+    protected void readAdditionalSaveData(CompoundTag tag) {
+        setFuse(tag.getInt("Fuse"));
+        setKind(Kind.byId(tag.getString("Kind")));
+    }
+
+    public enum Kind implements StringRepresentable {
+        DYNAMITE("dynamite", 8.0F),
+        TNT("tnt_ntm", 10.0F),
+        SEMTEX("semtex", 12.0F),
+        C4("c4", 15.0F),
+        FISSURE("fissure_bomb", 5.0F),
+        DET_CORD("det_cord", 0.0F),
+        DET_CHARGE("det_charge", 0.0F),
+        DET_NUKE("det_nuke", 0.0F),
+        DET_MINER("det_miner", 0.0F),
+        RED_BARREL("red_barrel", 0.0F, true),
+        PINK_BARREL("pink_barrel", 0.0F, true),
+        LOX_BARREL("lox_barrel", 0.0F, true),
+        TAINT_BARREL("taint_barrel", 0.0F, true),
+        YELLOW_BARREL("yellow_barrel", 0.0F, true);
+
+        private final String id;
+        private final float explosionRadius;
+        private final boolean detonatesOnCollision;
+
+        Kind(String id, float explosionRadius) {
+            this(id, explosionRadius, false);
+        }
+
+        Kind(String id, float explosionRadius, boolean detonatesOnCollision) {
+            this.id = id;
+            this.explosionRadius = explosionRadius;
+            this.detonatesOnCollision = detonatesOnCollision;
+        }
+
+        public float explosionRadius() {
+            return explosionRadius;
+        }
+
+        public boolean detonatesOnCollision() {
+            return this.detonatesOnCollision;
+        }
+
+        public boolean isLegacyBarrel() {
+            return switch (this) {
+                case RED_BARREL, PINK_BARREL, LOX_BARREL, TAINT_BARREL, YELLOW_BARREL -> true;
+                default -> false;
+            };
+        }
+
+        @Override
+        public String getSerializedName() {
+            return id;
+        }
+
+        public static Kind byOrdinal(int ordinal) {
+            Kind[] values = values();
+            return ordinal >= 0 && ordinal < values.length ? values[ordinal] : SEMTEX;
+        }
+
+        public static Kind byId(String id) {
+            for (Kind value : values()) {
+                if (value.id.equals(id)) {
+                    return value;
+                }
+            }
+            return SEMTEX;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "atomiclegacy:block/stone_biome_top.desert",
+    "up": "atomiclegacy:block/stone_biome_top.desert",
+    "north": "atomiclegacy:block/stone_biome.desert",
+    "south": "atomiclegacy:block/stone_biome.desert",
+    "east": "atomiclegacy:block/stone_biome.desert",
+    "west": "atomiclegacy:block/stone_biome.desert",
+    "particle": "#north"
+  }
+}

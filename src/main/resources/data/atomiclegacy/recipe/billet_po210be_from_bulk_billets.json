@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_shapeless", "category": "misc",
+  "ingredients": [
+    { "item": "atomiclegacy:billet_polonium" }, { "item": "atomiclegacy:billet_polonium" }, { "item": "atomiclegacy:billet_polonium" },
+    { "item": "atomiclegacy:billet_beryllium" }, { "item": "atomiclegacy:billet_beryllium" }, { "item": "atomiclegacy:billet_beryllium" }
+  ],
+  "result": { "id": "atomiclegacy:billet_po210be", "count": 6 }
+}

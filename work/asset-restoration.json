@@ -1,0 +1,138 @@
+{
+  "restored": [],
+  "technical_conversions": [
+    {
+      "source": "deco_pole_top",
+      "target": "deco_pole_top_flipped",
+      "conversion": "vertical UV flip; original pixels preserved"
+    },
+    {
+      "source": "deco_tape_recorder",
+      "target": "deco_tape_recorder_flipped",
+      "conversion": "vertical UV flip; original pixels preserved"
+    }
+  ],
+  "unresolved": [],
+  "components": [
+    {
+      "id": "motor",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "motor_desh",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "motor_bismuth",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "coil_copper",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "coil_copper_torus",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "coil_gold",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "coil_gold_torus",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "coil_tungsten",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "coil_magnetized_tungsten",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "tank_steel",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "sawblade",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "blade_titanium",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "blade_tungsten",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "turbine_titanium",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "turbine_tungsten",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "plate_iron",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "plate_gold",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "plate_aluminium",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "plate_titanium",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "plate_copper",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "plate_lead",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "plate_steel",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "plate_polymer",
+      "byte_identical": true,
+      "restored": false
+    },
+    {
+      "id": "asbestos_cloth",
+      "byte_identical": true,
+      "restored": false
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:dusts/desh_mix"
+    },
+    {
+      "item": "atomiclegacy:nugget_mercury"
+    },
+    {
+      "item": "atomiclegacy:nugget_mercury"
+    },
+    {
+      "tag": "c:dusts/coal"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:powder_desh_ready"
+  }
+}

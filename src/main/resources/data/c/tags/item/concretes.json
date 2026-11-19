@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:concrete",
+    "atomiclegacy:concrete_smooth",
+    "atomiclegacy:concrete_asbestos",
+    "atomiclegacy:ducrete",
+    "atomiclegacy:ducrete_smooth",
+    "atomiclegacy:concrete_colored",
+    "atomiclegacy:concrete_colored_ext"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.gadget",
+  "duration": 300,
+  "power": 100,
+  "ingredients": [
+    { "ingredient": { "item": "atomiclegacy:sphere_steel" }, "count": 1 },
+    { "ingredient": { "item": "atomiclegacy:fins_flat" }, "count": 2 },
+    { "ingredient": { "item": "atomiclegacy:pedestal_steel" }, "count": 1 },
+    { "ingredient": { "item": "atomiclegacy:circuit_controller" }, "count": 3 },
+    { "ingredient": { "tag": "c:dyes/gray" }, "count": 8 }
+  ],
+  "result": { "id": "atomiclegacy:nuke_gadget" },
+  "blueprint_pools": [ "528.controller" ]
+}

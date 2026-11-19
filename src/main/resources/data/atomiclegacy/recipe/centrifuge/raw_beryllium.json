@@ -1,0 +1,26 @@
+{
+    "type":  "atomiclegacy:centrifuge",
+    "group":  "centrifuge",
+    "ingredient":  {
+                       "tag":  "c:raw_materials/beryllium"
+                   },
+    "input_count":  4,
+    "results":  [
+                    {
+                        "id":  "atomiclegacy:powder_beryllium",
+                        "count":  3
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_beryllium",
+                        "count":  3
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_emerald",
+                        "count":  3
+                    },
+                    {
+                        "id":  "minecraft:gravel",
+                        "count":  4
+                    }
+                ]
+}

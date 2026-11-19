@@ -1,0 +1,17 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/network/pylon_medium.obj",
+  "mtl_override": "atomiclegacy:models/obj/network/pylon_medium.mtl",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": false,
+  "visibility": {
+    "Pylon": true,
+    "Transformer": false
+  },
+  "textures": {
+    "particle": "atomiclegacy:models/network/pylon_medium",
+    "hbm": "atomiclegacy:models/network/pylon_medium"
+  }
+}

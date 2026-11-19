@@ -1,0 +1,15 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "item": "atomiclegacy:gravel_obsidian"
+  },
+  "acid": {
+    "fluid": "peroxide",
+    "amount": 500
+  },
+  "duration": 100,
+  "result": {
+    "id": "atomiclegacy:brick_obsidian"
+  }
+}

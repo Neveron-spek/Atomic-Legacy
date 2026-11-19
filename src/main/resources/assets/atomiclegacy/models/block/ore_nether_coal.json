@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/ore_nether_coal"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

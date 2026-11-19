@@ -1,0 +1,25 @@
+{
+    "replace": false,
+    "values": [
+        "atomiclegacy:red_cable",
+        "atomiclegacy:red_cable_classic",
+        "atomiclegacy:red_cable_box",
+        "atomiclegacy:red_cable_paintable",
+        "atomiclegacy:red_cable_gauge",
+        "atomiclegacy:red_wire_coated",
+        "atomiclegacy:cable_diode",
+        "atomiclegacy:cable_switch",
+        "atomiclegacy:cable_detector",
+        "atomiclegacy:machine_battery_redd",
+        "atomiclegacy:machine_battery_socket",
+        "atomiclegacy:capacitor_copper",
+        "atomiclegacy:capacitor_bus",
+        "atomiclegacy:machine_wood_burner",
+        "atomiclegacy:machine_stirling",
+        "atomiclegacy:machine_stirling_steel",
+        "atomiclegacy:machine_stirling_creative",
+        "atomiclegacy:machine_diesel",
+        "atomiclegacy:machine_combustion_engine",
+        "atomiclegacy:machine_steam_engine"
+    ]
+}

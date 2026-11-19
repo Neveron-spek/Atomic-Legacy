@@ -1,0 +1,37 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_expensive_mode"
+      }
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.pileblock",
+  "duration": 20,
+  "power": 250,
+  "ingredients": [
+    {
+      "ingredient": {
+        "tag": "minecraft:planks"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/graphite"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "tag": "c:bolts/steel"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:pile_brick"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "type": "atomiclegacy:purex",
+  "duration": 600,
+  "power": 1000,
+  "input_items": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:billet_uranium_fuel"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:billet_zirconium"
+      },
+      "count": 3
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "nitric_acid",
+      "amount": 1000
+    },
+    {
+      "fluid": "hydrogen",
+      "amount": 4000
+    }
+  ],
+  "output_items": [
+    {
+      "id": "atomiclegacy:billet_uzh",
+      "count": 4
+    }
+  ]
+}

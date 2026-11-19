@@ -1,0 +1,7 @@
+﻿{
+    "variants":  {
+                     "":  {
+                              "model":  "atomiclegacy:block/particle/pole_satellite_receiver"
+                          }
+                 }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BM ",
+    "BRS",
+    "G  "
+  ],
+  "key": {
+    "B": {
+      "tag": "c:gun_parts/barrel_heavy/dura_steel"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/gunmetal"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_light/dura_steel"
+    },
+    "S": {
+      "tag": "c:gun_parts/stock/wood"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/wood"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_congolake",
+    "count": 1
+  }
+}

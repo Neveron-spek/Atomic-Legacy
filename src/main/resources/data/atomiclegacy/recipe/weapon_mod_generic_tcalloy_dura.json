@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:plates/weaponsteel"
+    },
+    {
+      "tag": "c:plates/cast_resistant_alloy"
+    },
+    {
+      "item": "atomiclegacy:ducttape"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:weapon_mod_generic_tcalloy_dura",
+    "count": 1
+  }
+}

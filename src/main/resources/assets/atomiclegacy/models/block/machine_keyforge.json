@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "atomiclegacy:block/machine_keyforge_side",
+    "down": "atomiclegacy:block/machine_keyforge_bottom",
+    "up": "atomiclegacy:block/machine_keyforge_top",
+    "north": "atomiclegacy:block/machine_keyforge_side",
+    "south": "atomiclegacy:block/machine_keyforge_side",
+    "west": "atomiclegacy:block/machine_keyforge_side",
+    "east": "atomiclegacy:block/machine_keyforge_side"
+  }
+}

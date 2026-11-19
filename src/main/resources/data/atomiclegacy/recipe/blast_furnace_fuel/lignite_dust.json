@@ -1,0 +1,5 @@
+{
+  "type": "atomiclegacy:blast_furnace_fuel",
+  "ingredient": { "tag": "c:dusts/lignite" },
+  "power": 1200
+}

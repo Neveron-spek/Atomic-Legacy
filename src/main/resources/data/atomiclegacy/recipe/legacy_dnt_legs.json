@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "EE ",
+    "EEE",
+    "E E"
+  ],
+  "key": {
+    "E": {
+      "tag": "c:ingots/dineutronium"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:dnt_legs"
+  }
+}

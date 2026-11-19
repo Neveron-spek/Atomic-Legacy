@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "variant=0": { "model": "atomiclegacy:block/cm_port_steel" },
+    "variant=1": { "model": "atomiclegacy:block/cm_port_alloy" },
+    "variant=2": { "model": "atomiclegacy:block/cm_port_desh" },
+    "variant=3": { "model": "atomiclegacy:block/cm_port_tcalloy" },
+    "variant=4": { "model": "atomiclegacy:block/cm_port_tcalloy" },
+    "variant=5": { "model": "atomiclegacy:block/cm_port_tcalloy" },
+    "variant=6": { "model": "atomiclegacy:block/cm_port_tcalloy" },
+    "variant=7": { "model": "atomiclegacy:block/cm_port_tcalloy" }
+  }
+}

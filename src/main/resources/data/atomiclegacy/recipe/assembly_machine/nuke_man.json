@@ -1,0 +1,44 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.fatman",
+  "duration": 300,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:sphere_steel"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:shell_steel"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:fins_big_steel"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "tag": "c:dyes/yellow"
+      },
+      "count": 6
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:nuke_man"
+  },
+  "blueprint_pools": [
+    "528.controller"
+  ]
+}

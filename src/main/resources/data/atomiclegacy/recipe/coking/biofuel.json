@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:coking","group":"coking.biofuel","input":{"fluid":"biofuel","amount":650},"output":{"id":"atomiclegacy:coke_petroleum"},"byproduct":{"fluid":"gas_coker","amount":65}}

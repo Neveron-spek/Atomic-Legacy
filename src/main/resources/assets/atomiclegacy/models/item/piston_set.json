@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:item/piston_set_steel"
+  },
+  "overrides": [
+    { "predicate": { "minecraft:custom_model_data": 0 }, "model": "atomiclegacy:item/piston_set_steel" },
+    { "predicate": { "minecraft:custom_model_data": 1 }, "model": "atomiclegacy:item/piston_set_dura" },
+    { "predicate": { "minecraft:custom_model_data": 2 }, "model": "atomiclegacy:item/piston_set_desh" },
+    { "predicate": { "minecraft:custom_model_data": 3 }, "model": "atomiclegacy:item/piston_set_starmetal" }
+  ]
+}

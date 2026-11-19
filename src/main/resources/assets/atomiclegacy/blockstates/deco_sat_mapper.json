@@ -1,0 +1,7 @@
+﻿{
+  "variants": {
+    "": {
+      "model": "atomiclegacy:block/deco_sat_mapper"
+    }
+  }
+}

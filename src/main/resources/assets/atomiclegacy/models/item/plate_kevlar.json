@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/plate_kevlar"
+                 },
+    "parent":  "minecraft:item/generated"
+}

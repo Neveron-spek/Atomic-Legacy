@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MPM",
+    "PBP",
+    "PDP"
+  ],
+  "key": {
+    "M": {
+      "item": "atomiclegacy:motor_desh"
+    },
+    "P": {
+      "tag": "c:plates/armor_fau"
+    },
+    "B": {
+      "item": "atomiclegacy:starmetal_legs"
+    },
+    "D": {
+      "item": "atomiclegacy:billet_polonium"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:fau_legs"
+  }
+}

@@ -1,0 +1,167 @@
+package com.atomiclegacy.inventory.container;
+
+import com.atomiclegacy.tileentity.PwrControllerBlockEntity;
+import com.atomiclegacy.fluid.HbmFluidDefinition;
+import com.atomiclegacy.items.FluidIdentifierItem;
+import com.atomiclegacy.registry.HbmFluids;
+import com.atomiclegacy.registry.HbmMenus;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.world.Container;
+import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.SimpleContainerData;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.BlockEntity;
+
+public class PwrMenu extends AbstractContainerMenu {
+    private static final int MACHINE_SLOT_COUNT = PwrControllerBlockEntity.SLOT_COUNT;
+    private static final int PLAYER_INVENTORY_START = MACHINE_SLOT_COUNT;
+    private static final int PLAYER_INVENTORY_END = PLAYER_INVENTORY_START + 27;
+    private static final int HOTBAR_START = PLAYER_INVENTORY_END;
+    private static final int HOTBAR_END = HOTBAR_START + 9;
+
+    private final Container container;
+    private final ContainerData data;
+    private final BlockPos blockPos;
+
+    public PwrMenu(int containerId, Inventory playerInventory, RegistryFriendlyByteBuf buffer) {
+        this(containerId, playerInventory, readContext(playerInventory, buffer));
+    }
+
+    private PwrMenu(int containerId, Inventory playerInventory, MenuContext context) {
+        this(containerId, playerInventory, context.container(), new SimpleContainerData(PwrControllerBlockEntity.DATA_COUNT), context.blockPos());
+    }
+
+    public PwrMenu(int containerId, Inventory playerInventory, Container container, ContainerData data, BlockPos blockPos) {
+        super(HbmMenus.PWR.get(), containerId);
+        checkContainerSize(container, MACHINE_SLOT_COUNT);
+        checkContainerDataCount(data, PwrControllerBlockEntity.DATA_COUNT);
+        this.container = container;
+        this.data = data;
+        this.blockPos = blockPos.immutable();
+
+        // Exact 1.7.10 ContainerPWR positions.  The GUI texture was authored
+        // around these coordinates; moving the slots makes every panel appear
+        // unrelated to the item it represents.
+        addSlot(new ValidatedSlot(container, PwrControllerBlockEntity.SLOT_INPUT, 53, 5));
+        addSlot(new TakeOnlySlot(container, PwrControllerBlockEntity.SLOT_OUTPUT, 89, 32));
+        addSlot(new ValidatedSlot(container, PwrControllerBlockEntity.SLOT_IDENTIFIER, 8, 59));
+        addPlayerInventory(playerInventory, 8, 106);
+        addDataSlots(data);
+    }
+
+    @Override
+    public ItemStack quickMoveStack(Player player, int index) {
+        ItemStack moved = ItemStack.EMPTY;
+        Slot slot = this.slots.get(index);
+        if (!slot.hasItem()) {
+            return moved;
+        }
+        ItemStack stack = slot.getItem();
+        moved = stack.copy();
+        // [parity e2] ContainerPWR.transferStackInSlot: 0..2 -> 3..size (reverse); identifier -> slot 2,
+        // anything else -> slot 0; no inventory <-> hotbar fallback.
+        if (index <= 2) {
+            if (!moveItemStackTo(stack, 3, this.slots.size(), true)) {
+                return ItemStack.EMPTY;
+            }
+        } else if (stack.getItem() instanceof FluidIdentifierItem) {
+            if (!moveItemStackTo(stack, 2, 3, false)) {
+                return ItemStack.EMPTY;
+            }
+        } else if (!moveItemStackTo(stack, 0, 1, false)) {
+            return ItemStack.EMPTY;
+        }
+
+        if (stack.isEmpty()) {
+            slot.setByPlayer(ItemStack.EMPTY);
+        } else {
+            slot.setChanged();
+        }
+        return moved;
+    }
+
+    @Override
+    public boolean stillValid(Player player) {
+        return container.stillValid(player);
+    }
+
+    public BlockPos blockPos() {
+        return blockPos;
+    }
+
+    public int coreHeat() { return data.get(0); }
+    public int hullHeat() { return data.get(1); }
+    public int coreHeatCapacity() { return Math.max(1, data.get(2)); }
+    public int flux() { return data.get(3); }
+    public int progress() { return data.get(4); }
+    public int processTime() { return Math.max(1, data.get(5)); }
+    public int typeLoaded() { return data.get(6); }
+    public int amountLoaded() { return data.get(7); }
+    public int rodCount() { return data.get(8); }
+    public double rodLevel() { return data.get(9) / 100.0D; }
+    public double rodTarget() { return data.get(10) / 100.0D; }
+    public HbmFluidDefinition coolantFluid() { return HbmFluids.byOldId(data.get(11)).orElse(HbmFluids.none()); }
+    public int coolantAmount() { return data.get(12); }
+    public HbmFluidDefinition hotCoolantFluid() { return HbmFluids.byOldId(data.get(13)).orElse(HbmFluids.none()); }
+    public int hotCoolantAmount() { return data.get(14); }
+    public boolean assembled() { return data.get(15) != 0; }
+
+    public int heatScaled(int pixels, boolean core) {
+        return Math.min(pixels, (core ? coreHeat() : hullHeat()) * pixels / coreHeatCapacity());
+    }
+
+    public int progressScaled(int pixels) {
+        return (int) ((long) progress() * pixels / processTime());
+    }
+
+    private void addPlayerInventory(Inventory inventory, int left, int top) {
+        for (int row = 0; row < 3; row++) {
+            for (int column = 0; column < 9; column++) {
+                addSlot(new Slot(inventory, column + row * 9 + 9, left + column * 18, top + row * 18));
+            }
+        }
+        for (int column = 0; column < 9; column++) {
+            addSlot(new Slot(inventory, column, left + column * 18, top + 58));
+        }
+    }
+
+    private static MenuContext readContext(Inventory playerInventory, RegistryFriendlyByteBuf buffer) {
+        BlockPos pos = buffer.readBlockPos();
+        BlockEntity blockEntity = playerInventory.player.level().getBlockEntity(pos);
+        if (blockEntity instanceof PwrControllerBlockEntity controller) {
+            return new MenuContext(controller, pos);
+        }
+        return new MenuContext(new SimpleContainer(MACHINE_SLOT_COUNT), pos);
+    }
+
+    private record MenuContext(Container container, BlockPos blockPos) {
+    }
+
+    private static class ValidatedSlot extends Slot {
+        private ValidatedSlot(Container container, int slot, int x, int y) {
+            super(container, slot, x, y);
+        }
+
+        @Override
+        public boolean mayPlace(ItemStack stack) {
+            return container.canPlaceItem(index, stack);
+        }
+    }
+
+    private static final class TakeOnlySlot extends Slot {
+        private TakeOnlySlot(Container container, int slot, int x, int y) {
+            super(container, slot, x, y);
+        }
+
+        @Override
+        public boolean mayPlace(ItemStack stack) {
+            return false;
+        }
+    }
+}

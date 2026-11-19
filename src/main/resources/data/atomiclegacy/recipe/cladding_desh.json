@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["DPD", "PRP", "DPD"],
+  "key": {
+    "D": { "item": "atomiclegacy:ducttape" },
+    "P": { "tag": "c:plates/desh" },
+    "R": { "item": "atomiclegacy:cladding_lead" }
+  },
+  "result": { "id": "atomiclegacy:cladding_desh" }
+}

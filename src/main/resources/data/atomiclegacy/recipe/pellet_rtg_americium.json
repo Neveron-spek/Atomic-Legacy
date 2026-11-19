@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:billet_am241"
+    },
+    {
+      "item": "atomiclegacy:billet_am241"
+    },
+    {
+      "item": "atomiclegacy:billet_am241"
+    },
+    {
+      "tag": "c:plates/iron"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:pellet_rtg_americium"
+  }
+}

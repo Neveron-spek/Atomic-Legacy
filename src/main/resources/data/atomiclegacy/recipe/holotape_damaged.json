@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:holotape_image"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "holo_restored"
+        }
+      }
+    },
+    {
+      "item": "atomiclegacy:upgrade_muffler"
+    },
+    {
+      "item": "atomiclegacy:crt_display"
+    },
+    {
+      "item": "atomiclegacy:gem_alexandrite"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:holotape_damaged"
+  }
+}

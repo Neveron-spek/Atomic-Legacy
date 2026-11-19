@@ -1,0 +1,7 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/cassette",
+                     "layer1":  "atomiclegacy:item/cassette_overlay"
+                 },
+    "parent":  "minecraft:item/generated"
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " MG",
+    "BBR",
+    " GM"
+  ],
+  "key": {
+    "M": {
+      "tag": "c:gun_parts/mechanism/gunmetal"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/dura_steel"
+    },
+    "B": {
+      "tag": "c:gun_parts/barrel_heavy/dura_steel"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_heavy/dura_steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_flamer",
+    "count": 1
+  }
+}

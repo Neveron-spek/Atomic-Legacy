@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:meteor_polished"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_meteorite"
+  }
+}

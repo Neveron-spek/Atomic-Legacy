@@ -1,0 +1,19 @@
+{
+  "type": "atomiclegacy:mixer",
+  "group": "mixer.gasoline_leaded",
+  "output": {
+    "fluid": "gasoline_leaded",
+    "amount": 12000
+  },
+  "duration": 40,
+  "input1": {
+    "fluid": "gasoline",
+    "amount": 10000
+  },
+  "solid_input": {
+    "ingredient": {
+      "item": "atomiclegacy:fuel_additive_antiknock"
+    },
+    "count": 1
+  }
+}

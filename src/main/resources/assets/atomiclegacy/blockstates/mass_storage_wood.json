@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/mass_storage_wood" },
+    "facing=east": { "model": "atomiclegacy:block/mass_storage_wood", "y": 90 },
+    "facing=south": { "model": "atomiclegacy:block/mass_storage_wood", "y": 180 },
+    "facing=west": { "model": "atomiclegacy:block/mass_storage_wood", "y": 270 }
+  }
+}

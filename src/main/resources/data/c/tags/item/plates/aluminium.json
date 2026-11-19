@@ -1,0 +1,10 @@
+{
+    "replace": false,
+    "values": [
+        "atomiclegacy:plate_aluminium",
+        {
+            "id": "immersiveengineering:plate_aluminum",
+            "required": false
+        }
+    ]
+}

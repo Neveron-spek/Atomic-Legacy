@@ -1,0 +1,19 @@
+{
+  "type": "atomiclegacy:mixer",
+  "group": "mixer.coalgas_leaded",
+  "output": {
+    "fluid": "coalgas_leaded",
+    "amount": 12000
+  },
+  "duration": 40,
+  "input1": {
+    "fluid": "coalgas",
+    "amount": 10000
+  },
+  "solid_input": {
+    "ingredient": {
+      "item": "atomiclegacy:fuel_additive_antiknock"
+    },
+    "count": 1
+  }
+}

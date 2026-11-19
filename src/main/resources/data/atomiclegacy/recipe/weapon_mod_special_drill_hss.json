@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " IP",
+    "IIM",
+    " IP"
+  ],
+  "key": {
+    "I": {
+      "tag": "c:ingots/dura_steel"
+    },
+    "P": {
+      "tag": "c:ingots/plastic"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/gunmetal"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_drill_hss",
+    "count": 1
+  }
+}

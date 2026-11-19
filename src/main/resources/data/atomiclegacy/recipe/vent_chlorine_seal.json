@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "ISI",
+    "SCS",
+    "ISI"
+  ],
+  "key": {
+    "I": {
+      "tag": "c:ingots/saturnite"
+    },
+    "S": {
+      "tag": "c:ingots/starmetal"
+    },
+    "C": {
+      "item": "atomiclegacy:chlorine_pinwheel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:vent_chlorine_seal"
+  }
+}

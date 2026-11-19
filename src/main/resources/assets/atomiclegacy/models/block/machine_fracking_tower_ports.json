@@ -1,0 +1,28 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/machines/fracking_tower_ports.obj",
+  "mtl_override": "atomiclegacy:models/obj/machines/fracking_tower_ports.mtl",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": false,
+  "visibility": {
+    "pZ": true,
+    "pX": true,
+    "nZ": true,
+    "nX": true,
+    "pY": false,
+    "nnn": false,
+    "nnp": false,
+    "pnp": false,
+    "pnn": false,
+    "ppn": false,
+    "npn": false,
+    "npp": false,
+    "ppp": false,
+    "nY": false
+  },
+  "textures": {
+    "particle": "atomiclegacy:block/pipe_silver"
+  }
+}

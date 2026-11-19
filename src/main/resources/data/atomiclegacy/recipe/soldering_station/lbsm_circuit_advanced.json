@@ -1,0 +1,55 @@
+{
+  "type": "atomiclegacy:soldering_station",
+  "group": "soldering.circuit",
+  "duration": 300,
+  "consumption": 1000,
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:less_bullshit_mode",
+      "feature": "simple_crafting"
+    }
+  ],
+  "fluid": {
+    "fluid": "sulfuric_acid",
+    "amount": 1000
+  },
+  "toppings": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_chip"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_capacitor"
+      },
+      "count": 4
+    }
+  ],
+  "pcb": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_pcb"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/rubber"
+      },
+      "count": 2
+    }
+  ],
+  "solder": [
+    {
+      "ingredient": {
+        "tag": "c:wires/lead"
+      },
+      "count": 8
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:circuit_advanced"
+  }
+}

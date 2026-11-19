@@ -1,0 +1,1 @@
+{"type": "minecraft:crafting_shapeless", "category": "misc", "ingredients": [{"item": "minecraft:wheat"}, {"type": "neoforge:components", "items": "atomiclegacy:marshmallow", "components": {"minecraft:custom_data": {"variant": "roasted"}}}, {"item": "minecraft:cocoa_beans"}], "result": {"id": "atomiclegacy:ingot_smore"}}

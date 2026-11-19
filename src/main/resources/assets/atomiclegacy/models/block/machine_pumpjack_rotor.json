@@ -1,0 +1,8 @@
+{
+  "parent": "atomiclegacy:block/machine_pumpjack",
+  "visibility": {
+    "Base": false,
+    "Carriage": false,
+    "Head": false
+  }
+}

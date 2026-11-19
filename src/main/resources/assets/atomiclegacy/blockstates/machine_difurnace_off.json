@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "covered=false,facing=north,lit=false": {
+      "model": "atomiclegacy:block/machine_difurnace_off"
+    },
+    "covered=true,facing=north,lit=false": {
+      "model": "atomiclegacy:block/machine_difurnace_off_covered"
+    },
+    "covered=false,facing=north,lit=true": {
+      "model": "atomiclegacy:block/machine_difurnace_on"
+    },
+    "covered=true,facing=north,lit=true": {
+      "model": "atomiclegacy:block/machine_difurnace_on_covered"
+    },
+    "covered=false,facing=east,lit=false": {
+      "model": "atomiclegacy:block/machine_difurnace_off",
+      "y": 90
+    },
+    "covered=true,facing=east,lit=false": {
+      "model": "atomiclegacy:block/machine_difurnace_off_covered",
+      "y": 90
+    },
+    "covered=false,facing=east,lit=true": {
+      "model": "atomiclegacy:block/machine_difurnace_on",
+      "y": 90
+    },
+    "covered=true,facing=east,lit=true": {
+      "model": "atomiclegacy:block/machine_difurnace_on_covered",
+      "y": 90
+    },
+    "covered=false,facing=south,lit=false": {
+      "model": "atomiclegacy:block/machine_difurnace_off",
+      "y": 180
+    },
+    "covered=true,facing=south,lit=false": {
+      "model": "atomiclegacy:block/machine_difurnace_off_covered",
+      "y": 180
+    },
+    "covered=false,facing=south,lit=true": {
+      "model": "atomiclegacy:block/machine_difurnace_on",
+      "y": 180
+    },
+    "covered=true,facing=south,lit=true": {
+      "model": "atomiclegacy:block/machine_difurnace_on_covered",
+      "y": 180
+    },
+    "covered=false,facing=west,lit=false": {
+      "model": "atomiclegacy:block/machine_difurnace_off",
+      "y": 270
+    },
+    "covered=true,facing=west,lit=false": {
+      "model": "atomiclegacy:block/machine_difurnace_off_covered",
+      "y": 270
+    },
+    "covered=false,facing=west,lit=true": {
+      "model": "atomiclegacy:block/machine_difurnace_on",
+      "y": 270
+    },
+    "covered=true,facing=west,lit=true": {
+      "model": "atomiclegacy:block/machine_difurnace_on_covered",
+      "y": 270
+    }
+  }
+}

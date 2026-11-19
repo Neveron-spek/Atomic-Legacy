@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:ingots/asbestos"
+    },
+    {
+      "tag": "c:tars"
+    },
+    {
+      "tag": "c:nuggets/polonium"
+    },
+    {
+      "item": "atomiclegacy:plant_item_tobacco"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:cigarette",
+    "count": 16
+  }
+}

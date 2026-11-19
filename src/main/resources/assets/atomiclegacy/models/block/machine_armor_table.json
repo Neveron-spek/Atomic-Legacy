@@ -1,0 +1,12 @@
+{
+    "parent": "minecraft:block/cube",
+    "textures": {
+        "up": "atomiclegacy:block/armor_table_top",
+        "down": "atomiclegacy:block/armor_table_bottom",
+        "north": "atomiclegacy:block/armor_table_side",
+        "south": "atomiclegacy:block/armor_table_side",
+        "east": "atomiclegacy:block/armor_table_side",
+        "west": "atomiclegacy:block/armor_table_side",
+        "particle": "atomiclegacy:block/armor_table_side"
+    }
+}

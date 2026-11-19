@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:coking","group":"coking.reformate","input":{"fluid":"reformate","amount":130},"output":{"id":"atomiclegacy:coke_petroleum"},"byproduct":{"fluid":"gas_coker","amount":13}}

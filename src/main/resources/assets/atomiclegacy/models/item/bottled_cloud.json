@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/bottled_cloud"
+                 },
+    "parent":  "minecraft:item/generated"
+}

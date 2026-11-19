@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/sellafield_slaked"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

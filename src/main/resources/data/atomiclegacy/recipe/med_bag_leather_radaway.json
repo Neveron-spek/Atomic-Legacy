@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LL",
+    "SI",
+    "LL"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "S": {
+      "item": "atomiclegacy:syringe_metal_super"
+    },
+    "I": {
+      "item": "atomiclegacy:radaway"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:med_bag"
+  }
+}

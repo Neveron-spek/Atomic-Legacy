@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "atomiclegacy:brick_concrete_mossy"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:concrete_brick_slab",
+    "count": 6,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "brick_concrete_mossy"
+      },
+      "minecraft:custom_model_data": 1
+    }
+  }
+}

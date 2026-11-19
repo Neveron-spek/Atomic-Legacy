@@ -1,0 +1,51 @@
+{
+    "type":  "atomiclegacy:purex",
+    "group":  "autoswitch.pwr",
+    "duration":  100,
+    "power":  2500,
+    "input_items":  [
+                        {
+                            "ingredient":  {
+                                               "type":  "neoforge:components",
+                                               "items":  [
+                                                             "atomiclegacy:pwr_fuel_depleted"
+                                                         ],
+                                               "components":  {
+                                                                  "minecraft:custom_data":  {
+                                                                                                "variant":  "mox"
+                                                                                            },
+                                                                  "minecraft:custom_model_data":  5
+                                                              }
+                                           },
+                            "count":  1
+                        }
+                    ],
+    "input_fluids":  [
+                         {
+                             "fluid":  "kerosene",
+                             "amount":  500
+                         },
+                         {
+                             "fluid":  "nitric_acid",
+                             "amount":  250
+                         }
+                     ],
+    "output_items":  [
+                         {
+                             "id":  "atomiclegacy:nugget_u238",
+                             "count":  3
+                         },
+                         {
+                             "id":  "atomiclegacy:nugget_pu240",
+                             "count":  4
+                         },
+                         {
+                             "id":  "atomiclegacy:nugget_technetium",
+                             "count":  2
+                         },
+                         {
+                             "id":  "atomiclegacy:nuclear_waste_tiny",
+                             "count":  3
+                         }
+                     ]
+}

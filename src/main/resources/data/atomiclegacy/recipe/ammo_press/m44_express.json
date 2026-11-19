@@ -1,0 +1,39 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.m44_express",
+  "order": 11,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/steel"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      },
+      "count": 3
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_small"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 6,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "m44_express"
+      },
+      "minecraft:custom_model_data": 47
+    }
+  }
+}

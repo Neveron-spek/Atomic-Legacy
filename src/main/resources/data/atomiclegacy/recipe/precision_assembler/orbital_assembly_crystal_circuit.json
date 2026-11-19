@@ -1,0 +1,59 @@
+{
+    "neoforge:conditions": [
+        {
+            "type": "neoforge:not",
+            "value": {
+                "type": "atomiclegacy:enable_expensive_mode"
+            }
+        }
+    ],
+    "type": "atomiclegacy:precision_assembler",
+    "group": "precass.crystalcircuit",
+    "duration": 600,
+    "power": 20000,
+    "ingredients": [
+        {
+            "ingredient": {
+                "item": "atomiclegacy:circuit_chip_quantum"
+            },
+            "count": 4
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:ingot_cft"
+            },
+            "count": 4
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:circuit_pcb"
+            },
+            "count": 16
+        },
+        {
+            "ingredient": {
+                "tag": "c:wires/gold"
+            },
+            "count": 32
+        }
+    ],
+    "outputs": [
+        {
+            "result": {
+                "id": "atomiclegacy:orbital_assembly_crystal_circuit",
+                "count": 1
+            },
+            "weight": 50
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:broken_item",
+                "count": 1,
+                "components": {
+                    "minecraft:custom_data": "{item_id:\"atomiclegacy:orbital_assembly_crystal_circuit\",item_count:1}"
+                }
+            },
+            "weight": 50
+        }
+    ]
+}

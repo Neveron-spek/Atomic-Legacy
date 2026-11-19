@@ -1,0 +1,33 @@
+{
+  "type": "atomiclegacy:plasma_forge",
+  "group": "plsm.icfpress",
+  "blueprint_pools": [
+    "528.chlorophyte"
+  ],
+  "duration": 800,
+  "power": 10000000,
+  "ignition_temp": 1000000,
+  "input_items": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_gold"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:motor"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_bismoid"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:machine_icf_press"
+  }
+}

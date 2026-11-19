@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "atomiclegacy:nugget_raw_boron"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:ingot_boron"
+  }
+}

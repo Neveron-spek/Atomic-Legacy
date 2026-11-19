@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "atomiclegacy:lightstone_bricks"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:stones_slab",
+    "count": 6,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "bricks"
+      },
+      "minecraft:custom_model_data": 1
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+    "type":  "atomiclegacy:centrifuge",
+    "group":  "centrifuge",
+    "ingredient":  {
+                       "item":  "atomiclegacy:crystal_trixite"
+                   },
+    "input_count":  1,
+    "results":  [
+                    {
+                        "id":  "atomiclegacy:powder_plutonium",
+                        "count":  2
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_cobalt",
+                        "count":  3
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_niobium",
+                        "count":  2
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_nitan_mix"
+                    }
+                ]
+}

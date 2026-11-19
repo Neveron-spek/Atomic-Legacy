@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:rod_dual"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "np237"
+        }
+      }
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:billet_neptunium",
+    "count": 2
+  }
+}

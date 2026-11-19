@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "TTT",
+    "TRT",
+    "TTT"
+  ],
+  "key": {
+    "T": {
+      "item": "atomiclegacy:pellet_gas"
+    },
+    "R": {
+      "item": "atomiclegacy:rangefinder"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:bomb_caller",
+    "components": {
+      "minecraft:custom_data": "{airstrike_mode:2}",
+      "minecraft:custom_model_data": 2
+    }
+  }
+}

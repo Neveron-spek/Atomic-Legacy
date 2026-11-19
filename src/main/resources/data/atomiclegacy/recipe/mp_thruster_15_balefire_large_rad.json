@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CCC",
+    "CTC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:plate_cast_copper"
+    },
+    "T": {
+      "item": "atomiclegacy:mp_thruster_15_balefire_large"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:mp_thruster_15_balefire_large_rad",
+    "count": 1
+  }
+}

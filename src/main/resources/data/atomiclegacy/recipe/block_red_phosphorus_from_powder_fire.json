@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "c:dusts/fire"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:block_red_phosphorus"
+  }
+}

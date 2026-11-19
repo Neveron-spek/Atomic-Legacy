@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "atomiclegacy:block/gun_table_top",
+    "bottom": "atomiclegacy:block/gun_table_bottom",
+    "side": "atomiclegacy:block/gun_table_side",
+    "particle": "atomiclegacy:block/gun_table_side"
+  }
+}

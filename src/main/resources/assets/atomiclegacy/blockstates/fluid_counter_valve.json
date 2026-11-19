@@ -1,0 +1,6 @@
+{
+  "multipart": [
+    { "when": { "open": "false" }, "apply": { "model": "atomiclegacy:block/fluid_counter_valve" } },
+    { "when": { "open": "true" }, "apply": { "model": "atomiclegacy:block/fluid_counter_valve_on" } }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:block_advanced_alloy",
+    "atomiclegacy:block_au198",
+    "atomiclegacy:machine_tacz_ammo_assembler",
+    "atomiclegacy:ore_bedrock_block",
+    "atomiclegacy:ore_bedrock_coltan"
+  ]
+}

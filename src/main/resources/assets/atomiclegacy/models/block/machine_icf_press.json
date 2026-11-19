@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "atomiclegacy:block/machine_icf_press_side",
+    "down": "atomiclegacy:block/machine_icf_press_top",
+    "up": "atomiclegacy:block/machine_icf_press_top",
+    "north": "atomiclegacy:block/machine_icf_press_side",
+    "south": "atomiclegacy:block/machine_icf_press_side",
+    "west": "atomiclegacy:block/machine_icf_press_side",
+    "east": "atomiclegacy:block/machine_icf_press_side"
+  }
+}

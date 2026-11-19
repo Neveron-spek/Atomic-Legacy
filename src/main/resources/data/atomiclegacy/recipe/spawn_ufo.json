@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["MMM", "DCD", "MMM"],
+  "key": {
+    "M": { "tag": "c:ingots/meteorite" },
+    "D": { "tag": "c:ingots/dineutronium" },
+    "C": { "item": "atomiclegacy:coin_worm" }
+  },
+  "result": { "id": "atomiclegacy:spawn_ufo" }
+}

@@ -1,0 +1,44 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.watzrod",
+  "blueprint_pools": [
+    "528.tcalloy"
+  ],
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_ferro_plating"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_plastic"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_saturnite"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_zirconium"
+      },
+      "count": 3
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:watz_element",
+    "count": 3
+  }
+}

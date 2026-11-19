@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "PMP",
+    "PTP"
+  ],
+  "key": {
+    "G": {
+      "item": "atomiclegacy:steel_grate"
+    },
+    "P": {
+      "tag": "c:plates/steel"
+    },
+    "M": {
+      "item": "atomiclegacy:motor"
+    },
+    "T": {
+      "item": "atomiclegacy:tank_steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:machine_intake"
+  }
+}

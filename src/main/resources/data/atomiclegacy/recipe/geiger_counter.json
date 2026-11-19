@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GPP",
+    "WCS",
+    "WBB"
+  ],
+  "key": {
+    "W": {
+      "item": "atomiclegacy:wire_gold"
+    },
+    "P": {
+      "tag": "c:ingots/any_rubber"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_basic"
+    },
+    "G": {
+      "tag": "c:ingots/gold"
+    },
+    "S": {
+      "tag": "c:plates/steel"
+    },
+    "B": {
+      "tag": "c:ingots/beryllium"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:geiger_counter"
+  }
+}

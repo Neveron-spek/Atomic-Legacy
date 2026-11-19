@@ -1,0 +1,6 @@
+{
+  "parent": "atomiclegacy:block/template/rbmk_port_block",
+  "textures": {
+    "all": "atomiclegacy:block/rbmk_steam_inlet"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "atomiclegacy:block/wand_tandem"
+    },
+    "facing=south": {
+      "model": "atomiclegacy:block/wand_tandem"
+    },
+    "facing=west": {
+      "model": "atomiclegacy:block/wand_tandem"
+    },
+    "facing=east": {
+      "model": "atomiclegacy:block/wand_tandem"
+    },
+    "facing=down": {
+      "model": "atomiclegacy:block/wand_tandem"
+    },
+    "facing=up": {
+      "model": "atomiclegacy:block/wand_tandem"
+    }
+  }
+}

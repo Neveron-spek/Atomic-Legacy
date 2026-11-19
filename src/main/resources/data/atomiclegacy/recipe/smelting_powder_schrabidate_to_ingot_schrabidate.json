@@ -1,0 +1,12 @@
+{
+    "type":  "minecraft:smelting",
+    "category":  "misc",
+    "ingredient":  {
+                       "tag":  "c:dusts/schrabidate"
+                   },
+    "result":  {
+                   "id":  "atomiclegacy:ingot_schrabidate"
+               },
+    "experience":  5,
+    "cookingtime":  200
+}

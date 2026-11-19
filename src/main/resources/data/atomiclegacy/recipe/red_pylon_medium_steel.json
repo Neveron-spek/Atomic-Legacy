@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CCW",
+    "IIW",
+    "  S"
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:coil_copper"
+    },
+    "I": {
+      "tag": "c:plates/polymer"
+    },
+    "W": {
+      "item": "atomiclegacy:pipe_steel"
+    },
+    "S": {
+      "tag": "c:cobblestones"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:red_pylon_medium_steel",
+    "count": 2
+  }
+}

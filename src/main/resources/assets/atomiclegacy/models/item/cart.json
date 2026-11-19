@@ -1,0 +1,129 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:item/cart.vanilla",
+    "layer1": "atomiclegacy:item/cart_overlay.empty"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 0
+      },
+      "model": "atomiclegacy:item/cart_vanilla_empty"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 1
+      },
+      "model": "atomiclegacy:item/cart_vanilla_crate"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 2
+      },
+      "model": "atomiclegacy:item/cart_vanilla_destroyer"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 3
+      },
+      "model": "atomiclegacy:item/cart_vanilla_powder"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 4
+      },
+      "model": "atomiclegacy:item/cart_vanilla_semtex"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 10
+      },
+      "model": "atomiclegacy:item/cart_wood_empty"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 11
+      },
+      "model": "atomiclegacy:item/cart_wood_crate"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 12
+      },
+      "model": "atomiclegacy:item/cart_wood_destroyer"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 13
+      },
+      "model": "atomiclegacy:item/cart_wood_powder"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 14
+      },
+      "model": "atomiclegacy:item/cart_wood_semtex"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 20
+      },
+      "model": "atomiclegacy:item/cart_steel_empty"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 21
+      },
+      "model": "atomiclegacy:item/cart_steel_crate"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 22
+      },
+      "model": "atomiclegacy:item/cart_steel_destroyer"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 23
+      },
+      "model": "atomiclegacy:item/cart_steel_powder"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 24
+      },
+      "model": "atomiclegacy:item/cart_steel_semtex"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 30
+      },
+      "model": "atomiclegacy:item/cart_painted_empty"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 31
+      },
+      "model": "atomiclegacy:item/cart_painted_crate"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 32
+      },
+      "model": "atomiclegacy:item/cart_painted_destroyer"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 33
+      },
+      "model": "atomiclegacy:item/cart_painted_powder"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:cart_variant": 34
+      },
+      "model": "atomiclegacy:item/cart_painted_semtex"
+    }
+  ]
+}

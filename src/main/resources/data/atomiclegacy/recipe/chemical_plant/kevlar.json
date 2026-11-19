@@ -1,0 +1,29 @@
+{
+  "type": "atomiclegacy:chemical_plant",
+  "group": "chem.kevlar",
+  "duration": 60,
+  "power": 300,
+  "input_items": [],
+  "input_fluids": [
+    {
+      "fluid": "aromatics",
+      "amount": 200
+    },
+    {
+      "fluid": "nitric_acid",
+      "amount": 100
+    },
+    {
+      "fluid": "chlorine",
+      "amount": 100,
+      "fluid_528": "phosgene"
+    }
+  ],
+  "output_items": [
+    {
+      "id": "atomiclegacy:plate_kevlar",
+      "count": 4
+    }
+  ],
+  "output_fluids": []
+}

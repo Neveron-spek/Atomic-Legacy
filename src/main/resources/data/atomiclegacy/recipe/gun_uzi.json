@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BRS",
+    " GM"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:gun_parts/barrel_light/desh"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_light/desh"
+    },
+    "S": {
+      "tag": "c:gun_parts/stock/any_plastic"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/any_plastic"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/gunmetal"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_uzi",
+    "count": 1
+  }
+}

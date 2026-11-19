@@ -1,0 +1,5 @@
+{
+  "type": "atomiclegacy:blast_furnace_fuel",
+  "ingredient": { "item": "atomiclegacy:briquette_coal" },
+  "power": 2000
+}

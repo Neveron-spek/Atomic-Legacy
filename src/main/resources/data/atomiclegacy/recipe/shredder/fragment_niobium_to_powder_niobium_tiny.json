@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:fragment_niobium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_niobium_tiny"
+  }
+}

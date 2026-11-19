@@ -1,0 +1,14 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "atomiclegacy:block/ore_volcano"
+      }
+    },
+    {
+      "apply": {
+        "model": "atomiclegacy:block/ore_volcano_overlay"
+      }
+    }
+  ]
+}

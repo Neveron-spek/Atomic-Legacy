@@ -1,0 +1,20 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "UUU",
+                    "UAU",
+                    "UUU"
+                ],
+    "key":  {
+                "U":  {
+                          "item":  "atomiclegacy:undefined"
+                      },
+                "A":  {
+                          "item":  "atomiclegacy:anvil_steel"
+                      }
+            },
+    "result":  {
+                   "id":  "atomiclegacy:anvil_murky"
+               }
+}

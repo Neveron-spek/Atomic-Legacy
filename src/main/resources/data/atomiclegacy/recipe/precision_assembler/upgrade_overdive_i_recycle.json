@@ -1,0 +1,70 @@
+{
+    "neoforge:conditions": [
+        {
+            "type": "atomiclegacy:enable_528_mode"
+        }
+    ],
+    "type": "atomiclegacy:precision_assembler",
+    "group": "precass.recycle",
+    "duration": 200,
+    "power": 1000,
+    "ingredients": [
+        {
+            "ingredient": {
+                "type": "neoforge:components",
+                "items": [
+                    "atomiclegacy:broken_item"
+                ],
+                "components": {
+                    "minecraft:custom_data": "{item_id:\"atomiclegacy:upgrade_overdrive_1\",item_count:1}"
+                }
+            },
+            "count": 1
+        }
+    ],
+    "outputs": [
+        {
+            "result": {
+                "id": "atomiclegacy:upgrade_speed_3",
+                "count": 1
+            },
+            "weight": 75
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:upgrade_effect_3",
+                "count": 1
+            },
+            "weight": 75
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:ingot_saturnite",
+                "count": 16
+            },
+            "weight": 75
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:ingot_pc",
+                "count": 16
+            },
+            "weight": 75
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:circuit_advanced",
+                "count": 16
+            },
+            "weight": 75
+        }
+    ],
+    "output_mode": "independent",
+    "expensive_output_weights": [
+        50,
+        50,
+        50,
+        50,
+        50
+    ]
+}

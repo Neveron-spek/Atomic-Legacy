@@ -1,0 +1,4 @@
+{
+  "parent": "atomiclegacy:block/empty",
+  "textures": { "particle": "atomiclegacy:block/skeleton_holder" }
+}

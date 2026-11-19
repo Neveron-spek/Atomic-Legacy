@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "atomiclegacy:brick_obsidian"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:brick_slab",
+    "count": 6,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "brick_obsidian"
+      },
+      "minecraft:custom_model_data": 2
+    }
+  }
+}

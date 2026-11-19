@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/machine_intake" },
+    "facing=east": { "model": "atomiclegacy:block/particle/machine_intake" },
+    "facing=south": { "model": "atomiclegacy:block/particle/machine_intake" },
+    "facing=west": { "model": "atomiclegacy:block/particle/machine_intake" }
+  }
+}

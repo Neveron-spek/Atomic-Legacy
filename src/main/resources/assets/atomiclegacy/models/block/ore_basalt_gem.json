@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "atomiclegacy:block/ore_basalt_gem",
+    "end": "atomiclegacy:block/ore_basalt_gem_top"
+  }
+}

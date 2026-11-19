@@ -1,0 +1,7 @@
+{
+    "textures":  {
+                     "side":  "atomiclegacy:block/gneiss_chiseled",
+                     "end": "atomiclegacy:block/gneiss_tile"
+                 },
+    "parent":  "minecraft:block/cube_column"
+}

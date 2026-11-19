@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/press_preheater"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

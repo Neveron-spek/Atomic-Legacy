@@ -1,0 +1,11 @@
+﻿{
+    "type":  "atomiclegacy:shredder",
+    "ingredient":  {
+                       "item":  "atomiclegacy:raw_aluminium"
+                   },
+    "input_count":  2,
+    "result":  {
+                   "id":  "atomiclegacy:chunk_ore_cryolite",
+                       "count":  3
+               }
+}

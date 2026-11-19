@@ -1,0 +1,1599 @@
+{
+  "resolved": [
+    {
+      "line": 359,
+      "id": "reinforced_stone",
+      "recipe": "reinforced_stone",
+      "result": {
+        "id": "reinhardtshbm:reinforced_stone",
+        "count": 4
+      }
+    },
+    {
+      "line": 360,
+      "id": "brick_light",
+      "recipe": "brick_light",
+      "result": {
+        "id": "reinhardtshbm:brick_light",
+        "count": 4
+      }
+    },
+    {
+      "line": 361,
+      "id": "brick_asbestos",
+      "recipe": "brick_asbestos",
+      "result": {
+        "id": "reinhardtshbm:brick_asbestos",
+        "count": 2
+      }
+    },
+    {
+      "line": 362,
+      "id": "concrete",
+      "recipe": "concrete_from_stone",
+      "result": {
+        "id": "reinhardtshbm:concrete",
+        "count": 4
+      }
+    },
+    {
+      "line": 363,
+      "id": "concrete_pillar",
+      "recipe": "concrete_pillar",
+      "result": {
+        "id": "reinhardtshbm:concrete_pillar",
+        "count": 6
+      }
+    },
+    {
+      "line": 364,
+      "id": "brick_concrete",
+      "recipe": "brick_concrete_from_concrete_smooth",
+      "result": {
+        "id": "reinhardtshbm:brick_concrete",
+        "count": 4
+      }
+    },
+    {
+      "line": 365,
+      "id": "brick_concrete",
+      "recipe": "brick_concrete_from_concrete",
+      "result": {
+        "id": "reinhardtshbm:brick_concrete",
+        "count": 4
+      }
+    },
+    {
+      "line": 366,
+      "id": "brick_concrete_mossy",
+      "recipe": "brick_concrete_mossy",
+      "result": {
+        "id": "reinhardtshbm:brick_concrete_mossy",
+        "count": 8
+      }
+    },
+    {
+      "line": 367,
+      "id": "brick_concrete_cracked",
+      "recipe": "brick_concrete_cracked",
+      "result": {
+        "id": "reinhardtshbm:brick_concrete_cracked",
+        "count": 6
+      }
+    },
+    {
+      "line": 368,
+      "id": "brick_concrete_broken",
+      "recipe": "brick_concrete_broken",
+      "result": {
+        "id": "reinhardtshbm:brick_concrete_broken",
+        "count": 6
+      }
+    },
+    {
+      "line": 369,
+      "id": "ducrete",
+      "recipe": "ducrete",
+      "result": {
+        "id": "reinhardtshbm:ducrete",
+        "count": 4
+      }
+    },
+    {
+      "line": 370,
+      "id": "brick_ducrete",
+      "recipe": "legacy_building/brick_ducrete_370",
+      "result": {
+        "id": "reinhardtshbm:brick_ducrete",
+        "count": 4
+      }
+    },
+    {
+      "line": 371,
+      "id": "brick_ducrete",
+      "recipe": "legacy_building/brick_ducrete_371",
+      "result": {
+        "id": "reinhardtshbm:brick_ducrete",
+        "count": 4
+      }
+    },
+    {
+      "line": 372,
+      "id": "reinforced_ducrete",
+      "recipe": "reinforced_ducrete",
+      "result": {
+        "id": "reinhardtshbm:reinforced_ducrete",
+        "count": 4
+      }
+    },
+    {
+      "line": 373,
+      "id": "brick_obsidian",
+      "recipe": "brick_obsidian",
+      "result": {
+        "id": "reinhardtshbm:brick_obsidian",
+        "count": 4
+      }
+    },
+    {
+      "line": 374,
+      "id": "meteor_polished",
+      "recipe": "meteor_polished",
+      "result": {
+        "id": "reinhardtshbm:meteor_polished",
+        "count": 4
+      }
+    },
+    {
+      "line": 375,
+      "id": "meteor_pillar",
+      "recipe": "meteor_pillar",
+      "result": {
+        "id": "reinhardtshbm:meteor_pillar",
+        "count": 2
+      }
+    },
+    {
+      "line": 376,
+      "id": "meteor_brick",
+      "recipe": "meteor_brick",
+      "result": {
+        "id": "reinhardtshbm:meteor_brick",
+        "count": 4
+      }
+    },
+    {
+      "line": 377,
+      "id": "meteor_brick_mossy",
+      "recipe": "meteor_brick_mossy",
+      "result": {
+        "id": "reinhardtshbm:meteor_brick_mossy",
+        "count": 8
+      }
+    },
+    {
+      "line": 378,
+      "id": "meteor_brick_cracked",
+      "recipe": "meteor_brick_cracked",
+      "result": {
+        "id": "reinhardtshbm:meteor_brick_cracked",
+        "count": 6
+      }
+    },
+    {
+      "line": 379,
+      "id": "meteor_battery",
+      "recipe": "meteor_battery",
+      "result": {
+        "id": "reinhardtshbm:meteor_battery",
+        "count": 1
+      }
+    },
+    {
+      "line": 380,
+      "id": "tile_lab",
+      "recipe": "tile_lab",
+      "result": {
+        "id": "reinhardtshbm:tile_lab",
+        "count": 4
+      }
+    },
+    {
+      "line": 381,
+      "id": "tile_lab_cracked",
+      "recipe": "tile_lab_cracked",
+      "result": {
+        "id": "reinhardtshbm:tile_lab_cracked",
+        "count": 6
+      }
+    },
+    {
+      "line": 382,
+      "id": "tile_lab_broken",
+      "recipe": "tile_lab_broken",
+      "result": {
+        "id": "reinhardtshbm:tile_lab_broken",
+        "count": 6
+      }
+    },
+    {
+      "line": 383,
+      "id": "asphalt_light",
+      "recipe": "asphalt_light",
+      "result": {
+        "id": "reinhardtshbm:asphalt_light",
+        "count": 1
+      }
+    },
+    {
+      "line": 384,
+      "id": "asphalt",
+      "recipe": "asphalt_from_asphalt_light",
+      "result": {
+        "id": "reinhardtshbm:asphalt",
+        "count": 1
+      }
+    },
+    {
+      "line": 390,
+      "id": "concrete_colored",
+      "recipe": "concrete_colored_white",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored",
+        "count": 8,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 0
+          },
+          "minecraft:custom_model_data": 0
+        }
+      }
+    },
+    {
+      "line": 390,
+      "id": "concrete_colored",
+      "recipe": "concrete_colored_orange",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored",
+        "count": 8,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 1
+          },
+          "minecraft:custom_model_data": 1
+        }
+      }
+    },
+    {
+      "line": 390,
+      "id": "concrete_colored",
+      "recipe": "concrete_colored_magenta",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored",
+        "count": 8,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 2
+          },
+          "minecraft:custom_model_data": 2
+        }
+      }
+    },
+    {
+      "line": 390,
+      "id": "concrete_colored",
+      "recipe": "concrete_colored_light_blue",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored",
+        "count": 8,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 3
+          },
+          "minecraft:custom_model_data": 3
+        }
+      }
+    },
+    {
+      "line": 390,
+      "id": "concrete_colored",
+      "recipe": "concrete_colored_yellow",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored",
+        "count": 8,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 4
+          },
+          "minecraft:custom_model_data": 4
+        }
+      }
+    },
+    {
+      "line": 390,
+      "id": "concrete_colored",
+      "recipe": "concrete_colored_lime",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored",
+        "count": 8,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 5
+          },
+          "minecraft:custom_model_data": 5
+        }
+      }
+    },
+    {
+      "line": 390,
+      "id": "concrete_colored",
+      "recipe": "concrete_colored_pink",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored",
+        "count": 8,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 6
+          },
+          "minecraft:custom_model_data": 6
+        }
+      }
+    },
+    {
+      "line": 390,
+      "id": "concrete_colored",
+      "recipe": "concrete_colored_gray",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored",
+        "count": 8,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 7
+          },
+          "minecraft:custom_model_data": 7
+        }
+      }
+    },
+    {
+      "line": 390,
+      "id": "concrete_colored",
+      "recipe": "concrete_colored_silver",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored",
+        "count": 8,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 8
+          },
+          "minecraft:custom_model_data": 8
+        }
+      }
+    },
+    {
+      "line": 390,
+      "id": "concrete_colored",
+      "recipe": "concrete_colored_cyan",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored",
+        "count": 8,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 9
+          },
+          "minecraft:custom_model_data": 9
+        }
+      }
+    },
+    {
+      "line": 390,
+      "id": "concrete_colored",
+      "recipe": "concrete_colored_purple",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored",
+        "count": 8,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 10
+          },
+          "minecraft:custom_model_data": 10
+        }
+      }
+    },
+    {
+      "line": 390,
+      "id": "concrete_colored",
+      "recipe": "concrete_colored_blue",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored",
+        "count": 8,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 11
+          },
+          "minecraft:custom_model_data": 11
+        }
+      }
+    },
+    {
+      "line": 390,
+      "id": "concrete_colored",
+      "recipe": "concrete_colored_brown",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored",
+        "count": 8,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 12
+          },
+          "minecraft:custom_model_data": 12
+        }
+      }
+    },
+    {
+      "line": 390,
+      "id": "concrete_colored",
+      "recipe": "concrete_colored_green",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored",
+        "count": 8,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 13
+          },
+          "minecraft:custom_model_data": 13
+        }
+      }
+    },
+    {
+      "line": 390,
+      "id": "concrete_colored",
+      "recipe": "concrete_colored_red",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored",
+        "count": 8,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 14
+          },
+          "minecraft:custom_model_data": 14
+        }
+      }
+    },
+    {
+      "line": 390,
+      "id": "concrete_colored",
+      "recipe": "concrete_colored_black",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored",
+        "count": 8,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 15
+          },
+          "minecraft:custom_model_data": 15
+        }
+      }
+    },
+    {
+      "line": 392,
+      "id": "concrete_smooth",
+      "recipe": "legacy_building/concrete_smooth_392",
+      "result": {
+        "id": "reinhardtshbm:concrete_smooth",
+        "count": 1
+      }
+    },
+    {
+      "line": 393,
+      "id": "concrete_smooth",
+      "recipe": "legacy_building/concrete_smooth_393",
+      "result": {
+        "id": "reinhardtshbm:concrete_smooth",
+        "count": 1
+      }
+    },
+    {
+      "line": 398,
+      "id": "platemetal",
+      "recipe": "platemetal/platemetal_black",
+      "result": {
+        "id": "reinhardtshbm:platemetal_black",
+        "count": 8
+      }
+    },
+    {
+      "line": 398,
+      "id": "platemetal",
+      "recipe": "platemetal/platemetal_white",
+      "result": {
+        "id": "reinhardtshbm:platemetal_white",
+        "count": 8
+      }
+    },
+    {
+      "line": 398,
+      "id": "platemetal",
+      "recipe": "platemetal/platemetal_red",
+      "result": {
+        "id": "reinhardtshbm:platemetal_red",
+        "count": 8
+      }
+    },
+    {
+      "line": 398,
+      "id": "platemetal",
+      "recipe": "platemetal/platemetal_green",
+      "result": {
+        "id": "reinhardtshbm:platemetal_green",
+        "count": 8
+      }
+    },
+    {
+      "line": 398,
+      "id": "platemetal",
+      "recipe": "platemetal/platemetal_light_gray",
+      "result": {
+        "id": "reinhardtshbm:platemetal_light_gray",
+        "count": 8
+      }
+    },
+    {
+      "line": 398,
+      "id": "platemetal",
+      "recipe": "platemetal/platemetal_blue",
+      "result": {
+        "id": "reinhardtshbm:platemetal_blue",
+        "count": 8
+      }
+    },
+    {
+      "line": 398,
+      "id": "platemetal",
+      "recipe": "platemetal/platemetal_purple",
+      "result": {
+        "id": "reinhardtshbm:platemetal_purple",
+        "count": 8
+      }
+    },
+    {
+      "line": 398,
+      "id": "platemetal",
+      "recipe": "platemetal/platemetal_cyan",
+      "result": {
+        "id": "reinhardtshbm:platemetal_cyan",
+        "count": 8
+      }
+    },
+    {
+      "line": 398,
+      "id": "platemetal",
+      "recipe": "platemetal/platemetal_pink",
+      "result": {
+        "id": "reinhardtshbm:platemetal_pink",
+        "count": 8
+      }
+    },
+    {
+      "line": 398,
+      "id": "platemetal",
+      "recipe": "platemetal/platemetal_lime",
+      "result": {
+        "id": "reinhardtshbm:platemetal_lime",
+        "count": 8
+      }
+    },
+    {
+      "line": 398,
+      "id": "platemetal",
+      "recipe": "platemetal/platemetal_yellow",
+      "result": {
+        "id": "reinhardtshbm:platemetal_yellow",
+        "count": 8
+      }
+    },
+    {
+      "line": 398,
+      "id": "platemetal",
+      "recipe": "platemetal/platemetal_light_blue",
+      "result": {
+        "id": "reinhardtshbm:platemetal_light_blue",
+        "count": 8
+      }
+    },
+    {
+      "line": 398,
+      "id": "platemetal",
+      "recipe": "platemetal/platemetal_magenta",
+      "result": {
+        "id": "reinhardtshbm:platemetal_magenta",
+        "count": 8
+      }
+    },
+    {
+      "line": 398,
+      "id": "platemetal",
+      "recipe": "platemetal/platemetal_orange",
+      "result": {
+        "id": "reinhardtshbm:platemetal_orange",
+        "count": 8
+      }
+    },
+    {
+      "line": 400,
+      "id": "platemetal",
+      "recipe": "platemetal/reset_to_base",
+      "result": {
+        "id": "reinhardtshbm:platemetal",
+        "count": 1
+      }
+    },
+    {
+      "line": 402,
+      "id": "concrete_colored_ext",
+      "recipe": "concrete_colored_ext_machine",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored_ext",
+        "count": 6,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 0
+          },
+          "minecraft:custom_model_data": 0
+        }
+      }
+    },
+    {
+      "line": 403,
+      "id": "concrete_colored_ext",
+      "recipe": "concrete_colored_ext_machine_stripe",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored_ext",
+        "count": 6,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 1
+          },
+          "minecraft:custom_model_data": 1
+        }
+      }
+    },
+    {
+      "line": 404,
+      "id": "concrete_colored_ext",
+      "recipe": "concrete_colored_ext_indigo",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored_ext",
+        "count": 6,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 2
+          },
+          "minecraft:custom_model_data": 2
+        }
+      }
+    },
+    {
+      "line": 405,
+      "id": "concrete_colored_ext",
+      "recipe": "concrete_colored_ext_purple",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored_ext",
+        "count": 6,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 3
+          },
+          "minecraft:custom_model_data": 3
+        }
+      }
+    },
+    {
+      "line": 406,
+      "id": "concrete_colored_ext",
+      "recipe": "concrete_colored_ext_pink",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored_ext",
+        "count": 6,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 4
+          },
+          "minecraft:custom_model_data": 4
+        }
+      }
+    },
+    {
+      "line": 407,
+      "id": "concrete_colored_ext",
+      "recipe": "concrete_colored_ext_hazard",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored_ext",
+        "count": 6,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 5
+          },
+          "minecraft:custom_model_data": 5
+        }
+      }
+    },
+    {
+      "line": 408,
+      "id": "concrete_colored_ext",
+      "recipe": "concrete_colored_ext_sand",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored_ext",
+        "count": 6,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 6
+          },
+          "minecraft:custom_model_data": 6
+        }
+      }
+    },
+    {
+      "line": 409,
+      "id": "concrete_colored_ext",
+      "recipe": "concrete_colored_ext_bronze",
+      "result": {
+        "id": "reinhardtshbm:concrete_colored_ext",
+        "count": 6,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 7
+          },
+          "minecraft:custom_model_data": 7
+        }
+      }
+    },
+    {
+      "line": 411,
+      "id": "gneiss_tile",
+      "recipe": "gneiss_tile",
+      "result": {
+        "id": "reinhardtshbm:gneiss_tile",
+        "count": 4
+      }
+    },
+    {
+      "line": 412,
+      "id": "gneiss_brick",
+      "recipe": "gneiss_brick",
+      "result": {
+        "id": "reinhardtshbm:gneiss_brick",
+        "count": 4
+      }
+    },
+    {
+      "line": 413,
+      "id": "gneiss_chiseled",
+      "recipe": "gneiss_chiseled",
+      "result": {
+        "id": "reinhardtshbm:gneiss_chiseled",
+        "count": 1
+      }
+    },
+    {
+      "line": 418,
+      "id": "basalt_polished",
+      "recipe": "basalt_polished",
+      "result": {
+        "id": "reinhardtshbm:basalt_polished",
+        "count": 4
+      }
+    },
+    {
+      "line": 419,
+      "id": "basalt_brick",
+      "recipe": "basalt_brick",
+      "result": {
+        "id": "reinhardtshbm:basalt_brick",
+        "count": 4
+      }
+    },
+    {
+      "line": 420,
+      "id": "basalt_tiles",
+      "recipe": "basalt_tiles",
+      "result": {
+        "id": "reinhardtshbm:basalt_tiles",
+        "count": 4
+      }
+    },
+    {
+      "line": 422,
+      "id": "lightstone",
+      "recipe": "legacy_building/lightstone_422",
+      "result": {
+        "id": "reinhardtshbm:lightstone",
+        "count": 4
+      }
+    },
+    {
+      "line": 423,
+      "id": "lightstone",
+      "recipe": "lightstone_tile",
+      "result": {
+        "id": "reinhardtshbm:lightstone_tile",
+        "count": 4
+      }
+    },
+    {
+      "line": 424,
+      "id": "lightstone",
+      "recipe": "lightstone_bricks",
+      "result": {
+        "id": "reinhardtshbm:lightstone_bricks",
+        "count": 4
+      }
+    },
+    {
+      "line": 425,
+      "id": "lightstone",
+      "recipe": "lightstone_bricks_chiseled",
+      "result": {
+        "id": "reinhardtshbm:lightstone_bricks_chiseled",
+        "count": 1
+      }
+    },
+    {
+      "line": 426,
+      "id": "lightstone",
+      "recipe": "lightstone_chiseled",
+      "result": {
+        "id": "reinhardtshbm:lightstone_chiseled",
+        "count": 1
+      }
+    },
+    {
+      "line": 428,
+      "id": "reinforced_brick",
+      "recipe": "reinforced_brick",
+      "result": {
+        "id": "reinhardtshbm:reinforced_brick",
+        "count": 4
+      }
+    },
+    {
+      "line": 429,
+      "id": "brick_compound",
+      "recipe": "brick_compound",
+      "result": {
+        "id": "reinhardtshbm:brick_compound",
+        "count": 4
+      }
+    },
+    {
+      "line": 430,
+      "id": "reinforced_glass",
+      "recipe": "reinforced_glass",
+      "result": {
+        "id": "reinhardtshbm:reinforced_glass",
+        "count": 4
+      }
+    },
+    {
+      "line": 431,
+      "id": "reinforced_glass_pane",
+      "recipe": "reinforced_glass_pane",
+      "result": {
+        "id": "reinhardtshbm:reinforced_glass_pane",
+        "count": 16
+      }
+    },
+    {
+      "line": 432,
+      "id": "reinforced_laminate_pane",
+      "recipe": "reinforced_laminate_pane",
+      "result": {
+        "id": "reinhardtshbm:reinforced_laminate_pane",
+        "count": 16
+      }
+    },
+    {
+      "line": 433,
+      "id": "reinforced_light",
+      "recipe": "reinforced_light",
+      "result": {
+        "id": "reinhardtshbm:reinforced_light",
+        "count": 1
+      }
+    },
+    {
+      "line": 434,
+      "id": "reinforced_lamp_off",
+      "recipe": "reinforced_lamp_off",
+      "result": {
+        "id": "reinhardtshbm:reinforced_lamp_off",
+        "count": 1
+      }
+    },
+    {
+      "line": 435,
+      "id": "reinforced_sand",
+      "recipe": "reinforced_sand",
+      "result": {
+        "id": "reinhardtshbm:reinforced_sand",
+        "count": 4
+      }
+    },
+    {
+      "line": 437,
+      "id": "lamp_tritium_green_off",
+      "recipe": "legacy_building/lamp_tritium_green_off_437_lamp_tritium_green_off",
+      "result": {
+        "id": "reinhardtshbm:lamp_tritium_green_off",
+        "count": 1
+      }
+    },
+    {
+      "line": 438,
+      "id": "lamp_tritium_blue_off",
+      "recipe": "legacy_building/lamp_tritium_blue_off_438_lamp_tritium_blue_off",
+      "result": {
+        "id": "reinhardtshbm:lamp_tritium_blue_off",
+        "count": 1
+      }
+    },
+    {
+      "line": 439,
+      "id": "lantern",
+      "recipe": "lantern",
+      "result": {
+        "id": "reinhardtshbm:lantern",
+        "count": 1
+      }
+    },
+    {
+      "line": 440,
+      "id": "spotlight_incandescent",
+      "recipe": "spotlight_incandescent",
+      "result": {
+        "id": "reinhardtshbm:spotlight_incandescent",
+        "count": 8
+      }
+    },
+    {
+      "line": 441,
+      "id": "spotlight_fluoro",
+      "recipe": "spotlight_fluoro",
+      "result": {
+        "id": "reinhardtshbm:spotlight_fluoro",
+        "count": 8
+      }
+    },
+    {
+      "line": 442,
+      "id": "spotlight_halogen",
+      "recipe": "spotlight_halogen",
+      "result": {
+        "id": "reinhardtshbm:spotlight_halogen",
+        "count": 8
+      }
+    },
+    {
+      "line": 443,
+      "id": "floodlight",
+      "recipe": "floodlight",
+      "result": {
+        "id": "reinhardtshbm:floodlight",
+        "count": 2
+      }
+    },
+    {
+      "line": 452,
+      "id": "sandbags",
+      "recipe": "sandbags",
+      "result": {
+        "id": "reinhardtshbm:sandbags",
+        "count": 4
+      }
+    },
+    {
+      "line": 454,
+      "id": "tape_recorder",
+      "recipe": "tape_recorder",
+      "result": {
+        "id": "reinhardtshbm:tape_recorder",
+        "count": 4
+      }
+    },
+    {
+      "line": 455,
+      "id": "steel_poles",
+      "recipe": "steel_poles",
+      "result": {
+        "id": "reinhardtshbm:steel_poles",
+        "count": 16
+      }
+    },
+    {
+      "line": 456,
+      "id": "pole_top",
+      "recipe": "pole_top",
+      "result": {
+        "id": "reinhardtshbm:pole_top",
+        "count": 1
+      }
+    },
+    {
+      "line": 457,
+      "id": "pole_satellite_receiver",
+      "recipe": "pole_satellite_receiver",
+      "result": {
+        "id": "reinhardtshbm:pole_satellite_receiver",
+        "count": 1
+      }
+    },
+    {
+      "line": 458,
+      "id": "steel_beam",
+      "recipe": "steel_beam",
+      "result": {
+        "id": "reinhardtshbm:steel_beam",
+        "count": 8
+      }
+    },
+    {
+      "line": 459,
+      "id": "steel_wall",
+      "recipe": "steel_wall",
+      "result": {
+        "id": "reinhardtshbm:steel_wall",
+        "count": 4
+      }
+    },
+    {
+      "line": 460,
+      "id": "steel_corner",
+      "recipe": "steel_corner",
+      "result": {
+        "id": "reinhardtshbm:steel_corner",
+        "count": 1
+      }
+    },
+    {
+      "line": 461,
+      "id": "steel_roof",
+      "recipe": "steel_roof",
+      "result": {
+        "id": "reinhardtshbm:steel_roof",
+        "count": 2
+      }
+    },
+    {
+      "line": 462,
+      "id": "steel_scaffold",
+      "recipe": "steel_scaffold",
+      "result": {
+        "id": "reinhardtshbm:steel_scaffold",
+        "count": 8
+      }
+    },
+    {
+      "line": 463,
+      "id": "steel_beam",
+      "recipe": "steel_beam_from_scaffold",
+      "result": {
+        "id": "reinhardtshbm:steel_beam",
+        "count": 8
+      }
+    },
+    {
+      "line": 464,
+      "id": "chain",
+      "recipe": "dungeon_chain",
+      "result": {
+        "id": "reinhardtshbm:dungeon_chain",
+        "count": 8
+      }
+    },
+    {
+      "line": 465,
+      "id": "steel_grate",
+      "recipe": "steel_grate",
+      "result": {
+        "id": "reinhardtshbm:steel_grate",
+        "count": 4
+      }
+    },
+    {
+      "line": 466,
+      "id": "steel_grate_wide",
+      "recipe": "steel_grate_wide",
+      "result": {
+        "id": "reinhardtshbm:steel_grate_wide",
+        "count": 4
+      }
+    },
+    {
+      "line": 467,
+      "id": "steel_grate",
+      "recipe": "steel_grate_from_wide",
+      "result": {
+        "id": "reinhardtshbm:steel_grate",
+        "count": 1
+      }
+    },
+    {
+      "line": 468,
+      "id": "rebar",
+      "recipe": "rebar",
+      "result": {
+        "id": "reinhardtshbm:rebar",
+        "count": 8
+      }
+    },
+    {
+      "line": 470,
+      "id": "steel_scaffold",
+      "recipe": "legacy_building/steel_scaffold_470",
+      "result": {
+        "id": "reinhardtshbm:steel_scaffold",
+        "count": 8
+      }
+    },
+    {
+      "line": 471,
+      "id": "steel_scaffold",
+      "recipe": "steel_scaffold_red",
+      "result": {
+        "id": "reinhardtshbm:steel_scaffold_red",
+        "count": 8
+      }
+    },
+    {
+      "line": 472,
+      "id": "steel_scaffold",
+      "recipe": "steel_scaffold_white",
+      "result": {
+        "id": "reinhardtshbm:steel_scaffold_white",
+        "count": 8
+      }
+    },
+    {
+      "line": 473,
+      "id": "steel_scaffold",
+      "recipe": "steel_scaffold_yellow",
+      "result": {
+        "id": "reinhardtshbm:steel_scaffold_yellow",
+        "count": 8
+      }
+    },
+    {
+      "line": 475,
+      "id": "wood_barrier",
+      "recipe": "wood_barrier",
+      "result": {
+        "id": "reinhardtshbm:wood_barrier",
+        "count": 8
+      }
+    },
+    {
+      "line": 679,
+      "id": "fence_metal",
+      "recipe": "fence_metal",
+      "result": {
+        "id": "reinhardtshbm:fence_metal",
+        "count": 6
+      }
+    },
+    {
+      "line": 680,
+      "id": "fence_metal",
+      "recipe": "fence_metal_post_from_fence_metal",
+      "result": {
+        "id": "reinhardtshbm:fence_metal",
+        "count": 1,
+        "components": {
+          "minecraft:custom_data": {
+            "post": true
+          },
+          "minecraft:custom_model_data": 1
+        }
+      }
+    },
+    {
+      "line": 681,
+      "id": "fence_metal",
+      "recipe": "fence_metal_from_fence_metal_post",
+      "result": {
+        "id": "reinhardtshbm:fence_metal",
+        "count": 1
+      }
+    },
+    {
+      "line": 788,
+      "id": "deco_rbmk",
+      "recipe": "deco_rbmk",
+      "result": {
+        "id": "reinhardtshbm:deco_rbmk",
+        "count": 8
+      }
+    },
+    {
+      "line": 789,
+      "id": "deco_rbmk_smooth",
+      "recipe": "deco_rbmk_smooth",
+      "result": {
+        "id": "reinhardtshbm:deco_rbmk_smooth",
+        "count": 1
+      }
+    },
+    {
+      "line": 793,
+      "id": "ladder_sturdy",
+      "recipe": "ladder_sturdy",
+      "result": {
+        "id": "reinhardtshbm:ladder_sturdy",
+        "count": 8
+      }
+    },
+    {
+      "line": 794,
+      "id": "ladder_gold",
+      "recipe": "ladder_gold",
+      "result": {
+        "id": "reinhardtshbm:ladder_gold",
+        "count": 8
+      }
+    },
+    {
+      "line": 795,
+      "id": "ladder_copper",
+      "recipe": "ladder_copper",
+      "result": {
+        "id": "reinhardtshbm:ladder_copper",
+        "count": 8
+      }
+    },
+    {
+      "line": 796,
+      "id": "ladder_titanium",
+      "recipe": "ladder_titanium",
+      "result": {
+        "id": "reinhardtshbm:ladder_titanium",
+        "count": 8
+      }
+    },
+    {
+      "line": 797,
+      "id": "ladder_steel",
+      "recipe": "ladder_steel",
+      "result": {
+        "id": "reinhardtshbm:ladder_steel",
+        "count": 8
+      }
+    },
+    {
+      "line": 799,
+      "id": "trapdoor_steel",
+      "recipe": "trapdoor_steel",
+      "result": {
+        "id": "reinhardtshbm:trapdoor_steel",
+        "count": 1
+      }
+    },
+    {
+      "line": 803,
+      "id": "deco_pipe",
+      "recipe": "deco_pipe",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe",
+        "count": 6
+      }
+    },
+    {
+      "line": 804,
+      "id": "deco_pipe",
+      "recipe": "deco_pipe_from_rim",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe",
+        "count": 1
+      }
+    },
+    {
+      "line": 805,
+      "id": "deco_pipe",
+      "recipe": "deco_pipe_from_framed",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe",
+        "count": 1
+      }
+    },
+    {
+      "line": 806,
+      "id": "deco_pipe",
+      "recipe": "deco_pipe_from_quad",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe",
+        "count": 1
+      }
+    },
+    {
+      "line": 808,
+      "id": "deco_pipe_rim",
+      "recipe": "deco_pipe_rim",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_rim",
+        "count": 8
+      }
+    },
+    {
+      "line": 809,
+      "id": "deco_pipe_quad",
+      "recipe": "deco_pipe_quad",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_quad",
+        "count": 4
+      }
+    },
+    {
+      "line": 810,
+      "id": "deco_pipe_framed",
+      "recipe": "deco_pipe_framed",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_framed",
+        "count": 8
+      }
+    },
+    {
+      "line": 811,
+      "id": "deco_pipe_framed",
+      "recipe": "deco_pipe_framed_from_rim",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_framed",
+        "count": 8
+      }
+    },
+    {
+      "line": 813,
+      "id": "deco_pipe_rusted",
+      "recipe": "deco_pipe_rusted",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_rusted",
+        "count": 8
+      }
+    },
+    {
+      "line": 814,
+      "id": "deco_pipe_rim_rusted",
+      "recipe": "deco_pipe_rim_rusted",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_rim_rusted",
+        "count": 8
+      }
+    },
+    {
+      "line": 815,
+      "id": "deco_pipe_quad_rusted",
+      "recipe": "deco_pipe_quad_rusted",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_quad_rusted",
+        "count": 8
+      }
+    },
+    {
+      "line": 816,
+      "id": "deco_pipe_framed_rusted",
+      "recipe": "deco_pipe_framed_rusted",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_framed_rusted",
+        "count": 8
+      }
+    },
+    {
+      "line": 817,
+      "id": "deco_pipe_green",
+      "recipe": "deco_pipe_green",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_green",
+        "count": 8
+      }
+    },
+    {
+      "line": 818,
+      "id": "deco_pipe_rim_green",
+      "recipe": "deco_pipe_rim_green",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_rim_green",
+        "count": 8
+      }
+    },
+    {
+      "line": 819,
+      "id": "deco_pipe_quad_green",
+      "recipe": "deco_pipe_quad_green",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_quad_green",
+        "count": 8
+      }
+    },
+    {
+      "line": 820,
+      "id": "deco_pipe_framed_green",
+      "recipe": "deco_pipe_framed_green",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_framed_green",
+        "count": 8
+      }
+    },
+    {
+      "line": 821,
+      "id": "deco_pipe_green_rusted",
+      "recipe": "deco_pipe_green_rusted",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_green_rusted",
+        "count": 8
+      }
+    },
+    {
+      "line": 822,
+      "id": "deco_pipe_rim_green_rusted",
+      "recipe": "deco_pipe_rim_green_rusted",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_rim_green_rusted",
+        "count": 8
+      }
+    },
+    {
+      "line": 823,
+      "id": "deco_pipe_quad_green_rusted",
+      "recipe": "deco_pipe_quad_green_rusted",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_quad_green_rusted",
+        "count": 8
+      }
+    },
+    {
+      "line": 824,
+      "id": "deco_pipe_framed_green_rusted",
+      "recipe": "deco_pipe_framed_green_rusted",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_framed_green_rusted",
+        "count": 8
+      }
+    },
+    {
+      "line": 825,
+      "id": "deco_pipe_red",
+      "recipe": "deco_pipe_red",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_red",
+        "count": 8
+      }
+    },
+    {
+      "line": 826,
+      "id": "deco_pipe_rim_red",
+      "recipe": "deco_pipe_rim_red",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_rim_red",
+        "count": 8
+      }
+    },
+    {
+      "line": 827,
+      "id": "deco_pipe_quad_red",
+      "recipe": "deco_pipe_quad_red",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_quad_red",
+        "count": 8
+      }
+    },
+    {
+      "line": 828,
+      "id": "deco_pipe_framed_red",
+      "recipe": "deco_pipe_framed_red",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_framed_red",
+        "count": 8
+      }
+    },
+    {
+      "line": 829,
+      "id": "deco_pipe_marked",
+      "recipe": "deco_pipe_marked",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_marked",
+        "count": 8
+      }
+    },
+    {
+      "line": 830,
+      "id": "deco_pipe_rim_marked",
+      "recipe": "deco_pipe_rim_marked",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_rim_marked",
+        "count": 8
+      }
+    },
+    {
+      "line": 831,
+      "id": "deco_pipe_quad_marked",
+      "recipe": "deco_pipe_quad_marked",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_quad_marked",
+        "count": 8
+      }
+    },
+    {
+      "line": 832,
+      "id": "deco_pipe_framed_marked",
+      "recipe": "deco_pipe_framed_marked",
+      "result": {
+        "id": "reinhardtshbm:deco_pipe_framed_marked",
+        "count": 8
+      }
+    },
+    {
+      "line": 834,
+      "id": "deco_emitter",
+      "recipe": "deco_emitter",
+      "result": {
+        "id": "reinhardtshbm:deco_emitter",
+        "count": 1
+      }
+    },
+    {
+      "line": 929,
+      "id": "brick_fire",
+      "recipe": "legacy_building/brick_fire_929",
+      "result": {
+        "id": "reinhardtshbm:brick_fire",
+        "count": 1
+      }
+    },
+    {
+      "line": 935,
+      "id": "filing_cabinet",
+      "recipe": "legacy_building/filing_cabinet_935",
+      "result": {
+        "id": "reinhardtshbm:filing_cabinet",
+        "count": 1,
+        "components": {
+          "minecraft:custom_data": {
+            "variant": 1
+          }
+        }
+      }
+    },
+    {
+      "line": 937,
+      "id": "vinyl_tile",
+      "recipe": "legacy_building/vinyl_tile_937",
+      "result": {
+        "id": "reinhardtshbm:vinyl_tile",
+        "count": 4
+      }
+    },
+    {
+      "line": 938,
+      "id": "vinyl_tile",
+      "recipe": "legacy_building/vinyl_tile_938",
+      "result": {
+        "id": "reinhardtshbm:vinyl_tile",
+        "count": 4,
+        "components": {
+          "minecraft:custom_data": {
+            "meta": 1
+          },
+          "minecraft:custom_model_data": 1
+        }
+      }
+    },
+    {
+      "line": 939,
+      "id": "vinyl_tile",
+      "recipe": "legacy_building/vinyl_tile_939",
+      "result": {
+        "id": "reinhardtshbm:vinyl_tile",
+        "count": 1
+      }
+    }
+  ],
+  "unresolved": [],
+  "added": [],
+  "corrected": []
+}

@@ -1,0 +1,7 @@
+﻿{
+    "variants":  {
+                     "":  {
+                              "model":  "atomiclegacy:block/det_nuke"
+                          }
+                 }
+}

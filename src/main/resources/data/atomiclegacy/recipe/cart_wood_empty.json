@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "P P",
+    "WPW"
+  ],
+  "key": {
+    "P": {
+      "tag": "minecraft:wooden_slabs"
+    },
+    "W": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:cart",
+    "count": 1,
+    "components": {
+      "atomiclegacy:cart_type": 0,
+      "atomiclegacy:cart_base": 1
+    }
+  }
+}

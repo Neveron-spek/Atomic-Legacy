@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:sand_quartz",
+    "atomiclegacy:sand_boron",
+    "atomiclegacy:sand_lead",
+    "atomiclegacy:sand_uranium",
+    "atomiclegacy:sand_polonium"
+  ]
+}

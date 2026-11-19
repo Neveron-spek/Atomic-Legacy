@@ -1,0 +1,13 @@
+﻿{
+    "type":  "atomiclegacy:exposure_chamber",
+    "group":  "exposure_chamber",
+    "particle":  {
+                     "item":  "atomiclegacy:particle_dark"
+                 },
+    "ingredient":  {
+                       "tag":  "c:ingots/plutonium"
+                   },
+    "output":  {
+                   "id":  "atomiclegacy:ingot_euphemium"
+               }
+}

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/detonator_multi"
+                 },
+    "parent":  "minecraft:item/handheld"
+}

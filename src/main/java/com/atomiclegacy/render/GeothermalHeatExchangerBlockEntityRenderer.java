@@ -1,0 +1,96 @@
+package com.atomiclegacy.render;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.atomiclegacy.tileentity.GeothermalHeatExchangerBlockEntity;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
+import net.neoforged.neoforge.client.event.ModelEvent;
+import org.joml.AxisAngle4f;
+import org.joml.Quaternionf;
+
+public final class GeothermalHeatExchangerBlockEntityRenderer
+        implements LongRangeBlockEntityRenderer<GeothermalHeatExchangerBlockEntity> {
+    /*
+     * max hypot(x,z) of every face-used baked-float Rotor vertex.  Multiplying
+     * by (1 + 16*2^-23), then rounding upward to float, is the outward interval
+     * for AxisAngle4f -> Quaternionf -> Matrix4f's float sin/cos and multiply-
+     * add chain (two component roundings plus six matrix arithmetic roundings).
+     */
+    private static final float ROTOR_SWEEP_RADIUS = Math.nextUp((float)
+            (3.0397118126837444D * (1.0D + 16.0D * Math.scalb(1.0D, -23))));
+    private static final ModelResourceLocation MAIN = MachineModelRenderer.standalone("block/machine_hephaestus_main");
+    private static final ModelResourceLocation ROTOR = MachineModelRenderer.standalone("block/machine_hephaestus_rotor");
+    private static final ModelResourceLocation CORE_COBBLESTONE =
+            MachineModelRenderer.standalone("block/machine_hephaestus_core_cobblestone");
+    private static final ModelResourceLocation CORE_LAVA =
+            MachineModelRenderer.standalone("block/machine_hephaestus_core_lava");
+    private static final StaticMachineVboCache STATIC_MESHES = new StaticMachineVboCache();
+    private static final AABB LOCAL_RENDER_BOUNDS = buildLocalRenderBounds();
+
+    public GeothermalHeatExchangerBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
+    }
+
+    static void registerAdditionalModels(ModelEvent.RegisterAdditional event) {
+        event.register(MAIN);
+        event.register(ROTOR);
+        event.register(CORE_COBBLESTONE);
+        event.register(CORE_LAVA);
+    }
+
+    @Override
+    public void render(GeothermalHeatExchangerBlockEntity exchanger, float partialTick, PoseStack poseStack,
+                       MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
+        poseStack.pushPose();
+        poseStack.translate(0.5F, 0.0F, 0.5F);
+        renderParts(exchanger.rotor(partialTick), exchanger.bufferedHeat() > 0,
+                poseStack, bufferSource, exchanger.getBlockState(), packedLight, packedOverlay);
+        poseStack.popPose();
+    }
+
+    static void renderParts(float movement, boolean active, PoseStack poseStack, MultiBufferSource bufferSource,
+                            BlockState state, int packedLight, int packedOverlay) {
+        STATIC_MESHES.render(MAIN, poseStack, state, packedLight, packedOverlay);
+
+        poseStack.pushPose();
+        poseStack.mulPose(yaw(movement));
+        for (int index = 0; index < 3; index++) {
+            STATIC_MESHES.render(ROTOR, poseStack, state, packedLight, packedOverlay);
+            poseStack.mulPose(yaw(120.0F));
+        }
+        poseStack.popPose();
+
+        if (active) {
+            MachineModelRenderer.renderUnculledTintedUv(
+                    MachineModelRenderer.model(CORE_LAVA), poseStack, bufferSource, state,
+                    net.minecraft.client.renderer.LightTexture.FULL_BRIGHT, packedOverlay,
+                    0xFFFFFFFF, 0.0F, movement / 10.0F, 0.5F, 0.5F);
+        } else {
+            MachineModelRenderer.renderUnculledTinted(
+                    MachineModelRenderer.model(CORE_COBBLESTONE), poseStack, bufferSource, state,
+                    packedLight, packedOverlay, 0xFF808080);
+        }
+    }
+
+    @Override
+    public AABB getRenderBoundingBox(GeothermalHeatExchangerBlockEntity exchanger) {
+        return LOCAL_RENDER_BOUNDS.move(exchanger.getBlockPos());
+    }
+
+    private static AABB buildLocalRenderBounds() {
+        PoseStack pose = new PoseStack();
+        pose.translate(0.5F, 0.0F, 0.5F);
+        // Main/Core are inside X/Z +/-1.75.  The Rotor's complete legal yaw
+        // sweep is the larger radius above; all groups share Y 0..12.
+        return RenderBounds.transformedBox(net.minecraft.core.BlockPos.ZERO, pose,
+                -ROTOR_SWEEP_RADIUS, 0.0F, -ROTOR_SWEEP_RADIUS,
+                ROTOR_SWEEP_RADIUS, 12.0F, ROTOR_SWEEP_RADIUS);
+    }
+
+    private static Quaternionf yaw(float degrees) {
+        return new Quaternionf(new AxisAngle4f((float) Math.toRadians(degrees), 0.0F, 1.0F, 0.0F));
+    }
+}

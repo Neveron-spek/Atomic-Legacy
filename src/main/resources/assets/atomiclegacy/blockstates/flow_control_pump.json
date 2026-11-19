@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "atomiclegacy:block/particle/flow_control_pump"
+    },
+    "facing=east": {
+      "model": "atomiclegacy:block/particle/flow_control_pump"
+    },
+    "facing=south": {
+      "model": "atomiclegacy:block/particle/flow_control_pump"
+    },
+    "facing=west": {
+      "model": "atomiclegacy:block/particle/flow_control_pump"
+    }
+  }
+}

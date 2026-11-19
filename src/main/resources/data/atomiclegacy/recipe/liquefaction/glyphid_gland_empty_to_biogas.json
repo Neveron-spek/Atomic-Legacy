@@ -1,0 +1,11 @@
+{
+  "type": "atomiclegacy:liquefaction",
+  "group": "liquefactor.biogas",
+  "ingredient": {
+    "item": "atomiclegacy:glyphid_gland_empty"
+  },
+  "output": {
+    "fluid": "biogas",
+    "amount": 2000
+  }
+}

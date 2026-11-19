@@ -1,0 +1,8 @@
+﻿{
+  "variants": {
+    "variant=0": { "model": "atomiclegacy:block/crashed_bomb_balefire" },
+    "variant=1": { "model": "atomiclegacy:block/crashed_bomb_conventional" },
+    "variant=2": { "model": "atomiclegacy:block/crashed_bomb_nuke" },
+    "variant=3": { "model": "atomiclegacy:block/crashed_bomb_salted" }
+  }
+}

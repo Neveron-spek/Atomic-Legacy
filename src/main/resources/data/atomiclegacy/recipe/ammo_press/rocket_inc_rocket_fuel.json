@@ -1,0 +1,77 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.rocket_inc",
+  "order": 68,
+  "input": [
+    {
+      "ingredient": {
+        "type": "neoforge:compound",
+        "children": [
+          {
+            "type": "neoforge:components",
+            "items": [
+              "atomiclegacy:canister_full"
+            ],
+            "components": {
+              "minecraft:custom_data": {
+                "fluid": "diesel"
+              }
+            }
+          },
+          {
+            "type": "neoforge:components",
+            "items": [
+              "atomiclegacy:fluid_tank_lead_full"
+            ],
+            "components": {
+              "minecraft:custom_data": {
+                "fluid": "diesel"
+              }
+            }
+          },
+          {
+            "type": "neoforge:components",
+            "items": [
+              "atomiclegacy:fluid_tank_full"
+            ],
+            "components": {
+              "minecraft:custom_data": {
+                "fluid": "diesel"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:ball_dynamite"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_large"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:rocket_fuel"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 2,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "rocket_inc"
+      },
+      "minecraft:custom_model_data": 17
+    }
+  }
+}

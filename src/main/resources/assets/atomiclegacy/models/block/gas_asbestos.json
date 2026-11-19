@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/gas_asbestos"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

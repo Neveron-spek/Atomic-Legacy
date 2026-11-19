@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:dusts/neptunium"
+    },
+    {
+      "tag": "c:dusts/iodine"
+    },
+    {
+      "tag": "c:dusts/th232"
+    },
+    {
+      "tag": "c:dusts/astatine"
+    },
+    {
+      "tag": "c:dusts/neodymium"
+    },
+    {
+      "tag": "c:dusts/caesium"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:powder_nitan_mix",
+    "count": 6
+  }
+}

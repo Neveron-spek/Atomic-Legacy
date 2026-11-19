@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:cluster_copper",
+    "atomiclegacy:ore_copper",
+    "atomiclegacy:cluster_deepslate_copper",
+    "minecraft:copper_ore",
+    "minecraft:deepslate_copper_ore",
+    "atomiclegacy:ore_gneiss_copper"
+  ]
+}

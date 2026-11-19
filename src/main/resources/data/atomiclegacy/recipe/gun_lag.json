@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BRM",
+    "  G"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:gun_parts/barrel_light/any_resistantalloy"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_light/any_resistantalloy"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/any_plastic"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_lag",
+    "count": 1
+  }
+}

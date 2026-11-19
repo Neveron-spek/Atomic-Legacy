@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:ore_byproduct"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "byproduct_type": "silicon"
+        }
+      }
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:nugget_silicon",
+    "count": 3
+  }
+}

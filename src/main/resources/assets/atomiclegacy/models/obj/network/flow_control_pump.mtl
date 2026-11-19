@@ -1,0 +1,4 @@
+newmtl flow_control_pump
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:models/network/flow_control_pump

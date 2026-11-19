@@ -1,0 +1,8 @@
+{
+  "type": "atomiclegacy:pyrolysis",
+  "group": "pyrolysis.titanium_tetrachloride",
+  "item_output": { "id": "atomiclegacy:ingot_titanium", "count": 5 },
+  "fluid_input": { "fluid": "titanium_tetrachloride", "amount": 1000 },
+  "fluid_output": { "fluid": "chlorine", "amount": 125 },
+  "duration": 60
+}

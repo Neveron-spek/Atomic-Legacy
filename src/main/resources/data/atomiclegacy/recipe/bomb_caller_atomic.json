@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "TRC"
+  ],
+  "key": {
+    "T": {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:ammo_standard"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "nuke_high"
+        },
+        "minecraft:custom_model_data": 22
+      }
+    },
+    "R": {
+      "item": "atomiclegacy:rangefinder"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_controller"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:bomb_caller",
+    "components": {
+      "minecraft:custom_data": "{airstrike_mode:4}",
+      "minecraft:custom_model_data": 4
+    }
+  }
+}

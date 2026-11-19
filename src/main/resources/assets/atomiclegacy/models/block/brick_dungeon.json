@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/brick_dungeon"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "atomiclegacy:block/fusion_mhdt",
+  "visibility": {
+    "Turbine": false
+  }
+}

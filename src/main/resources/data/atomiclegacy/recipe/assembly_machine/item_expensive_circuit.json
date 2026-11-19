@@ -1,0 +1,35 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.excircuit",
+  "duration": 400,
+  "power": 4000,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_basic"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_capacitor"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/rubber"
+      },
+      "count": 4
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "sulfuric_acid",
+      "amount": 1000
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:item_expensive_circuit"
+  }
+}

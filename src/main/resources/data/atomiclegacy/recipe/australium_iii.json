@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WSW",
+    "PAP",
+    "SPS"
+  ],
+  "key": {
+    "S": {
+      "item": "atomiclegacy:plate_welded_steel"
+    },
+    "P": {
+      "tag": "c:ingots/plastic"
+    },
+    "A": {
+      "tag": "c:ingots/australium"
+    },
+    "W": {
+      "item": "atomiclegacy:wire_dense_gold"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:australium_iii"
+  }
+}

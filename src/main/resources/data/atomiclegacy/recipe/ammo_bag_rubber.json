@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":["LLL","MGM","LLL"],"key":{"L":{"tag":"c:ingots/any_rubber"},"G":{"tag":"c:plates/weaponsteel"},"M":{"tag":"c:gun_parts/mechanism/weaponsteel"}},"result":{"id":"atomiclegacy:ammo_bag"}}

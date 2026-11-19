@@ -1,0 +1,38 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.g26_flare",
+  "order": 55,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/phosphorus"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_large"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 4,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "g26_flare"
+      },
+      "minecraft:custom_model_data": 65
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/pads_rubber"
+                 },
+    "parent":  "minecraft:item/generated"
+}

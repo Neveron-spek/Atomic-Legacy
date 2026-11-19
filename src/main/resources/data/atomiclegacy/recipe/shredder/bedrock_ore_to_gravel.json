@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:bedrock_ore"
+  },
+  "result": {
+    "id": "minecraft:gravel"
+  }
+}

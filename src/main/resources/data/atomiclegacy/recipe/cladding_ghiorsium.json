@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["DPD", "PRP", "DPD"],
+  "key": {
+    "D": { "item": "atomiclegacy:ducttape" },
+    "P": { "tag": "c:ingots/gh336" },
+    "R": { "item": "atomiclegacy:cladding_desh" }
+  },
+  "result": { "id": "atomiclegacy:cladding_ghiorsium" }
+}

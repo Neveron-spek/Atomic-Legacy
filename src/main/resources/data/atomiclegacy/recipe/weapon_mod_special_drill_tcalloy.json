@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " IP",
+    "IIM",
+    " IP"
+  ],
+  "key": {
+    "I": {
+      "tag": "c:ingots/resistant_alloy"
+    },
+    "P": {
+      "tag": "c:ingots/rubber"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_drill_tcalloy",
+    "count": 1
+  }
+}

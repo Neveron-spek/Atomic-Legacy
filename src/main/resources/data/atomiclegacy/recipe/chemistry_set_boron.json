@@ -1,0 +1,22 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "GIG",
+                    "GCG"
+                ],
+    "key":  {
+                "G":  {
+                          "item":  "atomiclegacy:glass_boron"
+                      },
+                "I":  {
+                          "tag":  "c:ingots/steel"
+                      },
+                "C":  {
+                          "tag":  "c:ingots/cobalt"
+                      }
+            },
+    "result":  {
+                   "id":  "atomiclegacy:chemistry_set_boron"
+               }
+}

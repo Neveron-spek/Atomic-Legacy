@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:coking","group":"coking.lubricant","input":{"fluid":"lubricant","amount":12000},"output":{"id":"atomiclegacy:coke_petroleum"},"byproduct":{"fluid":"oil_coker","amount":1200}}

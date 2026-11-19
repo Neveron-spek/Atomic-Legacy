@@ -1,0 +1,15 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "tag": "c:storage_blocks/coal"
+  },
+  "acid": {
+    "fluid": "peroxide",
+    "amount": 500
+  },
+  "duration": 600,
+  "result": {
+    "id": "atomiclegacy:block_graphite"
+  }
+}

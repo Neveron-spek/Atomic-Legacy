@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.pilethorium",
+  "duration": 40,
+  "power": 200,
+  "ingredients": [
+    {
+      "ingredient": {
+        "tag": "c:billets/th232"
+      },
+      "count": 3
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:pile_rod_thorium"
+  }
+}

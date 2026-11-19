@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/key_gold"
+                 },
+    "parent":  "minecraft:item/generated"
+}

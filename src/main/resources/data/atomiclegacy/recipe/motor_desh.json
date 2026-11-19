@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PCP",
+    "DMD",
+    "PCP"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:ingots/plastic"
+    },
+    "C": {
+      "tag": "c:wires_dense/gold"
+    },
+    "D": {
+      "tag": "c:ingots/desh"
+    },
+    "M": {
+      "item": "atomiclegacy:motor"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:motor_desh"
+  }
+}

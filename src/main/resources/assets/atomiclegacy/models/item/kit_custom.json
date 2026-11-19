@@ -1,0 +1,8 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/kit_custom",
+                     "layer1":  "atomiclegacy:item/kit_1",
+                     "layer2":  "atomiclegacy:item/kit_2"
+                 },
+    "parent":  "minecraft:item/generated"
+}

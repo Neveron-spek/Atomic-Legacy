@@ -1,0 +1,42 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.g40_heat",
+  "order": 57,
+  "input": [
+    {
+      "ingredient": {
+        "tag": "c:plates/copper"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/high_explosive"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_large"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 4,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "g40_heat"
+      },
+      "minecraft:custom_model_data": 69
+    }
+  }
+}

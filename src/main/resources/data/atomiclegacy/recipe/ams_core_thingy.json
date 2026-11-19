@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "NSN",
+    "NGN",
+    "G G"
+  ],
+  "key": {
+    "N": {
+      "tag": "c:nuggets/gold"
+    },
+    "G": {
+      "tag": "c:ingots/gold"
+    },
+    "S": {
+      "type": "atomiclegacy:battery",
+      "items": [
+        "atomiclegacy:battery_pack"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "battery_quantum"
+        },
+        "minecraft:custom_model_data": 5
+      }
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:ams_core_thingy"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.acidizer",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_heavy_frame"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:shell_titanium"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:motor"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_circuit"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:machine_crystallizer"
+  }
+}

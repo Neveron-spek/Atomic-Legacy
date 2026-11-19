@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer.scrap_oil",
+  "ingredient": {
+    "item": "atomiclegacy:scrap_oil"
+  },
+  "input_count": 16,
+  "acid": {
+    "fluid": "radiosolvent",
+    "amount": 100
+  },
+  "duration": 100,
+  "productivity": 0.3,
+  "result": {
+    "id": "atomiclegacy:nugget_arsenic"
+  }
+}

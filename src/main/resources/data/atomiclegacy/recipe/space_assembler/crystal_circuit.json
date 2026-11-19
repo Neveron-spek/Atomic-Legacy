@@ -1,0 +1,14 @@
+{
+  "type": "atomiclegacy:space_assembler",
+  "group": "space.crystalcircuit",
+  "ingredient": {
+    "item": "atomiclegacy:orbital_assembly_crystal_circuit"
+  },
+  "input_count": 1,
+  "results": [
+    {
+      "id": "atomiclegacy:circuit_crystal"
+    }
+  ],
+  "duration": 3600
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "atomiclegacy:block/pile_brick",
+    "down": "atomiclegacy:block/pile_brick_top",
+    "up": "atomiclegacy:block/pile_brick_top",
+    "north": "atomiclegacy:block/pile_brick",
+    "south": "atomiclegacy:block/pile_brick",
+    "west": "atomiclegacy:block/pile_brick_side",
+    "east": "atomiclegacy:block/pile_brick_side"
+  }
+}

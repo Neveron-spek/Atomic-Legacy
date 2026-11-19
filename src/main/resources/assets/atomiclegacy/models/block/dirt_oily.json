@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/dirt_oily"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

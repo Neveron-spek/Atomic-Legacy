@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/taurun_plate"
+                 },
+    "parent":  "minecraft:item/generated"
+}

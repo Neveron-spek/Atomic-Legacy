@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:billet_bismuth"
+    },
+    {
+      "item": "atomiclegacy:billet_bismuth"
+    },
+    {
+      "item": "atomiclegacy:billet_bismuth"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:ingot_bismuth",
+    "count": 2
+  }
+}

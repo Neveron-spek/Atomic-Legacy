@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "B  ",
+    "BB ",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "atomiclegacy:brick_light"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:brick_light_stairs",
+    "count": 4
+  }
+}

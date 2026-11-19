@@ -1,0 +1,38 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.p9_fmj",
+  "order": 17,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/steel"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_small"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 12,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "p9_fmj"
+      },
+      "minecraft:custom_model_data": 10
+    }
+  }
+}

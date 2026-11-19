@@ -1,0 +1,40 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.nuke_tots",
+  "order": 85,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:nuggets/pu239"
+      },
+      "count": 2
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:ball_tatb"
+      },
+      "count": 2
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:plates/steel"
+      },
+      "count": 4
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "nuke_tots"
+      },
+      "minecraft:custom_model_data": 23
+    }
+  }
+}

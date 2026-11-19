@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/ladder",
+  "textures": {
+    "particle": "atomiclegacy:block/ladder_copper",
+    "texture": "atomiclegacy:block/ladder_copper"
+  }
+}

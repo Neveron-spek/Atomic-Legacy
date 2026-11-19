@@ -1,0 +1,8 @@
+﻿{
+  "variants": {
+    "facing=south": { "model": "atomiclegacy:block/particle/refueler" },
+    "facing=west": { "model": "atomiclegacy:block/particle/refueler" },
+    "facing=north": { "model": "atomiclegacy:block/particle/refueler" },
+    "facing=east": { "model": "atomiclegacy:block/particle/refueler" }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.r556_ap",
+  "order": 28,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/weaponsteel"
+      },
+      "count": 2
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      },
+      "count": 4
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_small_steel"
+      },
+      "count": 2
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 16,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "r556_ap"
+      },
+      "minecraft:custom_model_data": 8
+    }
+  }
+}

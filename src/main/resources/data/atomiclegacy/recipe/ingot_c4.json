@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "atomiclegacy:legacy_fluid_container",
+      "fluid": "unsaturateds",
+      "amount": 1000
+    },
+    {
+      "tag": "c:dusts/niter"
+    },
+    {
+      "tag": "atomiclegacy:chemistry_set"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:ingot_c4",
+    "count": 4
+  }
+}

@@ -1,0 +1,11 @@
+{
+    "replace": false,
+    "values": [
+        "atomiclegacy:red_cable",
+        "atomiclegacy:red_cable_classic",
+        "atomiclegacy:red_cable_box",
+        "atomiclegacy:red_cable_paintable",
+        "atomiclegacy:red_cable_gauge",
+        "atomiclegacy:red_wire_coated"
+    ]
+}

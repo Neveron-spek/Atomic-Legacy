@@ -1,0 +1,51 @@
+{
+    "type":  "atomiclegacy:purex",
+    "group":  "autoswitch.pwr",
+    "duration":  100,
+    "power":  2500,
+    "input_items":  [
+                        {
+                            "ingredient":  {
+                                               "type":  "neoforge:components",
+                                               "items":  [
+                                                             "atomiclegacy:pwr_fuel_depleted"
+                                                         ],
+                                               "components":  {
+                                                                  "minecraft:custom_data":  {
+                                                                                                "variant":  "hes327"
+                                                                                            },
+                                                                  "minecraft:custom_model_data":  12
+                                                              }
+                                           },
+                            "count":  1
+                        }
+                    ],
+    "input_fluids":  [
+                         {
+                             "fluid":  "kerosene",
+                             "amount":  500
+                         },
+                         {
+                             "fluid":  "nitric_acid",
+                             "amount":  250
+                         }
+                     ],
+    "output_items":  [
+                         {
+                             "id":  "atomiclegacy:nugget_australium",
+                             "count":  4
+                         },
+                         {
+                             "id":  "atomiclegacy:nugget_lead",
+                             "count":  1
+                         },
+                         {
+                             "id":  "atomiclegacy:nugget_euphemium",
+                             "count":  1
+                         },
+                         {
+                             "id":  "atomiclegacy:nuclear_waste_tiny",
+                             "count":  6
+                         }
+                     ]
+}

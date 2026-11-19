@@ -1,0 +1,51 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.mpw10nukesmall",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:seg_10"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/weaponsteel"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:billet_pu239"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:neutron_reflector"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/high_explosive"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:mp_warhead_10_nuclear",
+    "count": 1
+  },
+  "blueprint_pools": [
+    "528.controller"
+  ]
+}

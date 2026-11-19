@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SCR",
+    "W#W",
+    "WWW"
+  ],
+  "key": {
+    "S": {
+      "item": "atomiclegacy:radio_torch_sender"
+    },
+    "C": {
+      "item": "atomiclegacy:crt_display"
+    },
+    "R": {
+      "item": "atomiclegacy:radio_torch_receiver"
+    },
+    "W": {
+      "tag": "minecraft:planks"
+    },
+    "#": {
+      "item": "atomiclegacy:circuit_analog"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:radio_telex",
+    "count": 2
+  }
+}

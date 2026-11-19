@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:electrolyzer_metal","ingredient":{"item":"atomiclegacy:crystal_lithium"},"output1":{"material":"lithium","amount":432},"output2":{"material":"boron","amount":144},"byproducts":[{"id":"atomiclegacy:powder_quartz","count":2},{"id":"atomiclegacy:fluorite","count":2}]}

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/siox"
+                 },
+    "parent":  "minecraft:item/generated"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": { "item": "atomiclegacy:raw_plutonium" },
+  "input_count": 2,
+  "result": { "id": "atomiclegacy:powder_plutonium", "count": 3 }
+}

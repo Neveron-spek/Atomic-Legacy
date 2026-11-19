@@ -1,0 +1,64 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_expensive_mode"
+      }
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.launchpadsoyuz",
+  "duration": 1200,
+  "power": 5000,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:concrete_rebar"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_welded_steel"
+      },
+      "count": 48
+    },
+    {
+      "ingredient": {
+        "type": "neoforge:compound",
+        "children": [
+          {
+            "item": "atomiclegacy:plate_welded_tcalloy"
+          },
+          {
+            "item": "atomiclegacy:plate_welded_cdalloy"
+          }
+        ]
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/hard_plastic"
+      },
+      "count": 24
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:motor"
+      },
+      "count": 24
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller_advanced"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:launchpad_soyuz",
+    "count": 1
+  }
+}

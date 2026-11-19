@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/block_starmetal"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

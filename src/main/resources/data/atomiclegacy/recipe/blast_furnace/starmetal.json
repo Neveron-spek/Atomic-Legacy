@@ -1,0 +1,8 @@
+{
+  "type": "atomiclegacy:blast_furnace",
+  "group": "blast.starmetal",
+  "input_a": { "tag": "c:ingots/saturnite" },
+  "input_b": { "item": "atomiclegacy:ingot_meteorite" },
+  "duration": 600,
+  "result": { "id": "atomiclegacy:ingot_starmetal" }
+}

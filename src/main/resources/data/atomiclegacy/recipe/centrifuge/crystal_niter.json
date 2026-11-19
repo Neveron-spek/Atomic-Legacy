@@ -1,0 +1,25 @@
+{
+    "type":  "atomiclegacy:centrifuge",
+    "group":  "centrifuge",
+    "ingredient":  {
+                       "item":  "atomiclegacy:crystal_niter"
+                   },
+    "input_count":  1,
+    "results":  [
+                    {
+                        "id":  "atomiclegacy:niter",
+                        "count":  3
+                    },
+                    {
+                        "id":  "atomiclegacy:niter",
+                        "count":  3
+                    },
+                    {
+                        "id":  "atomiclegacy:niter",
+                        "count":  3
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_lithium_tiny"
+                    }
+                ]
+}

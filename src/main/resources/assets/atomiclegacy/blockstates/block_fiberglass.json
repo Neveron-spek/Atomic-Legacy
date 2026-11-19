@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "atomiclegacy:block/block_fiberglass"
+    },
+    "axis=z": {
+      "model": "atomiclegacy:block/block_fiberglass",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "atomiclegacy:block/block_fiberglass",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

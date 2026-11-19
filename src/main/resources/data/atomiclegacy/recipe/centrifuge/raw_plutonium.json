@@ -1,0 +1,26 @@
+{
+    "type":  "atomiclegacy:centrifuge",
+    "group":  "centrifuge",
+    "ingredient":  {
+                       "tag":  "c:raw_materials/plutonium"
+                   },
+    "input_count":  4,
+    "results":  [
+                    {
+                        "id":  "atomiclegacy:powder_plutonium",
+                        "count":  3
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_plutonium",
+                        "count":  3
+                    },
+                    {
+                        "id":  "atomiclegacy:nugget_polonium",
+                        "count":  9
+                    },
+                    {
+                        "id":  "minecraft:gravel",
+                        "count":  4
+                    }
+                ]
+}

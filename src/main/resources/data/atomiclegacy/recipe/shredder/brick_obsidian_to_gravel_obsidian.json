@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:brick_obsidian"
+  },
+  "result": {
+    "id": "atomiclegacy:gravel_obsidian"
+  }
+}

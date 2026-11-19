@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:billet_uranium_fuel"
+    },
+    {
+      "item": "atomiclegacy:billet_uranium_fuel"
+    },
+    {
+      "item": "atomiclegacy:billet_pu239"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:billet_mox_fuel",
+    "count": 3
+  }
+}

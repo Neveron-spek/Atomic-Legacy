@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "minecraft:emerald_block"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_emerald",
+    "count": 9
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_528_mode"
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BGB",
+    "GRG",
+    "BGB"
+  ],
+  "key": {
+    "G": {
+      "tag": "c:storage_blocks/graphite"
+    },
+    "R": {
+      "item": "atomiclegacy:rbmk_rod"
+    },
+    "B": {
+      "tag": "c:nuggets/bismuth"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:rbmk_rod_mod"
+  }
+}

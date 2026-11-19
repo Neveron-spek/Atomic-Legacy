@@ -1,0 +1,30 @@
+{
+  "models": 884,
+  "textures": 223,
+  "pixel_identical": 206,
+  "missing": [],
+  "differences": [],
+  "renamed_or_converted": [
+    "block/deco_rbmk",
+    "block/deco_rbmk_smooth",
+    "block/duchessgambit",
+    "block/legacy_placeholder",
+    "block/lightstone",
+    "block/lightstone_bricks",
+    "block/lightstone_tile",
+    "block/platemetal",
+    "block/skeleton_holder",
+    "block/spotlight_cage_lamp",
+    "block/spotlight_cage_lamp_off",
+    "block/spotlight_flood_lamp",
+    "block/spotlight_flood_lamp_off",
+    "block/spotlight_fluorescent_lamp",
+    "block/spotlight_fluorescent_lamp_off",
+    "block/steel_beam_flipped",
+    "models/steel_roof"
+  ],
+  "placeholder_references": [
+    "models\\block\\spotlight_beam.json",
+    "models\\block\\empty.json"
+  ]
+}

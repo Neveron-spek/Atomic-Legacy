@@ -1,0 +1,15 @@
+{
+  "neoforge:conditions": [
+    { "type": "atomiclegacy:less_bullshit_mode", "feature": "simple_centrifuge" }
+  ],
+  "type": "atomiclegacy:centrifuge",
+  "group": "centrifuge",
+  "ingredient": { "tag": "c:ores/redstone" },
+  "input_count": 1,
+  "results": [
+    { "id": "minecraft:redstone", "count": 3 },
+    { "id": "minecraft:redstone", "count": 3 },
+    { "id": "atomiclegacy:nugget_mercury", "count": 3 },
+    { "id": "minecraft:gravel" }
+  ]
+}

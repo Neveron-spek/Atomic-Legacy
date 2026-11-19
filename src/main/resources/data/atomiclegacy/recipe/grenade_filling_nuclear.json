@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":[" T ","CPC"," T "],"key":{"T":{"item":"atomiclegacy:ball_tatb"},"C":{"item":"atomiclegacy:plate_weaponsteel"},"P":{"tag":"c:nuggets/pu239"}},"result":{"id":"atomiclegacy:grenade_filling_nuclear"}}

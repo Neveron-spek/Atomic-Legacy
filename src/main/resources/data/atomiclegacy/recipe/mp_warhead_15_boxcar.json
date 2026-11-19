@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SNS",
+    "CBC",
+    "SFS"
+  ],
+  "key": {
+    "S": {
+      "tag": "c:ingots/starmetal"
+    },
+    "N": {
+      "item": "atomiclegacy:det_nuke"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_advanced"
+    },
+    "B": {
+      "item": "atomiclegacy:boxcar"
+    },
+    "F": {
+      "type": "atomiclegacy:legacy_fluid_container",
+      "fluid": "tritium",
+      "amount": 16000
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:mp_warhead_15_boxcar",
+    "count": 1
+  }
+}

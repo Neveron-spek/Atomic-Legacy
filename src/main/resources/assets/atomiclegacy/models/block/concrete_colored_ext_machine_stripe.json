@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "atomiclegacy:block/concrete_colored_ext.machine_stripe",
+    "down": "atomiclegacy:block/concrete_colored_ext.machine",
+    "up": "atomiclegacy:block/concrete_colored_ext.machine",
+    "north": "atomiclegacy:block/concrete_colored_ext.machine_stripe",
+    "south": "atomiclegacy:block/concrete_colored_ext.machine_stripe",
+    "west": "atomiclegacy:block/concrete_colored_ext.machine_stripe",
+    "east": "atomiclegacy:block/concrete_colored_ext.machine_stripe"
+  }
+}

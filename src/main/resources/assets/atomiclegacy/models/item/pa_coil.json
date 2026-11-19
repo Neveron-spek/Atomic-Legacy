@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:item/pa_coil.gold"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 0
+      },
+      "model": "atomiclegacy:item/pa_coil_gold"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 1
+      },
+      "model": "atomiclegacy:item/pa_coil_niobium"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 2
+      },
+      "model": "atomiclegacy:item/pa_coil_bscco"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 3
+      },
+      "model": "atomiclegacy:item/pa_coil_chlorophyte"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BCB",
+    "SDS",
+    "BCB"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:nuggets/bismuth"
+    },
+    "C": {
+      "tag": "c:wires_dense/neodymium"
+    },
+    "S": {
+      "tag": "c:plates/cast_steel"
+    },
+    "D": {
+      "tag": "c:ingots/dura_steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:motor_bismuth"
+  }
+}

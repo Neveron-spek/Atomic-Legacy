@@ -1,0 +1,7 @@
+{
+  "type": "atomiclegacy:press",
+  "group": "press.flat",
+  "stamp": "flat",
+  "ingredient": { "item": "atomiclegacy:meteorite_sword_reforged" },
+  "result": { "id": "atomiclegacy:meteorite_sword_hardened" }
+}

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " I ",
+    " S ",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:cordite"
+    },
+    "I": {
+      "item": "atomiclegacy:sphere_steel"
+    },
+    "S": {
+      "item": "atomiclegacy:shell_copper"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:ammo_arty",
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "ammo_arty_cargo"
+      },
+      "minecraft:custom_model_data": 8
+    }
+  }
+}

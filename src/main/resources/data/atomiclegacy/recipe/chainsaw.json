@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "CCH",
+    "BBP",
+    "CCE"
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:dungeon_chain"
+    },
+    "H": {
+      "item": "atomiclegacy:shell_steel"
+    },
+    "B": {
+      "item": "atomiclegacy:blades_steel"
+    },
+    "P": {
+      "item": "atomiclegacy:piston_selenium"
+    },
+    "E": {
+      "item": "atomiclegacy:canister_empty"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:chainsaw",
+    "components": {
+      "minecraft:custom_data": "{fuel:0}"
+    }
+  }
+}

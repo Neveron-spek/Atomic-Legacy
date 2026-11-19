@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:glyphid_base",
+    "atomiclegacy:glyphid_spawner",
+    "atomiclegacy:leaves_layer",
+    "atomiclegacy:mush",
+    "atomiclegacy:mush_block",
+    "atomiclegacy:mush_block_stem",
+    "atomiclegacy:plant_dead",
+    "atomiclegacy:plant_foxglove",
+    "atomiclegacy:plant_hemp",
+    "atomiclegacy:plant_mustard_willow",
+    "atomiclegacy:plant_nightshade",
+    "atomiclegacy:plant_reeds",
+    "atomiclegacy:plant_tobacco",
+    "atomiclegacy:waste_leaves"
+  ]
+}

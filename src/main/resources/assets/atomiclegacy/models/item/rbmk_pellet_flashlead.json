@@ -1,0 +1,30 @@
+{
+  "parent": "atomiclegacy:item/rbmk_pellet_flashlead_e0",
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 1
+      },
+      "model": "atomiclegacy:item/rbmk_pellet_flashlead_e1"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 2
+      },
+      "model": "atomiclegacy:item/rbmk_pellet_flashlead_e2"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 3
+      },
+      "model": "atomiclegacy:item/rbmk_pellet_flashlead_e3"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4
+      },
+      "model": "atomiclegacy:item/rbmk_pellet_flashlead_e4"
+    }
+  ]
+}
+

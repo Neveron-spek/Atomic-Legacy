@@ -1,0 +1,7 @@
+﻿{
+    "variants":  {
+                     "":  {
+                              "model":  "atomiclegacy:block/block_dura_steel"
+                          }
+                 }
+}

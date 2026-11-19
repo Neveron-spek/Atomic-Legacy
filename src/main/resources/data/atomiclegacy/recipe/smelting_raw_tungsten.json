@@ -1,0 +1,12 @@
+{
+    "type":  "minecraft:smelting",
+    "category":  "misc",
+    "ingredient":  {
+                       "item":  "atomiclegacy:raw_tungsten"
+                   },
+    "result":  {
+                   "id":  "atomiclegacy:ingot_tungsten"
+               },
+    "experience":  6,
+    "cookingtime":  200
+}

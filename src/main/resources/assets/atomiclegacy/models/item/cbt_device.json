@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/cbt_device"
+                 },
+    "parent":  "minecraft:item/generated"
+}

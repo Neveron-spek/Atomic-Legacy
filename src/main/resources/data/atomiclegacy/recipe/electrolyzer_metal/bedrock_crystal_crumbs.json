@@ -1,0 +1,27 @@
+{
+  "type": "atomiclegacy:electrolyzer_metal",
+  "group": "electrolyzer_bedrock_ore",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:bedrock_ore_new"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "grade": "crumbs",
+        "type": "crystal"
+      }
+    }
+  },
+  "output1": {
+    "material": "redstone",
+    "amount": 144
+  },
+  "duration": 20,
+  "byproducts": [
+    {
+      "id": "atomiclegacy:bedrock_ore_fragment_cinnabar",
+      "count": 8
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "GNG",
+                    "RUR",
+                    "GMG"
+                ],
+    "key":  {
+                "G":  {
+                          "item":  "atomiclegacy:coil_gold"
+                      },
+                "N":  {
+                          "tag":  "c:ingots/niobium"
+                      },
+                "R":  {
+                          "tag":  "c:ingots/rubber"
+                      },
+                "U":  {
+                          "item":  "atomiclegacy:upgrade_template"
+                      },
+                "M":  {
+                          "item":  "atomiclegacy:motor"
+                      }
+            },
+    "result":  {
+                   "id":  "atomiclegacy:upgrade_gc_speed"
+               }
+}

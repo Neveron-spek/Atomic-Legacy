@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "item": "atomiclegacy:ash_digamma"
+  },
+  "result": {
+    "id": "atomiclegacy:glass_ash",
+    "count": 1
+  },
+  "experience": 10.0,
+  "cookingtime": 200
+}

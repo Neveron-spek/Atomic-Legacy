@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    { "type": "atomiclegacy:enable_expensive_mode" }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.exposurechamber",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    { "ingredient": { "item": "atomiclegacy:item_expensive_lead_plating" }, "count": 8 },
+    { "ingredient": { "tag": "c:ingots/hard_plastic" }, "count": 24 },
+    { "ingredient": { "item": "atomiclegacy:wire_dense_gold" }, "count": 32 },
+    { "ingredient": { "item": "atomiclegacy:circuit_bismoid" }, "count": 4 },
+    { "ingredient": { "item": "atomiclegacy:item_expensive_computer" }, "count": 2 }
+  ],
+  "result": { "id": "atomiclegacy:machine_exposure_chamber" }
+}

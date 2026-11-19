@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": ["CGC", "PSP", "IAI"],
+  "key": {
+    "C": { "tag": "c:dusts/yellowcake" },
+    "G": { "tag": "c:storage_blocks/thorium" },
+    "P": { "item": "atomiclegacy:photo_panel" },
+    "S": { "item": "atomiclegacy:steel_shovel" },
+    "I": { "tag": "c:plates/polymer" },
+    "A": { "tag": "c:ingots/australium" }
+  },
+  "result": { "id": "atomiclegacy:memespoon" }
+}

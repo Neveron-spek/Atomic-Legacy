@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MBM",
+    "NSN",
+    "N N"
+  ],
+  "key": {
+    "N": {
+      "tag": "c:plates/armor_lunar"
+    },
+    "M": {
+      "item": "atomiclegacy:motor_desh"
+    },
+    "S": {
+      "item": "atomiclegacy:starmetal_legs"
+    },
+    "B": {
+      "tag": "c:storage_blocks/starmetal"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:bj_legs"
+  }
+}

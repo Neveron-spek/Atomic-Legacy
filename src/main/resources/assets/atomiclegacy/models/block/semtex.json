@@ -1,0 +1,8 @@
+{
+    "textures":  {
+                     "bottom":  "atomiclegacy:block/semtex_bottom",
+                     "side":  "atomiclegacy:block/semtex_side",
+                     "top":  "atomiclegacy:block/semtex_top"
+                 },
+    "parent":  "minecraft:block/cube_bottom_top"
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "atomiclegacy:block/fusion_klystron",
+  "visibility": {
+    "Pipes": false,
+    "Klystron": false
+  }
+}

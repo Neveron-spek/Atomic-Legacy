@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "atomiclegacy:block/brick_asbestos",
+    "top": "atomiclegacy:block/brick_asbestos",
+    "side": "atomiclegacy:block/brick_asbestos"
+  }
+}

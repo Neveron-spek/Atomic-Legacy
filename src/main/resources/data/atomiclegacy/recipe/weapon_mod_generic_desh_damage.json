@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:gun_parts/mechanism/gunmetal"
+    },
+    {
+      "tag": "c:plates/cast_desh"
+    },
+    {
+      "tag": "c:plates/cast_desh"
+    },
+    {
+      "tag": "c:plates/cast_desh"
+    },
+    {
+      "item": "atomiclegacy:ducttape"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:weapon_mod_generic_desh_damage",
+    "count": 1
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "type": "atomiclegacy:purex",
+  "duration": 100,
+  "power": 1000,
+  "input_items": [
+    {
+      "ingredient": {
+        "type": "neoforge:components",
+        "items": [
+          "atomiclegacy:sand_mix"
+        ],
+        "components": {
+          "minecraft:custom_data": {
+            "variant": "lead"
+          }
+        }
+      },
+      "count": 1
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "wastefluid",
+      "amount": 1000
+    }
+  ],
+  "output_items": [
+    {
+      "id": "atomiclegacy:nuclear_waste_vitrified"
+    }
+  ]
+}

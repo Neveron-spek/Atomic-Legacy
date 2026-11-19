@@ -1,0 +1,11 @@
+﻿{
+    "type":  "atomiclegacy:press",
+    "group":  "press.plate",
+    "stamp":  "plate",
+    "ingredient":  {
+                       "tag":  "c:ingots/dura_steel"
+                   },
+    "result":  {
+                   "id":  "atomiclegacy:plate_dura_steel"
+               }
+}

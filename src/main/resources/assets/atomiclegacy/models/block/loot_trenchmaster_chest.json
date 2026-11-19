@@ -1,0 +1,13 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/loot/trenchmaster.obj",
+  "mtl_override": "atomiclegacy:models/obj/loot/trenchmaster.mtl",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "visibility": {
+    "LeftBoot": false, "RightBoot": false, "Light": false, "RightLeg": false,
+    "LeftLeg": false, "RightArm": false, "LeftArm": false, "Helmet": false, "Chest": true
+  },
+  "textures": { "default": "atomiclegacy:armor/trenchmaster_chest", "particle": "atomiclegacy:armor/trenchmaster_chest" }
+}

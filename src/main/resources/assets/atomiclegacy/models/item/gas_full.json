@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:item/gas_empty",
+    "layer1": "atomiclegacy:item/gas_bottle",
+    "layer2": "atomiclegacy:item/gas_label",
+    "layer3": "atomiclegacy:item/gas_cap"
+  }
+}

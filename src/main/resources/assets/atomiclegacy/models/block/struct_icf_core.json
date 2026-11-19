@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/struct_icf_core"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

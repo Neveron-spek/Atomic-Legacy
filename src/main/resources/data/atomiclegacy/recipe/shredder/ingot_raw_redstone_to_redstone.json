@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ingot_raw_redstone"
+  },
+  "result": {
+    "id": "minecraft:redstone"
+  }
+}

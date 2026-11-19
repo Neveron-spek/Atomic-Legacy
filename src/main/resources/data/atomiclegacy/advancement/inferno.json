@@ -1,0 +1,28 @@
+{
+  "parent": "atomiclegacy:root",
+  "display": {
+    "icon": {
+      "id": "atomiclegacy:canister_napalm"
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.inferno.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.inferno.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "triggered"
+    ]
+  ]
+}

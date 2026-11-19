@@ -1,0 +1,8 @@
+{
+    "textures":  {
+                     "side":  "atomiclegacy:block/decon_side",
+                     "top":  "atomiclegacy:block/decon_top",
+                     "bottom":  "atomiclegacy:block/decon_side"
+                 },
+    "parent":  "minecraft:block/cube_bottom_top"
+}

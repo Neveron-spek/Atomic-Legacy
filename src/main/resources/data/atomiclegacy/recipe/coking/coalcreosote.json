@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:coking","group":"coking.coalcreosote","input":{"fluid":"coalcreosote","amount":3200},"output":{"id":"atomiclegacy:coke_petroleum"},"byproduct":{"fluid":"naphtha_coker","amount":320}}

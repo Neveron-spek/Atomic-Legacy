@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "LLL",
+    "LLL"
+  ],
+  "key": {
+    "L": {
+      "item": "atomiclegacy:reinforced_laminate"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:reinforced_laminate_pane",
+    "count": 16
+  }
+}

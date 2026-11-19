@@ -1,0 +1,30 @@
+{
+  "type": "atomiclegacy:silex",
+  "group": "silex.crystal_schraranium",
+  "ingredient": {
+    "item": "atomiclegacy:crystal_schraranium"
+  },
+  "fluid_produced": 900,
+  "fluid_consumed": 100,
+  "wavelength": "uv",
+  "outputs": [
+    {
+      "item": {
+        "id": "atomiclegacy:nugget_schrabidium"
+      },
+      "weight": 5
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:nugget_uranium"
+      },
+      "weight": 2
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:nugget_neptunium"
+      },
+      "weight": 2
+    }
+  ]
+}

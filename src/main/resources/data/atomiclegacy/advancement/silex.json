@@ -1,0 +1,28 @@
+{
+  "parent": "atomiclegacy:acidizer",
+  "display": {
+    "icon": {
+      "id": "atomiclegacy:machine_silex"
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.silex.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.silex.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "triggered"
+    ]
+  ]
+}

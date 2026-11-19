@@ -1,0 +1,21 @@
+{
+  "type": "atomiclegacy:gas_centrifuge",
+  "group": "gas_centrifuge",
+  "input": {
+    "fluid": "leuf6",
+    "amount": 300
+  },
+  "output": {
+    "fluid": "meuf6",
+    "amount": 200
+  },
+  "high_speed": false,
+  "results": [
+    {
+      "id": "atomiclegacy:nugget_u238"
+    },
+    {
+      "id": "atomiclegacy:fluorite"
+    }
+  ]
+}

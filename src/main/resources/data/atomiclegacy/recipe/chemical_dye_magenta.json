@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:chemical_dye_pink"
+    },
+    {
+      "item": "atomiclegacy:chemical_dye_purple"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:chemical_dye_magenta",
+    "count": 2
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/crate_steel" },
+    "facing=south": { "model": "atomiclegacy:block/crate_steel", "y": 180 },
+    "facing=west": { "model": "atomiclegacy:block/crate_steel", "y": 270 },
+    "facing=east": { "model": "atomiclegacy:block/crate_steel", "y": 90 }
+  }
+}

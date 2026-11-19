@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/fluid_barrel_infinite"
+                 },
+    "parent":  "minecraft:item/generated"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "item": "minecraft:bone"
+  },
+  "acid": {
+    "fluid": "sulfuric_acid",
+    "amount": 1000
+  },
+  "duration": 20,
+  "result": {
+    "id": "minecraft:slime_ball",
+    "count": 16
+  }
+}

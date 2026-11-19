@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:nuggets/pu239"
+    },
+    {
+      "tag": "c:nuggets/pu239"
+    },
+    {
+      "tag": "c:nuggets/pu239"
+    },
+    {
+      "tag": "c:nuggets/pu239"
+    },
+    {
+      "tag": "c:nuggets/pu239"
+    },
+    {
+      "tag": "c:nuggets/pu239"
+    },
+    {
+      "tag": "c:nuggets/pu240"
+    },
+    {
+      "tag": "c:nuggets/pu240"
+    },
+    {
+      "tag": "c:nuggets/pu240"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:ingot_pu_mix",
+    "count": 1
+  }
+}

@@ -1,0 +1,8 @@
+{
+    "textures":  {
+                     "bottom":  "atomiclegacy:block/c4_bottom",
+                     "side":  "atomiclegacy:block/c4_side",
+                     "top":  "atomiclegacy:block/c4_top"
+                 },
+    "parent":  "minecraft:block/cube_bottom_top"
+}

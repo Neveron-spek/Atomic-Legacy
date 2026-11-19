@@ -1,0 +1,36 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.entanglementkit",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_dura_steel"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/copper"
+      },
+      "count": 24
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_dense_gold"
+      },
+      "count": 16
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "xenon",
+      "amount": 8000
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:entanglement_kit",
+    "count": 1
+  }
+}

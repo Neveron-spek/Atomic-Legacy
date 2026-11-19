@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:stone"
+    },
+    {
+      "item": "minecraft:stone"
+    },
+    {
+      "item": "minecraft:stone"
+    },
+    {
+      "item": "atomiclegacy:powder_limestone"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:lightstone",
+    "count": 4
+  }
+}

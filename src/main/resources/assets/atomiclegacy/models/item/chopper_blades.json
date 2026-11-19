@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/chopper_blades"
+                 },
+    "parent":  "minecraft:item/generated"
+}

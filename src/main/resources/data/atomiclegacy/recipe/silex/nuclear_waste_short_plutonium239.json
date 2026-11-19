@@ -1,0 +1,54 @@
+{
+    "type": "atomiclegacy:silex",
+    "group": "silex.nuclear_waste_short_plutonium239",
+    "ingredient": {
+        "type": "neoforge:components",
+        "items": [
+            "atomiclegacy:nuclear_waste_short"
+        ],
+        "components": {
+            "minecraft:custom_data": "{waste_class:3}"
+        }
+    },
+    "fluid_produced": 900,
+    "fluid_consumed": 100,
+    "wavelength": "ir",
+    "outputs": [
+        {
+            "item": {
+                "id": "atomiclegacy:nugget_pu240"
+            },
+            "weight": 10
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:nugget_pu241"
+            },
+            "weight": 25
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:powder_sr90_tiny"
+            },
+            "weight": 2
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:powder_i131_tiny"
+            },
+            "weight": 5
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:powder_cs137_tiny"
+            },
+            "weight": 6
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:nuclear_waste_tiny"
+            },
+            "weight": 52
+        }
+    ]
+}

@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":["PHP","CUC","DTD"],"key":{"P":{"item":"atomiclegacy:motor"},"H":{"item":"minecraft:hopper"},"C":{"item":"atomiclegacy:blades_titanium"},"U":{"item":"atomiclegacy:upgrade_smelter"},"D":{"tag":"c:plates/titanium"},"T":{"item":"atomiclegacy:machine_transformer"}},"result":{"id":"atomiclegacy:upgrade_shredder"}}

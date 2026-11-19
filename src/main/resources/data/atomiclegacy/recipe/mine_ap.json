@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["I", "C", "S"],
+  "key": {
+    "I": { "tag": "c:plates/polymer" },
+    "C": { "tag": "c:dusts/smokeless" },
+    "S": { "tag": "c:ingots/steel" }
+  },
+  "result": { "id": "atomiclegacy:mine_ap", "count": 4 }
+}

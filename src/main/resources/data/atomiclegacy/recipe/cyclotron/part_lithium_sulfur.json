@@ -1,0 +1,15 @@
+﻿{
+    "type":  "atomiclegacy:cyclotron",
+    "group":  "cyclotron",
+    "particle":  {
+                     "item":  "atomiclegacy:part_lithium"
+                 },
+    "input":  {
+                  "tag":  "c:dusts/phosphorus"
+              },
+    "output":  {
+                   "id":  "atomiclegacy:sulfur"
+               },
+    "antimatter":  50
+}
+

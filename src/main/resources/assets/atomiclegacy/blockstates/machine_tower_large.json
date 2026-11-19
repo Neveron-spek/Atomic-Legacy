@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/machine_tower_large" },
+    "facing=east": { "model": "atomiclegacy:block/machine_tower_large" },
+    "facing=south": { "model": "atomiclegacy:block/machine_tower_large" },
+    "facing=west": { "model": "atomiclegacy:block/machine_tower_large" }
+  }
+}

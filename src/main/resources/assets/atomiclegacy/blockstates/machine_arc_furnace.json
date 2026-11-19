@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=north,lit=false": { "model": "atomiclegacy:block/machine_arc_furnace_empty" },
+    "facing=north,lit=true": { "model": "atomiclegacy:block/machine_arc_furnace_empty" },
+    "facing=east,lit=false": { "model": "atomiclegacy:block/machine_arc_furnace_empty" },
+    "facing=east,lit=true": { "model": "atomiclegacy:block/machine_arc_furnace_empty" },
+    "facing=south,lit=false": { "model": "atomiclegacy:block/machine_arc_furnace_empty" },
+    "facing=south,lit=true": { "model": "atomiclegacy:block/machine_arc_furnace_empty" },
+    "facing=west,lit=false": { "model": "atomiclegacy:block/machine_arc_furnace_empty" },
+    "facing=west,lit=true": { "model": "atomiclegacy:block/machine_arc_furnace_empty" }
+  }
+}

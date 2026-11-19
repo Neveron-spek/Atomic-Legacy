@@ -1,0 +1,11 @@
+{
+  "type": "atomiclegacy:liquefaction",
+  "group": "liquefactor.bitumen",
+  "ingredient": {
+    "item": "atomiclegacy:oil_tar_coal"
+  },
+  "output": {
+    "fluid": "bitumen",
+    "amount": 50
+  }
+}

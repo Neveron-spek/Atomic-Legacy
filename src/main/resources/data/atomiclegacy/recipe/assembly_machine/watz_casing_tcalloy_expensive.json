@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.watzcasing",
+  "blueprint_pools": [
+    "528.tcalloy"
+  ],
+  "duration": 100,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_ferro_plating"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_welded_tcalloy"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_welded_steel"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:watz_end",
+    "count": 3
+  }
+}

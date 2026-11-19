@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": { "item": "atomiclegacy:meteorite_sword" },
+  "result": { "id": "atomiclegacy:meteorite_sword_seared" },
+  "experience": 0.0,
+  "cookingtime": 200
+}

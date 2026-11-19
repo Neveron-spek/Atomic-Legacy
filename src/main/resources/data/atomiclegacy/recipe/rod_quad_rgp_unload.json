@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:rod_quad"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "rgp"
+        }
+      }
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:billet_pu_mix",
+    "count": 4
+  }
+}

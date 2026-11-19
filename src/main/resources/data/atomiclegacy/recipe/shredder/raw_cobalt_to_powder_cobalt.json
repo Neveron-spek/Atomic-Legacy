@@ -1,0 +1,11 @@
+﻿{
+    "type":  "atomiclegacy:shredder",
+    "ingredient":  {
+                       "item":  "atomiclegacy:raw_cobalt"
+                   },
+    "input_count":  2,
+    "result":  {
+                   "id":  "atomiclegacy:powder_cobalt",
+                       "count":  3
+               }
+}

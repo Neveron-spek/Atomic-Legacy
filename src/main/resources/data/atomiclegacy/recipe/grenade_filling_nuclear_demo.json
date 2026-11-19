@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "TPT",
+    "CPC",
+    "TPT"
+  ],
+  "key": {
+    "T": {
+      "item": "atomiclegacy:ball_tatb"
+    },
+    "C": {
+      "item": "atomiclegacy:neutron_reflector"
+    },
+    "P": {
+      "tag": "c:nuggets/pu239"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:grenade_filling_nuclear_demo"
+  }
+}

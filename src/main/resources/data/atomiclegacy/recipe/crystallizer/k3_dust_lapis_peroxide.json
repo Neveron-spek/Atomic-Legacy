@@ -1,0 +1,15 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "tag": "c:dusts/lapis"
+  },
+  "acid": {
+    "fluid": "peroxide",
+    "amount": 500
+  },
+  "duration": 100,
+  "result": {
+    "id": "minecraft:lapis_lazuli"
+  }
+}

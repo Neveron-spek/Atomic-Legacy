@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["###", "###", "###"],
+  "key": { "#": { "item": "atomiclegacy:egg_balefire_shard" } },
+  "result": { "id": "atomiclegacy:egg_balefire" }
+}

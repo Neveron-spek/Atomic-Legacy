@@ -1,0 +1,11 @@
+{
+  "type": "atomiclegacy:liquefaction",
+  "group": "liquefactor.bitumen",
+  "ingredient": {
+    "item": "atomiclegacy:ore_oil_sand"
+  },
+  "output": {
+    "fluid": "bitumen",
+    "amount": 100
+  }
+}

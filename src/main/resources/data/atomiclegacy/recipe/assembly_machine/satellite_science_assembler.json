@@ -1,0 +1,47 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.0gassembler",
+  "duration": 600,
+  "power": 25000,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:shell_aluminium"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/bismoid_bronze_cast"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:billet_pu_mix"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:motor_bismuth"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_quantum"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:part_generic_lde"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:satellite_science_assembler"
+  }
+}

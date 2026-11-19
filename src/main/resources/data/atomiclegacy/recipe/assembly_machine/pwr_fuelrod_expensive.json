@@ -1,0 +1,29 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.pwrfuel",
+  "duration": 200,
+  "power": 500,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_lead_plating"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_welded_zirconium"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:pwr_fuelrod",
+    "count": 4
+  }
+}

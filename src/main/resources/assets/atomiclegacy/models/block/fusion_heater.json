@@ -1,0 +1,7 @@
+{
+    "parent": "minecraft:block/cube_column",
+    "textures": {
+        "end": "atomiclegacy:block/fusion_heater_top",
+        "side": "atomiclegacy:block/fusion_heater_side"
+    }
+}

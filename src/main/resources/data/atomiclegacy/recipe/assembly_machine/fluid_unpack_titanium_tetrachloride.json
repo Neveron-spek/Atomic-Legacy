@@ -1,0 +1,31 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.unpackagehbmfluid.titanium_tetrachloride",
+  "duration": 40,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "type": "neoforge:components",
+        "items": [
+          "atomiclegacy:fluid_pack_full"
+        ],
+        "components": {
+          "minecraft:custom_data": {
+            "fluid": "titanium_tetrachloride"
+          }
+        }
+      },
+      "count": 1
+    }
+  ],
+  "output_fluids": [
+    {
+      "fluid": "titanium_tetrachloride",
+      "amount": 32000
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:fluid_pack_empty"
+  }
+}

@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:assembly_machine","group":"ass.pabscco","duration":400,"power":100,"ingredients":[{"ingredient":{"item":"atomiclegacy:wire_dense_bscco"},"count":64},{"ingredient":{"tag":"c:ingots/plastic"},"count":64}],"result":{"id":"atomiclegacy:pa_coil_bscco"}}

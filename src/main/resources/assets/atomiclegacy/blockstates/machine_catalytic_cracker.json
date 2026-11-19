@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/machine_catalytic_cracker" },
+    "facing=east": { "model": "atomiclegacy:block/particle/machine_catalytic_cracker" },
+    "facing=south": { "model": "atomiclegacy:block/particle/machine_catalytic_cracker" },
+    "facing=west": { "model": "atomiclegacy:block/particle/machine_catalytic_cracker" }
+  }
+}

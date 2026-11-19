@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:crystal_schraranium"
+  },
+  "result": {
+    "id": "atomiclegacy:nugget_schrabidium",
+    "count": 3
+  }
+}

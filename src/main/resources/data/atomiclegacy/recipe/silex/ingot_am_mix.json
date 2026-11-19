@@ -1,0 +1,24 @@
+{
+  "type": "atomiclegacy:silex",
+  "group": "silex.ingot_am_mix",
+  "ingredient": {
+    "item": "atomiclegacy:ingot_am_mix"
+  },
+  "fluid_produced": 900,
+  "fluid_consumed": 100,
+  "wavelength": "visible",
+  "outputs": [
+    {
+      "item": {
+        "id": "atomiclegacy:nugget_am241"
+      },
+      "weight": 3
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:nugget_am242"
+      },
+      "weight": 6
+    }
+  ]
+}

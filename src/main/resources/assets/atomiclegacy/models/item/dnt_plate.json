@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/dnt_plate"
+                 },
+    "parent":  "minecraft:item/generated"
+}

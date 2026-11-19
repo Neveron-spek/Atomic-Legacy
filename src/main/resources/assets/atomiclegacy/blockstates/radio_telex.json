@@ -1,0 +1,8 @@
+﻿{
+    "variants":  {
+                     "facing=east":  { "model": "atomiclegacy:block/particle/radio_telex" },
+                     "facing=south": { "model": "atomiclegacy:block/particle/radio_telex" },
+                     "facing=west":  { "model": "atomiclegacy:block/particle/radio_telex" },
+                     "facing=north": { "model": "atomiclegacy:block/particle/radio_telex" }
+                 }
+}

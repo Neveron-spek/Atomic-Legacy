@@ -1,0 +1,13 @@
+{
+  "type": "atomiclegacy:particle_accelerator",
+  "input1": {
+    "item": "atomiclegacy:particle_aschrab"
+  },
+  "input2": {
+    "item": "atomiclegacy:particle_aschrab"
+  },
+  "momentum": 10000,
+  "output1": {
+    "id": "atomiclegacy:particle_dark"
+  }
+}

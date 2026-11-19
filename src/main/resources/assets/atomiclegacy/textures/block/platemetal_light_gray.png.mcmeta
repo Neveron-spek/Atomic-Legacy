@@ -1,0 +1,58 @@
+{
+  "ctm": {
+    "ctm_version": 1,
+    "type": "CTM",
+    "textures": [
+      "atomiclegacy:block/platemetal_light_gray_ctm"
+    ],
+    "extra": {
+      "connect_to": [
+        {
+          "block": "atomiclegacy:platemetal"
+        },
+        {
+          "block": "atomiclegacy:platemetal_black"
+        },
+        {
+          "block": "atomiclegacy:platemetal_white"
+        },
+        {
+          "block": "atomiclegacy:platemetal_red"
+        },
+        {
+          "block": "atomiclegacy:platemetal_green"
+        },
+        {
+          "block": "atomiclegacy:platemetal_light_gray"
+        },
+        {
+          "block": "atomiclegacy:platemetal_blue"
+        },
+        {
+          "block": "atomiclegacy:platemetal_purple"
+        },
+        {
+          "block": "atomiclegacy:platemetal_cyan"
+        },
+        {
+          "block": "atomiclegacy:platemetal_pink"
+        },
+        {
+          "block": "atomiclegacy:platemetal_lime"
+        },
+        {
+          "block": "atomiclegacy:platemetal_yellow"
+        },
+        {
+          "block": "atomiclegacy:platemetal_light_blue"
+        },
+        {
+          "block": "atomiclegacy:platemetal_magenta"
+        },
+        {
+          "block": "atomiclegacy:platemetal_orange"
+        }
+      ]
+    }
+  }
+}

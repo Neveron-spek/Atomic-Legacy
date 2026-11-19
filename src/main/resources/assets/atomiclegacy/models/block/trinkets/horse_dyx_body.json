@@ -1,0 +1,10 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/mobs/horse.obj",
+  "mtl_override": "atomiclegacy:models/obj/mobs/horse.mtl",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "textures": { "default": "atomiclegacy:models/horse/dyx", "particle": "atomiclegacy:models/horse/dyx" },
+  "visibility": { "LeftWing": false, "Body": true, "RightBackLeg": false, "LeftBackLeg": false, "RightFrontLeg": false, "LeftFrontLeg": false, "Head": false, "Tail": false, "RightWing": false, "HornPointy": false, "Horn": false, "NoseMale": false, "NoseFemale": false, "Mane": false }
+}

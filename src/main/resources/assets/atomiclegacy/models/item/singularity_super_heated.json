@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/singularity_super_heated"
+                 },
+    "parent":  "minecraft:item/generated"
+}

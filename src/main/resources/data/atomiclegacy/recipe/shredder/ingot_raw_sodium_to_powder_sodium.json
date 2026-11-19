@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ingot_raw_sodium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_sodium"
+  }
+}

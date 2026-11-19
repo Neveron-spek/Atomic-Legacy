@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IIP",
+    "CHW",
+    "IIP"
+  ],
+  "key": {
+    "I": {
+      "tag": "c:ingots/any_rubber"
+    },
+    "P": {
+      "tag": "c:plates/saturnite"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_advanced"
+    },
+    "H": {
+      "item": "atomiclegacy:shell_steel"
+    },
+    "W": {
+      "item": "atomiclegacy:coil_copper"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:custom_fall"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "atomiclegacy:arc_furnace",
+  "group": "arc_furnace",
+  "input": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:bedrock_ore_new"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "grade": "primary_second",
+        "type": "crystal"
+      }
+    }
+  },
+  "liquid": [
+    {
+      "material": "redstone",
+      "amount": 144
+    }
+  ]
+}

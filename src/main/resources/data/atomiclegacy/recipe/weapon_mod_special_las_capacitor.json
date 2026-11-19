@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CCC",
+    "PIP"
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:circuit_capacitor_tantalium"
+    },
+    "P": {
+      "tag": "c:ingots/hard_plastic"
+    },
+    "I": {
+      "item": "atomiclegacy:circuit_chip_bismoid"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_las_capacitor",
+    "count": 1
+  }
+}

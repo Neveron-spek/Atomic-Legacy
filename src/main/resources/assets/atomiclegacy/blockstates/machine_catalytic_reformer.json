@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/machine_catalytic_reformer" },
+    "facing=east": { "model": "atomiclegacy:block/particle/machine_catalytic_reformer" },
+    "facing=south": { "model": "atomiclegacy:block/particle/machine_catalytic_reformer" },
+    "facing=west": { "model": "atomiclegacy:block/particle/machine_catalytic_reformer" }
+  }
+}

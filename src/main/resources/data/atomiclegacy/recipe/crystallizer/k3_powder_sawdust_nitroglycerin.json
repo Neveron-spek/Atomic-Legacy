@@ -1,0 +1,16 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "item": "atomiclegacy:powder_sawdust"
+  },
+  "acid": {
+    "fluid": "nitroglycerin",
+    "amount": 250
+  },
+  "duration": 20,
+  "productivity": 0.25,
+  "result": {
+    "id": "atomiclegacy:cordite"
+  }
+}

@@ -1,0 +1,8 @@
+﻿{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/fusion_hatch", "y": 0 },
+    "facing=east": { "model": "atomiclegacy:block/fusion_hatch", "y": 90 },
+    "facing=south": { "model": "atomiclegacy:block/fusion_hatch", "y": 180 },
+    "facing=west": { "model": "atomiclegacy:block/fusion_hatch", "y": 270 }
+  }
+}

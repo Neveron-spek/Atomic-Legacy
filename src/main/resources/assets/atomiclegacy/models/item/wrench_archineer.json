@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/wrench_archineer"
+                 },
+    "parent":  "minecraft:item/handheld"
+}

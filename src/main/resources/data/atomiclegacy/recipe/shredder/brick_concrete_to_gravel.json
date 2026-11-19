@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:brick_concrete"
+  },
+  "result": {
+    "id": "minecraft:gravel"
+  }
+}

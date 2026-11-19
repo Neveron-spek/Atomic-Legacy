@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:meteor_brick_cracked"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_meteorite"
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/boy_kit"
+                 },
+    "parent":  "minecraft:item/generated"
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:ore_tungsten",
+    "atomiclegacy:ore_deepslate_tungsten",
+    "atomiclegacy:cluster_deepslate_tungsten",
+    "atomiclegacy:ore_nether_tungsten"
+  ]
+}

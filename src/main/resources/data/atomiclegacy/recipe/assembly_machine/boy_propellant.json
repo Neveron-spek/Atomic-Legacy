@@ -1,0 +1,35 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.boypropellant",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:cordite"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/iron"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/aluminium"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_red_copper"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:boy_propellant"
+  }
+}

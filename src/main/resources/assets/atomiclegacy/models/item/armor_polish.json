@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/armor_polish"
+                 },
+    "parent":  "minecraft:item/generated"
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BRM",
+    "G G"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:gun_parts/barrel_heavy/ferrouranium"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_heavy/ferrouranium"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/any_plastic"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_autoshotgun",
+    "count": 1
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "type": "atomiclegacy:purex",
+  "group": "autoswitch.plate",
+  "duration": 100,
+  "power": 1500,
+  "input_items": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:waste_plate_sa326"
+      },
+      "count": 1
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "kerosene",
+      "amount": 500
+    },
+    {
+      "fluid": "nitric_acid",
+      "amount": 250
+    }
+  ],
+  "output_items": [
+    {
+      "id": "atomiclegacy:nugget_solinium"
+    },
+    {
+      "id": "atomiclegacy:powder_neodymium_tiny"
+    },
+    {
+      "id": "atomiclegacy:nugget_tantalium"
+    },
+    {
+      "id": "atomiclegacy:nuclear_waste_tiny",
+      "count": 6
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:gun_double_barrel"
+    },
+    {
+      "item": "atomiclegacy:item_secret_selenium_steel"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:gun_double_barrel_sacred_dragon",
+    "count": 1
+  }
+}

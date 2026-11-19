@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:nuclear_blast",
+    "atomiclegacy:asbestos",
+    "atomiclegacy:blacklung",
+    "atomiclegacy:lead",
+    "atomiclegacy:monoxide",
+    "atomiclegacy:overdose",
+    "atomiclegacy:bang",
+    "atomiclegacy:ams",
+    "atomiclegacy:ams_core",
+    "atomiclegacy:broadcast",
+    "atomiclegacy:enervation"
+  ]
+}

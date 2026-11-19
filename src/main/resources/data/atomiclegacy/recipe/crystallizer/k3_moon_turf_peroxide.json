@@ -1,0 +1,16 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "item": "atomiclegacy:moon_turf"
+  },
+  "input_count": 16,
+  "acid": {
+    "fluid": "peroxide",
+    "amount": 500
+  },
+  "duration": 1200,
+  "result": {
+    "id": "atomiclegacy:chunk_ore_moonstone"
+  }
+}

@@ -1,0 +1,7 @@
+﻿{
+    "variants":  {
+                     "":  {
+                              "model":  "atomiclegacy:block/dummy_port_compact_launcher"
+                          }
+                 }
+}

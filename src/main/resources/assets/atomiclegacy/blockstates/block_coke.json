@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "variant=0": {
+      "model": "atomiclegacy:block/block_coke"
+    },
+    "variant=1": {
+      "model": "atomiclegacy:block/block_coke_lignite"
+    },
+    "variant=2": {
+      "model": "atomiclegacy:block/block_coke_petroleum"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+﻿{
+    "variants": {
+        "lit=false": {
+            "model": "atomiclegacy:block/cable_detector_off"
+        },
+        "lit=true": {
+            "model": "atomiclegacy:block/cable_detector_on"
+        }
+    }
+}

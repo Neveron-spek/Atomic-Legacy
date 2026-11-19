@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:block_polonium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_polonium",
+    "count": 9
+  }
+}

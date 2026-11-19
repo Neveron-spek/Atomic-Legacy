@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ore_australium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_australium",
+    "count": 2
+  }
+}

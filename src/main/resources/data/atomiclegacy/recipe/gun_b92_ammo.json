@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PSP",
+    "ESE",
+    "PSP"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:plates/steel"
+    },
+    "S": {
+      "tag": "c:ingots/starmetal"
+    },
+    "E": {
+      "item": "atomiclegacy:powder_spark_mix"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_b92_ammo",
+    "count": 1
+  }
+}

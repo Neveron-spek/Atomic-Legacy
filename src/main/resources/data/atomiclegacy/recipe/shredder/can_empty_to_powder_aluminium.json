@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:can_empty"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_aluminium",
+    "count": 2
+  }
+}

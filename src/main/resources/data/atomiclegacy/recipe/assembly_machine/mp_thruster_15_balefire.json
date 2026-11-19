@@ -1,0 +1,36 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.mpt15bf",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:seg_15"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:pipe_dura_steel"
+      },
+      "count": 5
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_tungsten"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/saturnite"
+      },
+      "count": 16
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:mp_thruster_15_balefire",
+    "count": 1
+  }
+}

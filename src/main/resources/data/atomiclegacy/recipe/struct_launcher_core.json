@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SCS",
+    "SIS",
+    "BEB"
+  ],
+  "key": {
+    "S": {
+      "item": "atomiclegacy:steel_scaffold"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_basic"
+    },
+    "I": {
+      "item": "minecraft:iron_bars"
+    },
+    "B": {
+      "item": "atomiclegacy:struct_launcher"
+    },
+    "E": {
+      "type": "atomiclegacy:battery",
+      "items": [
+        "atomiclegacy:battery_pack"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "battery_lead"
+        },
+        "minecraft:custom_model_data": 1
+      }
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:struct_launcher_core"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "c:nuggets/u238"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:billet_u238"
+  }
+}

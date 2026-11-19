@@ -1,0 +1,40 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.strandcaster",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_steel_plating"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:ingot_firebrick"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:shell_steel"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "tag": "c:concretes"
+      },
+      "count": 8
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:machine_strand_caster"
+  }
+}

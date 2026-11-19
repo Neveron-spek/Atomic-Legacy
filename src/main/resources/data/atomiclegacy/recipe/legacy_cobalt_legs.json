@@ -1,0 +1,7 @@
+{
+  "type":"minecraft:crafting_shaped",
+  "category":"equipment",
+  "pattern":["ECE","E E"],
+  "key":{"E":{"item":"atomiclegacy:billet_cobalt"},"C":{"item":"atomiclegacy:steel_legs"}},
+  "result":{"id":"atomiclegacy:cobalt_legs"}
+}

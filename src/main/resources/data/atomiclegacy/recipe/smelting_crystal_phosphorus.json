@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": { "item": "atomiclegacy:crystal_phosphorus" },
+  "result": { "id": "atomiclegacy:powder_fire", "count": 6 },
+  "experience": 2.0,
+  "cookingtime": 200
+}

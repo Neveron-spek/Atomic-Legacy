@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "S S",
+    "LIL",
+    "LIL"
+  ],
+  "key": {
+    "S": {
+      "tag": "c:plates/steel"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "I": {
+      "tag": "c:ingots/any_rubber"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:jackt"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:circuit_star_piece_bridge_bios"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_piece_bridge_bus"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_piece_bridge_chipset"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_piece_bridge_cmos"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_piece_bridge_io"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_piece_bridge_north"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_piece_bridge_south"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:circuit_star_component_chipset"
+  }
+}

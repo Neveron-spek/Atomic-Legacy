@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "R R",
+    "P P"
+  ],
+  "key": {
+    "R": {
+      "item": "atomiclegacy:rag"
+    },
+    "P": {
+      "tag": "c:ingots/any_rubber"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:robes_boots"
+  }
+}

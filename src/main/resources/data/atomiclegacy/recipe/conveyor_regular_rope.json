@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "RSR",
+    "I I",
+    "RSR"
+  ],
+  "key": {
+    "R": {
+      "item": "atomiclegacy:plant_item_rope"
+    },
+    "S": {
+      "tag": "c:plates/iron"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:conveyor_wand",
+    "count": 16,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "regular"
+      },
+      "minecraft:custom_model_data": 0
+    }
+  }
+}

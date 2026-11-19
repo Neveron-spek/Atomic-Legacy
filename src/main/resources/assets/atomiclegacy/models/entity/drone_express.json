@@ -1,0 +1,9 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/entity/drone.obj",
+  "mtl_override": "atomiclegacy:models/obj/entity/drone_express.mtl",
+  "automatic_culling": false,
+  "flip_v": true,
+  "visibility": { "Crate": false, "Barrel": false },
+  "textures": { "particle": "atomiclegacy:models/legacy/drone_express" }
+}

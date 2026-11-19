@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/mold_stamp"
+                 },
+    "parent":  "minecraft:item/generated"
+}

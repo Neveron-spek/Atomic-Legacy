@@ -1,0 +1,34 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.ammo_dgk",
+  "order": 90,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/steel"
+      },
+      "count": 5
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      },
+      "count": 5
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:plates/gunmetal"
+      },
+      "count": 5
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_dgk"
+  }
+}

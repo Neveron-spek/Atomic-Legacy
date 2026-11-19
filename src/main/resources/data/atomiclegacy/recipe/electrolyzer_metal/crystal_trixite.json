@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:electrolyzer_metal","ingredient":{"item":"atomiclegacy:crystal_trixite"},"output1":{"material":"plutonium","amount":216},"output2":{"material":"cobalt","amount":288},"byproducts":[{"id":"atomiclegacy:powder_niobium","count":4},{"id":"atomiclegacy:powder_nitan_mix","count":2}]}

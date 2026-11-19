@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " N ",
+    "NFN",
+    " N "
+  ],
+  "key": {
+    "N": {
+      "tag": "c:dusts/niter"
+    },
+    "F": {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:ammo_fireext"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "water"
+        }
+      }
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:ammo_fireext",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "foam"
+      },
+      "minecraft:custom_model_data": 1
+    }
+  }
+}

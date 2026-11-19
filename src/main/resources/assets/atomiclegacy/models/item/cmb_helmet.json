@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/cmb_helmet"
+                 },
+    "parent":  "minecraft:item/generated"
+}

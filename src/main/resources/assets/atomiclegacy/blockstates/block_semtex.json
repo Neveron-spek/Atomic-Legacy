@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/block_semtex" },
+    "facing=east": { "model": "atomiclegacy:block/block_semtex", "y": 90, "uvlock": true },
+    "facing=south": { "model": "atomiclegacy:block/block_semtex", "y": 180, "uvlock": true },
+    "facing=west": { "model": "atomiclegacy:block/block_semtex", "y": 270, "uvlock": true },
+    "facing=up": { "model": "atomiclegacy:block/block_semtex", "x": 270, "uvlock": true },
+    "facing=down": { "model": "atomiclegacy:block/block_semtex", "x": 90, "uvlock": true }
+  }
+}

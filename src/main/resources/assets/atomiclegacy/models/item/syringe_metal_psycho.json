@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/syringe_metal_psycho"
+                 },
+    "parent":  "minecraft:item/handheld"
+}

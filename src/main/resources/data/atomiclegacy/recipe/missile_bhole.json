@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:missile_assembly"
+    },
+    {
+      "item": "atomiclegacy:ducttape"
+    },
+    {
+      "item": "atomiclegacy:black_hole"
+    },
+    {
+      "item": "atomiclegacy:circuit_controller_advanced"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:missile_bhole",
+    "count": 1
+  }
+}

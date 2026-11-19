@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "atomiclegacy:block/pwr_fuel_top",
+    "side": "atomiclegacy:block/pwr_fuel_side"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": { "bottom": "atomiclegacy:block/pink_planks", "top": "atomiclegacy:block/pink_planks", "side": "atomiclegacy:block/pink_planks", "particle": "atomiclegacy:block/pink_planks" }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "atomiclegacy:legacy_fluid_container",
+      "fluid": "heatingoil",
+      "amount": 16000
+    },
+    {
+      "tag": "atomiclegacy:chemistry_set"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:solid_fuel",
+    "count": 3
+  }
+}

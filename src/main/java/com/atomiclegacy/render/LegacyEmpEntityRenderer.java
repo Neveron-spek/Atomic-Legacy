@@ -1,0 +1,59 @@
+package com.atomiclegacy.render;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.atomiclegacy.AtomicLegacy;
+import com.atomiclegacy.entity.LegacyEmpEntity;
+import net.minecraft.client.renderer.LightTexture;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.culling.Frustum;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.phys.AABB;
+
+/** Literal RenderEMPBlast port. The old ring is unlit, translucent and uncullled. */
+public final class LegacyEmpEntityRenderer extends EntityRenderer<LegacyEmpEntity> {
+    private static final ResourceLocation MODEL_LOCATION = AtomicLegacy.id("models/entity/legacy_emp_ring.obj");
+    private static final ResourceLocation TEXTURE = AtomicLegacy.id("textures/entity/legacy_emp.png");
+    private static final LegacyEntityObjMesh MODEL = LegacyEntityObjMesh.load(MODEL_LOCATION);
+
+    public LegacyEmpEntityRenderer(EntityRendererProvider.Context context) {
+        super(context);
+        shadowRadius = 0.0F;
+    }
+
+    @Override
+    public void render(LegacyEmpEntity entity, float entityYaw, float partialTick,
+                       PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
+        poseStack.pushPose();
+        if (!entity.persistent()) {
+            poseStack.scale(entity.scale(), 1.0F, entity.scale());
+            MODEL.renderAll(poseStack, bufferSource.getBuffer(RenderType.entityTranslucentEmissive(TEXTURE)),
+                    LightTexture.FULL_BRIGHT, 0, 0xFFFFFFFF);
+        }
+        poseStack.popPose();
+        super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+    }
+
+    @Override
+    public boolean shouldRender(LegacyEmpEntity entity, Frustum frustum,
+                                double cameraX, double cameraY, double cameraZ) {
+        if (entity.persistent()) {
+            return false;
+        }
+        double radius = Math.abs((double) entity.scale());
+        // legacy_emp_ring.obj has face-used X/Z limits [-1, 1] and Y limits
+        // [0, 0.1]; render() scales only X/Z by entity.scale().
+        AABB bounds = new AABB(
+                entity.getX() - radius, entity.getY(), entity.getZ() - radius,
+                entity.getX() + radius, entity.getY() + 0.1D, entity.getZ() + radius);
+        return EntityRenderBounds.shouldRender(entity, bounds, frustum,
+                cameraX, cameraY, cameraZ);
+    }
+
+    @Override
+    public ResourceLocation getTextureLocation(LegacyEmpEntity entity) {
+        return TEXTURE;
+    }
+}

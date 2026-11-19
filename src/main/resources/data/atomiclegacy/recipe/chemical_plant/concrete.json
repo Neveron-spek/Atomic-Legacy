@@ -1,0 +1,39 @@
+{
+  "type": "atomiclegacy:chemical_plant",
+  "group": "chem.concrete",
+  "duration": 100,
+  "power": 100,
+  "input_items": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:powder_cement"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:gravel"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "tag": "c:sands"
+      },
+      "count": 8
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "water",
+      "amount": 2000
+    }
+  ],
+  "output_items": [
+    {
+      "id": "atomiclegacy:concrete_smooth",
+      "count": 16
+    }
+  ],
+  "output_fluids": []
+}

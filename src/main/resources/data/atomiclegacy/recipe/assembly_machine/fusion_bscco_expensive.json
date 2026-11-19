@@ -1,0 +1,44 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.fusionbscco",
+  "blueprint_pools": [
+    "528.tcalloy"
+  ],
+  "duration": 100,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_dense_bscco"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_ferro_plating"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_plastic"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:fusion_component",
+    "count": 2,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "bscco"
+      },
+      "minecraft:custom_model_data": 0
+    }
+  }
+}

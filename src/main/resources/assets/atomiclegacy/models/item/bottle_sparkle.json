@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/bottle_sparkle"
+                 },
+    "parent":  "minecraft:item/generated"
+}

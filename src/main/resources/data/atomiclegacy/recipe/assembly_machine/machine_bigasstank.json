@@ -1,0 +1,45 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_expensive_mode"
+      }
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.bigasstank",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "tag": "c:plates/steel"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "type": "neoforge:compound",
+        "children": [
+          {
+            "item": "atomiclegacy:plate_welded_tcalloy"
+          },
+          {
+            "item": "atomiclegacy:plate_welded_cdalloy"
+          }
+        ]
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:steel_scaffold"
+      },
+      "count": 16
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:machine_bigasstank"
+  }
+}

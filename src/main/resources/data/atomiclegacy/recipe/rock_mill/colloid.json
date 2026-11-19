@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:rock_mill",
+  "input_fluid": {
+    "fluid": "colloid",
+    "amount": 1000
+  },
+  "outputs": [
+    {
+      "stack": {
+        "id": "minecraft:sand"
+      },
+      "weight": 1
+    }
+  ],
+  "duration": 100,
+  "power": 25
+}

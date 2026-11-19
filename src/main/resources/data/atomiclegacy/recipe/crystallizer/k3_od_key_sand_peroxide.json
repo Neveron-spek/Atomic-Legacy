@@ -1,0 +1,21 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": [
+    {
+      "item": "minecraft:sand"
+    },
+    {
+      "item": "minecraft:red_sand"
+    }
+  ],
+  "acid": {
+    "fluid": "peroxide",
+    "amount": 500
+  },
+  "duration": 100,
+  "productivity": 0.15,
+  "result": {
+    "id": "atomiclegacy:ingot_fiberglass"
+  }
+}

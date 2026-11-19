@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:crafting_shapeless", "category": "misc",
+  "ingredients": [{ "item": "atomiclegacy:billet_schrabidium" }],
+  "result": { "id": "atomiclegacy:nugget_schrabidium", "count": 6 }
+}

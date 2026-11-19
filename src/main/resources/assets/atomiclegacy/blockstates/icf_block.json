@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "variant=0": { "model": "atomiclegacy:block/icf_block" },
+    "variant=1": { "model": "atomiclegacy:block/icf_block_port" },
+    "variant=2": { "model": "atomiclegacy:block/icf_block_port" },
+    "variant=3": { "model": "atomiclegacy:block/icf_block_port" },
+    "variant=4": { "model": "atomiclegacy:block/icf_block_port" },
+    "variant=5": { "model": "atomiclegacy:block/icf_block_port" },
+    "variant=6": { "model": "atomiclegacy:block/icf_block_port" },
+    "variant=7": { "model": "atomiclegacy:block/icf_block_port" }
+  }
+}

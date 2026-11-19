@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["ICI", "CAC", "ICI"],
+  "key": {
+    "I": { "tag": "c:ingots/starmetal" },
+    "C": { "item": "atomiclegacy:circuit_bismoid" },
+    "A": { "item": "atomiclegacy:gem_alexandrite" }
+  },
+  "result": { "id": "atomiclegacy:field_disturber" }
+}

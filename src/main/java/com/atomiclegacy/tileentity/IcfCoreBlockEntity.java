@@ -1,0 +1,660 @@
+package com.atomiclegacy.tileentity;
+
+import com.atomiclegacy.blocks.IcfCoreBlock;
+import com.atomiclegacy.blocks.LargeMachineBlock;
+import com.atomiclegacy.fluid.HbmFluidDefinition;
+import com.atomiclegacy.fluid.HbmFluidNetworks;
+import com.atomiclegacy.fluid.HbmFluidStack;
+import com.atomiclegacy.fluid.HbmFluidTank;
+import com.atomiclegacy.items.FluidIdentifierItem;
+import com.atomiclegacy.items.IcfPelletItem;
+import com.atomiclegacy.inventory.container.IcfCoreMenu;
+import com.atomiclegacy.registry.HbmBlockEntities;
+import com.atomiclegacy.registry.HbmFluids;
+import com.atomiclegacy.registry.HbmItems;
+import com.atomiclegacy.registry.HbmParticleTypes;
+import com.atomiclegacy.rtty.RttyInfo;
+import com.atomiclegacy.rtty.RttyValueProvider;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.Container;
+import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.WorldlyContainer;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.core.NonNullList;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/** Exact inventory and heat loop port of TileEntityICF. */
+public final class IcfCoreBlockEntity extends BlockEntity implements WorldlyContainer, MenuProvider, MachineInventory,
+        RttyValueProvider, com.atomiclegacy.fluid.HbmFluidNetUser { // [parity U1: fluid net]
+    public static final int FRESH_START = 0;
+    public static final int FRESH_END = 5;
+    public static final int ACTIVE_SLOT = 5;
+    public static final int DEPLETED_START = 6;
+    public static final int DEPLETED_END = 11;
+    public static final int IDENTIFIER_SLOT = 11;
+    public static final int SLOT_COUNT = 12;
+    public static final int SODIUM_CAPACITY = 512_000;
+    public static final int FLUX_CAPACITY = 24_000;
+    public static final long MAX_HEAT = 1_000_000_000_000L;
+    public static final int DATA_COUNT = 15;
+
+    private static final int[] AUTOMATION_SLOTS = {0, 1, 2, 3, 4, 6, 7, 8, 9, 10};
+    private final NonNullList<ItemStack> items = NonNullList.withSize(SLOT_COUNT, ItemStack.EMPTY);
+    private final HbmFluidTank sodium = new HbmFluidTank(fluid("sodium"), SODIUM_CAPACITY);
+    private final HbmFluidTank hotSodium = new HbmFluidTank(fluid("sodium_hot"), SODIUM_CAPACITY);
+    private final HbmFluidTank stellarFlux = new HbmFluidTank(fluid("stellar_flux"), FLUX_CAPACITY);
+    private final IFluidHandler fluidHandler = new IcfFluidHandler();
+    private long laser;
+    private long maxLaser;
+    private long heat;
+    private long heatup;
+    private int consumption;
+    private int output;
+
+    private final ContainerData menuData = new ContainerData() {
+        @Override
+        public int get(int index) {
+            return switch (index) {
+                case 0 -> sodium.type().oldId();
+                case 1 -> sodium.amount();
+                case 2 -> hotSodium.type().oldId();
+                case 3 -> hotSodium.amount();
+                case 4 -> stellarFlux.type().oldId();
+                case 5 -> stellarFlux.amount();
+                case 6 -> low(laser);
+                case 7 -> high(laser);
+                case 8 -> low(maxLaser);
+                case 9 -> high(maxLaser);
+                case 10 -> low(heat);
+                case 11 -> high(heat);
+                case 12 -> low(heatup);
+                case 13 -> high(heatup);
+                case 14 -> consumption;
+                default -> 0;
+            };
+        }
+
+        @Override
+        public void set(int index, int value) {
+            switch (index) {
+                case 0 -> sodium.setType(HbmFluids.byOldId(value).orElse(HbmFluids.none()));
+                case 1 -> sodium.setAmount(value);
+                case 2 -> hotSodium.setType(HbmFluids.byOldId(value).orElse(HbmFluids.none()));
+                case 3 -> hotSodium.setAmount(value);
+                case 4 -> stellarFlux.setType(HbmFluids.byOldId(value).orElse(HbmFluids.none()));
+                case 5 -> stellarFlux.setAmount(value);
+                case 6 -> laser = combine(value, high(laser));
+                case 7 -> laser = combine(low(laser), value);
+                case 8 -> maxLaser = combine(value, high(maxLaser));
+                case 9 -> maxLaser = combine(low(maxLaser), value);
+                case 10 -> heat = combine(value, high(heat));
+                case 11 -> heat = combine(low(heat), value);
+                case 12 -> heatup = combine(value, high(heatup));
+                case 13 -> heatup = combine(low(heatup), value);
+                case 14 -> consumption = value;
+                default -> {
+                }
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return DATA_COUNT;
+        }
+    };
+
+    public IcfCoreBlockEntity(BlockPos pos, BlockState state) {
+        super(HbmBlockEntities.ICF_CORE.get(), pos, state);
+    }
+
+    public static void tick(Level level, BlockPos pos, BlockState state, IcfCoreBlockEntity core) {
+        if (!level.isClientSide) {
+            if (!core.footprintChecked) {
+                // [parity b2: old worlds] ICFs placed before the wings existed get their missing cells once per load
+                core.footprintChecked = com.atomiclegacy.blocks.IcfCoreBlock.completeFootprint(level, pos, state);
+            }
+            core.tickServer(level);
+        }
+    }
+
+    private boolean footprintChecked;
+
+    // [parity V4: ICF wings] TileEntityICF.getPorts: side ports sit in the wings at dir*2 +- rot*6.
+    public static List<Port> portsFor(BlockPos corePos, Direction facing) {
+        return List.of(
+                new Port(corePos.above(5), Direction.UP),
+                new Port(corePos, Direction.DOWN),
+                mappedIcfPort(corePos, facing, new BlockPos(-6, 3, 2), Direction.SOUTH),
+                mappedIcfPort(corePos, facing, new BlockPos(6, 3, 2), Direction.SOUTH),
+                mappedIcfPort(corePos, facing, new BlockPos(-6, 3, -2), Direction.NORTH),
+                mappedIcfPort(corePos, facing, new BlockPos(6, 3, -2), Direction.NORTH)
+        );
+    }
+
+    private static Port mappedIcfPort(BlockPos corePos, Direction facing, BlockPos authoredOffset,
+                                      Direction authoredFace) {
+        return new Port(corePos.offset(mapIcfPortOffset(facing, authoredOffset)).immutable(),
+                mapIcfPortFace(facing, authoredFace));
+    }
+
+    private static BlockPos mapIcfPortOffset(Direction facing, BlockPos offset) {
+        int x = offset.getX(); int y = offset.getY(); int z = offset.getZ();
+        return switch (facing) {
+            case SOUTH -> new BlockPos(x, y, z);
+            case EAST -> new BlockPos(z, y, -x);
+            case NORTH -> new BlockPos(-x, y, -z);
+            case WEST -> new BlockPos(-z, y, x);
+            case UP, DOWN -> throw new IllegalArgumentException("ICF core requires a horizontal facing: " + facing);
+        };
+    }
+
+    private static Direction mapIcfPortFace(Direction facing, Direction face) {
+        return switch (facing) {
+            case SOUTH -> face;
+            case EAST -> face == Direction.SOUTH ? Direction.EAST : face == Direction.NORTH ? Direction.WEST : face;
+            case NORTH -> face == Direction.SOUTH ? Direction.NORTH : face == Direction.NORTH ? Direction.SOUTH : face;
+            case WEST -> face == Direction.SOUTH ? Direction.WEST : face == Direction.NORTH ? Direction.EAST : face;
+            case UP, DOWN -> throw new IllegalArgumentException("ICF core requires a horizontal facing: " + facing);
+        };
+    }
+
+    /** [parity V4: ICF proxies] MachineICF.fillSpace makeExtra(getAllPorts): TileEntityProxyCombo().inventory().fluid(). */
+    public boolean isItemProxy(BlockPos queriedPos) {
+        if (this.level == null || queriedPos.equals(this.worldPosition)) {
+            return false;
+        }
+        for (Port port : ports(this.level)) {
+            if (port.proxyPos().equals(queriedPos)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public List<Port> ports(LevelAccessor level) {
+        BlockState state = level.getBlockState(this.worldPosition);
+        Direction facing = state.hasProperty(LargeMachineBlock.FACING)
+                ? state.getValue(LargeMachineBlock.FACING)
+                : Direction.SOUTH;
+        return portsFor(this.worldPosition, facing);
+    }
+
+    @Nullable
+    public IFluidHandler fluidHandler(BlockPos queriedPos, @Nullable Direction side) {
+        if (this.level == null) {
+            return null;
+        }
+        for (Port port : ports(this.level)) {
+            if (port.proxyPos().equals(queriedPos) && (side == null || side == port.exposedFace())) {
+                return this.fluidHandler;
+            }
+        }
+        return null;
+    }
+
+    public HbmFluidTank sodiumTank() {
+        return sodium;
+    }
+
+    public HbmFluidTank hotSodiumTank() {
+        return hotSodium;
+    }
+
+    public HbmFluidTank stellarFluxTank() {
+        return stellarFlux;
+    }
+
+    public long laser() {
+        return laser;
+    }
+
+    public long maxLaser() {
+        return maxLaser;
+    }
+
+    public long heat() {
+        return heat;
+    }
+
+    public long heatup() {
+        return heatup;
+    }
+
+    public int consumption() {
+        return consumption;
+    }
+
+    public int output() {
+        return output;
+    }
+
+    @Override
+    public String[] rttyFunctionInfo() {
+        return new String[] {
+                RttyInfo.PREFIX_VALUE + "laser",
+                RttyInfo.PREFIX_VALUE + "heat",
+                RttyInfo.PREFIX_VALUE + "coldfluid",
+                RttyInfo.PREFIX_VALUE + "hotfluid",
+                RttyInfo.PREFIX_VALUE + "stellarflux"
+        };
+    }
+
+    @Override
+    public String provideRttyValue(String name) {
+        if (name.equals(RttyInfo.PREFIX_VALUE + "laser")) return Long.toString(this.laser);
+        if (name.equals(RttyInfo.PREFIX_VALUE + "heat")) return Long.toString(this.heat);
+        if (name.equals(RttyInfo.PREFIX_VALUE + "coldfluid")) return Integer.toString(this.sodium.amount());
+        if (name.equals(RttyInfo.PREFIX_VALUE + "hotfluid")) return Integer.toString(this.hotSodium.amount());
+        if (name.equals(RttyInfo.PREFIX_VALUE + "stellarflux")) return Integer.toString(this.stellarFlux.amount());
+        return null;
+    }
+
+    public void receiveLaser(long power, long available) {
+        // [parity A3: icf] TileEntityICFController: icf.laser += getPower(); icf.maxLaser += getMaxPower()
+        this.laser += power;
+        this.maxLaser += available;
+        markDirtyAndSync();
+    }
+
+    public ContainerData menuData() {
+        return menuData;
+    }
+
+    private void tickServer(Level level) {
+        applyFluidIdentifier();
+        boolean changed = movePellets();
+        this.heatup = 0L;
+
+        ItemStack active = this.items.get(ACTIVE_SLOT);
+        if (active.is(HbmItems.ICF_PELLET.get()) && IcfPelletItem.getFusingDifficulty(active) <= this.laser) {
+            this.heatup = IcfPelletItem.react(active, this.laser);
+            this.heat = addHeatSaturated(this.heat, this.heatup);
+            if (IcfPelletItem.getDepletion(active) >= IcfPelletItem.getMaxDepletion(active)) {
+                this.items.set(ACTIVE_SLOT, new ItemStack(HbmItems.ICF_PELLET_DEPLETED.get()));
+                changed = true;
+            }
+            stellarFlux.fill(stellarFlux.type(), (int) Math.ceil(this.heat * 10.0D / MAX_HEAT), false);
+            if (level instanceof ServerLevel serverLevel && level.getGameTime() % 20L == 15L) {
+                com.atomiclegacy.satellite.SatelliteEventTracker.reportRay(
+                        serverLevel, this.worldPosition,
+                        com.atomiclegacy.satellite.SatelliteEventTracker.RayEvent.INFO_PARTICLE, 200);
+            }
+            sendHadronParticle(level);
+        }
+        if (this.heatup == 0L) {
+            this.heat = addHeatSaturated(this.heat, (long) (this.laser * 0.25D));
+        }
+
+        this.consumption = 0;
+        this.output = 0;
+        convertSodium();
+        com.atomiclegacy.fluid.HbmFluidNetworks.subscribe(level, this); // [parity U1: fluid net]
+        this.heat = Math.min(MAX_HEAT, (long) (this.heat * 0.999D));
+        this.laser = 0L;
+        this.maxLaser = 0L;
+        if (changed || level.getGameTime() % 5L == 0L) {
+            markDirtyAndSync();
+        } else {
+            setChanged();
+        }
+    }
+
+    // [parity M3: icf] tanks[0].setType(11, slots): an identifier sets the coolant type and empties the tank.
+    private void applyFluidIdentifier() {
+        ItemStack identifier = this.items.get(IDENTIFIER_SLOT);
+        if (!(identifier.getItem() instanceof FluidIdentifierItem)) {
+            return;
+        }
+        HbmFluidDefinition type = FluidIdentifierItem.primary(identifier);
+        if (sodium.type() != type) {
+            sodium.setType(type);
+            sodium.setAmount(0);
+        }
+    }
+
+    private boolean movePellets() {
+        boolean changed = false;
+        if (this.items.get(ACTIVE_SLOT).is(HbmItems.ICF_PELLET_DEPLETED.get())) {
+            for (int slot = DEPLETED_START; slot < DEPLETED_END; slot++) {
+                if (this.items.get(slot).isEmpty()) {
+                    this.items.set(slot, this.items.get(ACTIVE_SLOT).copy());
+                    this.items.set(ACTIVE_SLOT, ItemStack.EMPTY);
+                    changed = true;
+                    break;
+                }
+            }
+        }
+        if (this.items.get(ACTIVE_SLOT).isEmpty()) {
+            for (int slot = FRESH_START; slot < FRESH_END; slot++) {
+                if (this.items.get(slot).is(HbmItems.ICF_PELLET.get())) {
+                    this.items.set(ACTIVE_SLOT, this.items.get(slot).copy());
+                    this.items.set(slot, ItemStack.EMPTY);
+                    changed = true;
+                    break;
+                }
+            }
+        }
+        return changed;
+    }
+
+    // [parity M3: icf] TileEntityICF: any FT_Heatable coolant; first step, ICF efficiency; the hot tank type is
+    // always forced to step.typeProduced (FluidTank.setTankType voids a different fluid).
+    private void convertSodium() {
+        com.atomiclegacy.fluid.HbmFluidTraitData.Heatable trait = com.atomiclegacy.fluid.HbmFluidTraitData.heatable(sodium.type());
+        if (trait == null) {
+            return;
+        }
+        HbmFluidDefinition produced = HbmFluids.byName(trait.produced()).orElse(HbmFluids.none());
+        if (hotSodium.type() != produced) {
+            hotSodium.setType(produced);
+            hotSodium.setAmount(0);
+        }
+        int coolingCycles = sodium.amount() / trait.amountReq();
+        int heatingCycles = (hotSodium.capacity() - hotSodium.amount()) / trait.amountProduced();
+        int heatCycles = (int) Math.min(this.heat / 4D / trait.heatReq() * trait.efficiency()[3], this.heat / (double) trait.heatReq());
+        int cycles = Math.min(coolingCycles, Math.min(heatingCycles, heatCycles));
+        sodium.setAmount(sodium.amount() - trait.amountReq() * cycles);
+        hotSodium.setAmount(hotSodium.amount() + trait.amountProduced() * cycles);
+        this.heat -= (long) trait.heatReq() * cycles;
+        this.consumption = trait.amountReq() * cycles;
+        this.output = trait.amountProduced() * cycles;
+    }
+
+    private void sendHadronParticle(Level level) {
+        if (!(level instanceof ServerLevel serverLevel)) {
+            return;
+        }
+        double centerX = this.worldPosition.getX() + 0.5D;
+        double centerY = this.worldPosition.getY() + 0.5D;
+        double centerZ = this.worldPosition.getZ() + 0.5D;
+        for (ServerPlayer player : serverLevel.players()) {
+            if (player.distanceToSqr(centerX, centerY, centerZ) <= 25.0D * 25.0D) {
+                serverLevel.sendParticles(player, HbmParticleTypes.TAU_HADRON.get(), true,
+                        centerX, this.worldPosition.getY() + 3.5D, centerZ,
+                        1, 0.0D, 0.0D, 0.0D, 0.0D);
+            }
+        }
+    }
+
+    private static long addHeatSaturated(long current, long added) {
+        if (added <= 0L) {
+            return Math.max(0L, current);
+        }
+        if (current >= Long.MAX_VALUE - added) {
+            return Long.MAX_VALUE;
+        }
+        return current + added;
+    }
+
+
+
+    @Override
+    public int getContainerSize() {
+        return SLOT_COUNT;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return this.items.stream().allMatch(ItemStack::isEmpty);
+    }
+
+    @Override
+    public ItemStack getItem(int slot) {
+        return slot >= 0 && slot < SLOT_COUNT ? items.get(slot) : ItemStack.EMPTY;
+    }
+
+    @Override
+    public ItemStack removeItem(int slot, int amount) {
+        ItemStack removed = ContainerHelper.removeItem(items, slot, amount);
+        if (!removed.isEmpty()) {
+            markDirtyAndSync();
+        }
+        return removed;
+    }
+
+    @Override
+    public ItemStack removeItemNoUpdate(int slot) {
+        return ContainerHelper.takeItem(items, slot);
+    }
+
+    @Override
+    public void setItem(int slot, ItemStack stack) {
+        if (slot < 0 || slot >= SLOT_COUNT || !canPlaceItem(slot, stack)) {
+            return;
+        }
+        items.set(slot, stack);
+        if (stack.getCount() > getMaxStackSize()) {
+            stack.setCount(getMaxStackSize());
+        }
+        markDirtyAndSync();
+    }
+
+    @Override
+    public boolean canPlaceItem(int slot, ItemStack stack) {
+        return (slot >= FRESH_START && slot < FRESH_END && stack.is(HbmItems.ICF_PELLET.get()))
+                || (slot == IDENTIFIER_SLOT && stack.getItem() instanceof FluidIdentifierItem);
+    }
+
+    @Override
+    public int[] getSlotsForFace(Direction side) {
+        return AUTOMATION_SLOTS;
+    }
+
+    @Override
+    public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction side) {
+        return canPlaceItem(slot, stack);
+    }
+
+    @Override
+    public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) {
+        return slot >= DEPLETED_START && slot < DEPLETED_END;
+    }
+
+    @Override
+    public boolean stillValid(Player player) {
+        return MachineDummyMenuAccess.stillValid(this, player);
+    }
+
+    @Override
+    public void clearContent() {
+        for (int index = 0; index < SLOT_COUNT; index++) {
+            items.set(index, ItemStack.EMPTY);
+        }
+        markDirtyAndSync();
+    }
+
+    @Override
+    public Component getDisplayName() {
+        return Component.translatable("container.atomiclegacy.icf");
+    }
+
+    @Override
+    public AbstractContainerMenu createMenu(int containerId, Inventory inventory, Player player) {
+        return new IcfCoreMenu(containerId, inventory, this, this.menuData);
+    }
+
+    @Override
+    public void dropContents(Level level, BlockPos pos) {
+        for (ItemStack stack : items) {
+            if (!stack.isEmpty()) {
+                level.addFreshEntity(new ItemEntity(level, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, stack.copy()));
+            }
+        }
+        clearContent();
+    }
+
+    @Override
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.saveAdditional(tag, registries);
+        ContainerHelper.saveAllItems(tag, items, registries);
+        tag.put("Sodium", sodium.save());
+        tag.put("HotSodium", hotSodium.save());
+        tag.put("StellarFlux", stellarFlux.save());
+        tag.putLong("Heat", heat);
+    }
+
+    @Override
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.loadAdditional(tag, registries);
+        ContainerHelper.loadAllItems(tag, items, registries);
+        sodium.load(tag.getCompound("Sodium"));
+        hotSodium.load(tag.getCompound("HotSodium"));
+        stellarFlux.load(tag.getCompound("StellarFlux"));
+        heat = Math.clamp(tag.getLong("Heat"), 0L, MAX_HEAT);
+    }
+
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+        CompoundTag tag = super.getUpdateTag(registries);
+        saveAdditional(tag, registries);
+        return tag;
+    }
+
+    @Nullable
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    private void markDirtyAndSync() {
+        setChanged();
+        if (level != null && !level.isClientSide) {
+            level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_CLIENTS);
+            for (Port port : ports(level)) {
+                level.invalidateCapabilities(port.proxyPos());
+            }
+        }
+    }
+
+    private static HbmFluidDefinition fluid(String name) {
+        return HbmFluids.byName(name).orElse(HbmFluids.none());
+    }
+
+    private static int low(long value) {
+        return (int) value;
+    }
+
+    private static int high(long value) {
+        return (int) (value >>> 32);
+    }
+
+    private static long combine(int low, int high) {
+        return ((long) high << 32) | (low & 0xFFFFFFFFL);
+    }
+
+    public record Port(BlockPos proxyPos, Direction exposedFace) {
+    }
+
+    private final class IcfFluidHandler implements IFluidHandler {
+        @Override
+        public int getTanks() {
+            return 3;
+        }
+
+        @Override
+        public FluidStack getFluidInTank(int tank) {
+            return switch (tank) {
+                case 0 -> sodium.getFluidInTank(0);
+                case 1 -> hotSodium.getFluidInTank(0);
+                case 2 -> stellarFlux.getFluidInTank(0);
+                default -> FluidStack.EMPTY;
+            };
+        }
+
+        @Override
+        public int getTankCapacity(int tank) {
+            return switch (tank) {
+                case 0 -> sodium.capacity();
+                case 1 -> hotSodium.capacity();
+                case 2 -> stellarFlux.capacity();
+                default -> 0;
+            };
+        }
+
+        @Override
+        public boolean isFluidValid(int tank, FluidStack stack) {
+            // [parity M3: icf] IFluidStandardReceiverMK2: tanks[0] accepts its own (identifier-set) type.
+            return tank == 0 && !sodium.type().isNone() && HbmFluids.fromNeoFluid(stack.getFluid())
+                    .map(fluid -> fluid == sodium.type())
+                    .orElse(false);
+        }
+
+        @Override
+        public int fill(FluidStack resource, FluidAction action) {
+            if (resource.isEmpty()) {
+                return 0;
+            }
+            HbmFluidDefinition supplied = HbmFluids.fromNeoFluid(resource.getFluid()).orElse(HbmFluids.none());
+            if (supplied.isNone() || supplied != sodium.type()) {
+                return 0;
+            }
+            int filled = sodium.fill(supplied, resource.getAmount(), action.simulate());
+            if (filled > 0 && action.execute()) {
+                markDirtyAndSync();
+            }
+            return filled;
+        }
+
+        @Override
+        public FluidStack drain(FluidStack resource, FluidAction action) {
+            if (resource.isEmpty()) {
+                return FluidStack.EMPTY;
+            }
+            HbmFluidDefinition requested = HbmFluids.fromNeoFluid(resource.getFluid()).orElse(HbmFluids.none());
+            HbmFluidStack drained = hotSodium.drain(requested, resource.getAmount(), action.simulate());
+            if (drained.isEmpty()) {
+                drained = stellarFlux.drain(requested, resource.getAmount(), action.simulate());
+            }
+            if (!drained.isEmpty() && action.execute()) {
+                markDirtyAndSync();
+            }
+            return drained.isEmpty() ? FluidStack.EMPTY : HbmFluids.toNeoStack(drained.type(), drained.amount());
+        }
+
+        @Override
+        public FluidStack drain(int maxDrain, FluidAction action) {
+            HbmFluidStack drained = hotSodium.drain(null, maxDrain, action.simulate());
+            if (drained.isEmpty()) {
+                drained = stellarFlux.drain(null, maxDrain, action.simulate());
+            }
+            if (!drained.isEmpty() && action.execute()) {
+                markDirtyAndSync();
+            }
+            return drained.isEmpty() ? FluidStack.EMPTY : HbmFluids.toNeoStack(drained.type(), drained.amount());
+        }
+    }
+
+    // [parity U1: fluid net] TileEntityICF as IFluidStandard*MK2 with TilePort nodes
+    @Override public com.atomiclegacy.fluid.HbmFluidTank[] fluidSendingTanks() { return new com.atomiclegacy.fluid.HbmFluidTank[]{hotSodium, stellarFlux}; }
+    @Override public com.atomiclegacy.fluid.HbmFluidTank[] fluidReceivingTanks() { return new com.atomiclegacy.fluid.HbmFluidTank[]{sodium}; }
+    @Override public java.util.List<FluidPort> fluidPorts(com.atomiclegacy.fluid.HbmFluidDefinition type) {
+        if (this.level == null) return java.util.List.of();
+        return ports(this.level).stream().map(p -> new FluidPort(p.proxyPos(), p.exposedFace())).toList();
+    }
+}

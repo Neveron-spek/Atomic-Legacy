@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "top": "atomiclegacy:block/battery_schrabidium_top",
+    "bottom": "atomiclegacy:block/battery_schrabidium_top",
+    "side": "atomiclegacy:block/battery_schrabidium_side",
+    "front": "atomiclegacy:block/battery_schrabidium_front"
+  }
+}

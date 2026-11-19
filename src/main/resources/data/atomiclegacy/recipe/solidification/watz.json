@@ -1,0 +1,11 @@
+﻿{
+    "type":  "atomiclegacy:solidification",
+    "group":  "solidifier.watz",
+    "input":  {
+                  "fluid":  "watz",
+                  "amount":  1000
+              },
+    "output":  {
+                   "id":  "atomiclegacy:ingot_mud"
+               }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "atomiclegacy:block/furnace_iron",
+  "visibility": {
+    "Main": false,
+    "On": false
+  }
+}

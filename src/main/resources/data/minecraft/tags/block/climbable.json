@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:ladder_sturdy",
+    "atomiclegacy:ladder_gold",
+    "atomiclegacy:ladder_copper",
+    "atomiclegacy:ladder_titanium",
+    "atomiclegacy:ladder_steel"
+  ]
+}

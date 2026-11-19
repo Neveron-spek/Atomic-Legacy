@@ -1,0 +1,45 @@
+package com.atomiclegacy.items;
+
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.CustomData;
+
+import java.util.List;
+
+/** The single 1.7.10 depleted-pellet item with its old material subtype in data. */
+public final class RtgDepletedPelletItem extends Item {
+    public RtgDepletedPelletItem(Properties properties) {
+        super(properties.stacksTo(1));
+    }
+
+    /** Creates the material subtype carried by the old metadata value. */
+    public static ItemStack stackFor(RtgDepletedPelletItem item, String material) {
+        ItemStack stack = new ItemStack(item);
+        if (material != null && !material.isBlank()) {
+            CompoundTag tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+            tag.putString("rtg_depleted_material", material);
+            stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
+        }
+        return stack;
+    }
+
+    @Override
+    public Component getName(ItemStack stack) {
+        CompoundTag tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        String material = tag.getString("rtg_depleted_material");
+        return material.isBlank()
+                ? super.getName(stack)
+                : Component.translatable("item.atomiclegacy.pellet_rtg_depleted." + material);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+        CompoundTag tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        String material = tag.getString("rtg_depleted_material");
+        if (!material.isBlank()) tooltip.add(Component.translatable("item.atomiclegacy.rtg_depleted_material." + material));
+    }
+}

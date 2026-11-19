@@ -1,0 +1,111 @@
+{
+  "items": [
+    "circuit_vacuum_tube",
+    "circuit_numitron",
+    "circuit_capacitor",
+    "circuit_capacitor_tantalium",
+    "circuit_atomic_clock",
+    "circuit_pcb",
+    "circuit_silicon",
+    "circuit_chip",
+    "circuit_chip_bismoid",
+    "circuit_chip_quantum",
+    "circuit_analog",
+    "circuit_basic",
+    "circuit_advanced",
+    "circuit_capacitor_board",
+    "circuit_bismoid",
+    "circuit_quantum",
+    "circuit_crystal",
+    "circuit_controller_chassis",
+    "circuit_controller",
+    "circuit_controller_advanced",
+    "circuit_controller_quantum"
+  ],
+  "crafting": [
+    {
+      "recipe": "circuit_vacuum_tube",
+      "result": {
+        "id": "atomiclegacy:circuit_vacuum_tube",
+        "count": 1
+      }
+    },
+    {
+      "recipe": "circuit_vacuum_tube_from_carbon_wire",
+      "result": {
+        "id": "atomiclegacy:circuit_vacuum_tube",
+        "count": 1
+      }
+    },
+    {
+      "recipe": "circuit_numitron",
+      "result": {
+        "id": "atomiclegacy:circuit_numitron",
+        "count": 3
+      }
+    },
+    {
+      "recipe": "circuit_capacitor",
+      "result": {
+        "id": "atomiclegacy:circuit_capacitor",
+        "count": 1
+      }
+    },
+    {
+      "recipe": "circuit_capacitor_from_copper_wire",
+      "result": {
+        "id": "atomiclegacy:circuit_capacitor",
+        "count": 1
+      }
+    },
+    {
+      "recipe": "circuit_capacitor_from_aluminium_dust",
+      "result": {
+        "id": "atomiclegacy:circuit_capacitor",
+        "count": 2
+      }
+    },
+    {
+      "recipe": "circuit_capacitor_from_aluminium_dust_copper_wire",
+      "result": {
+        "id": "atomiclegacy:circuit_capacitor",
+        "count": 2
+      }
+    },
+    {
+      "recipe": "circuit_capacitor_tantalium_from_aluminium_wire",
+      "result": {
+        "id": "atomiclegacy:circuit_capacitor_tantalium",
+        "count": 1
+      }
+    },
+    {
+      "recipe": "circuit_capacitor_tantalium_from_copper_wire",
+      "result": {
+        "id": "atomiclegacy:circuit_capacitor_tantalium",
+        "count": 1
+      }
+    },
+    {
+      "recipe": "circuit_pcb_from_plate_copper",
+      "result": {
+        "id": "atomiclegacy:circuit_pcb",
+        "count": 1
+      }
+    },
+    {
+      "recipe": "circuit_pcb_from_plate_gold",
+      "result": {
+        "id": "atomiclegacy:circuit_pcb",
+        "count": 4
+      }
+    },
+    {
+      "recipe": "circuit_controller_chassis",
+      "result": {
+        "id": "atomiclegacy:circuit_controller_chassis",
+        "count": 1
+      }
+    }
+  ]
+}

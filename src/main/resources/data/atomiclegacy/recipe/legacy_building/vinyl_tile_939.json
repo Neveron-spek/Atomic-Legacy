@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "type": "neoforge:components",
+      "items": "atomiclegacy:vinyl_tile",
+      "components": {
+        "minecraft:custom_data": "{meta:1}",
+        "minecraft:custom_model_data": 1
+      }
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:vinyl_tile",
+    "count": 1
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "atomiclegacy:liquefaction",
+  "group": "liquefactor.sodium",
+  "ingredient": {
+    "tag": "c:dusts/sodium"
+  },
+  "output": {
+    "fluid": "sodium",
+    "amount": 100
+  }
+}

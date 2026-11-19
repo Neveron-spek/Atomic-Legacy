@@ -1,0 +1,42 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.warheadvolcano",
+  "duration": 600,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_titanium"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_steel"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:det_nuke"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "tag": "c:storage_blocks/u238"
+      },
+      "count": 24
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_capacitor_board"
+      },
+      "count": 5
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:warhead_volcano",
+    "count": 1
+  }
+}

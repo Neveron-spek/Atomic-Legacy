@@ -1,0 +1,29 @@
+{
+  "parent": "atomiclegacy:block/concrete_brick_slab_brick_concrete",
+  "overrides": [
+    {
+      "predicate": {
+        "minecraft:custom_model_data": 1
+      },
+      "model": "atomiclegacy:block/concrete_brick_slab_brick_concrete_mossy"
+    },
+    {
+      "predicate": {
+        "minecraft:custom_model_data": 2
+      },
+      "model": "atomiclegacy:block/concrete_brick_slab_brick_concrete_cracked"
+    },
+    {
+      "predicate": {
+        "minecraft:custom_model_data": 3
+      },
+      "model": "atomiclegacy:block/concrete_brick_slab_brick_concrete_broken"
+    },
+    {
+      "predicate": {
+        "minecraft:custom_model_data": 4
+      },
+      "model": "atomiclegacy:block/concrete_brick_slab_brick_ducrete"
+    }
+  ]
+}

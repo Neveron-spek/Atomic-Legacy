@@ -1,0 +1,16 @@
+{
+  "type": "atomiclegacy:purex",
+  "group": "autoswitch.pile",
+  "duration": 40,
+  "power": 100,
+  "input_items": [
+    { "ingredient": { "item": "atomiclegacy:pile_rod_waste" }, "count": 1 }
+  ],
+  "input_fluids": [
+    { "fluid": "sulfuric_acid", "amount": 100 }
+  ],
+  "output_items": [
+    { "id": "atomiclegacy:billet_nuclear_waste", "count": 2 },
+    { "id": "atomiclegacy:billet_polonium" }
+  ]
+}

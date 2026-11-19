@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "T  ",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "atomiclegacy:plate_cast_steel"
+    },
+    "T": {
+      "item": "atomiclegacy:tank_steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:machine_drain"
+  }
+}

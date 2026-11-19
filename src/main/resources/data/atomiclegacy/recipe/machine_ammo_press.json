@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["IPI", "C C", "SSS"],
+  "key": {
+    "I": { "tag": "c:ingots/iron" },
+    "P": { "item": "minecraft:piston" },
+    "C": { "tag": "c:ingots/copper" },
+    "S": { "item": "minecraft:stone" }
+  },
+  "result": { "id": "atomiclegacy:machine_ammo_press" }
+}

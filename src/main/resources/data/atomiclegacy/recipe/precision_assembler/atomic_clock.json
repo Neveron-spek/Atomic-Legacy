@@ -1,0 +1,59 @@
+{
+    "type": "atomiclegacy:precision_assembler",
+    "group": "precass.atomic_clock",
+    "duration": 200,
+    "power": 2000,
+    "ingredients": [
+        {
+            "ingredient": {
+                "item": "atomiclegacy:circuit_chip"
+            },
+            "count": 8
+        },
+        {
+            "ingredient": {
+                "tag": "c:ingots/plastic"
+            },
+            "count": 4
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:wire_zirconium"
+            },
+            "count": 8
+        },
+        {
+            "ingredient": {
+                "tag": "c:dusts/strontium"
+            },
+            "count": 1
+        }
+    ],
+    "outputs": [
+        {
+            "result": {
+                "id": "atomiclegacy:circuit_atomic_clock",
+                "count": 1
+            },
+            "weight": 50
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:broken_item",
+                "count": 1,
+                "components": {
+                    "minecraft:custom_data": "{item_id:\"atomiclegacy:circuit_atomic_clock\",item_count:1}"
+                }
+            },
+            "weight": 50
+        }
+    ],
+    "neoforge:conditions": [
+        {
+            "type": "atomiclegacy:enable_528_mode"
+        }
+    ],
+    "blueprint_pools": [
+        "528.strontium"
+    ]
+}

@@ -1,0 +1,7 @@
+﻿{
+  "variants": {
+    "axis=y": { "model": "atomiclegacy:block/concrete_pillar" },
+    "axis=z": { "model": "atomiclegacy:block/concrete_pillar", "x": 90 },
+    "axis=x": { "model": "atomiclegacy:block/concrete_pillar", "x": 90, "y": 90 }
+  }
+}

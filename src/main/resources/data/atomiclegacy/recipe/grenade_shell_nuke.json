@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":[" S ","CMC"," S "],"key":{"C":{"item":"atomiclegacy:circuit_advanced"},"M":{"item":"atomiclegacy:part_mechanism_weaponsteel"},"S":{"item":"atomiclegacy:shell_weaponsteel"}},"result":{"id":"atomiclegacy:grenade_shell_nuke","count":2}}

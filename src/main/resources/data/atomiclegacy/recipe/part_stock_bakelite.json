@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WWW",
+    "  W"
+  ],
+  "key": {
+    "W": {
+      "tag": "c:ingots/bakelite"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:part_stock_bakelite",
+    "count": 1
+  }
+}

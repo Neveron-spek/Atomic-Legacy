@@ -1,0 +1,25 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:less_bullshit_mode",
+      "feature": "simple_crafting"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:ballistite"
+    },
+    {
+      "item": "minecraft:gunpowder"
+    },
+    {
+      "tag": "minecraft:wool"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:cordite",
+    "count": 3
+  }
+}

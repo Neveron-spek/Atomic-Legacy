@@ -1,0 +1,18 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.partcoal",
+  "duration": 40,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "tag": "c:dusts/coal"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:part_carbon",
+    "count": 8
+  }
+}

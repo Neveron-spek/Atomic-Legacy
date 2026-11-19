@@ -1,0 +1,972 @@
+[
+  {
+    "id": "stone_gneiss",
+    "hardness": 1.5,
+    "resistance": 6.0
+  },
+  {
+    "id": "gneiss_brick",
+    "hardness": 1.5,
+    "resistance": 6.0
+  },
+  {
+    "id": "gneiss_tile",
+    "hardness": 1.5,
+    "resistance": 6.0
+  },
+  {
+    "id": "gneiss_chiseled",
+    "hardness": 1.5,
+    "resistance": 6.0
+  },
+  {
+    "id": "basalt",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "basalt_smooth",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "basalt_brick",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "basalt_polished",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "basalt_tiles",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "deco_titanium",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "deco_red_copper",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "deco_tungsten",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "deco_aluminium",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "deco_steel",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "deco_rusty_steel",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "deco_lead",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "deco_beryllium",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "platemetal",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "deco_asbestos",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "deco_rbmk",
+    "hardness": 5.0,
+    "resistance": 60.0
+  },
+  {
+    "id": "deco_rbmk_smooth",
+    "hardness": 5.0,
+    "resistance": 60.0
+  },
+  {
+    "id": "deco_emitter",
+    "hardness": 5.0,
+    "resistance": 12.0
+  },
+  {
+    "id": "part_emitter",
+    "hardness": 5.0,
+    "resistance": 12.0
+  },
+  {
+    "id": "deco_loot",
+    "hardness": 0.0,
+    "resistance": 0.0
+  },
+  {
+    "id": "pedestal",
+    "hardness": 2.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "skeleton_holder",
+    "hardness": 2.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "bobblehead",
+    "hardness": 0.0,
+    "resistance": 0.0
+  },
+  {
+    "id": "snowglobe",
+    "hardness": 0.0,
+    "resistance": 0.0
+  },
+  {
+    "id": "plushie",
+    "hardness": 0.0,
+    "resistance": 0.0
+  },
+  {
+    "id": "dungeon_spawner",
+    "resistance": 300000.0
+  },
+  {
+    "id": "vending_machine",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "gravel_obsidian",
+    "hardness": 5.0,
+    "resistance": 12.0
+  },
+  {
+    "id": "gravel_diamond",
+    "hardness": 0.6,
+    "resistance": 0.6
+  },
+  {
+    "id": "asphalt",
+    "hardness": 15.0,
+    "resistance": 72.0
+  },
+  {
+    "id": "asphalt_light",
+    "hardness": 15.0,
+    "resistance": 72.0
+  },
+  {
+    "id": "sandbags",
+    "hardness": 5.0,
+    "resistance": 18.0
+  },
+  {
+    "id": "wood_barrier",
+    "hardness": 5.0,
+    "resistance": 9.0
+  },
+  {
+    "id": "wood_structure",
+    "hardness": 5.0,
+    "resistance": 9.0
+  },
+  {
+    "id": "reinforced_brick",
+    "hardness": 15.0,
+    "resistance": 180.0
+  },
+  {
+    "id": "reinforced_glass",
+    "hardness": 2.0,
+    "resistance": 15.0
+  },
+  {
+    "id": "reinforced_glass_pane",
+    "hardness": 2.0,
+    "resistance": 15.0
+  },
+  {
+    "id": "reinforced_light",
+    "hardness": 15.0,
+    "resistance": 48.0
+  },
+  {
+    "id": "reinforced_sand",
+    "hardness": 15.0,
+    "resistance": 24.0
+  },
+  {
+    "id": "reinforced_lamp_off",
+    "hardness": 15.0,
+    "resistance": 48.0
+  },
+  {
+    "id": "reinforced_lamp_on",
+    "hardness": 15.0,
+    "resistance": 48.0
+  },
+  {
+    "id": "reinforced_laminate",
+    "hardness": 15.0,
+    "resistance": 180.0
+  },
+  {
+    "id": "reinforced_laminate_pane",
+    "hardness": 15.0,
+    "resistance": 180.0
+  },
+  {
+    "id": "lamp_tritium_green_off",
+    "hardness": 3.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "lamp_tritium_green_on",
+    "hardness": 3.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "lamp_tritium_blue_off",
+    "hardness": 3.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "lamp_tritium_blue_on",
+    "hardness": 3.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "lamp_demon",
+    "hardness": 3.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "lantern",
+    "hardness": 3.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "lantern_behemoth",
+    "hardness": 3.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "spotlight_incandescent",
+    "hardness": 0.5,
+    "resistance": 0.5
+  },
+  {
+    "id": "spotlight_incandescent_off",
+    "hardness": 0.5,
+    "resistance": 0.5
+  },
+  {
+    "id": "spotlight_fluoro",
+    "hardness": 0.5,
+    "resistance": 0.5
+  },
+  {
+    "id": "spotlight_fluoro_off",
+    "hardness": 0.5,
+    "resistance": 0.5
+  },
+  {
+    "id": "spotlight_halogen",
+    "hardness": 0.5,
+    "resistance": 0.5
+  },
+  {
+    "id": "spotlight_halogen_off",
+    "hardness": 0.5,
+    "resistance": 0.5
+  },
+  {
+    "id": "spotlight_beam",
+    "hardness": -1,
+    "resistance": 600000
+  },
+  {
+    "id": "floodlight",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "floodlight_beam",
+    "hardness": -1,
+    "resistance": 600000
+  },
+  {
+    "id": "rebar",
+    "hardness": 15.0,
+    "resistance": 12.0
+  },
+  {
+    "id": "reinforced_stone",
+    "hardness": 15.0,
+    "resistance": 60.0
+  },
+  {
+    "id": "concrete_smooth",
+    "hardness": 15.0,
+    "resistance": 84.0
+  },
+  {
+    "id": "concrete_colored",
+    "hardness": 15.0,
+    "resistance": 84.0
+  },
+  {
+    "id": "concrete_colored_ext",
+    "hardness": 15.0,
+    "resistance": 84.0
+  },
+  {
+    "id": "concrete",
+    "hardness": 15.0,
+    "resistance": 84.0
+  },
+  {
+    "id": "concrete_asbestos",
+    "hardness": 15.0,
+    "resistance": 90.0
+  },
+  {
+    "id": "concrete_rebar",
+    "hardness": 50.0,
+    "resistance": 144.0
+  },
+  {
+    "id": "concrete_super",
+    "hardness": 150.0,
+    "resistance": 600.0
+  },
+  {
+    "id": "concrete_super_broken",
+    "hardness": 10.0,
+    "resistance": 12.0
+  },
+  {
+    "id": "concrete_pillar",
+    "hardness": 15.0,
+    "resistance": 108.0
+  },
+  {
+    "id": "brick_concrete",
+    "hardness": 15.0,
+    "resistance": 96.0
+  },
+  {
+    "id": "brick_concrete_mossy",
+    "hardness": 15.0,
+    "resistance": 96.0
+  },
+  {
+    "id": "brick_concrete_cracked",
+    "hardness": 15.0,
+    "resistance": 36.0
+  },
+  {
+    "id": "brick_concrete_broken",
+    "hardness": 15.0,
+    "resistance": 27.0
+  },
+  {
+    "id": "brick_concrete_marked",
+    "hardness": 15.0,
+    "resistance": 96.0
+  },
+  {
+    "id": "brick_obsidian",
+    "hardness": 15.0,
+    "resistance": 72.0
+  },
+  {
+    "id": "brick_light",
+    "hardness": 5.0,
+    "resistance": 12.0
+  },
+  {
+    "id": "brick_compound",
+    "hardness": 15.0,
+    "resistance": 240.0
+  },
+  {
+    "id": "cmb_brick",
+    "hardness": 25.0,
+    "resistance": 3000.0
+  },
+  {
+    "id": "cmb_brick_reinforced",
+    "hardness": 25.0,
+    "resistance": 30000.0
+  },
+  {
+    "id": "brick_asbestos",
+    "hardness": 5.0,
+    "resistance": 600.0
+  },
+  {
+    "id": "brick_fire",
+    "hardness": 5.0,
+    "resistance": 21.0
+  },
+  {
+    "id": "ducrete_smooth",
+    "hardness": 20.0,
+    "resistance": 300.0
+  },
+  {
+    "id": "ducrete",
+    "hardness": 20.0,
+    "resistance": 300.0
+  },
+  {
+    "id": "brick_ducrete",
+    "hardness": 15.0,
+    "resistance": 450.0
+  },
+  {
+    "id": "reinforced_ducrete",
+    "hardness": 20.0,
+    "resistance": 600.0
+  },
+  {
+    "id": "lightstone",
+    "hardness": 2.0,
+    "resistance": 9.0
+  },
+  {
+    "id": "brick_forgotten",
+    "resistance": 399999.6
+  },
+  {
+    "id": "brick_forgotten_lock",
+    "resistance": 399999.6
+  },
+  {
+    "id": "concrete_slab"
+  },
+  {
+    "id": "concrete_double_slab"
+  },
+  {
+    "id": "concrete_brick_slab"
+  },
+  {
+    "id": "concrete_brick_double_slab"
+  },
+  {
+    "id": "brick_slab"
+  },
+  {
+    "id": "brick_double_slab"
+  },
+  {
+    "id": "stones_slab"
+  },
+  {
+    "id": "stones_double_slab"
+  },
+  {
+    "id": "concrete_smooth_stairs"
+  },
+  {
+    "id": "concrete_stairs"
+  },
+  {
+    "id": "concrete_asbestos_stairs"
+  },
+  {
+    "id": "ducrete_smooth_stairs"
+  },
+  {
+    "id": "ducrete_stairs"
+  },
+  {
+    "id": "brick_concrete_stairs"
+  },
+  {
+    "id": "brick_concrete_mossy_stairs"
+  },
+  {
+    "id": "brick_concrete_cracked_stairs"
+  },
+  {
+    "id": "brick_concrete_broken_stairs"
+  },
+  {
+    "id": "brick_ducrete_stairs"
+  },
+  {
+    "id": "reinforced_stone_stairs"
+  },
+  {
+    "id": "reinforced_brick_stairs"
+  },
+  {
+    "id": "brick_obsidian_stairs"
+  },
+  {
+    "id": "brick_light_stairs"
+  },
+  {
+    "id": "brick_compound_stairs"
+  },
+  {
+    "id": "brick_asbestos_stairs"
+  },
+  {
+    "id": "brick_fire_stairs"
+  },
+  {
+    "id": "asphalt_stairs"
+  },
+  {
+    "id": "lightstone_tile_stairs"
+  },
+  {
+    "id": "lightstone_bricks_stairs"
+  },
+  {
+    "id": "vinyl_tile",
+    "hardness": 10.0,
+    "resistance": 36.0
+  },
+  {
+    "id": "tile_lab",
+    "hardness": 1.0,
+    "resistance": 12.0
+  },
+  {
+    "id": "tile_lab_cracked",
+    "hardness": 1.0,
+    "resistance": 12.0
+  },
+  {
+    "id": "tile_lab_broken",
+    "hardness": 1.0,
+    "resistance": 12.0
+  },
+  {
+    "id": "block_meteor",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "block_meteor_cobble",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "block_meteor_broken",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "block_meteor_molten",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "block_meteor_treasure",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "meteor_polished",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "meteor_brick",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "meteor_brick_mossy",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "meteor_brick_cracked",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "meteor_brick_chiseled",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "meteor_pillar",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "meteor_spawner",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "meteor_battery",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "moon_turf",
+    "hardness": 0.5,
+    "resistance": 0.5
+  },
+  {
+    "id": "brick_jungle",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "brick_jungle_cracked",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "brick_jungle_fragile",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "brick_jungle_lava",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "brick_jungle_ooze",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "brick_jungle_mystic",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "brick_jungle_trap",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "brick_jungle_glyph",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "brick_jungle_circle",
+    "hardness": 15.0,
+    "resistance": 216.0
+  },
+  {
+    "id": "brick_red",
+    "resistance": 6000.0
+  },
+  {
+    "id": "deco_computer",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "deco_crt",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "deco_toaster",
+    "hardness": 5.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "filing_cabinet",
+    "hardness": 10.0,
+    "resistance": 9.0
+  },
+  {
+    "id": "tape_recorder",
+    "hardness": 5.0,
+    "resistance": 9.0
+  },
+  {
+    "id": "steel_poles",
+    "hardness": 5.0,
+    "resistance": 9.0
+  },
+  {
+    "id": "pole_top",
+    "hardness": 5.0,
+    "resistance": 9.0
+  },
+  {
+    "id": "pole_satellite_receiver",
+    "hardness": 5.0,
+    "resistance": 9.0
+  },
+  {
+    "id": "steel_wall",
+    "hardness": 5.0,
+    "resistance": 9.0
+  },
+  {
+    "id": "steel_corner",
+    "hardness": 15.0,
+    "resistance": 9.0
+  },
+  {
+    "id": "steel_roof",
+    "hardness": 5.0,
+    "resistance": 9.0
+  },
+  {
+    "id": "steel_beam",
+    "hardness": 5.0,
+    "resistance": 9.0
+  },
+  {
+    "id": "steel_scaffold",
+    "hardness": 5.0,
+    "resistance": 9.0
+  },
+  {
+    "id": "steel_grate",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "steel_grate_wide",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_rusted",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_green",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_green_rusted",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_red",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_marked",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_rim",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_rim_rusted",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_rim_green",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_rim_green_rusted",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_rim_red",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_rim_marked",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_framed",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_framed_rusted",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_framed_green",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_framed_green_rusted",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_framed_red",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_framed_marked",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_quad",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_quad_rusted",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_quad_green",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_quad_green_rusted",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_quad_red",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "deco_pipe_quad_marked",
+    "hardness": 2.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "fence_metal",
+    "hardness": 15.0,
+    "resistance": 0.15
+  },
+  {
+    "id": "glass_boron",
+    "hardness": 0.3,
+    "resistance": 0.3
+  },
+  {
+    "id": "glass_lead",
+    "hardness": 0.3,
+    "resistance": 0.3
+  },
+  {
+    "id": "glass_uranium",
+    "hardness": 0.3,
+    "resistance": 0.3
+  },
+  {
+    "id": "glass_trinitite",
+    "hardness": 0.3,
+    "resistance": 0.3
+  },
+  {
+    "id": "glass_polonium",
+    "hardness": 0.3,
+    "resistance": 0.3
+  },
+  {
+    "id": "glass_ash",
+    "hardness": 3.0,
+    "resistance": 3.0
+  },
+  {
+    "id": "glass_quartz",
+    "hardness": 1.0,
+    "resistance": 24.0
+  },
+  {
+    "id": "glass_polarized",
+    "hardness": 0.3,
+    "resistance": 0.3
+  },
+  {
+    "id": "dungeon_chain",
+    "hardness": 0.25,
+    "resistance": 1.2
+  },
+  {
+    "id": "ladder_sturdy",
+    "hardness": 0.25,
+    "resistance": 1.2
+  },
+  {
+    "id": "ladder_gold",
+    "hardness": 0.25,
+    "resistance": 1.2
+  },
+  {
+    "id": "ladder_copper",
+    "hardness": 0.25,
+    "resistance": 1.2
+  },
+  {
+    "id": "ladder_titanium",
+    "hardness": 0.25,
+    "resistance": 1.2
+  },
+  {
+    "id": "ladder_steel",
+    "hardness": 0.25,
+    "resistance": 1.2
+  },
+  {
+    "id": "trapdoor_steel",
+    "hardness": 3.0,
+    "resistance": 4.8
+  },
+  {
+    "id": "boxcar",
+    "hardness": 10.0,
+    "resistance": 6.0
+  },
+  {
+    "id": "boat",
+    "hardness": 10.0,
+    "resistance": 6.0
+  }
+]

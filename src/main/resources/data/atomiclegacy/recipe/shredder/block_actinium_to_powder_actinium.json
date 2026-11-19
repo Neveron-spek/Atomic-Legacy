@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:block_actinium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_actinium",
+    "count": 9
+  }
+}

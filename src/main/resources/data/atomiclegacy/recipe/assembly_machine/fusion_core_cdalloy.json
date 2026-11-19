@@ -1,0 +1,43 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_expensive_mode"
+      }
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.fusioncore",
+  "duration": 600,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_welded_cdalloy"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/hard_plastic"
+      },
+      "count": 32
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_bismoid"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:drive_flash_particlesim"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:struct_torus_core"
+  }
+}

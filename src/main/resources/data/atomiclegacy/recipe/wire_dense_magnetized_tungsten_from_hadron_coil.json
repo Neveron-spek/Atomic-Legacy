@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:hadron_coil_magtung"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:wire_dense_magnetized_tungsten",
+    "count": 4
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "atomiclegacy:block/red_wire_coated"
+      }
+    }
+  ]
+}

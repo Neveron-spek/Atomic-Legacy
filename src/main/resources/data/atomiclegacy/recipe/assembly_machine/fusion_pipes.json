@@ -1,0 +1,50 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_expensive_mode"
+      }
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.fusionpipes",
+  "duration": 100,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "tag": "c:ingots/hard_plastic"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:pipe_copper"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:motor"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_basic"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:fusion_component",
+    "count": 4,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "motor"
+      },
+      "minecraft:custom_model_data": 3
+    }
+  }
+}

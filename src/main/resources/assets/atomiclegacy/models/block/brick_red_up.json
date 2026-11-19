@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "atomiclegacy:block/brick_base",
+    "up": "atomiclegacy:block/brick_red_top",
+    "north": "atomiclegacy:block/brick_base",
+    "south": "atomiclegacy:block/brick_base",
+    "west": "atomiclegacy:block/brick_base",
+    "east": "atomiclegacy:block/brick_base",
+    "particle": "atomiclegacy:block/brick_base"
+  }
+}

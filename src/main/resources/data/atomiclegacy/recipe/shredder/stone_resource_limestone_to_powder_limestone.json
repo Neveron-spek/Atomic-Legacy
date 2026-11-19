@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:stone_resource_limestone"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_limestone",
+    "count": 4
+  }
+}

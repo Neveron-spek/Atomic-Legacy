@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/launch_table" },
+    "facing=east": { "model": "atomiclegacy:block/particle/launch_table" },
+    "facing=south": { "model": "atomiclegacy:block/particle/launch_table" },
+    "facing=west": { "model": "atomiclegacy:block/particle/launch_table" }
+  }
+}

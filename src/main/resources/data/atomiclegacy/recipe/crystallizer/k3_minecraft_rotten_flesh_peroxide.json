@@ -1,0 +1,16 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "item": "minecraft:rotten_flesh"
+  },
+  "acid": {
+    "fluid": "peroxide",
+    "amount": 500
+  },
+  "duration": 100,
+  "productivity": 0.25,
+  "result": {
+    "id": "minecraft:leather"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/statue_elb_f" },
+    "facing=east": { "model": "atomiclegacy:block/particle/statue_elb_f" },
+    "facing=south": { "model": "atomiclegacy:block/particle/statue_elb_f" },
+    "facing=west": { "model": "atomiclegacy:block/particle/statue_elb_f" }
+  }
+}

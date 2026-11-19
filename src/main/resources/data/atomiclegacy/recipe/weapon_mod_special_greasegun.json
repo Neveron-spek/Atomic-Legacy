@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BRM",
+    "P G"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:gun_parts/barrel_light/weaponsteel"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_light/weaponsteel"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    },
+    "P": {
+      "tag": "c:plates/dura_steel"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/any_plastic"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_greasegun",
+    "count": 1
+  }
+}

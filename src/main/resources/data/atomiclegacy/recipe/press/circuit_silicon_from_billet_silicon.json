@@ -1,0 +1,11 @@
+﻿{
+    "type":  "atomiclegacy:press",
+    "group":  "press.circuit",
+    "stamp":  "circuit",
+    "ingredient":  {
+                       "tag":  "c:silicon"
+                   },
+    "result":  {
+                   "id":  "atomiclegacy:circuit_silicon"
+               }
+}

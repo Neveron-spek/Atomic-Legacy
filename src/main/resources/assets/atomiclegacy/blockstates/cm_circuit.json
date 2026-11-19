@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "variant=0": { "model": "atomiclegacy:block/cm_circuit_aluminium" },
+    "variant=1": { "model": "atomiclegacy:block/cm_circuit_copper" },
+    "variant=2": { "model": "atomiclegacy:block/cm_circuit_red_copper" },
+    "variant=3": { "model": "atomiclegacy:block/cm_circuit_gold" },
+    "variant=4": { "model": "atomiclegacy:block/cm_circuit_schrabidium" },
+    "variant=5": { "model": "atomiclegacy:block/cm_circuit_schrabidium" },
+    "variant=6": { "model": "atomiclegacy:block/cm_circuit_schrabidium" },
+    "variant=7": { "model": "atomiclegacy:block/cm_circuit_schrabidium" }
+  }
+}

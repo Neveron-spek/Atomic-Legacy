@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:item/pipette_laboratory",
+    "layer1": "atomiclegacy:item/pipette_laboratory_overlay"
+  }
+}

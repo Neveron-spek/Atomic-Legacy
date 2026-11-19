@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:gasoline",
+    "atomiclegacy:flowing_gasoline",
+    "atomiclegacy:gasoline_leaded",
+    "atomiclegacy:flowing_gasoline_leaded"
+  ]
+}

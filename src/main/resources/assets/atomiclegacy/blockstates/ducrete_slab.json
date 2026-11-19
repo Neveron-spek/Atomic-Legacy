@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "atomiclegacy:block/ducrete_slab"
+    },
+    "type=top": {
+      "model": "atomiclegacy:block/ducrete_slab_top"
+    },
+    "type=double": {
+      "model": "atomiclegacy:block/ducrete_slab_double"
+    }
+  }
+}

@@ -1,0 +1,228 @@
+package com.atomiclegacy.blocks;
+
+import com.atomiclegacy.tileentity.HbmHeavyDoorBlockEntity;
+import com.atomiclegacy.tileentity.HbmHeavyDoorPartBlockEntity;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Explosion;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.Nullable;
+
+public class HbmHeavyDoorPartBlock extends Block implements EntityBlock, LegacyCoreProxy /* [parity U3: dummy parts] */ {
+    public static final BooleanProperty EXTRA = BooleanProperty.create("extra");
+    private static final ThreadLocal<Boolean> SUPPRESS_CORE_DESTROY = ThreadLocal.withInitial(() -> false);
+
+    public HbmHeavyDoorPartBlock(Properties properties) {
+        super(properties);
+        this.registerDefaultState(this.stateDefinition.any().setValue(EXTRA, false));
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new HbmHeavyDoorPartBlockEntity(pos, state);
+    }
+
+    @Override
+    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return shapeFor(state, level, pos, false);
+    }
+
+    @Override
+    protected VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return shapeFor(state, level, pos, true);
+    }
+
+    private static VoxelShape shapeFor(BlockState state, BlockGetter level, BlockPos pos, boolean collision) {
+        if (!(level.getBlockEntity(pos) instanceof HbmHeavyDoorPartBlockEntity part)) {
+            // Parts are created before their BE data is guaranteed to arrive
+            // on the client.  An orphaned/transient part must not become a
+            // solid camera-blocking cube.
+            return Shapes.empty();
+        }
+        BlockState coreState = level.getBlockState(part.corePos());
+        if (!(coreState.getBlock() instanceof HbmHeavyDoorBlock doorBlock)) {
+            return Shapes.empty();
+        }
+        if (!(level.getBlockEntity(part.corePos()) instanceof HbmHeavyDoorBlockEntity door)) {
+            return Shapes.empty();
+        }
+        boolean open = state.getValue(EXTRA) || door.isOpenForCollision();
+        BlockPos corePos = part.corePos();
+        BlockPos worldRelative = new BlockPos(
+                pos.getX() - corePos.getX(),
+                pos.getY() - corePos.getY(),
+                pos.getZ() - corePos.getZ());
+        Direction facing = coreState.getValue(HbmHeavyDoorBlock.FACING);
+        // Match BlockDoorGeneric#getBoundingBox: the stored footprint
+        // coordinate is not the DoorDecl coordinate basis.  The old code
+        // rotated the world-relative dummy position by the door direction
+        // plus a counter-clockwise quarter turn before asking the declaration
+        // for its open/closed AABB.
+        BlockPos local = switch (doorBlock.decl()) {
+            case FIRE_DOOR -> HbmHeavyDoorBlock.fireDoorCollisionLocalOffset(worldRelative, facing);
+            case TRANSITION_SEAL -> HbmHeavyDoorBlock.transitionSealCollisionLocalOffset(worldRelative, facing);
+            case SLIDING_BLAST_DOOR -> HbmHeavyDoorBlock.slidingBlastDoorCollisionLocalOffset(worldRelative, facing);
+            case SLIDING_BLAST_DOOR_2 -> HbmHeavyDoorBlock.slidingBlastDoor2CollisionLocalOffset(worldRelative, facing);
+            case SLIDING_GATE_DOOR -> HbmHeavyDoorBlock.slidingGateDoorCollisionLocalOffset(worldRelative, facing);
+            case QE_SLIDING_DOOR -> HbmHeavyDoorBlock.qeSlidingDoorCollisionLocalOffset(worldRelative, facing);
+            case QE_CONTAINMENT -> HbmHeavyDoorBlock.qeContainmentCollisionLocalOffset(worldRelative, facing);
+            case SLIDING_SEAL_DOOR -> HbmHeavyDoorBlock.slidingSealDoorCollisionLocalOffset(worldRelative, facing);
+            case SECURE_ACCESS_DOOR -> HbmHeavyDoorBlock.secureAccessDoorCollisionLocalOffset(worldRelative, facing);
+            case ROUND_AIRLOCK_DOOR -> HbmHeavyDoorBlock.roundAirlockDoorCollisionLocalOffset(worldRelative, facing);
+            case LARGE_VEHICLE_DOOR -> HbmHeavyDoorBlock.largeVehicleDoorCollisionLocalOffset(worldRelative, facing);
+            case VAULT_DOOR -> HbmHeavyDoorBlock.vaultDoorCollisionLocalOffset(worldRelative, facing);
+            case WATER_DOOR -> HbmHeavyDoorBlock.waterDoorCollisionLocalOffset(worldRelative, facing);
+            case CARGO_DOOR -> HbmHeavyDoorBlock.cargoDoorCollisionLocalOffset(worldRelative, facing);
+            case SILO_HATCH -> HbmHeavyDoorBlock.siloHatchCollisionLocalOffset(worldRelative, facing);
+            case SILO_HATCH_LARGE -> HbmHeavyDoorBlock.siloHatchLargeCollisionLocalOffset(worldRelative, facing);
+        };
+        VoxelShape localShape = doorBlock.decl().localShape(local.getX(), local.getY(), local.getZ(), open, collision);
+        VoxelShape authoredShape = switch (doorBlock.decl()) {
+            case FIRE_DOOR -> HbmHeavyDoorBlock.orientFireDoorShape(localShape, facing);
+            case TRANSITION_SEAL -> HbmHeavyDoorBlock.orientTransitionSealShape(localShape, facing);
+            case SLIDING_BLAST_DOOR -> HbmHeavyDoorBlock.orientSlidingBlastDoorShape(localShape, facing);
+            case SLIDING_BLAST_DOOR_2 -> HbmHeavyDoorBlock.orientSlidingBlastDoor2Shape(localShape, facing);
+            case SLIDING_GATE_DOOR -> HbmHeavyDoorBlock.orientSlidingGateDoorShape(localShape, facing);
+            case QE_SLIDING_DOOR -> HbmHeavyDoorBlock.orientQeSlidingDoorShape(localShape, facing);
+            case QE_CONTAINMENT -> HbmHeavyDoorBlock.orientQeContainmentShape(localShape, facing);
+            case SLIDING_SEAL_DOOR -> HbmHeavyDoorBlock.orientSlidingSealDoorShape(localShape, facing);
+            case SECURE_ACCESS_DOOR -> HbmHeavyDoorBlock.orientSecureAccessDoorShape(localShape, facing);
+            case ROUND_AIRLOCK_DOOR -> HbmHeavyDoorBlock.orientRoundAirlockDoorShape(localShape, facing);
+            case LARGE_VEHICLE_DOOR -> HbmHeavyDoorBlock.orientLargeVehicleDoorShape(localShape, facing);
+            case VAULT_DOOR -> HbmHeavyDoorBlock.orientVaultDoorShape(localShape, facing);
+            case WATER_DOOR -> HbmHeavyDoorBlock.orientWaterDoorShape(localShape, facing);
+            case CARGO_DOOR -> HbmHeavyDoorBlock.orientCargoDoorShape(localShape, facing);
+            case SILO_HATCH -> HbmHeavyDoorBlock.orientSiloHatchShape(localShape, facing);
+            case SILO_HATCH_LARGE -> HbmHeavyDoorBlock.orientSiloHatchLargeShape(localShape, facing);
+        };
+        return authoredShape;
+    }
+
+    // [parity U3: dummy parts] 1.7.10 cells are the machine block itself: same explosion resistance as the core.
+    @Nullable
+    @Override
+    public BlockPos legacyCorePos(BlockGetter level, BlockPos pos) {
+        return level.getBlockEntity(pos) instanceof HbmHeavyDoorPartBlockEntity cell ? cell.corePos() : null;
+    }
+
+    @Override
+    public float getExplosionResistance(BlockState state, BlockGetter level, BlockPos pos, Explosion explosion) {
+        BlockState core = LegacyCoreProxy.valueState(level, pos, state);
+        if (core != state) {
+            BlockPos corePos = legacyCorePos(level, pos);
+            return core.getExplosionResistance(level, corePos, explosion);
+        }
+        return super.getExplosionResistance(state, level, pos, explosion);
+    }
+
+    @Override
+    protected float getDestroyProgress(BlockState state, Player player, BlockGetter level, BlockPos pos) {
+        if (level.getBlockEntity(pos) instanceof HbmHeavyDoorPartBlockEntity part) {
+            BlockPos corePos = part.corePos();
+            if (!corePos.equals(pos)) {
+                BlockState coreState = level.getBlockState(corePos);
+                if (!coreState.isAir()) {
+                    return coreState.getDestroyProgress(player, level, corePos);
+                }
+            }
+        }
+        return super.getDestroyProgress(state, player, level, pos);
+    }
+
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        if (level.getBlockEntity(pos) instanceof HbmHeavyDoorPartBlockEntity part) {
+            BlockState coreState = level.getBlockState(part.corePos());
+            if (coreState.getBlock() instanceof HbmHeavyDoorBlock coreBlock) {
+                return coreBlock.useWithoutItem(coreState, level, part.corePos(), player, hitResult.withPosition(part.corePos()));
+            }
+        }
+        return InteractionResult.sidedSuccess(level.isClientSide);
+    }
+
+    @Override
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+        if (level.getBlockEntity(pos) instanceof HbmHeavyDoorPartBlockEntity part) {
+            BlockState coreState = level.getBlockState(part.corePos());
+            if (coreState.getBlock() instanceof HbmHeavyDoorBlock coreBlock) {
+                return coreBlock.useItemOn(stack, coreState, level, part.corePos(), player, hand, hitResult.withPosition(part.corePos()));
+            }
+        }
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    }
+
+    @Override
+    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
+        if (level.getBlockEntity(pos) instanceof HbmHeavyDoorPartBlockEntity part) {
+            BlockState coreState = level.getBlockState(part.corePos());
+            if (coreState.getBlock() instanceof HbmHeavyDoorBlock) {
+                return coreState.getBlock().getCloneItemStack(level, part.corePos(), coreState);
+            }
+        }
+        return ItemStack.EMPTY;
+    }
+
+    @Override
+    public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+        if (!level.isClientSide && level.getBlockEntity(pos) instanceof HbmHeavyDoorPartBlockEntity part) {
+            part.setDropCoreWhenRemoved(!player.isCreative());
+        }
+        return super.playerWillDestroy(level, pos, state, player);
+    }
+
+    @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        if (!SUPPRESS_CORE_DESTROY.get()
+                && !movedByPiston
+                && !state.is(newState.getBlock())
+                && !level.isClientSide
+                && level.getBlockEntity(pos) instanceof HbmHeavyDoorPartBlockEntity part) {
+            BlockPos corePos = part.corePos();
+            if (!corePos.equals(pos)
+                    && level.getBlockState(corePos).getBlock() instanceof HbmHeavyDoorBlock) {
+                level.destroyBlock(corePos, part.consumeDropCoreWhenRemoved());
+            }
+        }
+        super.onRemove(state, level, pos, newState, movedByPiston);
+    }
+
+    static void runWithoutCoreDestroy(Runnable action) {
+        boolean previous = SUPPRESS_CORE_DESTROY.get();
+        SUPPRESS_CORE_DESTROY.set(true);
+        try {
+            action.run();
+        } finally {
+            SUPPRESS_CORE_DESTROY.set(previous);
+        }
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(EXTRA);
+    }
+
+    // [parity V4: step sounds]
+    @Override
+    public net.minecraft.world.level.block.SoundType getSoundType(BlockState state, net.minecraft.world.level.LevelReader level,
+                                                                  BlockPos pos, @org.jetbrains.annotations.Nullable net.minecraft.world.entity.Entity entity) {
+        return LegacyCoreProxy.coreSound(level, pos, state, entity);
+    }
+}

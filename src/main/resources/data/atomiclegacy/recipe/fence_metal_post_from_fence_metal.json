@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "type": "neoforge:difference",
+      "base": {
+        "item": "atomiclegacy:fence_metal"
+      },
+      "subtracted": {
+        "type": "neoforge:components",
+        "items": "atomiclegacy:fence_metal",
+        "components": {
+          "minecraft:custom_data": {
+            "post": true
+          },
+          "minecraft:custom_model_data": 1
+        }
+      }
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:fence_metal",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "post": true
+      },
+      "minecraft:custom_model_data": 1
+    }
+  }
+}

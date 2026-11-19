@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:block_titanium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_titanium",
+    "count": 9
+  }
+}

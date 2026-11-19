@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/biomass"
+                 },
+    "parent":  "minecraft:item/generated"
+}

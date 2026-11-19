@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ODO",
+    "EAE",
+    "ODO"
+  ],
+  "key": {
+    "O": { "item": "minecraft:obsidian" },
+    "D": { "item": "minecraft:diamond" },
+    "E": { "tag": "c:dusts/magic" },
+    "A": { "item": "atomiclegacy:gem_alexandrite" }
+  },
+  "result": { "id": "atomiclegacy:teleanchor" }
+}

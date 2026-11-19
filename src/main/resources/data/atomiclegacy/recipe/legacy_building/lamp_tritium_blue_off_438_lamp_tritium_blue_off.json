@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "c:glass_blocks"
+    },
+    {
+      "tag": "c:dusts/phosphorus"
+    },
+    {
+      "type": "atomiclegacy:legacy_fluid_container",
+      "fluid": "tritium",
+      "amount": 1000
+    },
+    {
+      "tag": "c:dusts/aluminium"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:lamp_tritium_blue_off",
+    "count": 1
+  }
+}

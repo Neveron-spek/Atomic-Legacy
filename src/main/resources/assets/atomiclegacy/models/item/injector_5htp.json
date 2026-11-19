@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/injector_5htp"
+                 },
+    "parent":  "minecraft:item/generated"
+}

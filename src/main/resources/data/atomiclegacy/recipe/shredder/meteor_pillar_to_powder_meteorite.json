@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:meteor_pillar"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_meteorite"
+  }
+}

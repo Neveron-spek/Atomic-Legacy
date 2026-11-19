@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ICI",
+    "CTC",
+    "ICI"
+  ],
+  "key": {
+    "C": {
+      "tag": "c:plates/steel"
+    },
+    "I": {
+      "tag": "c:plates/iron"
+    },
+    "T": {
+      "item": "atomiclegacy:mp_fuselage_15_kerosene"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:mp_fuselage_15_kerosene_metal",
+    "count": 1
+  }
+}
+

@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#atomiclegacy:legacy_plains",
+  "spawners": [
+    {
+      "type": "atomiclegacy:entity_pigeon",
+      "weight": 1,
+      "minCount": 5,
+      "maxCount": 10
+    }
+  ]
+}

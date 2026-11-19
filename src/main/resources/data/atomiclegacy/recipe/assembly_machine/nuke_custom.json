@@ -1,0 +1,38 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.customnuke",
+  "duration": 300,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:shell_steel"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:fins_small_steel"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller_advanced"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "tag": "c:dyes/gray"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:nuke_custom"
+  },
+  "blueprint_pools": [
+    "528.controller"
+  ]
+}

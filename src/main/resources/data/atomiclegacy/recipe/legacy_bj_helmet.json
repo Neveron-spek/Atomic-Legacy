@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "SBS",
+    " C ",
+    " I "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:string"
+    },
+    "B": {
+      "item": "minecraft:black_wool"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_advanced"
+    },
+    "I": {
+      "tag": "c:ingots/starmetal"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:bj_helmet"
+  }
+}

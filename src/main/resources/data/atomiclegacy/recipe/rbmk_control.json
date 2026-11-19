@@ -1,0 +1,31 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_528_mode"
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " B ",
+    "GRG",
+    " B "
+  ],
+  "key": {
+    "G": {
+      "tag": "c:ingots/graphite"
+    },
+    "B": {
+      "item": "atomiclegacy:motor"
+    },
+    "R": {
+      "item": "atomiclegacy:rbmk_absorber"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:rbmk_control"
+  }
+}

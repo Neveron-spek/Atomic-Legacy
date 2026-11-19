@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:oil",
+    "atomiclegacy:flowing_oil",
+    "atomiclegacy:oil_ds",
+    "atomiclegacy:flowing_oil_ds",
+    "atomiclegacy:hotoil",
+    "atomiclegacy:flowing_hotoil",
+    "atomiclegacy:hotoil_ds",
+    "atomiclegacy:flowing_hotoil_ds"
+  ]
+}

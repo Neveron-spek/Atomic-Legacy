@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/can_breen"
+                 },
+    "parent":  "minecraft:item/generated"
+}

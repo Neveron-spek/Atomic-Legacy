@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "C",
+    "T",
+    "C"
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:coke_petroleum"
+    },
+    "T": {
+      "tag": "c:tars"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:arc_electrode_graphite"
+  }
+}

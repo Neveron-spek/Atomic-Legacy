@@ -1,0 +1,38 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/blocks/rails/rail_standard_switch_flipped.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "ambientocclusion": false,
+  "transform": {
+    "matrix": [
+      [
+        -1.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        -1.0,
+        0.5
+      ]
+    ]
+  },
+  "textures": {
+    "rail": "atomiclegacy:block/rail_standard_straight",
+    "particle": "atomiclegacy:block/rail_standard_straight",
+    "sign": "atomiclegacy:block/rail_switch_sign_flipped"
+  },
+  "visibility": {
+    "SignStraight": false
+  }
+}

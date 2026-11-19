@@ -1,0 +1,67 @@
+{
+  "type": "atomiclegacy:soldering_station",
+  "group": "soldering.computer",
+  "duration": 600,
+  "consumption": 250000,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_528_mode"
+      }
+    },
+    {
+      "type": "atomiclegacy:less_bullshit_mode",
+      "feature": "simple_crafting"
+    }
+  ],
+  "fluid": {
+    "fluid": "perfluoromethyl_cold",
+    "amount": 6000
+  },
+  "toppings": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_chip_quantum"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_chip_bismoid"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_atomic_clock"
+      },
+      "count": 1
+    }
+  ],
+  "pcb": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller_advanced"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:upgrade_speed_3"
+      },
+      "count": 1
+    }
+  ],
+  "solder": [
+    {
+      "ingredient": {
+        "tag": "c:wires/lead"
+      },
+      "count": 32
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:circuit_controller_quantum"
+  }
+}

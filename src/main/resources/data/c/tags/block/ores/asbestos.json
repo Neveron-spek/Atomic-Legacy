@@ -1,0 +1,8 @@
+{
+    "replace":  false,
+    "values":  [
+                   "atomiclegacy:ore_asbestos",
+                   "atomiclegacy:ore_deepslate_asbestos",
+                   "atomiclegacy:stone_resource_asbestos"
+               ]
+}

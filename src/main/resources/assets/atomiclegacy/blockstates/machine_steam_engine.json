@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/machine_steam_engine" },
+    "facing=east": { "model": "atomiclegacy:block/particle/machine_steam_engine" },
+    "facing=south": { "model": "atomiclegacy:block/particle/machine_steam_engine" },
+    "facing=west": { "model": "atomiclegacy:block/particle/machine_steam_engine" }
+  }
+}

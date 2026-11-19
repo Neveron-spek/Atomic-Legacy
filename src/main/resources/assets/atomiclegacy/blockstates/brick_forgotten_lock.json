@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "variant=default": { "model": "atomiclegacy:block/brick_forgotten_lock" },
+    "variant=black_and_white": { "model": "atomiclegacy:block/brick_forgotten_lock_bw" },
+    "variant=nullstone": { "model": "atomiclegacy:block/brick_forgotten_lock_nullstone" },
+    "variant=lethal": { "model": "atomiclegacy:block/brick_forgotten_lock" }
+  }
+}

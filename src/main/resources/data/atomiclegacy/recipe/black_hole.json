@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SSS",
+    "SCS",
+    "SSS"
+  ],
+  "key": {
+    "S": { "item": "atomiclegacy:crystal_xen" },
+    "C": { "item": "atomiclegacy:singularity" }
+  },
+  "result": {
+    "id": "atomiclegacy:black_hole",
+    "count": 1
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PWP",
+    "SSS",
+    "CCC"
+  ],
+  "key": {
+    "P": { "item": "atomiclegacy:pedestal_steel" },
+    "W": { "item": "atomiclegacy:wrench" },
+    "S": { "tag": "c:plates/steel" },
+    "C": { "item": "atomiclegacy:steel_scaffold" }
+  },
+  "result": { "id": "atomiclegacy:machine_missile_assembly" }
+}

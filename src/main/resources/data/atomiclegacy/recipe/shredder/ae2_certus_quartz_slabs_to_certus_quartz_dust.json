@@ -1,0 +1,16 @@
+{
+  "type": "atomiclegacy:shredder",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ae2"
+    }
+  ],
+  "ingredient": {
+    "tag": "atomiclegacy:ae2_certus_quartz_slabs"
+  },
+  "result": {
+    "id": "ae2:certus_quartz_dust",
+    "count": 2
+  }
+}

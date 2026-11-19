@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=north,lit=false": { "model": "atomiclegacy:block/particle/machine_press" },
+    "facing=north,lit=true": { "model": "atomiclegacy:block/particle/machine_press" },
+    "facing=east,lit=false": { "model": "atomiclegacy:block/particle/machine_press" },
+    "facing=east,lit=true": { "model": "atomiclegacy:block/particle/machine_press" },
+    "facing=south,lit=false": { "model": "atomiclegacy:block/particle/machine_press" },
+    "facing=south,lit=true": { "model": "atomiclegacy:block/particle/machine_press" },
+    "facing=west,lit=false": { "model": "atomiclegacy:block/particle/machine_press" },
+    "facing=west,lit=true": { "model": "atomiclegacy:block/particle/machine_press" }
+  }
+}

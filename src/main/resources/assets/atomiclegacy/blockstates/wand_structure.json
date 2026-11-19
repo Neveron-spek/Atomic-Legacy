@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "load=false": { "model": "atomiclegacy:block/wand_structure_save" },
+    "load=true": { "model": "atomiclegacy:block/wand_structure_load" }
+  }
+}

@@ -1,0 +1,15 @@
+﻿{
+    "type":  "atomiclegacy:cyclotron",
+    "group":  "cyclotron",
+    "particle":  {
+                     "item":  "atomiclegacy:part_carbon"
+                 },
+    "input":  {
+                  "tag":  "c:dusts/lead"
+              },
+    "output":  {
+                   "id":  "atomiclegacy:powder_ra226"
+               },
+    "antimatter":  10
+}
+

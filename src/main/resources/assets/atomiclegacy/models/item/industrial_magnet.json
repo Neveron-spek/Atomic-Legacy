@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/industrial_magnet"
+                 },
+    "parent":  "minecraft:item/generated"
+}

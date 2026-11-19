@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:diesel",
+    "atomiclegacy:flowing_diesel",
+    "atomiclegacy:diesel_crack",
+    "atomiclegacy:flowing_diesel_crack",
+    "atomiclegacy:diesel_reform",
+    "atomiclegacy:flowing_diesel_reform",
+    "atomiclegacy:diesel_crack_reform",
+    "atomiclegacy:flowing_diesel_crack_reform"
+  ]
+}

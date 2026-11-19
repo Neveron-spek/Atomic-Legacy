@@ -1,0 +1,43 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.bmg50_he",
+  "order": 40,
+  "input": [
+    {
+      "ingredient": {
+        "tag": "c:ingots/high_explosive"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/ferrouranium"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      },
+      "count": 6
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_large_steel"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 12,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "bmg50_he"
+      },
+      "minecraft:custom_model_data": 27
+    }
+  }
+}

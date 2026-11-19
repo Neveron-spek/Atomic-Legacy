@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/fluid_pump_empty" },
+    "facing=east": { "model": "atomiclegacy:block/fluid_pump_empty" },
+    "facing=south": { "model": "atomiclegacy:block/fluid_pump_empty" },
+    "facing=west": { "model": "atomiclegacy:block/fluid_pump_empty" }
+  }
+}

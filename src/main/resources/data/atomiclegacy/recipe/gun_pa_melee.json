@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " C ",
+    "MWM"
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:circuit_basic"
+    },
+    "M": {
+      "item": "atomiclegacy:motor"
+    },
+    "W": {
+      "tag": "c:wires_dense/gold"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_pa_melee",
+    "count": 1
+  }
+}

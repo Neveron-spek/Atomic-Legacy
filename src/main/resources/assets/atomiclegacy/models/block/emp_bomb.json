@@ -1,0 +1,12 @@
+{
+    "textures":  {
+                     "down": "atomiclegacy:block/bomb_emp_top",
+                     "up": "atomiclegacy:block/bomb_emp_top",
+                     "north": "atomiclegacy:block/bomb_emp_side",
+                     "south": "atomiclegacy:block/bomb_emp_side",
+                     "east": "atomiclegacy:block/bomb_emp_side",
+                     "west": "atomiclegacy:block/bomb_emp_side",
+                     "particle": "#north"
+                 },
+    "parent":  "minecraft:block/cube"
+}

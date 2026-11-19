@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SCS",
+    "CBC",
+    "SCS"
+  ],
+  "key": {
+    "S": {
+      "tag": "c:ingots/steel"
+    },
+    "C": {
+      "tag": "c:plates/copper"
+    },
+    "B": {
+      "item": "atomiclegacy:tank_steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:rbmk_steam_outlet"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "DLC",
+    "BRS",
+    "MG "
+  ],
+  "key": {
+    "D": {
+      "item": "atomiclegacy:crystal_redstone"
+    },
+    "L": {
+      "item": "atomiclegacy:weapon_mod_special_scope"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_bismoid"
+    },
+    "B": {
+      "tag": "c:gun_parts/barrel_light/any_bismoidbronze"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_light/any_bismoidbronze"
+    },
+    "S": {
+      "tag": "c:gun_parts/stock/any_hardplastic"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/saturnite"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/any_hardplastic"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_lasrifle",
+    "count": 1
+  }
+}

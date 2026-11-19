@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/machine_forcefield" },
+    "facing=south": { "model": "atomiclegacy:block/particle/machine_forcefield" },
+    "facing=west": { "model": "atomiclegacy:block/particle/machine_forcefield" },
+    "facing=east": { "model": "atomiclegacy:block/particle/machine_forcefield" }
+  }
+}

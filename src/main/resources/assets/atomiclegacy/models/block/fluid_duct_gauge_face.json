@@ -1,0 +1,15 @@
+{
+  "textures": {
+    "particle": "atomiclegacy:block/deco_steel",
+    "gauge": "atomiclegacy:block/pipe_gauge"
+  },
+  "elements": [
+    {
+      "from": [0, 0, -0.03],
+      "to": [16, 16, -0.02],
+      "faces": {
+        "north": { "texture": "#gauge" }
+      }
+    }
+  ]
+}

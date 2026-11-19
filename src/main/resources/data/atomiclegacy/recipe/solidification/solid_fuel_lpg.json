@@ -1,0 +1,11 @@
+﻿{
+    "type":  "atomiclegacy:solidification",
+    "group":  "solidifier.lpg",
+    "input":  {
+                  "fluid":  "lpg",
+                  "amount":  990
+              },
+    "output":  {
+                   "id":  "atomiclegacy:solid_fuel"
+               }
+}

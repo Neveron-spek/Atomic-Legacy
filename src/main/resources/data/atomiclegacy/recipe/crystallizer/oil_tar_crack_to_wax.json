@@ -1,0 +1,15 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer.oil_tar_wax",
+  "ingredient": {
+    "item": "atomiclegacy:oil_tar_crack"
+  },
+  "acid": {
+    "fluid": "chlorine",
+    "amount": 100
+  },
+  "duration": 20,
+  "result": {
+    "id": "atomiclegacy:oil_tar_wax"
+  }
+}

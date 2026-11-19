@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "P",
+    "P",
+    "S"
+  ],
+  "key": {
+    "P": {
+      "item": "atomiclegacy:pipe_iron"
+    },
+    "S": {
+      "item": "atomiclegacy:plate_polymer"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:pipe_anchor_exhaust",
+    "count": 2
+  }
+}

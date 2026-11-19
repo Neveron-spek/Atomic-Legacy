@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/spawn_worm"
+                 },
+    "parent":  "minecraft:item/generated"
+}

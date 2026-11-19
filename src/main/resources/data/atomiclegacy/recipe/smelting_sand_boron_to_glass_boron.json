@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:sand_mix"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "boron"
+      }
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:glass_boron"
+  },
+  "experience": 0.25,
+  "cookingtime": 200
+}

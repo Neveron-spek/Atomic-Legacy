@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:brick_fire"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:ingot_firebrick",
+    "count": 4
+  }
+}

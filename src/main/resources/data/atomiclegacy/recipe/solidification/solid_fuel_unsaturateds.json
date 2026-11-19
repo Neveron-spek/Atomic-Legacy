@@ -1,0 +1,11 @@
+﻿{
+    "type":  "atomiclegacy:solidification",
+    "group":  "solidifier.unsaturateds",
+    "input":  {
+                  "fluid":  "unsaturateds",
+                  "amount":  490
+              },
+    "output":  {
+                   "id":  "atomiclegacy:solid_fuel"
+               }
+}

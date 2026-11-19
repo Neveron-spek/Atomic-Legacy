@@ -1,0 +1,28 @@
+{
+  "parent": "atomiclegacy:bismuth",
+  "display": {
+    "icon": {
+      "id": "atomiclegacy:fusion_torus"
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.fusion.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.fusion.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "triggered"
+    ]
+  ]
+}

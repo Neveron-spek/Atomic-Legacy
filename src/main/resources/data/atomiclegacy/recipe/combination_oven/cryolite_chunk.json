@@ -1,0 +1,14 @@
+{
+  "type": "atomiclegacy:combination_oven",
+  "group": "combination_oven.cryolite",
+  "input": {
+    "item": "atomiclegacy:chunk_ore_cryolite"
+  },
+  "output": {
+    "id": "atomiclegacy:powder_aluminium"
+  },
+  "fluid": {
+    "fluid": "lye",
+    "amount": 150
+  }
+}

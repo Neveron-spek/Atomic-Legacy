@@ -1,0 +1,40 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.fusionklystron",
+  "duration": 300,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_dense_bscco"
+      },
+      "count": 32
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_ferro_plating"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_plastic"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_computer"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:fusion_klystron"
+  }
+}

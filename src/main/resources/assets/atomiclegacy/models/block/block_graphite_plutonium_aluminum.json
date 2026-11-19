@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "atomiclegacy:block/block_graphite",
+    "end": "atomiclegacy:block/block_graphite_plutonium_aluminum"
+  }
+}

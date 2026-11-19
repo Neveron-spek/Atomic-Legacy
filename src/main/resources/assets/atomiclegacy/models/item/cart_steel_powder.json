@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:item/cart.steel",
+    "layer1": "atomiclegacy:item/cart_overlay.powder"
+  }
+}

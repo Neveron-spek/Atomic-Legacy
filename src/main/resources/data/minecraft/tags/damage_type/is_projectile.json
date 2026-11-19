@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:sedna_physical",
+    "atomiclegacy:laser",
+    "atomiclegacy:cmb",
+    "atomiclegacy:revolver_bullet",
+    "atomiclegacy:emplacer"
+  ]
+}

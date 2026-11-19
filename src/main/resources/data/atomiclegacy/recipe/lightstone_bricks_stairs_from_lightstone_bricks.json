@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "B  ",
+    "BB ",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "atomiclegacy:lightstone_bricks"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:lightstone_bricks_stairs",
+    "count": 4
+  }
+}

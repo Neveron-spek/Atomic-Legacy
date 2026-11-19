@@ -1,0 +1,6 @@
+src/main/java/com/atomiclegacy/blocks/LegacyReactorCompatibilityBlock.java
+src/main/resources/assets/atomiclegacy/blockstates/machine_reactor_breeding.json
+src/main/resources/assets/atomiclegacy/models/block/machine_reactor_breeding.json
+src/main/resources/assets/atomiclegacy/models/block/particle/machine_reactor_breeding.json
+src/main/resources/assets/atomiclegacy/models/item/machine_reactor_breeding.json
+src/main/resources/data/atomiclegacy/loot_table/blocks/machine_reactor_breeding.json

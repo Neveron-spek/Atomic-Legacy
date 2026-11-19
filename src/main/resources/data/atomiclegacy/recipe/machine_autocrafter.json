@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SCS",
+    "MWM",
+    "SCS"
+  ],
+  "key": {
+    "S": { "tag": "c:plates/steel" },
+    "C": { "item": "atomiclegacy:circuit_vacuum_tube" },
+    "M": { "item": "atomiclegacy:motor" },
+    "W": { "item": "minecraft:crafting_table" }
+  },
+  "result": { "id": "atomiclegacy:machine_autocrafter" }
+}

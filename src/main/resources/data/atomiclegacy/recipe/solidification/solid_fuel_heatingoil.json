@@ -1,0 +1,11 @@
+﻿{
+    "type":  "atomiclegacy:solidification",
+    "group":  "solidifier.heatingoil",
+    "input":  {
+                  "fluid":  "heatingoil",
+                  "amount":  4600
+              },
+    "output":  {
+                   "id":  "atomiclegacy:solid_fuel"
+               }
+}

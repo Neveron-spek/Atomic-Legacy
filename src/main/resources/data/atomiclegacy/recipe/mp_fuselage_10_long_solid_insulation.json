@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CCC",
+    "CTC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "tag": "c:ingots/any_rubber"
+    },
+    "T": {
+      "item": "atomiclegacy:mp_fuselage_10_long_solid"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:mp_fuselage_10_long_solid_insulation",
+    "count": 1
+  }
+}

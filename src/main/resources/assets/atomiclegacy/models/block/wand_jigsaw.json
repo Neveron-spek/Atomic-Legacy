@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "atomiclegacy:block/wand_jigsaw",
+    "down": "atomiclegacy:block/wand_jigsaw_top",
+    "up": "atomiclegacy:block/wand_jigsaw_top",
+    "north": "atomiclegacy:block/wand_jigsaw_back",
+    "south": "atomiclegacy:block/wand_jigsaw",
+    "west": "atomiclegacy:block/wand_jigsaw_side",
+    "east": "atomiclegacy:block/wand_jigsaw_side"
+  }
+}

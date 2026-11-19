@@ -1,0 +1,5 @@
+{
+  "type": "atomiclegacy:blast_furnace_fuel",
+  "ingredient": { "item": "atomiclegacy:solid_fuel" },
+  "power": 3200
+}

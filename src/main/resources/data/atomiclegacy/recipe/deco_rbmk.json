@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "R"
+  ],
+  "key": {
+    "R": {
+      "item": "atomiclegacy:rbmk_blank"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:deco_rbmk",
+    "count": 8
+  }
+}

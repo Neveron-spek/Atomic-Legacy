@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:missile_assembly"
+    },
+    {
+      "item": "atomiclegacy:ducttape"
+    },
+    {
+      "item": "atomiclegacy:cell_anti_schrabidium"
+    },
+    {
+      "item": "atomiclegacy:circuit_quantum"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:missile_schrabidium",
+    "count": 1
+  }
+}

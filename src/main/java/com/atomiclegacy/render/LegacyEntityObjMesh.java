@@ -1,0 +1,402 @@
+package com.atomiclegacy.render;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.phys.Vec3;
+import org.joml.Vector3f;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+final class LegacyEntityObjMesh {
+    private static final Vec3 DEFAULT_NORMAL = new Vec3(0.0D, 1.0D, 0.0D);
+    static final LegacyEntityObjMesh ORIGINAL_SPHERE = load(ResourceLocation.fromNamespaceAndPath("atomiclegacy", "models/entity/death_blast_sphere.obj"));
+    private final List<Vec3> positions;
+    private final List<Uv> uvs;
+    private final List<Vec3> normals;
+    private final Map<String, List<ObjFace>> groups;
+
+    private LegacyEntityObjMesh(List<Vec3> positions, List<Uv> uvs, List<Vec3> normals, Map<String, List<ObjFace>> groups) {
+        this.positions = positions;
+        this.uvs = uvs;
+        this.normals = normals;
+        this.groups = groups;
+    }
+
+    static LegacyEntityObjMesh load(ResourceLocation location) {
+        String resourcePath = "assets/" + location.getNamespace() + "/" + location.getPath();
+        try (InputStream stream = LegacyEntityObjMesh.class.getClassLoader().getResourceAsStream(resourcePath)) {
+            if (stream == null) {
+                throw new IllegalStateException("Missing legacy OBJ mesh: " + location);
+            }
+            return parse(stream, location);
+        } catch (IOException exception) {
+            throw new IllegalStateException("Failed to load legacy OBJ mesh: " + location, exception);
+        }
+    }
+
+    /** Largest vertex distance from the model origin; a rotation-invariant culling radius. [parity R2: culling bounds] */
+    double maxRadius() {
+        double max = 0.0D;
+        for (Vec3 position : positions) max = Math.max(max, position.length());
+        return max;
+    }
+
+    void renderAll(PoseStack poseStack, VertexConsumer consumer, int packedLight, int packedOverlay, int argb) {
+        for (List<ObjFace> faces : groups.values()) {
+            renderFacesAsQuads(faces, poseStack, consumer, packedLight, packedOverlay, argb);
+        }
+    }
+
+    void renderGroup(String name, PoseStack poseStack, VertexConsumer consumer, int packedLight, int packedOverlay, int argb) {
+        renderFacesAsQuads(groups.getOrDefault(name, List.of()), poseStack, consumer, packedLight, packedOverlay, argb);
+    }
+
+    /**
+     * [weapons batch C3] renderGroup with the 1.7.10 GL_CLIP_PLANE0 equation (0, 1, 0, -minY) given in the
+     * group's own coordinates: every face is clipped (Sutherland-Hodgman, interpolated uv/normal) to y >= minY.
+     */
+    void renderGroupClippedY(String name, PoseStack poseStack, VertexConsumer consumer, int packedLight, int packedOverlay, int argb, double minY) {
+        int alpha = (argb >>> 24) & 0xFF;
+        int red = (argb >>> 16) & 0xFF;
+        int green = (argb >>> 8) & 0xFF;
+        int blue = argb & 0xFF;
+        PoseStack.Pose pose = poseStack.last();
+        for (ObjFace face : groups.getOrDefault(name, List.of())) {
+            List<double[]> in = new ArrayList<>();
+            for (ObjVertex vertex : face.vertices()) {
+                Vec3 p = positionAt(vertex.position());
+                Uv uv = uvAt(vertex.uv());
+                Vec3 n = normalAt(vertex.normal());
+                in.add(new double[] {p.x, p.y, p.z, uv.u(), uv.v(), n.x, n.y, n.z});
+            }
+            List<double[]> out = new ArrayList<>();
+            for (int i = 0; i < in.size(); i++) {
+                double[] a = in.get(i);
+                double[] b = in.get((i + 1) % in.size());
+                boolean aIn = a[1] >= minY;
+                boolean bIn = b[1] >= minY;
+                if (aIn) out.add(a);
+                if (aIn != bIn) {
+                    double t = (minY - a[1]) / (b[1] - a[1]);
+                    double[] c = new double[8];
+                    for (int k = 0; k < 8; k++) c[k] = a[k] + (b[k] - a[k]) * t;
+                    out.add(c);
+                }
+            }
+            if (out.size() < 3) {
+                continue;
+            }
+            if (out.size() == 4) {
+                for (double[] v : out) emitClipped(v, pose, consumer, packedLight, packedOverlay, red, green, blue, alpha);
+                continue;
+            }
+            for (int i = 1; i < out.size() - 1; i++) {
+                emitClipped(out.get(0), pose, consumer, packedLight, packedOverlay, red, green, blue, alpha);
+                emitClipped(out.get(i), pose, consumer, packedLight, packedOverlay, red, green, blue, alpha);
+                emitClipped(out.get(i + 1), pose, consumer, packedLight, packedOverlay, red, green, blue, alpha);
+                emitClipped(out.get(i + 1), pose, consumer, packedLight, packedOverlay, red, green, blue, alpha);
+            }
+        }
+    }
+
+    private static void emitClipped(double[] v, PoseStack.Pose pose, VertexConsumer consumer, int packedLight, int packedOverlay,
+                                    int red, int green, int blue, int alpha) {
+        consumer.addVertex(pose, (float) v[0], (float) v[1], (float) v[2])
+                .setColor(red, green, blue, alpha)
+                .setUv((float) v[3], (float) v[4])
+                .setOverlay(packedOverlay)
+                .setLight(packedLight)
+                .setNormal(pose, (float) v[5], (float) v[6], (float) v[7]);
+    }
+
+    /** [parity z1] renderGroup for a render type whose primitive mode is triangles. */
+    void renderGroupTriangles(String name, PoseStack poseStack, VertexConsumer consumer, int packedLight, int packedOverlay, int argb) {
+        renderFacesAsTriangles(groups.getOrDefault(name, List.of()), poseStack, consumer, packedLight, packedOverlay, argb);
+    }
+
+    /** [parity z1] one group into a POSITION_COLOR triangle render type (GL_TEXTURE_2D disabled). */
+    void renderGroupPositionColorTriangles(String name, PoseStack poseStack, VertexConsumer consumer, int argb) {
+        int alpha = (argb >>> 24) & 0xFF;
+        int red = (argb >>> 16) & 0xFF;
+        int green = (argb >>> 8) & 0xFF;
+        int blue = argb & 0xFF;
+        PoseStack.Pose pose = poseStack.last();
+        Vector3f transformed = new Vector3f();
+        for (ObjFace face : groups.getOrDefault(name, List.of())) {
+            for (int index = 1; index < face.vertices().size() - 1; index++) {
+                emitPositionColor(face.vertices().get(0), pose, transformed, consumer, red, green, blue, alpha);
+                emitPositionColor(face.vertices().get(index), pose, transformed, consumer, red, green, blue, alpha);
+                emitPositionColor(face.vertices().get(index + 1), pose, transformed, consumer, red, green, blue, alpha);
+            }
+        }
+    }
+
+    /** [parity z1] whether the OBJ declares this group. */
+    boolean hasGroup(String name) {
+        return groups.containsKey(name);
+    }
+
+    /** Emits OBJ faces into a render type whose primitive mode is triangles. */
+    void renderAllTriangles(PoseStack poseStack, VertexConsumer consumer, int packedLight, int packedOverlay, int argb) {
+        for (List<ObjFace> faces : groups.values()) {
+            renderFacesAsTriangles(faces, poseStack, consumer, packedLight, packedOverlay, argb);
+        }
+    }
+
+    /** Emits OBJ faces for a POSITION_COLOR triangle render type. */
+    void renderAllPositionColorTriangles(PoseStack poseStack, VertexConsumer consumer, int argb) {
+        int alpha = (argb >>> 24) & 0xFF;
+        int red = (argb >>> 16) & 0xFF;
+        int green = (argb >>> 8) & 0xFF;
+        int blue = argb & 0xFF;
+        PoseStack.Pose pose = poseStack.last();
+        Vector3f transformed = new Vector3f();
+        for (List<ObjFace> faces : groups.values()) {
+            for (ObjFace face : faces) {
+                if (face.vertices().size() < 3) {
+                    continue;
+                }
+                for (int index = 1; index < face.vertices().size() - 1; index++) {
+                    emitPositionColor(face.vertices().get(0), pose, transformed, consumer, red, green, blue, alpha);
+                    emitPositionColor(face.vertices().get(index), pose, transformed, consumer, red, green, blue, alpha);
+                    emitPositionColor(face.vertices().get(index + 1), pose, transformed, consumer, red, green, blue, alpha);
+                }
+            }
+        }
+    }
+
+    /**
+     * Includes the exact face-referenced positions emitted by {@link #renderAll}.
+     * Bounds users intentionally follow faces rather than every OBJ {@code v}
+     * declaration: unused authoring vertices are not rendered geometry.
+     */
+    void includeAllFacePositions(PoseStack poseStack, EntityRenderBounds.FloatBuilder bounds) {
+        for (List<ObjFace> faces : groups.values()) {
+            includeFacePositions(faces, poseStack, bounds);
+        }
+    }
+
+    /** Includes the exact face-referenced positions emitted by {@link #renderGroup}. */
+    void includeGroupFacePositions(String name, PoseStack poseStack, EntityRenderBounds.FloatBuilder bounds) {
+        includeFacePositions(groups.getOrDefault(name, List.of()), poseStack, bounds);
+    }
+
+    /** Largest authored face vertex radius about an explicit pivot. */
+    double maximumFaceRadius(double pivotX, double pivotY, double pivotZ) {
+        double maximumSquared = 0.0D;
+        for (List<ObjFace> faces : groups.values()) {
+            for (ObjFace face : faces) {
+                for (ObjVertex vertex : face.vertices()) {
+                    Vec3 position = positionAt(vertex.position());
+                    double dx = position.x - pivotX;
+                    double dy = position.y - pivotY;
+                    double dz = position.z - pivotZ;
+                    maximumSquared = Math.max(maximumSquared, dx * dx + dy * dy + dz * dz);
+                }
+            }
+        }
+        return Math.sqrt(maximumSquared);
+    }
+
+    /** Largest authored face vertex radius in one OBJ group. */
+    double maximumGroupFaceRadius(String name) {
+        double maximumSquared = 0.0D;
+        for (ObjFace face : groups.getOrDefault(name, List.of())) {
+            for (ObjVertex vertex : face.vertices()) {
+                Vec3 position = positionAt(vertex.position());
+                maximumSquared = Math.max(maximumSquared, position.lengthSqr());
+            }
+        }
+        return Math.sqrt(maximumSquared);
+    }
+
+    private static LegacyEntityObjMesh parse(InputStream stream, ResourceLocation location) throws IOException {
+        List<Vec3> positions = new ArrayList<>();
+        List<Uv> uvs = new ArrayList<>();
+        List<Vec3> normals = new ArrayList<>();
+        Map<String, List<ObjFace>> groups = new HashMap<>();
+        String group = "";
+        groups.put(group, new ArrayList<>());
+
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                line = line.trim();
+                if (line.isEmpty() || line.startsWith("#")) {
+                    continue;
+                }
+                String[] tokens = line.split("\\s+");
+                switch (tokens[0]) {
+                    case "o", "g" -> {
+                        if (tokens.length > 1) {
+                            group = tokens[1];
+                            groups.computeIfAbsent(group, ignored -> new ArrayList<>());
+                        }
+                    }
+                    case "v" -> positions.add(new Vec3(parseFloat(tokens, 1), parseFloat(tokens, 2), parseFloat(tokens, 3)));
+                    case "vt" -> uvs.add(new Uv(parseFloat(tokens, 1), 1.0F - parseFloat(tokens, 2)));
+                    case "vn" -> normals.add(new Vec3(parseFloat(tokens, 1), parseFloat(tokens, 2), parseFloat(tokens, 3)).normalize());
+                    case "f" -> groups.get(group).add(parseFace(tokens, positions.size(), uvs.size(), normals.size()));
+                    default -> {
+                    }
+                }
+            }
+        } catch (RuntimeException exception) {
+            throw new IllegalStateException("Failed to parse legacy OBJ mesh: " + location, exception);
+        }
+
+        Map<String, List<ObjFace>> frozen = new HashMap<>();
+        for (Map.Entry<String, List<ObjFace>> entry : groups.entrySet()) {
+            frozen.put(entry.getKey(), List.copyOf(entry.getValue()));
+        }
+        return new LegacyEntityObjMesh(List.copyOf(positions), List.copyOf(uvs), List.copyOf(normals), Map.copyOf(frozen));
+    }
+
+    private void renderFacesAsQuads(List<ObjFace> faces, PoseStack poseStack, VertexConsumer consumer,
+                                    int packedLight, int packedOverlay, int argb) {
+        int alpha = (argb >>> 24) & 0xFF;
+        int red = (argb >>> 16) & 0xFF;
+        int green = (argb >>> 8) & 0xFF;
+        int blue = argb & 0xFF;
+        PoseStack.Pose pose = poseStack.last();
+        for (ObjFace face : faces) {
+            if (face.vertices().size() < 3) {
+                continue;
+            }
+            if (face.vertices().size() == 4) {
+                for (ObjVertex vertex : face.vertices()) {
+                    emitVertex(vertex, pose, consumer, packedLight, packedOverlay, red, green, blue, alpha);
+                }
+                continue;
+            }
+            for (int i = 1; i < face.vertices().size() - 1; i++) {
+                ObjVertex first = face.vertices().get(0);
+                ObjVertex second = face.vertices().get(i);
+                ObjVertex third = face.vertices().get(i + 1);
+                emitVertex(first, pose, consumer, packedLight, packedOverlay, red, green, blue, alpha);
+                emitVertex(second, pose, consumer, packedLight, packedOverlay, red, green, blue, alpha);
+                emitVertex(third, pose, consumer, packedLight, packedOverlay, red, green, blue, alpha);
+                emitVertex(third, pose, consumer, packedLight, packedOverlay, red, green, blue, alpha);
+            }
+        }
+    }
+
+    private void renderFacesAsTriangles(List<ObjFace> faces, PoseStack poseStack, VertexConsumer consumer,
+                                        int packedLight, int packedOverlay, int argb) {
+        int alpha = (argb >>> 24) & 0xFF;
+        int red = (argb >>> 16) & 0xFF;
+        int green = (argb >>> 8) & 0xFF;
+        int blue = argb & 0xFF;
+        PoseStack.Pose pose = poseStack.last();
+        for (ObjFace face : faces) {
+            if (face.vertices().size() < 3) {
+                continue;
+            }
+            for (int i = 1; i < face.vertices().size() - 1; i++) {
+                emitVertex(face.vertices().get(0), pose, consumer, packedLight, packedOverlay, red, green, blue, alpha);
+                emitVertex(face.vertices().get(i), pose, consumer, packedLight, packedOverlay, red, green, blue, alpha);
+                emitVertex(face.vertices().get(i + 1), pose, consumer, packedLight, packedOverlay, red, green, blue, alpha);
+            }
+        }
+    }
+
+    private void includeFacePositions(List<ObjFace> faces, PoseStack poseStack,
+                                      EntityRenderBounds.FloatBuilder bounds) {
+        Vector3f transformed = new Vector3f();
+        for (ObjFace face : faces) {
+            if (face.vertices().size() < 3) {
+                continue;
+            }
+            for (ObjVertex vertex : face.vertices()) {
+                Vec3 position = positionAt(vertex.position());
+                poseStack.last().pose().transformPosition(
+                        (float) position.x, (float) position.y, (float) position.z, transformed);
+                bounds.include(transformed);
+            }
+        }
+    }
+
+    private void emitVertex(ObjVertex vertex, PoseStack.Pose pose, VertexConsumer consumer,
+                            int packedLight, int packedOverlay,
+                            int red, int green, int blue, int alpha) {
+        Vec3 position = positionAt(vertex.position());
+        Uv uv = uvAt(vertex.uv());
+        Vec3 normal = normalAt(vertex.normal());
+        consumer.addVertex(pose, (float) position.x, (float) position.y, (float) position.z)
+                .setColor(red, green, blue, alpha)
+                .setUv(uv.u(), uv.v())
+                .setOverlay(packedOverlay)
+                .setLight(packedLight)
+                .setNormal(pose, (float) normal.x, (float) normal.y, (float) normal.z);
+    }
+
+    private void emitPositionColor(ObjVertex vertex, PoseStack.Pose pose, Vector3f transformed,
+                                   VertexConsumer consumer, int red, int green, int blue, int alpha) {
+        Vec3 position = positionAt(vertex.position());
+        pose.pose().transformPosition((float) position.x, (float) position.y, (float) position.z, transformed);
+        consumer.addVertex(transformed.x(), transformed.y(), transformed.z())
+                .setColor(red, green, blue, alpha);
+    }
+
+    private Vec3 positionAt(int index) {
+        return index >= 0 && index < positions.size() ? positions.get(index) : Vec3.ZERO;
+    }
+
+    private Uv uvAt(int index) {
+        return index >= 0 && index < uvs.size() ? uvs.get(index) : Uv.ZERO;
+    }
+
+    private Vec3 normalAt(int index) {
+        return index >= 0 && index < normals.size() ? normals.get(index) : DEFAULT_NORMAL;
+    }
+
+    private static ObjFace parseFace(String[] tokens, int positionCount, int uvCount, int normalCount) {
+        List<ObjVertex> vertices = new ArrayList<>(tokens.length - 1);
+        for (int i = 1; i < tokens.length; i++) {
+            String[] parts = tokens[i].split("/", -1);
+            int position = parseIndex(parts[0], positionCount);
+            int uv = parts.length > 1 && !parts[1].isBlank() ? parseIndex(parts[1], uvCount) : -1;
+            int normal = parts.length > 2 && !parts[2].isBlank() ? parseIndex(parts[2], normalCount) : -1;
+            vertices.add(new ObjVertex(position, uv, normal));
+        }
+        return new ObjFace(List.copyOf(vertices));
+    }
+
+    private static int parseIndex(String raw, int size) {
+        int index = Integer.parseInt(raw);
+        return index < 0 ? size + index : index - 1;
+    }
+
+    private static float parseFloat(String[] tokens, int index) {
+        return index < tokens.length ? Float.parseFloat(tokens[index]) : 0.0F;
+    }
+
+    private static final class Uv {
+        private static final Uv ZERO = new Uv(0.0F, 0.0F);
+        private final float u;
+        private final float v;
+
+        private Uv(float u, float v) {
+            this.u = u;
+            this.v = v;
+        }
+
+        private float u() { return u; }
+        private float v() { return v; }
+    }
+
+    private record ObjFace(List<ObjVertex> vertices) {
+    }
+
+    private record ObjVertex(int position, int uv, int normal) {
+    }
+}

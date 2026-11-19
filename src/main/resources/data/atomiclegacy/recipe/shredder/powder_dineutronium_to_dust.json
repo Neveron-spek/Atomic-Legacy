@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:powder_dineutronium"
+  },
+  "result": {
+    "id": "atomiclegacy:dust"
+  }
+}

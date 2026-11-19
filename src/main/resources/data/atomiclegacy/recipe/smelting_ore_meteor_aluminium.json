@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:ore_meteor"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "aluminium"
+      }
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:chunk_ore_cryolite",
+    "count": 16
+  },
+  "experience": 10.0,
+  "cookingtime": 200
+}

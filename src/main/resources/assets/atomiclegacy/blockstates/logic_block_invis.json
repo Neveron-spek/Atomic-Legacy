@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "atomiclegacy:block/particle/logic_block_invis" }
+  }
+}

@@ -1,0 +1,15 @@
+﻿{
+    "type":  "atomiclegacy:cyclotron",
+    "group":  "cyclotron",
+    "particle":  {
+                     "item":  "atomiclegacy:part_beryllium"
+                 },
+    "input":  {
+                  "tag":  "c:dusts/cobalt"
+              },
+    "output":  {
+                   "id":  "atomiclegacy:powder_copper"
+               },
+    "antimatter":  25
+}
+

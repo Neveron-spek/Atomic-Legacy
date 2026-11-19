@@ -1,0 +1,55 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_expensive_mode"
+      }
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.turbofan",
+  "duration": 300,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:shell_titanium"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:pipe_dura_steel"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/plastic"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:turbine_tungsten"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_dense_gold"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_basic"
+      },
+      "count": 3
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:machine_turbofan"
+  }
+}

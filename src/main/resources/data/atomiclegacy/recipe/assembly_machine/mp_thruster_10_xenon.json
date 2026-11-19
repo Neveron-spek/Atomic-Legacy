@@ -1,0 +1,30 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.mpt10xenon",
+  "duration": 100,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:seg_10"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/dura_steel"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:arc_electrode_graphite"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:mp_thruster_10_xenon",
+    "count": 1
+  }
+}

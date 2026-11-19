@@ -1,0 +1,8 @@
+{
+  "parent":  "atomiclegacy:block/rad_absorber_base",
+  "overrides": [
+    { "predicate": { "minecraft:custom_model_data": 1 }, "model": "atomiclegacy:block/rad_absorber_red" },
+    { "predicate": { "minecraft:custom_model_data": 2 }, "model": "atomiclegacy:block/rad_absorber_green" },
+    { "predicate": { "minecraft:custom_model_data": 3 }, "model": "atomiclegacy:block/rad_absorber_pink" }
+  ]
+}

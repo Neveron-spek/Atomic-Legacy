@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:rbmk_outgasser",
+  "group": "outgasser.gold",
+  "ingredient": {
+    "item": "minecraft:gold_nugget"
+  },
+  "item_output": {
+    "id": "atomiclegacy:nugget_au198"
+  }
+}

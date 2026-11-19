@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "P",
+    "C",
+    "S"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:ingots/rubber"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_analog"
+    },
+    "S": {
+      "item": "atomiclegacy:steel_scaffold"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:mp_c_2",
+    "count": 1
+  }
+}
+

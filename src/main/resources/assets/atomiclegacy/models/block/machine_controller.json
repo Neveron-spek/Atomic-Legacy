@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "atomiclegacy:block/machine_controller_side",
+    "up": "atomiclegacy:block/machine_controller_top",
+    "down": "atomiclegacy:block/machine_controller_top",
+    "north": "atomiclegacy:block/machine_controller",
+    "south": "atomiclegacy:block/machine_controller_back",
+    "east": "atomiclegacy:block/machine_controller_side",
+    "west": "atomiclegacy:block/machine_controller_side"
+  }
+}

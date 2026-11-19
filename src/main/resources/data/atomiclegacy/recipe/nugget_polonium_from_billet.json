@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:crafting_shapeless", "category": "misc",
+  "ingredients": [{ "item": "atomiclegacy:billet_polonium" }],
+  "result": { "id": "atomiclegacy:nugget_polonium", "count": 6 }
+}

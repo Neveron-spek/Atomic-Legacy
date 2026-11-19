@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/block_yellowcake"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

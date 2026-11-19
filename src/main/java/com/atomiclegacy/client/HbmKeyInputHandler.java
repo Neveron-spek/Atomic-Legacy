@@ -1,0 +1,66 @@
+package com.atomiclegacy.client;
+
+import com.mojang.blaze3d.platform.InputConstants;
+import com.atomiclegacy.AtomicLegacy;
+import com.atomiclegacy.network.LegacyDuckPayload;
+import com.atomiclegacy.network.JetpackControlPayload;
+import com.atomiclegacy.network.ArmorDashPayload;
+import com.atomiclegacy.network.ToggleMagnetPayload;
+import com.atomiclegacy.items.ArmorFSBItem;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.client.Minecraft;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
+import net.neoforged.neoforge.network.PacketDistributor;
+import org.lwjgl.glfw.GLFW;
+
+@EventBusSubscriber(modid = AtomicLegacy.MOD_ID, value = Dist.CLIENT)
+public final class HbmKeyInputHandler {
+    private static boolean ducked;
+    private static boolean jetpackInput;
+
+    private HbmKeyInputHandler() {
+    }
+
+    @SubscribeEvent
+    public static void clientTick(ClientTickEvent.Post event) {
+        Minecraft minecraft = Minecraft.getInstance();
+        if (!ducked
+                && minecraft.screen == null
+                && InputConstants.isKeyDown(minecraft.getWindow().getWindow(), GLFW.GLFW_KEY_O)) {
+            ducked = true;
+            PacketDistributor.sendToServer(new LegacyDuckPayload());
+        }
+        while (HbmKeyMappings.TRAIN_INV.consumeClick()) { // [parity S1: trainInv]
+            PacketDistributor.sendToServer(new com.atomiclegacy.network.TrainInventoryPayload());
+        }
+        while (HbmKeyMappings.TOGGLE_MAGNET.consumeClick()) {
+            PacketDistributor.sendToServer(new ToggleMagnetPayload());
+        }
+        while (HbmKeyMappings.ARMOR_DASH.consumeClick()) {
+            if (minecraft.player != null
+                    && ArmorFSBItem.hasFSBArmor(minecraft.player)
+                    && ArmorFSBItem.features(minecraft.player).dashCount() > 0) {
+                PacketDistributor.sendToServer(new ArmorDashPayload());
+            }
+        }
+        boolean jump = minecraft.screen == null && minecraft.options.keyJump.isDown();
+        if (jump != jetpackInput) {
+            jetpackInput = jump;
+            PacketDistributor.sendToServer(new JetpackControlPayload(jump));
+        }
+        if (minecraft.player != null
+                && ArmorFSBItem.hasFSBArmor(minecraft.player)
+                && ArmorFSBItem.hasFeature(minecraft.player, ArmorFSBItem.Feature.THERMAL)) {
+            // The old thermal sight was a helmet shader. Night vision is the
+            // vanilla-safe equivalent and is refreshed only while the powered
+            // full set is active.
+            minecraft.player.addEffect(new MobEffectInstance(
+                    MobEffects.NIGHT_VISION, 5, 0, false, false
+            ));
+        }
+    }
+}

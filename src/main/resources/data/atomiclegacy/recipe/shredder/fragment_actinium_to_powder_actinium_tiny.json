@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:fragment_actinium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_actinium_tiny"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " M ",
+    "PGP",
+    " M "
+  ],
+  "key": {
+    "M": {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    },
+    "P": {
+      "tag": "c:plates/cast_gold"
+    },
+    "G": {
+      "item": "atomiclegacy:gun_henry"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_henry_lincoln",
+    "count": 1
+  }
+}

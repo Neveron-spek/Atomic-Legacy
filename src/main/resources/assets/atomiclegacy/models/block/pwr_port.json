@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/pwr_port"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

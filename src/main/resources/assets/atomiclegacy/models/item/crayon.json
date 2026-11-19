@@ -1,0 +1,7 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/crayon",
+                     "layer1":  "atomiclegacy:item/crayon_overlay"
+                 },
+    "parent":  "minecraft:item/generated"
+}

@@ -1,0 +1,29 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.fleijaigniter",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "tag": "c:plates/titanium"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_schrabidium"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_advanced"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:fleija_igniter"
+  }
+}

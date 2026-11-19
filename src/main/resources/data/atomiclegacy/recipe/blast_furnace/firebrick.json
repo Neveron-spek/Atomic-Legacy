@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:blast_furnace",
+  "group": "blast.firebrick",
+  "input_a": { "tag": "c:dusts/aluminium" },
+  "input_b": { "item": "minecraft:clay_ball" },
+  "input_b_count": 7,
+  "duration": 800,
+  "result": { "id": "atomiclegacy:ingot_firebrick", "count": 8 }
+}

@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:combination_oven","group":"combination_oven.coal","input":{"item":"minecraft:coal"},"output":{"id":"atomiclegacy:coke_coal"},"fluid":{"fluid":"coalcreosote","amount":100}}

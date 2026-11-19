@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "atomiclegacy:fluid_duct_paintable"
+        },
+        {
+            "tag": "c:ingots/steel"
+        },
+        {
+            "item": "atomiclegacy:circuit_basic"
+        }
+    ],
+    "result": {
+        "id": "atomiclegacy:fluid_duct_gauge"
+    }
+}

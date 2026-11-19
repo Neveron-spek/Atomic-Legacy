@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "P P",
+    "IDI",
+    "P P"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:ingots/any_rubber"
+    },
+    "I": {
+      "tag": "c:plates/iron"
+    },
+    "D": {
+      "item": "atomiclegacy:ducttape"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:pads_rubber"
+  }
+}

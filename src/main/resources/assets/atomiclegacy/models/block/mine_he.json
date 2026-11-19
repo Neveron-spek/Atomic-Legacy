@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/mine_he"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

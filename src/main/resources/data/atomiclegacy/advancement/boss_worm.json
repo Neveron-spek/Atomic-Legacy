@@ -1,0 +1,28 @@
+{
+  "parent": "atomiclegacy:boss_maskman",
+  "display": {
+    "icon": {
+      "id": "atomiclegacy:coin_worm"
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.boss_worm.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.boss_worm.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "triggered"
+    ]
+  ]
+}

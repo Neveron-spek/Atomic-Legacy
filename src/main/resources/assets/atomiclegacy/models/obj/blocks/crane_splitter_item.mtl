@@ -1,0 +1,110 @@
+newmtl TopL
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_top_left
+
+newmtl BottomL
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_top_right
+
+newmtl LeftL
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_left
+
+newmtl RightL
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_right
+
+newmtl BackL
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_back_left
+
+newmtl FrontL
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_front_left
+
+newmtl InnerL
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_inner
+
+newmtl InnerLeftL
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_inner_side
+
+newmtl InnerRightL
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_inner_side
+
+newmtl InnerTopL
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_inner_side
+
+newmtl InnerBottomL
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_belt
+
+newmtl TopR
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_top_right
+
+newmtl BottomR
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_top_left
+
+newmtl LeftR
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_left
+
+newmtl RightR
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_right
+
+newmtl BackR
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_back_right
+
+newmtl FrontR
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_front_right
+
+newmtl InnerR
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_inner
+
+newmtl InnerLeftR
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_inner_side
+
+newmtl InnerRightR
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_inner_side
+
+newmtl InnerTopR
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_inner_side
+
+newmtl InnerBottomR
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_belt
+

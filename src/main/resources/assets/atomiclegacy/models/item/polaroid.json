@@ -1,0 +1,116 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:item/polaroid"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "atomiclegacy:polaroid_id": 0.03125
+      },
+      "model": "atomiclegacy:item/polaroid_1"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:polaroid_id": 0.0625
+      },
+      "model": "atomiclegacy:item/polaroid_2"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:polaroid_id": 0.09375
+      },
+      "model": "atomiclegacy:item/polaroid_3"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:polaroid_id": 0.125
+      },
+      "model": "atomiclegacy:item/polaroid_4"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:polaroid_id": 0.15625
+      },
+      "model": "atomiclegacy:item/polaroid_5"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:polaroid_id": 0.1875
+      },
+      "model": "atomiclegacy:item/polaroid_6"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:polaroid_id": 0.21875
+      },
+      "model": "atomiclegacy:item/polaroid_7"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:polaroid_id": 0.25
+      },
+      "model": "atomiclegacy:item/polaroid_8"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:polaroid_id": 0.28125
+      },
+      "model": "atomiclegacy:item/polaroid_9"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:polaroid_id": 0.3125
+      },
+      "model": "atomiclegacy:item/polaroid_10"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:polaroid_id": 0.34375
+      },
+      "model": "atomiclegacy:item/polaroid_11"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:polaroid_id": 0.375
+      },
+      "model": "atomiclegacy:item/polaroid_12"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:polaroid_id": 0.40625
+      },
+      "model": "atomiclegacy:item/polaroid_13"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:polaroid_id": 0.4375
+      },
+      "model": "atomiclegacy:item/polaroid_14"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:polaroid_id": 0.46875
+      },
+      "model": "atomiclegacy:item/polaroid_15"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:polaroid_id": 0.5
+      },
+      "model": "atomiclegacy:item/polaroid_16"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:polaroid_id": 0.53125
+      },
+      "model": "atomiclegacy:item/polaroid_17"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:polaroid_id": 0.5625
+      },
+      "model": "atomiclegacy:item/polaroid_18"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WWW",
+    "  W"
+  ],
+  "key": {
+    "W": {
+      "tag": "c:ingots/pc"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:part_stock_pc",
+    "count": 1
+  }
+}

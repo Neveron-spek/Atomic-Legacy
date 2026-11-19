@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "minecraft:copper_ore"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_copper",
+    "count": 2
+  }
+}

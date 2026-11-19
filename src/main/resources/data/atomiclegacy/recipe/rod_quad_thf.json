@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:rod_quad_empty"
+    },
+    {
+      "item": "atomiclegacy:billet_thorium_fuel"
+    },
+    {
+      "item": "atomiclegacy:billet_thorium_fuel"
+    },
+    {
+      "item": "atomiclegacy:billet_thorium_fuel"
+    },
+    {
+      "item": "atomiclegacy:billet_thorium_fuel"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:rod_quad",
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "thf"
+      },
+      "minecraft:custom_model_data": 5
+    }
+  }
+}

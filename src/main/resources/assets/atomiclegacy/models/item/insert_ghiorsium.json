@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/insert_ghiorsium"
+                 },
+    "parent":  "minecraft:item/generated"
+}

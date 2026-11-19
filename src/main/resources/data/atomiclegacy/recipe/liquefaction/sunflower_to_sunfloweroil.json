@@ -1,0 +1,11 @@
+{
+  "type": "atomiclegacy:liquefaction",
+  "group": "liquefactor.sunfloweroil",
+  "ingredient": {
+    "item": "minecraft:sunflower"
+  },
+  "output": {
+    "fluid": "sunfloweroil",
+    "amount": 100
+  }
+}

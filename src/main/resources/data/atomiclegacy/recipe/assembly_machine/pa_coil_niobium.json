@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:assembly_machine","group":"ass.panbti","duration":400,"power":100,"ingredients":[{"ingredient":{"item":"atomiclegacy:wire_dense_niobium"},"count":64},{"ingredient":{"item":"atomiclegacy:wire_dense_titanium"},"count":64}],"result":{"id":"atomiclegacy:pa_coil_niobium"}}

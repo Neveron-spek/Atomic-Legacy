@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "particle": "atomiclegacy:block/pile_block",
+    "side": "atomiclegacy:block/pile_block",
+    "top": "atomiclegacy:block/pile_block_top",
+    "bottom": "atomiclegacy:block/pile_block_top"
+  }
+}

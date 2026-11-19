@@ -1,0 +1,39 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.ct_mortar",
+  "order": 89,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/high_explosive"
+      },
+      "count": 4
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:pipes/steel"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 4,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "ct_mortar"
+      },
+      "minecraft:custom_model_data": 93
+    }
+  }
+}

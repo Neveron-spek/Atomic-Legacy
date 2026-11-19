@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/fuel_tank_medium"
+                 },
+    "parent":  "minecraft:item/generated"
+}

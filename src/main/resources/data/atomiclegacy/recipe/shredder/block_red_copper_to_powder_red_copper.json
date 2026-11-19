@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:block_red_copper"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_red_copper",
+    "count": 9
+  }
+}

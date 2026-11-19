@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/air",
+    "textures": {
+        "particle": "atomiclegacy:block/legacy_placeholder"
+    }
+}

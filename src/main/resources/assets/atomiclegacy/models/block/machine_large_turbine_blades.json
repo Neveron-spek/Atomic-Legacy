@@ -1,0 +1,7 @@
+{
+  "parent": "atomiclegacy:block/machine_large_turbine",
+  "visibility": {
+    "Body": false,
+    "Glass_Glaass": false
+  }
+}

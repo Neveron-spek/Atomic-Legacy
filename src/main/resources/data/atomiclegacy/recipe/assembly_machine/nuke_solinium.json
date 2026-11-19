@@ -1,0 +1,38 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.solinium",
+  "duration": 300,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:shell_steel"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:fins_quad_titanium"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:dyes/gray"
+      },
+      "count": 8
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:nuke_solinium"
+  },
+  "blueprint_pools": [
+    "528.controller"
+  ]
+}

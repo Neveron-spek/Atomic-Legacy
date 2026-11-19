@@ -1,0 +1,5 @@
+newmtl Chute
+map_Kd atomiclegacy:models/soyuz_capsule/soyuz_chute
+
+newmtl Capsule
+map_Kd atomiclegacy:models/soyuz_capsule/soyuz_lander

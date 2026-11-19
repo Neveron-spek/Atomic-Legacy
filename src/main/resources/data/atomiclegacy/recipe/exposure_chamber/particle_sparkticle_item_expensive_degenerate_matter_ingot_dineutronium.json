@@ -1,0 +1,18 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:exposure_chamber",
+  "group": "exposure_chamber",
+  "particle": {
+    "item": "atomiclegacy:particle_sparkticle"
+  },
+  "ingredient": {
+    "item": "atomiclegacy:item_expensive_degenerate_matter"
+  },
+  "output": {
+    "id": "atomiclegacy:ingot_dineutronium"
+  }
+}

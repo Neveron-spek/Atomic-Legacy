@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "minecraft:sandstone_stairs"
+  },
+  "result": {
+    "id": "minecraft:sand",
+    "count": 6
+  }
+}

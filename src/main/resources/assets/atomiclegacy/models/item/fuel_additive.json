@@ -1,0 +1,11 @@
+{
+  "parent": "atomiclegacy:item/fuel_additive_antiknock",
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 1
+      },
+      "model": "atomiclegacy:item/fuel_additive_deicer"
+    }
+  ]
+}

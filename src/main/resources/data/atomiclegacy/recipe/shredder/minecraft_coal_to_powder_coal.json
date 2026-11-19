@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "minecraft:coal"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_coal"
+  }
+}

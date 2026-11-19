@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ore_deepslate_fluorite"
+  },
+  "result": {
+    "id": "atomiclegacy:fluorite",
+    "count": 2
+  }
+}

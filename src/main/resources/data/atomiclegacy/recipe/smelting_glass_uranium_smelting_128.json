@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:sand_mix"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "uranium"
+      }
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:glass_uranium",
+    "count": 1
+  },
+  "experience": 0.25,
+  "cookingtime": 200
+}

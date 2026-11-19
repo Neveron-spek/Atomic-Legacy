@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "C",
+    "P",
+    "G"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:gravel"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "G": {
+      "item": "minecraft:gunpowder"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 6,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "stone_shot"
+      },
+      "minecraft:custom_model_data": 35
+    }
+  }
+}

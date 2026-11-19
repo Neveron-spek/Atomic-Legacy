@@ -1,0 +1,12 @@
+{
+  "type": "atomiclegacy:press",
+  "group": "press.wire",
+  "stamp": "wire",
+  "ingredient": {
+    "tag": "c:ingots/aluminium"
+  },
+  "result": {
+    "id": "atomiclegacy:wire_aluminium",
+    "count": 8
+  }
+}

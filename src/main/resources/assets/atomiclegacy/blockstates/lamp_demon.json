@@ -1,0 +1,10 @@
+﻿{
+  "variants": {
+    "facing=up": { "model": "atomiclegacy:block/particle/lamp_demon" },
+    "facing=down": { "model": "atomiclegacy:block/particle/lamp_demon" },
+    "facing=north": { "model": "atomiclegacy:block/particle/lamp_demon" },
+    "facing=south": { "model": "atomiclegacy:block/particle/lamp_demon" },
+    "facing=west": { "model": "atomiclegacy:block/particle/lamp_demon" },
+    "facing=east": { "model": "atomiclegacy:block/particle/lamp_demon" }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BIB",
+    "P P",
+    "B B"
+  ],
+  "key": {
+    "B": {
+      "item": "atomiclegacy:bolt_tungsten"
+    },
+    "I": {
+      "tag": "c:ingots/tungsten"
+    },
+    "P": {
+      "tag": "c:ingots/any_rubber"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:reacher"
+  }
+}

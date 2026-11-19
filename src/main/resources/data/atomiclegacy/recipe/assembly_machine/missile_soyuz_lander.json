@@ -1,0 +1,57 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.lander",
+  "duration": 2400,
+  "power": 25000,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:shell_aluminium"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/rubber"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:rocket_fuel"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:thruster_small"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller_advanced"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:part_generic_lde"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:drive_flash_flightsim"
+      },
+      "count": 8
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:missile_soyuz_lander",
+    "count": 1
+  },
+  "blueprint_pools": [
+    "528.soyuz"
+  ]
+}

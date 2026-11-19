@@ -1,0 +1,18 @@
+{
+  "neoforge:conditions": [
+    { "type": "atomiclegacy:enable_expensive_mode" }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.chemplant",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    { "ingredient": { "item": "atomiclegacy:item_expensive_steel_plating" }, "count": 3 },
+    { "ingredient": { "tag": "c:pipes/copper" }, "count": 2 },
+    { "ingredient": { "item": "atomiclegacy:plate_polymer" }, "count": 16 },
+    { "ingredient": { "item": "atomiclegacy:motor" }, "count": 2 },
+    { "ingredient": { "item": "atomiclegacy:coil_tungsten" }, "count": 2 },
+    { "ingredient": { "item": "atomiclegacy:circuit_analog" }, "count": 3 }
+  ],
+  "result": { "id": "atomiclegacy:machine_chemical_plant" }
+}

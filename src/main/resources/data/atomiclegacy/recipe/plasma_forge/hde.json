@@ -1,0 +1,36 @@
+{
+  "type": "atomiclegacy:plasma_forge",
+  "group": "plsm.hde",
+  "duration": 600,
+  "power": 25000000,
+  "ignition_temp": 10000000,
+  "input_items": [
+    {
+      "ingredient": {
+        "tag": "c:plates/bismoid_bronze_cast"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_welded_combine_steel"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/cft"
+      },
+      "count": 1
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "stellar_flux",
+      "amount": 4000
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:part_generic_hde"
+  }
+}

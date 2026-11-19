@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CRM",
+    "GG "
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:crystal_redstone"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_light/saturnite"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/saturnite"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/any_hardplastic"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_laser_pistol",
+    "count": 1
+  }
+}

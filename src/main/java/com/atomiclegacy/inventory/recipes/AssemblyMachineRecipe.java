@@ -1,0 +1,488 @@
+package com.atomiclegacy.inventory.recipes;
+
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.atomiclegacy.fluid.HbmFluidDefinition;
+import com.atomiclegacy.fluid.HbmFluidStack;
+import com.atomiclegacy.config.HbmConfig;
+import com.atomiclegacy.items.BlueprintItem;
+import com.atomiclegacy.registry.HbmFluids;
+import com.atomiclegacy.registry.HbmRecipeTypes;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeInput;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.Level;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
+public record AssemblyMachineRecipe(
+        String group,
+        List<String> blueprintPools,
+        int duration,
+        int power,
+        List<CountedIngredient> ingredients,
+        List<AssemblyFluidStack> inputFluids,
+        List<AssemblyFluidStack> outputFluids,
+        ItemStack result,
+        List<ChanceOutput> outputs
+) implements Recipe<AssemblyMachineRecipe.Input> {
+    public AssemblyMachineRecipe {
+        blueprintPools = List.copyOf(blueprintPools);
+        ingredients = List.copyOf(ingredients);
+        inputFluids = List.copyOf(inputFluids);
+        outputFluids = List.copyOf(outputFluids);
+        outputs = List.copyOf(outputs);
+        if (result.isEmpty()) {
+            throw new IllegalArgumentException("Assembly recipe requires a display result");
+        }
+        if (outputs.stream().anyMatch(output -> output.stack().isEmpty())) {
+            throw new IllegalArgumentException("Assembly recipe weighted outputs may not be empty");
+        }
+    }
+
+    public AssemblyMachineRecipe(
+            String group,
+            List<String> blueprintPools,
+            int duration,
+            int power,
+            List<CountedIngredient> ingredients,
+            List<AssemblyFluidStack> inputFluids,
+            List<AssemblyFluidStack> outputFluids,
+            ItemStack result
+    ) {
+        this(group, blueprintPools, duration, power, ingredients, inputFluids, outputFluids, result, List.of());
+    }
+
+    @Override
+    public boolean matches(Input input, Level level) {
+        return canCraft(input.stacks(), input.fluids(), this.ingredients, this.inputFluids);
+    }
+
+    @Override
+    public ItemStack assemble(Input input, HolderLookup.Provider registries) {
+        return this.result.copy();
+    }
+
+    @Override
+    public boolean canCraftInDimensions(int width, int height) {
+        return true;
+    }
+
+    @Override
+    public ItemStack getResultItem(HolderLookup.Provider registries) {
+        return this.result;
+    }
+
+    public List<ItemStack> possibleResults() {
+        if (this.outputs.isEmpty()) {
+            return List.of(this.result.copy());
+        }
+        return this.outputs.stream().map(output -> output.stack().copy()).toList();
+    }
+
+    /** Legacy ChanceOutputMulti: exactly one weighted result is selected after a completed cycle. */
+    public ItemStack rollResult(RandomSource random) {
+        if (this.outputs.isEmpty()) {
+            return this.result.copy();
+        }
+        int totalWeight = 0;
+        for (ChanceOutput output : this.outputs) {
+            totalWeight = Math.addExact(totalWeight, output.weight());
+        }
+        int roll = random.nextInt(totalWeight);
+        for (ChanceOutput output : this.outputs) {
+            roll -= output.weight();
+            if (roll < 0) {
+                return output.stack().copy();
+            }
+        }
+        throw new IllegalStateException("Assembly output pool contained no selectable entry");
+    }
+
+    /**
+     * A stochastic recipe may finish with any entry in its pool. It may only run into a non-empty
+     * output slot when every possible result is compatible with that slot; this prevents consuming
+     * inputs and then rolling an item which cannot be inserted.
+     */
+    public boolean canFitItemOutput(ItemStack held) {
+        if (held.isEmpty()) {
+            return true;
+        }
+        for (ItemStack possible : possibleResults()) {
+            if (!ItemStack.isSameItemSameComponents(held, possible)
+                    || held.getCount() + possible.getCount() > held.getMaxStackSize()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        NonNullList<Ingredient> list = NonNullList.create();
+        for (CountedIngredient ingredient : this.ingredients) {
+            list.add(ingredient.ingredient());
+        }
+        return list;
+    }
+
+    @Override
+    public String getGroup() {
+        return this.group;
+    }
+
+    @Override
+    public RecipeSerializer<?> getSerializer() {
+        return HbmRecipeTypes.ASSEMBLY_MACHINE_SERIALIZER.get();
+    }
+
+    @Override
+    public RecipeType<?> getType() {
+        return HbmRecipeTypes.ASSEMBLY_MACHINE.get();
+    }
+
+    public static boolean canCraft(
+            List<ItemStack> stacks,
+            List<HbmFluidStack> fluids,
+            List<CountedIngredient> ingredients,
+            List<AssemblyFluidStack> inputFluids
+    ) {
+        if (ingredients.size() > stacks.size() || inputFluids.size() > fluids.size()) {
+            return false;
+        }
+
+        for (int slot = 0; slot < ingredients.size(); slot++) {
+            CountedIngredient ingredient = ingredients.get(slot);
+            ItemStack stack = stacks.get(slot);
+            if (stack.isEmpty() || stack.getCount() < ingredient.count() || !ingredient.ingredient().test(stack)) {
+                return false;
+            }
+        }
+
+        for (int index = 0; index < inputFluids.size(); index++) {
+            AssemblyFluidStack required = inputFluids.get(index);
+            HbmFluidStack held = fluids.get(index);
+            if (held.isEmpty()
+                    || held.type() != required.type()
+                    || held.pressure() != required.pressure()
+                    || held.amount() < required.amount()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isVisibleForPool(Optional<String> installedPool) {
+        return BlueprintItem.isRecipeVisibleForPool(this.blueprintPools, installedPool);
+    }
+
+    /**
+     * Resource conditions are evaluated during recipe loading, but older packs may still contain
+     * both sides of an expensive-mode pair after a reload. Keep the machine UI and its server-side selection
+     * on the same configured variant without collapsing normal material alternatives.
+     *
+     * If the datapack condition pass has already removed one side of a pair, the remaining recipe
+     * is the active one. Do not apply the config filter a second time to singleton groups, otherwise
+     * client/server config timing or reload order can hide legitimate assembly recipes entirely.
+     */
+    public static List<RecipeHolder<AssemblyMachineRecipe>> activeVariants(Collection<RecipeHolder<AssemblyMachineRecipe>> recipes) {
+        Set<String> normalGroups = new HashSet<>();
+        Set<String> expensiveGroups = new HashSet<>();
+        for (RecipeHolder<AssemblyMachineRecipe> holder : recipes) {
+            String group = holder.value().group();
+            if (group.isBlank()) {
+                continue;
+            }
+            if (isExpensiveVariant(holder)) {
+                expensiveGroups.add(group);
+            } else {
+                normalGroups.add(group);
+            }
+        }
+
+        boolean enableExpensiveMode = isExpensiveModeEnabledSafely();
+        return recipes.stream()
+                .filter(holder -> {
+                    boolean expensive = isExpensiveVariant(holder);
+                    String group = holder.value().group();
+                    if (group.isBlank()) {
+                        return true;
+                    }
+                    boolean hasNormal = normalGroups.contains(group);
+                    boolean hasExpensive = expensiveGroups.contains(group);
+                    if (!hasNormal || !hasExpensive) {
+                        return true;
+                    }
+                    return enableExpensiveMode == expensive;
+                })
+                .sorted(com.atomiclegacy.inventory.recipes.LegacyRecipeNames.comparator(com.atomiclegacy.inventory.recipes.LegacyRecipeNames.ASSEMBLY, AssemblyMachineRecipe::group))
+                .toList();
+    }
+
+    /**
+     * The legacy assembly machine presents material alternatives as a single
+     * selectable entry. Keep all concrete recipe holders for matching and
+     * crafting, but collapse equivalent choices for machine/GUI recipe lists so
+     * CD alloy vs TC alloy (or bronze alternates) do not show as duplicated
+     * output icons.
+     */
+    public static List<RecipeHolder<AssemblyMachineRecipe>> displayVariants(Collection<RecipeHolder<AssemblyMachineRecipe>> recipes) {
+        return collapseDisplayChoices(activeVariants(recipes));
+    }
+
+    public static List<RecipeHolder<AssemblyMachineRecipe>> collapseDisplayChoices(Collection<RecipeHolder<AssemblyMachineRecipe>> activeRecipes) {
+        List<RecipeHolder<AssemblyMachineRecipe>> choices = new ArrayList<>();
+        for (RecipeHolder<AssemblyMachineRecipe> holder : activeRecipes) {
+            if (choices.stream().noneMatch(choice -> sameDisplayChoice(choice, holder))) {
+                choices.add(holder);
+            }
+        }
+        return choices;
+    }
+
+    public static boolean sameDisplayChoice(RecipeHolder<AssemblyMachineRecipe> left, RecipeHolder<AssemblyMachineRecipe> right) {
+        AssemblyMachineRecipe leftRecipe = left.value();
+        AssemblyMachineRecipe rightRecipe = right.value();
+        if (leftRecipe.group().isBlank() || rightRecipe.group().isBlank()) {
+            return left.id().equals(right.id());
+        }
+        return leftRecipe.group().equals(rightRecipe.group())
+                && leftRecipe.duration() == rightRecipe.duration()
+                && leftRecipe.power() == rightRecipe.power()
+                && leftRecipe.blueprintPools().equals(rightRecipe.blueprintPools())
+                && leftRecipe.inputFluids().equals(rightRecipe.inputFluids())
+                && leftRecipe.outputFluids().equals(rightRecipe.outputFluids())
+                && sameResult(leftRecipe.result(), rightRecipe.result())
+                && sameOutputs(leftRecipe.outputs(), rightRecipe.outputs());
+    }
+
+    private static boolean sameResult(ItemStack left, ItemStack right) {
+        return left.getCount() == right.getCount() && ItemStack.isSameItemSameComponents(left, right);
+    }
+
+    private static boolean sameOutputs(List<ChanceOutput> left, List<ChanceOutput> right) {
+        if (left.size() != right.size()) {
+            return false;
+        }
+        for (int index = 0; index < left.size(); index++) {
+            ChanceOutput leftOutput = left.get(index);
+            ChanceOutput rightOutput = right.get(index);
+            if (leftOutput.weight() != rightOutput.weight()
+                    || !sameResult(leftOutput.stack(), rightOutput.stack())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean isExpensiveVariant(RecipeHolder<AssemblyMachineRecipe> holder) {
+        return holder.id().getPath().endsWith("_expensive");
+    }
+
+    private static boolean isExpensiveModeEnabledSafely() {
+        try {
+            return HbmConfig.ENABLE_EXPENSIVE_MODE.get();
+        } catch (IllegalStateException ignored) {
+            return false;
+        }
+    }
+
+    public record CountedIngredient(Ingredient ingredient, int count) {
+        private static final Codec<CountedIngredient> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                Ingredient.CODEC_NONEMPTY.fieldOf("ingredient").forGetter(CountedIngredient::ingredient),
+                Codec.intRange(1, 64).fieldOf("count").forGetter(CountedIngredient::count)
+        ).apply(instance, CountedIngredient::new));
+
+        private static final StreamCodec<RegistryFriendlyByteBuf, CountedIngredient> STREAM_CODEC = new StreamCodec<>() {
+            @Override
+            public CountedIngredient decode(RegistryFriendlyByteBuf buffer) {
+                Ingredient ingredient = Ingredient.CONTENTS_STREAM_CODEC.decode(buffer);
+                int count = buffer.readVarInt();
+                return new CountedIngredient(ingredient, count);
+            }
+
+            @Override
+            public void encode(RegistryFriendlyByteBuf buffer, CountedIngredient countedIngredient) {
+                Ingredient.CONTENTS_STREAM_CODEC.encode(buffer, countedIngredient.ingredient());
+                buffer.writeVarInt(countedIngredient.count());
+            }
+        };
+    }
+
+    public record AssemblyFluidStack(HbmFluidDefinition type, int amount, int pressure) {
+        private static final Codec<AssemblyFluidStack> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                Codec.STRING.fieldOf("fluid").forGetter(stack -> stack.type().name()),
+                Codec.intRange(1, 1_000_000).fieldOf("amount").forGetter(AssemblyFluidStack::amount),
+                Codec.intRange(0, 1_000_000).optionalFieldOf("pressure", 0).forGetter(AssemblyFluidStack::pressure)
+        ).apply(instance, AssemblyFluidStack::fromName));
+
+        private static final StreamCodec<RegistryFriendlyByteBuf, AssemblyFluidStack> STREAM_CODEC = new StreamCodec<>() {
+            @Override
+            public AssemblyFluidStack decode(RegistryFriendlyByteBuf buffer) {
+                HbmFluidDefinition fluid = HbmFluids.byName(buffer.readUtf()).orElse(HbmFluids.none());
+                int amount = buffer.readVarInt();
+                int pressure = buffer.readVarInt();
+                return new AssemblyFluidStack(fluid, amount, pressure);
+            }
+
+            @Override
+            public void encode(RegistryFriendlyByteBuf buffer, AssemblyFluidStack stack) {
+                buffer.writeUtf(stack.type().name());
+                buffer.writeVarInt(stack.amount());
+                buffer.writeVarInt(stack.pressure());
+            }
+        };
+
+        private static AssemblyFluidStack fromName(String name, int amount, int pressure) {
+            HbmFluidDefinition fluid = HbmFluids.byName(name).orElse(HbmFluids.none());
+            return new AssemblyFluidStack(fluid, amount, pressure);
+        }
+
+        public boolean isEmpty() {
+            return this.type.isNone() || this.amount <= 0;
+        }
+    }
+
+    public record ChanceOutput(ItemStack stack, int weight) {
+        private static final Codec<ChanceOutput> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                ItemStack.STRICT_CODEC.fieldOf("result").forGetter(ChanceOutput::stack),
+                Codec.intRange(1, 100_000).fieldOf("weight").forGetter(ChanceOutput::weight)
+        ).apply(instance, ChanceOutput::new));
+
+        private static final StreamCodec<RegistryFriendlyByteBuf, ChanceOutput> STREAM_CODEC = new StreamCodec<>() {
+            @Override
+            public ChanceOutput decode(RegistryFriendlyByteBuf buffer) {
+                return new ChanceOutput(ItemStack.STREAM_CODEC.decode(buffer), buffer.readVarInt());
+            }
+
+            @Override
+            public void encode(RegistryFriendlyByteBuf buffer, ChanceOutput output) {
+                ItemStack.STREAM_CODEC.encode(buffer, output.stack());
+                buffer.writeVarInt(output.weight());
+            }
+        };
+    }
+
+    public record Input(List<ItemStack> stacks, List<HbmFluidStack> fluids) implements RecipeInput {
+        public Input(List<ItemStack> stacks) {
+            this(stacks, List.of());
+        }
+
+        @Override
+        public ItemStack getItem(int index) {
+            return index >= 0 && index < this.stacks.size() ? this.stacks.get(index) : ItemStack.EMPTY;
+        }
+
+        @Override
+        public int size() {
+            return this.stacks.size();
+        }
+    }
+
+    public static class Serializer implements RecipeSerializer<AssemblyMachineRecipe> {
+        private static final MapCodec<AssemblyMachineRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+                Codec.STRING.optionalFieldOf("group", "").forGetter(AssemblyMachineRecipe::group),
+                Codec.STRING.listOf().optionalFieldOf("blueprint_pools", List.of()).forGetter(AssemblyMachineRecipe::blueprintPools),
+                Codec.intRange(1, 1_000_000).fieldOf("duration").forGetter(AssemblyMachineRecipe::duration),
+                Codec.intRange(1, 1_000_000).fieldOf("power").forGetter(AssemblyMachineRecipe::power),
+                CountedIngredient.CODEC.listOf().fieldOf("ingredients").forGetter(AssemblyMachineRecipe::ingredients),
+                AssemblyFluidStack.CODEC.listOf().optionalFieldOf("input_fluids", List.of()).forGetter(AssemblyMachineRecipe::inputFluids),
+                AssemblyFluidStack.CODEC.listOf().optionalFieldOf("output_fluids", List.of()).forGetter(AssemblyMachineRecipe::outputFluids),
+                ItemStack.STRICT_CODEC.fieldOf("result").forGetter(AssemblyMachineRecipe::result),
+                ChanceOutput.CODEC.listOf().optionalFieldOf("outputs", List.of()).forGetter(AssemblyMachineRecipe::outputs)
+        ).apply(instance, AssemblyMachineRecipe::new));
+
+        private static final StreamCodec<RegistryFriendlyByteBuf, AssemblyMachineRecipe> STREAM_CODEC = new StreamCodec<>() {
+            @Override
+            public AssemblyMachineRecipe decode(RegistryFriendlyByteBuf buffer) {
+                String group = buffer.readUtf();
+                List<String> blueprintPools = readStringList(buffer);
+                int duration = buffer.readVarInt();
+                int power = buffer.readVarInt();
+                int ingredientCount = buffer.readVarInt();
+                List<CountedIngredient> ingredients = new ArrayList<>(ingredientCount);
+                for (int i = 0; i < ingredientCount; i++) {
+                    ingredients.add(CountedIngredient.STREAM_CODEC.decode(buffer));
+                }
+                List<AssemblyFluidStack> inputFluids = readList(buffer, AssemblyFluidStack.STREAM_CODEC);
+                List<AssemblyFluidStack> outputFluids = readList(buffer, AssemblyFluidStack.STREAM_CODEC);
+                ItemStack result = ItemStack.STREAM_CODEC.decode(buffer);
+                List<ChanceOutput> outputs = readList(buffer, ChanceOutput.STREAM_CODEC);
+                return new AssemblyMachineRecipe(group, blueprintPools, duration, power, List.copyOf(ingredients), inputFluids, outputFluids, result, outputs);
+            }
+
+            @Override
+            public void encode(RegistryFriendlyByteBuf buffer, AssemblyMachineRecipe recipe) {
+                buffer.writeUtf(recipe.group());
+                writeStringList(buffer, recipe.blueprintPools());
+                buffer.writeVarInt(recipe.duration());
+                buffer.writeVarInt(recipe.power());
+                buffer.writeVarInt(recipe.ingredients().size());
+                for (CountedIngredient ingredient : recipe.ingredients()) {
+                    CountedIngredient.STREAM_CODEC.encode(buffer, ingredient);
+                }
+                writeList(buffer, recipe.inputFluids(), AssemblyFluidStack.STREAM_CODEC);
+                writeList(buffer, recipe.outputFluids(), AssemblyFluidStack.STREAM_CODEC);
+                ItemStack.STREAM_CODEC.encode(buffer, recipe.result());
+                writeList(buffer, recipe.outputs(), ChanceOutput.STREAM_CODEC);
+            }
+
+            private <T> List<T> readList(RegistryFriendlyByteBuf buffer, StreamCodec<RegistryFriendlyByteBuf, T> codec) {
+                int size = buffer.readVarInt();
+                List<T> values = new ArrayList<>(size);
+                for (int index = 0; index < size; index++) {
+                    values.add(codec.decode(buffer));
+                }
+                return List.copyOf(values);
+            }
+
+            private <T> void writeList(RegistryFriendlyByteBuf buffer, List<T> values, StreamCodec<RegistryFriendlyByteBuf, T> codec) {
+                buffer.writeVarInt(values.size());
+                for (T value : values) {
+                    codec.encode(buffer, value);
+                }
+            }
+
+            private List<String> readStringList(RegistryFriendlyByteBuf buffer) {
+                int size = buffer.readVarInt();
+                List<String> values = new ArrayList<>(size);
+                for (int index = 0; index < size; index++) {
+                    values.add(buffer.readUtf());
+                }
+                return List.copyOf(values);
+            }
+
+            private void writeStringList(RegistryFriendlyByteBuf buffer, List<String> values) {
+                buffer.writeVarInt(values.size());
+                for (String value : values) {
+                    buffer.writeUtf(value);
+                }
+            }
+        };
+
+        @Override
+        public MapCodec<AssemblyMachineRecipe> codec() {
+            return CODEC;
+        }
+
+        @Override
+        public StreamCodec<RegistryFriendlyByteBuf, AssemblyMachineRecipe> streamCodec() {
+            return STREAM_CODEC;
+        }
+    }
+}

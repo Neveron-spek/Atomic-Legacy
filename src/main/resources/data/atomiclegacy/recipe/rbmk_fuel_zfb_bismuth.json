@@ -1,0 +1,36 @@
+﻿{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:rbmk_fuel_empty"
+    },
+    {
+      "item": "atomiclegacy:billet_zfb_bismuth"
+    },
+    {
+      "item": "atomiclegacy:billet_zfb_bismuth"
+    },
+    {
+      "item": "atomiclegacy:billet_zfb_bismuth"
+    },
+    {
+      "item": "atomiclegacy:billet_zfb_bismuth"
+    },
+    {
+      "item": "atomiclegacy:billet_zfb_bismuth"
+    },
+    {
+      "item": "atomiclegacy:billet_zfb_bismuth"
+    },
+    {
+      "item": "atomiclegacy:billet_zfb_bismuth"
+    },
+    {
+      "item": "atomiclegacy:billet_zfb_bismuth"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:rbmk_fuel_zfb_bismuth"
+  }
+}

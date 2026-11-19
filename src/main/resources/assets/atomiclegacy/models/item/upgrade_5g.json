@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/upgrade_5g"
+                 },
+    "parent":  "minecraft:item/generated"
+}

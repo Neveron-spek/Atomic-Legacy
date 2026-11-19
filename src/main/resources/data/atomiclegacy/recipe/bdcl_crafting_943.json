@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:tars"
+    },
+    {
+      "type": "atomiclegacy:legacy_fluid_container",
+      "fluid": "water",
+      "amount": 1000
+    },
+    {
+      "tag": "c:dyes/white"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:bdcl",
+    "count": 1
+  }
+}

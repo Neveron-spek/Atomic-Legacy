@@ -1,0 +1,11 @@
+﻿{
+    "type":  "atomiclegacy:shredder",
+    "ingredient":  {
+                       "item":  "minecraft:raw_gold_block"
+                   },
+    "input_count":  2,
+    "result":  {
+                   "id":  "atomiclegacy:powder_gold",
+                   "count":  27
+               }
+}

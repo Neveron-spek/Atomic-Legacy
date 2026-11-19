@@ -1,0 +1,44 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.bmg50_jhp",
+  "order": 37,
+  "input": [
+    {
+      "ingredient": {
+        "tag": "c:ingots/plastic"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/copper"
+      },
+      "count": 2
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      },
+      "count": 3
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_large"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 12,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "bmg50_jhp"
+      },
+      "minecraft:custom_model_data": 2
+    }
+  }
+}

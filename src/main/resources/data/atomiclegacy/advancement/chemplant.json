@@ -1,0 +1,28 @@
+{
+  "parent": "atomiclegacy:assembly",
+  "display": {
+    "icon": {
+      "id": "atomiclegacy:machine_chemical_plant"
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.chemplant.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.chemplant.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "triggered"
+    ]
+  ]
+}

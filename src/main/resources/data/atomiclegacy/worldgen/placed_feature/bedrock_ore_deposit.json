@@ -1,0 +1,8 @@
+{
+  "feature": "atomiclegacy:bedrock_ore_deposit",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

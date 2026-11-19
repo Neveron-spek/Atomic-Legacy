@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/mold_ingots"
+                 },
+    "parent":  "minecraft:item/generated"
+}

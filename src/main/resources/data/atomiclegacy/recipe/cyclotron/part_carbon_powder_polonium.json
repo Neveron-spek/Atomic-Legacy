@@ -1,0 +1,14 @@
+{
+    "type": "atomiclegacy:cyclotron",
+    "group": "cyclotron",
+    "particle": {
+        "item": "atomiclegacy:part_carbon"
+    },
+    "input": {
+        "item": "atomiclegacy:nugget_mercury"
+    },
+    "output": {
+        "id": "atomiclegacy:powder_polonium"
+    },
+    "antimatter": 10
+}

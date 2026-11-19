@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/sulfur"
+                 },
+    "parent":  "minecraft:item/generated"
+}

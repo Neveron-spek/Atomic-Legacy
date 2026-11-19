@@ -1,0 +1,35 @@
+{
+  "parent": "atomiclegacy:block/concrete_smooth_slab",
+  "overrides": [
+    {
+      "predicate": {
+        "minecraft:custom_model_data": 1
+      },
+      "model": "atomiclegacy:block/concrete_slab"
+    },
+    {
+      "predicate": {
+        "minecraft:custom_model_data": 2
+      },
+      "model": "atomiclegacy:block/concrete_asbestos_slab"
+    },
+    {
+      "predicate": {
+        "minecraft:custom_model_data": 3
+      },
+      "model": "atomiclegacy:block/ducrete_smooth_slab"
+    },
+    {
+      "predicate": {
+        "minecraft:custom_model_data": 4
+      },
+      "model": "atomiclegacy:block/ducrete_slab"
+    },
+    {
+      "predicate": {
+        "minecraft:custom_model_data": 5
+      },
+      "model": "atomiclegacy:block/asphalt_slab"
+    }
+  ]
+}

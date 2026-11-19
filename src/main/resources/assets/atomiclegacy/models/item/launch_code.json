@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/launch_code"
+                 },
+    "parent":  "minecraft:item/generated"
+}

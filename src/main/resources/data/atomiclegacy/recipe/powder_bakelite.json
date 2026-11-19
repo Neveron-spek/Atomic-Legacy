@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "atomiclegacy:legacy_fluid_container",
+      "fluid": "aromatics",
+      "amount": 1000
+    },
+    {
+      "type": "atomiclegacy:legacy_fluid_container",
+      "fluid": "petroleum",
+      "amount": 1000
+    },
+    {
+      "tag": "atomiclegacy:chemistry_set"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:powder_bakelite",
+    "count": 2
+  }
+}

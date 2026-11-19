@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:electrolyzer_metal","ingredient":{"item":"atomiclegacy:crystal_cobalt"},"output1":{"material":"cobalt","amount":216},"output2":{"material":"iron","amount":288},"byproducts":[{"id":"atomiclegacy:powder_copper","count":4},{"id":"atomiclegacy:powder_lithium_tiny","count":3}]}

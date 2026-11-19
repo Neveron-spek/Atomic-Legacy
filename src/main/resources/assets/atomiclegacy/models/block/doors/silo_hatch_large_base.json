@@ -1,0 +1,1 @@
+{"loader":"neoforge:obj","model":"atomiclegacy:models/obj/doors/silo_hatch_large.obj","mtl_override":"atomiclegacy:models/obj/doors/silo_hatch_large.mtl","automatic_culling":false,"shade_quads":true,"flip_v":true,"emissive_ambient":false,"textures":{"default":"atomiclegacy:block/doors/silo_hatch_large","particle":"atomiclegacy:block/doors/silo_hatch_large"}}

@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:chemical_plant","group":"chem.polarized","duration":100,"power":500,"input_items":[{"ingredient":{"item":"minecraft:glass_pane"},"count":1}],"input_fluids":[{"fluid":"petroleum","amount":1000}],"output_items":[{"id":"atomiclegacy:part_generic_glass_polarized","count":16}],"output_fluids":[]}

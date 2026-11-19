@@ -1,0 +1,10 @@
+﻿{
+  "variants": {
+    "": [
+      { "model": "atomiclegacy:block/ore_sellafield_uranium_scorched_0" },
+      { "model": "atomiclegacy:block/ore_sellafield_uranium_scorched_1" },
+      { "model": "atomiclegacy:block/ore_sellafield_uranium_scorched_2" },
+      { "model": "atomiclegacy:block/ore_sellafield_uranium_scorched_3" }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+﻿{
+    "type":  "atomiclegacy:press",
+    "group":  "press.flat",
+    "stamp":  "flat",
+    "ingredient":  {
+                       "tag":  "c:dusts/diamond"
+                   },
+    "result":  {
+                   "id":  "minecraft:diamond"
+               }
+}

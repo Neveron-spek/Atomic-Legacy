@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:stone_gneiss"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_lithium_tiny"
+  }
+}

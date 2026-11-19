@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:rbmk_outgasser",
+  "group": "outgasser.mushroom",
+  "ingredient": {
+    "item": "minecraft:mushroom_stew"
+  },
+  "item_output": {
+    "id": "atomiclegacy:glowing_stew"
+  }
+}

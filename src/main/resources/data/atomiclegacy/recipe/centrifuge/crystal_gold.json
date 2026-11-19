@@ -1,0 +1,24 @@
+{
+    "type":  "atomiclegacy:centrifuge",
+    "group":  "centrifuge",
+    "ingredient":  {
+                       "item":  "atomiclegacy:crystal_gold"
+                   },
+    "input_count":  1,
+    "results":  [
+                    {
+                        "id":  "atomiclegacy:powder_gold",
+                        "count":  2
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_gold",
+                        "count":  2
+                    },
+                    {
+                        "id":  "atomiclegacy:nugget_mercury"
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_lithium_tiny"
+                    }
+                ]
+}

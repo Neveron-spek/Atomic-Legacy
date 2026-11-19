@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "neoforge:components",
+      "items": "atomiclegacy:gun_kit_1",
+      "components": {
+        "minecraft:damage": 0
+      }
+    },
+    {
+      "type": "neoforge:components",
+      "items": "atomiclegacy:wrench",
+      "components": {
+        "minecraft:damage": 0
+      }
+    },
+    {
+      "item": "atomiclegacy:ducttape"
+    },
+    {
+      "type": "neoforge:compound",
+      "children": [
+        {
+          "type": "atomiclegacy:legacy_fluid_container",
+          "fluid": "lubricant",
+          "amount": 1000
+        },
+        {
+          "item": "atomiclegacy:bdcl"
+        }
+      ]
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:gun_kit_2",
+    "count": 1
+  }
+}

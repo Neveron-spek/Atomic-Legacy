@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/casing_9"
+                 },
+    "parent":  "minecraft:item/generated"
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "neoforge:components",
+      "items": "atomiclegacy:canned_conserve",
+      "components": {
+        "minecraft:custom_data": {
+          "conserve": "recursion"
+        }
+      }
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:canned_conserve",
+    "components": {
+      "minecraft:custom_data": {
+        "conserve": "recursion"
+      },
+      "minecraft:custom_model_data": 25
+    }
+  }
+}

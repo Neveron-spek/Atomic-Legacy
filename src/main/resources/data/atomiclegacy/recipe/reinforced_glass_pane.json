@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "GGG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "atomiclegacy:reinforced_glass"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:reinforced_glass_pane",
+    "count": 16
+  }
+}

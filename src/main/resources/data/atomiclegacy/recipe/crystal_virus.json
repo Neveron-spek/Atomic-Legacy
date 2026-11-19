@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["STS", "THT", "STS"],
+  "key": {
+    "S": { "item": "atomiclegacy:particle_strange" },
+    "T": { "tag": "c:dusts/tungsten" },
+    "H": { "item": "atomiclegacy:crystal_horn" }
+  },
+  "result": { "id": "atomiclegacy:crystal_virus" }
+}

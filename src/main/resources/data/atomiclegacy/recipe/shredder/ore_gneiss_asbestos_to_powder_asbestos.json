@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ore_gneiss_asbestos"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_asbestos",
+    "count": 2
+  }
+}

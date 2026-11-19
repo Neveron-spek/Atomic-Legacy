@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ore_niter"
+  },
+  "result": {
+    "id": "atomiclegacy:niter",
+    "count": 2
+  }
+}

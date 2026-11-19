@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/syringe_empty"
+                 },
+    "parent":  "minecraft:item/handheld"
+}

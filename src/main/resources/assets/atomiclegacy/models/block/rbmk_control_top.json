@@ -1,0 +1,10 @@
+{
+  "parent": "atomiclegacy:block/template/rbmk_top_piped",
+  "textures": {
+    "end": "atomiclegacy:block/rbmk/rbmk_control_top",
+    "side": "atomiclegacy:block/rbmk/rbmk_control_side",
+    "lid": "atomiclegacy:block/rbmk/rbmk_control",
+    "pipe_top": "atomiclegacy:block/rbmk/rbmk_control_pipe_top",
+    "pipe_side": "atomiclegacy:block/rbmk/rbmk_control_pipe_side"
+  }
+}

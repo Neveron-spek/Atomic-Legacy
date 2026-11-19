@@ -1,0 +1,36 @@
+{
+  "type": "atomiclegacy:silex",
+  "group": "silex.gravel",
+  "ingredient": {
+    "item": "minecraft:gravel"
+  },
+  "fluid_produced": 1000,
+  "fluid_consumed": 250,
+  "wavelength": "visible",
+  "outputs": [
+    {
+      "item": {
+        "id": "minecraft:flint"
+      },
+      "weight": 80
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:powder_boron"
+      },
+      "weight": 5
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:powder_lithium"
+      },
+      "weight": 10
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:fluorite"
+      },
+      "weight": 5
+    }
+  ]
+}

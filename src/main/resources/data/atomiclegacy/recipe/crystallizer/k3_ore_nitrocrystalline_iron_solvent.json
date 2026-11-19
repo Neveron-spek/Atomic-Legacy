@@ -1,0 +1,30 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:ore_nitrocrystalline"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "ore_type": "iron"
+      },
+      "minecraft:custom_model_data": 0
+    }
+  },
+  "acid": {
+    "fluid": "solvent",
+    "amount": 500
+  },
+  "duration": 200,
+  "result": {
+    "id": "atomiclegacy:ore_deepcleaned",
+    "components": {
+      "minecraft:custom_data": {
+        "ore_type": "iron"
+      },
+      "minecraft:custom_model_data": 0
+    }
+  }
+}

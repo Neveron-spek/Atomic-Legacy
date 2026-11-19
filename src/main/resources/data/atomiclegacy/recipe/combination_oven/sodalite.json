@@ -1,0 +1,14 @@
+{
+  "type": "atomiclegacy:combination_oven",
+  "group": "combination_oven.sodalite",
+  "input": {
+    "item": "atomiclegacy:gem_sodalite"
+  },
+  "output": {
+    "id": "atomiclegacy:powder_sodium"
+  },
+  "fluid": {
+    "fluid": "chlorine",
+    "amount": 100
+  }
+}

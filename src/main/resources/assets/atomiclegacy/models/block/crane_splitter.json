@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/crane_splitter_inner"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

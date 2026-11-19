@@ -1,0 +1,13 @@
+{
+  "type": "atomiclegacy:particle_accelerator",
+  "input1": {
+    "item": "atomiclegacy:particle_hydrogen"
+  },
+  "input2": {
+    "item": "atomiclegacy:particle_copper"
+  },
+  "momentum": 300,
+  "output1": {
+    "id": "atomiclegacy:particle_amat"
+  }
+}

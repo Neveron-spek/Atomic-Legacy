@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:missile_assembly"
+    },
+    {
+      "type": "atomiclegacy:legacy_fluid_container",
+      "fluid": "watz",
+      "amount": 1000
+    },
+    {
+      "tag": "c:dusts/spark_mix"
+    },
+    {
+      "tag": "c:dusts/magic"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:missile_taint",
+    "count": 1
+  }
+}

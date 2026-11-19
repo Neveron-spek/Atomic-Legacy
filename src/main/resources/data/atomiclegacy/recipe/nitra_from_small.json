@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["XX", "XX"],
+  "key": {
+    "X": { "item": "atomiclegacy:nitra_small" }
+  },
+  "result": { "id": "atomiclegacy:nitra" }
+}

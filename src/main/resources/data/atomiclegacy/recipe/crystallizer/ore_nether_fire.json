@@ -1,0 +1,16 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "item": "atomiclegacy:ore_nether_fire"
+  },
+  "acid": {
+    "fluid": "peroxide",
+    "amount": 500
+  },
+  "duration": 600,
+  "productivity": 0.05,
+  "result": {
+    "id": "atomiclegacy:crystal_phosphorus"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "atomiclegacy:stick_dynamite" },
+    { "item": "atomiclegacy:stick_dynamite" },
+    { "item": "atomiclegacy:stick_dynamite" },
+    { "item": "minecraft:paper" },
+    { "tag": "c:tars" }
+  ],
+  "result": { "id": "atomiclegacy:stick_dynamite_fishing", "count": 1 }
+}

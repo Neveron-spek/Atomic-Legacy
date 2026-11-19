@@ -1,0 +1,29 @@
+{
+  "type": "atomiclegacy:chemical_plant",
+  "group": "chem.c4",
+  "duration": 100,
+  "power": 1000,
+  "input_items": [
+    {
+      "ingredient": {
+        "tag": "c:dusts/niter"
+      },
+      "count": 1
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "unsaturateds",
+      "amount": 500,
+      "pressure": 1,
+      "pressure_528_only": true
+    }
+  ],
+  "output_items": [
+    {
+      "id": "atomiclegacy:ingot_c4",
+      "count": 4
+    }
+  ],
+  "output_fluids": []
+}

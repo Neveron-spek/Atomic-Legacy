@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GGG",
+    "GRG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "atomiclegacy:neutron_reflector"
+    },
+    "R": {
+      "item": "atomiclegacy:rbmk_blank"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:rbmk_reflector"
+  }
+}

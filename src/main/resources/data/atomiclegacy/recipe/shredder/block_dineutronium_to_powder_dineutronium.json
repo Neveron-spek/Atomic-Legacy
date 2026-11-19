@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:block_dineutronium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_dineutronium",
+    "count": 9
+  }
+}

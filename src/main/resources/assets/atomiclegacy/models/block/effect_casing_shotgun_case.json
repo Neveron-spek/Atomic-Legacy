@@ -1,0 +1,19 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/effect/casings.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": false,
+  "visibility": {
+    "ShotgunCase": true,
+    "AR2Highlight": false,
+    "Bottleneck": false,
+    "Straight": false,
+    "Shotgun": false,
+    "AR2": false
+  },
+  "textures": {
+    "particle": "atomiclegacy:models/effect/casings"
+  }
+}

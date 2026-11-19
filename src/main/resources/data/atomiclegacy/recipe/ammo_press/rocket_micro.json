@@ -1,0 +1,39 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.rocket_micro",
+  "order": 71,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:ball_dynamite"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_large"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      },
+      "count": 2
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 9,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "rocket_micro"
+      },
+      "minecraft:custom_model_data": 95
+    }
+  }
+}

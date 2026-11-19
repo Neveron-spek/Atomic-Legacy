@@ -1,0 +1,11 @@
+﻿{
+    "type":  "atomiclegacy:shredder",
+    "ingredient":  {
+                       "item":  "atomiclegacy:raw_coltan"
+                   },
+    "input_count":  2,
+    "result":  {
+                   "id":  "atomiclegacy:powder_coltan",
+                       "count":  3
+               }
+}

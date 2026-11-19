@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:fragment_lanthanium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_lanthanium_tiny"
+  }
+}

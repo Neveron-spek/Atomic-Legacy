@@ -1,0 +1,99 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:ammo_standard"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "ct_mortar"
+        }
+      }
+    },
+    {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:ammo_standard"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "ct_mortar"
+        }
+      }
+    },
+    {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:ammo_standard"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "ct_mortar"
+        }
+      }
+    },
+    {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:ammo_standard"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "ct_mortar"
+        }
+      }
+    },
+    {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:ammo_standard"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "ct_mortar"
+        }
+      }
+    },
+    {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:ammo_standard"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "ct_mortar"
+        }
+      }
+    },
+    {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:ammo_standard"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "ct_mortar"
+        }
+      }
+    },
+    {
+      "item": "atomiclegacy:ducttape"
+    },
+    {
+      "item": "atomiclegacy:ducttape"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "ct_mortar_charge"
+      },
+      "minecraft:custom_model_data": 94
+    }
+  }
+}

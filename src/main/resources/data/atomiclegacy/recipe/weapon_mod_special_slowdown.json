@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " I ",
+    " M ",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "tag": "c:ingots/weaponsteel"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_slowdown",
+    "count": 1
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " C ",
+    "RFR",
+    " C "
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:circuit_chip_bismoid"
+    },
+    "R": {
+      "item": "atomiclegacy:crystal_redstone"
+    },
+    "F": {
+      "tag": "c:gun_parts/receiver_heavy/any_bismoidbronze"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_las_auto",
+    "count": 1
+  }
+}

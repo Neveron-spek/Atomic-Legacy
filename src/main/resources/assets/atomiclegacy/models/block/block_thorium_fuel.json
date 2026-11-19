@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/block_thorium_fuel"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

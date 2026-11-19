@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BBS",
+    "BHS"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:bolts/steel"
+    },
+    "S": {
+      "tag": "c:rods/wooden"
+    },
+    "H": {
+      "tag": "c:plates/dura_steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_saw",
+    "count": 1
+  }
+}

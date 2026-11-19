@@ -1,0 +1,31 @@
+﻿{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_528_mode"
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IGI",
+    "GCG",
+    "IGI"
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:rbmk_blank"
+    },
+    "I": {
+      "tag": "c:plates/polymer"
+    },
+    "G": {
+      "item": "atomiclegacy:steel_grate"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:rbmk_cooler"
+  }
+}

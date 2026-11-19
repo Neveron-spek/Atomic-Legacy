@@ -1,0 +1,69 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.mpw10taint",
+  "duration": 100,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:seg_10"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/steel"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:det_cord"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:powder_magic"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "type": "neoforge:compound",
+        "children": [
+          {
+            "item": "atomiclegacy:bucket_mud"
+          },
+          {
+            "type": "neoforge:components",
+            "items": [
+              "atomiclegacy:fluid_tank_lead_full"
+            ],
+            "components": {
+              "minecraft:custom_data": {
+                "fluid": "watz"
+              }
+            }
+          },
+          {
+            "type": "neoforge:components",
+            "items": [
+              "atomiclegacy:fluid_tank_full"
+            ],
+            "components": {
+              "minecraft:custom_data": {
+                "fluid": "watz"
+              }
+            }
+          }
+        ]
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:mp_warhead_10_taint",
+    "count": 1
+  }
+}

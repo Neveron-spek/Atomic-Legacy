@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:nuggets/schrabidium"
+    },
+    {
+      "tag": "c:nuggets/schrabidium"
+    },
+    {
+      "tag": "c:nuggets/schrabidium"
+    },
+    {
+      "tag": "c:nuggets/neptunium"
+    },
+    {
+      "tag": "c:nuggets/neptunium"
+    },
+    {
+      "tag": "c:nuggets/neptunium"
+    },
+    {
+      "item": "atomiclegacy:nugget_beryllium"
+    },
+    {
+      "item": "atomiclegacy:nugget_beryllium"
+    },
+    {
+      "item": "atomiclegacy:nugget_beryllium"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:ingot_schrabidium_fuel",
+    "count": 1
+  }
+}

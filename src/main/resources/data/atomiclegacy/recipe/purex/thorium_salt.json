@@ -1,0 +1,39 @@
+{
+  "type": "atomiclegacy:purex",
+  "duration": 20,
+  "power": 10000,
+  "input_items": [
+    {
+      "ingredient": {
+        "tag": "c:nuggets/th232"
+      },
+      "count": 2
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "thorium_salt_depleted",
+      "amount": 16000
+    }
+  ],
+  "output_items": [
+    {
+      "stack": {
+        "id": "atomiclegacy:nugget_u233"
+      },
+      "chance": 0.5
+    },
+    {
+      "stack": {
+        "id": "atomiclegacy:nuclear_waste_tiny"
+      },
+      "chance": 0.25
+    }
+  ],
+  "output_fluids": [
+    {
+      "fluid": "thorium_salt",
+      "amount": 16000
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/heart_piece"
+                 },
+    "parent":  "minecraft:item/generated"
+}

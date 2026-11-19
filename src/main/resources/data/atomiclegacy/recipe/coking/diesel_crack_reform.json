@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:coking","group":"coking.diesel_crack_reform","input":{"fluid":"diesel_crack_reform","amount":250},"output":{"id":"atomiclegacy:coke_petroleum"},"byproduct":{"fluid":"gas_coker","amount":25}}

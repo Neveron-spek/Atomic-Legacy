@@ -1,0 +1,6 @@
+{
+  "parent": "atomiclegacy:block/machine_sawmill",
+  "visibility": {
+    "Main": true
+  }
+}

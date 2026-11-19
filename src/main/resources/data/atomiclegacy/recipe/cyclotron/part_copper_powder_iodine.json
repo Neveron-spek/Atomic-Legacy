@@ -1,0 +1,14 @@
+{
+    "type": "atomiclegacy:cyclotron",
+    "group": "cyclotron",
+    "particle": {
+        "item": "atomiclegacy:part_copper"
+    },
+    "input": {
+        "item": "atomiclegacy:powder_bromine"
+    },
+    "output": {
+        "id": "atomiclegacy:powder_iodine"
+    },
+    "antimatter": 15
+}

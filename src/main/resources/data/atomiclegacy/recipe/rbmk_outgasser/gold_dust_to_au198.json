@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:rbmk_outgasser",
+  "group": "outgasser.gold",
+  "ingredient": {
+    "tag": "c:dusts/gold"
+  },
+  "item_output": {
+    "id": "atomiclegacy:powder_au198"
+  }
+}

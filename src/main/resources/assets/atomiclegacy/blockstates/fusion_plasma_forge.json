@@ -1,0 +1,8 @@
+﻿{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/fusion_plasma_forge" },
+    "facing=east": { "model": "atomiclegacy:block/particle/fusion_plasma_forge" },
+    "facing=south": { "model": "atomiclegacy:block/particle/fusion_plasma_forge" },
+    "facing=west": { "model": "atomiclegacy:block/particle/fusion_plasma_forge" }
+  }
+}

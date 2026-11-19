@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "R",
+    "C",
+    "T"
+  ],
+  "key": {
+    "R": {
+      "item": "atomiclegacy:radio_torch_reader"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_analog"
+    },
+    "T": {
+      "item": "atomiclegacy:rangefinder"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:rtty_designator"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.p22_sp",
+  "order": 12,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/lead"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_small"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 24,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "p22_sp"
+      },
+      "minecraft:custom_model_data": 28
+    }
+  }
+}

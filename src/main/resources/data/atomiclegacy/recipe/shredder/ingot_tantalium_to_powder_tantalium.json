@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ingot_tantalium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_tantalium"
+  }
+}

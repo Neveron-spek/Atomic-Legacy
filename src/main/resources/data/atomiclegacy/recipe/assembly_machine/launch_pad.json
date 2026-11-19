@@ -1,0 +1,35 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.launchpadsilo",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_welded_steel"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "tag": "c:concretes"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/hard_plastic"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_advanced"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:launch_pad"
+  }
+}

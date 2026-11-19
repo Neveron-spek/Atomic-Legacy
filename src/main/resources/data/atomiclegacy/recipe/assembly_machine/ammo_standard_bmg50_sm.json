@@ -1,0 +1,39 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.50bmgsm",
+  "duration": 100,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_large_steel"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/starmetal"
+      },
+      "count": 3
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 6,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "bmg50_sm"
+      },
+      "minecraft:custom_model_data": 26
+    }
+  },
+  "blueprint_pools": [
+    "discover.silverstorm"
+  ]
+}

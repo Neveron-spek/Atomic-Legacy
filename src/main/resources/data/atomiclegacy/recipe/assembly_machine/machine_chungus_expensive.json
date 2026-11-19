@@ -1,0 +1,52 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.leviturbine",
+  "duration": 600,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_heavy_frame"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_ferro_plating"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:turbine_tungsten"
+      },
+      "count": 5
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:turbine_titanium"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:flywheel_beryllium"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_dense_gold"
+      },
+      "count": 64
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:machine_chungus"
+  }
+}

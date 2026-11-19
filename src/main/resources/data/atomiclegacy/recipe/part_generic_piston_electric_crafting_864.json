@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " A ",
+    "BCB",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "tag": "c:ingots/resistant_alloy"
+    },
+    "B": {
+      "tag": "c:ingots/plastic"
+    },
+    "C": {
+      "item": "atomiclegacy:motor"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:part_generic_piston_electric",
+    "count": 4
+  }
+}

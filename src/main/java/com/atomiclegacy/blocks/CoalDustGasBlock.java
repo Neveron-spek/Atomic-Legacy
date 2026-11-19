@@ -1,0 +1,72 @@
+package com.atomiclegacy.blocks;
+
+import com.atomiclegacy.pollution.HbmArmorProtection;
+import com.atomiclegacy.config.HbmConfig;
+import com.atomiclegacy.radiation.HbmLivingHazards;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+
+public class CoalDustGasBlock extends HbmGasBlock {
+    public CoalDustGasBlock(Properties properties) {
+        super(properties);
+    }
+
+    @Override
+    protected Direction firstDirection(Level level, BlockPos pos, RandomSource random) {
+        if (random.nextInt(5) == 0) {
+            return Direction.DOWN;
+        }
+        Direction[] directions = Direction.values();
+        return directions[random.nextInt(directions.length)];
+    }
+
+    @Override
+    protected Direction secondDirection(Level level, BlockPos pos, RandomSource random) {
+        return randomHorizontal(random);
+    }
+
+    @Override
+    protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if (random.nextInt(20) == 0) {
+            level.removeBlock(pos, false);
+            return;
+        }
+        super.tick(state, level, pos, random);
+    }
+
+    @Override
+    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+        super.entityInside(state, level, pos, entity);
+        if (level.isClientSide || !HbmConfig.ENABLE_COAL_DUST.get()
+                || !(entity instanceof LivingEntity living)) {
+            return;
+        }
+        if (!HbmArmorProtection.hasHeadProtection(living, HbmArmorProtection.HazardClass.PARTICLE_COARSE)) {
+            HbmLivingHazards hazards = HbmLivingHazards.get(living);
+            hazards.addBlackLung(living, 10);
+            HbmLivingHazards.set(living, hazards);
+        }
+    }
+
+    @Override
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        super.animateTick(state, level, pos, random);
+        level.addParticle(ParticleTypes.SMOKE,
+                pos.getX() + random.nextDouble(),
+                pos.getY() + random.nextDouble(),
+                pos.getZ() + random.nextDouble(),
+                0.0D, 0.0D, 0.0D);
+    }
+
+    @Override
+    protected float[] cloudColor() { // [parity R1: ashglasses gas cloud]
+        return new float[] {0.2F, 0.2F, 0.2F};
+    }
+}

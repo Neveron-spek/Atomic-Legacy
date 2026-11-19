@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/redcoil_capacitor"
+                 },
+    "parent":  "minecraft:item/generated"
+}

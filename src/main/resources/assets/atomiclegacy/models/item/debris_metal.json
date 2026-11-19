@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/debris_metal"
+                 },
+    "parent":  "minecraft:item/generated"
+}

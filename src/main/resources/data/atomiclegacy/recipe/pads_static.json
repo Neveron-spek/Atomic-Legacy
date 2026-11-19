@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CDC",
+    "ISI",
+    "CDC"
+  ],
+  "key": {
+    "C": {
+      "tag": "c:ingots/copper"
+    },
+    "D": {
+      "item": "atomiclegacy:ducttape"
+    },
+    "I": {
+      "tag": "c:ingots/any_rubber"
+    },
+    "S": {
+      "item": "atomiclegacy:pads_slime"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:pads_static"
+  }
+}

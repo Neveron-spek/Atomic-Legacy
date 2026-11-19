@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:chemical_plant",
+  "group": "chem.growmutatedanthrax",
+  "duration": 600,
+  "power": 500,
+  "input_items": [
+    { "ingredient": { "item": "atomiclegacy:bacteria_anthrax_mutated" }, "count": 1 },
+    { "ingredient": { "item": "atomiclegacy:bacteria_agar" }, "count": 1 }
+  ],
+  "input_fluids": [
+    { "fluid": "water", "amount": 4000 }
+  ],
+  "output_items": [
+    { "id": "atomiclegacy:bacteria_anthrax_mutated", "count": 2 }
+  ],
+  "output_fluids": []
+}

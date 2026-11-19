@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AA",
+    "AA"
+  ],
+  "key": {
+    "A": {
+      "item": "atomiclegacy:part_generic_glass_polarized"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:glass_polarized",
+    "count": 4
+  }
+}

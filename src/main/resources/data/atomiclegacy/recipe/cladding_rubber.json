@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "RCR",
+    "CDC",
+    "RCR"
+  ],
+  "key": {
+    "R": {
+      "tag": "c:ingots/any_rubber"
+    },
+    "C": {
+      "tag": "c:dusts/coal"
+    },
+    "D": {
+      "item": "atomiclegacy:ducttape"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:cladding_rubber"
+  }
+}

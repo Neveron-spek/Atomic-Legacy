@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=north,lit=false": { "model": "atomiclegacy:block/particle/machine_combustion_engine" },
+    "facing=north,lit=true": { "model": "atomiclegacy:block/particle/machine_combustion_engine" },
+    "facing=east,lit=false": { "model": "atomiclegacy:block/particle/machine_combustion_engine" },
+    "facing=east,lit=true": { "model": "atomiclegacy:block/particle/machine_combustion_engine" },
+    "facing=south,lit=false": { "model": "atomiclegacy:block/particle/machine_combustion_engine" },
+    "facing=south,lit=true": { "model": "atomiclegacy:block/particle/machine_combustion_engine" },
+    "facing=west,lit=false": { "model": "atomiclegacy:block/particle/machine_combustion_engine" },
+    "facing=west,lit=true": { "model": "atomiclegacy:block/particle/machine_combustion_engine" }
+  }
+}

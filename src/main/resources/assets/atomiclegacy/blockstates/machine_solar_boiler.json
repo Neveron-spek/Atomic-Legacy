@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/machine_solar_boiler" },
+    "facing=south": { "model": "atomiclegacy:block/machine_solar_boiler" },
+    "facing=west": { "model": "atomiclegacy:block/machine_solar_boiler" },
+    "facing=east": { "model": "atomiclegacy:block/machine_solar_boiler" }
+  }
+}

@@ -1,0 +1,10 @@
+﻿{
+  "variants": {
+    "facing=down": { "model": "atomiclegacy:block/particle/red_pylon_medium_steel_transformer" },
+    "facing=up": { "model": "atomiclegacy:block/particle/red_pylon_medium_steel_transformer" },
+    "facing=north": { "model": "atomiclegacy:block/particle/red_pylon_medium_steel_transformer" },
+    "facing=south": { "model": "atomiclegacy:block/particle/red_pylon_medium_steel_transformer" },
+    "facing=west": { "model": "atomiclegacy:block/particle/red_pylon_medium_steel_transformer" },
+    "facing=east": { "model": "atomiclegacy:block/particle/red_pylon_medium_steel_transformer" }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "minecraft:redstone"
+  },
+  "result": {
+    "id": "atomiclegacy:dust"
+  }
+}

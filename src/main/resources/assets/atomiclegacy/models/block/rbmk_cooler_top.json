@@ -1,0 +1,14 @@
+{
+  "parent": "atomiclegacy:block/template/rbmk_top_piped",
+  "textures": {
+    "end": "atomiclegacy:block/rbmk/rbmk_cooler_top",
+    "side": "atomiclegacy:block/rbmk/rbmk_cooler_side",
+    "inner": "atomiclegacy:block/rbmk/rbmk_element_inner",
+    "cover_top": "atomiclegacy:block/rbmk/rbmk_cooler_cover_top",
+    "cover_side": "atomiclegacy:block/rbmk/rbmk_cooler_cover_side",
+    "glass_top": "atomiclegacy:block/rbmk/rbmk_cooler_glass_top",
+    "glass_side": "atomiclegacy:block/rbmk/rbmk_cooler_glass_side",
+    "pipe_top": "atomiclegacy:block/rbmk/rbmk_cooler_top",
+    "pipe_side": "atomiclegacy:block/rbmk/rbmk_cooler_side"
+  }
+}

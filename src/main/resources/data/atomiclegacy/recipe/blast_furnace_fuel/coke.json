@@ -1,0 +1,5 @@
+{
+  "type": "atomiclegacy:blast_furnace_fuel",
+  "ingredient": { "tag": "c:gems/coke" },
+  "power": 3200
+}

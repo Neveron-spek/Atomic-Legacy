@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/bottle2_fritz_special"
+                 },
+    "parent":  "minecraft:item/generated"
+}

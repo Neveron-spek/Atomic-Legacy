@@ -1,0 +1,26 @@
+{
+    "type":  "atomiclegacy:centrifuge",
+    "group":  "centrifuge",
+    "ingredient":  {
+                       "tag":  "c:raw_materials/copper"
+                   },
+    "input_count":  4,
+    "results":  [
+                    {
+                        "id":  "atomiclegacy:powder_copper",
+                        "count":  3
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_copper",
+                        "count":  3
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_gold",
+                        "count":  3
+                    },
+                    {
+                        "id":  "minecraft:gravel",
+                        "count":  4
+                    }
+                ]
+}

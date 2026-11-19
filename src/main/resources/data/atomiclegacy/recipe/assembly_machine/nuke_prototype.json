@@ -1,0 +1,38 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.ninadidnothingwrong",
+  "duration": 300,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:dysfunctional_reactor"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:shell_steel"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/euphemium"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller_advanced"
+      },
+      "count": 8
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:nuke_prototype"
+  },
+  "blueprint_pools": [
+    "528.controller"
+  ]
+}

@@ -1,0 +1,27 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "CWC",
+                    "PWP",
+                    " S "
+                ],
+    "key":  {
+                "C":  {
+                          "item":  "atomiclegacy:coil_copper"
+                      },
+                "W":  {
+                          "tag":  "minecraft:planks"
+                      },
+                "P":  {
+                          "tag":  "c:plates/polymer"
+                      },
+                "S":  {
+                          "tag":  "c:cobblestones"
+                      }
+            },
+    "result":  {
+                   "id":  "atomiclegacy:red_pylon",
+                   "count":  4
+               }
+}

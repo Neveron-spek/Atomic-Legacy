@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:plate_schrabidium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_schrabidium"
+  }
+}

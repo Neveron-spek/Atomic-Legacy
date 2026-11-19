@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/field_disturber"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

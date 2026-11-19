@@ -1,0 +1,10 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/machines/refueler.obj",
+  "mtl_override": "atomiclegacy:models/obj/machines/refueler.mtl",
+  "visibility": { "Fueler": true, "Fluid": false },
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "textures": { "particle": "atomiclegacy:models/machines/refueler" }
+}

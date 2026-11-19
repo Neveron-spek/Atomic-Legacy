@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " WS",
+    "WRS",
+    " RS"
+  ],
+  "key": {
+    "W": {
+      "tag": "c:wires/copper"
+    },
+    "R": {
+      "item": "atomiclegacy:ring_starmetal"
+    },
+    "S": {
+      "tag": "c:plates/steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:ballistic_gauntlet"
+  }
+}

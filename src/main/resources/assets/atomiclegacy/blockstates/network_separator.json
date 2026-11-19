@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "atomiclegacy:block/particle/network_separator"
+    },
+    "facing=east": {
+      "model": "atomiclegacy:block/particle/network_separator"
+    },
+    "facing=south": {
+      "model": "atomiclegacy:block/particle/network_separator"
+    },
+    "facing=west": {
+      "model": "atomiclegacy:block/particle/network_separator"
+    }
+  }
+}

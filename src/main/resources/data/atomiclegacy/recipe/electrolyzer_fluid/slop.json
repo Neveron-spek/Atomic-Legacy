@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:electrolyzer_fluid","input":{"fluid":"slop","amount":1000},"output1":{"fluid":"mercury","amount":250},"output2":{"fluid":"none","amount":0},"byproducts":[{"id":"atomiclegacy:niter","count":2},{"id":"atomiclegacy:powder_limestone","count":2},{"id":"atomiclegacy:sulfur","count":1}]}

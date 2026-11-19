@@ -1,0 +1,62 @@
+{
+    "neoforge:conditions": [
+        {
+            "type": "atomiclegacy:enable_528_mode"
+        }
+    ],
+    "type": "atomiclegacy:precision_assembler",
+    "group": "precass.recycle",
+    "duration": 400,
+    "power": 25000,
+    "ingredients": [
+        {
+            "ingredient": {
+                "type": "neoforge:components",
+                "items": [
+                    "atomiclegacy:broken_item"
+                ],
+                "components": {
+                    "minecraft:custom_data": "{item_id:\"atomiclegacy:upgrade_fortune_3\",item_count:1}"
+                }
+            },
+            "count": 1
+        }
+    ],
+    "outputs": [
+        {
+            "result": {
+                "id": "atomiclegacy:circuit_chip",
+                "count": 16
+            },
+            "weight": 75
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:circuit_capacitor_tantalium",
+                "count": 16
+            },
+            "weight": 75
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:upgrade_fortune_2",
+                "count": 1
+            },
+            "weight": 75
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:ingot_rubber",
+                "count": 4
+            },
+            "weight": 75
+        }
+    ],
+    "output_mode": "independent",
+    "output_fluids": [
+        {
+            "fluid": "solvent",
+            "amount": 375
+        }
+    ]
+}

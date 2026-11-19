@@ -1,0 +1,14 @@
+{
+    "type": "atomiclegacy:cyclotron",
+    "group": "cyclotron",
+    "particle": {
+        "item": "atomiclegacy:part_beryllium"
+    },
+    "input": {
+        "tag": "c:dusts/quartz"
+    },
+    "output": {
+        "id": "atomiclegacy:sulfur"
+    },
+    "antimatter": 25
+}

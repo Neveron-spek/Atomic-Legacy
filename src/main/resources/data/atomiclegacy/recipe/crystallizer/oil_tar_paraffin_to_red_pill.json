@@ -1,0 +1,15 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer.oil_tar_paraffin",
+  "ingredient": {
+    "item": "atomiclegacy:oil_tar_paraffin"
+  },
+  "acid": {
+    "fluid": "estradiol",
+    "amount": 250
+  },
+  "duration": 200,
+  "result": {
+    "id": "atomiclegacy:pill_red"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "atomiclegacy:block/pneumatic_storage_access",
+    "up": "atomiclegacy:block/pneumatic_storage_access",
+    "north": "atomiclegacy:block/pneumatic_storage_access_front",
+    "south": "atomiclegacy:block/pneumatic_storage_access",
+    "west": "atomiclegacy:block/pneumatic_storage_access",
+    "east": "atomiclegacy:block/pneumatic_storage_access",
+    "particle": "atomiclegacy:block/pneumatic_storage_access"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:dusts/niter"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "tag": "c:sands"
+    },
+    {
+      "tag": "atomiclegacy:chemistry_set"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:ball_dynamite",
+    "count": 2
+  }
+}

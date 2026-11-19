@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer.chemical_dye",
+  "ingredient": {
+    "tag": "c:dusts/cobalt"
+  },
+  "acid": {
+    "fluid": "lightoil",
+    "amount": 100
+  },
+  "duration": 20,
+  "productivity": 0.15,
+  "result": {
+    "id": "atomiclegacy:chemical_dye_blue",
+    "count": 4
+  }
+}

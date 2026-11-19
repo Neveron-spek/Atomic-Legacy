@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "entries": [
+    "atomiclegacy:legacy_loot_mineshaft",
+    "atomiclegacy:legacy_loot_dungeon",
+    "atomiclegacy:legacy_loot_desert_pyramid",
+    "atomiclegacy:legacy_loot_jungle_temple",
+    "atomiclegacy:legacy_loot_spawn_bonus_chest",
+    "atomiclegacy:legacy_loot_village_armorer",
+    "atomiclegacy:legacy_loot_village_toolsmith",
+    "atomiclegacy:legacy_loot_village_weaponsmith"
+  ]
+}

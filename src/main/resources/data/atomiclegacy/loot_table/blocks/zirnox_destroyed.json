@@ -1,0 +1,11 @@
+﻿{
+    "pools": [
+        {"rolls": 1, "entries": [{"type": "minecraft:item", "name": "atomiclegacy:concrete_smooth", "functions": [{"function": "minecraft:set_count", "count": 6}]}]},
+        {"rolls": 1, "entries": [{"type": "minecraft:item", "name": "atomiclegacy:pipe_steel", "functions": [{"function": "minecraft:set_count", "count": 4}]}]},
+        {"rolls": 1, "entries": [{"type": "minecraft:item", "name": "atomiclegacy:steel_grate", "functions": [{"function": "minecraft:set_count", "count": 2}]}]},
+        {"rolls": 1, "entries": [{"type": "minecraft:item", "name": "atomiclegacy:debris_metal", "functions": [{"function": "minecraft:set_count", "count": 6}]}]},
+        {"rolls": 1, "entries": [{"type": "minecraft:item", "name": "atomiclegacy:debris_graphite", "functions": [{"function": "minecraft:set_count", "count": 2}]}]},
+        {"rolls": 1, "entries": [{"type": "minecraft:item", "name": "atomiclegacy:falloutitem", "functions": [{"function": "minecraft:set_count", "count": 4}]}]}
+    ],
+    "type":  "minecraft:block"
+}

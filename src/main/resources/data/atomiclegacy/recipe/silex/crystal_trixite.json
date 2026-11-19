@@ -1,0 +1,42 @@
+{
+  "type": "atomiclegacy:silex",
+  "group": "silex.crystal_trixite",
+  "ingredient": {
+    "item": "atomiclegacy:crystal_trixite"
+  },
+  "fluid_produced": 1200,
+  "fluid_consumed": 100,
+  "wavelength": "uv",
+  "outputs": [
+    {
+      "item": {
+        "id": "atomiclegacy:powder_plutonium"
+      },
+      "weight": 2
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:powder_cobalt"
+      },
+      "weight": 3
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:powder_niobium"
+      },
+      "weight": 3
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:powder_nitan_mix"
+      },
+      "weight": 1
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:powder_spark_mix"
+      },
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+    "neoforge:conditions": [
+        {
+            "type": "atomiclegacy:enable_528_mode"
+        }
+    ],
+    "type": "atomiclegacy:precision_assembler",
+    "group": "precass.recycle",
+    "duration": 200,
+    "power": 2000,
+    "ingredients": [
+        {
+            "ingredient": {
+                "type": "neoforge:components",
+                "items": "atomiclegacy:broken_item",
+                "components": {
+                    "minecraft:custom_data": "{item_id:\"atomiclegacy:circuit_atomic_clock\",item_count:1}"
+                }
+            },
+            "count": 1
+        }
+    ],
+    "outputs": [
+        {
+            "result": {
+                "id": "atomiclegacy:circuit_chip",
+                "count": 8
+            },
+            "weight": 75
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:ingot_polymer",
+                "count": 4
+            },
+            "weight": 75
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:wire_zirconium",
+                "count": 8
+            },
+            "weight": 75
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:powder_strontium",
+                "count": 1
+            },
+            "weight": 75
+        }
+    ],
+    "output_mode": "independent",
+    "expensive_output_weights": [
+        50,
+        50,
+        50,
+        50
+    ]
+}

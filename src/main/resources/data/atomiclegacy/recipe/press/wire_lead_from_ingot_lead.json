@@ -1,0 +1,12 @@
+{
+  "type": "atomiclegacy:press",
+  "group": "press.wire",
+  "stamp": "wire",
+  "ingredient": {
+    "tag": "c:ingots/lead"
+  },
+  "result": {
+    "id": "atomiclegacy:wire_lead",
+    "count": 8
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "tag": "c:ores/plutonium"
+  },
+  "acid": {
+    "fluid": "sulfuric_acid",
+    "amount": 500
+  },
+  "duration": 600,
+  "productivity": 0.05,
+  "result": {
+    "id": "atomiclegacy:crystal_plutonium"
+  }
+}

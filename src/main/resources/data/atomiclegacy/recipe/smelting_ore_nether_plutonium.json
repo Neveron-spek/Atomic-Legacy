@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "item": "atomiclegacy:ore_nether_plutonium"
+  },
+  "result": {
+    "id": "atomiclegacy:ingot_plutonium"
+  },
+  "experience": 24.0,
+  "cookingtime": 200
+}

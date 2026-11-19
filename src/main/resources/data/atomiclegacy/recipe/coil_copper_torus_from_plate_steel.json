@@ -1,0 +1,21 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    " C ",
+                    "CPC",
+                    " C "
+                ],
+    "key":  {
+                "C":  {
+                          "item":  "atomiclegacy:coil_copper"
+                      },
+                "P":  {
+                          "tag":  "c:plates/steel"
+                      }
+            },
+    "result":  {
+                   "id":  "atomiclegacy:coil_copper_torus",
+                   "count":  2
+               }
+}

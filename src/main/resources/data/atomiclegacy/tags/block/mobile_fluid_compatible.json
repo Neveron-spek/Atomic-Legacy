@@ -1,0 +1,26 @@
+{
+    "replace": false,
+    "values": [
+        "atomiclegacy:fluid_duct_neo",
+        "atomiclegacy:fluid_duct_box",
+        "atomiclegacy:fluid_duct_exhaust",
+        "atomiclegacy:fluid_duct_gauge",
+        "atomiclegacy:fluid_duct_paintable",
+        "atomiclegacy:fluid_duct_paintable_block_exhaust",
+        "atomiclegacy:fluid_valve",
+        "atomiclegacy:fluid_switch",
+        "atomiclegacy:fluid_counter_valve",
+        "atomiclegacy:fluid_pump",
+        "atomiclegacy:machine_fluidtank",
+        "atomiclegacy:machine_bat9000",
+        "atomiclegacy:machine_bigasstank",
+        "atomiclegacy:barrel_plastic",
+        "atomiclegacy:barrel_corroded",
+        "atomiclegacy:barrel_steel",
+        "atomiclegacy:barrel_tcalloy",
+        "atomiclegacy:barrel_antimatter",
+        "atomiclegacy:machine_diesel",
+        "atomiclegacy:machine_combustion_engine",
+        "atomiclegacy:machine_steam_engine"
+    ]
+}

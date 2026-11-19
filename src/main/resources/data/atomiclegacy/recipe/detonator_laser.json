@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:rangefinder"
+    },
+    {
+      "item": "atomiclegacy:circuit_advanced"
+    },
+    {
+      "tag": "c:ingots/rubber"
+    },
+    {
+      "item": "atomiclegacy:wire_dense_gold"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:detonator_laser"
+  }
+}

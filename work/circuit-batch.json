@@ -1,0 +1,171 @@
+{
+  "batch": "components-002",
+  "source_commit": "936c60c4c07dc10aef81f75d800ad04282f08e62",
+  "items": [
+    "circuit_vacuum_tube",
+    "circuit_numitron",
+    "circuit_capacitor",
+    "circuit_capacitor_tantalium",
+    "circuit_atomic_clock",
+    "circuit_pcb",
+    "circuit_silicon",
+    "circuit_chip",
+    "circuit_chip_bismoid",
+    "circuit_chip_quantum",
+    "circuit_analog",
+    "circuit_basic",
+    "circuit_advanced",
+    "circuit_capacitor_board",
+    "circuit_bismoid",
+    "circuit_quantum",
+    "circuit_crystal",
+    "circuit_controller_chassis",
+    "circuit_controller",
+    "circuit_controller_advanced",
+    "circuit_controller_quantum"
+  ],
+  "new_registry_ids": [],
+  "recipes_checked": [
+    {
+      "recipe": "circuit_vacuum_tube",
+      "source": "main/CraftingManager.java",
+      "line": 113
+    },
+    {
+      "recipe": "circuit_vacuum_tube_from_carbon_wire",
+      "source": "main/CraftingManager.java",
+      "line": 114
+    },
+    {
+      "recipe": "circuit_numitron",
+      "source": "main/CraftingManager.java",
+      "line": 115
+    },
+    {
+      "recipe": "circuit_capacitor",
+      "source": "main/CraftingManager.java",
+      "line": 116
+    },
+    {
+      "recipe": "circuit_capacitor_from_copper_wire",
+      "source": "main/CraftingManager.java",
+      "line": 117
+    },
+    {
+      "recipe": "circuit_capacitor_from_aluminium_dust",
+      "source": "main/CraftingManager.java",
+      "line": 118
+    },
+    {
+      "recipe": "circuit_capacitor_from_aluminium_dust_copper_wire",
+      "source": "main/CraftingManager.java",
+      "line": 119
+    },
+    {
+      "recipe": "circuit_capacitor_tantalium_from_aluminium_wire",
+      "source": "main/CraftingManager.java",
+      "line": 120
+    },
+    {
+      "recipe": "circuit_capacitor_tantalium_from_copper_wire",
+      "source": "main/CraftingManager.java",
+      "line": 121
+    },
+    {
+      "recipe": "circuit_pcb_from_plate_copper",
+      "source": "main/CraftingManager.java",
+      "line": 122
+    },
+    {
+      "recipe": "circuit_pcb_from_plate_gold",
+      "source": "main/CraftingManager.java",
+      "line": 123
+    },
+    {
+      "recipe": "circuit_controller_chassis",
+      "source": "main/CraftingManager.java",
+      "line": 124
+    },
+    {
+      "recipe": "soldering_station/circuit_analog",
+      "source": "inventory/recipes/SolderingRecipes.java",
+      "line": 44
+    },
+    {
+      "recipe": "soldering_station/circuit_basic",
+      "source": "inventory/recipes/SolderingRecipes.java",
+      "line": 54
+    },
+    {
+      "recipe": "soldering_station/circuit_advanced",
+      "source": "inventory/recipes/SolderingRecipes.java",
+      "line": 63
+    },
+    {
+      "recipe": "soldering_station/lbsm_circuit_advanced",
+      "source": "inventory/recipes/SolderingRecipes.java",
+      "line": 63
+    },
+    {
+      "recipe": "soldering_station/circuit_capacitor_board",
+      "source": "inventory/recipes/SolderingRecipes.java",
+      "line": 75
+    },
+    {
+      "recipe": "soldering_station/circuit_bismoid",
+      "source": "inventory/recipes/SolderingRecipes.java",
+      "line": 85
+    },
+    {
+      "recipe": "soldering_station/lbsm_circuit_bismoid",
+      "source": "inventory/recipes/SolderingRecipes.java",
+      "line": 85
+    },
+    {
+      "recipe": "soldering_station/circuit_quantum",
+      "source": "inventory/recipes/SolderingRecipes.java",
+      "line": 98
+    },
+    {
+      "recipe": "soldering_station/lbsm_circuit_quantum",
+      "source": "inventory/recipes/SolderingRecipes.java",
+      "line": 98
+    },
+    {
+      "recipe": "soldering_station/circuit_controller",
+      "source": "inventory/recipes/SolderingRecipes.java",
+      "line": 116
+    },
+    {
+      "recipe": "soldering_station/lbsm_circuit_controller",
+      "source": "inventory/recipes/SolderingRecipes.java",
+      "line": 116
+    },
+    {
+      "recipe": "soldering_station/circuit_controller_advanced",
+      "source": "inventory/recipes/SolderingRecipes.java",
+      "line": 128
+    },
+    {
+      "recipe": "soldering_station/lbsm_circuit_controller_advanced",
+      "source": "inventory/recipes/SolderingRecipes.java",
+      "line": 128
+    },
+    {
+      "recipe": "soldering_station/circuit_controller_quantum",
+      "source": "inventory/recipes/SolderingRecipes.java",
+      "line": 140
+    },
+    {
+      "recipe": "soldering_station/lbsm_circuit_controller_quantum",
+      "source": "inventory/recipes/SolderingRecipes.java",
+      "line": 140
+    }
+  ],
+  "removed_non_source_crafting": [],
+  "changed_files": [
+    "src/main/resources/legacy/reinhardtshbm/circuit-batch.json"
+  ],
+  "errors": [],
+  "technical_conversion": "circuit metadata -> existing circuit_* IDs; textures items/circuit.* -> item/circuit_*; original animation metadata preserved"
+}

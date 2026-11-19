@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/cap_sunset"
+                 },
+    "parent":  "minecraft:item/generated"
+}

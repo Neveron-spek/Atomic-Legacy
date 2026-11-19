@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:block_schrabidate"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_schrabidate",
+    "count": 9
+  }
+}

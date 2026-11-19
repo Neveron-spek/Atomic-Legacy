@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PIP"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:plates/steel"
+    },
+    "I": {
+      "item": "atomiclegacy:blades_steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:blades_steel"
+  }
+}

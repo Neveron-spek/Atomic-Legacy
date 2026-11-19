@@ -1,0 +1,7 @@
+﻿{
+    "variants":  {
+                     "":  {
+                     "model":  "atomiclegacy:block/particle/spotlight_halogen_off"
+                          }
+                 }
+}

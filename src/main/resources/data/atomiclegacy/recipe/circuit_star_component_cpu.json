@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:circuit_star_piece_cpu_cache"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_piece_cpu_clock"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_piece_cpu_ext"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_piece_cpu_logic"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_piece_cpu_register"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_piece_cpu_socket"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:circuit_star_component_cpu"
+  }
+}

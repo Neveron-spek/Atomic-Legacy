@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:bolt_steel"
+    },
+    {
+      "item": "atomiclegacy:wrench"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:cbt_device"
+  }
+}

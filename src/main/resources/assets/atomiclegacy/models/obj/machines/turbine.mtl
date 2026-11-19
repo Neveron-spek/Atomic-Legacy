@@ -1,0 +1,9 @@
+newmtl body
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:models/machines/turbine
+
+newmtl blades
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:models/machines/turbofan_blades

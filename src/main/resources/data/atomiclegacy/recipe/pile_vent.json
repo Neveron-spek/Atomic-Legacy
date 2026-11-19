@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [" M ", "ACA", " S "],
+  "key": {
+    "M": { "item": "atomiclegacy:motor" },
+    "A": { "tag": "c:plates/aluminium" },
+    "C": { "item": "atomiclegacy:shell_copper" },
+    "S": { "tag": "c:plates/cast_steel" }
+  },
+  "result": { "id": "atomiclegacy:pile_vent" }
+}

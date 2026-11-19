@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WRW",
+    " I ",
+    " B "
+  ],
+  "key": {
+    "W": {
+      "item": "atomiclegacy:wire_red_copper"
+    },
+    "R": {
+      "tag": "c:dusts/redstone"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "B": {
+      "type": "atomiclegacy:battery",
+      "items": [
+        "atomiclegacy:battery_pack"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "battery_lead"
+        },
+        "minecraft:custom_model_data": 1
+      }
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:power_net_tool"
+  }
+}

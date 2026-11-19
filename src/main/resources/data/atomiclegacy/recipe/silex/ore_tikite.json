@@ -1,0 +1,36 @@
+{
+  "type": "atomiclegacy:silex",
+  "group": "silex.ore_tikite",
+  "ingredient": {
+    "item": "atomiclegacy:ore_tikite"
+  },
+  "fluid_produced": 900,
+  "fluid_consumed": 100,
+  "wavelength": "uv",
+  "outputs": [
+    {
+      "item": {
+        "id": "atomiclegacy:powder_plutonium"
+      },
+      "weight": 2
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:powder_cobalt"
+      },
+      "weight": 3
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:powder_niobium"
+      },
+      "weight": 3
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:powder_nitan_mix"
+      },
+      "weight": 2
+    }
+  ]
+}

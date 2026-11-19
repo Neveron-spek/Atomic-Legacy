@@ -1,0 +1,80 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.nitra",
+  "duration": 200,
+  "power": 500,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:nitra"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:casing_shotshell"
+  },
+  "outputs": [
+    {
+      "result": {
+        "id": "atomiclegacy:casing_shotshell"
+      },
+      "weight": 20
+    },
+    {
+      "result": {
+        "id": "atomiclegacy:casing_buckshot"
+      },
+      "weight": 10
+    },
+    {
+      "result": {
+        "id": "atomiclegacy:casing_small",
+        "count": 2
+      },
+      "weight": 20
+    },
+    {
+      "result": {
+        "id": "atomiclegacy:casing_large"
+      },
+      "weight": 10
+    },
+    {
+      "result": {
+        "id": "minecraft:gunpowder"
+      },
+      "weight": 30
+    },
+    {
+      "result": {
+        "id": "atomiclegacy:cordite"
+      },
+      "weight": 20
+    },
+    {
+      "result": {
+        "id": "atomiclegacy:ballistite"
+      },
+      "weight": 20
+    },
+    {
+      "result": {
+        "id": "atomiclegacy:grenade_shell_frag"
+      },
+      "weight": 5
+    },
+    {
+      "result": {
+        "id": "atomiclegacy:grenade_shell_stick"
+      },
+      "weight": 5
+    },
+    {
+      "result": {
+        "id": "atomiclegacy:grenade_fuze_s3"
+      },
+      "weight": 10
+    }
+  ]
+}

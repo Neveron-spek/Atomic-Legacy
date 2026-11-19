@@ -1,0 +1,10 @@
+﻿{
+  "variants": {
+    "level=0": { "model": "atomiclegacy:block/sellafield_0" },
+    "level=1": { "model": "atomiclegacy:block/sellafield_1" },
+    "level=2": { "model": "atomiclegacy:block/sellafield_2" },
+    "level=3": { "model": "atomiclegacy:block/sellafield_3" },
+    "level=4": { "model": "atomiclegacy:block/sellafield_4" },
+    "level=5": { "model": "atomiclegacy:block/sellafield_5" }
+  }
+}

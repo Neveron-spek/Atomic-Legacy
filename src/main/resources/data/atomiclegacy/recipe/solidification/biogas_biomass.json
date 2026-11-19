@@ -1,0 +1,11 @@
+﻿{
+    "type":  "atomiclegacy:solidification",
+    "group":  "solidifier.biogas",
+    "input":  {
+                  "fluid":  "biogas",
+                  "amount":  250
+              },
+    "output":  {
+                   "id":  "atomiclegacy:biomass_compressed"
+               }
+}

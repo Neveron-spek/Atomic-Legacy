@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:chemical_dye_brown"
+    },
+    {
+      "tag": "c:tars"
+    },
+    {
+      "item": "minecraft:paper"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:crayon",
+    "count": 4,
+    "components": {
+      "minecraft:custom_data": "{crayon:3}",
+      "minecraft:custom_model_data": 3
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "atomiclegacy:blast_furnace",
+  "group": "blast.meteorSword",
+  "input_a": { "tag": "c:ingots/cobalt" },
+  "input_b": { "item": "atomiclegacy:meteorite_sword_hardened" },
+  "duration": 1200,
+  "result": { "id": "atomiclegacy:meteorite_sword_alloyed" }
+}

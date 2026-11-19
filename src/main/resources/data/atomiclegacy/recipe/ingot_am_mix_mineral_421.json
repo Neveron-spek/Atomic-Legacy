@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:nuggets/am241"
+    },
+    {
+      "tag": "c:nuggets/am241"
+    },
+    {
+      "tag": "c:nuggets/am241"
+    },
+    {
+      "tag": "c:nuggets/am242"
+    },
+    {
+      "tag": "c:nuggets/am242"
+    },
+    {
+      "tag": "c:nuggets/am242"
+    },
+    {
+      "tag": "c:nuggets/am242"
+    },
+    {
+      "tag": "c:nuggets/am242"
+    },
+    {
+      "tag": "c:nuggets/am242"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:ingot_am_mix",
+    "count": 1
+  }
+}

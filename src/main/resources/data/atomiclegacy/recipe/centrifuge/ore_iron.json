@@ -1,0 +1,22 @@
+{
+    "type":  "atomiclegacy:centrifuge",
+    "group":  "centrifuge",
+    "ingredient":  {
+                       "tag":  "c:ores/iron"
+                   },
+    "input_count":  1,
+    "results":  [
+                    {
+                        "id":  "atomiclegacy:powder_iron"
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_iron"
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_iron"
+                    },
+                    {
+                        "id":  "minecraft:gravel"
+                    }
+                ]
+}

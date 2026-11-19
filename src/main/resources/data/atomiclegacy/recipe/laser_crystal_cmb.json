@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":["QBQ","CSC","QBQ"],"key":{"Q":{"tag": "c:glass_blocks/quartz"},"B":{"tag":"c:ingots/combine_steel"},"C":{"tag":"c:ingots/schrabidate"},"S":{"item":"atomiclegacy:cell_anti_schrabidium"}},"result":{"id":"atomiclegacy:laser_crystal_cmb"}}

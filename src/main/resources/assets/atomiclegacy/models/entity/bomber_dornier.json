@@ -1,0 +1,11 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/entity/bomber_dornier.obj",
+  "mtl_override": "atomiclegacy:models/obj/entity/bomber_dornier.mtl",
+  "automatic_culling": false,
+  "flip_v": true,
+  "textures": {
+    "particle": "atomiclegacy:models/legacy/dornier_1",
+    "texture": "atomiclegacy:models/legacy/dornier_1"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/mass_storage_desh" },
+    "facing=east": { "model": "atomiclegacy:block/mass_storage_desh", "y": 90 },
+    "facing=south": { "model": "atomiclegacy:block/mass_storage_desh", "y": 180 },
+    "facing=west": { "model": "atomiclegacy:block/mass_storage_desh", "y": 270 }
+  }
+}

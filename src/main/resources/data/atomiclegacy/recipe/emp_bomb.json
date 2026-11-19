@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "LML",
+    "LCL",
+    "LML"
+  ],
+  "key": {
+    "L": { "tag": "c:plates/lead" },
+    "M": { "item": "atomiclegacy:magnetron" },
+    "C": { "item": "atomiclegacy:circuit_advanced" }
+  },
+  "result": {
+    "id": "atomiclegacy:emp_bomb",
+    "count": 1
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "top": "atomiclegacy:block/battery_potato_top",
+    "bottom": "atomiclegacy:block/battery_potato_top",
+    "side": "atomiclegacy:block/battery_potato_side",
+    "front": "atomiclegacy:block/battery_potato_front"
+  }
+}

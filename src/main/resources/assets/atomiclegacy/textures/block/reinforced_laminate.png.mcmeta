@@ -1,0 +1,10 @@
+﻿{
+	"ctm": {
+		"ctm_version": 1,
+		"type": "CTM",
+		"textures": [
+			"atomiclegacy:block/reinforced_laminate_ctm"
+		]
+	}
+}
+

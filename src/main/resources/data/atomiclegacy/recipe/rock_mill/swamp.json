@@ -1,0 +1,13 @@
+{
+  "type": "atomiclegacy:rock_mill",
+  "group": "rock.crushing",
+  "auto_switch_group": "autoswitch.crushing",
+  "input": { "ingredient": { "item": "atomiclegacy:dirt_swamp" }, "count": 1 },
+  "outputs": [
+    { "stack": { "id": "atomiclegacy:briquette_peat", "count": 4 }, "weight": 150 },
+    { "stack": { "id": "minecraft:dirt" }, "weight": 49 },
+    { "stack": { "id": "atomiclegacy:bacteria_anthrax_inert" }, "weight": 1 }
+  ],
+  "duration": 100,
+  "power": 25
+}

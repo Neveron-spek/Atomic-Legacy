@@ -1,0 +1,15 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer.weapon",
+  "ingredient": {
+    "item": "atomiclegacy:meteorite_sword_treated"
+  },
+  "acid": {
+    "fluid": "peroxide",
+    "amount": 500
+  },
+  "duration": 600,
+  "result": {
+    "id": "atomiclegacy:meteorite_sword_etched"
+  }
+}

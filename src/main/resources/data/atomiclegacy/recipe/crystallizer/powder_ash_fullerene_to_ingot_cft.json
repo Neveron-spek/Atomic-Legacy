@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer.fullerene",
+  "ingredient": {
+    "item": "atomiclegacy:powder_ash_fullerene"
+  },
+  "input_count": 4,
+  "acid": {
+    "fluid": "xylene",
+    "amount": 1000
+  },
+  "duration": 600,
+  "productivity": 0.1,
+  "result": {
+    "id": "atomiclegacy:ingot_cft"
+  }
+}

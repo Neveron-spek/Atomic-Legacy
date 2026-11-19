@@ -1,0 +1,40 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.refinery",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_steel_plating"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:pipe_steel"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/polymer"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_analog"
+      },
+      "count": 5
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:machine_refinery"
+  }
+}

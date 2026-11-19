@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "material=0": { "model": "atomiclegacy:block/stalagmite_sulfur" },
+    "material=1": { "model": "atomiclegacy:block/stalagmite_asbestos" },
+    "material=2": { "model": "atomiclegacy:block/stalagmite_ice" },
+    "material=3": { "model": "atomiclegacy:block/stalagmite_snow" },
+    "material=4": { "model": "atomiclegacy:block/stalagmite_glyphid1" },
+    "material=5": { "model": "atomiclegacy:block/stalagmite_glyphid2" },
+    "material=6": { "model": "atomiclegacy:block/stalagmite_glyphid3" }
+  }
+}

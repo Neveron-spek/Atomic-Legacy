@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "neoforge:components",
+      "items": "atomiclegacy:cart",
+      "components": {
+        "atomiclegacy:cart_type": 0
+      }
+    },
+    {
+      "tag": "c:dyes/red"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:cart",
+    "count": 1,
+    "components": {
+      "atomiclegacy:cart_type": 0,
+      "atomiclegacy:cart_base": 3
+    }
+  }
+}

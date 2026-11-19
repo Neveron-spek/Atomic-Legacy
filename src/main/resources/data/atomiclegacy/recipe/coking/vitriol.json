@@ -1,0 +1,7 @@
+{
+  "type": "atomiclegacy:coking",
+  "group": "coking.vitriol",
+  "input": { "fluid": "vitriol", "amount": 4000 },
+  "output": { "id": "atomiclegacy:powder_iron" },
+  "byproduct": { "fluid": "sulfuric_acid", "amount": 500 }
+}

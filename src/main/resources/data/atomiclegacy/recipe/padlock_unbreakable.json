@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " P ",
+    "PBP",
+    "PDP"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:plates/saturnite"
+    },
+    "B": {
+      "item": "atomiclegacy:bolt_dura_steel"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:padlock_unbreakable"
+  }
+}

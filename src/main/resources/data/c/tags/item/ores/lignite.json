@@ -1,0 +1,7 @@
+{
+    "replace":  false,
+    "values":  [
+                   "atomiclegacy:ore_lignite",
+                   "atomiclegacy:ore_deepslate_lignite"
+               ]
+}

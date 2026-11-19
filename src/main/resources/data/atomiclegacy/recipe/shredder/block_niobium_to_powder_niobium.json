@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:block_niobium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_niobium",
+    "count": 9
+  }
+}

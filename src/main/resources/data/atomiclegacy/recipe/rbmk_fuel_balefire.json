@@ -1,0 +1,36 @@
+﻿{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:rbmk_fuel_empty"
+    },
+    {
+      "item": "atomiclegacy:egg_balefire_shard"
+    },
+    {
+      "item": "atomiclegacy:egg_balefire_shard"
+    },
+    {
+      "item": "atomiclegacy:egg_balefire_shard"
+    },
+    {
+      "item": "atomiclegacy:egg_balefire_shard"
+    },
+    {
+      "item": "atomiclegacy:egg_balefire_shard"
+    },
+    {
+      "item": "atomiclegacy:egg_balefire_shard"
+    },
+    {
+      "item": "atomiclegacy:egg_balefire_shard"
+    },
+    {
+      "item": "atomiclegacy:egg_balefire_shard"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:rbmk_fuel_balefire"
+  }
+}

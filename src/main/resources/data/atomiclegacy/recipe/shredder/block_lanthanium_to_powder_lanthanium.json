@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:block_lanthanium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_lanthanium",
+    "count": 9
+  }
+}

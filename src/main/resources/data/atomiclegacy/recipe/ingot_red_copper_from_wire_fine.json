@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "atomiclegacy:wire_red_copper"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:ingot_red_copper"
+  }
+}

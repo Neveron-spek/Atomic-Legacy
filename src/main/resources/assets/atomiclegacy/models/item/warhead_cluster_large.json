@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/warhead_cluster_large"
+                 },
+    "parent":  "minecraft:item/generated"
+}

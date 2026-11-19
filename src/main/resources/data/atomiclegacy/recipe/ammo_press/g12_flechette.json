@@ -1,0 +1,39 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.g12_flechette",
+  "order": 46,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:bolts/lead"
+      },
+      "count": 12
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_buckshot"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 6,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "g12_flechette"
+      },
+      "minecraft:custom_model_data": 61
+    }
+  }
+}

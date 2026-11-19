@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:rail_narrow",
+    "atomiclegacy:rail_wood",
+    "atomiclegacy:rail_highspeed",
+    "atomiclegacy:rail_booster"
+  ]
+}

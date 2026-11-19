@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/designator_manual"
+                 },
+    "parent":  "minecraft:item/generated"
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " W",
+    "SC",
+    "CE"
+  ],
+  "key": {
+    "S": {
+      "tag": "c:plates/steel"
+    },
+    "W": {
+      "item": "atomiclegacy:wire_schrabidium"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_advanced"
+    },
+    "E": {
+      "tag": "c:ingots/euphemium"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:igniter"
+  }
+}

@@ -1,0 +1,56 @@
+{
+    "type": "atomiclegacy:precision_assembler",
+    "group": "precass.upgrade_ab_ii",
+    "duration": 300,
+    "power": 10000,
+    "ingredients": [
+        {
+            "ingredient": {
+                "item": "atomiclegacy:circuit_chip"
+            },
+            "count": 8
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:circuit_capacitor_tantalium"
+            },
+            "count": 4
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:upgrade_afterburn_1"
+            },
+            "count": 1
+        },
+        {
+            "ingredient": {
+                "tag": "c:ingots/plastic"
+            },
+            "count": 4
+        }
+    ],
+    "outputs": [
+        {
+            "result": {
+                "id": "atomiclegacy:upgrade_afterburn_2",
+                "count": 1
+            },
+            "weight": 50
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:broken_item",
+                "count": 1,
+                "components": {
+                    "minecraft:custom_data": "{item_id:\"atomiclegacy:upgrade_afterburn_2\",item_count:1}"
+                }
+            },
+            "weight": 50
+        }
+    ],
+    "neoforge:conditions": [
+        {
+            "type": "atomiclegacy:enable_528_mode"
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.mpw15nuke",
+  "duration": 400,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:seg_15"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/weaponsteel"
+      },
+      "count": 32
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:billet_pu239"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:neutron_reflector"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:ball_tatb"
+      },
+      "count": 24
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller"
+      },
+      "count": 3
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:mp_warhead_15_nuclear",
+    "count": 1
+  },
+  "blueprint_pools": [
+    "528.controller"
+  ]
+}

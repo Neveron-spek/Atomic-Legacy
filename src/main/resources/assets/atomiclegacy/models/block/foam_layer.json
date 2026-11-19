@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/thin_block",
+  "textures": {
+    "particle": "atomiclegacy:block/block_foam",
+    "texture": "atomiclegacy:block/block_foam"
+  }
+}

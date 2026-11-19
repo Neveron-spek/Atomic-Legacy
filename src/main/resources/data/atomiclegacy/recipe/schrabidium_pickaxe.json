@@ -1,0 +1,35 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:less_bullshit_mode",
+        "feature": "simple_tools"
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "BSB",
+    " W ",
+    " P "
+  ],
+  "key": {
+    "B": {
+      "item": "atomiclegacy:blades_desh"
+    },
+    "S": {
+      "tag": "c:storage_blocks/schrabidium"
+    },
+    "W": {
+      "item": "atomiclegacy:desh_pickaxe"
+    },
+    "P": {
+      "tag": "c:ingots/plastic"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:schrabidium_pickaxe"
+  }
+}

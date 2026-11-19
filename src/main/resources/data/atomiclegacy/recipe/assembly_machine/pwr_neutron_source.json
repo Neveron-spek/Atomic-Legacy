@@ -1,0 +1,31 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_expensive_mode"
+      }
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.pwrneutronsource",
+  "duration": 200,
+  "power": 500,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_welded_zirconium"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:billet_ra226be"
+      },
+      "count": 3
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:pwr_neutron_source"
+  }
+}

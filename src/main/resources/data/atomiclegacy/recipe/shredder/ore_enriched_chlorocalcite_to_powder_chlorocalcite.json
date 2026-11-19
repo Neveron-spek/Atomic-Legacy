@@ -1,0 +1,19 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:ore_enriched"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "ore_type": "chlorocalcite"
+      },
+      "minecraft:custom_model_data": 10
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:powder_chlorocalcite",
+    "count": 2
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " C ",
+    "PUP",
+    " C "
+  ],
+  "key": {
+    "C": {
+      "tag": "c:plates/copper"
+    },
+    "P": {
+      "item": "atomiclegacy:motor"
+    },
+    "U": {
+      "item": "atomiclegacy:upgrade_template"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:upgrade_ejector",
+    "count": 1
+  }
+}

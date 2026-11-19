@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " WP",
+    "SEP",
+    " WP"
+  ],
+  "key": {
+    "W": {
+      "item": "atomiclegacy:wire_gold"
+    },
+    "P": {
+      "tag": "c:plates/weaponsteel"
+    },
+    "S": {
+      "item": "atomiclegacy:shell_weaponsteel"
+    },
+    "E": {
+      "item": "atomiclegacy:ball_tatb"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:assembly_nuke"
+  }
+}

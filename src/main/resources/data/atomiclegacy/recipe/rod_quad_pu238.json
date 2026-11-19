@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:rod_quad_empty"
+    },
+    {
+      "item": "atomiclegacy:billet_pu238"
+    },
+    {
+      "item": "atomiclegacy:billet_pu238"
+    },
+    {
+      "item": "atomiclegacy:billet_pu238"
+    },
+    {
+      "item": "atomiclegacy:billet_pu238"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:rod_quad",
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "pu238"
+      },
+      "minecraft:custom_model_data": 9
+    }
+  }
+}

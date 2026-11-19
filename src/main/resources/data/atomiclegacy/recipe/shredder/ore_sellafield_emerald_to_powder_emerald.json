@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ore_sellafield_emerald"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_emerald",
+    "count": 2
+  }
+}

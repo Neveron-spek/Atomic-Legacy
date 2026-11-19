@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WWW",
+    "  W"
+  ],
+  "key": {
+    "W": {
+      "tag": "c:ingots/pvc"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:part_stock_pvc",
+    "count": 1
+  }
+}

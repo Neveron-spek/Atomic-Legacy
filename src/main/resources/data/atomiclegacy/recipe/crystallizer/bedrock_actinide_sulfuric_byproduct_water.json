@@ -1,0 +1,32 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer.bedrock_ore",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:bedrock_ore_new"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "grade": "sulfuric_byproduct",
+        "type": "actinide"
+      }
+    }
+  },
+  "input_count": 4,
+  "acid": {
+    "fluid": "water",
+    "amount": 250
+  },
+  "duration": 100,
+  "result": {
+    "id": "atomiclegacy:bedrock_ore_new",
+    "components": {
+      "minecraft:custom_data": {
+        "grade": "sulfuric_washed",
+        "type": "actinide"
+      },
+      "minecraft:custom_model_data": 105
+    }
+  }
+}

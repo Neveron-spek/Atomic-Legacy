@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_nether",
+  "features": "atomiclegacy:nether_neodymium",
+  "step": "underground_ores"
+}

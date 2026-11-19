@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:brick_light"
+  },
+  "result": {
+    "id": "minecraft:clay_ball",
+    "count": 4
+  }
+}

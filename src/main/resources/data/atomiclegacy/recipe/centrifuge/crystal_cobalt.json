@@ -1,0 +1,25 @@
+{
+    "type":  "atomiclegacy:centrifuge",
+    "group":  "centrifuge",
+    "ingredient":  {
+                       "item":  "atomiclegacy:crystal_cobalt"
+                   },
+    "input_count":  1,
+    "results":  [
+                    {
+                        "id":  "atomiclegacy:powder_cobalt",
+                        "count":  2
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_iron",
+                        "count":  3
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_copper",
+                        "count":  3
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_lithium_tiny"
+                    }
+                ]
+}

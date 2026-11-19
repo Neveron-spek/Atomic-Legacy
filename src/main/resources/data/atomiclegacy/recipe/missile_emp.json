@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:missile_assembly"
+    },
+    {
+      "item": "atomiclegacy:ducttape"
+    },
+    {
+      "item": "atomiclegacy:emp_bomb"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:missile_emp",
+    "count": 1
+  }
+}

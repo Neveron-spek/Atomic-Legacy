@@ -1,0 +1,46 @@
+{
+  "type": "atomiclegacy:chemical_plant",
+  "group": "chem.batteryschrabidium",
+  "duration": 100,
+  "power": 25000,
+  "input_items": [
+    {
+      "ingredient": {
+        "tag": "c:dusts/schrabidium"
+      },
+      "count": 24
+    },
+    {
+      "ingredient": {
+        "type": "neoforge:compound",
+        "ingredients": [
+          {
+            "item": "atomiclegacy:plate_cast_bismuth_bronze"
+          },
+          {
+            "item": "atomiclegacy:plate_cast_arsenic_bronze"
+          }
+        ]
+      },
+      "count": 8
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "helium4",
+      "amount": 8000
+    }
+  ],
+  "output_items": [
+    {
+      "id": "atomiclegacy:battery_pack",
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "battery_schrabidium"
+        },
+        "minecraft:custom_model_data": 4
+      }
+    }
+  ],
+  "output_fluids": []
+}

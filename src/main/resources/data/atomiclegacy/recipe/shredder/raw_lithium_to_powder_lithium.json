@@ -1,0 +1,6 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": { "item": "atomiclegacy:raw_lithium" },
+  "input_count": 2,
+  "result": { "id": "atomiclegacy:powder_lithium", "count": 3 }
+}

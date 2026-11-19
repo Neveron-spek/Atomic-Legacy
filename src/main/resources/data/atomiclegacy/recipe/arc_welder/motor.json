@@ -1,0 +1,24 @@
+{
+  "type": "atomiclegacy:arc_welder",
+  "group": "arc_welder.parts",
+  "duration": 100,
+  "consumption": 400,
+  "inputs": [
+    {
+      "ingredient": {
+        "tag": "c:plates/steel"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_dense_red_copper"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:motor",
+    "count": 2
+  }
+}

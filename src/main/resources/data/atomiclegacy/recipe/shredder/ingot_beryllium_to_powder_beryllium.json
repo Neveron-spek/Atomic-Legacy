@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ingot_beryllium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_beryllium"
+  }
+}

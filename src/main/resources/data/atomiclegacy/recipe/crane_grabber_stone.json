@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "C C",
+    "P P",
+    "CBC"
+  ],
+  "key": {
+    "C": [
+      {
+        "item": "minecraft:chiseled_stone_bricks"
+      },
+      {
+        "item": "minecraft:cracked_stone_bricks"
+      },
+      {
+        "item": "minecraft:mossy_stone_bricks"
+      },
+      {
+        "item": "minecraft:stone_bricks"
+      }
+    ],
+    "P": {
+      "item": "atomiclegacy:part_generic_piston_pneumatic"
+    },
+    "B": {
+      "item": "atomiclegacy:conveyor"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:crane_grabber"
+  }
+}

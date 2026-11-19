@@ -1,0 +1,21 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "ASA",
+                    "   ",
+                    "ASA"
+                ],
+    "key":  {
+                "A":  {
+                          "tag":  "c:plates/aluminium"
+                      },
+                "S":  {
+                          "tag":  "c:plates/steel"
+                      }
+            },
+    "result":  {
+                   "id":  "atomiclegacy:fluid_duct_neo",
+                   "count":  8
+               }
+}

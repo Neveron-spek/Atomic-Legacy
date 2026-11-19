@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "E E",
+    "EEE",
+    "EEE"
+  ],
+  "key": {
+    "E": { "item": "atomiclegacy:hazmat_cloth_red" }
+  },
+  "result": { "id": "atomiclegacy:hazmat_plate_red" }
+}

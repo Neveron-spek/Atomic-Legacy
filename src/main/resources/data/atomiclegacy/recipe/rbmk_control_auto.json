@@ -1,0 +1,31 @@
+﻿{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_528_mode"
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "C",
+    "R",
+    "D"
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:circuit_advanced"
+    },
+    "R": {
+      "item": "atomiclegacy:rbmk_control"
+    },
+    "D": {
+      "item": "atomiclegacy:crt_display"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:rbmk_control_auto"
+  }
+}

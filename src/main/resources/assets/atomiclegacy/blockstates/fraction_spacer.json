@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/fraction_spacer" },
+    "facing=east": { "model": "atomiclegacy:block/particle/fraction_spacer" },
+    "facing=south": { "model": "atomiclegacy:block/particle/fraction_spacer" },
+    "facing=west": { "model": "atomiclegacy:block/particle/fraction_spacer" }
+  }
+}

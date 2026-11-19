@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "item": "atomiclegacy:powder_calcium"
+  },
+  "acid": {
+    "fluid": "redmud",
+    "amount": 75
+  },
+  "duration": 100,
+  "productivity": 0.1,
+  "result": {
+    "id": "atomiclegacy:powder_cement",
+    "count": 8
+  }
+}

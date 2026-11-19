@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "atomiclegacy:block/machine_battery_potato"
+    },
+    "facing=east": {
+      "model": "atomiclegacy:block/machine_battery_potato",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "atomiclegacy:block/machine_battery_potato",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "atomiclegacy:block/machine_battery_potato",
+      "y": 270
+    }
+  }
+}

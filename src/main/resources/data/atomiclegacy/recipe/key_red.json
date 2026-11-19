@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "RCA",
+    "CIC",
+    "KCR"
+  ],
+  "key": {
+    "R": {
+      "tag": "c:dyes/red"
+    },
+    "C": {
+      "item": "atomiclegacy:wire_dense_starmetal"
+    },
+    "A": {
+      "item": "atomiclegacy:gem_alexandrite"
+    },
+    "I": {
+      "tag": "c:ingots/chainsteel"
+    },
+    "K": {
+      "item": "atomiclegacy:key"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:key_red"
+  }
+}

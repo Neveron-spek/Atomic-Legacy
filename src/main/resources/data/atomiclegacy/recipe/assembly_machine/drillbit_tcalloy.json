@@ -1,0 +1,29 @@
+﻿{
+    "type":  "atomiclegacy:assembly_machine",
+    "group":  "ass.drilltc",
+    "duration":  100,
+    "power":  100,
+    "ingredients":  [
+                        {
+                            "count":  20,
+                            "ingredient":  {
+                                               "tag":  "c:ingots/resistant_alloy"
+                                           }
+                        },
+                        {
+                            "count":  12,
+                            "ingredient":  {
+                                               "tag":  "c:ingots/desh"
+                                           }
+                        },
+                        {
+                            "count":  8,
+                            "ingredient":  {
+                                               "tag":  "c:ingots/rubber"
+                                           }
+                        }
+                    ],
+    "result":  {
+                   "id":  "atomiclegacy:drillbit_tcalloy"
+               }
+}

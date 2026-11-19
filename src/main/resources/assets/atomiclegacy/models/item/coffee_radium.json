@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/coffee_radium"
+                 },
+    "parent":  "minecraft:item/generated"
+}

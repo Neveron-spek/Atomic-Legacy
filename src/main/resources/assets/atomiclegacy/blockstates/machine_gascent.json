@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=north,lit=false": { "model": "atomiclegacy:block/particle/machine_gascent" },
+    "facing=east,lit=false": { "model": "atomiclegacy:block/particle/machine_gascent" },
+    "facing=south,lit=false": { "model": "atomiclegacy:block/particle/machine_gascent" },
+    "facing=west,lit=false": { "model": "atomiclegacy:block/particle/machine_gascent" },
+    "facing=north,lit=true": { "model": "atomiclegacy:block/particle/machine_gascent" },
+    "facing=east,lit=true": { "model": "atomiclegacy:block/particle/machine_gascent" },
+    "facing=south,lit=true": { "model": "atomiclegacy:block/particle/machine_gascent" },
+    "facing=west,lit=true": { "model": "atomiclegacy:block/particle/machine_gascent" }
+  }
+}

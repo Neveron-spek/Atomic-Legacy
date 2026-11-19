@@ -1,0 +1,5 @@
+{
+  "parent": "atomiclegacy:block/machine_cyclotron_b1",
+  "mtl_override": "atomiclegacy:models/obj/machines/cyclotron_ashes_filled.mtl",
+  "textures": { "particle": "atomiclegacy:models/machines/cyclotron_ashes_filled" }
+}

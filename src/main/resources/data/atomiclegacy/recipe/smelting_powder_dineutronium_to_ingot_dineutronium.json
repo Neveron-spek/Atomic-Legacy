@@ -1,0 +1,12 @@
+{
+    "type":  "minecraft:smelting",
+    "category":  "misc",
+    "ingredient":  {
+                       "tag":  "c:dusts/dineutronium"
+                   },
+    "result":  {
+                   "id":  "atomiclegacy:ingot_dineutronium"
+               },
+    "experience":  5,
+    "cookingtime":  200
+}

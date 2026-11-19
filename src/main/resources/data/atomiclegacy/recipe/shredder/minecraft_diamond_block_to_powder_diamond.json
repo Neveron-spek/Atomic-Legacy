@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "minecraft:diamond_block"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_diamond",
+    "count": 9
+  }
+}

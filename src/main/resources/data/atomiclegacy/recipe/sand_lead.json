@@ -1,0 +1,43 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "c:sands"
+    },
+    {
+      "tag": "c:sands"
+    },
+    {
+      "tag": "c:sands"
+    },
+    {
+      "tag": "c:sands"
+    },
+    {
+      "tag": "c:sands"
+    },
+    {
+      "tag": "c:sands"
+    },
+    {
+      "tag": "c:sands"
+    },
+    {
+      "tag": "c:sands"
+    },
+    {
+      "tag": "c:dusts/lead"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:sand_mix",
+    "count": 8,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "lead"
+      },
+      "minecraft:custom_model_data": 1
+    }
+  }
+}

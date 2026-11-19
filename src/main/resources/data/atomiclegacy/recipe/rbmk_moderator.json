@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " G ",
+    "GRG",
+    " G "
+  ],
+  "key": {
+    "G": {
+      "tag": "c:storage_blocks/graphite"
+    },
+    "R": {
+      "item": "atomiclegacy:rbmk_blank"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:rbmk_moderator"
+  }
+}

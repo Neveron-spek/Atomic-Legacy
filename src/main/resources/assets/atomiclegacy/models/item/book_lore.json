@@ -1,0 +1,8 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/book_lore",
+                     "layer1":  "atomiclegacy:item/book_cover",
+                     "layer2":  "atomiclegacy:item/book_title"
+                 },
+    "parent":  "minecraft:item/generated"
+}

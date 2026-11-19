@@ -1,0 +1,10 @@
+﻿{
+  "variants": {
+    "": [
+      { "model": "atomiclegacy:block/ore_sellafield_diamond_0" },
+      { "model": "atomiclegacy:block/ore_sellafield_diamond_1" },
+      { "model": "atomiclegacy:block/ore_sellafield_diamond_2" },
+      { "model": "atomiclegacy:block/ore_sellafield_diamond_3" }
+    ]
+  }
+}

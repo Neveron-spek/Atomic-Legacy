@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " IP",
+    "IIM",
+    " IP"
+  ],
+  "key": {
+    "I": {
+      "tag": "c:ingots/saturnite"
+    },
+    "P": {
+      "tag": "c:ingots/hard_plastic"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_drill_saturnite",
+    "count": 1
+  }
+}

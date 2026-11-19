@@ -1,0 +1,16 @@
+{
+  "type": "atomiclegacy:soldering_station",
+  "group": "soldering.upgrade",
+  "duration": 200,
+  "consumption": 1000,
+  "toppings": [
+    { "ingredient": { "item": "atomiclegacy:circuit_chip" }, "count": 4 },
+    { "ingredient": { "item": "atomiclegacy:circuit_capacitor" }, "count": 4 }
+  ],
+  "pcb": [
+    { "ingredient": { "item": "atomiclegacy:upgrade_template" }, "count": 1 },
+    { "ingredient": { "tag": "c:dusts/lithium" }, "count": 4 }
+  ],
+  "solder": [],
+  "result": { "id": "atomiclegacy:upgrade_health" }
+}

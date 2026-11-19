@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BCB",
+    "BMB",
+    "GG "
+  ],
+  "key": {
+    "B": {
+      "tag": "c:gun_parts/barrel_heavy/ferrouranium"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_advanced"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/any_plastic"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_quadro",
+    "count": 1
+  }
+}

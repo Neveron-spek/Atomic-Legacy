@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [" P ", "NSN", " P "],
+  "key": {
+    "P": { "tag": "c:nuggets/pu239" },
+    "N": { "item": "atomiclegacy:neutron_reflector" },
+    "S": { "type": "neoforge:components", "items": ["atomiclegacy:ammo_shell"], "components": { "minecraft:custom_data": { "variant": "explosive" }, "minecraft:custom_model_data": 1 } }
+  },
+  "result": { "id": "atomiclegacy:ammo_shell", "components": { "minecraft:custom_data": { "variant": "w9" }, "minecraft:custom_model_data": 4 } }
+}

@@ -1,0 +1,34 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.fusioncollector",
+  "duration": 300,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_ferro_plating"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/graphite"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_plastic"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:fusion_collector"
+  }
+}

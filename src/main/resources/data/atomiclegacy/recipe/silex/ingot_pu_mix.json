@@ -1,0 +1,24 @@
+{
+  "type": "atomiclegacy:silex",
+  "group": "silex.ingot_pu_mix",
+  "ingredient": {
+    "item": "atomiclegacy:ingot_pu_mix"
+  },
+  "fluid_produced": 900,
+  "fluid_consumed": 100,
+  "wavelength": "visible",
+  "outputs": [
+    {
+      "item": {
+        "id": "atomiclegacy:nugget_pu239"
+      },
+      "weight": 6
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:nugget_pu240"
+      },
+      "weight": 3
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:less_bullshit_mode",
+      "feature": "simple_crafting"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:slime_ball"
+    },
+    {
+      "item": "minecraft:tnt"
+    },
+    {
+      "tag": "c:dusts/niter"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:ingot_semtex",
+    "count": 3
+  }
+}

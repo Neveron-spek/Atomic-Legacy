@@ -1,0 +1,28 @@
+{
+  "parent": "atomiclegacy:root",
+  "display": {
+    "icon": {
+      "id": "atomiclegacy:geiger_counter"
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.rad_poison.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.rad_poison.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "triggered"
+    ]
+  ]
+}

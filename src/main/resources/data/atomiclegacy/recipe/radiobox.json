@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["PLP", "PSP", "PLP"],
+  "key": {
+    "P": { "tag": "c:plates/steel" },
+    "L": { "tag": "c:plates/dura_steel" },
+    "S": { "item": "atomiclegacy:ring_starmetal" }
+  },
+  "result": { "id": "atomiclegacy:radiobox" }
+}

@@ -1,0 +1,12 @@
+{
+    "type":  "minecraft:smelting",
+    "category":  "misc",
+    "ingredient":  {
+                       "tag":  "c:dusts/euphemium"
+                   },
+    "result":  {
+                   "id":  "atomiclegacy:ingot_euphemium"
+               },
+    "experience":  10,
+    "cookingtime":  200
+}

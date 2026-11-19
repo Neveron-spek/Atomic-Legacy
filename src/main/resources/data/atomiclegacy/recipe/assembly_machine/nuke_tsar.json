@@ -1,0 +1,50 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.tsarbomba",
+  "duration": 1200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:sphere_steel"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:shell_titanium"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:shell_steel"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:fins_tri_steel"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller_advanced"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "tag": "c:dyes/black"
+      },
+      "count": 8
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:nuke_tsar"
+  },
+  "blueprint_pools": [
+    "528.controller"
+  ]
+}

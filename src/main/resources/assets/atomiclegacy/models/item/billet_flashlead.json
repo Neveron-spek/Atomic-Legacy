@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/billet_flashlead"
+                 },
+    "parent":  "minecraft:item/generated"
+}

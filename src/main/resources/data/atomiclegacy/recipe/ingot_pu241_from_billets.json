@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:crafting_shapeless", "category": "misc",
+  "ingredients": [
+    { "item": "atomiclegacy:billet_pu241" }, { "item": "atomiclegacy:billet_pu241" }, { "item": "atomiclegacy:billet_pu241" }
+  ],
+  "result": { "id": "atomiclegacy:ingot_pu241", "count": 2 }
+}

@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "BB",
+    "BB"
+  ],
+  "key": {
+    "B": {
+      "type": "neoforge:difference",
+      "base": {
+        "item": "atomiclegacy:vinyl_tile"
+      },
+      "subtracted": {
+        "type": "neoforge:components",
+        "items": "atomiclegacy:vinyl_tile",
+        "components": {
+          "minecraft:custom_data": "{meta:1}",
+          "minecraft:custom_model_data": 1
+        }
+      }
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:vinyl_tile",
+    "count": 4,
+    "components": {
+      "minecraft:custom_data": "{meta:1}",
+      "minecraft:custom_model_data": 1
+    }
+  }
+}

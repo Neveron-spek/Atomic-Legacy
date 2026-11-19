@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:plates/saturnite"
+    },
+    {
+      "tag": "c:plates/cast_saturnite"
+    },
+    {
+      "item": "atomiclegacy:ducttape"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:weapon_mod_generic_bigmt_dura",
+    "count": 1
+  }
+}

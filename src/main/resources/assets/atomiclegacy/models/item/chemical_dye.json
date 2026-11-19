@@ -1,0 +1,99 @@
+{
+    "parent":  "minecraft:item/generated",
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/chemical_dye",
+                     "layer1":  "atomiclegacy:item/chemical_dye_overlay"
+                 },
+    "overrides":  [
+                      {
+                          "predicate":  {
+                                            "minecraft:custom_model_data":  1
+                                        },
+                          "model":  "atomiclegacy:item/chemical_dye.red"
+                      },
+                      {
+                          "predicate":  {
+                                            "minecraft:custom_model_data":  2
+                                        },
+                          "model":  "atomiclegacy:item/chemical_dye.green"
+                      },
+                      {
+                          "predicate":  {
+                                            "minecraft:custom_model_data":  3
+                                        },
+                          "model":  "atomiclegacy:item/chemical_dye.brown"
+                      },
+                      {
+                          "predicate":  {
+                                            "minecraft:custom_model_data":  4
+                                        },
+                          "model":  "atomiclegacy:item/chemical_dye.blue"
+                      },
+                      {
+                          "predicate":  {
+                                            "minecraft:custom_model_data":  5
+                                        },
+                          "model":  "atomiclegacy:item/chemical_dye.purple"
+                      },
+                      {
+                          "predicate":  {
+                                            "minecraft:custom_model_data":  6
+                                        },
+                          "model":  "atomiclegacy:item/chemical_dye.cyan"
+                      },
+                      {
+                          "predicate":  {
+                                            "minecraft:custom_model_data":  7
+                                        },
+                          "model":  "atomiclegacy:item/chemical_dye.silver"
+                      },
+                      {
+                          "predicate":  {
+                                            "minecraft:custom_model_data":  8
+                                        },
+                          "model":  "atomiclegacy:item/chemical_dye.gray"
+                      },
+                      {
+                          "predicate":  {
+                                            "minecraft:custom_model_data":  9
+                                        },
+                          "model":  "atomiclegacy:item/chemical_dye.pink"
+                      },
+                      {
+                          "predicate":  {
+                                            "minecraft:custom_model_data":  10
+                                        },
+                          "model":  "atomiclegacy:item/chemical_dye.lime"
+                      },
+                      {
+                          "predicate":  {
+                                            "minecraft:custom_model_data":  11
+                                        },
+                          "model":  "atomiclegacy:item/chemical_dye.yellow"
+                      },
+                      {
+                          "predicate":  {
+                                            "minecraft:custom_model_data":  12
+                                        },
+                          "model":  "atomiclegacy:item/chemical_dye.lightblue"
+                      },
+                      {
+                          "predicate":  {
+                                            "minecraft:custom_model_data":  13
+                                        },
+                          "model":  "atomiclegacy:item/chemical_dye.magenta"
+                      },
+                      {
+                          "predicate":  {
+                                            "minecraft:custom_model_data":  14
+                                        },
+                          "model":  "atomiclegacy:item/chemical_dye.orange"
+                      },
+                      {
+                          "predicate":  {
+                                            "minecraft:custom_model_data":  15
+                                        },
+                          "model":  "atomiclegacy:item/chemical_dye.white"
+                      }
+                  ]
+}

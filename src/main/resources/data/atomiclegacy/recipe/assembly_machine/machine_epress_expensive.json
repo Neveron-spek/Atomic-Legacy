@@ -1,0 +1,15 @@
+{
+  "neoforge:conditions": [
+    { "type": "atomiclegacy:enable_expensive_mode" }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.epress",
+  "duration": 100,
+  "power": 100,
+  "ingredients": [
+    { "ingredient": { "item": "atomiclegacy:item_expensive_heavy_frame" }, "count": 1 },
+    { "ingredient": { "item": "atomiclegacy:part_generic_piston_hydraulic" }, "count": 4 },
+    { "ingredient": { "item": "atomiclegacy:circuit_basic" }, "count": 4 }
+  ],
+  "result": { "id": "atomiclegacy:machine_epress" }
+}

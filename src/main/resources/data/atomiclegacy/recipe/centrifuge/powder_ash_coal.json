@@ -1,0 +1,21 @@
+{
+  "type": "atomiclegacy:centrifuge",
+  "group": "centrifuge",
+  "ingredient": {
+    "item": "atomiclegacy:powder_ash_coal"
+  },
+  "input_count": 1,
+  "results": [
+    {
+      "id": "atomiclegacy:powder_coal_tiny",
+      "count": 2
+    },
+    {
+      "id": "atomiclegacy:powder_boron_tiny"
+    },
+    {
+      "id": "atomiclegacy:dust_tiny",
+      "count": 6
+    }
+  ]
+}

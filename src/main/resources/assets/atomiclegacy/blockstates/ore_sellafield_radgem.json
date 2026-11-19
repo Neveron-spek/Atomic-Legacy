@@ -1,0 +1,10 @@
+﻿{
+  "variants": {
+    "": [
+      { "model": "atomiclegacy:block/ore_sellafield_radgem_0" },
+      { "model": "atomiclegacy:block/ore_sellafield_radgem_1" },
+      { "model": "atomiclegacy:block/ore_sellafield_radgem_2" },
+      { "model": "atomiclegacy:block/ore_sellafield_radgem_3" }
+    ]
+  }
+}

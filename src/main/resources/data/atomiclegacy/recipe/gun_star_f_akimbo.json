@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "UMU"
+  ],
+  "key": {
+    "U": {
+      "item": "atomiclegacy:gun_star_f"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/saturnite"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_star_f_akimbo",
+    "count": 1
+  }
+}

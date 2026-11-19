@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "DSD",
+    "SCS",
+    "DSD"
+  ],
+  "key": {
+    "D": { "item": "atomiclegacy:neutron_reflector" },
+    "S": { "type": "neoforge:components", "items": ["atomiclegacy:ammo_arty"], "components": { "minecraft:custom_data": { "variant": "ammo_arty_mini_nuke" }, "minecraft:custom_model_data": 3 } },
+    "C": { "item": "atomiclegacy:det_cord" }
+  },
+  "result": { "id": "atomiclegacy:ammo_arty", "components": { "minecraft:custom_data": { "variant": "ammo_arty_mini_nuke_multi" }, "minecraft:custom_model_data": 6 } }
+}

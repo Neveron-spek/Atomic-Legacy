@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "STS",
+    "G G",
+    "STS"
+  ],
+  "key": {
+    "S": {
+      "item": "atomiclegacy:plate_cast_lead"
+    },
+    "T": {
+      "item": "atomiclegacy:coil_gold"
+    },
+    "G": {
+      "tag": "c:glass_panes"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:particle_empty",
+    "count": 2
+  }
+}

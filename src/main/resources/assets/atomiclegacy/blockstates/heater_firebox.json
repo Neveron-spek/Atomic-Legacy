@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/heater_firebox" },
+    "facing=east": { "model": "atomiclegacy:block/particle/heater_firebox" },
+    "facing=south": { "model": "atomiclegacy:block/particle/heater_firebox" },
+    "facing=west": { "model": "atomiclegacy:block/particle/heater_firebox" }
+  }
+}

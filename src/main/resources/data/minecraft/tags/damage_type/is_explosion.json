@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:sedna_explosive",
+    "atomiclegacy:nuclear_blast",
+    "atomiclegacy:tau_blast"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "atomiclegacy:block/asphalt",
+    "top": "atomiclegacy:block/asphalt",
+    "side": "atomiclegacy:block/asphalt"
+  }
+}

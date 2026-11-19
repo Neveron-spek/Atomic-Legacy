@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ESE",
+    "SBS",
+    "ESE"
+  ],
+  "key": {
+    "E": { "tag": "c:nuggets/euphemium" },
+    "S": { "item": "atomiclegacy:cell_anti_schrabidium" },
+    "B": { "item": "atomiclegacy:block_schrabidium" }
+  },
+  "result": {
+    "id": "atomiclegacy:singularity",
+    "count": 1
+  }
+}

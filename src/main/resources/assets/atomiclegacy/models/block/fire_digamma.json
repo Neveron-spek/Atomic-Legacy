@@ -1,0 +1,7 @@
+{
+    "textures":  {
+                     "cross":  "atomiclegacy:block/fire_digamma"
+                 },
+    "parent":  "minecraft:block/cross",
+    "render_type": "minecraft:cutout"
+}

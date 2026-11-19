@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/machine_turbofan" },
+    "facing=south": { "model": "atomiclegacy:block/particle/machine_turbofan" },
+    "facing=west": { "model": "atomiclegacy:block/particle/machine_turbofan" },
+    "facing=east": { "model": "atomiclegacy:block/particle/machine_turbofan" }
+  }
+}

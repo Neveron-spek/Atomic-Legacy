@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": ["P P", "GCG"],
+  "key": {
+    "P": { "tag": "c:ingots/plastic" },
+    "G": { "tag": "c:glass_blocks" },
+    "C": { "item": "atomiclegacy:circuit_basic" }
+  },
+  "result": { "id": "atomiclegacy:night_vision" }
+}

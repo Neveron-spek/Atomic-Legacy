@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:hadron_coil_gold"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:wire_dense_gold",
+    "count": 4
+  }
+}

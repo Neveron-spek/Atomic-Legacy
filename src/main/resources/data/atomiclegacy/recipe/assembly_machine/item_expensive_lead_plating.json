@@ -1,0 +1,41 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.exleadplating",
+  "duration": 400,
+  "power": 4000,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_steel_plating"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_lead"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/boron"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:bolt_tungsten"
+      },
+      "count": 32
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "lubricant",
+      "amount": 1000
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:item_expensive_lead_plating"
+  }
+}

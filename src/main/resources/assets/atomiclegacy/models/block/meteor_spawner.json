@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "atomiclegacy:block/meteor_polished",
+    "up": "atomiclegacy:block/meteor_spawner_top",
+    "north": "atomiclegacy:block/meteor_spawner_side",
+    "south": "atomiclegacy:block/meteor_spawner_side",
+    "west": "atomiclegacy:block/meteor_spawner_side",
+    "east": "atomiclegacy:block/meteor_spawner_side",
+    "particle": "atomiclegacy:block/meteor_spawner_side"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/anvil_bismuth_bronze", "y": 90 },
+    "facing=east": { "model": "atomiclegacy:block/anvil_bismuth_bronze", "y": 180 },
+    "facing=south": { "model": "atomiclegacy:block/anvil_bismuth_bronze", "y": 270 },
+    "facing=west": { "model": "atomiclegacy:block/anvil_bismuth_bronze" }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "type": "atomiclegacy:centrifuge",
+  "group": "centrifuge",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:bedrock_ore_new"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "grade": "solvent_washed",
+        "type": "nonmetal"
+      }
+    }
+  },
+  "input_count": 1,
+  "results": [
+    {
+      "id": "atomiclegacy:bedrock_ore_fragment_phosphorus",
+      "count": 5
+    },
+    {
+      "id": "atomiclegacy:bedrock_ore_fragment_fluorite",
+      "count": 6
+    },
+    {
+      "id": "atomiclegacy:bedrock_ore_fragment_sulfur",
+      "count": 6
+    },
+    {
+      "id": "atomiclegacy:bedrock_ore_new",
+      "components": {
+        "minecraft:custom_data": {
+          "grade": "crumbs",
+          "type": "nonmetal"
+        },
+        "minecraft:custom_model_data": 82
+      }
+    }
+  ]
+}

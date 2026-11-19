@@ -1,0 +1,38 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.g12_explosive",
+  "order": 48,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/high_explosive"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_buckshot_advanced"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 6,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "g12_explosive"
+      },
+      "minecraft:custom_model_data": 63
+    }
+  }
+}

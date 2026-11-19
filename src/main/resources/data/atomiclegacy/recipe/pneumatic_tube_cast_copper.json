@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CRC"
+  ],
+  "key": {
+    "C": {
+      "tag": "c:plates/cast_copper"
+    },
+    "R": {
+      "tag": "c:ingots/any_rubber"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:pneumatic_tube",
+    "count": 8
+  }
+}

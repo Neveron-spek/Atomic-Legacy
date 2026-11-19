@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:parts_legendary_tier3"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:parts_legendary_tier2",
+    "count": 3
+  }
+}

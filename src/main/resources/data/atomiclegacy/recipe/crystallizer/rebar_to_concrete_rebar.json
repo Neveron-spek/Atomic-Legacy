@@ -1,0 +1,15 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer.rebar",
+  "ingredient": {
+    "item": "atomiclegacy:rebar"
+  },
+  "acid": {
+    "fluid": "concrete",
+    "amount": 1000
+  },
+  "duration": 1,
+  "result": {
+    "id": "atomiclegacy:concrete_rebar"
+  }
+}

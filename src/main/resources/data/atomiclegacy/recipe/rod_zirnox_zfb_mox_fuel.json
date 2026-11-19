@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "atomiclegacy:rod_zirnox_empty" },
+    { "item": "atomiclegacy:billet_mox_fuel" },
+    { "item": "atomiclegacy:billet_zirconium" }
+  ],
+  "result": {
+    "id": "atomiclegacy:rod_zirnox",
+    "components": {
+      "minecraft:custom_data": { "variant": "zfb_mox_fuel" },
+      "minecraft:custom_model_data": 10
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:assembly_machine","group":"ass.pachlorophyte","duration":400,"power":100,"ingredients":[{"ingredient":{"item":"atomiclegacy:wire_dense_copper"},"count":64},{"ingredient":{"item":"atomiclegacy:wire_dense_copper"},"count":64},{"ingredient":{"tag":"c:dusts/chlorophyte"},"count":16}],"result":{"id":"atomiclegacy:pa_coil_chlorophyte"}}

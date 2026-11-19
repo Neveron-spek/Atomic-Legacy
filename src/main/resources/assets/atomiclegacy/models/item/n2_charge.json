@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/n2_charge"
+                 },
+    "parent":  "minecraft:item/generated"
+}

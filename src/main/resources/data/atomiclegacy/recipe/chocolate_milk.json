@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:glass_panes"
+    },
+    {
+      "item": "minecraft:cocoa_beans"
+    },
+    {
+      "item": "minecraft:milk_bucket"
+    },
+    {
+      "type": "atomiclegacy:legacy_fluid_container",
+      "fluid": "nitroglycerin",
+      "amount": 1000
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:chocolate_milk"
+  }
+}

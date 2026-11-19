@@ -1,0 +1,4 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": { "side": "atomiclegacy:block/machine_satlinker_side", "top": "atomiclegacy:block/machine_satlinker_top", "bottom": "atomiclegacy:block/machine_satlinker_top" }
+}

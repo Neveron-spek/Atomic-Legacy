@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    "IBI",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "atomiclegacy:plate_polymer"
+    },
+    "B": {
+      "item": "atomiclegacy:brick_light"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:vinyl_tile",
+    "count": 4
+  }
+}

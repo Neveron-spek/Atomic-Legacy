@@ -1,0 +1,41 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.launchpad",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_steel"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "tag": "c:concretes"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/plastic"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:steel_scaffold"
+      },
+      "count": 24
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_advanced"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:launch_pad_large"
+  }
+}

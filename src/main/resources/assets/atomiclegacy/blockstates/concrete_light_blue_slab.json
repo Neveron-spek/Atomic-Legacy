@@ -1,0 +1,13 @@
+﻿{
+  "variants": {
+    "type=bottom": {
+      "model": "atomiclegacy:block/concrete_light_blue_slab"
+    },
+    "type=top": {
+      "model": "atomiclegacy:block/concrete_light_blue_slab_top"
+    },
+    "type=double": {
+      "model": "atomiclegacy:block/concrete_light_blue_slab_double"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "MBM",
+    "PBP",
+    "MBM"
+  ],
+  "key": {
+    "M": {
+      "item": "atomiclegacy:motor"
+    },
+    "B": {
+      "item": "atomiclegacy:bolt_steel"
+    },
+    "P": {
+      "tag": "c:plates/iron"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:servo_set"
+  }
+}

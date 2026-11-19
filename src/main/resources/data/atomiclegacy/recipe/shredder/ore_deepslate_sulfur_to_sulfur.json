@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ore_deepslate_sulfur"
+  },
+  "result": {
+    "id": "atomiclegacy:sulfur",
+    "count": 2
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SHS",
+    "DHD",
+    "SHS"
+  ],
+  "key": {
+    "S": {
+      "tag": "c:ingots/steel"
+    },
+    "H": {
+      "item": "atomiclegacy:shell_steel"
+    },
+    "D": {
+      "tag": "c:dyes/black"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:machine_solar_boiler"
+  }
+}

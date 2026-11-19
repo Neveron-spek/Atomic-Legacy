@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "  G",
+    "BRM",
+    "  G"
+  ],
+  "key": {
+    "G": {
+      "tag": "c:gun_parts/grip/wood"
+    },
+    "B": {
+      "tag": "c:gun_parts/barrel_heavy/ferrouranium"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_heavy/ferrouranium"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_m2",
+    "count": 1
+  }
+}

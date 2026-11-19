@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/coin_radiation"
+                 },
+    "parent":  "minecraft:item/generated"
+}

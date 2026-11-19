@@ -1,0 +1,35 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.minenaval",
+  "duration": 300,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:sphere_steel"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:pipe_steel"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_advanced"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/plastic_explosive"
+      },
+      "count": 24
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:mine_naval"
+  }
+}

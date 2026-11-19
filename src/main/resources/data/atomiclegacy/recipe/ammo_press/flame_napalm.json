@@ -1,0 +1,38 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.flame_napalm",
+  "order": 73,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:plates/steel"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:canister_napalm"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:plates/steel"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "flame_napalm"
+      },
+      "minecraft:custom_model_data": 74
+    }
+  }
+}

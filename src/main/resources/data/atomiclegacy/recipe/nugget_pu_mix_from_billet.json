@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:billet_pu_mix"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:nugget_pu_mix",
+    "count": 6
+  }
+}

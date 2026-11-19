@@ -1,0 +1,7 @@
+﻿{
+  "variants": {
+    "axis=y": { "model": "atomiclegacy:block/deco_pipe_quad_marked" },
+    "axis=z": { "model": "atomiclegacy:block/deco_pipe_quad_marked", "x": 90 },
+    "axis=x": { "model": "atomiclegacy:block/deco_pipe_quad_marked", "x": 90, "y": 90 }
+  }
+}

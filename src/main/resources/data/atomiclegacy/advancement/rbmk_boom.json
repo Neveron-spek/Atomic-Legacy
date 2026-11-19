@@ -1,0 +1,28 @@
+{
+  "parent": "atomiclegacy:rbmk",
+  "display": {
+    "icon": {
+      "id": "atomiclegacy:debris_fuel"
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.rbmk_boom.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.rbmk_boom.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "meltdown": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "meltdown"
+    ]
+  ]
+}

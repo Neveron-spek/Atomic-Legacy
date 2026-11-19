@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/cobalt_decorated_axe"
+                 },
+    "parent":  "minecraft:item/generated"
+}

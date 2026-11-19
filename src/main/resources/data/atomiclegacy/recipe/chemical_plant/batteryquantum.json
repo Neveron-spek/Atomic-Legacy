@@ -1,0 +1,49 @@
+{
+  "type": "atomiclegacy:chemical_plant",
+  "group": "chem.batteryquantum",
+  "duration": 100,
+  "power": 100000,
+  "input_items": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_dense_bscco"
+      },
+      "count": 24
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:pellet_charged"
+      },
+      "count": 32
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/cft"
+      },
+      "count": 16
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "perfluoromethyl_cold",
+      "amount": 8000
+    }
+  ],
+  "output_items": [
+    {
+      "id": "atomiclegacy:battery_pack",
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "battery_quantum"
+        },
+        "minecraft:custom_model_data": 5
+      }
+    }
+  ],
+  "output_fluids": [
+    {
+      "fluid": "perfluoromethyl",
+      "amount": 8000
+    }
+  ]
+}

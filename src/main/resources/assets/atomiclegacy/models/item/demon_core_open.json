@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/demon_core_open"
+                 },
+    "parent":  "minecraft:item/generated"
+}

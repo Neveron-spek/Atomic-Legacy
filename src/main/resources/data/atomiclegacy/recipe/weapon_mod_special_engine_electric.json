@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "DSD",
+    "PPP",
+    "DSD"
+  ],
+  "key": {
+    "D": {
+      "tag": "c:ingots/plastic"
+    },
+    "P": {
+      "tag": "c:wires_dense/gold"
+    },
+    "S": {
+      "item": "atomiclegacy:battery_pack_capacitor_gold"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_engine_electric",
+    "count": 1
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:block_cadmium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_cadmium",
+    "count": 9
+  }
+}

@@ -1,0 +1,15 @@
+﻿{
+    "type":  "atomiclegacy:cyclotron",
+    "group":  "cyclotron",
+    "particle":  {
+                     "item":  "atomiclegacy:part_copper"
+                 },
+    "input":  {
+                  "tag":  "c:dusts/coal"
+              },
+    "output":  {
+                   "id":  "atomiclegacy:powder_bromine"
+               },
+    "antimatter":  15
+}
+

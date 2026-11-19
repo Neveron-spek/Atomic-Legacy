@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/catalytic_converter"
+                 },
+    "parent":  "minecraft:item/generated"
+}

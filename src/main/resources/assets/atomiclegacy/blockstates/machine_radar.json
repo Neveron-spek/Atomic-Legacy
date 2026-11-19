@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/machine_radar_particle" },
+    "facing=south": { "model": "atomiclegacy:block/machine_radar_particle" },
+    "facing=west": { "model": "atomiclegacy:block/machine_radar_particle" },
+    "facing=east": { "model": "atomiclegacy:block/machine_radar_particle" }
+  }
+}

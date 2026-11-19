@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "item": "atomiclegacy:arc_electrode_burnt_graphite"
+  },
+  "result": {
+    "id": "atomiclegacy:ingot_graphite"
+  },
+  "experience": 3.0,
+  "cookingtime": 200
+}

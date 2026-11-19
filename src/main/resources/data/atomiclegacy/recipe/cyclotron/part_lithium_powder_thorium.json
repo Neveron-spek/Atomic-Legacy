@@ -1,0 +1,15 @@
+﻿{
+    "type":  "atomiclegacy:cyclotron",
+    "group":  "cyclotron",
+    "particle":  {
+                     "item":  "atomiclegacy:part_lithium"
+                 },
+    "input":  {
+                  "tag":  "c:dusts/actinium"
+              },
+    "output":  {
+                   "id":  "atomiclegacy:powder_thorium"
+               },
+    "antimatter":  50
+}
+

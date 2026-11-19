@@ -1,0 +1,20 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "BBB",
+                    "BSB",
+                    "BBB"
+                ],
+    "key":  {
+                "B":  {
+                          "item":  "atomiclegacy:blade_tungsten"
+                      },
+                "S":  {
+                          "tag":  "c:ingots/dura_steel"
+                      }
+            },
+    "result":  {
+                   "id":  "atomiclegacy:turbine_tungsten"
+               }
+}

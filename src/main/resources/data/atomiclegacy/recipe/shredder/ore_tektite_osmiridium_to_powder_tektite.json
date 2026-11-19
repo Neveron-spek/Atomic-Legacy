@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ore_tektite_osmiridium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_tektite"
+  }
+}

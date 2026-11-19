@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "L L",
+    "I I",
+    "ILI"
+  ],
+  "key": {
+    "L": { "item": "atomiclegacy:lodestone" },
+    "I": { "tag": "c:ingots/iron" }
+  },
+  "result": { "id": "atomiclegacy:horseshoe_magnet" }
+}

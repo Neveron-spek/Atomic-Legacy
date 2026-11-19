@@ -1,0 +1,23 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.manigniter",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_advanced"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_gold"
+      },
+      "count": 24
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:man_igniter"
+  }
+}

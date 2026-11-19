@@ -1,0 +1,1 @@
+{"variants":{"facing=north":{"model":"atomiclegacy:block/pneumatic_storage_mono"},"facing=east":{"model":"atomiclegacy:block/pneumatic_storage_mono","y":90},"facing=south":{"model":"atomiclegacy:block/pneumatic_storage_mono","y":180},"facing=west":{"model":"atomiclegacy:block/pneumatic_storage_mono","y":270}}}

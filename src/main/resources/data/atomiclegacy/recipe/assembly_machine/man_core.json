@@ -1,0 +1,11 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.mancore",
+  "duration": 1200,
+  "power": 100,
+  "ingredients": [
+    { "ingredient": { "tag": "c:nuggets/pu239" }, "count": 8 },
+    { "ingredient": { "tag": "c:nuggets/beryllium" }, "count": 2 }
+  ],
+  "result": { "id": "atomiclegacy:man_core" }
+}

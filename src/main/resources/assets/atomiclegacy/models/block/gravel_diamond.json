@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/gravel_diamond"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

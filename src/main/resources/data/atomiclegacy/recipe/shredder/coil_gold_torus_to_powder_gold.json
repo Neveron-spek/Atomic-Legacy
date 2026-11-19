@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:coil_gold_torus"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_gold",
+    "count": 2
+  }
+}

@@ -1,0 +1,90 @@
+package com.atomiclegacy.registry;
+
+import com.atomiclegacy.AtomicLegacy;
+import com.atomiclegacy.config.HbmConfig;
+import com.atomiclegacy.worldgen.BedrockOreDepositFeature;
+import com.atomiclegacy.worldgen.BedrockOilDepositFeature;
+import com.atomiclegacy.worldgen.AustraliumRegionFeature;
+import com.atomiclegacy.worldgen.ChlorineGeyserFeature;
+import com.atomiclegacy.worldgen.ColtanDepositFeature;
+import com.atomiclegacy.worldgen.ConfigGatedOreFeature;
+import com.atomiclegacy.worldgen.BedrockDeepslateClusterFeature;
+import com.atomiclegacy.worldgen.LegacySurfaceWorldgenFeature;
+import com.atomiclegacy.worldgen.MeteoriteFeature;
+import com.atomiclegacy.worldgen.LanternBehemothFeature;
+import com.atomiclegacy.worldgen.GlyphidHiveFeature;
+import com.atomiclegacy.worldgen.NetherNeodymiumFeature;
+import com.atomiclegacy.worldgen.NetherOreLegacyFeature;
+import com.atomiclegacy.worldgen.OreCaveFeature;
+import com.atomiclegacy.worldgen.OilBubbleFeature;
+import com.atomiclegacy.worldgen.OilSandBubbleFeature;
+import com.atomiclegacy.worldgen.RadiationHotspotFeature;
+import com.atomiclegacy.worldgen.ResourceOreLayer3DFeature;
+import com.atomiclegacy.worldgen.SchistStratumFeature;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+public final class HbmWorldgenFeatures {
+    public static final DeferredRegister<Feature<?>> FEATURES =
+            DeferredRegister.create(Registries.FEATURE, AtomicLegacy.MOD_ID);
+
+    public static final DeferredHolder<Feature<?>, OilBubbleFeature> OIL_BUBBLE =
+            FEATURES.register("oil_bubble", () -> new OilBubbleFeature());
+    public static final DeferredHolder<Feature<?>, OilSandBubbleFeature> OIL_SAND_BUBBLE =
+            FEATURES.register("oil_sand_bubble", () -> new OilSandBubbleFeature());
+    public static final DeferredHolder<Feature<?>, BedrockOreDepositFeature> BEDROCK_ORE_DEPOSIT =
+            FEATURES.register("bedrock_ore_deposit", () -> new BedrockOreDepositFeature());
+    public static final DeferredHolder<Feature<?>, BedrockOilDepositFeature> BEDROCK_OIL_DEPOSIT =
+            FEATURES.register("bedrock_oil_deposit", () -> new BedrockOilDepositFeature());
+    public static final DeferredHolder<Feature<?>, BedrockDeepslateClusterFeature> BEDROCK_DEEPSLATE_CLUSTER_IRON =
+            FEATURES.register("bedrock_deepslate_cluster_iron", () -> new BedrockDeepslateClusterFeature(HbmBlocks.CLUSTER_DEEPSLATE_IRON, 24));
+    public static final DeferredHolder<Feature<?>, BedrockDeepslateClusterFeature> BEDROCK_DEEPSLATE_CLUSTER_TITANIUM =
+            FEATURES.register("bedrock_deepslate_cluster_titanium", () -> new BedrockDeepslateClusterFeature(HbmBlocks.CLUSTER_DEEPSLATE_TITANIUM, 32));
+    public static final DeferredHolder<Feature<?>, BedrockDeepslateClusterFeature> BEDROCK_DEEPSLATE_CLUSTER_TUNGSTEN =
+            FEATURES.register("bedrock_deepslate_cluster_tungsten", () -> new BedrockDeepslateClusterFeature(HbmBlocks.CLUSTER_DEEPSLATE_TUNGSTEN, 32));
+    public static final DeferredHolder<Feature<?>, AustraliumRegionFeature> AUSTRALIUM_REGION =
+            FEATURES.register("australium_region", () -> new AustraliumRegionFeature());
+    public static final DeferredHolder<Feature<?>, MeteoriteFeature> METEORITE =
+            FEATURES.register("meteorite", () -> new MeteoriteFeature());
+    public static final DeferredHolder<Feature<?>, LanternBehemothFeature> LANTERN_BEHEMOTH =
+            FEATURES.register("lantern_behemoth", LanternBehemothFeature::new);
+    public static final DeferredHolder<Feature<?>, GlyphidHiveFeature> GLYPHID_HIVE =
+            FEATURES.register("glyphid_hive", () -> new GlyphidHiveFeature());
+    public static final DeferredHolder<Feature<?>, SchistStratumFeature> SCHIST_STRATUM =
+            FEATURES.register("schist_stratum", () -> new SchistStratumFeature());
+    public static final DeferredHolder<Feature<?>, ResourceOreLayer3DFeature> RESOURCE_LAYER_HEMATITE =
+            FEATURES.register("resource_layer_hematite", ResourceOreLayer3DFeature::hematite);
+    public static final DeferredHolder<Feature<?>, ResourceOreLayer3DFeature> RESOURCE_LAYER_BAUXITE =
+            FEATURES.register("resource_layer_bauxite", ResourceOreLayer3DFeature::bauxite);
+    public static final DeferredHolder<Feature<?>, ResourceOreLayer3DFeature> RESOURCE_LAYER_MALACHITE =
+            FEATURES.register("resource_layer_malachite", ResourceOreLayer3DFeature::malachite);
+    public static final DeferredHolder<Feature<?>, ConfigGatedOreFeature> ORE_COLTAN_528 =
+            FEATURES.register("ore_coltan_528", () -> new ConfigGatedOreFeature(OreConfiguration.CODEC, () -> HbmConfig.ENABLE_528_COLTAN_SPAWN.get()));
+    public static final DeferredHolder<Feature<?>, ColtanDepositFeature> COLTAN_DEPOSIT =
+            FEATURES.register("coltan_deposit", () -> new ColtanDepositFeature());
+    public static final DeferredHolder<Feature<?>, NetherOreLegacyFeature> NETHER_ORE_LEGACY =
+            FEATURES.register("nether_ore_legacy", () -> new NetherOreLegacyFeature());
+    public static final DeferredHolder<Feature<?>, NetherNeodymiumFeature> NETHER_NEODYMIUM =
+            FEATURES.register("nether_neodymium", () -> new NetherNeodymiumFeature());
+    public static final DeferredHolder<Feature<?>, ChlorineGeyserFeature> CHLORINE_GEYSER =
+            FEATURES.register("chlorine_geyser", () -> new ChlorineGeyserFeature());
+    public static final DeferredHolder<Feature<?>, LegacySurfaceWorldgenFeature> LEGACY_SURFACE_WORLDGEN =
+            FEATURES.register("legacy_surface_worldgen", () -> new LegacySurfaceWorldgenFeature());
+    public static final DeferredHolder<Feature<?>, OreCaveFeature> SULFUR_CAVE =
+            FEATURES.register("sulfur_cave", OreCaveFeature::sulfur);
+    public static final DeferredHolder<Feature<?>, OreCaveFeature> ASBESTOS_CAVE =
+            FEATURES.register("asbestos_cave", OreCaveFeature::asbestos);
+    public static final DeferredHolder<Feature<?>, RadiationHotspotFeature> RADIATION_HOTSPOT =
+            FEATURES.register("radiation_hotspot", () -> new RadiationHotspotFeature());
+
+    private HbmWorldgenFeatures() {
+    }
+
+    public static void register(IEventBus eventBus) {
+        FEATURES.register(eventBus);
+    }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:debris_graphite"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_coal"
+  }
+}

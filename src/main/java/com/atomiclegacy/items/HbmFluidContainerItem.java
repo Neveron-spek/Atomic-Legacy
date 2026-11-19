@@ -1,0 +1,459 @@
+package com.atomiclegacy.items;
+
+import com.atomiclegacy.AtomicLegacy;
+import com.atomiclegacy.fluid.HbmFluidDefinition;
+import com.atomiclegacy.fluid.HbmFluidTrait;
+import com.atomiclegacy.entity.LegacyProjectileUtil;
+import com.atomiclegacy.entity.LegacyDisperserCanisterEntity;
+import com.atomiclegacy.explosion.NukeExplosionManager;
+import com.atomiclegacy.config.HbmConfig;
+import com.atomiclegacy.registry.HbmFluids;
+import com.atomiclegacy.registry.HbmItems;
+import com.atomiclegacy.util.HbmFluidTooltip;
+import net.minecraft.ChatFormatting;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.level.Level;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.server.level.ServerLevel;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.IFluidHandlerItem;
+
+import java.util.Objects;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+
+public class HbmFluidContainerItem extends Item {
+    private static final String FLUID = "fluid";
+
+    private final Kind kind;
+    private final boolean filled;
+    /**
+     * Static legacy cells have their own item id (for example
+     * {@code cell_anti_schrabidium}) rather than a generic cell with NBT.
+     * Keep the associated fluid here so they still participate in NeoForge's
+     * item fluid capability just like the original registry entries.
+     */
+    private final String defaultFluid;
+
+    public HbmFluidContainerItem(Properties properties, Kind kind, boolean filled) {
+        this(properties, kind, filled, "");
+    }
+
+    public HbmFluidContainerItem(Properties properties, Kind kind, boolean filled, String defaultFluid) {
+        super(properties);
+        this.kind = Objects.requireNonNull(kind);
+        this.filled = filled;
+        this.defaultFluid = defaultFluid == null ? "" : defaultFluid;
+    }
+
+    public Kind kind() {
+        return kind;
+    }
+
+    public boolean isFilledContainer() {
+        return filled;
+    }
+
+    @Override
+    public boolean onEntityItemUpdate(ItemStack stack, ItemEntity entity) {
+        if (!filled || kind != Kind.CELL || entity.level().isClientSide || !entity.onGround()) {
+            return false;
+        }
+        HbmFluidDefinition fluid = fluid(stack);
+        if (fluid.name().equals("amat")) {
+            if (HbmConfig.DROPPED_ANTIMATTER_CELL_EFFECT.get()) {
+                LegacyProjectileUtil.antimatterExplosion((ServerLevel) entity.level(), entity.position(), 3.0F, entity);
+            }
+            entity.discard();
+            return true;
+        }
+        if (fluid.name().equals("aschrab")) {
+            if (HbmConfig.DROPPED_ANTIMATTER_CELL_EFFECT.get()) {
+                NukeExplosionManager.scheduleFleijaNuke((ServerLevel) entity.level(),
+                        entity.getX(), entity.getY(), entity.getZ(),
+                        HbmConfig.DROPPED_ANTI_SCHRABIDIUM_RADIUS.get());
+            }
+            entity.discard();
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        ItemStack stack = player.getItemInHand(hand);
+        if (!filled || (kind != Kind.DISPERSER && kind != Kind.GLYPHID_GLAND)) {
+            return super.use(level, player, hand);
+        }
+        HbmFluidDefinition fluid = fluid(stack);
+        if (fluid.isNone() || !kind.allows(fluid)) {
+            return InteractionResultHolder.fail(stack);
+        }
+
+        level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ARROW_SHOOT,
+                SoundSource.PLAYERS, 0.5F, 0.4F / (level.random.nextFloat() * 0.4F + 0.8F));
+        if (!level.isClientSide) {
+            level.addFreshEntity(new LegacyDisperserCanisterEntity(
+                    level, player, fluid, kind == Kind.GLYPHID_GLAND));
+        }
+        if (!player.getAbilities().instabuild) {
+            stack.shrink(1);
+        }
+        return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
+    }
+
+    @Override
+    public boolean hasCraftingRemainingItem(ItemStack stack) {
+        return filled;
+    }
+
+    @Override
+    public ItemStack getCraftingRemainingItem(ItemStack stack) {
+        return filled ? kind.emptyStack() : ItemStack.EMPTY;
+    }
+
+    @Override
+    public Component getName(ItemStack stack) {
+        if (!filled || (kind == Kind.CELL && !defaultFluid.isBlank())) {
+            return super.getName(stack);
+        }
+        HbmFluidDefinition fluid = fluid(stack);
+        if (fluid.isNone()) {
+            return super.getName(stack);
+        }
+        return Component.translatable(kind.nameKey(), Component.translatable(fluid.translationKey()));
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, java.util.List<Component> tooltip, TooltipFlag flag) {
+        if (!filled) {
+            tooltip.add(Component.translatable("info.atomiclegacy.fluid.empty_container").withStyle(ChatFormatting.GRAY));
+            return;
+        }
+
+        HbmFluidDefinition fluid = fluid(stack);
+        String amount = kind.capacity() + "/" + kind.capacity() + " mB";
+        if (stack.getCount() > 1) {
+            amount = stack.getCount() + "x " + amount;
+        }
+        tooltip.add(Component.literal(amount).withStyle(ChatFormatting.GRAY));
+        HbmFluidTooltip.appendTraitInfo(tooltip, fluid, flag.isAdvanced());
+    }
+
+    public void addCreativeVariants(CreativeModeTab.Output output) {
+        if (!filled) {
+            output.accept(this);
+            return;
+        }
+        for (HbmFluidDefinition definition : HbmFluids.niceOrder()) {
+            if (kind.allows(definition)) {
+                output.accept(filledStack(definition));
+            }
+        }
+    }
+
+    public ItemStack filledStack(HbmFluidDefinition fluid) {
+        if (kind == Kind.CELL) {
+            ItemStack legacyCell = Handler.fullStackForKind(kind, fluid);
+            if (!legacyCell.isEmpty()) {
+                return legacyCell;
+            }
+        }
+        ItemStack stack = new ItemStack(this);
+        setFluid(stack, fluid);
+        return stack;
+    }
+
+    public IFluidHandlerItem createFluidHandler(ItemStack stack) {
+        return new Handler(stack, kind, filled);
+    }
+
+    public static HbmFluidDefinition fluid(ItemStack stack) {
+        CompoundTag tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        String fluidName = tag.getString(FLUID);
+        if (fluidName.isBlank() && stack.getItem() instanceof HbmFluidContainerItem container) {
+            fluidName = container.defaultFluid.isBlank() ? container.kind.defaultFluid() : container.defaultFluid;
+        }
+        return HbmFluids.byName(fluidName).orElse(HbmFluids.none());
+    }
+
+    public static ItemStack makeFull(Supplier<? extends Item> item, HbmFluidDefinition fluid) {
+        Item target = item.get();
+        if (target instanceof HbmFluidContainerItem container && container.kind == Kind.CELL) {
+            return container.filledStack(fluid);
+        }
+        ItemStack stack = new ItemStack(target);
+        setFluid(stack, fluid);
+        return stack;
+    }
+
+    public static void setFluid(ItemStack stack, HbmFluidDefinition fluid) {
+        CompoundTag tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        tag.putString(FLUID, fluid == null ? "none" : fluid.name());
+        stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
+    }
+
+    public static int tint(ItemStack stack, int tintIndex) {
+        if (!(stack.getItem() instanceof HbmFluidContainerItem item) || !item.filled || tintIndex == 0) {
+            return 0xFFFFFFFF;
+        }
+        HbmFluidDefinition fluid = fluid(stack);
+        if (item.kind == Kind.CANISTER) {
+            return 0xFF000000 | fluid.canisterColorRgbOr(fluid.color());
+        }
+        if (item.kind == Kind.GAS_TANK) {
+            String[] colors = fluid.gasTankColors().split("/");
+            int fallback = tintIndex == 1 ? fluid.color() : 0xFFFFFF;
+            if (tintIndex == 1 && colors.length > 0) {
+                return 0xFF000000 | parseColorOr(colors[0], fallback);
+            }
+            if (tintIndex == 2 && colors.length > 1) {
+                return 0xFF000000 | parseColorOr(colors[1], fallback);
+            }
+            return 0xFF000000 | fallback;
+        }
+        return 0xFF000000 | fluid.color();
+    }
+
+    private static int parseColorOr(String raw, int fallback) {
+        if (raw == null || raw.isBlank()) {
+            return fallback;
+        }
+        String clean = raw.trim();
+        try {
+            if (clean.startsWith("0x") || clean.startsWith("0X")) {
+                return (int) Long.parseLong(clean.substring(2), 16);
+            }
+            return Integer.parseInt(clean);
+        } catch (NumberFormatException ignored) {
+            return fallback;
+        }
+    }
+
+    public enum Kind {
+        CANISTER(1_000, "item.atomiclegacy.canister_full.named", HbmFluidContainerItem::allowsCanister),
+        GAS_TANK(1_000, "item.atomiclegacy.gas_full.named", HbmFluidContainerItem::allowsGasTank),
+        FLUID_TANK(1_000, "item.atomiclegacy.fluid_tank_full.named", HbmFluidContainerItem::allowsRegularTank),
+        LEAD_TANK(1_000, "item.atomiclegacy.fluid_tank_lead_full.named", HbmFluidContainerItem::allowsLeadTank),
+        FLUID_BARREL(16_000, "item.atomiclegacy.fluid_barrel_full.named", HbmFluidContainerItem::allowsRegularTank),
+        FLUID_PACK(32_000, "item.atomiclegacy.fluid_pack_full.named", HbmFluidContainerItem::allowsFluidPack),
+        DISPERSER(2_000, "item.atomiclegacy.disperser_canister.named", HbmFluidContainerItem::allowsDisperser),
+        GLYPHID_GLAND(4_000, "item.atomiclegacy.glyphid_gland.named", HbmFluidContainerItem::allowsGlyphidGland),
+        CELL(1_000, "item.atomiclegacy.cell_tritium.named", HbmFluidContainerItem::allowsLegacyCell);
+
+        private final int capacity;
+        private final String nameKey;
+        private final Predicate<HbmFluidDefinition> filter;
+
+        Kind(int capacity, String nameKey, Predicate<HbmFluidDefinition> filter) {
+            this.capacity = capacity;
+            this.nameKey = nameKey;
+            this.filter = filter;
+        }
+
+        public int capacity() {
+            return capacity;
+        }
+
+        public String nameKey() {
+            return nameKey;
+        }
+
+        public ItemStack emptyStack() {
+            return switch (this) {
+                case CANISTER -> new ItemStack(HbmItems.CANISTER_EMPTY.get());
+                case GAS_TANK -> new ItemStack(HbmItems.GAS_EMPTY.get());
+                case FLUID_TANK -> new ItemStack(HbmItems.FLUID_TANK_EMPTY.get());
+                case LEAD_TANK -> new ItemStack(HbmItems.FLUID_TANK_LEAD_EMPTY.get());
+                case FLUID_BARREL -> new ItemStack(HbmItems.FLUID_BARREL_EMPTY.get());
+                case FLUID_PACK -> new ItemStack(HbmItems.FLUID_PACK_EMPTY.get());
+                case DISPERSER -> new ItemStack(HbmItems.DISPERSER_CANISTER_EMPTY.get());
+                case GLYPHID_GLAND -> new ItemStack(HbmItems.GLYPHID_GLAND_EMPTY.get());
+                case CELL -> new ItemStack(HbmItems.CELL_EMPTY.get());
+            };
+        }
+
+        public String defaultFluid() {
+            return this == CELL ? "tritium" : "";
+        }
+
+        public boolean allows(HbmFluidDefinition fluid) {
+            return filter.test(fluid);
+        }
+    }
+
+    private static boolean allowsCanister(HbmFluidDefinition fluid) {
+        return !fluid.isNone() && !fluid.canisterColor().isBlank() && !fluid.hasTrait(HbmFluidTrait.NO_CONTAINER);
+    }
+
+    private static boolean allowsGasTank(HbmFluidDefinition fluid) {
+        return !fluid.isNone() && !fluid.gasTankColors().isBlank() && !fluid.hasTrait(HbmFluidTrait.NO_CONTAINER);
+    }
+
+    private static boolean allowsRegularTank(HbmFluidDefinition fluid) {
+        return fluid.allowsRegularContainer();
+    }
+
+    private static boolean allowsLeadTank(HbmFluidDefinition fluid) {
+        return !fluid.isNone() && !fluid.hasTrait(HbmFluidTrait.NO_CONTAINER);
+    }
+
+    /**
+     * Legacy fluid packs accept every container-capable fluid, including fluids which require a
+     * lead tank or an antimatter container for ordinary 1,000 mB storage. Their only exclusion is
+     * the explicit NO_CONTAINER trait used by internal process fluids and plasmas.
+     */
+    private static boolean allowsFluidPack(HbmFluidDefinition fluid) {
+        return !fluid.isNone() && !fluid.hasTrait(HbmFluidTrait.NO_CONTAINER);
+    }
+
+    private static boolean allowsDisperser(HbmFluidDefinition fluid) {
+        return !fluid.isNone()
+                && !fluid.hasTrait(HbmFluidTrait.NO_CONTAINER)
+                && !fluid.hasTrait(HbmFluidTrait.ANTIMATTER)
+                && !fluid.hasTrait(HbmFluidTrait.VISCOUS);
+    }
+
+    private static boolean allowsGlyphidGland(HbmFluidDefinition fluid) {
+        return fluid.name().equals("pheromone") || fluid.name().equals("sulfuric_acid");
+    }
+
+    private static boolean allowsLegacyCell(HbmFluidDefinition fluid) {
+        return switch (fluid.name()) {
+            case "deuterium", "tritium", "uf6", "puf6", "amat", "aschrab", "sas3" -> true;
+            default -> false;
+        };
+    }
+
+    private static final class Handler implements IFluidHandlerItem {
+        private ItemStack container;
+        private final Kind kind;
+        private final boolean fullItem;
+
+        private Handler(ItemStack container, Kind kind, boolean fullItem) {
+            this.container = container;
+            this.kind = kind;
+            this.fullItem = fullItem;
+        }
+
+        @Override
+        public int getTanks() {
+            return 1;
+        }
+
+        @Override
+        public FluidStack getFluidInTank(int tank) {
+            if (tank != 0 || !fullItem) {
+                return FluidStack.EMPTY;
+            }
+            HbmFluidDefinition fluid = fluid(container);
+            return fluid.isNone() ? FluidStack.EMPTY : HbmFluids.toNeoStack(fluid, kind.capacity());
+        }
+
+        @Override
+        public int getTankCapacity(int tank) {
+            return tank == 0 ? kind.capacity() : 0;
+        }
+
+        @Override
+        public boolean isFluidValid(int tank, FluidStack stack) {
+            return tank == 0 && HbmFluids.fromNeoFluid(stack.getFluid()).filter(kind::allows).isPresent();
+        }
+
+        @Override
+        public int fill(FluidStack resource, FluidAction action) {
+            if (fullItem || resource.isEmpty() || resource.getAmount() < kind.capacity()) {
+                return 0;
+            }
+            HbmFluidDefinition fluid = HbmFluids.fromNeoFluid(resource.getFluid()).orElse(HbmFluids.none());
+            if (!kind.allows(fluid)) {
+                return 0;
+            }
+            if (action.execute()) {
+                ItemStack full = fullStackForKind(kind, fluid);
+                full.setCount(1);
+                this.container = full;
+            }
+            return kind.capacity();
+        }
+
+        @Override
+        public FluidStack drain(FluidStack resource, FluidAction action) {
+            if (resource.isEmpty() || resource.getAmount() < kind.capacity()) {
+                return FluidStack.EMPTY;
+            }
+            FluidStack stored = getFluidInTank(0);
+            if (stored.isEmpty() || !FluidStack.isSameFluidSameComponents(stored, resource)) {
+                return FluidStack.EMPTY;
+            }
+            return drain(kind.capacity(), action);
+        }
+
+        @Override
+        public FluidStack drain(int maxDrain, FluidAction action) {
+            if (!fullItem || maxDrain < kind.capacity()) {
+                return FluidStack.EMPTY;
+            }
+            FluidStack stored = getFluidInTank(0);
+            if (stored.isEmpty()) {
+                return FluidStack.EMPTY;
+            }
+            if (action.execute()) {
+                this.container = kind.emptyStack();
+            }
+            return stored;
+        }
+
+        @Override
+        public ItemStack getContainer() {
+            return container;
+        }
+
+        private static ItemStack fullStackForKind(Kind kind, HbmFluidDefinition fluid) {
+            return switch (kind) {
+                case CANISTER -> makeFull(HbmItems.CANISTER_FULL::get, fluid);
+                case GAS_TANK -> makeFull(HbmItems.GAS_FULL::get, fluid);
+                case FLUID_TANK -> makeFull(HbmItems.FLUID_TANK_FULL::get, fluid);
+                case LEAD_TANK -> makeFull(HbmItems.FLUID_TANK_LEAD_FULL::get, fluid);
+                case FLUID_BARREL -> makeFull(HbmItems.FLUID_BARREL_FULL::get, fluid);
+                case FLUID_PACK -> makeFull(HbmItems.FLUID_PACK_FULL::get, fluid);
+                case DISPERSER -> makeFull(HbmItems.DISPERSER_CANISTER::get, fluid);
+                case GLYPHID_GLAND -> makeFull(HbmItems.GLYPHID_GLAND::get, fluid);
+                case CELL -> legacyCellFor(fluid);
+            };
+        }
+
+        /** Direct counterpart of 1.7.10 FluidContainerRegistry's cell map. */
+        private static ItemStack legacyCellFor(HbmFluidDefinition fluid) {
+            String itemId = switch (fluid.name()) {
+                case "deuterium" -> "cell_deuterium";
+                case "tritium" -> "cell_tritium";
+                case "uf6" -> "cell_uf6";
+                case "puf6" -> "cell_puf6";
+                case "amat" -> "cell_antimatter";
+                case "aschrab" -> "cell_anti_schrabidium";
+                case "sas3" -> "cell_sas3";
+                default -> "";
+            };
+            if (itemId.isEmpty()) {
+                return ItemStack.EMPTY;
+            }
+            return BuiltInRegistries.ITEM.getOptional(AtomicLegacy.id(itemId))
+                    .map(ItemStack::new)
+                    .orElse(ItemStack.EMPTY);
+        }
+    }
+}

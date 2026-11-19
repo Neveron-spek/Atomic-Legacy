@@ -1,0 +1,16 @@
+{
+  "type": "atomiclegacy:particle_accelerator",
+  "input1": {
+    "item": "minecraft:chicken"
+  },
+  "input2": {
+    "item": "minecraft:chicken"
+  },
+  "momentum": 100,
+  "output1": {
+    "id": "atomiclegacy:nugget"
+  },
+  "output2": {
+    "id": "atomiclegacy:nugget"
+  }
+}

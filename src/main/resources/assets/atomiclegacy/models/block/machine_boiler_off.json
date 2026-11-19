@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "atomiclegacy:block/machine_boiler_base",
+    "front": "atomiclegacy:block/machine_boiler_front",
+    "side": "atomiclegacy:block/machine_boiler_side"
+  }
+}

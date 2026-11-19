@@ -1,0 +1,15 @@
+﻿{
+    "type":  "atomiclegacy:cyclotron",
+    "group":  "cyclotron",
+    "particle":  {
+                     "item":  "atomiclegacy:part_carbon"
+                 },
+    "input":  {
+                  "tag":  "c:dusts/sulfur"
+              },
+    "output":  {
+                   "id":  "atomiclegacy:powder_titanium"
+               },
+    "antimatter":  10
+}
+

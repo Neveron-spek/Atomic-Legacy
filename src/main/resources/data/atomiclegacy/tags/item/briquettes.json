@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:briquette_coal",
+    "atomiclegacy:briquette_lignite",
+    "atomiclegacy:briquette_wood"
+  ]
+}

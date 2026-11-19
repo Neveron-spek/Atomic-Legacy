@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/broken_item"
+                 },
+    "parent":  "minecraft:item/generated"
+}

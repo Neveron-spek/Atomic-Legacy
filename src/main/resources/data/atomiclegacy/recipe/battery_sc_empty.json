@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PGP",
+    "L L",
+    "PGP"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:ingots/plastic"
+    },
+    "G": {
+      "item": "atomiclegacy:wire_gold"
+    },
+    "L": {
+      "tag": "c:plates/lead"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:battery_sc",
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "empty"
+      },
+      "minecraft:custom_model_data": 0
+    }
+  }
+}

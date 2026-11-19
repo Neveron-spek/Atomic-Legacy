@@ -1,0 +1,16 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:sellafield"
+    ],
+    "components": {
+      "minecraft:custom_data": "{level:0}",
+      "minecraft:custom_model_data": 0
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:scrap_nuclear"
+  }
+}

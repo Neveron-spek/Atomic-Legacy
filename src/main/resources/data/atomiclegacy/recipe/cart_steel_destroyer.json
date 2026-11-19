@@ -1,0 +1,62 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "S S",
+    "BLB",
+    "SCS"
+  ],
+  "key": {
+    "S": {
+      "tag": "c:ingots/steel"
+    },
+    "B": {
+      "item": "atomiclegacy:blades_steel"
+    },
+    "L": {
+      "type": "neoforge:compound",
+      "children": [
+        {
+          "item": "minecraft:lava_bucket"
+        },
+        {
+          "type": "neoforge:components",
+          "items": [
+            "atomiclegacy:fluid_tank_lead_full"
+          ],
+          "components": {
+            "minecraft:custom_data": {
+              "fluid": "lava"
+            }
+          }
+        },
+        {
+          "type": "neoforge:components",
+          "items": [
+            "atomiclegacy:fluid_tank_full"
+          ],
+          "components": {
+            "minecraft:custom_data": {
+              "fluid": "lava"
+            }
+          }
+        }
+      ]
+    },
+    "C": {
+      "type": "neoforge:components",
+      "items": "atomiclegacy:cart",
+      "components": {
+        "atomiclegacy:cart_type": 0
+      }
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:cart",
+    "count": 1,
+    "components": {
+      "atomiclegacy:cart_type": 2,
+      "atomiclegacy:cart_base": 2
+    }
+  }
+}

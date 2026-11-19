@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MPM",
+    "PBP",
+    "P P"
+  ],
+  "key": {
+    "M": {
+      "item": "atomiclegacy:motor_desh"
+    },
+    "P": {
+      "tag": "c:plates/armor_ajr"
+    },
+    "B": {
+      "item": "atomiclegacy:titanium_legs"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:ajr_legs"
+  }
+}

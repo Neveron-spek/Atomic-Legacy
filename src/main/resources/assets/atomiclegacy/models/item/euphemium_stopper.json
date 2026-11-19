@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/euphemium_stopper"
+                 },
+    "parent":  "minecraft:item/generated"
+}

@@ -1,0 +1,35 @@
+﻿{
+    "type":  "atomiclegacy:assembly_machine",
+    "group":  "ass.assembler",
+    "duration":  200,
+    "power":  100,
+    "ingredients":  [
+                        {
+                            "ingredient":  {
+                                               "tag":  "c:ingots/steel"
+                                           },
+                            "count":  4
+                        },
+                        {
+                            "ingredient":  {
+                                               "tag":  "c:plates/copper"
+                                           },
+                            "count":  4
+                        },
+                        {
+                            "ingredient":  {
+                                               "item":  "atomiclegacy:motor"
+                                           },
+                            "count":  2
+                        },
+                        {
+                            "ingredient":  {
+                                               "item":  "atomiclegacy:circuit_basic"
+                                           },
+                            "count":  1
+                        }
+                    ],
+    "result":  {
+                   "id":  "atomiclegacy:machine_assembly_machine"
+               }
+}

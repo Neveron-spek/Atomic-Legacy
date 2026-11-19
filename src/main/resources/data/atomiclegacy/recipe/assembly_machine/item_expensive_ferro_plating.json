@@ -1,0 +1,35 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.exferroplating",
+  "duration": 1200,
+  "power": 10000,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_lead_plating"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_ferrouranium"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/resistant_alloy"
+      },
+      "count": 4
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "unsaturateds",
+      "amount": 1000
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:item_expensive_ferro_plating"
+  }
+}

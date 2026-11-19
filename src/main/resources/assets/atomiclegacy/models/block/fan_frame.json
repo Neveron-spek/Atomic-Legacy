@@ -1,0 +1,1 @@
+{"loader":"neoforge:obj","model":"atomiclegacy:models/obj/machines/fan.obj","mtl_override":"atomiclegacy:models/obj/machines/fan.mtl","visibility":{"Blades":false,"Frame":true},"automatic_culling":false,"shade_quads":true,"flip_v":true,"textures":{"particle":"atomiclegacy:models/machines/fan"}}

@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":["SUS","SCS","SUS"],"key":{"S":{"tag":"c:plates/steel"},"U":{"item":"atomiclegacy:upgrade_template"},"C":{"item":"atomiclegacy:crystal_xen"}},"result":{"id":"atomiclegacy:upgrade_screm"}}

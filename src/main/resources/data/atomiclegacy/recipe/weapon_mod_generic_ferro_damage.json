@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    },
+    {
+      "tag": "c:plates/cast_ferrouranium"
+    },
+    {
+      "tag": "c:plates/cast_ferrouranium"
+    },
+    {
+      "tag": "c:plates/cast_ferrouranium"
+    },
+    {
+      "item": "atomiclegacy:ducttape"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:weapon_mod_generic_ferro_damage",
+    "count": 1
+  }
+}

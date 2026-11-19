@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":["BCB","TST","BCB"],"key":{"B":{"item":"atomiclegacy:plate_cast_combine_steel"},"C":{"item":"atomiclegacy:circuit_controller"},"T":{"item":"atomiclegacy:ball_tatb"},"S":{"item":"atomiclegacy:cell_sas3"}},"result":{"id":"atomiclegacy:grenade_filling_schrab"}}

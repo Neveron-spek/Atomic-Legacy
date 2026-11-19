@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ore_gneiss_iron"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_iron",
+    "count": 2
+  }
+}

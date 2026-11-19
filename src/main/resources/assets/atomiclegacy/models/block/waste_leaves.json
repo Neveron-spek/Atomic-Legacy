@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/waste_leaves"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/rtty_pager"
+                 },
+    "parent":  "minecraft:item/generated"
+}

@@ -1,0 +1,24 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:dusts/white_phosphorus"
+      }
+    }
+  ],
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "tag": "c:dusts/white_phosphorus"
+  },
+  "acid": {
+    "fluid": "aromatics",
+    "amount": 50
+  },
+  "duration": 100,
+  "result": {
+    "id": "atomiclegacy:ingot_phosphorus"
+  }
+}

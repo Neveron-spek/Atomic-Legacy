@@ -1,0 +1,28 @@
+{
+  "parent": "atomiclegacy:root",
+  "display": {
+    "icon": {
+      "id": "atomiclegacy:nothing"
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.impossible.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.impossible.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "triggered"
+    ]
+  ]
+}

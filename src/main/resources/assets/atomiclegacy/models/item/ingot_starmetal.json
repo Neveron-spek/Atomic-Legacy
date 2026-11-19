@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": { "layer0": "atomiclegacy:item/ingot_starmetal" },
+  "overrides": [
+    { "predicate": { "custom_model_data": 1 }, "model": "atomiclegacy:item/ingot_starmetal_astra" },
+    { "predicate": { "custom_model_data": 2 }, "model": "atomiclegacy:item/ingot_starmetal_ursa" },
+    { "predicate": { "custom_model_data": 3 }, "model": "atomiclegacy:item/ingot_starmetal_orion" }
+  ]
+}

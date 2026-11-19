@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:electrolyzer_metal","ingredient":{"item":"atomiclegacy:crystal_plutonium"},"output1":{"material":"plutonium","amount":432},"output2":{"material":"polonium","amount":144},"byproducts":[{"id":"atomiclegacy:powder_lithium_tiny","count":3}]}

@@ -1,0 +1,52 @@
+{
+    "neoforge:conditions": [
+        {
+            "type": "atomiclegacy:enable_528_mode"
+        }
+    ],
+    "type": "atomiclegacy:precision_assembler",
+    "group": "precass.recycle",
+    "duration": 100,
+    "power": 200,
+    "ingredients": [
+        {
+            "ingredient": {
+                "type": "neoforge:components",
+                "items": "atomiclegacy:broken_item",
+                "components": {
+                    "minecraft:custom_data": "{item_id:\"atomiclegacy:circuit_chip\",item_count:1}"
+                }
+            },
+            "count": 1
+        }
+    ],
+    "outputs": [
+        {
+            "result": {
+                "id": "atomiclegacy:circuit_silicon",
+                "count": 1
+            },
+            "weight": 90
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:plate_polymer",
+                "count": 3
+            },
+            "weight": 90
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:wire_gold",
+                "count": 4
+            },
+            "weight": 90
+        }
+    ],
+    "output_mode": "independent",
+    "expensive_output_weights": [
+        50,
+        50,
+        50
+    ]
+}

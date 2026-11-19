@@ -1,0 +1,16 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "tag": "c:dusts/cadmium"
+  },
+  "acid": {
+    "fluid": "fishoil",
+    "amount": 4000
+  },
+  "duration": 100,
+  "result": {
+    "id": "atomiclegacy:ingot_rubber",
+    "count": 16
+  }
+}

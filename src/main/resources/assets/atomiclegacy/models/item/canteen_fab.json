@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/canteen_fab"
+                 },
+    "parent":  "minecraft:item/generated"
+}

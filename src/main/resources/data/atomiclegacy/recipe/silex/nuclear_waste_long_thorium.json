@@ -1,0 +1,36 @@
+{
+    "type": "atomiclegacy:silex",
+    "group": "silex.nuclear_waste_long_thorium",
+    "ingredient": {
+        "type": "neoforge:components",
+        "items": [
+            "atomiclegacy:nuclear_waste_long"
+        ],
+        "components": {
+            "minecraft:custom_data": "{waste_class:3}"
+        }
+    },
+    "fluid_produced": 900,
+    "fluid_consumed": 100,
+    "wavelength": "ir",
+    "outputs": [
+        {
+            "item": {
+                "id": "atomiclegacy:nugget_u233"
+            },
+            "weight": 40
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:nugget_u235"
+            },
+            "weight": 35
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:nuclear_waste_tiny"
+            },
+            "weight": 25
+        }
+    ]
+}

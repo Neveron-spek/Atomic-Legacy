@@ -1,0 +1,38 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.n2mine",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:shell_steel"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_magnetized_tungsten"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "tag": "c:dyes/green"
+      },
+      "count": 8
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:nuke_n2"
+  },
+  "blueprint_pools": [
+    "528.controller"
+  ]
+}

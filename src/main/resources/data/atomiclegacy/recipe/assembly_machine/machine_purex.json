@@ -1,0 +1,49 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.purex",
+  "duration": 300,
+  "power": 100,
+  "result": {
+    "id": "atomiclegacy:machine_purex"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_expensive_mode"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:shell_steel"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:pipe_rubber"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_lead"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:motor_desh"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_basic"
+      },
+      "count": 4
+    }
+  ]
+}

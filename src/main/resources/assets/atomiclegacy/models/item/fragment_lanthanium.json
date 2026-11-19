@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/fragment_lanthanium"
+                 },
+    "parent":  "minecraft:item/generated"
+}

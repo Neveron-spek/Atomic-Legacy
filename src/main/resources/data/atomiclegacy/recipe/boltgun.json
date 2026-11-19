@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "DPS",
+    " RD",
+    " D "
+  ],
+  "key": {
+    "D": {
+      "tag": "c:ingots/dura_steel"
+    },
+    "P": {
+      "item": "atomiclegacy:part_generic_piston_pneumatic"
+    },
+    "R": {
+      "tag": "c:ingots/rubber"
+    },
+    "S": {
+      "item": "atomiclegacy:shell_steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:boltgun"
+  }
+}

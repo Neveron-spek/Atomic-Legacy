@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": ["CSC", "TST", "G G"],
+  "key": {
+    "C": { "item": "atomiclegacy:circuit_capacitor" },
+    "S": { "tag": "c:plates/steel" },
+    "T": { "item": "atomiclegacy:coil_tungsten" },
+    "G": { "tag": "c:glass_panes" }
+  },
+  "result": { "id": "atomiclegacy:floodlight", "count": 2 }
+}

@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:combination_oven","group":"combination_oven.lignite","input":{"tag":"c:dusts/lignite"},"output":{"id":"atomiclegacy:coke_lignite"},"fluid":{"fluid":"coalcreosote","amount":50}}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "BBB",
+    "BIB",
+    "BBB"
+  ],
+  "key": {
+    "B": { "item": "atomiclegacy:barbed_wire" },
+    "I": { "tag": "c:dusts/fire" }
+  },
+  "result": { "id": "atomiclegacy:barbed_wire_fire", "count": 8 }
+}

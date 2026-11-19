@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/machine_vacuum_distill" },
+    "facing=east": { "model": "atomiclegacy:block/particle/machine_vacuum_distill" },
+    "facing=south": { "model": "atomiclegacy:block/particle/machine_vacuum_distill" },
+    "facing=west": { "model": "atomiclegacy:block/particle/machine_vacuum_distill" }
+  }
+}

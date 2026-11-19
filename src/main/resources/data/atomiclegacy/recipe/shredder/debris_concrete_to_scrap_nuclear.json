@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:debris_concrete"
+  },
+  "result": {
+    "id": "atomiclegacy:scrap_nuclear",
+    "count": 2
+  }
+}

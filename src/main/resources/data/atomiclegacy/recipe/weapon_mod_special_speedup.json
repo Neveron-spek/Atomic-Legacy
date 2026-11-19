@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PIP",
+    "WWW",
+    "PIP"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:plates/weaponsteel"
+    },
+    "I": {
+      "tag": "c:ingots/gunmetal"
+    },
+    "W": {
+      "tag": "c:wires_dense/gold"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_speedup",
+    "count": 1
+  }
+}

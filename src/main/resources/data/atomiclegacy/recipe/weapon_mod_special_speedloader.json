@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " B ",
+    "BSB",
+    " B "
+  ],
+  "key": {
+    "B": {
+      "tag": "c:bolts/steel"
+    },
+    "S": {
+      "tag": "c:plates/weaponsteel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_speedloader",
+    "count": 1
+  }
+}

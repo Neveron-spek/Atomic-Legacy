@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PPP",
+    "RCR",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:ingots/hard_plastic"
+    },
+    "R": {
+      "item": "atomiclegacy:crystal_redstone"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_advanced"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_las_shotgun",
+    "count": 1
+  }
+}

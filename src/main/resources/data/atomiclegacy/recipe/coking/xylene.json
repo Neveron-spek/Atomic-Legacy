@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:coking","group":"coking.xylene","input":{"fluid":"xylene","amount":100},"output":{"id":"atomiclegacy:coke_petroleum"},"byproduct":{"fluid":"gas_coker","amount":10}}

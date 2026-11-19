@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": ["W"],
+  "key": {
+    "W": {
+      "item": "atomiclegacy:pink_log"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:pink_planks",
+    "count": 4
+  }
+}

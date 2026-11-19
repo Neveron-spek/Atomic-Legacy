@@ -1,0 +1,16 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "item": "atomiclegacy:plant_item_mustardwillow"
+  },
+  "input_count": 10,
+  "acid": {
+    "fluid": "radiosolvent",
+    "amount": 250
+  },
+  "duration": 100,
+  "result": {
+    "id": "atomiclegacy:powder_cadmium"
+  }
+}

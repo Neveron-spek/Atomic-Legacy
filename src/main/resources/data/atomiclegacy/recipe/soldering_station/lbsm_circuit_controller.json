@@ -1,0 +1,67 @@
+{
+  "type": "atomiclegacy:soldering_station",
+  "group": "soldering.computer",
+  "duration": 400,
+  "consumption": 15000,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_528_mode"
+      }
+    },
+    {
+      "type": "atomiclegacy:less_bullshit_mode",
+      "feature": "simple_crafting"
+    }
+  ],
+  "fluid": {
+    "fluid": "perfluoromethyl",
+    "amount": 1000
+  },
+  "toppings": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_chip"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_capacitor"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_capacitor_tantalium"
+      },
+      "count": 8
+    }
+  ],
+  "pcb": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller_chassis"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/rubber"
+      },
+      "count": 4
+    }
+  ],
+  "solder": [
+    {
+      "ingredient": {
+        "tag": "c:wires/lead"
+      },
+      "count": 16
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:circuit_controller"
+  }
+}

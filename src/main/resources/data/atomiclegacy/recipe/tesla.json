@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CCC",
+    "PIP",
+    "WTW"
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:coil_copper"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "P": {
+      "tag": "c:ingots/plastic"
+    },
+    "T": {
+      "item": "atomiclegacy:machine_transformer"
+    },
+    "W": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:tesla"
+  }
+}

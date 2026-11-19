@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "atomiclegacy:block/icf_capacitor_top", "up": "atomiclegacy:block/icf_capacitor_top",
+    "north": "atomiclegacy:block/icf_turbocharger", "south": "atomiclegacy:block/icf_turbocharger",
+    "west": "atomiclegacy:block/icf_turbocharger", "east": "atomiclegacy:block/icf_turbocharger",
+    "particle": "#north"
+  }
+}

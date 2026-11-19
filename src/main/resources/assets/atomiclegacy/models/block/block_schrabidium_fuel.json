@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/block_schrabidium_fuel"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

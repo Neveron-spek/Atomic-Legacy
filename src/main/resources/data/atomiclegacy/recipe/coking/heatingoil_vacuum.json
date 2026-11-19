@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:coking","group":"coking.heatingoil_vacuum","input":{"fluid":"heatingoil_vacuum","amount":500},"output":{"id":"atomiclegacy:coke_petroleum"},"byproduct":{"fluid":"oil_coker","amount":50}}

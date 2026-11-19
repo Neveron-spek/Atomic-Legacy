@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "DSD",
+    "PPP",
+    "DSD"
+  ],
+  "key": {
+    "D": {
+      "tag": "c:plates/bismoid_bronze_cast"
+    },
+    "P": {
+      "item": "atomiclegacy:piston_selenium"
+    },
+    "S": {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_engine_turbo",
+    "count": 1
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "variant=0": {
+      "model": "atomiclegacy:block/ore_meteor_iron"
+    },
+    "variant=1": {
+      "model": "atomiclegacy:block/ore_meteor_copper"
+    },
+    "variant=2": {
+      "model": "atomiclegacy:block/ore_meteor_aluminium"
+    },
+    "variant=3": {
+      "model": "atomiclegacy:block/ore_meteor_rareearth"
+    },
+    "variant=4": {
+      "model": "atomiclegacy:block/ore_meteor_cobalt"
+    }
+  }
+}

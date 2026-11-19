@@ -1,0 +1,13 @@
+{
+  "neoforge:conditions": [{"type":"neoforge:not","value":{"type":"atomiclegacy:enable_528_mode"}}],
+  "type":"atomiclegacy:assembly_machine","group":"ass.overdrive3","duration":1200,"power":100,
+  "ingredients":[
+    {"ingredient":{"item":"atomiclegacy:upgrade_overdrive_2"},"count":1},
+    {"ingredient":{"item":"atomiclegacy:upgrade_speed_3"},"count":1},
+    {"ingredient":{"item":"atomiclegacy:upgrade_effect_3"},"count":1},
+    {"ingredient":{"tag":"c:ingots/bismoid_bronze"},"count":16},
+    {"ingredient":{"tag":"c:ingots/cft"},"count":16},
+    {"ingredient":{"item":"atomiclegacy:circuit_bismoid"},"count":16}
+  ],
+  "result":{"id":"atomiclegacy:upgrade_overdrive_3"}
+}

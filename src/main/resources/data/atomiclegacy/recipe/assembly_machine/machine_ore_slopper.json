@@ -1,0 +1,41 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.slopper",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_steel"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/titanium"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:pipe_copper"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:motor"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_analog"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:machine_ore_slopper"
+  }
+}

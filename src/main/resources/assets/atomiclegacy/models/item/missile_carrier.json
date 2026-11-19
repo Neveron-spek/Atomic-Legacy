@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/missile_carrier"
+                 },
+    "parent":  "minecraft:item/generated"
+}

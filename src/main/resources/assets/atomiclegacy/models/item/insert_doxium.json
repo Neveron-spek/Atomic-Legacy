@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/insert_doxium"
+                 },
+    "parent":  "minecraft:item/generated"
+}

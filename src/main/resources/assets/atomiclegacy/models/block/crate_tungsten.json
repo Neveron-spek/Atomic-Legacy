@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "atomiclegacy:block/crate_tungsten_top",
+    "bottom": "atomiclegacy:block/crate_tungsten_top",
+    "side": "atomiclegacy:block/crate_tungsten_side"
+  }
+}

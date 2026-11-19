@@ -1,0 +1,31 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer.bedrock_ore",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:bedrock_ore_new"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "grade": "base_roasted",
+        "type": "heavy"
+      }
+    }
+  },
+  "acid": {
+    "fluid": "water",
+    "amount": 250
+  },
+  "duration": 100,
+  "result": {
+    "id": "atomiclegacy:bedrock_ore_new",
+    "components": {
+      "minecraft:custom_data": {
+        "grade": "base_washed",
+        "type": "heavy"
+      },
+      "minecraft:custom_model_data": 13
+    }
+  }
+}

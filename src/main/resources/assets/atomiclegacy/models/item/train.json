@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:item/train.cargo_tram"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "atomiclegacy:train_variant": 1
+      },
+      "model": "atomiclegacy:item/train_cargo_tram_trailer"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:item/casing.small"
+  },
+  "overrides": [
+    { "predicate": { "minecraft:custom_model_data": 1 }, "model": "atomiclegacy:item/casing_large" },
+    { "predicate": { "minecraft:custom_model_data": 2 }, "model": "atomiclegacy:item/casing_small_steel" },
+    { "predicate": { "minecraft:custom_model_data": 3 }, "model": "atomiclegacy:item/casing_large_steel" },
+    { "predicate": { "minecraft:custom_model_data": 4 }, "model": "atomiclegacy:item/casing_shotshell" },
+    { "predicate": { "minecraft:custom_model_data": 5 }, "model": "atomiclegacy:item/casing_buckshot_legacy" },
+    { "predicate": { "minecraft:custom_model_data": 6 }, "model": "atomiclegacy:item/casing_buckshot_advanced" }
+  ]
+}

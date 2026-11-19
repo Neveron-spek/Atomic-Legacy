@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PPP",
+    "SGM",
+    "PDP"
+  ],
+  "key": {
+    "P": { "tag": "c:plates/polymer" },
+    "S": { "tag": "c:plates/steel" },
+    "G": { "tag": "c:glass_panes" },
+    "M": { "item": "atomiclegacy:magnetron" },
+    "D": { "item": "atomiclegacy:motor" }
+  },
+  "result": { "id": "atomiclegacy:machine_microwave" }
+}

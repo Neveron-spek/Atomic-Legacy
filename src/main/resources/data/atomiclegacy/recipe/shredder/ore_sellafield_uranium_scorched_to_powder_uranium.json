@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ore_sellafield_uranium_scorched"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_uranium",
+    "count": 2
+  }
+}

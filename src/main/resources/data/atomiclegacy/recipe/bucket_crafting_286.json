@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "A A",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "tag": "c:ingots/steel"
+    }
+  },
+  "result": {
+    "id": "minecraft:bucket",
+    "count": 1
+  }
+}

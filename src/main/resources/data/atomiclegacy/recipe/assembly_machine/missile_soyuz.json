@@ -1,0 +1,63 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.soyuz",
+  "duration": 6000,
+  "power": 25000,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:shell_titanium"
+      },
+      "count": 32
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/rubber"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:rocket_fuel"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:thruster_small"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:thruster_medium"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:part_generic_lde"
+      },
+      "count": 32
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:drive_flash_flightsim"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:missile_soyuz",
+    "count": 1
+  },
+  "blueprint_pools": [
+    "528.soyuz"
+  ]
+}

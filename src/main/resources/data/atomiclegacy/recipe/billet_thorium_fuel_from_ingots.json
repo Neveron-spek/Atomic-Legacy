@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "tag": "c:ingots/thorium_fuel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:billet_thorium_fuel",
+    "count": 3
+  }
+}

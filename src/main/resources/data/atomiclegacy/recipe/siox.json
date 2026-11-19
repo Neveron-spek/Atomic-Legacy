@@ -1,0 +1,19 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:less_bullshit_mode",
+        "feature": "simple_medicine"
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "tag": "c:dusts/coal" },
+    { "tag": "c:dusts/asbestos" },
+    { "tag": "c:nuggets/bismuth" }
+  ],
+  "result": { "id": "atomiclegacy:siox", "count": 8 }
+}

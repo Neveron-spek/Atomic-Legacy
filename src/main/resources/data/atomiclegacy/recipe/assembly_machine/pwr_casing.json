@@ -1,0 +1,12 @@
+{
+  "neoforge:conditions": [{ "type": "neoforge:not", "value": { "type": "atomiclegacy:enable_expensive_mode" } }],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.pwrcasing",
+  "duration": 200,
+  "power": 500,
+  "ingredients": [
+    { "ingredient": { "tag": "c:plates/lead" }, "count": 4 },
+    { "ingredient": { "tag": "c:concretes" }, "count": 4 }
+  ],
+  "result": { "id": "atomiclegacy:pwr_casing", "count": 4 }
+}

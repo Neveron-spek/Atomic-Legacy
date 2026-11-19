@@ -1,0 +1,15 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer.circuit_star_piece",
+  "ingredient": {
+    "item": "atomiclegacy:scrap_plastic_card_board"
+  },
+  "acid": {
+    "fluid": "peroxide",
+    "amount": 500
+  },
+  "duration": 600,
+  "result": {
+    "id": "atomiclegacy:circuit_star_piece_card_board"
+  }
+}

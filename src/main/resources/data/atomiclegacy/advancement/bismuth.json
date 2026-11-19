@@ -1,0 +1,28 @@
+{
+  "parent": "atomiclegacy:rbmk",
+  "display": {
+    "icon": {
+      "id": "atomiclegacy:ingot_bismuth"
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.bismuth.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.bismuth.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "triggered"
+    ]
+  ]
+}

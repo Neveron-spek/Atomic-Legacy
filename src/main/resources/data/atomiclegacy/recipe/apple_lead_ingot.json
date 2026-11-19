@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SSS",
+    "SAS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "tag": "c:ingots/lead"
+    },
+    "A": {
+      "item": "minecraft:apple"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:apple_lead",
+    "components": {
+      "minecraft:rarity": "rare",
+      "minecraft:custom_model_data": 1
+    }
+  }
+}

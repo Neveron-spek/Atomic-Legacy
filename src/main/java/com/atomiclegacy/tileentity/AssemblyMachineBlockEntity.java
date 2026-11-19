@@ -1,0 +1,1630 @@
+package com.atomiclegacy.tileentity;
+
+import com.atomiclegacy.blocks.AssemblyMachineBlock;
+import com.atomiclegacy.fluid.HbmFluidDefinition;
+import com.atomiclegacy.fluid.HbmFluidStack;
+import com.atomiclegacy.fluid.HbmFluidTank;
+import com.atomiclegacy.items.BatteryPackItem;
+import com.atomiclegacy.items.BlueprintItem;
+import com.atomiclegacy.items.MachineUpgradeItem;
+import com.atomiclegacy.inventory.container.AssemblyMachineMenu;
+import com.atomiclegacy.power.PowerEndpoint;
+import com.atomiclegacy.power.PowerNetworkManager;
+import com.atomiclegacy.inventory.recipes.AssemblyMachineAutoSwitch;
+import com.atomiclegacy.inventory.recipes.AssemblyMachineRecipe;
+import com.atomiclegacy.inventory.recipes.MachineRecipeCache;
+import com.atomiclegacy.registry.HbmBlockEntities;
+import com.atomiclegacy.registry.HbmFluids;
+import com.atomiclegacy.registry.HbmItems;
+import com.atomiclegacy.registry.HbmRecipeTypes;
+import com.atomiclegacy.registry.HbmSoundEvents;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.Container;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.WorldlyContainer;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+
+import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Random;
+import java.util.function.Consumer;
+
+public class AssemblyMachineBlockEntity extends BlockEntity implements PowerEndpoint, MachineInventory, WorldlyContainer, MenuProvider, com.atomiclegacy.fluid.HbmFluidNetUser, com.atomiclegacy.rtty.RttyValueProvider, com.atomiclegacy.rtty.RttyInteractive { // [parity T1: fluid net] [parity U2: ROR]
+    public static final int BATTERY_SLOT = 0;
+    public static final int BLUEPRINT_SLOT = 1;
+    public static final int UPGRADE_START = 2;
+    public static final int UPGRADE_END = 4;
+    public static final int INPUT_START = 4;
+    public static final int INPUT_END = 16;
+    public static final int OUTPUT_SLOT = 16;
+    public static final int SLOT_COUNT = 17;
+    public static final int TANK_CAPACITY = 4_000;
+    public static final int DATA_COUNT = 20; // [parity U2: ROR] +1 restrictedMode
+    /** [parity K3] menu data: 9..16 tanks, 17 didProcess, 18 base power of the selected recipe. */
+    public static final int TANK_DATA_END = 17;
+    /** [parity K3] ModuleMachineBase#progress (0..1) is synced as progress * PROGRESS_SCALE. */
+    public static final int PROGRESS_SCALE = 1_000_000;
+    public static final long BASE_ENERGY_CAPACITY = 100_000L;
+
+    private static final int[] AUTOMATION_SLOTS = createAutomationSlots();
+    private static volatile Consumer<AssemblyMachineBlockEntity> clientRecipeIconSnapshotUpdater = ignored -> { };
+    private static volatile long clientRecipeIconSnapshotRevision;
+
+    private final NonNullList<ItemStack> items = NonNullList.withSize(SLOT_COUNT, ItemStack.EMPTY);
+    private final NonNullList<ItemStack> observedAutomationItems = NonNullList.withSize(SLOT_COUNT, ItemStack.EMPTY);
+    private final HbmFluidTank inputTank = new HbmFluidTank(TANK_CAPACITY);
+    private final HbmFluidTank outputTank = new HbmFluidTank(TANK_CAPACITY);
+    private long energyStored;
+    private long lastInput;
+    private long energyCapacity = BASE_ENERGY_CAPACITY;
+    /** [parity K3] ModuleMachineBase#progress: fraction of one cycle, the remainder carries over. */
+    private double progress;
+    private int currentDemand = 100;
+    private int completedCycles;
+    private boolean hasRecipe;
+    private boolean didProcess;
+    private boolean clientWasProcessing;
+    private final AssemblerArm[] clientArms = {new AssemblerArm(), new AssemblerArm()};
+    private double clientPrevRing;
+    private double clientRing;
+    private double clientRingSpeed;
+    private double clientRingTarget;
+    private int clientRingDelay;
+    private boolean clientFrame;
+    private long lastClientAnimationTick = Long.MIN_VALUE;
+    @Nullable
+    private ResourceLocation selectedRecipeId;
+    private long observedRecipeCacheGeneration = Long.MIN_VALUE;
+    private boolean recipeCatalogDirty = true;
+    private boolean workStateDirty = true;
+    private List<RecipeHolder<AssemblyMachineRecipe>> cachedActiveRecipes = List.of();
+    private List<RecipeHolder<AssemblyMachineRecipe>> cachedDisplayRecipes = List.of();
+    @Nullable
+    private AssemblyMachineRecipe cachedWorkRecipe;
+    private boolean cachedCanProcess;
+    private volatile RecipeIconRenderSnapshot recipeIconRenderSnapshot;
+    private boolean clientRecipeIconSnapshotDirty = true;
+    private final ContainerData menuData = new ContainerData() {
+        @Override
+        public int get(int index) {
+            if (index >= 9 && index < TANK_DATA_END) {
+                int tankDataIndex = index - 9;
+                HbmFluidTank tank = tankByFlatIndex(tankDataIndex / 4);
+                return switch (tankDataIndex % 4) {
+                    case 0 -> tank.type().oldId();
+                    case 1 -> tank.capacity();
+                    case 2 -> tank.amount();
+                    case 3 -> tank.pressure();
+                    default -> 0;
+                };
+            }
+
+            return switch (index) {
+                case 0 -> (int) AssemblyMachineBlockEntity.this.energyStored;
+                case 1 -> (int) AssemblyMachineBlockEntity.this.lastInput;
+                case 2 -> (int) (AssemblyMachineBlockEntity.this.progress * PROGRESS_SCALE);
+                case 3 -> PROGRESS_SCALE;
+                case 4 -> AssemblyMachineBlockEntity.this.completedCycles;
+                case 5 -> AssemblyMachineBlockEntity.this.currentDemand;
+                case 6 -> (int) AssemblyMachineBlockEntity.this.energyCapacity;
+                case 7 -> AssemblyMachineBlockEntity.this.hasRecipe ? 1 : 0;
+                case 8 -> AssemblyMachineBlockEntity.this.selectedRecipeMenuValue();
+                case 17 -> AssemblyMachineBlockEntity.this.didProcess ? 1 : 0;
+                case 19 -> AssemblyMachineBlockEntity.this.rttyRestricted ? 1 : 0; // [parity U2: ROR]
+                case 18 -> AssemblyMachineBlockEntity.this.cachedWorkRecipe == null ? 0 : AssemblyMachineBlockEntity.this.cachedWorkRecipe.power();
+                default -> 0;
+            };
+        }
+
+        @Override
+        public void set(int index, int value) {
+            if (index >= 9 && index < TANK_DATA_END) {
+                int tankDataIndex = index - 9;
+                HbmFluidTank tank = tankByFlatIndex(tankDataIndex / 4);
+                switch (tankDataIndex % 4) {
+                    case 0 -> tank.setType(HbmFluids.byOldId(value).orElse(HbmFluids.none()));
+                    case 1 -> tank.setCapacity(value);
+                    case 2 -> tank.setAmount(value);
+                    case 3 -> tank.setPressure(value);
+                    default -> {
+                    }
+                }
+                return;
+            }
+
+            switch (index) {
+                case 0 -> AssemblyMachineBlockEntity.this.energyStored = value;
+                case 1 -> AssemblyMachineBlockEntity.this.lastInput = value;
+                case 2 -> AssemblyMachineBlockEntity.this.progress = value / (double) PROGRESS_SCALE;
+                case 3 -> {
+                }
+                case 4 -> AssemblyMachineBlockEntity.this.completedCycles = value;
+                case 5 -> AssemblyMachineBlockEntity.this.currentDemand = Math.max(1, value);
+                case 6 -> AssemblyMachineBlockEntity.this.energyCapacity = Math.max(BASE_ENERGY_CAPACITY, value);
+                case 7 -> AssemblyMachineBlockEntity.this.hasRecipe = value != 0;
+                case 8 -> AssemblyMachineBlockEntity.this.setSelectedRecipeByMenuValue(value);
+                case 17 -> AssemblyMachineBlockEntity.this.didProcess = value != 0;
+                case 19 -> AssemblyMachineBlockEntity.this.rttyRestricted = value != 0; // [parity U2: ROR]
+                default -> {
+                }
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return DATA_COUNT;
+        }
+    };
+
+    public AssemblyMachineBlockEntity(BlockPos pos, BlockState blockState) {
+        this(HbmBlockEntities.ASSEMBLY_MACHINE.get(), pos, blockState);
+    }
+
+    protected AssemblyMachineBlockEntity(BlockEntityType<? extends AssemblyMachineBlockEntity> type, BlockPos pos, BlockState blockState) {
+        super(type, pos, blockState);
+        this.recipeIconRenderSnapshot = RecipeIconRenderSnapshot.empty(pos, blockState);
+    }
+
+    public static void tick(Level level, BlockPos pos, BlockState state, AssemblyMachineBlockEntity blockEntity) {
+        if (level.isClientSide) {
+            blockEntity.refreshClientRecipeIconSnapshot();
+        }
+        PowerNetworkManager.tickFromEndpoint(level, blockEntity);
+        blockEntity.tickWork(level);
+    }
+
+    /** Installed by the client renderer without linking client-only classes on a server. */
+    public static void setClientRecipeIconSnapshotUpdater(Consumer<AssemblyMachineBlockEntity> updater) {
+        clientRecipeIconSnapshotUpdater = Objects.requireNonNull(updater);
+        clientRecipeIconSnapshotRevision++;
+    }
+
+    public static long clientRecipeIconSnapshotRevision() {
+        return clientRecipeIconSnapshotRevision;
+    }
+
+    public RecipeIconRenderSnapshot recipeIconRenderSnapshot() {
+        return recipeIconRenderSnapshot;
+    }
+
+    public void refreshClientRecipeIconSnapshot() {
+        RecipeIconRenderSnapshot snapshot = recipeIconRenderSnapshot;
+        if (snapshot.revision() != clientRecipeIconSnapshotRevision
+                || snapshot.recipeGeneration() != MachineRecipeCache.generation()) {
+            clientRecipeIconSnapshotDirty = true;
+        }
+        if (clientRecipeIconSnapshotDirty && level != null && level.isClientSide) {
+            clientRecipeIconSnapshotUpdater.accept(this);
+        }
+    }
+
+    public void publishClientRecipeIconSnapshot(RecipeIconRenderSnapshot snapshot) {
+        if (level == null || !level.isClientSide) {
+            return;
+        }
+        RecipeIconRenderSnapshot previous = recipeIconRenderSnapshot;
+        recipeIconRenderSnapshot = Objects.requireNonNull(snapshot);
+        clientRecipeIconSnapshotDirty = false;
+        if (!sameSectionCoverage(previous.bounds(), snapshot.bounds())) {
+            level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_CLIENTS);
+        }
+    }
+
+    @Override
+    public BlockPos getPowerPos() {
+        return this.worldPosition;
+    }
+
+    @Override
+    public List<BlockPos> getPowerConnectorPositions(LevelAccessor level) {
+        BlockPos pos = this.worldPosition;
+        return List.of(
+                pos.offset(2, 0, -1).immutable(),
+                pos.offset(2, 0, 0).immutable(),
+                pos.offset(2, 0, 1).immutable(),
+                pos.offset(-2, 0, -1).immutable(),
+                pos.offset(-2, 0, 0).immutable(),
+                pos.offset(-2, 0, 1).immutable(),
+                pos.offset(-1, 0, 2).immutable(),
+                pos.offset(0, 0, 2).immutable(),
+                pos.offset(1, 0, 2).immutable(),
+                pos.offset(-1, 0, -2).immutable(),
+                pos.offset(0, 0, -2).immutable(),
+                pos.offset(1, 0, -2).immutable()
+        );
+    }
+
+    public IFluidHandler fluidHandler(@Nullable Direction side) {
+        return new AssemblyMachineFluidHandler();
+    }
+
+    public HbmFluidTank inputTank() {
+        return this.inputTank;
+    }
+
+    public HbmFluidTank outputTank() {
+        return this.outputTank;
+    }
+
+    @Override
+    public long getAvailableOutput() {
+        return 0L;
+    }
+
+    @Override
+    public long getRequestedInput() {
+        if (this.energyStored >= this.energyCapacity) {
+            return 0L;
+        }
+        return this.energyCapacity - this.energyStored; // [parity K3] receiver speed = maxPower
+    }
+
+    @Override
+    public void applyPower(long usedOutput, long receivedInput) {
+        long previousEnergy = this.energyStored;
+        long previousLastInput = this.lastInput;
+        this.energyStored = Math.min(this.energyCapacity, this.energyStored + receivedInput);
+        this.lastInput = receivedInput;
+        if (this.energyStored != previousEnergy || this.lastInput != previousLastInput) {
+            markRuntimeChanged();
+        }
+    }
+
+    @Override
+    public Component getPowerStatus() {
+        int percent = (int) (this.progress * 100.0D);
+        return Component.translatable(
+                "message.atomiclegacy.power.assembly_machine",
+                this.lastInput,
+                this.currentDemand,
+                this.energyStored,
+                this.energyCapacity,
+                percent,
+                this.completedCycles
+        );
+    }
+
+    @Override
+    public int getContainerSize() {
+        return SLOT_COUNT;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        for (ItemStack stack : this.items) {
+            if (!stack.isEmpty()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public ItemStack getItem(int slot) {
+        return isValidSlot(slot) ? this.items.get(slot) : ItemStack.EMPTY;
+    }
+
+    @Override
+    public ItemStack removeItem(int slot, int amount) {
+        if (!isValidSlot(slot) || amount <= 0) {
+            return ItemStack.EMPTY;
+        }
+
+        ItemStack stack = this.items.get(slot);
+        if (stack.isEmpty()) {
+            return ItemStack.EMPTY;
+        }
+
+        ItemStack removed = stack.split(amount);
+        if (stack.isEmpty()) {
+            this.items.set(slot, ItemStack.EMPTY);
+        }
+        if (!removed.isEmpty()) {
+            inventoryChanged(slot);
+            setChanged();
+        }
+        return removed;
+    }
+
+    @Override
+    public ItemStack removeItemNoUpdate(int slot) {
+        if (!isValidSlot(slot)) {
+            return ItemStack.EMPTY;
+        }
+        ItemStack removed = this.items.get(slot);
+        this.items.set(slot, ItemStack.EMPTY);
+        if (!removed.isEmpty()) {
+            inventoryChanged(slot);
+        }
+        return removed;
+    }
+
+    @Override
+    public void setItem(int slot, ItemStack stack) {
+        if (!isValidSlot(slot)) {
+            return;
+        }
+        this.items.set(slot, stack);
+        if (!stack.isEmpty() && stack.getCount() > this.getMaxStackSize(stack)) {
+            stack.setCount(this.getMaxStackSize(stack));
+        }
+        if (slot == BLUEPRINT_SLOT) {
+            invalidateRecipeCatalog();
+            clearSelectionIfBlueprintNoLongerAllowsIt();
+        } else {
+            // The selected assembly recipe is the process identity. Hopper and
+            // bus transfers commonly grow one input stack at a time; those
+            // count changes only require revalidation and must not erase work.
+            inventoryChanged(slot);
+        }
+        setChanged();
+    }
+
+    @Override
+    public boolean canPlaceItem(int slot, ItemStack stack) {
+        if (slot == BATTERY_SLOT) {
+            return true; // [parity K3] battery slot, also holds meteorite_sword_alloyed
+        }
+        if (slot == BLUEPRINT_SLOT) {
+            return isBlueprint(stack);
+        }
+        if (slot >= UPGRADE_START && slot < UPGRADE_END) {
+            return MachineUpgradeItem.isMachineUpgrade(stack); // [parity K3] any ItemMachineUpgrade
+        }
+        if (isInputSlot(slot)) {
+            return canAcceptInput(slot, stack);
+        }
+        return false;
+    }
+
+    @Override
+    public int[] getSlotsForFace(Direction side) {
+        return AUTOMATION_SLOTS;
+    }
+
+    @Override
+    public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction side) {
+        return slot != OUTPUT_SLOT && slot != BLUEPRINT_SLOT && (slot < UPGRADE_START || slot >= UPGRADE_END) && canPlaceItem(slot, stack);
+    }
+
+    @Override
+    public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) {
+        return slot == OUTPUT_SLOT || isSlotClogged(slot);
+    }
+
+    @Override
+    public boolean stillValid(Player player) {
+        return MachineDummyMenuAccess.stillValid(this, player);
+    }
+
+    @Override
+    public void clearContent() {
+        for (int slot = 0; slot < this.items.size(); slot++) {
+            this.items.set(slot, ItemStack.EMPTY);
+        }
+        this.progress = 0;
+        invalidateRecipeCatalog();
+        setChanged();
+    }
+
+    @Override
+    public Component getDisplayName() {
+        return Component.translatable("container.atomiclegacy.assembly_machine");
+    }
+
+    @Override
+    public AbstractContainerMenu createMenu(int containerId, Inventory playerInventory, Player player) {
+        return new AssemblyMachineMenu(containerId, playerInventory, this, this.menuData);
+    }
+
+    public boolean canAcceptInput(ItemStack stack) {
+        if (stack.isEmpty()) {
+            return false;
+        }
+        for (int slot = INPUT_START; slot < INPUT_END; slot++) {
+            if (canAcceptInput(slot, stack)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean canAcceptInput(int slot, ItemStack stack) {
+        if (!isInputSlot(slot) || stack.isEmpty() || this.level == null) {
+            return false;
+        }
+        Optional<RecipeHolder<AssemblyMachineRecipe>> selectedRecipe = selectedRecipe(this.level);
+        if (selectedRecipe.isEmpty()) {
+            return false;
+        }
+
+        int inputIndex = slot - INPUT_START;
+        for (RecipeHolder<AssemblyMachineRecipe> holder : selectedChoiceVariants(this.level, selectedRecipe.get())) {
+            List<AssemblyMachineRecipe.CountedIngredient> ingredients = holder.value().ingredients();
+            if (inputIndex >= 0 && inputIndex < ingredients.size() && ingredients.get(inputIndex).ingredient().test(stack)) {
+                return true;
+            }
+        }
+        if (inputIndex == 0) { // [parity K3] ModuleMachineBase#isItemValid autoswitch branch
+            for (RecipeHolder<AssemblyMachineRecipe> member : autoSwitchMembers(this.level, selectedRecipe.get().value())) {
+                List<AssemblyMachineRecipe.CountedIngredient> ingredients = member.value().ingredients();
+                if (!ingredients.isEmpty() && ingredients.getFirst().ingredient().test(stack)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public ContainerData getMenuData() {
+        return this.menuData;
+    }
+
+    @Override
+    public void dropContents(Level level, BlockPos pos) {
+        for (int slot = 0; slot < this.items.size(); slot++) {
+            drop(level, pos, this.items.get(slot));
+            this.items.set(slot, ItemStack.EMPTY);
+        }
+    }
+
+    @Override
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.saveAdditional(tag, registries);
+        for (int slot = 0; slot < this.items.size(); slot++) {
+            tag.put("Slot" + slot, this.items.get(slot).saveOptional(registries));
+        }
+        tag.put("InputTank", this.inputTank.save());
+        tag.put("OutputTank", this.outputTank.save());
+        tag.putLong("EnergyStored", this.energyStored);
+        tag.putLong("LastInput", this.lastInput);
+        tag.putLong("EnergyCapacity", this.energyCapacity);
+        tag.putDouble("Progress", this.progress);
+        tag.putInt("CurrentDemand", this.currentDemand);
+        tag.putBoolean("DidProcess", this.didProcess);
+        tag.putInt("CompletedCycles", this.completedCycles);
+        if (this.selectedRecipeId != null) {
+            tag.putString("SelectedRecipe", this.selectedRecipeId.toString());
+        }
+        tag.putBoolean("restrictedMode", this.rttyRestricted); // [parity U2: ROR]
+        if (this.rttyRecipe != null) tag.putString("RorRecipe", this.rttyRecipe); // [parity U2: ROR]
+    }
+
+    @Override
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.loadAdditional(tag, registries);
+        for (int slot = 0; slot < this.items.size(); slot++) {
+            this.items.set(slot, ItemStack.parseOptional(registries, tag.getCompound("Slot" + slot)));
+        }
+        this.inputTank.load(tag.getCompound("InputTank"));
+        this.outputTank.load(tag.getCompound("OutputTank"));
+        this.energyStored = tag.getLong("EnergyStored");
+        this.lastInput = tag.getLong("LastInput");
+        this.energyCapacity = Math.max(BASE_ENERGY_CAPACITY, tag.getLong("EnergyCapacity"));
+        this.progress = tag.getDouble("Progress");
+        this.currentDemand = Math.max(1, tag.getInt("CurrentDemand"));
+        this.didProcess = tag.getBoolean("DidProcess");
+        this.completedCycles = tag.getInt("CompletedCycles");
+        this.selectedRecipeId = tag.contains("SelectedRecipe") ? ResourceLocation.tryParse(tag.getString("SelectedRecipe")) : null;
+        this.rttyRestricted = tag.getBoolean("restrictedMode"); // [parity U2: ROR]
+        this.rttyRecipe = tag.contains("RorRecipe") ? tag.getString("RorRecipe") : null; // [parity U2: ROR]
+        invalidateRecipeCatalog();
+        clientRecipeIconSnapshotDirty = true;
+        refreshClientRecipeIconSnapshot();
+    }
+
+    @Override
+    public void onLoad() {
+        super.onLoad();
+        clientRecipeIconSnapshotDirty = true;
+        refreshClientRecipeIconSnapshot();
+    }
+
+    @Override
+    public void setBlockState(BlockState state) {
+        BlockState previous = getBlockState();
+        super.setBlockState(state);
+        if (recipeIconRenderSnapshot != null && previous != state) {
+            clientRecipeIconSnapshotDirty = true;
+            refreshClientRecipeIconSnapshot();
+        }
+    }
+
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+        CompoundTag tag = super.getUpdateTag(registries);
+        saveAdditional(tag, registries);
+        return tag;
+    }
+
+    @Nullable
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    private void tickWork(Level level) {
+        com.atomiclegacy.fluid.HbmFluidNetworks.subscribe(this.level, this); // [parity V1: fluid net] setupAllPorts + updatePort*FIFO
+        // [parity K3] TileEntityMachineAssemblyMachine#updateEntity + ModuleMachineBase#update, evaluated every tick
+        invalidateWorkState();
+        refreshWorkState(level);
+        AssemblyMachineRecipe recipe = this.cachedWorkRecipe;
+        if (recipe != null) {
+            this.energyCapacity = recipe.power() * 100L;
+        }
+        this.energyCapacity = Math.max(Math.max(this.energyStored, this.energyCapacity), BASE_ENERGY_CAPACITY);
+        this.energyStored = BatteryPackItem.dischargeIntoMachine(this.items.get(BATTERY_SLOT), this.energyStored, this.energyCapacity);
+
+        double speed = speedMultiplier();
+        double pow = powerMultiplier();
+        this.currentDemand = recipe == null ? 100 : (int) Math.max(1L, consumption(recipe, pow));
+        this.didProcess = false;
+        if (recipe != null && moduleCanProcess(level, recipe, pow)) {
+            process(level, recipe, speed, pow);
+            this.didProcess = true;
+        } else {
+            this.progress = 0.0D;
+        }
+        if (this.didProcess) {
+            machineMeteoriteSword();
+        }
+        setLit(this.didProcess);
+        markRuntimeChanged();
+    }
+
+    /** ModuleMachineBase#canProcess: autoswitch, power, inputs and output space. */
+    private boolean moduleCanProcess(Level level, AssemblyMachineRecipe recipe, double pow) {
+        if (performAutoSwitch(level, recipe)) {
+            return false; // cancel the recipe this tick since the previous checks have to run again
+        }
+        if (pow != 1.0D && this.energyStored < recipe.power() * pow) {
+            return false;
+        }
+        if (pow == 1.0D && this.energyStored < recipe.power()) {
+            return false;
+        }
+        return this.cachedCanProcess && this.cachedWorkRecipe == recipe;
+    }
+
+    /** ModuleMachineBase#process. */
+    private void process(Level level, AssemblyMachineRecipe recipe, double speed, double pow) {
+        this.energyStored -= consumption(recipe, pow);
+        if (this.rttyRestricted) speed *= 0.25; // [parity U2: ROR] RoR controlled machines have a speed penalty
+        double step = Math.min(speed / recipe.duration(), 1.0D);
+        this.progress += step;
+        if (this.progress >= 1.0D) {
+            finishRecipe(recipe);
+            this.completedCycles++;
+            captureAutomationSnapshot();
+            invalidateWorkState();
+            refreshWorkState(level);
+            AssemblyMachineRecipe next = this.cachedWorkRecipe;
+            if (next != null && moduleCanProcess(level, next, pow)) {
+                this.progress -= 1.0D;
+            } else {
+                this.progress = 0.0D;
+            }
+        }
+    }
+
+    private static long consumption(AssemblyMachineRecipe recipe, double pow) {
+        return pow == 1.0D ? recipe.power() : (long) (recipe.power() * pow);
+    }
+
+    /** Speed multiplier of TileEntityMachineAssemblyMachine#updateEntity. */
+    public double speedMultiplier() {
+        double speed = 1.0D;
+        speed += Math.min(upgradeLevel(MachineUpgradeItem.UpgradeType.SPEED), 3) / 3.0D;
+        speed += Math.min(upgradeLevel(MachineUpgradeItem.UpgradeType.OVERDRIVE), 3);
+        return speed;
+    }
+
+    /** Power multiplier of TileEntityMachineAssemblyMachine#updateEntity. */
+    public double powerMultiplier() {
+        double pow = 1.0D;
+        pow -= Math.min(upgradeLevel(MachineUpgradeItem.UpgradeType.POWER), 3) * 0.25D;
+        pow += Math.min(upgradeLevel(MachineUpgradeItem.UpgradeType.SPEED), 3) * 1.0D;
+        pow += Math.min(upgradeLevel(MachineUpgradeItem.UpgradeType.OVERDRIVE), 3) * 10.0D / 3.0D;
+        return pow;
+    }
+
+    public double progress() {
+        return this.progress;
+    }
+
+    public boolean didProcess() {
+        return this.didProcess;
+    }
+
+    public long energyCapacity() {
+        return this.energyCapacity;
+    }
+
+    public long energyStored() {
+        return this.energyStored;
+    }
+
+    public void setEnergyStored(long energy) {
+        this.energyStored = Math.max(0L, energy);
+    }
+
+    /** ModuleMachineBase#canProcess autoswitch: the first input decides the recipe of the group. */
+    private boolean performAutoSwitch(Level level, AssemblyMachineRecipe recipe) {
+        ItemStack first = this.items.get(INPUT_START);
+        if (first.isEmpty()) {
+            return false;
+        }
+        for (RecipeHolder<AssemblyMachineRecipe> member : autoSwitchMembers(level, recipe)) {
+            List<AssemblyMachineRecipe.CountedIngredient> ingredients = member.value().ingredients();
+            if (!ingredients.isEmpty() && ingredients.getFirst().ingredient().test(first)) {
+                this.selectedRecipeId = member.id();
+                invalidateWorkState();
+                clientRecipeIconSnapshotDirty = true;
+                setChangedAndSync();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /** Other recipes of the original autoswitch group of {@code recipe}, in registration order. */
+    private List<RecipeHolder<AssemblyMachineRecipe>> autoSwitchMembers(Level level, AssemblyMachineRecipe recipe) {
+        List<String> names = AssemblyMachineAutoSwitch.otherMembers(recipe.group());
+        if (names.isEmpty()) {
+            return List.of();
+        }
+        List<RecipeHolder<AssemblyMachineRecipe>> recipes = availableRecipes(level);
+        List<RecipeHolder<AssemblyMachineRecipe>> members = new ArrayList<>();
+        for (String name : names) {
+            for (RecipeHolder<AssemblyMachineRecipe> holder : recipes) {
+                if (name.equals(holder.value().group())) {
+                    members.add(holder);
+                    break;
+                }
+            }
+        }
+        return members;
+    }
+
+    private void refreshWorkState(Level level) {
+        ensureRecipeCatalog(level);
+        if (!this.workStateDirty) {
+            return;
+        }
+
+        this.workStateDirty = false;
+        this.cachedWorkRecipe = null;
+        this.cachedCanProcess = false;
+        Optional<RecipeHolder<AssemblyMachineRecipe>> recipeHolder = getSelectedRecipe(level);
+        this.hasRecipe = recipeHolder.isPresent();
+        if (recipeHolder.isEmpty()) {
+            return;
+        }
+
+        RecipeHolder<AssemblyMachineRecipe> selectedHolder = recipeHolder.get();
+        setupTanks(selectedHolder.value()); // [parity K3] ModuleMachineBase#update: setupTanks before canProcess
+        Optional<RecipeHolder<AssemblyMachineRecipe>> matchingRecipe = selectedRecipeForInputs(level, selectedHolder);
+        AssemblyMachineRecipe recipe = matchingRecipe.orElse(selectedHolder).value();
+        this.cachedWorkRecipe = recipe;
+        this.cachedCanProcess = matchingRecipe.isPresent() || canProcess(recipe);
+    }
+
+    private Optional<RecipeHolder<AssemblyMachineRecipe>> getSelectedRecipe(Level level) {
+        if (this.selectedRecipeId != null) {
+            Optional<RecipeHolder<AssemblyMachineRecipe>> selectedRecipe = findSelectedRecipe(level);
+            if (selectedRecipe.isEmpty() || !selectedRecipe.get().value().isVisibleForPool(installedBlueprintPool())) {
+                this.selectedRecipeId = null;
+                setChanged();
+                return Optional.empty();
+            }
+            if (!selectedRecipe.get().id().equals(this.selectedRecipeId)) {
+                this.selectedRecipeId = selectedRecipe.get().id();
+                setChanged();
+            }
+            return selectedRecipe;
+        }
+        return Optional.empty();
+    }
+
+    public Optional<ResourceLocation> selectedRecipeId() {
+        return Optional.ofNullable(this.selectedRecipeId);
+    }
+
+    public void setSelectedRecipe(@Nullable ResourceLocation recipeId) {
+        this.rttyRestricted = false; // [parity U2: ROR] GUI selection: ModuleMachineBase#setRecipe(selection, false)
+        this.rttyRecipe = null;
+        if (recipeId != null && this.level != null) {
+            Optional<RecipeHolder<AssemblyMachineRecipe>> recipe = findRecipe(this.level, recipeId);
+            recipeId = recipe.map(RecipeHolder::id).orElse(null);
+        }
+        if (this.selectedRecipeId == recipeId || (this.selectedRecipeId != null && this.selectedRecipeId.equals(recipeId))) {
+            return;
+        }
+        this.selectedRecipeId = recipeId; // [parity K3] ModuleMachineBase#setRecipe keeps the progress
+        invalidateWorkState();
+        clientRecipeIconSnapshotDirty = true;
+        setChangedAndSync();
+    }
+
+    public Optional<RecipeHolder<AssemblyMachineRecipe>> selectedRecipe(Level level) {
+        if (this.selectedRecipeId == null) {
+            return Optional.empty();
+        }
+        return findRecipe(level, this.selectedRecipeId)
+                .filter(holder -> holder.value().isVisibleForPool(installedBlueprintPool()));
+    }
+
+    private Optional<RecipeHolder<AssemblyMachineRecipe>> findSelectedRecipe(Level level) {
+        return this.selectedRecipeId == null
+                ? Optional.empty()
+                : findRecipe(level, this.selectedRecipeId).filter(holder -> holder.value().isVisibleForPool(installedBlueprintPool()));
+    }
+
+    private Optional<RecipeHolder<AssemblyMachineRecipe>> findRecipe(Level level, ResourceLocation recipeId) {
+        List<RecipeHolder<AssemblyMachineRecipe>> displayRecipes = availableRecipes(level);
+        for (RecipeHolder<AssemblyMachineRecipe> holder : displayRecipes) {
+            if (holder.id().equals(recipeId)) {
+                return Optional.of(holder);
+            }
+        }
+        Optional<RecipeHolder<AssemblyMachineRecipe>> rawRecipe = this.cachedActiveRecipes.stream()
+                .filter(holder -> holder.id().equals(recipeId))
+                .findFirst();
+        if (rawRecipe.isPresent()) {
+            for (RecipeHolder<AssemblyMachineRecipe> holder : displayRecipes) {
+                if (AssemblyMachineRecipe.sameDisplayChoice(holder, rawRecipe.get())) {
+                    return Optional.of(holder);
+                }
+            }
+        }
+        return Optional.empty();
+    }
+
+    private int selectedRecipeMenuValue() {
+        if (this.selectedRecipeId == null || this.level == null) {
+            return 0;
+        }
+        List<RecipeHolder<AssemblyMachineRecipe>> recipes = availableRecipes(this.level);
+        ResourceLocation displayRecipeId = findRecipe(this.level, this.selectedRecipeId)
+                .map(RecipeHolder::id)
+                .orElse(this.selectedRecipeId);
+        for (int index = 0; index < recipes.size(); index++) {
+            if (recipes.get(index).id().equals(displayRecipeId)) {
+                return index + 1;
+            }
+        }
+        return 0;
+    }
+
+    private void setSelectedRecipeByMenuValue(int value) {
+        if (value <= 0 || this.level == null) {
+            this.selectedRecipeId = null;
+            invalidateWorkState();
+            clientRecipeIconSnapshotDirty = true;
+            return;
+        }
+        List<RecipeHolder<AssemblyMachineRecipe>> recipes = availableRecipes(this.level);
+        int index = value - 1;
+        this.selectedRecipeId = index >= 0 && index < recipes.size() ? recipes.get(index).id() : null;
+        invalidateWorkState();
+        clientRecipeIconSnapshotDirty = true;
+    }
+
+    public List<RecipeHolder<AssemblyMachineRecipe>> availableRecipes(Level level) {
+        ensureRecipeCatalog(level);
+        return this.cachedDisplayRecipes;
+    }
+
+    protected List<RecipeHolder<AssemblyMachineRecipe>> activeVisibleRecipes(Level level) {
+        List<RecipeHolder<AssemblyMachineRecipe>> visibleRecipes = level.getRecipeManager()
+                .getAllRecipesFor(HbmRecipeTypes.ASSEMBLY_MACHINE.get())
+                .stream()
+                .filter(holder -> holder.value().isVisibleForPool(installedBlueprintPool()))
+                .toList();
+        return AssemblyMachineRecipe.activeVariants(visibleRecipes);
+    }
+
+    private List<RecipeHolder<AssemblyMachineRecipe>> selectedChoiceVariants(Level level, RecipeHolder<AssemblyMachineRecipe> selectedRecipe) {
+        ensureRecipeCatalog(level);
+        return this.cachedActiveRecipes.stream()
+                .filter(holder -> AssemblyMachineRecipe.sameDisplayChoice(selectedRecipe, holder))
+                .toList();
+    }
+
+    private void ensureRecipeCatalog(Level level) {
+        long generation = MachineRecipeCache.generation();
+        if (this.observedRecipeCacheGeneration != generation) {
+            this.observedRecipeCacheGeneration = generation;
+            invalidateRecipeCatalog();
+        }
+        if (!this.recipeCatalogDirty) {
+            return;
+        }
+
+        this.cachedActiveRecipes = List.copyOf(activeVisibleRecipes(level));
+        this.cachedDisplayRecipes = List.copyOf(AssemblyMachineRecipe.collapseDisplayChoices(this.cachedActiveRecipes));
+        this.recipeCatalogDirty = false;
+        this.workStateDirty = true;
+    }
+
+    private void invalidateRecipeCatalog() {
+        this.recipeCatalogDirty = true;
+        this.cachedActiveRecipes = List.of();
+        this.cachedDisplayRecipes = List.of();
+        invalidateWorkState();
+    }
+
+    private void invalidateWorkState() {
+        this.workStateDirty = true;
+        this.cachedWorkRecipe = null;
+        this.cachedCanProcess = false;
+    }
+
+    private void inventoryChanged(int slot) {
+        if (slot == BLUEPRINT_SLOT) {
+            invalidateRecipeCatalog();
+        } else if (slot != BATTERY_SLOT) {
+            invalidateWorkState();
+        }
+    }
+
+    private Optional<RecipeHolder<AssemblyMachineRecipe>> selectedRecipeForInputs(Level level, RecipeHolder<AssemblyMachineRecipe> selectedRecipe) {
+        AssemblyMachineRecipe.Input input = new AssemblyMachineRecipe.Input(inputStacks(), inputFluidStacks());
+        return selectedChoiceVariants(level, selectedRecipe).stream()
+                .filter(holder -> holder.value().matches(input, level))
+                .filter(holder -> canOutput(holder.value()))
+                .filter(holder -> canFitFluidOutput(holder.value()))
+                .findFirst();
+    }
+
+    private Optional<String> installedBlueprintPool() {
+        return BlueprintItem.pool(this.items.get(BLUEPRINT_SLOT));
+    }
+
+    private List<ItemStack> inputStacks() {
+        List<ItemStack> stacks = new ArrayList<>(INPUT_END - INPUT_START);
+        for (int slot = INPUT_START; slot < INPUT_END; slot++) {
+            stacks.add(this.items.get(slot));
+        }
+        return stacks;
+    }
+
+    private List<HbmFluidStack> inputFluidStacks() {
+        return List.of(new HbmFluidStack(this.inputTank.type(), this.inputTank.amount(), this.inputTank.pressure()));
+    }
+
+    /** UpgradeManagerNT#checkSlots: tiers of valid upgrades add up, capped at getValidUpgrades() (3). */
+    private int upgradeLevel(MachineUpgradeItem.UpgradeType type) {
+        if (type != MachineUpgradeItem.UpgradeType.SPEED && type != MachineUpgradeItem.UpgradeType.POWER
+                && type != MachineUpgradeItem.UpgradeType.OVERDRIVE) {
+            return 0;
+        }
+        int level = 0;
+        for (int slot = UPGRADE_START; slot < UPGRADE_END; slot++) {
+            ItemStack stack = this.items.get(slot);
+            if (MachineUpgradeItem.upgradeType(stack) == type) {
+                level += Math.max(0, MachineUpgradeItem.upgradeTier(stack));
+            }
+        }
+        return Math.min(level, 3);
+    }
+
+    private boolean canOutput(ItemStack result) {
+        if (result.isEmpty()) {
+            return false;
+        }
+        ItemStack output = this.items.get(OUTPUT_SLOT);
+        if (output.isEmpty()) {
+            return true;
+        }
+        return ItemStack.isSameItemSameComponents(output, result)
+                && output.getCount() + result.getCount() <= output.getMaxStackSize();
+    }
+
+    private boolean canOutput(AssemblyMachineRecipe recipe) {
+        ItemStack held = this.items.get(OUTPUT_SLOT);
+        if (held.isEmpty()) {
+            return true;
+        }
+        if (!recipe.outputs().isEmpty()) {
+            return false; // [parity K3] the slot has to be empty to decide on multi outputs
+        }
+        return canOutput(recipe.result());
+    }
+
+    private void finishRecipe(AssemblyMachineRecipe recipe) {
+        consumeInputs(recipe);
+        ItemStack result = recipe.rollResult(this.level.random);
+        ItemStack output = this.items.get(OUTPUT_SLOT);
+        if (output.isEmpty()) {
+            this.items.set(OUTPUT_SLOT, result);
+        } else {
+            output.grow(result.getCount());
+        }
+        produceFluidOutputs(recipe);
+    }
+
+    /** "if(didProcess) if(slots[0] is meteorite_sword_alloyed) slots[0] = meteorite_sword_machined" */
+    private void machineMeteoriteSword() {
+        ItemStack battery = this.items.get(BATTERY_SLOT);
+        if (battery.is(HbmItems.METEORITE_SWORD_ALLOYED.get())) {
+            this.items.set(BATTERY_SLOT, new ItemStack(HbmItems.METEORITE_SWORD_MACHINED.get()));
+        }
+    }
+
+    private void consumeInputs(AssemblyMachineRecipe recipe) {
+        List<AssemblyMachineRecipe.CountedIngredient> ingredients = recipe.ingredients();
+        int limit = Math.min(ingredients.size(), INPUT_END - INPUT_START);
+        for (int inputIndex = 0; inputIndex < limit; inputIndex++) {
+            int slot = INPUT_START + inputIndex;
+            AssemblyMachineRecipe.CountedIngredient ingredient = ingredients.get(inputIndex);
+            ItemStack stack = this.items.get(slot);
+            if (!stack.isEmpty() && ingredient.ingredient().test(stack)) {
+                stack.shrink(ingredient.count());
+                if (stack.isEmpty()) {
+                    this.items.set(slot, ItemStack.EMPTY);
+                }
+            }
+        }
+
+        if (!recipe.inputFluids().isEmpty()) {
+            AssemblyMachineRecipe.AssemblyFluidStack input = recipe.inputFluids().getFirst();
+            this.inputTank.drain(input.type(), input.amount(), false);
+        }
+    }
+
+    private void produceFluidOutputs(AssemblyMachineRecipe recipe) {
+        if (recipe.outputFluids().isEmpty()) {
+            return;
+        }
+        AssemblyMachineRecipe.AssemblyFluidStack output = recipe.outputFluids().getFirst();
+        this.outputTank.fill(output.type(), output.amount(), output.pressure(), false);
+    }
+
+    private void setupTanks(AssemblyMachineRecipe recipe) {
+        // [parity K3] conform/resetTank first, then resize to max(fill, 2 x recipe amount, 4000); resetTank keeps the size
+        if (!recipe.inputFluids().isEmpty()) {
+            AssemblyMachineRecipe.AssemblyFluidStack input = recipe.inputFluids().getFirst();
+            this.inputTank.conform(input.type(), input.pressure());
+            this.inputTank.setCapacity(Math.max(Math.max(this.inputTank.amount(), input.amount() * 2), TANK_CAPACITY));
+        } else {
+            this.inputTank.clear();
+        }
+
+        if (!recipe.outputFluids().isEmpty()) {
+            AssemblyMachineRecipe.AssemblyFluidStack output = recipe.outputFluids().getFirst();
+            this.outputTank.conform(output.type(), output.pressure());
+            this.outputTank.setCapacity(Math.max(Math.max(this.outputTank.amount(), output.amount() * 2), TANK_CAPACITY));
+        } else {
+            this.outputTank.clear();
+        }
+    }
+
+    private boolean canProcess(AssemblyMachineRecipe recipe) {
+        if (!recipe.matches(new AssemblyMachineRecipe.Input(inputStacks(), inputFluidStacks()), this.level)) {
+            return false;
+        }
+        return canOutput(recipe) && canFitFluidOutput(recipe);
+    }
+
+    private boolean canFitFluidOutput(AssemblyMachineRecipe recipe) {
+        if (recipe.outputFluids().size() > 1) {
+            return false;
+        }
+        if (recipe.outputFluids().isEmpty()) {
+            return true;
+        }
+        AssemblyMachineRecipe.AssemblyFluidStack output = recipe.outputFluids().getFirst();
+        return this.outputTank.type() == output.type()
+                && this.outputTank.pressure() == output.pressure()
+                && this.outputTank.amount() + output.amount() <= this.outputTank.capacity();
+    }
+
+    private void setLit(boolean lit) {
+        if (this.level == null) {
+            return;
+        }
+
+        BlockState state = this.level.getBlockState(this.worldPosition);
+        if (state.hasProperty(AssemblyMachineBlock.LIT) && state.getValue(AssemblyMachineBlock.LIT) != lit) {
+            this.level.setBlock(this.worldPosition, state.setValue(AssemblyMachineBlock.LIT, lit), Block.UPDATE_CLIENTS);
+        }
+    }
+
+    /** Client tick: animation, looped motor and the one-shot sounds of the original client branch. */
+    public void tickClient() {
+        updateClientAnimation();
+        boolean working = isClientWorking();
+        if (this.clientWasProcessing && !working && this.level != null) {
+            playClientSound(HbmSoundEvents.ASSEMBLER_STOP.get(), 0.25F, 1.5F);
+        }
+        this.clientWasProcessing = working;
+        com.atomiclegacy.client.sound.AssemblyMachineClientSounds.tick(this);
+    }
+
+    public boolean isClientWorking() {
+        return this.getBlockState().hasProperty(AssemblyMachineBlock.LIT) && this.getBlockState().getValue(AssemblyMachineBlock.LIT);
+    }
+
+    private void playClientSound(net.minecraft.sounds.SoundEvent sound, float volume, float pitch) {
+        if (this.level == null || !this.level.isClientSide) {
+            return;
+        }
+        this.level.playLocalSound(this.worldPosition.getX(), this.worldPosition.getY(), this.worldPosition.getZ(), sound,
+                SoundSource.BLOCKS, com.atomiclegacy.util.MachineMuffler.attenuate(this, volume), pitch, false);
+    }
+
+    public void updateClientAnimation() {
+        if (this.level == null || !this.level.isClientSide) {
+            return;
+        }
+
+        long gameTime = this.level.getGameTime();
+        if (this.lastClientAnimationTick == gameTime) {
+            return;
+        }
+        if (this.lastClientAnimationTick == Long.MIN_VALUE || gameTime % 20L == 0L) {
+            this.clientFrame = !this.level.getBlockState(this.worldPosition.above(3)).isAir();
+        }
+
+        int steps = this.lastClientAnimationTick == Long.MIN_VALUE
+                ? 1
+                : (int) Math.min(5L, Math.max(1L, gameTime - this.lastClientAnimationTick));
+        for (int step = 0; step < steps; step++) {
+            stepClientAnimation();
+        }
+        this.lastClientAnimationTick = gameTime;
+    }
+
+    public boolean clientFrame() {
+        return this.clientFrame;
+    }
+
+    public double clientRing(float partialTick) {
+        return lerp(this.clientPrevRing, this.clientRing, partialTick);
+    }
+
+    public void writeClientArmPositions(int index, float partialTick, double[] destination) {
+        if (destination.length < 4) {
+            throw new IllegalArgumentException("Assembly machine arm destination must contain four values");
+        }
+        this.clientArms[index].writePositions(partialTick, destination);
+    }
+
+    private void stepClientAnimation() {
+        boolean working = this.getBlockState().hasProperty(AssemblyMachineBlock.LIT)
+                && this.getBlockState().getValue(AssemblyMachineBlock.LIT);
+
+        for (AssemblerArm arm : this.clientArms) {
+            arm.updateInterp();
+            if (working) {
+                arm.updateArm();
+            } else {
+                arm.returnToNullPos();
+            }
+            if (arm.prevAngles[3] != arm.angles[3] && arm.angles[3] == -0.75D) {
+                if (!com.atomiclegacy.util.MachineMuffler.isMuffled(this)) {
+                    playClientSound(HbmSoundEvents.ASSEMBLER_STRIKE.get(), 0.5F, 1.0F);
+                }
+            }
+        }
+
+        this.clientPrevRing = this.clientRing;
+        if (!working || this.level == null) {
+            return;
+        }
+
+        if (this.clientRing != this.clientRingTarget) {
+            double ringDelta = Math.abs(this.clientRingTarget - this.clientRing);
+            if (ringDelta <= this.clientRingSpeed) {
+                this.clientRing = this.clientRingTarget;
+            }
+            if (this.clientRingTarget > this.clientRing) {
+                this.clientRing += this.clientRingSpeed;
+            }
+            if (this.clientRingTarget < this.clientRing) {
+                this.clientRing -= this.clientRingSpeed;
+            }
+            if (this.clientRingTarget == this.clientRing) {
+                if (this.clientRingTarget >= 360.0D) {
+                    this.clientRingTarget -= 360.0D;
+                    this.clientRing -= 360.0D;
+                    this.clientPrevRing -= 360.0D;
+                }
+                if (this.clientRingTarget <= -360.0D) {
+                    this.clientRingTarget += 360.0D;
+                    this.clientRing += 360.0D;
+                    this.clientPrevRing += 360.0D;
+                }
+                this.clientRingDelay = 20 + this.level.random.nextInt(21);
+            }
+        } else {
+            if (this.clientRingDelay > 0) {
+                this.clientRingDelay--;
+            }
+            if (this.clientRingDelay <= 0) {
+                this.clientRingTarget += (this.level.random.nextDouble() * 2.0D - 1.0D) * 135.0D;
+                this.clientRingSpeed = 10.0D + this.level.random.nextDouble() * 5.0D;
+                if (!com.atomiclegacy.util.MachineMuffler.isMuffled(this)) {
+                    playClientSound(HbmSoundEvents.ASSEMBLER_START.get(), 0.25F, 1.25F + this.level.random.nextFloat() * 0.25F);
+                }
+            }
+        }
+    }
+
+    public static boolean isBlueprint(ItemStack stack) {
+        return BlueprintItem.isBlueprint(stack);
+    }
+
+    private void clearSelectionIfBlueprintNoLongerAllowsIt() {
+        if (this.level == null || this.selectedRecipeId == null) {
+            return;
+        }
+        Optional<RecipeHolder<AssemblyMachineRecipe>> recipe = findRecipe(this.level, this.selectedRecipeId);
+        if (recipe.isEmpty() || !recipe.get().value().isVisibleForPool(installedBlueprintPool())) {
+            this.selectedRecipeId = null;
+            invalidateWorkState();
+        }
+    }
+
+    private static boolean isSupportedUpgrade(ItemStack stack) {
+        if (!MachineUpgradeItem.isMachineUpgrade(stack)) {
+            return false;
+        }
+        MachineUpgradeItem.UpgradeType type = MachineUpgradeItem.upgradeType(stack);
+        return type == MachineUpgradeItem.UpgradeType.SPEED
+                || type == MachineUpgradeItem.UpgradeType.POWER
+                || type == MachineUpgradeItem.UpgradeType.OVERDRIVE;
+    }
+
+    private static boolean isInputSlot(int slot) {
+        return slot >= INPUT_START && slot < INPUT_END;
+    }
+
+    private boolean isSlotClogged(int slot) {
+        if (!isInputSlot(slot)) {
+            return false;
+        }
+        ItemStack stack = this.items.get(slot);
+        return !stack.isEmpty() && !canAcceptInput(slot, stack);
+    }
+
+    private static boolean isValidSlot(int slot) {
+        return slot >= 0 && slot < SLOT_COUNT;
+    }
+
+    @Override
+    public void setChanged() {
+        // Vanilla hoppers may grow an existing ItemStack in place and then call
+        // only Container#setChanged, bypassing setItem. Snapshot the automated
+        // slots here so that path still invalidates the event-driven work cache.
+        for (int slot = INPUT_START; slot <= OUTPUT_SLOT; slot++) {
+            ItemStack current = this.items.get(slot);
+            ItemStack observed = this.observedAutomationItems.get(slot);
+            if (current.getCount() == observed.getCount()
+                    && ItemStack.isSameItemSameComponents(current, observed)) {
+                continue;
+            }
+            this.observedAutomationItems.set(slot, current.copy());
+            inventoryChanged(slot);
+        }
+        super.setChanged();
+    }
+
+    private void markRuntimeChanged() {
+        // Energy and progress updates do not change the capability provider or
+        // require the automated input snapshot to be compared again.
+        super.setChanged();
+    }
+
+    private void captureAutomationSnapshot() {
+        // Recipe completion mutates stacks internally, without going through
+        // setItem.  Make that post-cycle inventory the new baseline so an AE2
+        // pattern that restores the exact previous counts is still observed as
+        // a real input change on its next insertion.
+        for (int slot = INPUT_START; slot <= OUTPUT_SLOT; slot++) {
+            this.observedAutomationItems.set(slot, this.items.get(slot).copy());
+        }
+    }
+
+    private void setChangedAndSync() {
+        setChanged();
+        if (this.level != null) {
+            this.level.invalidateCapabilities(this.worldPosition);
+            if (!this.level.isClientSide) {
+                this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), Block.UPDATE_CLIENTS);
+            }
+        }
+    }
+
+    private HbmFluidTank tankByFlatIndex(int tank) {
+        return tank <= 0 ? this.inputTank : this.outputTank;
+    }
+
+    private static int[] createAutomationSlots() {
+        int[] slots = new int[(INPUT_END - INPUT_START) + 1];
+        int index = 0;
+        for (int slot = INPUT_START; slot < INPUT_END; slot++) {
+            slots[index++] = slot;
+        }
+        slots[index] = OUTPUT_SLOT;
+        return slots;
+    }
+
+    private static void drop(Level level, BlockPos pos, ItemStack stack) {
+        if (stack.isEmpty()) {
+            return;
+        }
+
+        level.addFreshEntity(new ItemEntity(
+                level,
+                pos.getX() + 0.5D,
+                pos.getY() + 0.5D,
+                pos.getZ() + 0.5D,
+                stack.copy()
+        ));
+    }
+
+    private static double lerp(double previous, double current, float partialTick) {
+        return previous + (current - previous) * partialTick;
+    }
+
+    public static class AssemblerArm {
+        private static final double[][] POSITIONS = {
+                {45.0D, -15.0D, -5.0D},
+                {15.0D, 15.0D, -15.0D},
+                {25.0D, 10.0D, -15.0D},
+                {30.0D, 0.0D, -10.0D},
+                {70.0D, -10.0D, -25.0D}
+        };
+
+        private final double[] angles = new double[4];
+        private final double[] prevAngles = new double[4];
+        private final double[] targetAngles = new double[4];
+        private final double[] speed = new double[4];
+        private final Random random = new Random();
+        private ArmActionState state = ArmActionState.ASSUME_POSITION;
+        private int actionDelay;
+
+        AssemblerArm() {
+            resetSpeed();
+        }
+
+        private void updateInterp() {
+            System.arraycopy(this.angles, 0, this.prevAngles, 0, this.angles.length);
+        }
+
+        private void returnToNullPos() {
+            for (int index = 0; index < 4; index++) {
+                this.targetAngles[index] = 0.0D;
+            }
+            for (int index = 0; index < 3; index++) {
+                this.speed[index] = 3.0D;
+            }
+            this.speed[3] = 0.25D;
+            this.state = ArmActionState.RETRACT_STRIKER;
+            move();
+        }
+
+        private void resetSpeed() {
+            this.speed[0] = 15.0D;
+            this.speed[1] = 15.0D;
+            this.speed[2] = 15.0D;
+            this.speed[3] = 0.5D;
+        }
+
+        private void updateArm() {
+            resetSpeed();
+            if (this.actionDelay > 0) {
+                this.actionDelay--;
+                return;
+            }
+
+            switch (this.state) {
+                case ASSUME_POSITION -> {
+                    if (move()) {
+                        this.actionDelay = 2;
+                        this.state = ArmActionState.EXTEND_STRIKER;
+                        this.targetAngles[3] = -0.75D;
+                    }
+                }
+                case EXTEND_STRIKER -> {
+                    if (move()) {
+                        this.state = ArmActionState.RETRACT_STRIKER;
+                        this.targetAngles[3] = 0.0D;
+                    }
+                }
+                case RETRACT_STRIKER -> {
+                    if (move()) {
+                        this.actionDelay = 2 + this.random.nextInt(5);
+                        chooseNewArmPosition();
+                        this.state = ArmActionState.ASSUME_POSITION;
+                    }
+                }
+            }
+        }
+
+        private void chooseNewArmPosition() {
+            int chosen = this.random.nextInt(POSITIONS.length);
+            this.targetAngles[0] = POSITIONS[chosen][0];
+            this.targetAngles[1] = POSITIONS[chosen][1];
+            this.targetAngles[2] = POSITIONS[chosen][2];
+        }
+
+        private boolean move() {
+            boolean didMove = false;
+            for (int index = 0; index < this.angles.length; index++) {
+                if (this.angles[index] == this.targetAngles[index]) {
+                    continue;
+                }
+
+                didMove = true;
+                double delta = Math.abs(this.angles[index] - this.targetAngles[index]);
+                if (delta <= this.speed[index]) {
+                    this.angles[index] = this.targetAngles[index];
+                    continue;
+                }
+
+                if (this.angles[index] < this.targetAngles[index]) {
+                    this.angles[index] += this.speed[index];
+                } else {
+                    this.angles[index] -= this.speed[index];
+                }
+            }
+            return !didMove;
+        }
+
+        private void writePositions(float partialTick, double[] destination) {
+            destination[0] = lerp(this.prevAngles[0], this.angles[0], partialTick);
+            destination[1] = lerp(this.prevAngles[1], this.angles[1], partialTick);
+            destination[2] = lerp(this.prevAngles[2], this.angles[2], partialTick);
+            destination[3] = lerp(this.prevAngles[3], this.angles[3], partialTick);
+        }
+
+        private enum ArmActionState {
+            ASSUME_POSITION,
+            EXTEND_STRIKER,
+            RETRACT_STRIKER
+        }
+    }
+
+    private static boolean sameSectionCoverage(AABB first, AABB second) {
+        return section(first.minX) == section(second.minX)
+                && section(first.minY) == section(second.minY)
+                && section(first.minZ) == section(second.minZ)
+                && section(inclusiveMaximum(first.minX, first.maxX)) == section(inclusiveMaximum(second.minX, second.maxX))
+                && section(inclusiveMaximum(first.minY, first.maxY)) == section(inclusiveMaximum(second.minY, second.maxY))
+                && section(inclusiveMaximum(first.minZ, first.maxZ)) == section(inclusiveMaximum(second.minZ, second.maxZ));
+    }
+
+    private static int section(double coordinate) {
+        return net.minecraft.core.SectionPos.blockToSectionCoord(net.minecraft.util.Mth.floor(coordinate));
+    }
+
+    private static double inclusiveMaximum(double min, double max) {
+        return max > min ? Math.nextDown(max) : max;
+    }
+
+    public record RecipeIconRenderSnapshot(BlockState state, @Nullable ResourceLocation recipeId,
+                                           ItemStack sourceItem, ItemStack renderedItem, Object modelToken, AABB bounds,
+                                           long recipeGeneration, long revision) {
+        public RecipeIconRenderSnapshot {
+            Objects.requireNonNull(state);
+            sourceItem = sourceItem.copy();
+            renderedItem = renderedItem.copy();
+            Objects.requireNonNull(bounds);
+        }
+
+        private static RecipeIconRenderSnapshot empty(BlockPos pos, BlockState state) {
+            double x = pos.getX();
+            double y = pos.getY();
+            double z = pos.getZ();
+            return new RecipeIconRenderSnapshot(state, null, ItemStack.EMPTY, ItemStack.EMPTY, null,
+                    new AABB(x, y, z, x, y, z), Long.MIN_VALUE, -1L);
+        }
+    }
+
+    private final class AssemblyMachineFluidHandler implements IFluidHandler {
+        @Override
+        public int getTanks() {
+            return 2;
+        }
+
+        @Override
+        public FluidStack getFluidInTank(int tank) {
+            return switch (tank) {
+                case 0 -> inputTank.getFluidInTank(0);
+                case 1 -> outputTank.getFluidInTank(0);
+                default -> FluidStack.EMPTY;
+            };
+        }
+
+        @Override
+        public int getTankCapacity(int tank) {
+            return switch (tank) {
+                case 0 -> inputTank.capacity();
+                case 1 -> outputTank.capacity();
+                default -> 0;
+            };
+        }
+
+        @Override
+        public boolean isFluidValid(int tank, FluidStack stack) {
+            if (tank != 0 || stack.isEmpty() || inputTank.type().isNone() || inputTank.pressure() != 0) {
+                return false;
+            }
+            HbmFluidDefinition fluid = HbmFluids.fromNeoFluid(stack.getFluid()).orElse(HbmFluids.none());
+            return !fluid.isNone() && inputTank.type() == fluid;
+        }
+
+        @Override
+        public int fill(FluidStack resource, FluidAction action) {
+            if (resource.isEmpty() || inputTank.type().isNone() || inputTank.pressure() != 0) {
+                return 0;
+            }
+            HbmFluidDefinition fluid = HbmFluids.fromNeoFluid(resource.getFluid()).orElse(HbmFluids.none());
+            if (fluid.isNone() || inputTank.type() != fluid) {
+                return 0;
+            }
+            int filled = inputTank.fill(fluid, resource.getAmount(), action.simulate());
+            if (filled > 0 && action.execute()) {
+                invalidateWorkState();
+                setChangedAndSync();
+            }
+            return filled;
+        }
+
+        @Override
+        public FluidStack drain(FluidStack resource, FluidAction action) {
+            if (resource.isEmpty() || outputTank.type().isNone() || outputTank.pressure() != 0) {
+                return FluidStack.EMPTY;
+            }
+            HbmFluidDefinition fluid = HbmFluids.fromNeoFluid(resource.getFluid()).orElse(HbmFluids.none());
+            if (fluid.isNone() || outputTank.type() != fluid) {
+                return FluidStack.EMPTY;
+            }
+            HbmFluidStack drained = outputTank.drain(fluid, resource.getAmount(), action.simulate());
+            if (drained.isEmpty()) {
+                return FluidStack.EMPTY;
+            }
+            if (action.execute()) {
+                invalidateWorkState();
+                setChangedAndSync();
+            }
+            return HbmFluids.toNeoStack(fluid, drained.amount());
+        }
+
+        @Override
+        public FluidStack drain(int maxDrain, FluidAction action) {
+            if (maxDrain <= 0 || outputTank.type().isNone() || outputTank.pressure() != 0) {
+                return FluidStack.EMPTY;
+            }
+            HbmFluidDefinition fluid = outputTank.type();
+            HbmFluidStack drained = outputTank.drain(fluid, maxDrain, action.simulate());
+            if (drained.isEmpty()) {
+                return FluidStack.EMPTY;
+            }
+            if (action.execute()) {
+                invalidateWorkState();
+                setChangedAndSync();
+            }
+            return HbmFluids.toNeoStack(fluid, drained.amount());
+        }
+    }
+
+    // [parity T1: fluid net] TileEntityMachineAssemblyMachine getSendingTanks / getReceivingTanks (pressurized tanks reach the net)
+    @Override
+    public HbmFluidTank[] fluidSendingTanks() {
+        return new HbmFluidTank[]{outputTank};
+    }
+
+    @Override
+    public HbmFluidTank[] fluidReceivingTanks() {
+        return new HbmFluidTank[]{inputTank};
+    }
+
+    // [parity U2: ROR] TileEntityMachineAssemblyMachine IRORValueProvider / IRORInteractive
+    /** ModuleMachineBase#restrictedMode: set by the RoR setrecipe function, cleared by a GUI selection. */
+    private boolean rttyRestricted;
+    /** ModuleMachineBase#recipe for a RoR name that matches no recipe. */
+    @Nullable
+    private String rttyRecipe;
+
+    private boolean rttyComponent() {
+        return getBlockState().is(com.atomiclegacy.registry.HbmBlocks.MACHINE_ASSEMBLY_MACHINE.get());
+    }
+
+    @Override
+    public boolean rttyProvidesValues() {
+        return rttyComponent();
+    }
+
+    @Override
+    public boolean rttyInteractive() {
+        return rttyComponent();
+    }
+
+    public boolean rttyRestricted() {
+        return this.rttyRestricted;
+    }
+
+    @Override
+    public String[] rttyFunctionInfo() {
+        if (!rttyComponent()) return new String[0];
+        return new String[] {PREFIX_VALUE + "progress", PREFIX_VALUE + "recipe", PREFIX_VALUE + "active",
+                PREFIX_FUNCTION + "setrecipe" + NAME_SEPARATOR + "name"};
+    }
+
+    @Override
+    public String provideRttyValue(String name) {
+        if (!rttyComponent()) return null;
+        if ((PREFIX_VALUE + "progress").equals(name)) return "" + (int) Math.round(this.progress * 100);
+        if ((PREFIX_VALUE + "recipe").equals(name)) return rttyRecipeName();
+        if ((PREFIX_VALUE + "active").equals(name)) return "" + (this.didProcess ? 1 : 0);
+        return null;
+    }
+
+    private String rttyRecipeName() {
+        if (this.selectedRecipeId != null && this.level != null) {
+            for (RecipeHolder<AssemblyMachineRecipe> holder : this.level.getRecipeManager().getAllRecipesFor(com.atomiclegacy.registry.HbmRecipeTypes.ASSEMBLY_MACHINE.get())) {
+                if (holder.id().equals(this.selectedRecipeId)) return com.atomiclegacy.rtty.RttyRecipeNames.group(holder.value().group());
+            }
+        }
+        return this.rttyRecipe != null ? this.rttyRecipe : com.atomiclegacy.rtty.RttyRecipeNames.NULL;
+    }
+
+    @Override
+    public String runRttyFunction(String name, String[] params) {
+        if (!rttyComponent()) return null;
+        if ((PREFIX_FUNCTION + "setrecipe").equals(name) && params.length == 1 && this.level != null) {
+            ResourceLocation match = null;
+            for (RecipeHolder<AssemblyMachineRecipe> holder : availableRecipes(this.level)) {
+                if (params[0].equals(holder.value().group())) {
+                    match = holder.id();
+                    break;
+                }
+            }
+            setSelectedRecipe(match);
+            this.rttyRecipe = match == null ? params[0] : null;
+            this.rttyRestricted = true; // setRecipe(params[0], true)
+            setChanged();
+            return null;
+        }
+        return null;
+    }
+
+    // [parity V1: fluid net] TileEntityMachineAssemblyMachine: TilePortShapes.assembler (setupAllPorts + updatePortPIFIFO);
+    // the TACZ ammo assembler sharing this class keeps its capability ports (integration)
+    @Override public java.util.List<FluidPort> fluidPorts(HbmFluidDefinition type) {
+        if (getBlockState().is(com.atomiclegacy.registry.HbmBlocks.MACHINE_TACZ_AMMO_ASSEMBLER.get())) return null;
+        return com.atomiclegacy.fluid.HbmPortDefs.assembler(this.worldPosition);
+    }
+}

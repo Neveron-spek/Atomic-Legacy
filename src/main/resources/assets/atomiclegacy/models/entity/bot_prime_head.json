@@ -1,0 +1,10 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/entity/bot_prime_head.obj",
+  "mtl_override": "atomiclegacy:models/obj/entity/bot_prime_head.mtl",
+  "automatic_culling": false,
+  "flip_v": true,
+  "textures": {
+    "particle": "atomiclegacy:models/legacy/mark_zero_head"
+  }
+}

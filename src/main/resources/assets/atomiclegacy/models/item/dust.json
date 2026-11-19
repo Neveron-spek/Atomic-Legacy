@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/dust"
+                 },
+    "parent":  "minecraft:item/generated"
+}

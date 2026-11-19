@@ -1,0 +1,15 @@
+﻿{
+    "type":  "atomiclegacy:cyclotron",
+    "group":  "cyclotron",
+    "particle":  {
+                     "item":  "atomiclegacy:part_lithium"
+                 },
+    "input":  {
+                  "tag":  "c:dusts/polonium"
+              },
+    "output":  {
+                   "id":  "atomiclegacy:powder_astatine"
+               },
+    "antimatter":  50
+}
+

@@ -1,0 +1,47 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.capacitorspark",
+  "duration": 100,
+  "power": 100000,
+  "ingredients": [
+    {
+      "ingredient": {
+        "tag": "c:plates/cast_combine_steel"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:powder_spark_mix"
+      },
+      "count": 32
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:pellet_charged"
+      },
+      "count": 32
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_chip_quantum"
+      },
+      "count": 16
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "perfluoromethyl_cold",
+      "amount": 8000
+    }
+  ],
+  "output_fluids": [
+    {
+      "fluid": "perfluoromethyl",
+      "amount": 8000
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:battery_pack_capacitor_spark"
+  }
+}

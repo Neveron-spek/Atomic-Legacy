@@ -1,0 +1,14 @@
+{
+  "type": "atomiclegacy:combination_oven",
+  "group": "combination_oven.briquette_wood",
+  "input": {
+    "item": "atomiclegacy:briquette_wood"
+  },
+  "output": {
+    "id": "minecraft:charcoal"
+  },
+  "fluid": {
+    "fluid": "woodoil",
+    "amount": 500
+  }
+}

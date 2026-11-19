@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "atomiclegacy:brick_asbestos"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:brick_slab",
+    "count": 6,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "brick_asbestos"
+      },
+      "minecraft:custom_model_data": 5
+    }
+  }
+}

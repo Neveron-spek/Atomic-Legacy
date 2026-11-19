@@ -1,0 +1,8 @@
+{
+  "feature": "atomiclegacy:resource_layer_bauxite",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

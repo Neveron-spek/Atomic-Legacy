@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WWW",
+    "CPC",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "atomiclegacy:wire_gold"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_advanced"
+    },
+    "P": {
+      "tag": "c:ingots/plastic"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:turret_chip"
+  }
+}

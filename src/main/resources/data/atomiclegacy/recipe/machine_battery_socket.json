@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "I I",
+    "I I",
+    "IRI"
+  ],
+  "key": {
+    "I": { "tag": "c:plates/polymer" },
+    "R": { "item": "atomiclegacy:coil_copper" }
+  },
+  "result": {
+    "id": "atomiclegacy:machine_battery_socket"
+  }
+}

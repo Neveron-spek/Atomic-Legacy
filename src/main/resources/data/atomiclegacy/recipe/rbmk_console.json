@@ -1,0 +1,34 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_528_mode"
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BBB",
+    "DGD",
+    "DCD"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:ingots/boron"
+    },
+    "D": {
+      "item": "atomiclegacy:deco_rbmk"
+    },
+    "G": {
+      "tag": "c:glass_panes"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_analog"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:rbmk_console"
+  }
+}

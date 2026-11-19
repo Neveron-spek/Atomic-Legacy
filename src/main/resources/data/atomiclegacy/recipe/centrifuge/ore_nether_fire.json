@@ -1,0 +1,24 @@
+{
+    "type":  "atomiclegacy:centrifuge",
+    "group":  "centrifuge",
+    "ingredient":  {
+                       "item":  "atomiclegacy:ore_nether_fire"
+                   },
+    "input_count":  1,
+    "results":  [
+                    {
+                        "id":  "minecraft:blaze_powder",
+                        "count":  2
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_fire",
+                        "count":  2
+                    },
+                    {
+                        "id":  "atomiclegacy:ingot_phosphorus"
+                    },
+                    {
+                        "id":  "minecraft:netherrack"
+                    }
+                ]
+}

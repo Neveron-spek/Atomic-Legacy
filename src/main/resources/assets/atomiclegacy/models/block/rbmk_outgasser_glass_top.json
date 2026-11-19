@@ -1,0 +1,9 @@
+{
+  "parent": "atomiclegacy:block/template/rbmk_top_glass_lid",
+  "textures": {
+    "end": "atomiclegacy:block/rbmk/rbmk_outgasser_top",
+    "side": "atomiclegacy:block/rbmk/rbmk_outgasser_side",
+    "glass_top": "atomiclegacy:block/rbmk/rbmk_outgasser_glass_top",
+    "glass_side": "atomiclegacy:block/rbmk/rbmk_outgasser_glass_side"
+  }
+}

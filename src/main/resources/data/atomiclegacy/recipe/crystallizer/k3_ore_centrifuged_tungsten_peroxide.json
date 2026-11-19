@@ -1,0 +1,30 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:ore_centrifuged"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "ore_type": "tungsten"
+      },
+      "minecraft:custom_model_data": 6
+    }
+  },
+  "acid": {
+    "fluid": "peroxide",
+    "amount": 500
+  },
+  "duration": 200,
+  "result": {
+    "id": "atomiclegacy:ore_cleaned",
+    "components": {
+      "minecraft:custom_data": {
+        "ore_type": "tungsten"
+      },
+      "minecraft:custom_model_data": 6
+    }
+  }
+}

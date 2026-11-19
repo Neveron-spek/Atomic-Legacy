@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:rod_quad_empty"
+    },
+    {
+      "item": "atomiclegacy:billet_neptunium"
+    },
+    {
+      "item": "atomiclegacy:billet_neptunium"
+    },
+    {
+      "item": "atomiclegacy:billet_neptunium"
+    },
+    {
+      "item": "atomiclegacy:billet_neptunium"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:rod_quad",
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "np237"
+      },
+      "minecraft:custom_model_data": 7
+    }
+  }
+}

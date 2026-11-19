@@ -1,0 +1,30 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_528_mode"
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BCD",
+    "DDD"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:ingots/boron"
+    },
+    "D": {
+      "item": "atomiclegacy:deco_rbmk"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_analog"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:rbmk_crane_console"
+  }
+}

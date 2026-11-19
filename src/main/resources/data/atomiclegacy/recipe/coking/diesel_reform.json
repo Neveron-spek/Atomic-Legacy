@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:coking","group":"coking.diesel_reform","input":{"fluid":"diesel_reform","amount":230},"output":{"id":"atomiclegacy:coke_petroleum"},"byproduct":{"fluid":"naphtha_coker","amount":23}}

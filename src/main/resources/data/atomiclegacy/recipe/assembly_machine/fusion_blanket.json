@@ -1,0 +1,44 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_expensive_mode"
+      }
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.fusionblanket",
+  "duration": 100,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_welded_tungsten"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_welded_steel"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/beryllium"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:fusion_component",
+    "count": 4,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "blanket"
+      },
+      "minecraft:custom_model_data": 2
+    }
+  }
+}

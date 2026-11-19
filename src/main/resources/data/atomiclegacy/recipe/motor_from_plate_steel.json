@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " R ",
+    "ICI",
+    " T "
+  ],
+  "key": {
+    "R": {
+      "item": "atomiclegacy:wire_red_copper"
+    },
+    "I": {
+      "tag": "c:plates/steel"
+    },
+    "C": {
+      "item": "atomiclegacy:coil_copper"
+    },
+    "T": {
+      "item": "atomiclegacy:coil_copper_torus"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:motor",
+    "count": 2
+  }
+}

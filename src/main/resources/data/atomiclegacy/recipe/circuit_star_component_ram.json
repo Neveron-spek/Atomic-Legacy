@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:circuit_star_piece_mem_socket"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_piece_mem_16k_a"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_piece_mem_16k_b"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_piece_mem_16k_c"
+    },
+    {
+      "item": "atomiclegacy:circuit_star_piece_mem_16k_d"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:circuit_star_component_ram"
+  }
+}

@@ -1,0 +1,36 @@
+﻿{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:rbmk_fuel_empty"
+    },
+    {
+      "item": "atomiclegacy:billet_po210be"
+    },
+    {
+      "item": "atomiclegacy:billet_po210be"
+    },
+    {
+      "item": "atomiclegacy:billet_po210be"
+    },
+    {
+      "item": "atomiclegacy:billet_po210be"
+    },
+    {
+      "item": "atomiclegacy:billet_po210be"
+    },
+    {
+      "item": "atomiclegacy:billet_po210be"
+    },
+    {
+      "item": "atomiclegacy:billet_po210be"
+    },
+    {
+      "item": "atomiclegacy:billet_po210be"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:rbmk_fuel_po210be"
+  }
+}

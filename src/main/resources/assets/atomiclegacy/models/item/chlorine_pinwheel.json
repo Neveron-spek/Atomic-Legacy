@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/chlorine_pinwheel"
+                 },
+    "parent":  "minecraft:item/generated"
+}

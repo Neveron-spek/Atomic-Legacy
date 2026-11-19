@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BGB",
+    "GRG",
+    "BGB"
+  ],
+  "key": {
+    "G": {
+      "tag": "c:storage_blocks/graphite"
+    },
+    "R": {
+      "item": "atomiclegacy:rbmk_rod_reasim"
+    },
+    "B": {
+      "tag": "c:ingots/resistant_alloy"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:rbmk_rod_reasim_mod"
+  }
+}

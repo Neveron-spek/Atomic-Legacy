@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:crystal_sulfur"
+  },
+  "result": {
+    "id": "atomiclegacy:sulfur",
+    "count": 8
+  }
+}

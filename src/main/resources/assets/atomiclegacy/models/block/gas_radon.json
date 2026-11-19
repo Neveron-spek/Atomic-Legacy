@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/gas_radon"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SSS",
+    "SAS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "tag": "c:nuggets/schrabidium"
+    },
+    "A": {
+      "item": "minecraft:apple"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:apple_schrabidium",
+    "components": {
+      "minecraft:rarity": "uncommon"
+    }
+  }
+}

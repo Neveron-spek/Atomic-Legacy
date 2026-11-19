@@ -1,0 +1,1 @@
+{ "parent": "atomiclegacy:block/conveyor_curve_base", "textures": { "belt": "atomiclegacy:block/conveyor_curve_left", "side": "atomiclegacy:block/conveyor_side" } }

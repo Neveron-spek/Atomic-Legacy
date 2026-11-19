@@ -1,0 +1,4 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": { "side": "atomiclegacy:block/teleporter_side", "top": "atomiclegacy:block/teleporter_top", "bottom": "atomiclegacy:block/teleporter_bottom" }
+}

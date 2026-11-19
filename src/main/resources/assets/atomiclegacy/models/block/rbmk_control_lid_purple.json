@@ -1,0 +1,6 @@
+{
+  "parent": "atomiclegacy:block/rbmk_control_lid",
+  "textures": {
+    "lid": "atomiclegacy:block/rbmk/rbmk_control_purple"
+  }
+}

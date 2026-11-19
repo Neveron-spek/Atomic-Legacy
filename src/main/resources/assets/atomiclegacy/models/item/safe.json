@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "atomiclegacy:block/safe_front",
+    "up": "atomiclegacy:block/safe_side",
+    "north": "atomiclegacy:block/safe_front",
+    "south": "atomiclegacy:block/safe_side",
+    "west": "atomiclegacy:block/safe_side",
+    "east": "atomiclegacy:block/safe_side",
+    "particle": "atomiclegacy:block/safe_side"
+  }
+}

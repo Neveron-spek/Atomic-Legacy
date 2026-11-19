@@ -1,0 +1,9 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/blocks/rtty.obj",
+  "mtl_override": "atomiclegacy:models/obj/blocks/rtty_logic.mtl",
+  "automatic_culling": false,
+  "shade_quads": false,
+  "flip_v": true,
+  "textures": { "particle": "atomiclegacy:block/rtty_logic_off" }
+}

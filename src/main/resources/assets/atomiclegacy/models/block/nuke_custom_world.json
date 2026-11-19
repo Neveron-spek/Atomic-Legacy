@@ -1,0 +1,9 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/bombs/lil_boy.obj",
+  "mtl_override": "atomiclegacy:models/obj/bombs/custom_nuke.mtl",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "textures": { "particle": "atomiclegacy:models/customnuke" }
+}

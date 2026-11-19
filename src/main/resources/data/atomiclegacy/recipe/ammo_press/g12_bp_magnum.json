@@ -1,0 +1,39 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.g12_bp_magnum",
+  "order": 42,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:nuggets/lead"
+      },
+      "count": 8
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "minecraft:gunpowder"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_shotshell"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 6,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "g12_bp_magnum"
+      },
+      "minecraft:custom_model_data": 57
+    }
+  }
+}

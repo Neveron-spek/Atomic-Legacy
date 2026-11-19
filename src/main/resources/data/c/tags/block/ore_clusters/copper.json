@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:cluster_copper",
+    "atomiclegacy:cluster_deepslate_copper"
+  ]
+}

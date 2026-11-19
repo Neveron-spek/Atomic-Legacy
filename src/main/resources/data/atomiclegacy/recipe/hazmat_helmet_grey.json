@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "EEE",
+    "IEI",
+    "EFE"
+  ],
+  "key": {
+    "E": { "item": "atomiclegacy:hazmat_cloth_grey" },
+    "I": { "tag": "c:glass_panes" },
+    "F": { "tag": "c:plates/iron" }
+  },
+  "result": { "id": "atomiclegacy:hazmat_helmet_grey" }
+}

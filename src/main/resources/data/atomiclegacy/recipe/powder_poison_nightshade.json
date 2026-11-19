@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:plant_nightshade"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:powder_poison"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "atomiclegacy:cyclotron",
+  "group": "cyclotron",
+  "particle": {
+    "item": "atomiclegacy:part_plutonium"
+  },
+  "input": {
+    "tag": "c:dusts/phosphorus"
+  },
+  "output": {
+    "id": "atomiclegacy:powder_tennessine"
+  },
+  "antimatter": 100
+}

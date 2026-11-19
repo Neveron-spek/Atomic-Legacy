@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "W ",
+    " W",
+    " W"
+  ],
+  "key": {
+    "W": {
+      "tag": "c:ingots/pc"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:part_grip_pc",
+    "count": 1
+  }
+}

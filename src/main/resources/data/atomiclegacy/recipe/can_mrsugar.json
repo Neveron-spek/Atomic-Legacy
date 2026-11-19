@@ -1,0 +1,1 @@
+{"type": "minecraft:crafting_shapeless", "category": "misc", "ingredients": [{"item": "atomiclegacy:can_empty"}, {"type": "neoforge:components", "items": "minecraft:potion", "components": {"minecraft:potion_contents": {"potion": "minecraft:water"}}}, {"item": "minecraft:sugar"}, {"tag": "c:dusts/fluorite"}], "result": {"id": "atomiclegacy:can_mrsugar"}}

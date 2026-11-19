@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:billet_actinium"
+    },
+    {
+      "item": "atomiclegacy:billet_actinium"
+    },
+    {
+      "item": "atomiclegacy:billet_actinium"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:ingot_actinium",
+    "count": 2
+  }
+}

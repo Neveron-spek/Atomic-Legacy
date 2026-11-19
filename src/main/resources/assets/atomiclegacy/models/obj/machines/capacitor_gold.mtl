@@ -1,0 +1,24 @@
+newmtl inner_side
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/capacitor_gold_inner_side
+
+newmtl inner_top
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/capacitor_gold_inner_top
+
+newmtl side
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/capacitor_gold_side
+
+newmtl top
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/capacitor_gold_top
+
+newmtl bottom
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/capacitor_gold_bottom

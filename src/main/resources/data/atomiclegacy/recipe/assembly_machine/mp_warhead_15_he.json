@@ -1,0 +1,36 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.mpw15he",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:seg_15"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/steel"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/high_explosive"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_basic"
+      },
+      "count": 3
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:mp_warhead_15_he",
+    "count": 1
+  }
+}

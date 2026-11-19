@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "DID",
+    "IGI",
+    " F "
+  ],
+  "key": {
+    "D": {
+      "item": "atomiclegacy:ducttape"
+    },
+    "I": {
+      "tag": "c:ingots/any_rubber"
+    },
+    "G": {
+      "tag": "c:glass_panes"
+    },
+    "F": {
+      "tag": "c:plates/iron"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:attachment_mask"
+  }
+}

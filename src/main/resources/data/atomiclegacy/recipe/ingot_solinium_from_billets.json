@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:crafting_shapeless", "category": "misc",
+  "ingredients": [
+    { "item": "atomiclegacy:billet_solinium" }, { "item": "atomiclegacy:billet_solinium" }, { "item": "atomiclegacy:billet_solinium" }
+  ],
+  "result": { "id": "atomiclegacy:ingot_solinium", "count": 2 }
+}

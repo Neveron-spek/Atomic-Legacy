@@ -1,0 +1,8 @@
+{
+  "parent": "atomiclegacy:block/heater_oven",
+  "visibility": {
+    "Main": false,
+    "Door": false,
+    "Inner": false
+  }
+}

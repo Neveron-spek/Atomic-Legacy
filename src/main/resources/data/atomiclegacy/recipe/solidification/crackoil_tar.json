@@ -1,0 +1,11 @@
+{
+  "type": "atomiclegacy:solidification",
+  "group": "solidifier.crackoil",
+  "input": {
+    "fluid": "crackoil",
+    "amount": 200
+  },
+  "output": {
+    "id": "atomiclegacy:oil_tar_crack"
+  }
+}

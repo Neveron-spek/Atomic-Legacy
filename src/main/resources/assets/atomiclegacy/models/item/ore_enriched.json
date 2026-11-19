@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:item/ore_enriched",
+    "layer1": "atomiclegacy:item/ore_overlay"
+  }
+}

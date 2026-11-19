@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PFP",
+    "DCD",
+    "PFP"
+  ],
+  "key": {
+    "P": { "item": "atomiclegacy:neutron_reflector" },
+    "D": { "item": "atomiclegacy:det_charge" },
+    "C": { "item": "atomiclegacy:man_core" },
+    "F": { "item": "atomiclegacy:circuit_controller" }
+  },
+  "result": { "id": "atomiclegacy:det_nuke" }
+}

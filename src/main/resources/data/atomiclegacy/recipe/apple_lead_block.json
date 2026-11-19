@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SSS",
+    "SAS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "tag": "c:storage_blocks/lead"
+    },
+    "A": {
+      "item": "minecraft:apple"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:apple_lead",
+    "components": {
+      "minecraft:rarity": "epic",
+      "minecraft:custom_model_data": 2
+    }
+  }
+}

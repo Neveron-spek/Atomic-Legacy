@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/crate_caller"
+                 },
+    "parent":  "minecraft:item/generated"
+}

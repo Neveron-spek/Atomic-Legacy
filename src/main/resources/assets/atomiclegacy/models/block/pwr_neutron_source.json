@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/pwr_neutron_source"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

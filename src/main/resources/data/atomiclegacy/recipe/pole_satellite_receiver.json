@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "SS ",
+    "SCR",
+    "SS "
+  ],
+  "key": {
+    "S": {
+      "tag": "c:ingots/steel"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_vacuum_tube"
+    },
+    "R": {
+      "tag": "c:wires/red_copper"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:pole_satellite_receiver",
+    "count": 1
+  }
+}

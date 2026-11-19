@@ -1,0 +1,30 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:ore_nitrocrystalline"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "ore_type": "titanium"
+      },
+      "minecraft:custom_model_data": 5
+    }
+  },
+  "acid": {
+    "fluid": "radiosolvent",
+    "amount": 500
+  },
+  "duration": 200,
+  "result": {
+    "id": "atomiclegacy:ore_seared",
+    "components": {
+      "minecraft:custom_data": {
+        "ore_type": "titanium"
+      },
+      "minecraft:custom_model_data": 5
+    }
+  }
+}

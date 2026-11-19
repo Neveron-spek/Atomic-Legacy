@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:powder_i131"
+  },
+  "result": {
+    "id": "atomiclegacy:dust"
+  }
+}

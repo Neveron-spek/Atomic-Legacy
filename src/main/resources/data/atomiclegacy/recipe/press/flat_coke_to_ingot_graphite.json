@@ -1,0 +1,7 @@
+{
+  "type": "atomiclegacy:press",
+  "group": "press.flat",
+  "stamp": "flat",
+  "ingredient": { "tag": "c:gems/coke" },
+  "result": { "id": "atomiclegacy:ingot_graphite" }
+}

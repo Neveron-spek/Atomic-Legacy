@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LLL",
+    "I I",
+    "LLL"
+  ],
+  "key": {
+    "L": {
+      "tag": "c:ingots/any_rubber"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:conveyor_wand",
+    "count": 64,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "regular"
+      },
+      "minecraft:custom_model_data": 0
+    }
+  }
+}

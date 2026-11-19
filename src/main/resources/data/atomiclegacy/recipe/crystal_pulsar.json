@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["STS", "THT", "STS"],
+  "key": {
+    "S": { "item": "atomiclegacy:cell_uf6" },
+    "T": { "tag": "c:dusts/aluminium" },
+    "H": { "item": "atomiclegacy:crystal_charred" }
+  },
+  "result": { "id": "atomiclegacy:crystal_pulsar", "count": 32 }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:item/rbmk_pellet_hea242",
+    "layer1": "atomiclegacy:item/rbmk_pellet_overlay_e3",
+    "layer2": "atomiclegacy:item/rbmk_pellet_overlay_xenon"
+  }
+}
+

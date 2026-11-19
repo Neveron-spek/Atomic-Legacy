@@ -1,0 +1,7 @@
+{
+    "replace":  false,
+    "values":  [
+                   "atomiclegacy:ore_rare",
+                   "atomiclegacy:ore_deepslate_rare"
+               ]
+}

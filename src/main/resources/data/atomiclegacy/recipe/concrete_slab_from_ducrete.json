@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "atomiclegacy:ducrete"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:concrete_slab",
+    "count": 6,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "ducrete"
+      },
+      "minecraft:custom_model_data": 4
+    }
+  }
+}

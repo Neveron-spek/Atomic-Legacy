@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "atomiclegacy:nugget_raw_titanium"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:ingot_titanium"
+  }
+}

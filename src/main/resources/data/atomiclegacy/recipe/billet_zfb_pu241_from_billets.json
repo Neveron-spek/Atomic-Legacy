@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_shapeless", "category": "misc",
+  "ingredients": [
+    { "item": "atomiclegacy:billet_zirconium" }, { "item": "atomiclegacy:billet_zirconium" }, { "item": "atomiclegacy:billet_zirconium" },
+    { "item": "atomiclegacy:billet_u235" }, { "item": "atomiclegacy:billet_pu240" }, { "item": "atomiclegacy:billet_pu241" }
+  ],
+  "result": { "id": "atomiclegacy:billet_zfb_pu241", "count": 6 }
+}

@@ -1,0 +1,13 @@
+﻿{
+    "type":  "atomiclegacy:exposure_chamber",
+    "group":  "exposure_chamber",
+    "particle":  {
+                     "item":  "atomiclegacy:particle_higgs"
+                 },
+    "ingredient":  {
+                       "tag":  "c:ingots/uranium"
+                   },
+    "output":  {
+                   "id":  "atomiclegacy:ingot_schraranium"
+               }
+}

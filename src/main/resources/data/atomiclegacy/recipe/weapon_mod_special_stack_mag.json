@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "P P",
+    "P P",
+    "PMP"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:plates/weaponsteel"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/saturnite"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_stack_mag",
+    "count": 1
+  }
+}

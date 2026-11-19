@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " P ",
+    "HCH",
+    " B "
+  ],
+  "key": {
+    "P": {
+      "tag": "c:ingots/plastic"
+    },
+    "H": {
+      "item": "atomiclegacy:pipe_steel"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_vacuum_tube"
+    },
+    "B": {
+      "item": "atomiclegacy:shell_steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:drone",
+    "count": 2,
+    "components": {
+      "atomiclegacy:drone_type": 0
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "feature": "atomiclegacy:australium_region",
+  "placement": [
+    { "type": "minecraft:biome" }
+  ]
+}

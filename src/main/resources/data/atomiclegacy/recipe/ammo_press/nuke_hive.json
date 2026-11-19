@@ -1,0 +1,40 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.nuke_hive",
+  "order": 86,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/high_explosive"
+      },
+      "count": 8
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_large_steel"
+      },
+      "count": 2
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:plates/steel"
+      },
+      "count": 4
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "nuke_hive"
+      },
+      "minecraft:custom_model_data": 24
+    }
+  }
+}

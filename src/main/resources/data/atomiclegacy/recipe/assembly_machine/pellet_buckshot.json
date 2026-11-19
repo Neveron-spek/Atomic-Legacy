@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.buckshot",
+  "duration": 50,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "tag": "c:nuggets/lead"
+      },
+      "count": 6
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:pellet_buckshot"
+  }
+}

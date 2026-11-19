@@ -1,0 +1,93 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_expensive_mode"
+      }
+    }
+  ],
+  "type": "atomiclegacy:plasma_forge",
+  "group": "plsm.gerald",
+  "duration": 12000,
+  "power": 50000000,
+  "ignition_temp": 25000000,
+  "input_items": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_schrabidate"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_schrabidate"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_dense_bscco"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_dense_bscco"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:det_nuke"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:part_generic_hde"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:part_generic_hde"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:part_generic_hde"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:part_generic_hde"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller_quantum"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_crystal"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:drive_disk_orbitdata_processed"
+      },
+      "count": 16
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:sat_gerald",
+    "count": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "loader": "neoforge:composite",
+  "children": {
+    "bedrock": {
+      "parent": "atomiclegacy:block/ore_volcano"
+    },
+    "molten": {
+      "parent": "atomiclegacy:block/ore_volcano_overlay"
+    }
+  },
+  "item_render_order": ["bedrock", "molten"]
+}

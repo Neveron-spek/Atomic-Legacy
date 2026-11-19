@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BPB",
+    "BPB",
+    "BPB"
+  ],
+  "key": {
+    "B": {
+      "item": "atomiclegacy:bolt_steel"
+    },
+    "P": {
+      "tag": "c:plates/iron"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:plate_cast_iron",
+    "count": 1
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:crafting_shapeless", "category": "misc",
+  "ingredients": [{ "item": "atomiclegacy:billet_technetium" }, { "item": "atomiclegacy:billet_technetium" }, { "item": "atomiclegacy:billet_technetium" }],
+  "result": { "id": "atomiclegacy:ingot_technetium", "count": 2 }
+}

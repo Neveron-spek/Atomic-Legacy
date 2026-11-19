@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " A ",
+    "BCB",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "atomiclegacy:plate_saturnite"
+    },
+    "B": {
+      "item": "atomiclegacy:motor"
+    },
+    "C": {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:upgrade_ejector"
+      ],
+      "components": {
+        "minecraft:custom_model_data": 1
+      }
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:upgrade_ejector",
+    "count": 1,
+    "components": {
+      "minecraft:custom_model_data": 2
+    }
+  }
+}

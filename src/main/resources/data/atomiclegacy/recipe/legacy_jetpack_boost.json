@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "PCP",
+    "DJD",
+    "PAP"
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:circuit_advanced"
+    },
+    "P": {
+      "tag": "c:plates/saturnite"
+    },
+    "D": {
+      "tag": "c:ingots/desh"
+    },
+    "J": {
+      "item": "atomiclegacy:jetpack_vector"
+    },
+    "A": {
+      "item": "atomiclegacy:plate_cast_copper"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:jetpack_boost"
+  }
+}

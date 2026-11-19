@@ -1,0 +1,7 @@
+﻿{
+    "variants":  {
+                     "":  {
+                              "model":  "atomiclegacy:block/sulfuric_acid_block"
+                          }
+                 }
+}

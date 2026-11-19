@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:blast_furnace",
+  "group": "blast.steelWithFlux",
+  "input_a": { "tag": "c:ores/iron" },
+  "input_b": { "item": "atomiclegacy:powder_flux" },
+  "duration": 1200,
+  "result": { "id": "atomiclegacy:ingot_steel", "count": 3 },
+  "byproduct": { "id": "atomiclegacy:ingot_raw_slag", "count": 2 }
+}

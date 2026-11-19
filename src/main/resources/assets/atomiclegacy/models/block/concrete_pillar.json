@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:block/cube_column",
+	"textures": {
+		"end": "atomiclegacy:block/concrete_pillar_top",
+		"side": "atomiclegacy:block/concrete_pillar_side"
+	}
+}

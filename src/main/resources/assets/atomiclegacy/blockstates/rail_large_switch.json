@@ -1,0 +1,100 @@
+{
+  "variants": {
+    "meta=0,switched=false": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=0,switched=true": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=1,switched=false": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=1,switched=true": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=2,switched=false": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=2,switched=true": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=3,switched=false": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=3,switched=true": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=4,switched=false": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=4,switched=true": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=5,switched=false": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=5,switched=true": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=6,switched=false": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=6,switched=true": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=7,switched=false": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=7,switched=true": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=8,switched=false": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=8,switched=true": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=9,switched=false": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=9,switched=true": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=10,switched=false": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=10,switched=true": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=11,switched=false": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=11,switched=true": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_dummy"
+    },
+    "meta=12,switched=false": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_12_straight"
+    },
+    "meta=12,switched=true": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_12_turn"
+    },
+    "meta=13,switched=false": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_13_straight"
+    },
+    "meta=13,switched=true": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_13_turn"
+    },
+    "meta=14,switched=false": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_14_straight"
+    },
+    "meta=14,switched=true": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_14_turn"
+    },
+    "meta=15,switched=false": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_15_straight"
+    },
+    "meta=15,switched=true": {
+      "model": "atomiclegacy:block/rails/rail_large_switch_15_turn"
+    }
+  }
+}

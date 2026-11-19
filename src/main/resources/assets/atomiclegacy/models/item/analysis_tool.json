@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/analysis_tool"
+                 },
+    "parent":  "minecraft:item/generated"
+}

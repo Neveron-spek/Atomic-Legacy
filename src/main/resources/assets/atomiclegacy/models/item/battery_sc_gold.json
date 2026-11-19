@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/battery_sc_gold"
+                 },
+    "parent":  "minecraft:item/generated"
+}

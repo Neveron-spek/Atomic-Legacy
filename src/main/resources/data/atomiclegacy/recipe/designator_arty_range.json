@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:rangefinder"
+    },
+    {
+      "item": "atomiclegacy:circuit_advanced"
+    },
+    {
+      "tag": "c:ingots/plastic"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:designator_arty_range",
+    "count": 1
+  }
+}

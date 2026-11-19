@@ -1,0 +1,6 @@
+{
+  "parent": "atomiclegacy:block/vinyl_tile_large",
+  "overrides": [
+    { "predicate": { "minecraft:custom_model_data": 1 }, "model": "atomiclegacy:block/vinyl_tile_small" }
+  ]
+}

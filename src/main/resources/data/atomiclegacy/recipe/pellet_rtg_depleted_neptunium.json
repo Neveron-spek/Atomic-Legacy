@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:pellet_rtg_depleted"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "rtg_depleted_material": "neptunium"
+        }
+      }
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:billet_neptunium",
+    "count": 3
+  }
+}

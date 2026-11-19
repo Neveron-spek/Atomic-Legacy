@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "minecraft:sand"
+  },
+  "result": {
+    "id": "atomiclegacy:dust",
+    "count": 2
+  }
+}

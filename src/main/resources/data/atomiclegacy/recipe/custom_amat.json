@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":[" C ","MMM","AAA"],"key":{"C":{"tag":"c:plates/copper"},"A":{"tag":"c:plates/aluminium"},"M":{"item":"atomiclegacy:cell_antimatter"}},"result":{"id":"atomiclegacy:custom_amat"}}

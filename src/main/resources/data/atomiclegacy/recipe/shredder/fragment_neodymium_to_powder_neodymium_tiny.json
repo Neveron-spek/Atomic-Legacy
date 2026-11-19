@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:fragment_neodymium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_neodymium_tiny"
+  }
+}

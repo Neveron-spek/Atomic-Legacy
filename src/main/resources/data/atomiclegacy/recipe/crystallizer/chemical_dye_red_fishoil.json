@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer.chemical_dye",
+  "ingredient": {
+    "tag": "c:dusts/iron"
+  },
+  "acid": {
+    "fluid": "fishoil",
+    "amount": 100
+  },
+  "duration": 20,
+  "productivity": 0.15,
+  "result": {
+    "id": "atomiclegacy:chemical_dye_red",
+    "count": 4
+  }
+}

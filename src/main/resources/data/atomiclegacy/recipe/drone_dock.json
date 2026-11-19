@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["T", "C", "B"],
+  "key": { "T": { "item": "atomiclegacy:drone_waypoint_request" }, "C": { "item": "atomiclegacy:crate_steel" }, "B": { "item": "atomiclegacy:circuit_advanced" } },
+  "result": { "id": "atomiclegacy:drone_dock" }
+}

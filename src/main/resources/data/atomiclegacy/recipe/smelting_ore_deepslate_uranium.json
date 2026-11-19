@@ -1,0 +1,12 @@
+{
+    "type":  "minecraft:smelting",
+    "category":  "misc",
+    "ingredient":  {
+                       "item":  "atomiclegacy:ore_deepslate_uranium"
+                   },
+    "result":  {
+                   "id":  "atomiclegacy:ingot_uranium"
+               },
+    "experience":  6,
+    "cookingtime":  200
+}

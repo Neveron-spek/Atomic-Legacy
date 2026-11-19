@@ -1,0 +1,8 @@
+{
+  "type": "atomiclegacy:hot_smelting",
+  "category": "misc",
+  "ingredient": { "item": "atomiclegacy:ingot_chainsteel" },
+  "result": { "id": "atomiclegacy:ingot_chainsteel" },
+  "experience": 0.0,
+  "cookingtime": 200
+}

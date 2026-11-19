@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:iron_ore",
+    "minecraft:deepslate_iron_ore",
+    "atomiclegacy:cluster_iron",
+    "atomiclegacy:cluster_deepslate_iron",
+    "atomiclegacy:ore_gneiss_iron"
+  ]
+}

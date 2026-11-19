@@ -1,0 +1,25 @@
+{
+  "type": "atomiclegacy:plasma_forge",
+  "group": "plsm.weldcmb",
+  "auto_switch_group": "autoswitch.weldPlates",
+  "duration": 600,
+  "power": 10000000,
+  "ignition_temp": 500000,
+  "input_items": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_combine_steel"
+      },
+      "count": 2
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "reformgas",
+      "amount": 1000
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:plate_welded_combine_steel"
+  }
+}

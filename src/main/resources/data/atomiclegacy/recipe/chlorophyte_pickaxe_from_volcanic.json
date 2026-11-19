@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " SD",
+    "APS",
+    "FA "
+  ],
+  "key": {
+    "S": {
+      "item": "atomiclegacy:blades_steel"
+    },
+    "D": {
+      "tag": "c:dusts/chlorophyte"
+    },
+    "A": {
+      "tag": "c:ingots/fiberglass"
+    },
+    "P": {
+      "item": "atomiclegacy:volcanic_pickaxe"
+    },
+    "F": {
+      "item": "atomiclegacy:bolt_dura_steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:chlorophyte_pickaxe"
+  }
+}

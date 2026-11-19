@@ -1,0 +1,8 @@
+{
+  "type": "atomiclegacy:pyrolysis",
+  "group": "pyrolysis.syngas",
+  "item_input": { "ingredient": { "item": "atomiclegacy:biomass" }, "count": 4 },
+  "item_output": { "id": "minecraft:charcoal" },
+  "fluid_output": { "fluid": "syngas", "amount": 1000 },
+  "duration": 100
+}

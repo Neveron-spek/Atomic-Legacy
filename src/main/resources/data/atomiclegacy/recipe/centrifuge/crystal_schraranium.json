@@ -1,0 +1,26 @@
+{
+    "type":  "atomiclegacy:centrifuge",
+    "group":  "centrifuge",
+    "ingredient":  {
+                       "item":  "atomiclegacy:crystal_schraranium"
+                   },
+    "input_count":  1,
+    "results":  [
+                    {
+                        "id":  "atomiclegacy:nugget_schrabidium",
+                        "count":  2
+                    },
+                    {
+                        "id":  "atomiclegacy:nugget_schrabidium",
+                        "count":  2
+                    },
+                    {
+                        "id":  "atomiclegacy:nugget_uranium",
+                        "count":  2
+                    },
+                    {
+                        "id":  "atomiclegacy:nugget_neptunium",
+                        "count":  2
+                    }
+                ]
+}

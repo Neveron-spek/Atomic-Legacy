@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:block_coke"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "type": "coal"
+        }
+      }
+    }
+  },
+  "pattern": [
+    "#"
+  ],
+  "result": {
+    "id": "atomiclegacy:coke_coal",
+    "count": 9
+  }
+}

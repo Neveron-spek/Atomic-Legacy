@@ -1,0 +1,81 @@
+{
+  "batch": 1,
+  "size": 50,
+  "ids": [
+    "stone_gneiss",
+    "gneiss_brick",
+    "gneiss_tile",
+    "gneiss_chiseled",
+    "basalt",
+    "basalt_smooth",
+    "basalt_brick",
+    "basalt_polished",
+    "basalt_tiles",
+    "deco_titanium",
+    "deco_red_copper",
+    "deco_tungsten",
+    "deco_aluminium",
+    "deco_steel",
+    "deco_rusty_steel",
+    "deco_lead",
+    "deco_beryllium",
+    "platemetal",
+    "deco_asbestos",
+    "deco_rbmk",
+    "deco_rbmk_smooth",
+    "deco_emitter",
+    "part_emitter",
+    "deco_loot",
+    "pedestal",
+    "skeleton_holder",
+    "bobblehead",
+    "snowglobe",
+    "plushie",
+    "dungeon_spawner",
+    "vending_machine",
+    "gravel_obsidian",
+    "gravel_diamond",
+    "asphalt",
+    "asphalt_light",
+    "sandbags",
+    "wood_barrier",
+    "wood_structure",
+    "reinforced_brick",
+    "reinforced_glass",
+    "reinforced_glass_pane",
+    "reinforced_light",
+    "reinforced_sand",
+    "reinforced_lamp_off",
+    "reinforced_lamp_on",
+    "reinforced_laminate",
+    "reinforced_laminate_pane",
+    "lamp_tritium_green_off",
+    "lamp_tritium_green_on",
+    "lamp_tritium_blue_off"
+  ],
+  "status": "automatic_checks_passed_manual_behavior_pending",
+  "new_families": 0,
+  "fixes": [
+    "asphalt: original literal blue speed tooltip",
+    "asphalt_light: original literal blue speed tooltip",
+    "wood_barrier: original selection bounds independent of neighboring connections"
+  ],
+  "dependency_fixes": [
+    "asphalt_stairs: same original tooltip"
+  ],
+  "coverage": [
+    "all 50 registrations covered by building-scope server fixture",
+    "resource closure and original crafting source audited for full catalog"
+  ],
+  "limitations": [
+    "client visual and interactive behavior pending; batch does not certify full behavior parity"
+  ],
+  "regression_cases": {
+    "speed_tooltips": 3,
+    "barrier_selection": 64
+  },
+  "logs": [
+    "verification-batch-001.log",
+    "verification-batch-001-final.log"
+  ]
+}

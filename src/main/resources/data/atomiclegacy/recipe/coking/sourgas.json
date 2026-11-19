@@ -1,0 +1,7 @@
+{
+  "type": "atomiclegacy:coking",
+  "group": "coking.sourgas",
+  "input": { "fluid": "sourgas", "amount": 1000 },
+  "output": { "id": "atomiclegacy:sulfur" },
+  "byproduct": { "fluid": "gas_coker", "amount": 150 }
+}

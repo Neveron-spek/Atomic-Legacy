@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "active=false": { "model": "atomiclegacy:block/vent_chlorine" },
+    "active=true": { "model": "atomiclegacy:block/vent_chlorine" }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "type": "atomiclegacy:silex",
+  "group": "silex.fallout",
+  "ingredient": {
+    "item": "atomiclegacy:fallout"
+  },
+  "fluid_produced": 900,
+  "fluid_consumed": 100,
+  "wavelength": "visible",
+  "outputs": [
+    {
+      "item": {
+        "id": "atomiclegacy:dust_tiny"
+      },
+      "weight": 90
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:nugget_co60"
+      },
+      "weight": 2
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:powder_sr90_tiny"
+      },
+      "weight": 3
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:powder_i131_tiny"
+      },
+      "weight": 1
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:powder_cs137_tiny"
+      },
+      "weight": 3
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:nugget_au198"
+      },
+      "weight": 1
+    }
+  ]
+}

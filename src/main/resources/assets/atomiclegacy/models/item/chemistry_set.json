@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/chemistry_set"
+                 },
+    "parent":  "minecraft:item/generated"
+}

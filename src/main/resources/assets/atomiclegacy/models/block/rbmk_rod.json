@@ -1,0 +1,13 @@
+{
+  "parent": "atomiclegacy:block/template/rbmk_fuel_column",
+  "textures": {
+    "end": "atomiclegacy:block/rbmk/rbmk_element_top",
+    "side": "atomiclegacy:block/rbmk/rbmk_element_side",
+    "inner": "atomiclegacy:block/rbmk/rbmk_element_inner",
+    "fuel": "atomiclegacy:block/rbmk/rbmk_element_fuel",
+    "cover_top": "atomiclegacy:block/rbmk/rbmk_element_cover_top",
+    "cover_side": "atomiclegacy:block/rbmk/rbmk_element_cover_side",
+    "glass_top": "atomiclegacy:block/rbmk/rbmk_element_glass_top",
+    "glass_side": "atomiclegacy:block/rbmk/rbmk_element_glass_side"
+  }
+}

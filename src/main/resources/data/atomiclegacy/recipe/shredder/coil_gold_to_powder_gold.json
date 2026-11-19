@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:coil_gold"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_gold"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "PPP",
+    "PDP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "atomiclegacy:platemetal"
+    },
+    "D": {
+      "tag": "c:dyes/red"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:platemetal_red",
+    "count": 8
+  }
+}

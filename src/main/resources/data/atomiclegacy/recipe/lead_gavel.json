@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": ["PIP", "IGI", "PIP"],
+  "key": {
+    "P": { "item": "atomiclegacy:pellet_buckshot" },
+    "I": { "tag": "c:ingots/lead" },
+    "G": { "item": "atomiclegacy:wood_gavel" }
+  },
+  "result": { "id": "atomiclegacy:lead_gavel" }
+}

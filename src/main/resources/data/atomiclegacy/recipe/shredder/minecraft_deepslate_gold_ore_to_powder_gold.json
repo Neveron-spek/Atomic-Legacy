@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "minecraft:deepslate_gold_ore"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_gold",
+    "count": 2
+  }
+}

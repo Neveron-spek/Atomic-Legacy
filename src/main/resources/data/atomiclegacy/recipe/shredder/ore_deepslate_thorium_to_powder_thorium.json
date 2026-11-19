@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ore_deepslate_thorium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_thorium",
+    "count": 2
+  }
+}

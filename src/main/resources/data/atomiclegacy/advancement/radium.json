@@ -1,0 +1,28 @@
+{
+  "parent": "atomiclegacy:centrifuge",
+  "display": {
+    "icon": {
+      "id": "atomiclegacy:coffee_radium"
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.radium.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.radium.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "triggered"
+    ]
+  ]
+}

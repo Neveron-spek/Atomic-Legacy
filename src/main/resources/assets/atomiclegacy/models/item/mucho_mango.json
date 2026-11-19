@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/mucho_mango"
+                 },
+    "parent":  "minecraft:item/generated"
+}

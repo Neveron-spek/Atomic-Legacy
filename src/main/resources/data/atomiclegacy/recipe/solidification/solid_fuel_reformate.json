@@ -1,0 +1,11 @@
+﻿{
+    "type":  "atomiclegacy:solidification",
+    "group":  "solidifier.reformate",
+    "input":  {
+                  "fluid":  "reformate",
+                  "amount":  750
+              },
+    "output":  {
+                   "id":  "atomiclegacy:solid_fuel"
+               }
+}

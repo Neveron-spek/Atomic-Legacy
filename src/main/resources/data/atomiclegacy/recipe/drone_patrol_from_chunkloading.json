@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "type": "neoforge:components", "items": ["atomiclegacy:drone"], "components": { "atomiclegacy:drone_type": 1 } }
+  ],
+  "result": { "id": "atomiclegacy:drone", "components": { "atomiclegacy:drone_type": 0 } }
+}

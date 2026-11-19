@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "atomiclegacy:block/machine_detector"
+    },
+    "lit=true": {
+      "model": "atomiclegacy:block/machine_detector_on"
+    }
+  }
+}

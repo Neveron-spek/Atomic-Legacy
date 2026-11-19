@@ -1,0 +1,10 @@
+{
+    "parent": "atomiclegacy:item/block_cap_nuka",
+    "overrides": [
+        { "predicate": { "custom_model_data": 1 }, "model": "atomiclegacy:item/block_cap_quantum" },
+        { "predicate": { "custom_model_data": 2 }, "model": "atomiclegacy:item/block_cap_sparkle" },
+        { "predicate": { "custom_model_data": 3 }, "model": "atomiclegacy:item/block_cap_rad" },
+        { "predicate": { "custom_model_data": 4 }, "model": "atomiclegacy:item/block_cap_korl" },
+        { "predicate": { "custom_model_data": 5 }, "model": "atomiclegacy:item/block_cap_fritz" }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/projectiles/deb_lid.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": false,
+  "textures": {
+    "particle": "atomiclegacy:block/rbmk/rbmk_blank_cover_top"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ingot_magnetized_tungsten"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_magnetized_tungsten"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "MSM",
+    "MWM",
+    "MSM"
+  ],
+  "key": {
+    "M": {
+      "item": "atomiclegacy:meteor_polished"
+    },
+    "S": {
+      "tag": "c:storage_blocks/starmetal"
+    },
+    "W": {
+      "tag": "c:wires/schrabidium"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:meteor_battery",
+    "count": 1
+  }
+}

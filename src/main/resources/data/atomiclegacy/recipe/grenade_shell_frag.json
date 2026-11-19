@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":["B","P","S"],"key":{"B":{"item":"atomiclegacy:bolt_steel"},"P":{"item":"atomiclegacy:plate_aluminium"},"S":{"item":"atomiclegacy:shell_steel"}},"result":{"id":"atomiclegacy:grenade_shell_frag","count":4}}

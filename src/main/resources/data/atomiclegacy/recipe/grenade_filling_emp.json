@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":[" C ","KWK"],"key":{"C":{"item":"atomiclegacy:circuit_basic"},"K":{"item":"atomiclegacy:coil_gold"},"W":{"item":"atomiclegacy:plate_weaponsteel"}},"result":{"id":"atomiclegacy:grenade_filling_emp","count":4}}

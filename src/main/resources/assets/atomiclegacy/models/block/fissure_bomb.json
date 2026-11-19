@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "atomiclegacy:block/fissure_bomb_bottom",
+    "up": "atomiclegacy:block/fissure_bomb_top",
+    "north": "atomiclegacy:block/fissure_bomb_side",
+    "south": "atomiclegacy:block/fissure_bomb_side",
+    "east": "atomiclegacy:block/fissure_bomb_side",
+    "west": "atomiclegacy:block/fissure_bomb_side",
+    "particle": "atomiclegacy:block/fissure_bomb_side"
+  }
+}

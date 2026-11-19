@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AAA",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "item": "atomiclegacy:nugget_zirconium"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:billet_zirconium",
+    "count": 1
+  }
+}

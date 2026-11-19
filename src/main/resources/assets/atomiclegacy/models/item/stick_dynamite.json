@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/stick_dynamite"
+                 },
+    "parent":  "minecraft:item/generated"
+}

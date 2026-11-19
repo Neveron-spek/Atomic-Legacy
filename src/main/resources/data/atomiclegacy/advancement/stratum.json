@@ -1,0 +1,28 @@
+{
+  "parent": "atomiclegacy:root",
+  "display": {
+    "icon": {
+      "id": "atomiclegacy:stone_gneiss"
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.stratum.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.stratum.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "triggered"
+    ]
+  ]
+}

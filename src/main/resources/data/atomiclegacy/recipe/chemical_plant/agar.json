@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:chemical_plant",
+  "group": "chem.agar",
+  "duration": 100,
+  "power": 250,
+  "input_items": [
+    { "ingredient": { "item": "minecraft:sugar" }, "count": 1 },
+    { "ingredient": { "item": "atomiclegacy:powder_sawdust" }, "count": 1 }
+  ],
+  "input_fluids": [
+    { "fluid": "salient", "amount": 1000 }
+  ],
+  "output_items": [
+    { "id": "atomiclegacy:bacteria_agar", "count": 1 }
+  ],
+  "output_fluids": []
+}

@@ -1,0 +1,11 @@
+﻿{
+    "type":  "atomiclegacy:solidification",
+    "group":  "solidifier.diesel_crack_reform",
+    "input":  {
+                  "fluid":  "diesel_crack_reform",
+                  "amount":  1400
+              },
+    "output":  {
+                   "id":  "atomiclegacy:solid_fuel"
+               }
+}

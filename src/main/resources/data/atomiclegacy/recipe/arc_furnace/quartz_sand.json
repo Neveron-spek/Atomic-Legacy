@@ -1,0 +1,18 @@
+{
+  "type": "atomiclegacy:arc_furnace",
+  "group": "arc_furnace",
+  "input": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:sand_mix"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "quartz"
+      }
+    }
+  },
+  "solid": {
+    "id": "atomiclegacy:glass_quartz"
+  }
+}

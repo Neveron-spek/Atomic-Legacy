@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PDS",
+    "  G"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:ingots/plastic"
+    },
+    "D": {
+      "tag": "c:dyes/green"
+    },
+    "S": {
+      "tag": "c:gun_parts/stock/any_plastic"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/any_plastic"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_furniture_green",
+    "count": 1
+  }
+}

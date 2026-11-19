@@ -1,0 +1,2 @@
+src/main/resources/assets/reinhardtshbm/models/block/machine_industrial_generator.json
+src/main/resources/assets/reinhardtshbm/textures/block/industrial_generator.png

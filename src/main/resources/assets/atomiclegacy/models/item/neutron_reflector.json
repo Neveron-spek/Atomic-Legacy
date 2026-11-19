@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/neutron_reflector"
+                 },
+    "parent":  "minecraft:item/generated"
+}

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/detonator_deadman"
+                 },
+    "parent":  "minecraft:item/handheld"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "S S",
+    "SRS",
+    "S S"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "R": {
+      "item": "atomiclegacy:plant_item_rope"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:rail_wood",
+    "count": 16
+  }
+}

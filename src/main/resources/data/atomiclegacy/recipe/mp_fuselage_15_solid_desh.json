@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CCC",
+    "CTC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "tag": "c:ingots/desh"
+    },
+    "T": {
+      "item": "atomiclegacy:mp_fuselage_15_solid"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:mp_fuselage_15_solid_desh",
+    "count": 1
+  }
+}
+

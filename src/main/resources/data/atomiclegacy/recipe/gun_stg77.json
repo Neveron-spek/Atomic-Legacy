@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " D ",
+    "BRS",
+    "GGM"
+  ],
+  "key": {
+    "D": {
+      "item": "atomiclegacy:weapon_mod_special_scope"
+    },
+    "B": {
+      "tag": "c:gun_parts/barrel_light/saturnite"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_light/saturnite"
+    },
+    "S": {
+      "tag": "c:gun_parts/stock/any_hardplastic"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/any_hardplastic"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/saturnite"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_stg77",
+    "count": 1
+  }
+}

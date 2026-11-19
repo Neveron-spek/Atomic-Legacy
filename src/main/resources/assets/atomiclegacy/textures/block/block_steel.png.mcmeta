@@ -1,0 +1,10 @@
+﻿{
+	"ctm": {
+		"ctm_version": 1,
+		"type": "CTM",
+		"textures": [
+			"atomiclegacy:block/block_steel_ctm"
+		]
+	}
+}
+

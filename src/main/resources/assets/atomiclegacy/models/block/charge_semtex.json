@@ -1,0 +1,18 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/bombs/charge_c4.obj",
+  "mtl_override": "atomiclegacy:models/obj/bombs/charge_semtex.mtl",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "textures": { "particle": "atomiclegacy:block/charge_semtex" },
+  "display": {
+    "gui": { "rotation": [0, -90, -90], "translation": [0, 0, 6], "scale": [1, 1, 1] },
+    "fixed": { "rotation": [0, -90, -90], "translation": [0, 0, 6], "scale": [1, 1, 1] },
+    "ground": { "rotation": [0, -90, -90], "translation": [0, 0, 6], "scale": [1, 1, 1] },
+    "firstperson_righthand": { "rotation": [0, -90, -90], "translation": [0, 0, 6], "scale": [1, 1, 1] },
+    "firstperson_lefthand": { "rotation": [0, -90, -90], "translation": [0, 0, 6], "scale": [1, 1, 1] },
+    "thirdperson_righthand": { "rotation": [0, -90, -90], "translation": [0, 0, 6], "scale": [1, 1, 1] },
+    "thirdperson_lefthand": { "rotation": [0, -90, -90], "translation": [0, 0, 6], "scale": [1, 1, 1] }
+  }
+}

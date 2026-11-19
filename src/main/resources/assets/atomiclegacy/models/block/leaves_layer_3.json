@@ -1,0 +1,1 @@
+{ "parent": "minecraft:block/snow_height6", "textures": { "particle": "atomiclegacy:block/waste_leaves", "texture": "atomiclegacy:block/waste_leaves" }, "render_type": "minecraft:cutout_mipped" }

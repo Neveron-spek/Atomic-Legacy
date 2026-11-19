@@ -1,0 +1,8 @@
+{
+  "type": "atomiclegacy:blast_furnace",
+  "group": "blast.paa",
+  "input_a": { "tag": "c:ingots/gold" },
+  "input_b": { "item": "atomiclegacy:plate_mixed" },
+  "duration": 600,
+  "result": { "id": "atomiclegacy:plate_paa" }
+}

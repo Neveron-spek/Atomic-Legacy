@@ -1,0 +1,13 @@
+{
+  "parent": "atomiclegacy:block/template/rbmk_top_lid",
+  "textures": {
+    "end": "atomiclegacy:block/rbmk/rbmk_element_reasim_mod_top",
+    "side": "atomiclegacy:block/rbmk/rbmk_element_reasim_mod_side",
+    "inner": "atomiclegacy:block/rbmk/rbmk_element_reasim_mod_inner",
+    "fuel": "atomiclegacy:block/rbmk/rbmk_element_reasim_mod_fuel",
+    "cover_top": "atomiclegacy:block/rbmk/rbmk_element_reasim_mod_cover_top",
+    "cover_side": "atomiclegacy:block/rbmk/rbmk_element_reasim_mod_cover_side",
+    "glass_top": "atomiclegacy:block/rbmk/rbmk_element_reasim_mod_glass_top",
+    "glass_side": "atomiclegacy:block/rbmk/rbmk_element_reasim_mod_glass_side"
+  }
+}

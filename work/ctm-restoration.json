@@ -1,0 +1,40 @@
+{
+  "mapping": {
+    "deco_aluminium_ctm": "deco_aluminium_ct",
+    "deco_beryllium_ctm": "deco_beryllium_ct",
+    "deco_lead_ctm": "deco_lead_ct",
+    "deco_red_copper_ctm": "deco_red_copper_ct",
+    "deco_tungsten_ctm": "deco_tungsten_ct",
+    "deco_steel_ctm": "deco_steel_ct",
+    "deco_rusty_steel_ctm": "deco_rusty_steel_ct",
+    "glass_ash_ctm": "glass_ash_ct",
+    "glass_boron_ctm": "glass_boron_ct",
+    "glass_lead_ctm": "glass_lead_ct",
+    "glass_polarized_ctm": "glass_polarized_ct",
+    "glass_polonium_ctm": "glass_polonium_ct",
+    "glass_quartz_ctm": "glass_quartz_ct",
+    "glass_trinitite_ctm": "glass_trinitite_ct",
+    "glass_uranium_ctm": "glass_uranium_ct",
+    "reinforced_glass_ctm": "reinforced_glass_ct",
+    "reinforced_laminate_ctm": "reinforced_laminate_ct",
+    "platemetal_ctm": "platemetal.base_ct",
+    "platemetal_black_ctm": "platemetal.black_ct",
+    "platemetal_white_ctm": "platemetal.white_ct",
+    "platemetal_red_ctm": "platemetal.red_ct",
+    "platemetal_green_ctm": "platemetal.green_ct",
+    "platemetal_light_gray_ctm": "platemetal.light_gray_ct",
+    "platemetal_blue_ctm": "platemetal.blue_ct",
+    "platemetal_purple_ctm": "platemetal.purple_ct",
+    "platemetal_cyan_ctm": "platemetal.cyan_ct",
+    "platemetal_pink_ctm": "platemetal.pink_ct",
+    "platemetal_lime_ctm": "platemetal.lime_ct",
+    "platemetal_yellow_ctm": "platemetal.yellow_ct",
+    "platemetal_light_blue_ctm": "platemetal.light_blue_ct",
+    "platemetal_magenta_ctm": "platemetal.magenta_ct",
+    "platemetal_orange_ctm": "platemetal.orange_ct"
+  },
+  "restored": [
+    "deco_lead_ctm",
+    "deco_steel_ctm"
+  ]
+}

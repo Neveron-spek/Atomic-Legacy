@@ -1,0 +1,47 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.orbus",
+  "duration": 300,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_ferro_plating"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_saturnite"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_dense_bscco"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "type": "atomiclegacy:battery",
+        "items": "atomiclegacy:battery_sc",
+        "components": {
+          "minecraft:custom_data": {
+            "variant": "po210"
+          },
+          "minecraft:custom_model_data": 6
+        }
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:machine_orbus"
+  }
+}

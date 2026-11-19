@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ore_nether_fire"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_fire",
+    "count": 6
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "parent": "atomiclegacy:chemplant",
+  "display": {
+    "icon": {
+      "id": "atomiclegacy:concrete"
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.concrete.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.concrete.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "triggered"
+    ]
+  ]
+}

@@ -1,0 +1,71 @@
+{
+    "type": "atomiclegacy:precision_assembler",
+    "group": "precass.chip_quantum",
+    "duration": 300,
+    "power": 20000,
+    "ingredients": [
+        {
+            "ingredient": {
+                "item": "atomiclegacy:circuit_silicon"
+            },
+            "count": 8
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:wire_dense_bscco"
+            },
+            "count": 2
+        },
+        {
+            "ingredient": {
+                "tag": "c:ingots/hardplastic"
+            },
+            "count": 4
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:pellet_charged"
+            },
+            "count": 4
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:wire_gold"
+            },
+            "count": 8
+        }
+    ],
+    "outputs": [
+        {
+            "result": {
+                "id": "atomiclegacy:circuit_chip_quantum",
+                "count": 1
+            },
+            "weight": 90
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:broken_item",
+                "count": 1,
+                "components": {
+                    "minecraft:custom_data": "{item_id:\"atomiclegacy:circuit_chip_quantum\",item_count:1}"
+                }
+            },
+            "weight": 10
+        }
+    ],
+    "neoforge:conditions": [
+        {
+            "type": "atomiclegacy:enable_528_mode"
+        }
+    ],
+    "blueprint_pools": [
+        "528.chip_quantum"
+    ],
+    "input_fluids": [
+        {
+            "fluid": "helium4",
+            "amount": 250
+        }
+    ]
+}

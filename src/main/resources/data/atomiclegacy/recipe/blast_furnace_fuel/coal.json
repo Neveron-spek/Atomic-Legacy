@@ -1,0 +1,5 @@
+{
+  "type": "atomiclegacy:blast_furnace_fuel",
+  "ingredient": { "item": "minecraft:coal" },
+  "power": 1600
+}

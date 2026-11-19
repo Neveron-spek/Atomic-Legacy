@@ -1,0 +1,12 @@
+{
+  "type": "atomiclegacy:press",
+  "group": "press.wire",
+  "stamp": "wire",
+  "ingredient": {
+    "tag": "c:ingots/magnetized_tungsten"
+  },
+  "result": {
+    "id": "atomiclegacy:wire_magnetized_tungsten",
+    "count": 8
+  }
+}

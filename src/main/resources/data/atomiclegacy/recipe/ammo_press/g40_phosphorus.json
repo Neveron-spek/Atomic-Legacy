@@ -1,0 +1,42 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.g40_phosphorus",
+  "order": 60,
+  "input": [
+    {
+      "ingredient": {
+        "tag": "c:ingots/phosphorus"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/high_explosive"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_large"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 4,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "g40_phosphorus"
+      },
+      "minecraft:custom_model_data": 72
+    }
+  }
+}

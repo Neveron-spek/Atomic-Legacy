@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " W ",
+    "DSD",
+    "DTD"
+  ],
+  "key": {
+    "W": {
+      "item": "atomiclegacy:wire_dense_magnetized_tungsten"
+    },
+    "D": {
+      "item": "atomiclegacy:plate_cast_saturnite"
+    },
+    "S": {
+      "tag": "c:dusts/power"
+    },
+    "T": {
+      "item": "atomiclegacy:crystal_trixite"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:battery_trixite"
+  }
+}

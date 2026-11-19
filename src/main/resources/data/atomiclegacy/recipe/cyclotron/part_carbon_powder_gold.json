@@ -1,0 +1,14 @@
+{
+    "type": "atomiclegacy:cyclotron",
+    "group": "cyclotron",
+    "particle": {
+        "item": "atomiclegacy:part_carbon"
+    },
+    "input": {
+        "item": "atomiclegacy:powder_neodymium"
+    },
+    "output": {
+        "id": "atomiclegacy:powder_gold"
+    },
+    "antimatter": 10
+}

@@ -1,0 +1,13 @@
+﻿{
+  "variants": {
+    "type=bottom": {
+      "model": "atomiclegacy:block/concrete_asbestos_slab"
+    },
+    "type=top": {
+      "model": "atomiclegacy:block/concrete_asbestos_slab_top"
+    },
+    "type=double": {
+      "model": "atomiclegacy:block/concrete_asbestos_slab_double"
+    }
+  }
+}

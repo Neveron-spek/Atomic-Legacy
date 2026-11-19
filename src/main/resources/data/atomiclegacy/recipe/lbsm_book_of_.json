@@ -1,0 +1,29 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:less_bullshit_mode",
+      "feature": "simple_crafting"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BGB",
+    "GAG",
+    "BGB"
+  ],
+  "key": {
+    "B": {
+      "item": "atomiclegacy:egg_balefire_shard"
+    },
+    "G": {
+      "tag": "c:ingots/gold"
+    },
+    "A": {
+      "item": "minecraft:book"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:book_of_"
+  }
+}

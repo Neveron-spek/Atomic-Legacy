@@ -1,0 +1,31 @@
+{
+    "neoforge:conditions":  [
+                                {
+                                    "type":  "neoforge:not",
+                                    "value":  {
+                                                  "type":  "atomiclegacy:less_bullshit_mode",
+                                                  "feature":  "simple_centrifuge"
+                                              }
+                                }
+                            ],
+    "type":  "atomiclegacy:centrifuge",
+    "group":  "centrifuge",
+    "ingredient":  {
+                       "tag":  "c:ores/tungsten"
+                   },
+    "input_count":  1,
+    "results":  [
+                    {
+                        "id":  "atomiclegacy:powder_tungsten"
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_tungsten"
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_iron"
+                    },
+                    {
+                        "id":  "minecraft:gravel"
+                    }
+                ]
+}

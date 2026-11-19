@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "id": "atomiclegacy:geiger_counter"
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.root.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.root.description"
+    },
+    "background": "atomiclegacy:textures/block/concrete.png",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "requirements": [
+    [
+      "tick"
+    ]
+  ]
+}

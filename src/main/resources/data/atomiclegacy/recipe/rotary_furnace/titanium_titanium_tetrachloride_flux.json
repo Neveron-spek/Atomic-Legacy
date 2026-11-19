@@ -1,0 +1,11 @@
+{
+  "type": "atomiclegacy:rotary_furnace",
+  "group": "rotary_furnace.titanium",
+  "inputs": [
+    { "ingredient": { "tag": "c:dusts/flux" }, "count": 1 }
+  ],
+  "fluid": { "fluid": "titanium_tetrachloride", "amount": 1000 },
+  "output": { "material": "titanium", "amount": 576 },
+  "duration": 40,
+  "steam": 100
+}

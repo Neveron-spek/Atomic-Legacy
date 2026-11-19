@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": { "tag": "c:raw_materials/tungsten" },
+  "input_count": 4,
+  "acid": { "fluid": "sulfuric_acid", "amount": 500 },
+  "duration": 600,
+  "result": { "id": "atomiclegacy:crystal_tungsten", "count": 3 }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:rod_quad_empty"
+    },
+    {
+      "item": "atomiclegacy:lithium"
+    },
+    {
+      "item": "atomiclegacy:lithium"
+    },
+    {
+      "item": "atomiclegacy:lithium"
+    },
+    {
+      "item": "atomiclegacy:lithium"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:rod_quad",
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "lithium"
+      },
+      "minecraft:custom_model_data": 0
+    }
+  }
+}

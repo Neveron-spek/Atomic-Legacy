@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "atomiclegacy:block/icf_casing", "up": "atomiclegacy:block/icf_casing",
+    "north": "atomiclegacy:block/icf_casing", "south": "atomiclegacy:block/icf_controller",
+    "west": "atomiclegacy:block/icf_casing", "east": "atomiclegacy:block/icf_casing",
+    "particle": "#north"
+  }
+}

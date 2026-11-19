@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "atomiclegacy:block/wand_jigsaw"
+    },
+    "facing=south": {
+      "model": "atomiclegacy:block/wand_jigsaw"
+    },
+    "facing=west": {
+      "model": "atomiclegacy:block/wand_jigsaw"
+    },
+    "facing=east": {
+      "model": "atomiclegacy:block/wand_jigsaw"
+    },
+    "facing=down": {
+      "model": "atomiclegacy:block/wand_jigsaw"
+    },
+    "facing=up": {
+      "model": "atomiclegacy:block/wand_jigsaw"
+    }
+  }
+}

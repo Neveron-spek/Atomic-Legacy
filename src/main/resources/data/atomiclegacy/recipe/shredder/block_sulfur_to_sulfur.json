@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:block_sulfur"
+  },
+  "result": {
+    "id": "atomiclegacy:sulfur",
+    "count": 4
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SMS",
+    " B ",
+    "SMS"
+  ],
+  "key": {
+    "S": {
+      "tag": "c:ingots/steel"
+    },
+    "M": {
+      "item": "atomiclegacy:horseshoe_magnet"
+    },
+    "B": {
+      "item": "atomiclegacy:wire_dense_red_copper"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:industrial_magnet"
+  }
+}

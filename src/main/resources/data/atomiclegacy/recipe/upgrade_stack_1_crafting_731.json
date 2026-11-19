@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " A ",
+    "BCB",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "atomiclegacy:circuit_capacitor"
+    },
+    "B": {
+      "item": "atomiclegacy:part_generic_piston_hydraulic"
+    },
+    "C": {
+      "item": "atomiclegacy:upgrade_stack"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:upgrade_stack",
+    "count": 1,
+    "components": {
+      "minecraft:custom_model_data": 1
+    }
+  }
+}

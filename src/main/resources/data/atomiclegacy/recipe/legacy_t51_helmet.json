@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "PPC",
+    "PBP",
+    "IXI"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:plates/armor_titanium"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_basic"
+    },
+    "I": {
+      "tag": "c:ingots/any_rubber"
+    },
+    "X": {
+      "item": "atomiclegacy:gas_mask_m65"
+    },
+    "B": {
+      "item": "atomiclegacy:titanium_helmet"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:t51_helmet"
+  }
+}

@@ -1,0 +1,10 @@
+﻿{
+  "variants": {
+    "": [
+      { "model": "atomiclegacy:block/sellafield_slaked" },
+      { "model": "atomiclegacy:block/sellafield_slaked_1" },
+      { "model": "atomiclegacy:block/sellafield_slaked_2" },
+      { "model": "atomiclegacy:block/sellafield_slaked_3" }
+    ]
+  }
+}

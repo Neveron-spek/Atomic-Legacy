@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/fusion_shield_vaporwave"
+                 },
+    "parent":  "minecraft:item/generated"
+}

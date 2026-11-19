@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/machine_orbus" },
+    "facing=south": { "model": "atomiclegacy:block/particle/machine_orbus" },
+    "facing=west": { "model": "atomiclegacy:block/particle/machine_orbus" },
+    "facing=east": { "model": "atomiclegacy:block/particle/machine_orbus" }
+  }
+}

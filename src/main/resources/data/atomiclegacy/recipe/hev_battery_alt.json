@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " W ",
+    "ICI",
+    "IEI"
+  ],
+  "key": {
+    "W": {
+      "item": "atomiclegacy:wire_gold"
+    },
+    "I": {
+      "tag": "c:plates/polymer"
+    },
+    "E": {
+      "tag": "c:dusts/redstone"
+    },
+    "C": {
+      "tag": "c:dusts/cobalt"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:hev_battery",
+    "count": 4
+  }
+}

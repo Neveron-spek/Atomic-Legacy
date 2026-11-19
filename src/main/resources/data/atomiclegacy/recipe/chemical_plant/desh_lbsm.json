@@ -1,0 +1,32 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:less_bullshit_mode",
+      "feature": "simple_chemistry"
+    }
+  ],
+  "type": "atomiclegacy:chemical_plant",
+  "group": "chem.desh",
+  "duration": 100,
+  "power": 100,
+  "input_items": [
+    {
+      "ingredient": {
+        "tag": "c:dusts/desh_mix"
+      },
+      "count": 1
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "lightoil",
+      "amount": 200
+    }
+  ],
+  "output_items": [
+    {
+      "id": "atomiclegacy:ingot_desh"
+    }
+  ],
+  "output_fluids": []
+}

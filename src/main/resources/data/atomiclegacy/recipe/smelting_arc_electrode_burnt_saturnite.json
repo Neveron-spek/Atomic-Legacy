@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "item": "atomiclegacy:arc_electrode_burnt_saturnite"
+  },
+  "result": {
+    "id": "atomiclegacy:ingot_saturnite"
+  },
+  "experience": 3.0,
+  "cookingtime": 200
+}

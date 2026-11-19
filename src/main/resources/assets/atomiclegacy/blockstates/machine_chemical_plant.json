@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=north,lit=false": { "model": "atomiclegacy:block/particle/machine_chemical_plant" },
+    "facing=north,lit=true": { "model": "atomiclegacy:block/particle/machine_chemical_plant" },
+    "facing=east,lit=false": { "model": "atomiclegacy:block/particle/machine_chemical_plant" },
+    "facing=east,lit=true": { "model": "atomiclegacy:block/particle/machine_chemical_plant" },
+    "facing=south,lit=false": { "model": "atomiclegacy:block/particle/machine_chemical_plant" },
+    "facing=south,lit=true": { "model": "atomiclegacy:block/particle/machine_chemical_plant" },
+    "facing=west,lit=false": { "model": "atomiclegacy:block/particle/machine_chemical_plant" },
+    "facing=west,lit=true": { "model": "atomiclegacy:block/particle/machine_chemical_plant" }
+  }
+}

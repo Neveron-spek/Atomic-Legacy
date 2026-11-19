@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:coking","group":"coking.fishoil","input":{"fluid":"fishoil","amount":10000},"output":{"id":"atomiclegacy:coke_petroleum"},"byproduct":{"fluid":"mercury","amount":1000}}

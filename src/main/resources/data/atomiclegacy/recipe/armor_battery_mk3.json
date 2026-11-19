@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PWP",
+    "PCP",
+    "PWP"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:plates/gold"
+    },
+    "C": {
+      "item": "atomiclegacy:battery_pack_capacitor_tantalum"
+    },
+    "W": {
+      "item": "atomiclegacy:wire_dense_red_copper"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:armor_battery_mk3"
+  }
+}

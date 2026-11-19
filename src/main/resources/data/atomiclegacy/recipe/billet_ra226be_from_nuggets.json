@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:nuggets/ra226"
+    },
+    {
+      "tag": "c:nuggets/ra226"
+    },
+    {
+      "tag": "c:nuggets/ra226"
+    },
+    {
+      "tag": "c:nuggets/beryllium"
+    },
+    {
+      "tag": "c:nuggets/beryllium"
+    },
+    {
+      "tag": "c:nuggets/beryllium"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:billet_ra226be"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "atomiclegacy:block/machine_difurnace_extension"
+    }
+  }
+}

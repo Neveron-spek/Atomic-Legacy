@@ -1,0 +1,55 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.pyrooven",
+  "blueprint_pools": [
+    "528.hardplastic"
+  ],
+  "duration": 300,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_bronze_tubes"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/hard_plastic"
+      },
+      "count": 32
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/cft"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:motor_bismuth"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_bismoid"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_computer"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:machine_pyrooven"
+  }
+}

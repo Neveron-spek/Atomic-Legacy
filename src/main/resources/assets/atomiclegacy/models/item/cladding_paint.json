@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/cladding_paint"
+                 },
+    "parent":  "minecraft:item/generated"
+}

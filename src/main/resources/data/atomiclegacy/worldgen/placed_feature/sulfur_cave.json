@@ -1,0 +1,8 @@
+{
+  "feature": "atomiclegacy:sulfur_cave",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

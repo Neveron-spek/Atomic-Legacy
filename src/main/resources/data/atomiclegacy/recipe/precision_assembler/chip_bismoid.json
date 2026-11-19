@@ -1,0 +1,65 @@
+{
+    "type": "atomiclegacy:precision_assembler",
+    "group": "precass.chip_bismoid",
+    "duration": 200,
+    "power": 1000,
+    "ingredients": [
+        {
+            "ingredient": {
+                "item": "atomiclegacy:circuit_silicon"
+            },
+            "count": 4
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:plate_polymer"
+            },
+            "count": 8
+        },
+        {
+            "ingredient": {
+                "tag": "c:nuggets/bismoid"
+            },
+            "count": 2
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:wire_gold"
+            },
+            "count": 4
+        }
+    ],
+    "outputs": [
+        {
+            "result": {
+                "id": "atomiclegacy:circuit_chip_bismoid",
+                "count": 1
+            },
+            "weight": 75
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:broken_item",
+                "count": 1,
+                "components": {
+                    "minecraft:custom_data": "{item_id:\"atomiclegacy:circuit_chip_bismoid\",item_count:1}"
+                }
+            },
+            "weight": 25
+        }
+    ],
+    "neoforge:conditions": [
+        {
+            "type": "atomiclegacy:enable_528_mode"
+        }
+    ],
+    "blueprint_pools": [
+        "528.chip_bismoid"
+    ],
+    "input_fluids": [
+        {
+            "fluid": "perfluoromethyl",
+            "amount": 500
+        }
+    ]
+}

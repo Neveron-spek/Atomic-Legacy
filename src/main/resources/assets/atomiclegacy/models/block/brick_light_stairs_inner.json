@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "atomiclegacy:block/brick_light",
+    "top": "atomiclegacy:block/brick_light",
+    "side": "atomiclegacy:block/brick_light"
+  }
+}

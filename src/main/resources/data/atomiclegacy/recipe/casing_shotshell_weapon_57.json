@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "A",
+    "B"
+  ],
+  "key": {
+    "A": {
+      "tag": "c:plates/gunmetal"
+    },
+    "B": {
+      "item": "atomiclegacy:casing_large"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:casing_shotshell",
+    "count": 2
+  }
+}

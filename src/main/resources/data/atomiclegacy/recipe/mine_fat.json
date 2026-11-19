@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["CDN"],
+  "key": {
+    "C": { "item": "atomiclegacy:circuit_analog" },
+    "D": { "item": "atomiclegacy:ducttape" },
+    "N": {
+      "type": "neoforge:components",
+      "items": ["atomiclegacy:ammo_standard"],
+      "components": {
+        "minecraft:custom_data": { "variant": "nuke_demo" },
+        "minecraft:custom_model_data": 20
+      }
+    }
+  },
+  "result": { "id": "atomiclegacy:mine_fat" }
+}

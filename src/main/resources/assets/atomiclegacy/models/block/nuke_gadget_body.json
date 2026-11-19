@@ -1,0 +1,10 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/bombs/gadget.obj",
+  "mtl_override": "atomiclegacy:models/obj/bombs/gadget.mtl",
+  "visibility": { "Wires": false, "Body": true },
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "textures": { "particle": "atomiclegacy:models/bombs/gadget" }
+}

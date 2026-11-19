@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "minecraft:quartz_pillar"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_quartz",
+    "count": 4
+  }
+}

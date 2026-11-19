@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["GGG", "SPS"],
+  "key": {
+    "G": { "item": "atomiclegacy:steel_grate" },
+    "S": { "tag": "c:ingots/steel" },
+    "P": { "item": "atomiclegacy:part_generic_piston_hydraulic" }
+  },
+  "result": { "id": "atomiclegacy:cargo_elevator", "count": 3 }
+}

@@ -1,0 +1,50 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.balefirebomb",
+  "duration": 400,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:sphere_steel"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:shell_titanium"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:fins_big_steel"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:dusts/magic"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller_advanced"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "tag": "c:dyes/gray"
+      },
+      "count": 8
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:nuke_fstbmb"
+  },
+  "blueprint_pools": [
+    "528.controller"
+  ]
+}

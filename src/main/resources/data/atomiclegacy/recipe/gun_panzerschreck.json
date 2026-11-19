@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BBB",
+    "PGM"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:gun_parts/barrel_heavy/desh"
+    },
+    "P": {
+      "tag": "c:plates/cast_steel"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/desh"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/gunmetal"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_panzerschreck",
+    "count": 1
+  }
+}

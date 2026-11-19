@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/machine_puf6_tank"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

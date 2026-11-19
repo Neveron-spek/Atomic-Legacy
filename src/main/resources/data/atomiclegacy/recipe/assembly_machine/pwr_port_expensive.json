@@ -1,0 +1,35 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.pwrport",
+  "duration": 200,
+  "power": 500,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_lead_plating"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:concretes"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:pipe_steel"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:pwr_port",
+    "count": 4
+  }
+}

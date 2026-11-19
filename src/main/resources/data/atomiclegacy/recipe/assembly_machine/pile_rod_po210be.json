@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.pilepobe",
+  "duration": 40,
+  "power": 200,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:billet_po210be"
+      },
+      "count": 3
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:pile_rod_po210be"
+  }
+}

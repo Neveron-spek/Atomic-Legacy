@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:ore_titanium",
+    "atomiclegacy:ore_deepslate_titanium",
+    "atomiclegacy:cluster_titanium",
+    "atomiclegacy:cluster_deepslate_titanium"
+  ]
+}

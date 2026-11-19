@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PPP",
+    "CBB",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:ingots/plastic"
+    },
+    "C": {
+      "item": "atomiclegacy:crt_display"
+    },
+    "B": {
+      "item": "atomiclegacy:circuit_pcb"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:circuit_controller_chassis",
+    "count": 1
+  }
+}

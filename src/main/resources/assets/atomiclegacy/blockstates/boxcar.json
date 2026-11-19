@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "facing=east,legacy_meta0=false": {
+      "model": "atomiclegacy:block/boxcar"
+    },
+    "facing=east,legacy_meta0=true": {
+      "model": "atomiclegacy:block/boxcar_fallen"
+    },
+    "facing=south,legacy_meta0=false": {
+      "model": "atomiclegacy:block/boxcar",
+      "y": 90
+    },
+    "facing=south,legacy_meta0=true": {
+      "model": "atomiclegacy:block/boxcar_fallen"
+    },
+    "facing=west,legacy_meta0=false": {
+      "model": "atomiclegacy:block/boxcar",
+      "y": 180
+    },
+    "facing=west,legacy_meta0=true": {
+      "model": "atomiclegacy:block/boxcar_fallen"
+    },
+    "facing=north,legacy_meta0=false": {
+      "model": "atomiclegacy:block/boxcar",
+      "y": 270
+    },
+    "facing=north,legacy_meta0=true": {
+      "model": "atomiclegacy:block/boxcar_fallen"
+    }
+  }
+}

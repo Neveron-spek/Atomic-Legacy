@@ -1,0 +1,32 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:less_bullshit_mode",
+        "feature": "simple_tools"
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "B",
+    "W",
+    "P"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:storage_blocks/schrabidium"
+    },
+    "W": {
+      "item": "atomiclegacy:desh_shovel"
+    },
+    "P": {
+      "tag": "c:ingots/plastic"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:schrabidium_shovel"
+  }
+}

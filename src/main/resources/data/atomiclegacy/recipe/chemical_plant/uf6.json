@@ -1,0 +1,46 @@
+{
+  "type": "atomiclegacy:chemical_plant",
+  "group": "chem.uf6",
+  "duration": 100,
+  "power": 500,
+  "icon": {
+    "id": "atomiclegacy:fluid_icon",
+    "components": {
+      "minecraft:custom_data": {
+        "fluid": "uf6"
+      }
+    }
+  },
+  "input_items": [
+    {
+      "ingredient": {
+        "tag": "c:dusts/yellowcake"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:dusts/fluorite"
+      },
+      "count": 4
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "water",
+      "amount": 1000
+    }
+  ],
+  "output_items": [
+    {
+      "id": "atomiclegacy:sulfur",
+      "count": 2
+    }
+  ],
+  "output_fluids": [
+    {
+      "fluid": "uf6",
+      "amount": 1200
+    }
+  ]
+}

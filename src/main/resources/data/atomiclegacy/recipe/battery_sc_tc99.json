@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_shapeless", "category": "misc",
+  "ingredients": [
+    { "type": "atomiclegacy:battery", "items": ["atomiclegacy:battery_sc"], "components": { "minecraft:custom_data": { "variant": "empty" }, "minecraft:custom_model_data": 0 } },
+    { "item": "atomiclegacy:billet_technetium" }, { "item": "atomiclegacy:billet_technetium" }
+  ],
+  "result": { "id": "atomiclegacy:battery_sc", "components": { "minecraft:custom_data": { "variant": "tc99" }, "minecraft:custom_model_data": 3 } }
+}

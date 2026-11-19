@@ -1,0 +1,16 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer.dynamite",
+  "ingredient": {
+    "item": "atomiclegacy:powder_quartz"
+  },
+  "acid": {
+    "fluid": "nitroglycerin",
+    "amount": 250
+  },
+  "duration": 20,
+  "result": {
+    "id": "atomiclegacy:ball_dynamite",
+    "count": 4
+  }
+}

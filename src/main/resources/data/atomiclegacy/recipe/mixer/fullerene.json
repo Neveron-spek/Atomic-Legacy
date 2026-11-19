@@ -1,0 +1,19 @@
+{
+  "type": "atomiclegacy:mixer",
+  "group": "mixer.fullerene",
+  "output": {
+    "fluid": "fullerene",
+    "amount": 250
+  },
+  "duration": 50,
+  "input1": {
+    "fluid": "radiosolvent",
+    "amount": 500
+  },
+  "solid_input": {
+    "ingredient": {
+      "item": "atomiclegacy:powder_ash_soot"
+    },
+    "count": 1
+  }
+}

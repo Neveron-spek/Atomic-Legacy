@@ -1,0 +1,29 @@
+newmtl Back
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_partitioner_back
+
+newmtl Side
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_partitioner_side
+
+newmtl Inner
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_inner
+
+newmtl InnerSide
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_inner_side
+
+newmtl Belt
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_splitter_belt
+
+newmtl Top
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/crane_top

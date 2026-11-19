@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/steel_beam", "y": 0 },
+    "facing=south": { "model": "atomiclegacy:block/steel_beam", "y": 180 },
+    "facing=west": { "model": "atomiclegacy:block/steel_beam", "y": 270 },
+    "facing=east": { "model": "atomiclegacy:block/steel_beam", "y": 90 }
+  }
+}

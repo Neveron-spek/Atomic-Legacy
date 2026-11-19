@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:nuggets/pu238"
+    },
+    {
+      "tag": "c:nuggets/pu238"
+    },
+    {
+      "tag": "c:nuggets/pu238"
+    },
+    {
+      "tag": "c:nuggets/beryllium"
+    },
+    {
+      "tag": "c:nuggets/beryllium"
+    },
+    {
+      "tag": "c:nuggets/beryllium"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:billet_pu238be"
+  }
+}

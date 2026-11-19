@@ -1,0 +1,6 @@
+{
+  "parent": "atomiclegacy:block/machine_thresher",
+  "visibility": {
+    "Base": true
+  }
+}

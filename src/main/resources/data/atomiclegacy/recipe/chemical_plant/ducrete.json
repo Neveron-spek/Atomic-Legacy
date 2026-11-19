@@ -1,0 +1,39 @@
+{
+  "type": "atomiclegacy:chemical_plant",
+  "group": "chem.ducrete",
+  "duration": 150,
+  "power": 100,
+  "input_items": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:powder_cement"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/ferrouranium"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:sands"
+      },
+      "count": 8
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "water",
+      "amount": 2000
+    }
+  ],
+  "output_items": [
+    {
+      "id": "atomiclegacy:ducrete_smooth",
+      "count": 8
+    }
+  ],
+  "output_fluids": []
+}

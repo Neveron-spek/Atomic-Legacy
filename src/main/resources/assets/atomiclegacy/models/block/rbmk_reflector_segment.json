@@ -1,0 +1,12 @@
+{
+  "parent": "atomiclegacy:block/template/rbmk_segment",
+  "textures": {
+    "end": "atomiclegacy:block/rbmk/rbmk_reflector_top",
+    "side": "atomiclegacy:block/rbmk/rbmk_reflector_side",
+    "inner": "atomiclegacy:block/rbmk/rbmk_element_inner",
+    "cover_top": "atomiclegacy:block/rbmk/rbmk_reflector_cover_top",
+    "cover_side": "atomiclegacy:block/rbmk/rbmk_reflector_cover_side",
+    "glass_top": "atomiclegacy:block/rbmk/rbmk_reflector_glass_top",
+    "glass_side": "atomiclegacy:block/rbmk/rbmk_reflector_glass_side"
+  }
+}

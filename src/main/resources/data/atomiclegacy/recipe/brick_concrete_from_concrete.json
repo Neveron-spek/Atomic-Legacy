@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "CBC",
+    " C "
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:concrete"
+    },
+    "B": {
+      "item": "minecraft:clay_ball"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:brick_concrete",
+    "count": 4
+  }
+}

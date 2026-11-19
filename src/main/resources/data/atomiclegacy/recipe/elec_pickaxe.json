@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "RDM",
+    " PB",
+    " P "
+  ],
+  "key": {
+    "P": {
+      "tag": "c:ingots/plastic"
+    },
+    "D": {
+      "tag": "c:ingots/dura_steel"
+    },
+    "R": {
+      "item": "atomiclegacy:bolt_dura_steel"
+    },
+    "M": {
+      "item": "atomiclegacy:motor"
+    },
+    "B": {
+      "type": "atomiclegacy:battery",
+      "items": [
+        "atomiclegacy:battery_pack"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "battery_lead"
+        },
+        "minecraft:custom_model_data": 1
+      }
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:elec_pickaxe"
+  }
+}

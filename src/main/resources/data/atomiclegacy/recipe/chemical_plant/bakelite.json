@@ -1,0 +1,27 @@
+{
+  "type": "atomiclegacy:chemical_plant",
+  "group": "chem.bakelite",
+  "duration": 100,
+  "power": 100,
+  "input_items": [],
+  "input_fluids": [
+    {
+      "fluid": "aromatics",
+      "amount": 500,
+      "pressure": 1,
+      "pressure_528_only": true
+    },
+    {
+      "fluid": "petroleum",
+      "amount": 500,
+      "pressure": 1,
+      "pressure_528_only": true
+    }
+  ],
+  "output_items": [
+    {
+      "id": "atomiclegacy:ingot_bakelite"
+    }
+  ],
+  "output_fluids": []
+}

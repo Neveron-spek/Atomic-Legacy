@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/ball_fireclay"
+                 },
+    "parent":  "minecraft:item/generated"
+}

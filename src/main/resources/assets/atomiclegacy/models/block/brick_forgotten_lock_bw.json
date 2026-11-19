@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "atomiclegacy:block/brick_forgotten_bw_lock",
+    "top": "atomiclegacy:block/brick_forgotten_bw_top",
+    "bottom": "atomiclegacy:block/brick_forgotten_bw_top"
+  }
+}

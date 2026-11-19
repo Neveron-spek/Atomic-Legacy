@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/warhead_thermo_exo"
+                 },
+    "parent":  "minecraft:item/generated"
+}

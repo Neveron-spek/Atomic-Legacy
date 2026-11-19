@@ -1,0 +1,17 @@
+{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "###",
+                    "###",
+                    "###"
+                ],
+    "key":  {
+                "#":  {
+                          "tag":  "c:nuggets/schrabidium_fuel"
+                      }
+            },
+    "result":  {
+                   "id":  "atomiclegacy:ingot_schrabidium_fuel"
+               }
+}

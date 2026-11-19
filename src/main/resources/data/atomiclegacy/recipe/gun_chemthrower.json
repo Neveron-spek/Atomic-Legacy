@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "MHW",
+    "PSS"
+  ],
+  "key": {
+    "M": {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    },
+    "H": {
+      "tag": "c:pipes/rubber"
+    },
+    "W": {
+      "item": "atomiclegacy:wrench"
+    },
+    "P": {
+      "tag": "c:gun_parts/barrel_heavy/weaponsteel"
+    },
+    "S": {
+      "item": "atomiclegacy:shell_weaponsteel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_chemthrower",
+    "count": 1
+  }
+}

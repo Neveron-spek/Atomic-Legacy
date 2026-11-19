@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "atomiclegacy:red_pylon_medium_steel" },
+    { "tag": "c:plates/polymer" },
+    { "item": "atomiclegacy:coil_copper" }
+  ],
+  "result": {
+    "id": "atomiclegacy:red_pylon_medium_steel_transformer",
+    "count": 1
+  }
+}

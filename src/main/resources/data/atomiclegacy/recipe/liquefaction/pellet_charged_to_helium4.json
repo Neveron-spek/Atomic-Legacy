@@ -1,0 +1,11 @@
+{
+  "type": "atomiclegacy:liquefaction",
+  "group": "liquefactor.helium4",
+  "ingredient": {
+    "item": "atomiclegacy:pellet_charged"
+  },
+  "output": {
+    "fluid": "helium4",
+    "amount": 4000
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "parent":"minecraft:block/block","render_type":"minecraft:cutout",
+  "textures":{"grate":"atomiclegacy:block/grate_side","particle":"atomiclegacy:block/grate_side"},
+  "elements":[{"from":[4,4,1.99],"to":[12,16,2.01],"faces":{"north":{"texture":"#grate"},"south":{"texture":"#grate"}}}]
+}

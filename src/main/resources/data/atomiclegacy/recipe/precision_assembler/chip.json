@@ -1,0 +1,53 @@
+{
+    "type": "atomiclegacy:precision_assembler",
+    "group": "precass.chip",
+    "duration": 100,
+    "power": 200,
+    "ingredients": [
+        {
+            "ingredient": {
+                "item": "atomiclegacy:circuit_silicon"
+            },
+            "count": 1
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:plate_polymer"
+            },
+            "count": 3
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:wire_gold"
+            },
+            "count": 4
+        }
+    ],
+    "outputs": [
+        {
+            "result": {
+                "id": "atomiclegacy:circuit_chip",
+                "count": 1
+            },
+            "weight": 90
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:broken_item",
+                "count": 1,
+                "components": {
+                    "minecraft:custom_data": "{item_id:\"atomiclegacy:circuit_chip\",item_count:1}"
+                }
+            },
+            "weight": 10
+        }
+    ],
+    "neoforge:conditions": [
+        {
+            "type": "atomiclegacy:enable_528_mode"
+        }
+    ],
+    "blueprint_pools": [
+        "528.chip"
+    ]
+}

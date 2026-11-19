@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:nuclear_blast",
+    "atomiclegacy:building",
+    "atomiclegacy:boat",
+    "atomiclegacy:overdose",
+    "atomiclegacy:bang",
+    "atomiclegacy:ams",
+    "atomiclegacy:ams_core",
+    "atomiclegacy:broadcast",
+    "atomiclegacy:enervation"
+  ]
+}

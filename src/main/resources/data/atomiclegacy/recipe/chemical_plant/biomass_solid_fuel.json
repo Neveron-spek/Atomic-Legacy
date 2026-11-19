@@ -1,0 +1,24 @@
+{
+  "type": "atomiclegacy:chemical_plant",
+  "group": "chem.biosolidfuel",
+  "blueprint_pools": [
+    "alt..biosolidfuel"
+  ],
+  "duration": 40,
+  "power": 100,
+  "input_items": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:biomass_compressed"
+      },
+      "count": 4
+    }
+  ],
+  "input_fluids": [],
+  "output_items": [
+    {
+      "id": "atomiclegacy:solid_fuel"
+    }
+  ],
+  "output_fluids": []
+}

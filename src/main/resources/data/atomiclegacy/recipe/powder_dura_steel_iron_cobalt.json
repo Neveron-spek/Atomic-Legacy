@@ -1,0 +1,28 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:less_bullshit_mode",
+      "feature": "simple_crafting"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:dusts/iron"
+    },
+    {
+      "tag": "c:dusts/coal"
+    },
+    {
+      "tag": "c:dusts/cobalt"
+    },
+    {
+      "tag": "c:dusts/cobalt"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:powder_dura_steel",
+    "count": 4
+  }
+}

@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:coking","group":"coking.heavyoil","input":{"fluid":"heavyoil","amount":11000},"output":{"id":"atomiclegacy:coke_petroleum"},"byproduct":{"fluid":"oil_coker","amount":1100}}

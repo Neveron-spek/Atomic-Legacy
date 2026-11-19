@@ -1,0 +1,2226 @@
+package com.atomiclegacy.registry;
+
+import com.atomiclegacy.AtomicLegacy;
+import com.atomiclegacy.capability.NativeEnergyStorage;
+import com.atomiclegacy.blocks.PileGraphiteBlock;
+import com.atomiclegacy.tileentity.AssemblyFactoryBlockEntity;
+import com.atomiclegacy.tileentity.AssemblyMachineBlockEntity;
+import com.atomiclegacy.tileentity.AirCompressorBlockEntity;
+import com.atomiclegacy.tileentity.AmmoPressBlockEntity;
+import com.atomiclegacy.tileentity.ArcWelderBlockEntity;
+import com.atomiclegacy.tileentity.ArcFurnaceBlockEntity;
+import com.atomiclegacy.tileentity.AshpitBlockEntity;
+import com.atomiclegacy.tileentity.BatteryReddBlockEntity;
+import com.atomiclegacy.tileentity.BatterySocketBlockEntity;
+import com.atomiclegacy.tileentity.BrickFurnaceBlockEntity;
+import com.atomiclegacy.tileentity.BigAssTankBlockEntity;
+import com.atomiclegacy.tileentity.CatalyticCrackerBlockEntity;
+import com.atomiclegacy.tileentity.CatalyticReformerBlockEntity;
+import com.atomiclegacy.tileentity.HydrotreaterBlockEntity;
+import com.atomiclegacy.tileentity.ChimneyBlockEntity;
+import com.atomiclegacy.tileentity.CentrifugeBlockEntity;
+import com.atomiclegacy.tileentity.ChemicalFactoryBlockEntity;
+import com.atomiclegacy.tileentity.ChemicalPlantBlockEntity;
+import com.atomiclegacy.tileentity.CombustionEngineBlockEntity;
+import com.atomiclegacy.tileentity.CompressorBlockEntity;
+import com.atomiclegacy.tileentity.CustomMachineBlockEntity;
+import com.atomiclegacy.tileentity.ConveyorPressBlockEntity;
+import com.atomiclegacy.tileentity.CraneMachineBlockEntity;
+import com.atomiclegacy.tileentity.CokerBlockEntity;
+import com.atomiclegacy.tileentity.CoolingTowerBlockEntity;
+import com.atomiclegacy.tileentity.CrystallizerBlockEntity;
+import com.atomiclegacy.tileentity.CyclotronBlockEntity;
+import com.atomiclegacy.tileentity.CrucibleBlockEntity;
+import com.atomiclegacy.tileentity.DfcCoreBlockEntity;
+import com.atomiclegacy.tileentity.DfcEmitterBlockEntity;
+import com.atomiclegacy.tileentity.DfcInjectorBlockEntity;
+import com.atomiclegacy.tileentity.DfcReceiverBlockEntity;
+import com.atomiclegacy.tileentity.DfcStabilizerBlockEntity;
+import com.atomiclegacy.tileentity.DeuteriumExtractorBlockEntity;
+import com.atomiclegacy.tileentity.DieselGeneratorBlockEntity;
+import com.atomiclegacy.tileentity.DrainBlockEntity;
+import com.atomiclegacy.tileentity.DroneCrateBlockEntity;
+import com.atomiclegacy.tileentity.DroneDockBlockEntity;
+import com.atomiclegacy.tileentity.DroneProviderBlockEntity;
+import com.atomiclegacy.tileentity.DroneRequesterBlockEntity;
+import com.atomiclegacy.tileentity.ElectricFurnaceBlockEntity;
+import com.atomiclegacy.tileentity.ElectrolyzerBlockEntity;
+import com.atomiclegacy.tileentity.ExcavatorBlockEntity;
+import com.atomiclegacy.tileentity.ExposureChamberBlockEntity;
+import com.atomiclegacy.tileentity.FelBlockEntity;
+import com.atomiclegacy.tileentity.FluidTankBlockEntity;
+import com.atomiclegacy.tileentity.FluidBarrelBlockEntity;
+import com.atomiclegacy.tileentity.FoundryCastingBlockEntity;
+import com.atomiclegacy.tileentity.FractionTowerBlockEntity;
+import com.atomiclegacy.tileentity.FurnaceCombinationBlockEntity;
+import com.atomiclegacy.tileentity.FrackingTowerBlockEntity;
+import com.atomiclegacy.tileentity.FissureBlockEntity;
+import com.atomiclegacy.tileentity.FusionMachineBlockEntity;
+import com.atomiclegacy.tileentity.GasCentrifugeBlockEntity;
+import com.atomiclegacy.tileentity.GasFlareBlockEntity;
+import com.atomiclegacy.tileentity.GasTurbineBlockEntity;
+import com.atomiclegacy.tileentity.GroundwaterPumpBlockEntity;
+import com.atomiclegacy.tileentity.GeothermalHeatExchangerBlockEntity;
+import com.atomiclegacy.tileentity.HeatBoilerBlockEntity;
+import com.atomiclegacy.tileentity.HeaterBlockEntity;
+import com.atomiclegacy.tileentity.IndustrialBoilerBlockEntity;
+import com.atomiclegacy.tileentity.IndustrialTurbineBlockEntity;
+import com.atomiclegacy.tileentity.IcfPressBlockEntity;
+import com.atomiclegacy.tileentity.IcfCoreBlockEntity;
+import com.atomiclegacy.tileentity.IronFurnaceBlockEntity;
+import com.atomiclegacy.tileentity.LargeTurbineBlockEntity;
+import com.atomiclegacy.tileentity.LargeFluidTankBlockEntity;
+import com.atomiclegacy.tileentity.LeviathanTurbineBlockEntity;
+import com.atomiclegacy.tileentity.LegacyTurretBlockEntity;
+import com.atomiclegacy.tileentity.LegacyMachineBlockEntity;
+import com.atomiclegacy.tileentity.LiquefactorBlockEntity;
+import com.atomiclegacy.tileentity.MachineBlastFurnaceBlockEntity;
+import com.atomiclegacy.tileentity.MachineDummyBlockEntity;
+import com.atomiclegacy.tileentity.MachineKeyForgeBlockEntity;
+import com.atomiclegacy.tileentity.MixerBlockEntity;
+import com.atomiclegacy.tileentity.OilDerrickBlockEntity;
+import com.atomiclegacy.tileentity.OreSlopperBlockEntity;
+import com.atomiclegacy.tileentity.RockMillBlockEntity;
+import com.atomiclegacy.tileentity.SupercomputerBlockEntity;
+import com.atomiclegacy.tileentity.ParticleAcceleratorBlockEntity;
+import com.atomiclegacy.tileentity.PoweredSteamCondenserBlockEntity;
+import com.atomiclegacy.tileentity.PressBlockEntity;
+import com.atomiclegacy.tileentity.PurexBlockEntity;
+import com.atomiclegacy.tileentity.PwrBlockEntity;
+import com.atomiclegacy.tileentity.PwrControllerBlockEntity;
+import com.atomiclegacy.tileentity.PneumaticStorageBlockEntity;
+import com.atomiclegacy.tileentity.RbmkComponentBlockEntity;
+import com.atomiclegacy.tileentity.RefineryBlockEntity;
+import com.atomiclegacy.tileentity.RebarBlockEntity;
+import com.atomiclegacy.tileentity.RefuelerBlockEntity;
+import com.atomiclegacy.tileentity.RotaryFurnaceBlockEntity;
+import com.atomiclegacy.tileentity.VacuumDistillBlockEntity;
+import com.atomiclegacy.tileentity.WasteDrumBlockEntity;
+import com.atomiclegacy.tileentity.StorageDrumBlockEntity;
+import com.atomiclegacy.tileentity.WatzBlockEntity;
+import com.atomiclegacy.tileentity.ShredderBlockEntity;
+import com.atomiclegacy.tileentity.SilexBlockEntity;
+import com.atomiclegacy.tileentity.SolidifierBlockEntity;
+import com.atomiclegacy.tileentity.SolderingStationBlockEntity;
+import com.atomiclegacy.tileentity.SoyuzCapsuleBlockEntity;
+import com.atomiclegacy.tileentity.LambdaLaunchpadBlockEntity;
+import com.atomiclegacy.tileentity.SoyuzLaunchpadBlockEntity;
+import com.atomiclegacy.tileentity.SolarBoilerBlockEntity;
+import com.atomiclegacy.tileentity.SteamCondenserBlockEntity;
+import com.atomiclegacy.tileentity.SteamEngineBlockEntity;
+import com.atomiclegacy.tileentity.SteelFurnaceBlockEntity;
+import com.atomiclegacy.tileentity.StorageCrateBlockEntity;
+import com.atomiclegacy.tileentity.StrandCasterBlockEntity;
+import com.atomiclegacy.tileentity.TurretChekhovBlockEntity;
+import com.atomiclegacy.tileentity.TurretJeremyBlockEntity;
+import com.atomiclegacy.tileentity.WoodBurnerBlockEntity;
+import com.atomiclegacy.tileentity.ZirnoxReactorBlockEntity;
+import com.atomiclegacy.items.HbmFluidContainerItem;
+import com.atomiclegacy.items.FueledArmorFSBItem;
+import com.atomiclegacy.items.InfiniteFluidContainerItem;
+import com.atomiclegacy.items.FixedFluidBarrelBlockItem;
+import com.atomiclegacy.items.TankSteelItem;
+import com.atomiclegacy.items.LegacyPipetteItem;
+import com.atomiclegacy.items.BlowtorchItem;
+import com.atomiclegacy.items.ZirnoxTritiumRodItem;
+import com.atomiclegacy.items.LegacyMercuryContainerHandler;
+import com.atomiclegacy.items.ExperienceBagItem;
+import com.atomiclegacy.power.PowerEndpoint;
+import com.atomiclegacy.power.PowerGraphNode;
+import com.atomiclegacy.power.PowerNetworkManager;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Direction;
+import net.minecraft.world.WorldlyContainer;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.Block;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+import net.neoforged.neoforge.energy.IEnergyStorage;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.wrapper.SidedInvWrapper;
+import net.neoforged.neoforge.registries.DeferredItem;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@EventBusSubscriber(modid = AtomicLegacy.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+public final class HbmCapabilities {
+    private HbmCapabilities() {
+    }
+
+    @SubscribeEvent
+    public static void registerCapabilities(RegisterCapabilitiesEvent event) {
+        event.registerBlock(
+                Capabilities.ItemHandler.BLOCK,
+                HbmCapabilities::pileGraphiteItemHandler,
+                HbmBlocks.BLOCK_GRAPHITE_DRILLED.get(),
+                HbmBlocks.BLOCK_GRAPHITE_FUEL.get(),
+                HbmBlocks.BLOCK_GRAPHITE_PLUTONIUM.get(),
+                HbmBlocks.BLOCK_GRAPHITE_ROD.get(),
+                HbmBlocks.BLOCK_GRAPHITE_SOURCE.get(),
+                HbmBlocks.BLOCK_GRAPHITE_LITHIUM.get(),
+                HbmBlocks.BLOCK_GRAPHITE_TRITIUM.get(),
+                HbmBlocks.BLOCK_GRAPHITE_DETECTOR.get()
+        );
+        event.registerBlock(
+                Capabilities.ItemHandler.BLOCK,
+                HbmCapabilities::customMachinePortItemHandler,
+                HbmBlocks.CM_PORT.get()
+        );
+        event.registerBlock(
+                Capabilities.FluidHandler.BLOCK,
+                HbmCapabilities::customMachinePortFluidHandler,
+                HbmBlocks.CM_PORT.get()
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.PILE_MK2_LOADER.get(),
+                (loader, side) -> new SidedInvWrapper(loader, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.PILE_MK2_VENT.get(),
+                (vent, side) -> vent.fluidHandler(side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.HEATER.get(),
+                HbmCapabilities::fuelInputHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.ASHPIT.get(),
+                HbmCapabilities::ashpitItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.MACHINE_DUMMY.get(),
+                HbmCapabilities::dummyFuelInputHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.CONVEYOR_PRESS.get(),
+                (press, side) -> new SidedInvWrapper(press, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.CRANE_MACHINE.get(),
+                (crane, side) -> new SidedInvWrapper(crane, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.DRONE_CRATE.get(),
+                (crate, side) -> new SidedInvWrapper(crate, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.DRONE_DOCK.get(),
+                (dock, side) -> new SidedInvWrapper(dock, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.DRONE_PROVIDER.get(),
+                (provider, side) -> new SidedInvWrapper(provider, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.DRONE_REQUESTER.get(),
+                (requester, side) -> new SidedInvWrapper(requester, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.SHREDDER.get(),
+                HbmCapabilities::shredderItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.ARC_FURNACE.get(),
+                (furnace, side) -> new SidedInvWrapper(furnace, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.STORAGE_DRUM.get(),
+                (drum, side) -> new SidedInvWrapper(drum, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.MACHINE_KEYFORGE.get(),
+                HbmCapabilities::machineKeyForgeItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.ASSEMBLY_MACHINE.get(),
+                HbmCapabilities::assemblyMachineItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.ASSEMBLY_FACTORY.get(),
+                HbmCapabilities::assemblyFactoryItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.CHEMICAL_PLANT.get(),
+                HbmCapabilities::chemicalPlantItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.CHEMICAL_FACTORY.get(),
+                HbmCapabilities::chemicalFactoryItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.SOLDERING_STATION.get(),
+                HbmCapabilities::solderingStationItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.ARC_WELDER.get(),
+                HbmCapabilities::arcWelderItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.COMPRESSOR.get(),
+                (compressor, side) -> new SidedInvWrapper(compressor, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.CUSTOM_MACHINE.get(),
+                (machine, side) -> new SidedInvWrapper(machine, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.MIXER.get(),
+                (mixer, side) -> new SidedInvWrapper(mixer, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.ELECTRIC_FURNACE.get(),
+                HbmCapabilities::electricFurnaceItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.MACHINE_BLAST_FURNACE.get(),
+                HbmCapabilities::machineBlastFurnaceItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.IRON_FURNACE.get(),
+                HbmCapabilities::ironFurnaceItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.BRICK_FURNACE.get(),
+                (furnace, side) -> new SidedInvWrapper(furnace, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.STEEL_FURNACE.get(),
+                HbmCapabilities::steelFurnaceItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.WOOD_BURNER.get(),
+                HbmCapabilities::woodBurnerItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.SOYUZ_LAUNCHPAD.get(),
+                (launchpad, side) -> new SidedInvWrapper(launchpad, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.LAUNCHER.get(),
+                HbmCapabilities::launcherItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.SOYUZ_CAPSULE.get(),
+                HbmCapabilities::soyuzCapsuleItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.DIESEL_GENERATOR.get(),
+                HbmCapabilities::dieselGeneratorItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.COMBUSTION_ENGINE.get(),
+                HbmCapabilities::combustionEngineItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.GAS_FLARE.get(),
+                HbmCapabilities::gasFlareItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.PRESS.get(),
+                HbmCapabilities::pressItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.AMMO_PRESS.get(),
+                HbmCapabilities::ammoPressItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.TURRET_JEREMY.get(),
+                HbmCapabilities::turretJeremyItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.TURRET_CHEKHOV.get(),
+                HbmCapabilities::turretChekhovItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.LEGACY_TURRET.get(),
+                HbmCapabilities::legacyTurretItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.LEGACY_MACHINE.get(),
+                (machine, side) -> new SidedInvWrapper(machine, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.LARGE_TURBINE.get(),
+                HbmCapabilities::largeTurbineItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.GAS_TURBINE.get(),
+                HbmCapabilities::gasTurbineItemHandler
+        );
+        // [parity V1: boilers] machine_boiler_off has no tile entity
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.OIL_DERRICK.get(),
+                HbmCapabilities::oilDerrickItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.CATALYTIC_REFORMER.get(),
+                HbmCapabilities::catalyticReformerItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.HYDROTREATER.get(),
+                HbmCapabilities::hydrotreaterItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.FRACKING_TOWER.get(),
+                HbmCapabilities::frackingTowerItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.REFINERY.get(),
+                HbmCapabilities::refineryItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.VACUUM_DISTILL.get(),
+                HbmCapabilities::vacuumDistillItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.COKER.get(),
+                HbmCapabilities::cokerItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.FURNACE_COMBINATION.get(),
+                HbmCapabilities::furnaceCombinationItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.ROTARY_FURNACE.get(),
+                HbmCapabilities::rotaryFurnaceItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.SOLIDIFIER.get(),
+                HbmCapabilities::solidifierItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.LIQUEFACTOR.get(),
+                HbmCapabilities::liquefactorItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.CRUCIBLE.get(),
+                HbmCapabilities::crucibleItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.FOUNDRY_CASTING.get(),
+                HbmCapabilities::foundryCastingItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.STRAND_CASTER.get(),
+                HbmCapabilities::strandCasterItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.FLUID_TANK.get(),
+                HbmCapabilities::fluidTankItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.FLUID_BARREL.get(),
+                HbmCapabilities::fluidTankItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.BIG_ASS_TANK.get(),
+                HbmCapabilities::fluidTankItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.LARGE_FLUID_TANK.get(),
+                HbmCapabilities::fluidTankItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.STORAGE_CRATE.get(),
+                HbmCapabilities::storageCrateItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.BATTERY_REDD.get(),
+                HbmCapabilities::batteryReddItemHandler
+        );
+        // [parity d2] ISidedInventory of the deprecated furnaces / legacy batteries; the extension proxies the furnace below
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.LEGACY_DEPRECATED_FURNACE.get(),
+                (furnace, side) -> new SidedInvWrapper(furnace, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.LEGACY_BATTERY.get(),
+                (battery, side) -> new SidedInvWrapper(battery, side)
+        );
+        event.registerBlock(
+                Capabilities.ItemHandler.BLOCK,
+                (level, pos, state, blockEntity, side) -> level.getBlockEntity(pos.below()) instanceof com.atomiclegacy.tileentity.LegacyDeprecatedFurnaceBlockEntity furnace
+                        && furnace.kind() == com.atomiclegacy.blocks.LegacyDeprecatedFurnaceBlock.Kind.DIFURNACE
+                        ? new SidedInvWrapper(furnace, side) : null,
+                HbmBlocks.MACHINE_DIFURNACE_EXTENSION.get()
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.BATTERY_SOCKET.get(),
+                HbmCapabilities::batterySocketItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.CENTRIFUGE.get(),
+                HbmCapabilities::centrifugeItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.GAS_CENTRIFUGE.get(),
+                HbmCapabilities::gasCentrifugeItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.CRYSTALLIZER.get(),
+                HbmCapabilities::crystallizerItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.CYCLOTRON.get(),
+                HbmCapabilities::cyclotronItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.EXPOSURE_CHAMBER.get(),
+                HbmCapabilities::exposureChamberItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.SILEX.get(),
+                (silex, side) -> new SidedInvWrapper(silex, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.FEL.get(),
+                (fel, side) -> new SidedInvWrapper(fel, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.PARTICLE_ACCELERATOR.get(),
+                HbmCapabilities::particleAcceleratorItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.ELECTROLYZER.get(),
+                HbmCapabilities::electrolyzerItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.ORE_SLOPPER.get(),
+                HbmCapabilities::oreSlopperItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.ROCK_MILL.get(),
+                (mill, side) -> new SidedInvWrapper(mill, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.TAPE_DRIVE.get(),
+                (drive, side) -> new SidedInvWrapper(drive, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.SUPERCOMPUTER.get(),
+                (computer, side) -> new SidedInvWrapper(computer, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.WASTE_DRUM.get(),
+                HbmCapabilities::wasteDrumItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.PUREX.get(),
+                HbmCapabilities::purexItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.ICF_PRESS.get(),
+                (press, side) -> new SidedInvWrapper(press, side)
+        );
+        event.registerBlockEntity( // [parity V4: ICF proxies] TileEntityICF is an ISidedInventory itself
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.ICF_CORE.get(),
+                (icf, side) -> new SidedInvWrapper(icf, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.WATZ.get(),
+                (watz, side) -> new SidedInvWrapper(watz, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.ZIRNOX_REACTOR.get(),
+                HbmCapabilities::zirnoxItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.PWR_CONTROLLER.get(),
+                (controller, side) -> new SidedInvWrapper(controller, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.PWR_PART.get(),
+                HbmCapabilities::pwrPartItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.RBMK_COMPONENT.get(),
+                HbmCapabilities::rbmkItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.DFC_CORE.get(),
+                (core, side) -> new SidedInvWrapper(core, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.DFC_INJECTOR.get(),
+                (injector, side) -> new SidedInvWrapper(injector, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.DFC_STABILIZER.get(),
+                (stabilizer, side) -> new SidedInvWrapper(stabilizer, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.PNEUMATIC_STORAGE.get(),
+                HbmCapabilities::pneumaticStorageItemHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.PNEUMATIC_STORAGE.get(),
+                PneumaticStorageBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.ASSEMBLY_MACHINE.get(),
+                HbmCapabilities::assemblyMachineFluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.ASSEMBLY_FACTORY.get(),
+                HbmCapabilities::assemblyFactoryFluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.ARC_WELDER.get(),
+                HbmCapabilities::arcWelderFluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.STORAGE_DRUM.get(),
+                StorageDrumBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.COMPRESSOR.get(),
+                (compressor, side) -> compressor.fluidHandler(compressor.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.CUSTOM_MACHINE.get(),
+                CustomMachineBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.MIXER.get(),
+                (mixer, side) -> mixer.fluidHandler(mixer.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.FLUID_PIPE.get(),
+                (pipe, side) -> pipe.fluidHandler(side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.REFUELER.get(),
+                RefuelerBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.PIPE_ANCHOR.get(),
+                (anchor, side) -> anchor.fluidHandler(side)
+        );
+        // [parity R2: pneumatic tube mechanics] compressor tubes receive AIR on their free sides
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.PNEUMATIC_TUBE.get(),
+                (tube, side) -> tube.fluidHandler(side)
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                HbmBlockEntities.PISTON_INSERTER.get(),
+                (piston, side) -> new SidedInvWrapper(piston, side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.DRONE_CRATE.get(),
+                DroneCrateBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.LEGACY_TURRET.get(),
+                (turret, side) -> turret.fluidHandler(turret.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.LEGACY_MACHINE.get(),
+                (machine, side) -> machine.fluidHandler(machine.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.DRAIN.get(),
+                DrainBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.LAMBDA_LAUNCHPAD.get(),
+                (launcher, side) -> launcher.fluidHandler(launcher.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.SOYUZ_LAUNCHPAD.get(),
+                (launcher, side) -> launcher.fluidHandler(launcher.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.LAUNCHER.get(),
+                (launcher, side) -> launcher.fluidHandler(launcher.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.CYCLOTRON.get(),
+                (cyclotron, side) -> cyclotron.fluidHandler(cyclotron.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.REBAR.get(),
+                (rebar, side) -> rebar.fluidHandler()
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.DEUTERIUM_EXTRACTOR.get(),
+                (extractor, side) -> extractor.fluidHandler(extractor.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.DEUTERIUM_TOWER.get(),
+                (tower, side) -> tower.fluidHandler(tower.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.PARTICLE_ACCELERATOR.get(),
+                (accelerator, side) -> accelerator.fluidHandler(accelerator.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.CHIMNEY.get(),
+                ChimneyBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.MACHINE_DUMMY.get(),
+                HbmCapabilities::dummyFluidHandler
+        );
+        // [parity T1: fluid net] port nodes of flow_control_pump (via its dummies) and fluid_pump
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.FLOW_CONTROL_PUMP.get(),
+                (pump, side) -> pump.fluidHandler(pump.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.FLUID_PUMP.get(),
+                (pump, side) -> pump.fluidHandler(side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.GEOTHERMAL_HEAT_EXCHANGER.get(),
+                (exchanger, side) -> exchanger.fluidHandler(exchanger.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.FISSURE.get(),
+                FissureBlockEntity::fluidHandler
+        );
+        // Register one guarded provider for every HBM block. The provider only
+        // returns a storage for native PowerEndpoint instances (or their
+        // multiblock dummies), so existing item/fluid capabilities remain unaffected.
+        event.registerBlock(
+                Capabilities.EnergyStorage.BLOCK,
+                HbmCapabilities::nativeEnergyStorage,
+                HbmBlocks.BLOCKS.getEntries().stream()
+                        .map(holder -> holder.get())
+                        .toArray(Block[]::new)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.AIR_COMPRESSOR.get(),
+                HbmCapabilities::airCompressorFluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.HEATER.get(),
+                HbmCapabilities::heaterFluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.WOOD_BURNER.get(),
+                WoodBurnerBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.DIESEL_GENERATOR.get(),
+                DieselGeneratorBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.COMBUSTION_ENGINE.get(),
+                CombustionEngineBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.GAS_FLARE.get(),
+                GasFlareBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.CHEMICAL_PLANT.get(),
+                HbmCapabilities::chemicalPlantFluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.CHEMICAL_FACTORY.get(),
+                HbmCapabilities::chemicalFactoryFluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.MACHINE_BLAST_FURNACE.get(),
+                HbmCapabilities::machineBlastFurnaceFluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.SOLDERING_STATION.get(),
+                SolderingStationBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.FLUID_TANK.get(),
+                FluidTankBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.FLUID_BARREL.get(),
+                FluidBarrelBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.BIG_ASS_TANK.get(),
+                BigAssTankBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.LARGE_FLUID_TANK.get(),
+                LargeFluidTankBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.HEAT_BOILER.get(),
+                (boiler, side) -> boiler.fluidHandler(boiler.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.INDUSTRIAL_BOILER.get(),
+                (boiler, side) -> boiler.fluidHandler(boiler.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.SOLAR_BOILER.get(),
+                (boiler, side) -> boiler.fluidHandler(boiler.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.STEAM_ENGINE.get(),
+                SteamEngineBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.INDUSTRIAL_TURBINE.get(),
+                IndustrialTurbineBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.LARGE_TURBINE.get(),
+                LargeTurbineBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.LEVIATHAN_TURBINE.get(),
+                LeviathanTurbineBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.GAS_TURBINE.get(),
+                GasTurbineBlockEntity::fluidHandler
+        );
+        // [parity V1: boilers] machine_boiler_off has no tile entity
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.STEAM_CONDENSER.get(),
+                SteamCondenserBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.POWERED_STEAM_CONDENSER.get(),
+                (condenser, side) -> condenser.fluidHandler(condenser.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.COOLING_TOWER.get(),
+                (tower, side) -> tower.fluidHandler(tower.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.GROUNDWATER_PUMP.get(),
+                (pump, side) -> pump.fluidHandler(pump.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.OIL_DERRICK.get(),
+                (derrick, side) -> derrick.fluidHandler(derrick.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.FRACKING_TOWER.get(),
+                (tower, side) -> tower.fluidHandler(tower.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.REFINERY.get(),
+                (refinery, side) -> refinery.fluidHandler(refinery.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.VACUUM_DISTILL.get(),
+                (distill, side) -> distill.fluidHandler(distill.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.COKER.get(),
+                (coker, side) -> coker.fluidHandler(coker.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.FURNACE_COMBINATION.get(),
+                (furnace, side) -> furnace.fluidHandler(furnace.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.ROTARY_FURNACE.get(),
+                (furnace, side) -> furnace.fluidHandler(furnace.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.SOLIDIFIER.get(),
+                (solidifier, side) -> solidifier.fluidHandler(solidifier.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.STRAND_CASTER.get(),
+                (caster, side) -> caster.fluidHandler(caster.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.ELECTROLYZER.get(),
+                (electrolyzer, side) -> electrolyzer.fluidHandler(electrolyzer.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.LIQUEFACTOR.get(),
+                (liquefactor, side) -> liquefactor.fluidHandler(liquefactor.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.CATALYTIC_CRACKER.get(),
+                (cracker, side) -> cracker.fluidHandler(cracker.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.CATALYTIC_REFORMER.get(),
+                (reformer, side) -> reformer.fluidHandler(reformer.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.HYDROTREATER.get(),
+                (hydrotreater, side) -> hydrotreater.fluidHandler(hydrotreater.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.FRACTION_TOWER.get(),
+                (tower, side) -> tower.fluidHandler(tower.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.GAS_CENTRIFUGE.get(),
+                (centrifuge, side) -> centrifuge.fluidHandler(centrifuge.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.EXCAVATOR.get(),
+                (excavator, side) -> excavator.fluidHandler(excavator.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.ORE_SLOPPER.get(),
+                (slopper, side) -> slopper.fluidHandler(slopper.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.ROCK_MILL.get(),
+                (mill, side) -> mill.fluidHandler(mill.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.SUPERCOMPUTER.get(),
+                (computer, side) -> computer.fluidHandler(computer.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.CRYSTALLIZER.get(),
+                HbmCapabilities::crystallizerFluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.SILEX.get(),
+                SilexBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.WATZ.get(),
+                (watz, side) -> watz.fluidHandler(watz.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.ZIRNOX_REACTOR.get(),
+                (reactor, side) -> reactor.fluidHandler(reactor.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.PUREX.get(),
+                PurexBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.ICF_PRESS.get(),
+                IcfPressBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.ICF_CORE.get(),
+                (core, side) -> core.fluidHandler(core.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.PWR_CONTROLLER.get(),
+                (controller, side) -> controller.fluidHandler(controller.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.PWR_PART.get(),
+                HbmCapabilities::pwrPartFluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.RBMK_COMPONENT.get(),
+                RbmkComponentBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.FUSION_MACHINE.get(),
+                (machine, side) -> machine.fluidHandler(machine.getBlockPos(), side)
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.DFC_CORE.get(),
+                DfcCoreBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.DFC_EMITTER.get(),
+                DfcEmitterBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.DFC_RECEIVER.get(),
+                DfcReceiverBlockEntity::fluidHandler
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                HbmBlockEntities.DFC_INJECTOR.get(),
+                DfcInjectorBlockEntity::fluidHandler
+        );
+        event.registerItem(
+                Capabilities.FluidHandler.ITEM,
+                (stack, context) -> {
+                    if (stack.getItem() instanceof HbmFluidContainerItem container) {
+                        return container.createFluidHandler(stack);
+                    }
+                    if (stack.getItem() instanceof FueledArmorFSBItem armor) {
+                        return armor.createFluidHandler(stack);
+                    }
+                    if (stack.getItem() instanceof InfiniteFluidContainerItem infinite) {
+                        return infinite.createFluidHandler(stack);
+                    }
+                    if (stack.getItem() instanceof TankSteelItem tank) {
+                        return tank.createFluidHandler(stack);
+                    }
+                    if (stack.getItem() instanceof FixedFluidBarrelBlockItem barrel) {
+                        return barrel.createFluidHandler(stack);
+                    }
+                    if (stack.getItem() instanceof com.atomiclegacy.items.LegacyChainsawItem chainsaw) {
+                        return chainsaw.createFluidHandler(stack);
+                    }
+                    if (stack.getItem() instanceof BlowtorchItem blowtorch) {
+                        return blowtorch.createFluidHandler(stack);
+                    }
+                    if (stack.getItem() instanceof LegacyPipetteItem pipette) {
+                        return pipette.createFluidHandler(stack);
+                    }
+                    if (stack.getItem() instanceof ZirnoxTritiumRodItem rod) {
+                        return rod.createFluidHandler(stack);
+                    }
+                    if (stack.getItem() instanceof ExperienceBagItem experienceBag) {
+                        return experienceBag.createFluidHandler(stack);
+                    }
+                    if (stack.getItem() instanceof com.atomiclegacy.items.weapon.sedna.impl.ItemGunDrill drill) { // [weapons batch F3: fluid]
+                        return drill.createFluidHandler(stack);
+                    }
+                    return null;
+                },
+                fluidCapabilityItems()
+        );
+        net.minecraft.world.level.ItemLike[] legacyFluidCells = HbmItems.LEGACY_FLUID_CELL_ITEMS.stream()
+                .map(DeferredItem::get)
+                .toArray(net.minecraft.world.level.ItemLike[]::new);
+        if (legacyFluidCells.length > 0) {
+            event.registerItem(
+                    Capabilities.FluidHandler.ITEM,
+                    (stack, context) -> stack.getItem() instanceof HbmFluidContainerItem container
+                            ? container.createFluidHandler(stack) : null,
+                    legacyFluidCells
+            );
+        }
+        net.minecraft.world.level.ItemLike[] legacyPipettes = LegacyHbmContent.LEGACY_ITEMS.stream()
+                .map(DeferredItem::get)
+                .toArray(net.minecraft.world.level.ItemLike[]::new);
+        if (legacyPipettes.length > 0) {
+            event.registerItem(
+                    Capabilities.FluidHandler.ITEM,
+                    (stack, context) -> stack.getItem() instanceof LegacyPipetteItem pipette
+                            ? pipette.createFluidHandler(stack) : null,
+                    legacyPipettes
+            );
+        }
+        event.registerItem(
+                Capabilities.FluidHandler.ITEM,
+                (stack, context) -> new LegacyMercuryContainerHandler(stack),
+                BuiltInRegistries.ITEM.get(AtomicLegacy.id("bottle_mercury")),
+                BuiltInRegistries.ITEM.get(AtomicLegacy.id("nugget_mercury"))
+        );
+    }
+
+    private static net.minecraft.world.level.ItemLike[] fluidCapabilityItems() {
+        List<net.minecraft.world.level.ItemLike> items = new ArrayList<>();
+        if (HbmItems.INF_WATER.isBound()) {
+            items.add(HbmItems.INF_WATER.get());
+        }
+        if (HbmItems.INF_WATER_MK2.isBound()) {
+            items.add(HbmItems.INF_WATER_MK2.get());
+        }
+        items.add(HbmItems.FLUID_BARREL_INFINITE.get());
+        items.add(HbmItems.CHLORINE_PINWHEEL.get());
+        items.add(HbmItems.CANISTER_EMPTY.get());
+        items.add(HbmItems.CANISTER_FULL.get());
+        items.add(HbmItems.GAS_EMPTY.get());
+        items.add(HbmItems.GAS_FULL.get());
+        items.add(HbmItems.FLUID_TANK_EMPTY.get());
+        items.add(HbmItems.FLUID_TANK_FULL.get());
+        items.add(HbmItems.FLUID_TANK_LEAD_EMPTY.get());
+        items.add(HbmItems.FLUID_TANK_LEAD_FULL.get());
+        items.add(HbmItems.FLUID_BARREL_EMPTY.get());
+        items.add(HbmItems.FLUID_BARREL_FULL.get());
+        items.add(HbmItems.FLUID_PACK_EMPTY.get());
+        items.add(HbmItems.FLUID_PACK_FULL.get());
+        items.add(HbmItems.DISPERSER_CANISTER_EMPTY.get());
+        items.add(HbmItems.DISPERSER_CANISTER.get());
+        items.add(HbmItems.GLYPHID_GLAND_EMPTY.get());
+        items.add(HbmItems.GLYPHID_GLAND.get());
+        items.add(HbmItems.CELL_EMPTY.get());
+        items.add(HbmItems.CELL_TRITIUM.get());
+        items.add(HbmItems.ROD_ZIRNOX_TRITIUM.get());
+        items.add(HbmItems.IV_XP_EMPTY.get());
+        items.add(HbmItems.IV_XP.get());
+        items.add(HbmItems.TANK_STEEL.get());
+        items.add(HbmItems.RED_BARREL_ITEM.get());
+        items.add(HbmItems.PINK_BARREL_ITEM.get());
+        items.add(HbmItems.LOX_BARREL_ITEM.get());
+        items.add(HbmItems.CHAINSAW.get());
+        items.add(HbmItems.BLOWTORCH.get());
+        items.add(HbmItems.ACETYLENE_TORCH.get());
+        items.add(HbmItems.GUN_DRILL.get()); // [weapons batch F3: fluid] IFillableItem gun_drill
+        return items.toArray(net.minecraft.world.level.ItemLike[]::new);
+    }
+
+    @Nullable
+    private static IEnergyStorage nativeEnergyStorage(Level level, BlockPos pos, net.minecraft.world.level.block.state.BlockState state,
+                                                       @Nullable BlockEntity blockEntity, @Nullable Direction side) {
+        if (!com.atomiclegacy.config.HbmConfig.AUTO_CABLE_CONVERSION.get()) { // [parity N1: FE bridge off] 1.7.10 machines expose no RF; only the converters do
+            return null;
+        }
+        PowerEndpoint endpoint = PowerNetworkManager.endpointAt(level, pos);
+        if (endpoint == null) {
+            return null;
+        }
+        if (endpoint instanceof LambdaLaunchpadBlockEntity launchpad) {
+            if (side == null) {
+                if (!pos.equals(launchpad.getBlockPos())) {
+                    return null;
+                }
+            } else if (!endpoint.canConnectPower(level, pos.relative(side), side)) {
+                return null;
+            }
+        }
+        if (endpoint instanceof SoyuzLaunchpadBlockEntity launchpad) {
+            if (side == null) {
+                if (!launchpad.isAutomationPort(pos)) {
+                    return null;
+                }
+            } else if (!endpoint.canConnectPower(level, pos.relative(side), side)) {
+                return null;
+            }
+        }
+        if (endpoint instanceof RockMillBlockEntity mill) {
+            if (side == null) {
+                if (!mill.isAutomationPort(pos)) {
+                    return null;
+                }
+            } else if (!endpoint.canConnectPower(level, pos.relative(side), side)) {
+                return null;
+            }
+        }
+        if (endpoint instanceof SupercomputerBlockEntity computer) {
+            if (side == null) {
+                if (!computer.isAutomationPort(pos)) {
+                    return null;
+                }
+            } else if (!endpoint.canConnectPower(level, pos.relative(side), side)) {
+                return null;
+            }
+        }
+        return new NativeEnergyStorage(level, pos, side);
+    }
+
+    private static IItemHandler ashpitItemHandler(AshpitBlockEntity ashpit, @Nullable Direction side) {
+        return new SidedInvWrapper(ashpit, side);
+    }
+
+    @Nullable
+    private static IItemHandler pneumaticStorageItemHandler(PneumaticStorageBlockEntity storage,
+                                                              @Nullable Direction side) {
+        return switch (storage.kind()) {
+            // The latest 1.7.10 clutter and mono stores inherit the empty
+            // sided-slot list from TileEntityMachineBase.  They are accessed
+            // through the pneumatic network/GUI, not hopper capabilities.
+            case IMPORTER, EXPORTER -> new SidedInvWrapper(storage, side);
+            case ACCESS, CLUTTER, MONO -> null;
+        };
+    }
+
+    @Nullable
+    private static IItemHandler pileGraphiteItemHandler(
+            Level level,
+            BlockPos pos,
+            net.minecraft.world.level.block.state.BlockState state,
+            @Nullable BlockEntity blockEntity,
+            @Nullable Direction side
+    ) {
+        if (side == null || !(state.getBlock() instanceof PileGraphiteBlock)) {
+            return null;
+        }
+        return new PileGraphiteItemHandler(level, pos, side);
+    }
+
+    @Nullable
+    private static IItemHandler customMachinePortItemHandler(
+            Level level,
+            BlockPos pos,
+            net.minecraft.world.level.block.state.BlockState state,
+            @Nullable BlockEntity blockEntity,
+            @Nullable Direction side
+    ) {
+        CustomMachineBlockEntity machine = CustomMachineBlockEntity.findForPort(level, pos);
+        return machine == null ? null : new SidedInvWrapper(machine, side);
+    }
+
+    @Nullable
+    private static IFluidHandler customMachinePortFluidHandler(
+            Level level,
+            BlockPos pos,
+            net.minecraft.world.level.block.state.BlockState state,
+            @Nullable BlockEntity blockEntity,
+            @Nullable Direction side
+    ) {
+        CustomMachineBlockEntity machine = CustomMachineBlockEntity.findForPort(level, pos);
+        return machine == null ? null : machine.fluidHandler(side);
+    }
+
+    private static IItemHandler fuelInputHandler(HeaterBlockEntity heater, @Nullable Direction side) {
+        if (heater.kind() == HeaterBlockEntity.Kind.OILBURNER) {
+            return new SidedInvWrapper(heater, side);
+        }
+        return new InsertOnlySidedInvWrapper(heater, side);
+    }
+
+    @Nullable
+    private static IItemHandler dummyFuelInputHandler(MachineDummyBlockEntity dummy, @Nullable Direction side) {
+        BlockEntity core = dummyCore(dummy);
+        BlockPos accessorPos = dummy.getBlockPos();
+        Direction accessorSide = side;
+        if (core instanceof PressBlockEntity press && press.kind() == PressBlockEntity.Kind.FIRE) {
+            // PressBlockEntity and the dummy proxy apply the same physical-tier
+            // slot policy. A normal handler is required because the middle tier
+            // is both an ingredient input and the sole product output.
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof ConveyorPressBlockEntity) {
+            // The original vertical dummy parts expose the single stamp slot.
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof FelBlockEntity) {
+            return null;
+        }
+        if (core instanceof CentrifugeBlockEntity || core instanceof GasCentrifugeBlockEntity) {
+            return null;
+        }
+        if (core instanceof GasFlareBlockEntity) {
+            return null;
+        }
+        if (core instanceof ExcavatorBlockEntity excavator) {
+            return excavator.isAutomationPort(accessorPos) ? new SidedInvWrapper(dummy, side) : null;
+        }
+        if (core instanceof RockMillBlockEntity mill) {
+            return mill.allowsAutomationPort(accessorPos, accessorSide)
+                    ? new SidedInvWrapper(dummy, side) : null;
+        }
+        if (core instanceof SupercomputerBlockEntity computer) {
+            return computer.allowsAutomationPort(accessorPos, accessorSide)
+                    ? new SidedInvWrapper(dummy, side) : null;
+        }
+        if (core instanceof CombustionEngineBlockEntity engine) {
+            return engine.allowsAutomationPort(accessorPos, accessorSide) ? new SidedInvWrapper(dummy, side) : null;
+        }
+        if (core instanceof WoodBurnerBlockEntity burner) {
+            return burner.isAutomationPort(accessorPos) ? new SidedInvWrapper(dummy, side) : null;
+        }
+        if (core instanceof LambdaLaunchpadBlockEntity) {
+            return null;
+        }
+        if (core instanceof SoyuzLaunchpadBlockEntity launchpad) {
+            return launchpad.allowsAutomationPort(accessorPos, accessorSide)
+                    ? new SidedInvWrapper(dummy, side) : null;
+        }
+        if (core instanceof com.atomiclegacy.tileentity.LauncherBlockEntity launcher) {
+            return launcher.kind() == com.atomiclegacy.tileentity.LauncherBlockEntity.Kind.PAD_RUSTED
+                    ? null : new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof TurretJeremyBlockEntity || core instanceof TurretChekhovBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof LegacyTurretBlockEntity turret
+                && turret.type() != com.atomiclegacy.tileentity.LegacyTurretType.HOWARD_DAMAGED) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof AssemblyFactoryBlockEntity factory) {
+            return factory.allowsAutomationPort(accessorPos, accessorSide) ? new SidedInvWrapper(dummy, side) : null;
+        }
+        if (core instanceof ChemicalFactoryBlockEntity factory) {
+            return factory.allowsAutomationPort(accessorPos, accessorSide) ? new SidedInvWrapper(dummy, side) : null;
+        }
+        if (core instanceof ZirnoxReactorBlockEntity reactor) {
+            return reactor.allowsAutomationPort(accessorPos, accessorSide) ? new SidedInvWrapper(dummy, side) : null;
+        }
+        if (core instanceof IcfCoreBlockEntity icf) { // [parity V4: ICF proxies] only makeExtra port blocks are inventory proxies
+            return icf.isItemProxy(accessorPos) ? new SidedInvWrapper(dummy, side) : null;
+        }
+        if (core instanceof WatzBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof PurexBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof MachineBlastFurnaceBlockEntity furnace) {
+            return furnace.allowsAutomationPort(accessorPos, accessorSide) ? new SidedInvWrapper(dummy, side) : null;
+        }
+        if (core instanceof SolderingStationBlockEntity solderingStation) {
+            return solderingStation.allowsAutomationPort(accessorPos) ? new SidedInvWrapper(dummy, side) : null;
+        }
+        if (core instanceof LegacyMachineBlockEntity machine) {
+            return machine.slotCount() == 0 || !machine.allowsItemAutomationPort(accessorPos)
+                    ? null
+                    : new SidedInvWrapper(dummy, side);
+        }
+        if (!allowsDummyAutomationPort(dummy, core)) {
+            return null;
+        }
+        if (core instanceof AssemblyMachineBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof ChemicalPlantBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof CrystallizerBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof SilexBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof ElectrolyzerBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof ArcWelderBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof ArcFurnaceBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof ParticleAcceleratorBlockEntity accelerator) {
+            return accelerator.getSlotsForAccessor(accessorPos, accessorSide).length == 0 ? null : new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof RotaryFurnaceBlockEntity furnace) {
+            return furnace.getSlotsForAccessor(accessorPos, accessorSide).length == 0 ? null : new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof LargeFluidTankBlockEntity) {
+            return null;
+        }
+        if (core instanceof FluidTankBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof OilDerrickBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof FrackingTowerBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof RefineryBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof VacuumDistillBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof CokerBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof FurnaceCombinationBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof RotaryFurnaceBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof SolidifierBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof StrandCasterBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof LiquefactorBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof CatalyticReformerBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof HydrotreaterBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof CrucibleBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof IronFurnaceBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof SteelFurnaceBlockEntity) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        if (core instanceof HeaterBlockEntity heater && heater.kind() == HeaterBlockEntity.Kind.OILBURNER) {
+            return new SidedInvWrapper(dummy, side);
+        }
+        return new InsertOnlySidedInvWrapper(dummy, side);
+    }
+
+    private static IItemHandler shredderItemHandler(ShredderBlockEntity shredder, @Nullable Direction side) {
+        return new SidedInvWrapper(shredder, side);
+    }
+
+    private static IItemHandler machineKeyForgeItemHandler(MachineKeyForgeBlockEntity keyForge, @Nullable Direction side) {
+        return new SidedInvWrapper(keyForge, side);
+    }
+
+    @Nullable
+    private static IItemHandler assemblyMachineItemHandler(AssemblyMachineBlockEntity assemblyMachine, @Nullable Direction side) {
+        if (!allowsCoreAutomationPort(assemblyMachine, side)) {
+            return null;
+        }
+        return new SidedInvWrapper(assemblyMachine, side);
+    }
+
+    @Nullable
+    private static IItemHandler assemblyFactoryItemHandler(AssemblyFactoryBlockEntity factory, @Nullable Direction side) {
+        if (!allowsCoreAutomationPort(factory, side)) {
+            return null;
+        }
+        return new SidedInvWrapper(factory, side);
+    }
+
+    @Nullable
+    private static IItemHandler chemicalPlantItemHandler(ChemicalPlantBlockEntity chemicalPlant, @Nullable Direction side) {
+        if (!allowsCoreAutomationPort(chemicalPlant, side)) {
+            return null;
+        }
+        return new SidedInvWrapper(chemicalPlant, side);
+    }
+
+    @Nullable
+    private static IItemHandler chemicalFactoryItemHandler(ChemicalFactoryBlockEntity factory, @Nullable Direction side) {
+        if (!allowsCoreAutomationPort(factory, side)) {
+            return null;
+        }
+        return new SidedInvWrapper(factory, side);
+    }
+
+    private static IItemHandler solderingStationItemHandler(SolderingStationBlockEntity solderingStation, @Nullable Direction side) {
+        return new SidedInvWrapper(solderingStation, side);
+    }
+
+    private static IItemHandler arcWelderItemHandler(ArcWelderBlockEntity arcWelder, @Nullable Direction side) {
+        return new SidedInvWrapper(arcWelder, side);
+    }
+
+    private static IItemHandler electricFurnaceItemHandler(ElectricFurnaceBlockEntity furnace, @Nullable Direction side) {
+        return new SidedInvWrapper(furnace, side);
+    }
+
+    @Nullable
+    private static IItemHandler machineBlastFurnaceItemHandler(MachineBlastFurnaceBlockEntity furnace, @Nullable Direction side) {
+        return side == null ? new SidedInvWrapper(furnace, null) : null;
+    }
+
+    @Nullable
+    private static IFluidHandler machineBlastFurnaceFluidHandler(MachineBlastFurnaceBlockEntity furnace, @Nullable Direction side) {
+        return furnace.fluidHandler(furnace.getBlockPos(), side);
+    }
+
+    private static IItemHandler ironFurnaceItemHandler(IronFurnaceBlockEntity furnace, @Nullable Direction side) {
+        return new SidedInvWrapper(furnace, side);
+    }
+
+    private static IItemHandler steelFurnaceItemHandler(SteelFurnaceBlockEntity furnace, @Nullable Direction side) {
+        return new SidedInvWrapper(furnace, side);
+    }
+
+    @Nullable
+    private static IItemHandler woodBurnerItemHandler(WoodBurnerBlockEntity burner, @Nullable Direction side) {
+        return burner.allowsAutomationPort(burner.getBlockPos(), side) ? new SidedInvWrapper(burner, side) : null;
+    }
+
+    private static IItemHandler launcherItemHandler(com.atomiclegacy.tileentity.LauncherBlockEntity launcher, @Nullable Direction side) {
+        return launcher.kind() == com.atomiclegacy.tileentity.LauncherBlockEntity.Kind.PAD_RUSTED
+                ? null : new SidedInvWrapper(launcher, side);
+    }
+
+    private static IItemHandler soyuzCapsuleItemHandler(SoyuzCapsuleBlockEntity capsule, @Nullable Direction side) {
+        return new SidedInvWrapper(capsule, side);
+    }
+
+    private static IItemHandler dieselGeneratorItemHandler(DieselGeneratorBlockEntity generator, @Nullable Direction side) {
+        return new SidedInvWrapper(generator, side);
+    }
+
+    private static IItemHandler combustionEngineItemHandler(CombustionEngineBlockEntity engine, @Nullable Direction side) {
+        return engine.allowsAutomationPort(engine.getBlockPos(), side) ? new SidedInvWrapper(engine, side) : null;
+    }
+
+    private static IItemHandler gasFlareItemHandler(GasFlareBlockEntity flare, @Nullable Direction side) {
+        return new SidedInvWrapper(flare, side);
+    }
+
+    private static IItemHandler turretJeremyItemHandler(TurretJeremyBlockEntity turret, @Nullable Direction side) {
+        return new SidedInvWrapper(turret, side);
+    }
+
+    private static IItemHandler turretChekhovItemHandler(TurretChekhovBlockEntity turret, @Nullable Direction side) {
+        return new SidedInvWrapper(turret, side);
+    }
+
+    private static IItemHandler legacyTurretItemHandler(LegacyTurretBlockEntity turret, @Nullable Direction side) {
+        return new SidedInvWrapper(turret, side);
+    }
+
+    private static IItemHandler largeTurbineItemHandler(LargeTurbineBlockEntity turbine, @Nullable Direction side) {
+        return new SidedInvWrapper(turbine, side);
+    }
+
+    private static IItemHandler gasTurbineItemHandler(GasTurbineBlockEntity turbine, @Nullable Direction side) {
+        return new SidedInvWrapper(turbine, side);
+    }
+
+
+    @Nullable
+    private static IItemHandler oilDerrickItemHandler(OilDerrickBlockEntity derrick, @Nullable Direction side) {
+        if (!allowsCoreAutomationPort(derrick, side)) {
+            return null;
+        }
+        return new SidedInvWrapper(derrick, side);
+    }
+
+    @Nullable
+    private static IItemHandler frackingTowerItemHandler(FrackingTowerBlockEntity tower, @Nullable Direction side) {
+        if (!allowsCoreAutomationPort(tower, side)) {
+            return null;
+        }
+        return new SidedInvWrapper(tower, side);
+    }
+
+    private static IItemHandler refineryItemHandler(RefineryBlockEntity refinery, @Nullable Direction side) {
+        return new SidedInvWrapper(refinery, side);
+    }
+
+    private static IItemHandler vacuumDistillItemHandler(VacuumDistillBlockEntity distill, @Nullable Direction side) {
+        return new SidedInvWrapper(distill, side);
+    }
+
+    private static IItemHandler cokerItemHandler(CokerBlockEntity coker, @Nullable Direction side) {
+        return new SidedInvWrapper(coker, side);
+    }
+
+    private static IItemHandler furnaceCombinationItemHandler(FurnaceCombinationBlockEntity furnace, @Nullable Direction side) {
+        return new SidedInvWrapper(furnace, side);
+    }
+
+    private static IItemHandler rotaryFurnaceItemHandler(RotaryFurnaceBlockEntity furnace, @Nullable Direction side) {
+        return new SidedInvWrapper(furnace, side);
+    }
+
+    private static IItemHandler solidifierItemHandler(SolidifierBlockEntity solidifier, @Nullable Direction side) {
+        return new SidedInvWrapper(solidifier, side);
+    }
+
+    private static IItemHandler liquefactorItemHandler(LiquefactorBlockEntity liquefactor, @Nullable Direction side) {
+        return new SidedInvWrapper(liquefactor, side);
+    }
+
+    @Nullable
+    private static IItemHandler catalyticReformerItemHandler(CatalyticReformerBlockEntity reformer, @Nullable Direction side) {
+        if (!allowsCoreAutomationPort(reformer, side)) {
+            return null;
+        }
+        return new SidedInvWrapper(reformer, side);
+    }
+
+    @Nullable
+    private static IItemHandler hydrotreaterItemHandler(HydrotreaterBlockEntity hydrotreater, @Nullable Direction side) {
+        if (!allowsCoreAutomationPort(hydrotreater, side)) {
+            return null;
+        }
+        return new SidedInvWrapper(hydrotreater, side);
+    }
+
+    private static IItemHandler fluidTankItemHandler(FluidTankBlockEntity tank, @Nullable Direction side) {
+        return new SidedInvWrapper(tank, side);
+    }
+
+    private static IItemHandler storageCrateItemHandler(StorageCrateBlockEntity crate, @Nullable Direction side) {
+        return new SidedInvWrapper(crate, side);
+    }
+
+    private static IItemHandler batteryReddItemHandler(BatteryReddBlockEntity battery, @Nullable Direction side) {
+        return new SidedInvWrapper(battery, side);
+    }
+
+    private static IItemHandler batterySocketItemHandler(BatterySocketBlockEntity socket, @Nullable Direction side) {
+        return new SidedInvWrapper(socket, side);
+    }
+
+    private static IItemHandler centrifugeItemHandler(CentrifugeBlockEntity centrifuge, @Nullable Direction side) {
+        return new SidedInvWrapper(centrifuge, side);
+    }
+
+    private static IItemHandler gasCentrifugeItemHandler(GasCentrifugeBlockEntity centrifuge, @Nullable Direction side) {
+        return new SidedInvWrapper(centrifuge, side);
+    }
+
+    private static IItemHandler cyclotronItemHandler(CyclotronBlockEntity cyclotron, @Nullable Direction side) {
+        return new SidedInvWrapper(cyclotron, side);
+    }
+
+    private static IItemHandler exposureChamberItemHandler(ExposureChamberBlockEntity chamber, @Nullable Direction side) {
+        return new SidedInvWrapper(chamber, side);
+    }
+
+    @Nullable
+    private static IItemHandler particleAcceleratorItemHandler(ParticleAcceleratorBlockEntity accelerator, @Nullable Direction side) {
+        return accelerator.getSlotsForAccessor(accelerator.getBlockPos(), side).length == 0 ? null : new SidedInvWrapper(accelerator, side);
+    }
+
+    @Nullable
+    private static IItemHandler electrolyzerItemHandler(ElectrolyzerBlockEntity electrolyzer, @Nullable Direction side) {
+        if (!allowsCoreAutomationPort(electrolyzer, side)) {
+            return null;
+        }
+        return new SidedInvWrapper(electrolyzer, side);
+    }
+
+    private static IItemHandler oreSlopperItemHandler(OreSlopperBlockEntity slopper, @Nullable Direction side) {
+        return new SidedInvWrapper(slopper, side);
+    }
+
+    private static IItemHandler wasteDrumItemHandler(WasteDrumBlockEntity drum, @Nullable Direction side) {
+        return new SidedInvWrapper(drum, side);
+    }
+
+    private static IItemHandler purexItemHandler(PurexBlockEntity purex, @Nullable Direction side) {
+        return new SidedInvWrapper(purex, side);
+    }
+
+    @Nullable
+    private static IItemHandler zirnoxItemHandler(ZirnoxReactorBlockEntity reactor, @Nullable Direction side) {
+        return side == null ? new SidedInvWrapper(reactor, null) : null;
+    }
+
+    private static IItemHandler rbmkItemHandler(RbmkComponentBlockEntity rbmk, @Nullable Direction side) {
+        return new SidedInvWrapper(rbmk, side);
+    }
+
+    @Nullable
+    private static IItemHandler pwrPartItemHandler(PwrBlockEntity part, @Nullable Direction side) {
+        PwrControllerBlockEntity controller = part.controller();
+        if (controller == null || !part.isPort()) {
+            return null;
+        }
+        return new SidedInvWrapper(controller, side);
+    }
+
+    @Nullable
+    private static IItemHandler crystallizerItemHandler(CrystallizerBlockEntity crystallizer, @Nullable Direction side) {
+        if (!allowsCoreAutomationPort(crystallizer, side)) {
+            return null;
+        }
+        return new SidedInvWrapper(crystallizer, side);
+    }
+
+    private static IItemHandler crucibleItemHandler(CrucibleBlockEntity crucible, @Nullable Direction side) {
+        return new InsertOnlySidedInvWrapper(crucible, side);
+    }
+
+    private static IItemHandler foundryCastingItemHandler(FoundryCastingBlockEntity casting, @Nullable Direction side) {
+        return new SidedInvWrapper(casting, side);
+    }
+
+    private static IItemHandler strandCasterItemHandler(StrandCasterBlockEntity caster, @Nullable Direction side) {
+        return new SidedInvWrapper(caster, side);
+    }
+
+    @Nullable
+    private static IItemHandler pressItemHandler(PressBlockEntity press, @Nullable Direction side) {
+        if (press.kind() == PressBlockEntity.Kind.ELECTRIC && !allowsCoreAutomationPort(press, side)) {
+            return null;
+        }
+        return new SidedInvWrapper(press, side);
+    }
+
+    private static IItemHandler ammoPressItemHandler(AmmoPressBlockEntity ammoPress, @Nullable Direction side) {
+        return new SidedInvWrapper(ammoPress, side);
+    }
+
+    private static boolean allowsDummyAutomationPort(MachineDummyBlockEntity dummy, @Nullable BlockEntity core) {
+        if (core instanceof FelBlockEntity) {
+            return false;
+        }
+        if (core instanceof ArcFurnaceBlockEntity furnace) {
+            return furnace.isAutomationPort(dummy.getBlockPos());
+        }
+        if (core instanceof SilexBlockEntity silex) {
+            return allowsSilexDummyAutomationPort(dummy, silex);
+        }
+
+        LevelAccessor level = dummy.getLevel();
+        if (level == null) {
+            return true;
+        }
+
+        List<BlockPos> connectors = powerConnectorPositions(level, core);
+        if (connectors.isEmpty()) {
+            return true;
+        }
+
+        BlockPos dummyPos = dummy.getBlockPos();
+        for (BlockPos connector : connectors) {
+            if (connector.equals(dummyPos) || manhattanDistance(connector, dummyPos) == 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean allowsSilexDummyAutomationPort(MachineDummyBlockEntity dummy, SilexBlockEntity silex) {
+        Direction facing = silex.getBlockState().hasProperty(com.atomiclegacy.blocks.LargeMachineBlock.FACING)
+                ? silex.getBlockState().getValue(com.atomiclegacy.blocks.LargeMachineBlock.FACING)
+                : Direction.SOUTH;
+        BlockPos corePos = silex.getBlockPos();
+        Direction side = silexAutomationPortSide(facing);
+        BlockPos sideTop = corePos.relative(side).above();
+        BlockPos oppositeSideTop = corePos.relative(side.getOpposite()).above();
+        BlockPos dummyPos = dummy.getBlockPos();
+        return dummyPos.equals(sideTop) || dummyPos.equals(oppositeSideTop);
+    }
+
+    private static Direction silexAutomationPortSide(Direction facing) {
+        return switch (facing) {
+            case NORTH -> Direction.EAST;
+            case EAST -> Direction.SOUTH;
+            case SOUTH -> Direction.WEST;
+            case WEST -> Direction.NORTH;
+            default -> throw new IllegalArgumentException("SILEX automation ports require a horizontal facing: " + facing);
+        };
+    }
+
+    @Nullable
+    private static IFluidHandler dummyFluidHandler(MachineDummyBlockEntity dummy, @Nullable Direction side) {
+        BlockEntity core = dummyCore(dummy);
+        BlockPos accessorPos = dummy.getBlockPos();
+        Direction accessorSide = side;
+        if (core instanceof com.atomiclegacy.tileentity.FlowControlPumpBlockEntity pump) { // [parity T1: flow_control_pump]
+            return pump.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof RbmkComponentBlockEntity rbmk) {
+            // A dummy segment is the actual capability position queried by a
+            // fluid pipe.  RBMK's old trySubscribe/tryProvide coordinates are
+            // port-specific, so do not collapse it to the core position.
+            return rbmk.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof FusionMachineBlockEntity fusion) {
+            return fusion.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof IcfCoreBlockEntity icf) {
+            return icf.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof WatzBlockEntity watz) {
+            return watz.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof PurexBlockEntity purex) {
+            return purex.fluidHandler(accessorSide);
+        }
+        if (core instanceof CombustionEngineBlockEntity engine) {
+            return engine.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof GasFlareBlockEntity flare) {
+            return flare.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof GasCentrifugeBlockEntity centrifuge) {
+            return centrifuge.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof IndustrialBoilerBlockEntity boiler) {
+            return boiler.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof HeatBoilerBlockEntity boiler) {
+            return boiler.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof SolarBoilerBlockEntity boiler) {
+            return boiler.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof GroundwaterPumpBlockEntity pump) {
+            return pump.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof AirCompressorBlockEntity compressor) {
+            return compressor.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof GeothermalHeatExchangerBlockEntity exchanger) {
+            return exchanger.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof DeuteriumExtractorBlockEntity extractor) {
+            return extractor.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof CompressorBlockEntity compressor) {
+            return compressor.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof MixerBlockEntity mixer) {
+            return mixer.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof OilDerrickBlockEntity derrick) {
+            return derrick.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof FrackingTowerBlockEntity tower) {
+            return tower.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof RefineryBlockEntity refinery) {
+            return refinery.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof VacuumDistillBlockEntity distill) {
+            return distill.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof CokerBlockEntity coker) {
+            return coker.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof FurnaceCombinationBlockEntity furnace) {
+            return furnace.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof RotaryFurnaceBlockEntity furnace) {
+            return furnace.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof SolidifierBlockEntity solidifier) {
+            return solidifier.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof StrandCasterBlockEntity caster) {
+            return caster.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof ElectrolyzerBlockEntity electrolyzer) {
+            return electrolyzer.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof LiquefactorBlockEntity liquefactor) {
+            return liquefactor.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof CatalyticCrackerBlockEntity cracker) {
+            return cracker.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof CatalyticReformerBlockEntity reformer) {
+            return reformer.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof HydrotreaterBlockEntity hydrotreater) {
+            return hydrotreater.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof FractionTowerBlockEntity tower) {
+            return tower.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof FluidTankBlockEntity tank) {
+            return tank.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof SteamEngineBlockEntity engine) {
+            return engine.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof IndustrialTurbineBlockEntity turbine) {
+            return turbine.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof LargeTurbineBlockEntity turbine) {
+            return turbine.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof LeviathanTurbineBlockEntity turbine) {
+            return turbine.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof GasTurbineBlockEntity turbine) {
+            return turbine.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof CoolingTowerBlockEntity tower) {
+            return tower.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof ZirnoxReactorBlockEntity reactor) {
+            return reactor.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof PwrControllerBlockEntity controller) {
+            return controller.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof WoodBurnerBlockEntity burner) {
+            return burner.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof LambdaLaunchpadBlockEntity launchpad) {
+            return launchpad.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof SoyuzLaunchpadBlockEntity launchpad) {
+            return launchpad.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof com.atomiclegacy.tileentity.LauncherBlockEntity launcher) {
+            return launcher.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof MachineBlastFurnaceBlockEntity furnace) {
+            return furnace.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof ArcWelderBlockEntity arcWelder) {
+            return arcWelder.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof ExcavatorBlockEntity excavator) {
+            return excavator.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof OreSlopperBlockEntity slopper) {
+            return slopper.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof RockMillBlockEntity mill) {
+            return mill.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof SupercomputerBlockEntity computer) {
+            return computer.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof CyclotronBlockEntity cyclotron) {
+            return cyclotron.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof ParticleAcceleratorBlockEntity accelerator) {
+            return accelerator.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof PoweredSteamCondenserBlockEntity condenser) {
+            return condenser.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof ChimneyBlockEntity chimney) {
+            return chimney.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof LegacyTurretBlockEntity turret) {
+            return turret.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof LegacyMachineBlockEntity machine) {
+            return machine.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof ChemicalPlantBlockEntity chemicalPlant && allowsDummyAutomationPort(dummy, core)) {
+            return chemicalPlant.fluidHandler(accessorSide);
+        }
+        if (core instanceof CrystallizerBlockEntity crystallizer && allowsDummyAutomationPort(dummy, core)) {
+            return crystallizer.fluidHandler(accessorSide);
+        }
+        if (core instanceof SilexBlockEntity silex && allowsDummyAutomationPort(dummy, core)) {
+            return silex.fluidHandler(accessorSide);
+        }
+        if (core instanceof AssemblyMachineBlockEntity assemblyMachine && allowsDummyAutomationPort(dummy, core)) {
+            return assemblyMachine.fluidHandler(accessorSide);
+        }
+        if (core instanceof AssemblyFactoryBlockEntity factory && factory.allowsAutomationPort(accessorPos, accessorSide)) {
+            return factory.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof ChemicalFactoryBlockEntity factory && factory.allowsAutomationPort(accessorPos, accessorSide)) {
+            return factory.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof SolderingStationBlockEntity solderingStation) {
+            return solderingStation.fluidHandler(accessorPos, accessorSide);
+        }
+        if (core instanceof HeaterBlockEntity heater) {
+            return heater.fluidHandler(accessorPos, accessorSide);
+        }
+        return null;
+    }
+
+    @Nullable
+    private static IFluidHandler heaterFluidHandler(HeaterBlockEntity heater, @Nullable Direction side) {
+        return heater.fluidHandler(heater.getBlockPos(), side);
+    }
+
+    @Nullable
+    private static IFluidHandler pwrPartFluidHandler(PwrBlockEntity part, @Nullable Direction side) {
+        PwrControllerBlockEntity controller = part.controller();
+        if (controller == null || !part.isPort()) {
+            return null;
+        }
+        return controller.fluidHandler(part.getBlockPos(), side);
+    }
+
+    @Nullable
+    private static IFluidHandler airCompressorFluidHandler(AirCompressorBlockEntity compressor, @Nullable Direction side) {
+        return compressor.fluidHandler(compressor.getBlockPos(), side);
+    }
+
+    @Nullable
+    private static IFluidHandler chemicalPlantFluidHandler(ChemicalPlantBlockEntity chemicalPlant, @Nullable Direction side) {
+        if (!allowsCoreAutomationPort(chemicalPlant, side)) {
+            return null;
+        }
+        return chemicalPlant.fluidHandler(side);
+    }
+
+    @Nullable
+    private static IFluidHandler assemblyMachineFluidHandler(AssemblyMachineBlockEntity assemblyMachine, @Nullable Direction side) {
+        if (!allowsCoreAutomationPort(assemblyMachine, side)) {
+            return null;
+        }
+        return assemblyMachine.fluidHandler(side);
+    }
+
+    @Nullable
+    private static IFluidHandler arcWelderFluidHandler(ArcWelderBlockEntity arcWelder, @Nullable Direction side) {
+        if (side == null) {
+            return arcWelder.fluidHandler(side);
+        }
+        return arcWelder.fluidHandler(arcWelder.getBlockPos().relative(side), side);
+    }
+
+    @Nullable
+    private static IFluidHandler crystallizerFluidHandler(CrystallizerBlockEntity crystallizer, @Nullable Direction side) {
+        if (!allowsCoreAutomationPort(crystallizer, side)) {
+            return null;
+        }
+        return crystallizer.fluidHandler(side);
+    }
+
+    @Nullable
+    private static IFluidHandler assemblyFactoryFluidHandler(AssemblyFactoryBlockEntity factory, @Nullable Direction side) {
+        if (!allowsCoreAutomationPort(factory, side)) {
+            return null;
+        }
+        return factory.fluidHandler(side);
+    }
+
+    @Nullable
+    private static IFluidHandler chemicalFactoryFluidHandler(ChemicalFactoryBlockEntity factory, @Nullable Direction side) {
+        if (!allowsCoreAutomationPort(factory, side)) {
+            return null;
+        }
+        return factory.fluidHandler(side);
+    }
+
+    @Nullable
+    private static BlockEntity dummyCore(MachineDummyBlockEntity dummy) {
+        LevelAccessor level = dummy.getLevel();
+        return level == null ? null : level.getBlockEntity(dummy.getCorePos());
+    }
+
+    private static boolean allowsCoreAutomationPort(BlockEntity core, @Nullable Direction side) {
+        if (side == null || core.getLevel() == null) {
+            return true;
+        }
+
+        List<BlockPos> connectors = powerConnectorPositions(core.getLevel(), core);
+        return connectors.isEmpty() || connectors.contains(core.getBlockPos().relative(side));
+    }
+
+    private static List<BlockPos> powerConnectorPositions(LevelAccessor level, @Nullable BlockEntity blockEntity) {
+        if (blockEntity instanceof PowerEndpoint endpoint) {
+            return endpoint.getPowerConnectorPositions(level);
+        }
+        if (blockEntity instanceof PowerGraphNode graphNode) {
+            return graphNode.getPowerConnectorPositions(level);
+        }
+        return List.of();
+    }
+
+    private static int manhattanDistance(BlockPos first, BlockPos second) {
+        return Math.abs(first.getX() - second.getX())
+                + Math.abs(first.getY() - second.getY())
+                + Math.abs(first.getZ() - second.getZ());
+    }
+
+    private static final class InsertOnlySidedInvWrapper extends SidedInvWrapper {
+        private InsertOnlySidedInvWrapper(WorldlyContainer inv, @Nullable Direction side) {
+            super(inv, side);
+        }
+
+        @Override
+        public ItemStack extractItem(int slot, int amount, boolean simulate) {
+            return ItemStack.EMPTY;
+        }
+    }
+
+    /** Stateless axial inserter for the CP-1 graphite pile. */
+    private static final class PileGraphiteItemHandler implements IItemHandler {
+        private final Level level;
+        private final BlockPos pos;
+        private final Direction side;
+
+        private PileGraphiteItemHandler(Level level, BlockPos pos, Direction side) {
+            this.level = level;
+            this.pos = pos.immutable();
+            this.side = side;
+        }
+
+        @Override
+        public int getSlots() {
+            return 1;
+        }
+
+        @Override
+        public ItemStack getStackInSlot(int slot) {
+            return ItemStack.EMPTY;
+        }
+
+        @Override
+        public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
+            if (slot != 0 || stack.isEmpty() || !PileGraphiteBlock.insertAutomatedRod(this.level, this.pos, this.side, stack, simulate)) {
+                return stack;
+            }
+            return stack.getCount() == 1 ? ItemStack.EMPTY : stack.copyWithCount(stack.getCount() - 1);
+        }
+
+        @Override
+        public ItemStack extractItem(int slot, int amount, boolean simulate) {
+            return ItemStack.EMPTY;
+        }
+
+        @Override
+        public int getSlotLimit(int slot) {
+            return 1;
+        }
+
+        @Override
+        public boolean isItemValid(int slot, ItemStack stack) {
+            return slot == 0 && PileGraphiteBlock.insertAutomatedRod(this.level, this.pos, this.side, stack, true);
+        }
+    }
+}

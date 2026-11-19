@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "EEE",
+    "EIE",
+    "EEE"
+  ],
+  "key": {
+    "E": { "item": "atomiclegacy:powder_power" },
+    "I": { "tag": "c:ingots/euphemium" }
+  },
+  "result": {
+    "id": "atomiclegacy:crystal_xen",
+    "count": 1
+  }
+}

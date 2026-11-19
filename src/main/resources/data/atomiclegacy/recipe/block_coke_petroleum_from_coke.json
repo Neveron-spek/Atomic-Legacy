@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "atomiclegacy:coke_petroleum"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:block_coke",
+    "components": {
+      "minecraft:custom_data": {
+        "type": "petroleum"
+      },
+      "minecraft:custom_model_data": 2
+    }
+  }
+}

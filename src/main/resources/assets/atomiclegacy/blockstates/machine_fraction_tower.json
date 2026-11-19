@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/machine_fraction_tower" },
+    "facing=east": { "model": "atomiclegacy:block/particle/machine_fraction_tower" },
+    "facing=south": { "model": "atomiclegacy:block/particle/machine_fraction_tower" },
+    "facing=west": { "model": "atomiclegacy:block/particle/machine_fraction_tower" }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.exsteelplating",
+  "duration": 200,
+  "power": 400,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_steel"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/titanium"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:bolt_steel"
+      },
+      "count": 16
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:item_expensive_steel_plating"
+  }
+}

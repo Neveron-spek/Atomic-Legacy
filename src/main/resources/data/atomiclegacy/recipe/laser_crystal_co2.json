@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "QDQ",
+    "NCN",
+    "QDQ"
+  ],
+  "key": {
+    "Q": {
+      "tag": "c:glass_blocks/quartz"
+    },
+    "D": {
+      "tag": "c:ingots/desh"
+    },
+    "N": {
+      "tag": "c:ingots/niobium"
+    },
+    "C": {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:fluid_tank_full"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "fluid": "carbondioxide"
+        }
+      }
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:laser_crystal_co2"
+  }
+}

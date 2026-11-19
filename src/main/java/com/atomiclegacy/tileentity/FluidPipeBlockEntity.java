@@ -1,0 +1,446 @@
+package com.atomiclegacy.tileentity;
+
+import com.atomiclegacy.blocks.FluidDuctBlock;
+import com.atomiclegacy.fluid.HbmFluidDefinition;
+import com.atomiclegacy.fluid.HbmFluidNetworks;
+import com.atomiclegacy.items.SettingsToolItem;
+import com.atomiclegacy.registry.HbmBlockEntities;
+import com.atomiclegacy.registry.HbmFluids;
+import com.atomiclegacy.rtty.RttyInfo;
+import com.atomiclegacy.rtty.RttyInteractive;
+import com.atomiclegacy.rtty.RttyValueProvider;
+import com.atomiclegacy.util.FluidCopiable;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class FluidPipeBlockEntity extends BlockEntity implements FluidCopiable, RttyValueProvider, RttyInteractive {
+    private static final String[] LEGACY_EXHAUST_FLUIDS = {"smoke", "smoke_leaded", "smoke_poison"};
+
+    private HbmFluidDefinition type = HbmFluids.none();
+    private boolean open = true;
+    private long counter;
+    private int lastTransfer;
+    private long lastCounterUpdate = Long.MIN_VALUE;
+
+    public FluidPipeBlockEntity(BlockPos pos, BlockState blockState) {
+        this(HbmBlockEntities.FLUID_PIPE.get(), pos, blockState);
+    }
+
+    protected FluidPipeBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?> type,
+                                   BlockPos pos, BlockState blockState) {
+        super(type, pos, blockState);
+    }
+
+    public HbmFluidDefinition type() {
+        return type;
+    }
+
+    public boolean open() {
+        return open;
+    }
+
+    public long counter() {
+        return currentCounter();
+    }
+
+    public int lastTransfer() {
+        return this.lastTransfer;
+    }
+
+    public static void serverTick(Level level, BlockPos pos, BlockState state, FluidPipeBlockEntity pipe) {
+        if (state.getBlock() instanceof FluidDuctBlock duct
+                && duct.kind() == FluidDuctBlock.Kind.COUNTER_VALVE) {
+            pipe.updateCounter();
+        }
+        if (state.getBlock() instanceof FluidDuctBlock duct && duct.kind() == FluidDuctBlock.Kind.GAUGE) pipe.rttyGaugeTick(); // [parity U2: ROR]
+    }
+
+    private void updateCounter() {
+        Level level = this.level;
+        if (level == null || level.isClientSide || level.getGameTime() == this.lastCounterUpdate) {
+            return;
+        }
+        int moved = this.open && !this.type.isNone()
+                ? HbmFluidNetworks.lastTransfer(level, this.worldPosition, this.type)
+                : 0;
+        this.lastCounterUpdate = level.getGameTime();
+        boolean changed = moved != this.lastTransfer || moved > 0;
+        this.lastTransfer = moved;
+        if (moved > 0) {
+            this.counter = saturatingAdd(this.counter, moved);
+        }
+        if (changed) {
+            setChanged();
+        }
+    }
+
+    private long currentCounter() {
+        Level level = this.level;
+        if (level == null || level.isClientSide || level.getGameTime() == this.lastCounterUpdate
+                || !this.open || this.type.isNone()) {
+            return this.counter;
+        }
+        return saturatingAdd(this.counter, HbmFluidNetworks.lastTransfer(level, this.worldPosition, this.type));
+    }
+
+    private static long saturatingAdd(long value, long increment) {
+        return increment > 0L && value > Long.MAX_VALUE - increment ? Long.MAX_VALUE : value + increment;
+    }
+
+    private void resetCounter() {
+        updateCounter();
+        this.counter = 0L;
+        setChanged();
+    }
+
+    public boolean canConnect(HbmFluidDefinition fluid) {
+        if (!open || fluid == null) {
+            return false;
+        }
+        if (isExhaustPipe()) {
+            return isLegacyExhaustFluid(fluid);
+        }
+        return this.type == fluid;
+    }
+
+    /** Direction-aware counterpart used by both adjacent pipes and anchors. */
+    public boolean canConnectFrom(@Nullable Direction direction, HbmFluidDefinition fluid) {
+        return direction == null || canConnect(fluid);
+    }
+
+    /** Long-distance links are empty for ordinary ducts. */
+    public List<BlockPos> networkLinks() {
+        return List.of();
+    }
+
+    public boolean isExhaustPipe() {
+        BlockState state = getBlockState();
+        return state.getBlock() instanceof FluidDuctBlock duct && duct.kind().isExhaust();
+    }
+
+    public List<HbmFluidDefinition> connectableFluidTypes() {
+        if (!open) {
+            return List.of();
+        }
+        if (isExhaustPipe()) {
+            ArrayList<HbmFluidDefinition> fluids = new ArrayList<>(LEGACY_EXHAUST_FLUIDS.length);
+            for (String name : LEGACY_EXHAUST_FLUIDS) {
+                HbmFluids.byName(name).filter(fluid -> !fluid.isNone()).ifPresent(fluids::add);
+            }
+            return fluids;
+        }
+        return this.type.isNone() ? List.of() : List.of(this.type);
+    }
+
+    public static boolean isLegacyExhaustFluid(HbmFluidDefinition fluid) {
+        if (fluid == null) {
+            return false;
+        }
+        return switch (fluid.name()) {
+            case "smoke", "smoke_leaded", "smoke_poison" -> true;
+            default -> false;
+        };
+    }
+
+    public static HbmFluidDefinition defaultLegacyExhaustFluid() {
+        return HbmFluids.byName(LEGACY_EXHAUST_FLUIDS[0]).orElse(HbmFluids.none());
+    }
+
+    public IFluidHandler fluidHandler(@Nullable Direction side) {
+        return new PipeFluidHandler(side);
+    }
+
+    public void setType(HbmFluidDefinition type) {
+        HbmFluidDefinition next = type == null ? HbmFluids.none() : type;
+        if (this.type == next) {
+            return;
+        }
+        this.type = next;
+        markNetworkChanged();
+    }
+
+    public void setOpen(boolean open) {
+        if (this.open == open) {
+            return;
+        }
+        this.open = open;
+        markNetworkChanged();
+    }
+
+    @Override
+    public int[] getFluidIdsToCopy() {
+        if (isExhaustPipe()) {
+            return connectableFluidTypes().stream().mapToInt(HbmFluidDefinition::oldId).toArray();
+        }
+        return new int[]{this.type.oldId()};
+    }
+
+    @Override
+    public void pasteFluidSetting(HbmFluidDefinition fluid, Level level, Player player, BlockPos pos) {
+        if (isExhaustPipe()) {
+            return;
+        }
+        HbmFluidDefinition previous = this.type;
+        if (SettingsToolItem.isCtrlDown(player) && level.getBlockState(this.worldPosition).getBlock() instanceof FluidDuctBlock) {
+            FluidDuctBlock.changeTypeRecursively(level, this.worldPosition, previous, fluid, 256);
+        } else {
+            setType(fluid);
+        }
+    }
+
+    public void markNetworkChanged() {
+        setChanged();
+        Level level = this.level;
+        if (level == null) {
+            return;
+        }
+        HbmFluidNetworks.registerPipe(level, this.worldPosition, connectableFluidTypes(), this.open);
+        BlockState state = level.getBlockState(this.worldPosition);
+        level.invalidateCapabilities(this.worldPosition);
+        if (state.getBlock() instanceof FluidDuctBlock duct) {
+            duct.refreshConnections(level, this.worldPosition);
+        }
+        for (Direction direction : Direction.values()) {
+            BlockPos neighbor = this.worldPosition.relative(direction);
+            BlockState neighborState = level.getBlockState(neighbor);
+            if (neighborState.getBlock() instanceof FluidDuctBlock duct) {
+                duct.refreshConnections(level, neighbor);
+            }
+        }
+        BlockState refreshed = level.getBlockState(this.worldPosition);
+        level.sendBlockUpdated(this.worldPosition, refreshed, refreshed, Block.UPDATE_CLIENTS);
+    }
+
+    @Override
+    public void onLoad() {
+        super.onLoad();
+        Level level = this.level;
+        if (level == null) {
+            return;
+        }
+
+        HbmFluidNetworks.registerPipe(level, this.worldPosition, connectableFluidTypes(), this.open);
+        // The six connection properties are already part of the saved block
+        // state.  Chunk block entities have no defined load order, especially
+        // when a large machine's dummy and core occupy different chunks, so an
+        // on-load capability probe must not overwrite that authoritative state.
+    }
+
+    @Override
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.saveAdditional(tag, registries);
+        tag.putString("Fluid", this.type.name());
+        tag.putBoolean("Open", this.open);
+        tag.putLong("counter", this.counter);
+        tag.putInt("last_transfer", this.lastTransfer);
+    }
+
+    @Override
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.loadAdditional(tag, registries);
+        this.type = HbmFluids.byName(tag.getString("Fluid")).orElse(HbmFluids.none());
+        this.open = !tag.contains("Open") || tag.getBoolean("Open");
+        this.counter = Math.max(0L, tag.getLong("counter"));
+        this.lastTransfer = Math.max(0, tag.getInt("last_transfer"));
+        this.lastCounterUpdate = Long.MIN_VALUE;
+    }
+
+    @Override
+    public void setRemoved() {
+        if (this.level != null) {
+            HbmFluidNetworks.unregisterPipe(this.level, this.worldPosition);
+        }
+        super.setRemoved();
+    }
+
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+        CompoundTag tag = super.getUpdateTag(registries);
+        saveAdditional(tag, registries);
+        return tag;
+    }
+
+    @Nullable
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    @Override
+    public String[] rttyFunctionInfo() {
+        if (rttyKind() == FluidDuctBlock.Kind.GAUGE) { // [parity U2: ROR] FluidDuctGauge.TileEntityPipeGauge
+            return new String[] {RttyInfo.PREFIX_VALUE + "deltatick", RttyInfo.PREFIX_VALUE + "deltasecond"};
+        }
+        if (!(getBlockState().getBlock() instanceof FluidDuctBlock duct)
+                || duct.kind() != FluidDuctBlock.Kind.COUNTER_VALVE) {
+            return new String[0];
+        }
+        return new String[] {
+                RttyInfo.PREFIX_VALUE + "value",
+                RttyInfo.PREFIX_VALUE + "state",
+                RttyInfo.PREFIX_FUNCTION + "reset",
+                RttyInfo.PREFIX_FUNCTION + "setstate" + RttyInteractive.NAME_SEPARATOR + "state"
+        };
+    }
+
+    @Override
+    public String provideRttyValue(String name) {
+        if (rttyKind() == FluidDuctBlock.Kind.GAUGE) { // [parity U2: ROR]
+            if ((RttyInfo.PREFIX_VALUE + "deltatick").equals(name)) return "" + this.rttyDeltaTick;
+            if ((RttyInfo.PREFIX_VALUE + "deltasecond").equals(name)) return "" + this.rttyDeltaLastSecond;
+            return null;
+        }
+        if (rttyKind() != FluidDuctBlock.Kind.COUNTER_VALVE) return null; // [parity U2: ROR] plain ducts are no ROR components
+        if (name.equals(RttyInfo.PREFIX_VALUE + "value")) {
+            return Long.toString(currentCounter());
+        }
+        if (name.equals(RttyInfo.PREFIX_VALUE + "state")) {
+            return this.open ? "1" : "0";
+        }
+        return null;
+    }
+
+    @Override
+    public String runRttyFunction(String name, String[] params) {
+        if (rttyKind() != FluidDuctBlock.Kind.COUNTER_VALVE) return null; // [parity U2: ROR]
+        if (name.equals(RttyInfo.PREFIX_FUNCTION + "reset")) {
+            resetCounter();
+        } else if (name.equals(RttyInfo.PREFIX_FUNCTION + "setstate") && params.length > 0) {
+            int state = RttyInteractive.parseInt(params[0], 0, 1);
+            if (this.level != null && getBlockState().getBlock() instanceof FluidDuctBlock duct) {
+                duct.setOpen(this.level, this.worldPosition, state == 1, true);
+            }
+        }
+        return null;
+    }
+
+    private final class PipeFluidHandler implements IFluidHandler {
+        @Nullable
+        private final Direction side;
+
+        private PipeFluidHandler(@Nullable Direction side) {
+            this.side = side;
+        }
+
+        @Override
+        public int getTanks() {
+            return 1;
+        }
+
+        @Override
+        public FluidStack getFluidInTank(int tank) {
+            return FluidStack.EMPTY;
+        }
+
+        @Override
+        public int getTankCapacity(int tank) {
+            return 0;
+        }
+
+        @Override
+        public boolean isFluidValid(int tank, FluidStack stack) {
+            if (tank != 0 || stack.isEmpty()) {
+                return false;
+            }
+            HbmFluidDefinition fluid = HbmFluids.fromNeoFluid(stack.getFluid()).orElse(HbmFluids.none());
+            return canConnectFrom(side, fluid);
+        }
+
+        @Override
+        public int fill(FluidStack resource, FluidAction action) {
+            Level level = FluidPipeBlockEntity.this.level;
+            if (level == null || resource.isEmpty()) {
+                return 0;
+            }
+            HbmFluidDefinition fluid = HbmFluids.fromNeoFluid(resource.getFluid()).orElse(HbmFluids.none());
+            if (!canConnectFrom(side, fluid)) {
+                return 0;
+            }
+            BlockPos excluded = side == null ? null : worldPosition.relative(side);
+            return HbmFluidNetworks.fillPipeNetwork(level, worldPosition, fluid, resource, excluded, action.execute());
+        }
+
+        @Override
+        public FluidStack drain(FluidStack resource, FluidAction action) {
+            if (resource.isEmpty()) {
+                return FluidStack.EMPTY;
+            }
+            HbmFluidDefinition fluid = HbmFluids.fromNeoFluid(resource.getFluid()).orElse(HbmFluids.none());
+            if (!canConnectFrom(side, fluid)) {
+                return FluidStack.EMPTY;
+            }
+            return drainFromNetwork(fluid, resource.getAmount(), action);
+        }
+
+        @Override
+        public FluidStack drain(int maxDrain, FluidAction action) {
+            if (maxDrain <= 0 || !open) {
+                return FluidStack.EMPTY;
+            }
+            for (HbmFluidDefinition fluid : connectableFluidTypes()) {
+                FluidStack drained = drainFromNetwork(fluid, maxDrain, action);
+                if (!drained.isEmpty()) {
+                    return drained;
+                }
+            }
+            return FluidStack.EMPTY;
+        }
+
+        private FluidStack drainFromNetwork(HbmFluidDefinition fluid, int maxDrain, FluidAction action) {
+            Level level = FluidPipeBlockEntity.this.level;
+            if (level == null || maxDrain <= 0 || !canConnectFrom(side, fluid)) {
+                return FluidStack.EMPTY;
+            }
+            BlockPos excluded = side == null ? null : worldPosition.relative(side);
+            return HbmFluidNetworks.drainFromPipeNetwork(level, worldPosition, fluid, maxDrain, excluded, action.execute());
+        }
+    }
+
+    // [parity U2: ROR] only TileEntityFluidCounterValve and TileEntityPipeGauge were ROR components
+    private long rttyDeltaTick;
+    private long rttyDeltaSecond;
+    private long rttyDeltaLastSecond;
+
+    @Nullable
+    private FluidDuctBlock.Kind rttyKind() {
+        return getBlockState().getBlock() instanceof FluidDuctBlock duct ? duct.kind() : null;
+    }
+
+    @Override
+    public boolean rttyProvidesValues() {
+        return rttyKind() == FluidDuctBlock.Kind.COUNTER_VALVE || rttyKind() == FluidDuctBlock.Kind.GAUGE;
+    }
+
+    @Override
+    public boolean rttyInteractive() {
+        return rttyKind() == FluidDuctBlock.Kind.COUNTER_VALVE;
+    }
+
+    /** TileEntityPipeGauge#updateEntity: deltaTick = net fluidTracker, deltaLastSecond rolls every 20 world ticks. */
+    private void rttyGaugeTick() {
+        Level level = this.level;
+        if (level == null || level.isClientSide || this.type.isNone()) return;
+        this.rttyDeltaTick = HbmFluidNetworks.lastTransfer(level, this.worldPosition, this.type);
+        if (level.getGameTime() % 20 == 0) {
+            this.rttyDeltaLastSecond = this.rttyDeltaSecond;
+            this.rttyDeltaSecond = 0;
+        }
+        this.rttyDeltaSecond += this.rttyDeltaTick;
+    }
+}

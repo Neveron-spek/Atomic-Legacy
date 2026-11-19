@@ -1,0 +1,11 @@
+{
+  "type": "atomiclegacy:breeder_reactor",
+  "group": "breeder.weapon",
+  "ingredient": {
+    "item": "atomiclegacy:meteorite_sword_etched"
+  },
+  "result": {
+    "id": "atomiclegacy:meteorite_sword_bred"
+  },
+  "flux": 1000
+}

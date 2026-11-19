@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:crate_iron",
+    "atomiclegacy:crate_steel",
+    "atomiclegacy:crate_desh",
+    "atomiclegacy:crate_template",
+    "atomiclegacy:crate_tungsten"
+  ]
+}

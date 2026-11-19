@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WRW",
+    "RIR",
+    "WRW"
+  ],
+  "key": {
+    "W": {
+      "tag": "c:plates/steel"
+    },
+    "I": {
+      "tag": "c:ingots/red_copper"
+    },
+    "R": {
+      "item": "atomiclegacy:wire_red_copper"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:red_cable_paintable",
+    "count": 16
+  }
+}

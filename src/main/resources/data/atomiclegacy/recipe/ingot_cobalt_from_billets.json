@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:billet_cobalt"
+    },
+    {
+      "item": "atomiclegacy:billet_cobalt"
+    },
+    {
+      "item": "atomiclegacy:billet_cobalt"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:ingot_cobalt",
+    "count": 2
+  }
+}

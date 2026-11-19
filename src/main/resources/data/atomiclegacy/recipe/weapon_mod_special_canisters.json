@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " R ",
+    "CCC",
+    "SSS"
+  ],
+  "key": {
+    "R": {
+      "tag": "c:pipes/rubber"
+    },
+    "C": {
+      "item": "atomiclegacy:canister_empty"
+    },
+    "S": {
+      "tag": "c:plates/steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_canisters",
+    "count": 1
+  }
+}

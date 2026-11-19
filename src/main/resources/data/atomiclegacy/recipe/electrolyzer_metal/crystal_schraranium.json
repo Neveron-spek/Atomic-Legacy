@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:electrolyzer_metal","ingredient":{"item":"atomiclegacy:crystal_schraranium"},"output1":{"material":"schrabidium","amount":40},"output2":{"material":"uranium","amount":16},"byproducts":[{"id":"atomiclegacy:nugget_neptunium","count":2}]}

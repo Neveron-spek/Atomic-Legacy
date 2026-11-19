@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/machine_pumpjack" },
+    "facing=east": { "model": "atomiclegacy:block/particle/machine_pumpjack" },
+    "facing=south": { "model": "atomiclegacy:block/particle/machine_pumpjack" },
+    "facing=west": { "model": "atomiclegacy:block/particle/machine_pumpjack" }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["LCR"],
+  "key": {
+    "L": { "tag": "c:crops/carrot" },
+    "C": { "item": "atomiclegacy:rag" },
+    "R": { "item": "atomiclegacy:circuit_vacuum_tube" }
+  },
+  "result": {
+    "id": "atomiclegacy:plushie",
+    "components": {
+      "minecraft:custom_data": { "type": "yomi" },
+      "minecraft:custom_model_data": 1
+    }
+  }
+}

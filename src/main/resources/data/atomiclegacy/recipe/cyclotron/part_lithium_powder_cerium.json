@@ -1,0 +1,15 @@
+﻿{
+    "type":  "atomiclegacy:cyclotron",
+    "group":  "cyclotron",
+    "particle":  {
+                     "item":  "atomiclegacy:part_lithium"
+                 },
+    "input":  {
+                  "tag":  "c:dusts/lanthanium"
+              },
+    "output":  {
+                   "id":  "atomiclegacy:powder_cerium"
+               },
+    "antimatter":  50
+}
+

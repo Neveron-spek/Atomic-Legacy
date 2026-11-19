@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "tag": "c:ingots/silicon"
+  },
+  "acid": {
+    "fluid": "oxygen",
+    "amount": 250
+  },
+  "duration": 100,
+  "productivity": 0.1,
+  "result": {
+    "id": "minecraft:quartz",
+    "count": 2
+  }
+}

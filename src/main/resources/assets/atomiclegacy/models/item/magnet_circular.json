@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/magnet_circular"
+                 },
+    "parent":  "minecraft:item/generated"
+}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CCC",
+    "SLS",
+    "TST"
+  ],
+  "key": {
+    "C": {
+      "tag": "c:plates/copper"
+    },
+    "S": {
+      "item": "minecraft:stone"
+    },
+    "L": {
+      "type": "atomiclegacy:legacy_fluid_container",
+      "fluid": "lava",
+      "amount": 1000
+    },
+    "T": {
+      "tag": "c:ingots/tungsten"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:press_preheater"
+  }
+}

@@ -1,0 +1,11 @@
+﻿{
+    "type":  "atomiclegacy:solidification",
+    "group":  "solidifier.reformgas",
+    "input":  {
+                  "fluid":  "reformgas",
+                  "amount":  170
+              },
+    "output":  {
+                   "id":  "atomiclegacy:solid_fuel"
+               }
+}

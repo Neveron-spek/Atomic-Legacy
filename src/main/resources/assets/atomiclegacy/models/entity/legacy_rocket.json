@@ -1,0 +1,25 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/projectiles/projectiles.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": false,
+  "mtl_override": "atomiclegacy:models/obj/projectiles/legacy_rocket.mtl",
+  "visibility": {
+    "Flechette": false,
+    "Balefire": false,
+    "Grenade": false,
+    "MiniMIRV": false,
+    "Buckshot": false,
+    "BulletPistol": false,
+    "BulletRifle": false,
+    "MissileMIRV": false,
+    "Rocket": true,
+    "MiniNuke": false
+  },
+  "textures": {
+    "particle": "atomiclegacy:models/projectiles/himars_standard",
+    "grenade": "atomiclegacy:models/projectiles/himars_standard"
+  }
+}

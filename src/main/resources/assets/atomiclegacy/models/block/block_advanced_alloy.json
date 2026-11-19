@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/block_advanced_alloy"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

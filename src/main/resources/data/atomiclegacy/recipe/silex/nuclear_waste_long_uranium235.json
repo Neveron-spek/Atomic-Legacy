@@ -1,0 +1,42 @@
+{
+    "type": "atomiclegacy:silex",
+    "group": "silex.nuclear_waste_long_uranium235",
+    "ingredient": {
+        "type": "neoforge:components",
+        "items": [
+            "atomiclegacy:nuclear_waste_long"
+        ],
+        "components": {
+            "minecraft:custom_data": "{waste_class:0}"
+        }
+    },
+    "fluid_produced": 900,
+    "fluid_consumed": 100,
+    "wavelength": "ir",
+    "outputs": [
+        {
+            "item": {
+                "id": "atomiclegacy:nugget_neptunium"
+            },
+            "weight": 20
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:nugget_pu239"
+            },
+            "weight": 45
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:nugget_pu240"
+            },
+            "weight": 20
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:nugget_technetium"
+            },
+            "weight": 15
+        }
+    ]
+}

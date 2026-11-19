@@ -1,0 +1,8 @@
+﻿{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/boat" },
+    "facing=east": { "model": "atomiclegacy:block/boat" },
+    "facing=south": { "model": "atomiclegacy:block/boat" },
+    "facing=west": { "model": "atomiclegacy:block/boat" }
+  }
+}

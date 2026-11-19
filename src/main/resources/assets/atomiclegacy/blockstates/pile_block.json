@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "kind=dummy": { "model": "atomiclegacy:block/pile_block" },
+    "kind=core": { "model": "atomiclegacy:block/pile_block_core" },
+    "kind=channel": { "model": "atomiclegacy:block/pile_block" },
+    "kind=fuel_in": { "model": "atomiclegacy:block/pile_block_input" },
+    "kind=fuel_out": { "model": "atomiclegacy:block/pile_block_output" },
+    "kind=air_in": { "model": "atomiclegacy:block/pile_block_input" },
+    "kind=air_out": { "model": "atomiclegacy:block/pile_block_output" },
+    "kind=control": { "model": "atomiclegacy:block/pile_block_control" },
+    "kind=edge": { "model": "atomiclegacy:block/pile_block" }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "trap=0": { "model": "atomiclegacy:block/brick_jungle_trap" },
+    "trap=1": { "model": "atomiclegacy:block/brick_jungle_trap" },
+    "trap=2": { "model": "atomiclegacy:block/brick_jungle_trap" },
+    "trap=3": { "model": "atomiclegacy:block/brick_jungle_trap" },
+    "trap=4": { "model": "atomiclegacy:block/brick_jungle_trap" },
+    "trap=5": { "model": "atomiclegacy:block/brick_jungle_trap" },
+    "trap=6": { "model": "atomiclegacy:block/brick_jungle_trap" },
+    "trap=7": { "model": "atomiclegacy:block/brick_jungle_trap" },
+    "trap=8": { "model": "atomiclegacy:block/brick_jungle_trap" },
+    "trap=9": { "model": "atomiclegacy:block/brick_jungle_trap" },
+    "trap=10": { "model": "atomiclegacy:block/brick_jungle_trap" },
+    "trap=11": { "model": "atomiclegacy:block/brick_jungle_trap" },
+    "trap=12": { "model": "atomiclegacy:block/brick_jungle_trap" },
+    "trap=13": { "model": "atomiclegacy:block/brick_jungle_trap" },
+    "trap=14": { "model": "atomiclegacy:block/brick_jungle_trap" }
+  }
+}

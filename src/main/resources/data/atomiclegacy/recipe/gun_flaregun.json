@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BRM",
+    "  G"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:gun_parts/barrel_heavy/steel"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_light/steel"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/gunmetal"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_flaregun",
+    "count": 1
+  }
+}

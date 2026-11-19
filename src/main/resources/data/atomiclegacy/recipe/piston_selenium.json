@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "STS",
+    " D "
+  ],
+  "key": {
+    "S": {
+      "tag": "c:plates/steel"
+    },
+    "T": {
+      "tag": "c:ingots/tungsten"
+    },
+    "D": {
+      "item": "atomiclegacy:bolt_dura_steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:piston_selenium"
+  }
+}

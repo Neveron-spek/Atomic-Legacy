@@ -1,0 +1,7 @@
+{
+  "type": "atomiclegacy:coking",
+  "group": "coking.slop",
+  "input": { "fluid": "slop", "amount": 1000 },
+  "output": { "id": "atomiclegacy:powder_limestone" },
+  "byproduct": { "fluid": "colloid", "amount": 250 }
+}

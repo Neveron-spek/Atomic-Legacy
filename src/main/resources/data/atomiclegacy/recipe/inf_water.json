@@ -1,0 +1,30 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_infinite_water_tank_recipes"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AAA",
+    "WDW",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "tag": "c:plates/aluminium"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "W": {
+      "type": "atomiclegacy:legacy_fluid_container",
+      "fluid": "water",
+      "amount": 1000
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:inf_water"
+  }
+}

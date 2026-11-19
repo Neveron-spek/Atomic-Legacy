@@ -1,0 +1,18 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.partlith",
+  "duration": 40,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "tag": "c:dusts/lithium"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:part_lithium",
+    "count": 8
+  }
+}

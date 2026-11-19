@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BMG",
+    "BRE",
+    "BGM"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:gun_parts/barrel_light/any_resistantalloy"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/any_plastic"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_heavy/any_resistantalloy"
+    },
+    "E": {
+      "item": "atomiclegacy:motor_desh"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_minigun",
+    "count": 1
+  }
+}

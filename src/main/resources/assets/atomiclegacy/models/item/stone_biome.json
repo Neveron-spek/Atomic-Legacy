@@ -1,0 +1,6 @@
+{
+  "parent": "atomiclegacy:block/stone_biome_desert_exposed",
+  "overrides": [
+    { "predicate": { "minecraft:custom_model_data": 1 }, "model": "atomiclegacy:block/stone_biome_woodland_exposed" }
+  ]
+}

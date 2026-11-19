@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.wiring",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_gold"
+      },
+      "count": 24
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:gadget_wireing"
+  }
+}

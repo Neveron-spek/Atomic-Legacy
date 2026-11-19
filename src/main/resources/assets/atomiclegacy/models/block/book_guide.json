@@ -1,0 +1,12 @@
+{
+    "textures":  {
+                     "down":  "atomiclegacy:block/guide_bottom",
+                     "up":  "atomiclegacy:block/guide_top",
+                     "north":  "atomiclegacy:block/guide_front",
+                     "south":  "atomiclegacy:block/guide_back",
+                     "west":  "atomiclegacy:block/guide_side_left",
+                     "east":  "atomiclegacy:block/guide_side_right",
+                     "particle":  "atomiclegacy:block/guide_side_left"
+                 },
+    "parent":  "minecraft:block/cube"
+}

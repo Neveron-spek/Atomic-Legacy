@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/red_wire_sealed"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

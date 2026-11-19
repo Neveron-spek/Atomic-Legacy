@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CCC",
+    "BRB",
+    "MGE"
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:coil_copper"
+    },
+    "B": {
+      "tag": "c:gun_parts/barrel_heavy/any_resistantalloy"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_heavy/any_resistantalloy"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/any_plastic"
+    },
+    "E": {
+      "item": "atomiclegacy:circuit_advanced"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_tesla_cannon",
+    "count": 1
+  }
+}

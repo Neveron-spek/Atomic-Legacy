@@ -1,0 +1,28 @@
+{
+  "parent": "atomiclegacy:watz",
+  "display": {
+    "icon": {
+      "id": "atomiclegacy:bucket_mud"
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.watz_boom.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.watz_boom.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "triggered"
+    ]
+  ]
+}

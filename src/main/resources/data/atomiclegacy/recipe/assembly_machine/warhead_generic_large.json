@@ -1,0 +1,30 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.warheadhe3",
+  "duration": 400,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "tag": "c:plates/titanium"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/high_explosive"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_advanced"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:warhead_generic_large",
+    "count": 1
+  }
+}

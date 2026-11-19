@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " W ",
+    "RRR",
+    " W "
+  ],
+  "key": {
+    "W": {
+      "tag": "c:plates/polymer"
+    },
+    "R": {
+      "item": "atomiclegacy:wire_red_copper"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:red_cable",
+    "count": 16
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "parent": "atomiclegacy:block/block_coke",
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 1
+      },
+      "model": "atomiclegacy:item/block_coke_lignite"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 2
+      },
+      "model": "atomiclegacy:item/block_coke_petroleum"
+    }
+  ]
+}

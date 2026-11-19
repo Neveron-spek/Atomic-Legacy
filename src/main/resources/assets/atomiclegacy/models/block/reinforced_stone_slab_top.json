@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "atomiclegacy:block/reinforced_stone",
+    "top": "atomiclegacy:block/reinforced_stone",
+    "side": "atomiclegacy:block/reinforced_stone"
+  }
+}

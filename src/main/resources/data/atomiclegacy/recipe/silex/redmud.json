@@ -1,0 +1,58 @@
+{
+  "type": "atomiclegacy:silex",
+  "group": "silex.redmud",
+  "fluid_input": "redmud",
+  "fluid_produced": 300,
+  "fluid_consumed": 50,
+  "wavelength": "visible",
+  "outputs": [
+    {
+      "item": {
+        "id": "atomiclegacy:powder_aluminium"
+      },
+      "weight": 10
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:powder_neodymium_tiny",
+        "count": 3
+      },
+      "weight": 5
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:powder_boron_tiny",
+        "count": 3
+      },
+      "weight": 5
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:nugget_zirconium",
+        "count": 1
+      },
+      "weight": 5
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:powder_iron",
+        "count": 1
+      },
+      "weight": 20
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:powder_titanium",
+        "count": 1
+      },
+      "weight": 15
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:powder_sodium",
+        "count": 1
+      },
+      "weight": 10
+    }
+  ]
+}

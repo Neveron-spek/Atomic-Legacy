@@ -1,0 +1,54 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.stealthmissile",
+  "duration": 1200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "tag": "c:plates/titanium"
+      },
+      "count": 20
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/aluminium"
+      },
+      "count": 20
+    },
+    {
+      "ingredient": {
+        "tag": "c:dyes/black"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/hard_plastic"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/high_explosive"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_advanced"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:bolt_steel"
+      },
+      "count": 32
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:missile_stealth",
+    "count": 1
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "atomiclegacy:platemetal"
+      },
+      {
+        "item": "atomiclegacy:platemetal_black"
+      },
+      {
+        "item": "atomiclegacy:platemetal_white"
+      },
+      {
+        "item": "atomiclegacy:platemetal_red"
+      },
+      {
+        "item": "atomiclegacy:platemetal_green"
+      },
+      {
+        "item": "atomiclegacy:platemetal_light_gray"
+      },
+      {
+        "item": "atomiclegacy:platemetal_blue"
+      },
+      {
+        "item": "atomiclegacy:platemetal_purple"
+      },
+      {
+        "item": "atomiclegacy:platemetal_cyan"
+      },
+      {
+        "item": "atomiclegacy:platemetal_pink"
+      },
+      {
+        "item": "atomiclegacy:platemetal_lime"
+      },
+      {
+        "item": "atomiclegacy:platemetal_yellow"
+      },
+      {
+        "item": "atomiclegacy:platemetal_light_blue"
+      },
+      {
+        "item": "atomiclegacy:platemetal_magenta"
+      },
+      {
+        "item": "atomiclegacy:platemetal_orange"
+      }
+    ]
+  ],
+  "result": {
+    "id": "atomiclegacy:platemetal",
+    "count": 1
+  }
+}

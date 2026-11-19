@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:fluid_tank_full"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "fluid": "peroxide"
+        }
+      }
+    },
+    {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:gun_b92_ammo"
+      ],
+      "components": {
+        "minecraft:custom_data": "{energy:25}"
+      }
+    },
+    {
+      "tag": "c:wires/copper"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:weaponized_starblaster_cell",
+    "count": 1
+  }
+}

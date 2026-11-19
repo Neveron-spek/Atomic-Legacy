@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [" C ", "LCR", " C "],
+  "key": {
+    "L": { "item": "atomiclegacy:cigarette" },
+    "C": { "item": "atomiclegacy:rag" },
+    "R": { "tag": "c:gems/coal" }
+  },
+  "result": {
+    "id": "atomiclegacy:plushie",
+    "components": {
+      "minecraft:custom_data": { "type": "numbernine" },
+      "minecraft:custom_model_data": 2
+    }
+  }
+}

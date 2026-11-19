@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/block_meteor_broken"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

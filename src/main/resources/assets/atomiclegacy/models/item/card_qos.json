@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/card_qos"
+                 },
+    "parent":  "minecraft:item/generated"
+}

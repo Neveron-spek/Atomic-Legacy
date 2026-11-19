@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " M ",
+    "MAM",
+    " M "
+  ],
+  "key": {
+    "M": {
+      "tag": "c:gun_parts/mechanism/saturnite"
+    },
+    "A": {
+      "item": "atomiclegacy:gun_autoshotgun"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_autoshotgun_shredder",
+    "count": 1
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/powder_australium"
+                 },
+    "parent":  "minecraft:item/generated"
+}

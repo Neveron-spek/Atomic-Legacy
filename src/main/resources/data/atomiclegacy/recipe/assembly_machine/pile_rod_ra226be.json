@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.pilepabe",
+  "duration": 40,
+  "power": 200,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:billet_ra226be"
+      },
+      "count": 3
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:pile_rod_ra226be"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:can_empty"
+    },
+    {
+      "type": "neoforge:components",
+      "items": "minecraft:potion",
+      "components": {
+        "minecraft:potion_contents": {
+          "potion": "minecraft:water"
+        }
+      }
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "type": "atomiclegacy:legacy_fluid_container",
+      "fluid": "diesel",
+      "amount": 1000
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:can_creature"
+  }
+}

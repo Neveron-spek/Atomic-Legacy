@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/powder_coltan_ore"
+                 },
+    "parent":  "minecraft:item/generated"
+}

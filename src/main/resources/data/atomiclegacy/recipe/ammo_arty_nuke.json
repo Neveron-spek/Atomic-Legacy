@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "type": "neoforge:components", "items": ["atomiclegacy:ammo_arty"], "components": { "minecraft:custom_data": { "variant": "ammo_arty_he" }, "minecraft:custom_model_data": 2 } },
+    { "item": "atomiclegacy:boy_bullet" },
+    { "item": "atomiclegacy:boy_target" },
+    { "item": "atomiclegacy:boy_shielding" },
+    { "item": "atomiclegacy:circuit_controller" },
+    { "item": "atomiclegacy:ducttape" }
+  ],
+  "result": { "id": "atomiclegacy:ammo_arty", "components": { "minecraft:custom_data": { "variant": "ammo_arty_nuke" }, "minecraft:custom_model_data": 4 } }
+}

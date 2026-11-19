@@ -1,0 +1,40 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.bmg50_ap",
+  "order": 38,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/weaponsteel"
+      },
+      "count": 2
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      },
+      "count": 6
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_large_steel"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 12,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "bmg50_ap"
+      },
+      "minecraft:custom_model_data": 3
+    }
+  }
+}

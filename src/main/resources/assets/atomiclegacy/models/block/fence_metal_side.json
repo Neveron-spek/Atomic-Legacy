@@ -1,0 +1,8 @@
+{
+    "ambientocclusion": false,
+    "render_type": "minecraft:cutout",
+    "parent": "atomiclegacy:block/fence_flat_side",
+    "textures": {
+        "texture": "atomiclegacy:block/fence_metal"
+    }
+}

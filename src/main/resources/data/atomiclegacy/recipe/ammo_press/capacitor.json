@@ -1,0 +1,39 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.capacitor",
+  "order": 76,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/plastic"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:billets/silicon"
+      },
+      "count": 4
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/plastic"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 4,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "capacitor"
+      },
+      "minecraft:custom_model_data": 76
+    }
+  }
+}

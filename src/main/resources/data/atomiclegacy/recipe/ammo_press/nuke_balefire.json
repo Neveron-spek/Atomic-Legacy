@@ -1,0 +1,33 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.nuke_balefire",
+  "order": 87,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:egg_balefire_shard"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:assembly_nuke"
+      }
+    },
+    {},
+    {},
+    {},
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "nuke_balefire"
+      },
+      "minecraft:custom_model_data": 25
+    }
+  }
+}

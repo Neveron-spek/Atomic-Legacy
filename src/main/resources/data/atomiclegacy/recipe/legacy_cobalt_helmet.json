@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "ECE"
+  ],
+  "key": {
+    "E": {
+      "item": "atomiclegacy:billet_cobalt"
+    },
+    "C": {
+      "item": "atomiclegacy:steel_helmet"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:cobalt_helmet"
+  }
+}

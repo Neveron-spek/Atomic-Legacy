@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:page_of_page1"
+    },
+    {
+      "item": "atomiclegacy:page_of_page2"
+    },
+    {
+      "item": "atomiclegacy:page_of_page3"
+    },
+    {
+      "item": "atomiclegacy:page_of_page4"
+    },
+    {
+      "item": "atomiclegacy:page_of_page5"
+    },
+    {
+      "item": "atomiclegacy:page_of_page6"
+    },
+    {
+      "item": "atomiclegacy:page_of_page7"
+    },
+    {
+      "item": "atomiclegacy:page_of_page8"
+    },
+    {
+      "item": "atomiclegacy:egg_balefire"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:book_of_"
+  }
+}

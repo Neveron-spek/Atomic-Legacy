@@ -1,0 +1,10 @@
+{
+  "parent": "atomiclegacy:block/sellafield_0",
+  "overrides": [
+    { "predicate": { "custom_model_data": 1 }, "model": "atomiclegacy:item/sellafield_1" },
+    { "predicate": { "custom_model_data": 2 }, "model": "atomiclegacy:item/sellafield_2" },
+    { "predicate": { "custom_model_data": 3 }, "model": "atomiclegacy:item/sellafield_3" },
+    { "predicate": { "custom_model_data": 4 }, "model": "atomiclegacy:item/sellafield_4" },
+    { "predicate": { "custom_model_data": 5 }, "model": "atomiclegacy:item/sellafield_5" }
+  ]
+}

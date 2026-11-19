@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "atomiclegacy:coke_lignite"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:block_coke",
+    "components": {
+      "minecraft:custom_data": {
+        "type": "lignite"
+      },
+      "minecraft:custom_model_data": 1
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "type": "atomiclegacy:purex",
+  "duration": 300,
+  "power": 1000,
+  "input_items": [
+    {
+      "ingredient": {
+        "type": "neoforge:components",
+        "items": [
+          "atomiclegacy:sand_mix"
+        ],
+        "components": {
+          "minecraft:custom_data": {
+            "variant": "lead"
+          }
+        }
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:nuclear_waste"
+      },
+      "count": 4
+    }
+  ],
+  "output_items": [
+    {
+      "id": "atomiclegacy:nuclear_waste_vitrified",
+      "count": 4
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+    "type":  "atomiclegacy:centrifuge",
+    "group":  "centrifuge",
+    "ingredient":  {
+                       "tag":  "c:raw_materials/cobalt"
+                   },
+    "input_count":  4,
+    "results":  [
+                    {
+                        "id":  "atomiclegacy:powder_cobalt",
+                        "count":  6
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_iron",
+                        "count":  3
+                    },
+                    {
+                        "id":  "atomiclegacy:powder_copper",
+                        "count":  3
+                    },
+                    {
+                        "id":  "minecraft:gravel",
+                        "count":  4
+                    }
+                ]
+}

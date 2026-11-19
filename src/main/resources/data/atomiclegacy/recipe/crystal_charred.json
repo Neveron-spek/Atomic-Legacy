@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:dusts/strontium"
+    },
+    {
+      "tag": "c:dusts/cobalt"
+    },
+    {
+      "tag": "c:dusts/bromine"
+    },
+    {
+      "tag": "c:dusts/niobium"
+    },
+    {
+      "tag": "c:dusts/tennessine"
+    },
+    {
+      "tag": "c:dusts/cerium"
+    },
+    {
+      "item": "atomiclegacy:block_meteor"
+    },
+    {
+      "tag": "c:storage_blocks/aluminium"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:crystal_charred"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "atomiclegacy:block/rbmk_indicator",
+  "visibility": {
+    "Base": true,
+    "Light": false
+  }
+}

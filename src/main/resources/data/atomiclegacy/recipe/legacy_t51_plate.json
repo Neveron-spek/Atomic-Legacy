@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MPM",
+    "TBT",
+    "PPP"
+  ],
+  "key": {
+    "M": {
+      "item": "atomiclegacy:motor"
+    },
+    "P": {
+      "tag": "c:plates/armor_titanium"
+    },
+    "T": {
+      "item": "atomiclegacy:gas_empty"
+    },
+    "B": {
+      "item": "atomiclegacy:titanium_plate"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:t51_plate"
+  }
+}

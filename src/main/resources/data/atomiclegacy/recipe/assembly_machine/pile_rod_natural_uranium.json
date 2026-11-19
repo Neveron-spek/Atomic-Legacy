@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.pilenu",
+  "duration": 40,
+  "power": 200,
+  "ingredients": [
+    {
+      "ingredient": {
+        "tag": "c:billets/uranium"
+      },
+      "count": 3
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:pile_rod_nu"
+  }
+}

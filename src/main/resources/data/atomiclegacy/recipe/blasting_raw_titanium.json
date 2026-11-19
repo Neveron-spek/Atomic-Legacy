@@ -1,0 +1,12 @@
+{
+    "type":  "minecraft:blasting",
+    "category":  "misc",
+    "ingredient":  {
+                       "item":  "atomiclegacy:raw_titanium"
+                   },
+    "result":  {
+                   "id":  "atomiclegacy:ingot_titanium"
+               },
+    "experience":  3,
+    "cookingtime":  100
+}

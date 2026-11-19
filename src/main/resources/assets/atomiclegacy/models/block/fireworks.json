@@ -1,0 +1,12 @@
+{
+    "parent": "minecraft:block/cube",
+    "textures": {
+        "particle": "atomiclegacy:block/fireworks_side",
+        "down": "atomiclegacy:block/fireworks_bottom",
+        "up": "atomiclegacy:block/fireworks_top",
+        "north": "atomiclegacy:block/fireworks_side",
+        "south": "atomiclegacy:block/fireworks_side",
+        "west": "atomiclegacy:block/fireworks_side",
+        "east": "atomiclegacy:block/fireworks_side"
+    }
+}

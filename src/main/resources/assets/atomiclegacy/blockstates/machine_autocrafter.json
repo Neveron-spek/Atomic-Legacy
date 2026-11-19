@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/machine_autocrafter" },
+    "facing=south": { "model": "atomiclegacy:block/machine_autocrafter" },
+    "facing=west": { "model": "atomiclegacy:block/machine_autocrafter" },
+    "facing=east": { "model": "atomiclegacy:block/machine_autocrafter" }
+  }
+}

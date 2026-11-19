@@ -1,0 +1,51 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.warheadthermonuke",
+  "duration": 600,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_titanium"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_lead"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:billet_pu239"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:ball_tatb"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller_advanced"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:warhead_mirv",
+    "count": 1
+  },
+  "blueprint_pools": [
+    "528.controller"
+  ],
+  "input_fluids": [
+    {
+      "fluid": "deuterium",
+      "amount": 4000
+    }
+  ]
+}

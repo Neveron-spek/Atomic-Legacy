@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "ingredient": { "item": "atomiclegacy:ore_nether_plutonium" },
+  "result": { "id": "atomiclegacy:ingot_plutonium" },
+  "experience": 12,
+  "cookingtime": 100
+}

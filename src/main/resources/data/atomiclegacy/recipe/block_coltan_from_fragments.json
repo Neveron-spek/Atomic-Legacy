@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "atomiclegacy:fragment_coltan"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:block_coltan"
+  }
+}

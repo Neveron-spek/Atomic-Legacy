@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": ["RPR", "RPR", " B "],
+  "key": {
+    "P": { "tag": "c:ingots/plastic" },
+    "R": { "item": "atomiclegacy:bolt_dura_steel" },
+    "B": {
+      "type": "atomiclegacy:battery",
+      "items": ["atomiclegacy:battery_pack"],
+      "components": {
+        "minecraft:custom_data": { "variant": "battery_lead" },
+        "minecraft:custom_model_data": 1
+      }
+    }
+  },
+  "result": { "id": "atomiclegacy:elec_sword" }
+}

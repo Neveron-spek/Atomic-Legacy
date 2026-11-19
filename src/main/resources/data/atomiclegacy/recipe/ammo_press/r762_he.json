@@ -1,0 +1,44 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.r762_he",
+  "order": 34,
+  "input": [
+    {
+      "ingredient": {
+        "tag": "c:ingots/high_explosive"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/ferrouranium"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      },
+      "count": 4
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_small_steel"
+      },
+      "count": 2
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 12,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "r762_he"
+      },
+      "minecraft:custom_model_data": 85
+    }
+  }
+}

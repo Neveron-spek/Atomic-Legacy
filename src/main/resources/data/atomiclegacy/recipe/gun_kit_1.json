@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:ingots/any_rubber"
+    },
+    {
+      "type": "atomiclegacy:legacy_fluid_container",
+      "fluid": "woodoil",
+      "amount": 1000
+    },
+    {
+      "tag": "c:ingots/iron"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:gun_kit_1",
+    "count": 1
+  }
+}

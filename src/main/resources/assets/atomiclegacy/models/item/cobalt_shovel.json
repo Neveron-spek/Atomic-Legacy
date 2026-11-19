@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/cobalt_shovel"
+                 },
+    "parent":  "minecraft:item/generated"
+}

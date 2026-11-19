@@ -1,0 +1,7 @@
+{
+  "parent": "atomiclegacy:block/rbmk_key_pad",
+  "visibility": {
+    "Socket": false,
+    "Button": true
+  }
+}

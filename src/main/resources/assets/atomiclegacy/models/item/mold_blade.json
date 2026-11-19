@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/mold_blade"
+                 },
+    "parent":  "minecraft:item/generated"
+}

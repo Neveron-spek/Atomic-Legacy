@@ -1,0 +1,22 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "side": "atomiclegacy:block/capacitor_bus_side",
+    "out": "atomiclegacy:block/capacitor_bus_out",
+    "particle": "atomiclegacy:block/capacitor_bus_side"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "down": {"texture": "#side"},
+        "up": {"texture": "#out"},
+        "north": {"texture": "#side"},
+        "south": {"texture": "#side"},
+        "west": {"texture": "#side"},
+        "east": {"texture": "#side"}
+      }
+    }
+  ]
+}

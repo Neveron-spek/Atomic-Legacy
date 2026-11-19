@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IAI",
+    "W W"
+  ],
+  "key": {
+    "I": {
+      "item": "atomiclegacy:plate_polymer"
+    },
+    "A": {
+      "tag": "c:dusts/aluminium"
+    },
+    "W": {
+      "tag": "c:wires/aluminium"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:circuit_capacitor",
+    "count": 2
+  }
+}

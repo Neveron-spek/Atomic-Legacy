@@ -1,0 +1,23 @@
+﻿{
+    "type":  "atomiclegacy:assembly_machine",
+    "group":  "ass.drilltcdiamond",
+    "duration":  100,
+    "power":  100,
+    "ingredients":  [
+                        {
+                            "count":  1,
+                            "ingredient":  {
+                                               "item":  "atomiclegacy:drillbit_tcalloy"
+                                           }
+                        },
+                        {
+                            "count":  48,
+                            "ingredient":  {
+                                               "tag":  "c:dusts/diamond"
+                                           }
+                        }
+                    ],
+    "result":  {
+                   "id":  "atomiclegacy:drillbit_tcalloy_diamond"
+               }
+}

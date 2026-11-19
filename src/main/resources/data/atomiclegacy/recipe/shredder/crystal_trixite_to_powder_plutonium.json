@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:crystal_trixite"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_plutonium",
+    "count": 6
+  }
+}

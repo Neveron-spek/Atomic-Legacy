@@ -1,0 +1,25 @@
+# Generated from HBM 1.7.10 SoyuzPronter part texture bindings
+newmtl engineblock
+map_Kd atomiclegacy:models/soyuz/engineblock
+newmtl bottomstage
+map_Kd atomiclegacy:models/soyuz/bottomstage
+newmtl topstage
+map_Kd atomiclegacy:models/soyuz/topstage
+newmtl payload
+map_Kd atomiclegacy:models/soyuz/payload
+newmtl payloadblocks
+map_Kd atomiclegacy:models/soyuz/payloadblocks
+newmtl les
+map_Kd atomiclegacy:models/soyuz/les
+newmtl lesthrusters
+map_Kd atomiclegacy:models/soyuz/lesthrusters
+newmtl mainengines
+map_Kd atomiclegacy:models/soyuz/mainengines
+newmtl sideengines
+map_Kd atomiclegacy:models/soyuz/sideengines
+newmtl booster
+map_Kd atomiclegacy:models/soyuz/booster
+newmtl boosterside
+map_Kd atomiclegacy:models/soyuz/boosterside
+newmtl memento
+map_Kd atomiclegacy:item/polaroid_memento

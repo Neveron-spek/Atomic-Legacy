@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "tag": "c:ingots/les"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:billet_les",
+    "count": 3
+  }
+}

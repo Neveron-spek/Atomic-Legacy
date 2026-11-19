@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/ladder_sturdy" },
+    "facing=east": { "model": "atomiclegacy:block/ladder_sturdy", "y": 90 },
+    "facing=south": { "model": "atomiclegacy:block/ladder_sturdy", "y": 180 },
+    "facing=west": { "model": "atomiclegacy:block/ladder_sturdy", "y": 270 }
+  }
+}

@@ -1,0 +1,43 @@
+{
+    "type": "atomiclegacy:precision_assembler",
+    "group": "precass.rpahelmet",
+    "blueprint_pools": [
+        "discover..rpa"
+    ],
+    "duration": 3600,
+    "power": 25000,
+    "ingredients": [
+        {
+            "ingredient": {
+                "item": "atomiclegacy:plate_armor_ajr"
+            },
+            "count": 12
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:plate_cast_saturnite"
+            },
+            "count": 4
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:circuit_advanced"
+            },
+            "count": 4
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:plate_kevlar"
+            },
+            "count": 8
+        }
+    ],
+    "outputs": [
+        {
+            "result": {
+                "id": "atomiclegacy:rpa_helmet"
+            },
+            "weight": 100
+        }
+    ]
+}

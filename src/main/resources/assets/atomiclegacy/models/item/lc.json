@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/lc"
+                 },
+    "parent":  "minecraft:item/generated"
+}

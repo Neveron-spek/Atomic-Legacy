@@ -1,0 +1,11 @@
+{
+  "type": "atomiclegacy:liquefaction",
+  "group": "liquefactor.ethanol",
+  "ingredient": {
+    "item": "minecraft:melon_slice"
+  },
+  "output": {
+    "fluid": "ethanol",
+    "amount": 100
+  }
+}

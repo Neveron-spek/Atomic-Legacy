@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:sat_chip"
+    },
+    {
+      "item": "atomiclegacy:ducttape"
+    },
+    {
+      "item": "atomiclegacy:radar_linker"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:sat_relay",
+    "count": 1
+  }
+}
+

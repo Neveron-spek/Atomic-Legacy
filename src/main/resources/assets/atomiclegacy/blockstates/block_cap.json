@@ -1,0 +1,10 @@
+﻿{
+    "variants": {
+        "type=nuka": { "model": "atomiclegacy:block/block_cap_nuka" },
+        "type=quantum": { "model": "atomiclegacy:block/block_cap_quantum" },
+        "type=sparkle": { "model": "atomiclegacy:block/block_cap_sparkle" },
+        "type=rad": { "model": "atomiclegacy:block/block_cap_rad" },
+        "type=korl": { "model": "atomiclegacy:block/block_cap_korl" },
+        "type=fritz": { "model": "atomiclegacy:block/block_cap_fritz" }
+    }
+}

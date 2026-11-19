@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "atomiclegacy:block/wand_logic"
+    },
+    "facing=south": {
+      "model": "atomiclegacy:block/wand_logic"
+    },
+    "facing=west": {
+      "model": "atomiclegacy:block/wand_logic"
+    },
+    "facing=east": {
+      "model": "atomiclegacy:block/wand_logic"
+    }
+  }
+}

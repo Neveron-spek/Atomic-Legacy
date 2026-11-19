@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:block_bakelite"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_bakelite",
+    "count": 9
+  }
+}

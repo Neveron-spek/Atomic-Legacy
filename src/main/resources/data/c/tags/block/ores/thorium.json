@@ -1,0 +1,7 @@
+{
+    "replace":  false,
+    "values":  [
+                   "atomiclegacy:ore_thorium",
+                   "atomiclegacy:ore_deepslate_thorium"
+               ]
+}

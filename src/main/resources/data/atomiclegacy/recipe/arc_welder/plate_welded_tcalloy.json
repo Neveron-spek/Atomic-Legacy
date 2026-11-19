@@ -1,0 +1,21 @@
+{
+  "type": "atomiclegacy:arc_welder",
+  "group": "arc_welder.plate_welded",
+  "duration": 1200,
+  "consumption": 1000000,
+  "fluid": {
+    "fluid": "oxygen",
+    "amount": 1000
+  },
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_tcalloy"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:plate_welded_tcalloy"
+  }
+}

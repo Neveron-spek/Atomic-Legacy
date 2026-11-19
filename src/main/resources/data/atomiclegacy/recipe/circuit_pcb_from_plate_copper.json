@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "I",
+    "P"
+  ],
+  "key": {
+    "I": {
+      "item": "atomiclegacy:plate_polymer"
+    },
+    "P": {
+      "tag": "c:plates/copper"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:circuit_pcb",
+    "count": 1
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:block_ra226"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_ra226",
+    "count": 9
+  }
+}

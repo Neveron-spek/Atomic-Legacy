@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/ballistite"
+                 },
+    "parent":  "minecraft:item/generated"
+}

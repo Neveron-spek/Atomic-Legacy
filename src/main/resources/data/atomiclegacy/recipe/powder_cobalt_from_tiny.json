@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "c:tiny_dusts/cobalt"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:powder_cobalt"
+  }
+}

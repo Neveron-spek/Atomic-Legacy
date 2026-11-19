@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/cmb_brick"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

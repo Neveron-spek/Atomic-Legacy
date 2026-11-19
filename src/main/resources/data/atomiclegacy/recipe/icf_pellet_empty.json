@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ZLZ",
+    "L L",
+    "ZLZ"
+  ],
+  "key": {
+    "Z": {
+      "item": "atomiclegacy:wire_zirconium"
+    },
+    "L": {
+      "item": "atomiclegacy:wire_lead"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:icf_pellet_empty"
+  }
+}

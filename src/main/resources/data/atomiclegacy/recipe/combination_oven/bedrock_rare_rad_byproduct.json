@@ -1,0 +1,30 @@
+{
+  "type": "atomiclegacy:combination_oven",
+  "group": "combination_oven.bedrock",
+  "input": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:bedrock_ore_new"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "grade": "rad_byproduct",
+        "type": "rare"
+      }
+    }
+  },
+  "output": {
+    "id": "atomiclegacy:bedrock_ore_new",
+    "components": {
+      "minecraft:custom_data": {
+        "grade": "rad_roasted",
+        "type": "rare"
+      },
+      "minecraft:custom_model_data": 140
+    }
+  },
+  "fluid": {
+    "fluid": "vitriol",
+    "amount": 50
+  }
+}

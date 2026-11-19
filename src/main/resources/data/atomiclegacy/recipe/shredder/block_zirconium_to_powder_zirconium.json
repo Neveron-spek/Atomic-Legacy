@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:block_zirconium"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_zirconium",
+    "count": 9
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.thermoelementsilicon",
+  "duration": 60,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "tag": "c:plates/steel"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_gold"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "tag": "c:silicon"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:thermo_element"
+  }
+}

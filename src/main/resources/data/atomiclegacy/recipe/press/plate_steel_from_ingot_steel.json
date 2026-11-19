@@ -1,0 +1,11 @@
+﻿{
+    "type":  "atomiclegacy:press",
+    "group":  "press.plate",
+    "stamp":  "plate",
+    "ingredient":  {
+                       "tag":  "c:ingots/steel"
+                   },
+    "result":  {
+                   "id":  "atomiclegacy:plate_steel"
+               }
+}

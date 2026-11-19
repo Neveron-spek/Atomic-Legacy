@@ -1,0 +1,12 @@
+{
+    "type":  "minecraft:blasting",
+    "category":  "misc",
+    "ingredient":  {
+                       "item":  "atomiclegacy:raw_cobalt"
+                   },
+    "result":  {
+                   "id":  "atomiclegacy:ingot_cobalt"
+               },
+    "experience":  2,
+    "cookingtime":  100
+}

@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ALA",
+    "LSL",
+    "ALA"
+  ],
+  "key": {
+    "A": {
+      "tag": "c:plates/dalekanium"
+    },
+    "L": {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:fluid_barrel_full"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "fluid": "lava"
+        }
+      }
+    },
+    "S": {
+      "item": "atomiclegacy:black_hole"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:ams_core_eyeofharmony"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/pile_loader" },
+    "facing=east": { "model": "atomiclegacy:block/particle/pile_loader" },
+    "facing=south": { "model": "atomiclegacy:block/particle/pile_loader" },
+    "facing=west": { "model": "atomiclegacy:block/particle/pile_loader" }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AAA",
+    "AAA",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "tag": "c:wires/magnetized_tungsten"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:ingot_magnetized_tungsten",
+    "count": 1
+  }
+}

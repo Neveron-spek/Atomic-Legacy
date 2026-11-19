@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/digamma_matter"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

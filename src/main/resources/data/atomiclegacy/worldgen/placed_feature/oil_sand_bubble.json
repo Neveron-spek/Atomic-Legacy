@@ -1,0 +1,8 @@
+{
+  "feature": "atomiclegacy:oil_sand_bubble",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

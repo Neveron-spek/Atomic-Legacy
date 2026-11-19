@@ -1,0 +1,25 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.satlink",
+  "duration": 100,
+  "power": 1000,
+  "ingredients": [
+    {
+      "ingredient": { "item": "atomiclegacy:steel_scaffold" },
+      "count": 16
+    },
+    {
+      "ingredient": { "tag": "c:plates/aluminium" },
+      "count": 16
+    },
+    {
+      "ingredient": { "item": "atomiclegacy:magnetron" },
+      "count": 3
+    },
+    {
+      "ingredient": { "item": "atomiclegacy:circuit_controller" },
+      "count": 1
+    }
+  ],
+  "result": { "id": "atomiclegacy:machine_satlink" }
+}

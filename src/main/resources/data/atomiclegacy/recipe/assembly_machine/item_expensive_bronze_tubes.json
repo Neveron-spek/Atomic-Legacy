@@ -1,0 +1,47 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.bronzetubes",
+  "duration": 3000,
+  "power": 250000,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_heavy_frame"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_ferro_plating"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_bismuth_bronze"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_welded_zirconium"
+      },
+      "count": 1
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "perfluoromethyl_cold",
+      "amount": 4000
+    }
+  ],
+  "output_fluids": [
+    {
+      "fluid": "perfluoromethyl",
+      "amount": 4000
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:item_expensive_bronze_tubes"
+  }
+}

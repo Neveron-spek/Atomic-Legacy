@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ingot_sr90"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_sr90"
+  }
+}

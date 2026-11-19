@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/warhead_nuclear"
+                 },
+    "parent":  "minecraft:item/generated"
+}

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/power_net_tool"
+                 },
+    "parent":  "minecraft:item/generated"
+}

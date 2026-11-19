@@ -1,0 +1,42 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.missileassembly",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:shell_aluminium"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:shell_titanium"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/plastic"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:rocket_fuel"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_basic"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:missile_assembly",
+    "count": 1
+  }
+}

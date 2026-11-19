@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/struct_launcher"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

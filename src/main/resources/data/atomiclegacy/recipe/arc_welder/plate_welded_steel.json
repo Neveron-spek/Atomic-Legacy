@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:arc_welder",
+  "group": "arc_welder.plate_welded",
+  "duration": 100,
+  "consumption": 500,
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_steel"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:plate_welded_steel"
+  }
+}

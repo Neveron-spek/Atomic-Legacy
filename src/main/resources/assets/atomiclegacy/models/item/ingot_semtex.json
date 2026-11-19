@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/ingot_semtex"
+                 },
+    "parent":  "minecraft:item/generated"
+}

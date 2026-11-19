@@ -1,0 +1,33 @@
+{
+  "type": "atomiclegacy:chemical_plant",
+  "group": "chem.ticl4",
+  "duration": 60,
+  "power": 500,
+  "input_items": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:chunk_ore_ilmenite"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "tag": "c:gems/coke"
+      },
+      "count": 1
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "chlorine",
+      "amount": 500
+    }
+  ],
+  "output_items": [],
+  "output_fluids": [
+    {
+      "fluid": "titanium_tetrachloride",
+      "amount": 4000
+    }
+  ]
+}

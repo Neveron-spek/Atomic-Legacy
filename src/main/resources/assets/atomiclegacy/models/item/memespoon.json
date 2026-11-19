@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/memespoon"
+                 },
+    "parent":  "minecraft:item/handheld"
+}

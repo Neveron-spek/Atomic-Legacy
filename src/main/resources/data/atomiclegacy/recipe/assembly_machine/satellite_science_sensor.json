@@ -1,0 +1,43 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_expensive_mode"
+      }
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.sensorrelay",
+  "duration": 600,
+  "power": 25000,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:shell_aluminium"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:coil_gold"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_quantum"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:part_generic_lde"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:satellite_science_sensor"
+  }
+}

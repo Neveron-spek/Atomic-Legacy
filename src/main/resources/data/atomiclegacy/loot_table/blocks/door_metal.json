@@ -1,0 +1,26 @@
+﻿{
+    "pools":  [
+                  {
+                      "entries":  [
+                                      {
+                                          "name":  "atomiclegacy:door_metal",
+                                          "type":  "minecraft:item"
+                                      }
+                                  ],
+                      "rolls":  1,
+                      "conditions":  [
+                                         {
+                                             "block":  "atomiclegacy:door_metal",
+                                             "condition":  "minecraft:block_state_property",
+                                             "properties":  {
+                                                               "half":  "lower"
+                                                           }
+                                         },
+                                         {
+                                             "condition":  "minecraft:survives_explosion"
+                                         }
+                                     ]
+                  }
+              ],
+    "type":  "minecraft:block"
+}

@@ -1,0 +1,36 @@
+﻿{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:rbmk_fuel_empty"
+    },
+    {
+      "item": "atomiclegacy:billet_australium_greater"
+    },
+    {
+      "item": "atomiclegacy:billet_australium_greater"
+    },
+    {
+      "item": "atomiclegacy:billet_australium_greater"
+    },
+    {
+      "item": "atomiclegacy:billet_australium_greater"
+    },
+    {
+      "item": "atomiclegacy:billet_australium_greater"
+    },
+    {
+      "item": "atomiclegacy:billet_australium_greater"
+    },
+    {
+      "item": "atomiclegacy:billet_australium_greater"
+    },
+    {
+      "item": "atomiclegacy:billet_australium_greater"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:rbmk_fuel_heaus"
+  }
+}

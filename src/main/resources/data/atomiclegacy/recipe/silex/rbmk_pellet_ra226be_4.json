@@ -1,0 +1,48 @@
+{
+    "type":  "atomiclegacy:silex",
+    "group":  "silex.rbmk_pellet_ra226be_4",
+    "ingredient":  {
+                       "type":  "neoforge:components",
+                       "items":  [
+                                     "atomiclegacy:rbmk_pellet_ra226be"
+                                 ],
+                       "components":  {
+                                          "minecraft:custom_model_data":  4
+                                      }
+                   },
+    "fluid_produced":  600,
+    "fluid_consumed":  100,
+    "wavelength":  "ir",
+    "outputs":  [
+                    {
+                        "item":  {
+                                     "id":  "atomiclegacy:nugget_ra226"
+                                 },
+                        "weight":  5
+                    },
+                    {
+                        "item":  {
+                                     "id":  "atomiclegacy:nugget_beryllium"
+                                 },
+                        "weight":  5
+                    },
+                    {
+                        "item":  {
+                                     "id":  "atomiclegacy:nugget_lead"
+                                 },
+                        "weight":  23
+                    },
+                    {
+                        "item":  {
+                                     "id":  "atomiclegacy:nugget_polonium"
+                                 },
+                        "weight":  22
+                    },
+                    {
+                        "item":  {
+                                     "id":  "atomiclegacy:powder_coal_tiny"
+                                 },
+                        "weight":  45
+                    }
+                ]
+}

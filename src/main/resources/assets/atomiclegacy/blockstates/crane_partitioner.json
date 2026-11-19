@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,active=true": {
+      "model": "atomiclegacy:block/crane_partitioner"
+    },
+    "facing=south,active=true": {
+      "model": "atomiclegacy:block/crane_partitioner",
+      "y": 90
+    },
+    "facing=west,active=true": {
+      "model": "atomiclegacy:block/crane_partitioner",
+      "y": 180
+    },
+    "facing=north,active=true": {
+      "model": "atomiclegacy:block/crane_partitioner",
+      "y": 270
+    },
+    "facing=east,active=false": {
+      "model": "atomiclegacy:block/crane_partitioner"
+    },
+    "facing=south,active=false": {
+      "model": "atomiclegacy:block/crane_partitioner",
+      "y": 90
+    },
+    "facing=west,active=false": {
+      "model": "atomiclegacy:block/crane_partitioner",
+      "y": 180
+    },
+    "facing=north,active=false": {
+      "model": "atomiclegacy:block/crane_partitioner",
+      "y": 270
+    }
+  }
+}

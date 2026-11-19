@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "N N",
+    "BSB"
+  ],
+  "key": {
+    "N": {
+      "tag": "c:plates/armor_lunar"
+    },
+    "S": {
+      "item": "atomiclegacy:starmetal_boots"
+    },
+    "B": {
+      "tag": "c:storage_blocks/starmetal"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:bj_boots"
+  }
+}

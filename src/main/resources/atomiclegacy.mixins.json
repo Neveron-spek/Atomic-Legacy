@@ -1,0 +1,26 @@
+{
+  "required": false,
+  "minVersion": "0.8",
+  "package": "com.atomiclegacy.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "sable.SubLevelAssemblyHelperMixin",
+    "sable.SableCommonEventsMixin",
+    "tom.PlacedFeatureMixin",
+    "tom.StructureStartMixin",
+    "tom.StructureTemplateMixin",
+    "parity.RangedAttributeMaxHealthMixin",
+    "parity.BlockBehaviourSoundAccessor"
+  ],
+  "client": [
+    "client.LevelRendererAccessor",
+    "client.AbstractClientPlayerCapeMixin",
+    "client.HumanoidModelGunPoseMixin",
+    "client.LevelLightEngineAccessor",
+    "client.LightEngineAccessor",
+    "client.LayerLightSectionStorageInvoker"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

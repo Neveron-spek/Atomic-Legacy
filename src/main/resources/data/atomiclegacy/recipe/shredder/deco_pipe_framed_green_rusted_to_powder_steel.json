@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:deco_pipe_framed_green_rusted"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_steel"
+  }
+}

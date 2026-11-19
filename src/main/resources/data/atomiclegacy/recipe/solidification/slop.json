@@ -1,0 +1,11 @@
+﻿{
+    "type":  "atomiclegacy:solidification",
+    "group":  "solidifier.slop",
+    "input":  {
+                  "fluid":  "slop",
+                  "amount":  250
+              },
+    "output":  {
+                   "id":  "atomiclegacy:ore_oil_sand"
+               }
+}

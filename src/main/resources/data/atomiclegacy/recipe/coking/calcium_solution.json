@@ -1,0 +1,7 @@
+{
+  "type": "atomiclegacy:coking",
+  "group": "coking.calcium_solution",
+  "input": { "fluid": "calcium_solution", "amount": 125 },
+  "output": { "id": "atomiclegacy:powder_calcium" },
+  "byproduct": { "fluid": "spentsteam", "amount": 100 }
+}

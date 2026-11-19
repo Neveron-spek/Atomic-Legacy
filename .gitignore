@@ -1,0 +1,74 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+.gradle-codex
+
+# local development artifacts
+.codex_tmp
+.codex_tmp*
+.tmp*
+.cache
+__pycache__
+.eclipse
+.vscode
+run-gametest
+run-server
+run-recipe-audit*
+/local-deps/*
+!/local-deps/compile-apis.json
+*.log
+
+# root-level extracted jars, decompiler output, and resource mirrors
+/META-INF/
+/assets/
+/com/
+/data/
+/legacy/
+/net/
+/org/
+/pack.mcmeta
+/parchment.json
+/tools/tmp_*
+
+# runtime
+run
+runs
+run-data
+src/generated/resources
+repo
+
+# Local reference source, verification runs and dependency caches
+/work/gradle-cache/
+/work/original/
+/work/pythonlibs/
+/work/prior-checks/
+/work/migration-manifest.json
+/run-building-audit/
+/outputs/
+/run-visual/
+
+# audit/test run directories
+/run-item-audit/
+/run-nuke-audit/
+/run-nuke-real/
+/run-recipe-audit*/
+# local build snapshots and scratch in work/
+/work/*.jar
+/work/*.sha256
+/work/tmp*/
+/work/merge-*.log

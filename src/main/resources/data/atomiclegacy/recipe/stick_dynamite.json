@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [" S ", "PDP", "PDP"],
+  "key": {
+    "S": { "item": "atomiclegacy:safety_fuse" },
+    "P": { "item": "minecraft:paper" },
+    "D": { "item": "atomiclegacy:ball_dynamite" }
+  },
+  "result": { "id": "atomiclegacy:stick_dynamite", "count": 4 }
+}

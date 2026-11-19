@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "atomiclegacy:concrete_smooth"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:concrete_slab",
+    "count": 6,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "concrete_smooth"
+      },
+      "minecraft:custom_model_data": 0
+    }
+  }
+}

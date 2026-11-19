@@ -1,0 +1,31 @@
+{
+  "type": "atomiclegacy:chemical_plant",
+  "group": "chem.schrabidic",
+  "duration": 60,
+  "power": 5000,
+  "input_items": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:pellet_charged"
+      },
+      "count": 1
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "sas3",
+      "amount": 2000
+    },
+    {
+      "fluid": "peroxide",
+      "amount": 2000
+    }
+  ],
+  "output_items": [],
+  "output_fluids": [
+    {
+      "fluid": "schrabidic",
+      "amount": 2000
+    }
+  ]
+}

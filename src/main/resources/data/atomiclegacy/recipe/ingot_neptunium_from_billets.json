@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:billet_neptunium"
+    },
+    {
+      "item": "atomiclegacy:billet_neptunium"
+    },
+    {
+      "item": "atomiclegacy:billet_neptunium"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:ingot_neptunium",
+    "count": 2
+  }
+}

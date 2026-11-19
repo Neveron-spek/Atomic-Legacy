@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.boybullet",
+  "duration": 200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "tag": "c:nuggets/u235"
+      },
+      "count": 9
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:boy_bullet"
+  }
+}

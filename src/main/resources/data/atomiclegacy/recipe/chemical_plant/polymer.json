@@ -1,0 +1,35 @@
+{
+  "type": "atomiclegacy:chemical_plant",
+  "group": "chem.polymer",
+  "duration": 100,
+  "power": 100,
+  "input_items": [
+    {
+      "ingredient": {
+        "tag": "c:dusts/coal"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "tag": "c:dusts/fluorite"
+      },
+      "count": 1
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "petroleum",
+      "amount": 1000,
+      "pressure": 1,
+      "pressure_528_only": true
+    }
+  ],
+  "output_items": [
+    {
+      "id": "atomiclegacy:ingot_polymer",
+      "count": 4
+    }
+  ],
+  "output_fluids": []
+}

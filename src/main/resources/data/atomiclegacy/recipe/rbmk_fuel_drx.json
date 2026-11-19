@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:rbmk_fuel_balefire"
+    },
+    { "item": "atomiclegacy:particle_digamma" }
+  ],
+  "result": {
+    "id": "atomiclegacy:rbmk_fuel_drx"
+  }
+}

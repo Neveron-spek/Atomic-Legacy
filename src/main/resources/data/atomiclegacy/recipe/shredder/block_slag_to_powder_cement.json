@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:block_slag"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_cement",
+    "count": 4
+  }
+}

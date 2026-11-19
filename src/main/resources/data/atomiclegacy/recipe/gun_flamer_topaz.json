@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " M ",
+    "MFM",
+    " M "
+  ],
+  "key": {
+    "M": {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    },
+    "F": {
+      "item": "atomiclegacy:gun_flamer"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_flamer_topaz",
+    "count": 1
+  }
+}

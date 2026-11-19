@@ -1,0 +1,15 @@
+newmtl top
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/difurnace_top_off_alt
+
+newmtl bottom
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/brick_fire
+
+newmtl side
+Ka 0.0 0.0 0.0
+Kd 1.0 1.0 1.0
+map_Kd atomiclegacy:block/difurnace_extension
+

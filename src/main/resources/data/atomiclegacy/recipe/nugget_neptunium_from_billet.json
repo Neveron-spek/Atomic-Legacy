@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:billet_neptunium"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:nugget_neptunium",
+    "count": 6
+  }
+}

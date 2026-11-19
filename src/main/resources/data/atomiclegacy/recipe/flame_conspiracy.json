@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " S ",
+    "STS",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "type": "atomiclegacy:legacy_fluid_container",
+      "fluid": "kerosene",
+      "amount": 1000
+    },
+    "T": {
+      "tag": "c:ingots/steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:flame_conspiracy"
+  }
+}

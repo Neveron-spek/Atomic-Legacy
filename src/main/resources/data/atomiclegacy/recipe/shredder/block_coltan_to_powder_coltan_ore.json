@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:block_coltan"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_coltan_ore",
+    "count": 9
+  }
+}

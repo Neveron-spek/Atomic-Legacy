@@ -1,0 +1,12 @@
+{
+    "type":  "minecraft:blasting",
+    "category":  "misc",
+    "ingredient":  {
+                       "item":  "atomiclegacy:ore_coltan"
+                   },
+    "result":  {
+                   "id":  "atomiclegacy:fragment_coltan"
+               },
+    "experience":  20,
+    "cookingtime":  100
+}

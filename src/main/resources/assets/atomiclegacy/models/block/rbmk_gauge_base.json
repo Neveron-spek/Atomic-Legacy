@@ -1,0 +1,7 @@
+{
+  "parent": "atomiclegacy:block/rbmk_gauge",
+  "visibility": {
+    "Gauge": true,
+    "Needle": false
+  }
+}

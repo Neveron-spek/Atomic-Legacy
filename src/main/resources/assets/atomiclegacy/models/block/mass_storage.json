@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "atomiclegacy:block/mass_storage_top",
+    "up": "atomiclegacy:block/mass_storage_top",
+    "north": "atomiclegacy:block/mass_storage_front",
+    "south": "atomiclegacy:block/mass_storage_side",
+    "west": "atomiclegacy:block/mass_storage_side",
+    "east": "atomiclegacy:block/mass_storage_side",
+    "particle": "atomiclegacy:block/mass_storage_side"
+  }
+}

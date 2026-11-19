@@ -1,0 +1,10 @@
+{"map": {},
+ "skip": {
+  "ContainerDiFurnace": "machine_difurnace has no menu in this copy (ported by another batch: LegacyDeprecatedFurnaceMenu)",
+  "ContainerMachineDiFurnaceRTG": "not ported in this copy",
+  "ContainerRtgFurnace": "not ported in this copy",
+  "ContainerIGenerator": "not ported in this copy",
+  "ContainerMachineBattery": "not ported in this copy (ported by another batch: LegacyBatteryMenu)",
+  "ContainerElectrolyser": "legacy combined container, only referenced by the unused GUIElectrolyser; the port opens ContainerElectrolyserFluid/Metal",
+  "ContainerMachineCustom": "layout depends on the custom machine config (tile.config.itemInCount/itemOutCount)"
+ }}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "atomiclegacy:block/det_miner_top",
+    "side": "atomiclegacy:block/det_miner_side",
+    "top": "atomiclegacy:block/det_miner_top"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "atomiclegacy:rbmk_outgasser",
+  "group": "outgasser.tar",
+  "ingredient": {
+    "item": "atomiclegacy:oil_tar_wax"
+  },
+  "fluid_output": {
+    "fluid": "radiosolvent",
+    "amount": 100
+  }
+}

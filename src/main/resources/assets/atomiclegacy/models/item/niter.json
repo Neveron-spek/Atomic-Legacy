@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/niter"
+                 },
+    "parent":  "minecraft:item/generated"
+}

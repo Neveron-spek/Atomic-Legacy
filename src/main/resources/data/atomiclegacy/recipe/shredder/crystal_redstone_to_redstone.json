@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:crystal_redstone"
+  },
+  "result": {
+    "id": "minecraft:redstone",
+    "count": 8
+  }
+}

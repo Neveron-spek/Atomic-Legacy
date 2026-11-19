@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "TAR",
+    "PAP",
+    "PAP"
+  ],
+  "key": {
+    "T": {
+      "item": "atomiclegacy:radio_torch_sender"
+    },
+    "A": {
+      "item": "atomiclegacy:circuit_analog"
+    },
+    "R": {
+      "item": "atomiclegacy:radio_torch_receiver"
+    },
+    "P": {
+      "tag": "c:plates/cast_copper"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:radio_autocal"
+  }
+}

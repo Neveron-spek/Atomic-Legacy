@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:platemetal",
+    "atomiclegacy:platemetal_black",
+    "atomiclegacy:platemetal_white",
+    "atomiclegacy:platemetal_red",
+    "atomiclegacy:platemetal_green",
+    "atomiclegacy:platemetal_light_gray",
+    "atomiclegacy:platemetal_blue",
+    "atomiclegacy:platemetal_purple",
+    "atomiclegacy:platemetal_cyan",
+    "atomiclegacy:platemetal_pink",
+    "atomiclegacy:platemetal_lime",
+    "atomiclegacy:platemetal_yellow",
+    "atomiclegacy:platemetal_light_blue",
+    "atomiclegacy:platemetal_magenta",
+    "atomiclegacy:platemetal_orange"
+  ]
+}

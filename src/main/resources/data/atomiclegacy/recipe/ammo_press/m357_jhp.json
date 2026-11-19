@@ -1,0 +1,42 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.m357_jhp",
+  "order": 3,
+  "input": [
+    {
+      "ingredient": {
+        "tag": "c:ingots/plastic"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/copper"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_small"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 8,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "m357_jhp"
+      },
+      "minecraft:custom_model_data": 39
+    }
+  }
+}

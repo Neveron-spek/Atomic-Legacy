@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AAA",
+    "AAA",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "tag": "c:wires/aluminium"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:ingot_aluminium",
+    "count": 1
+  }
+}

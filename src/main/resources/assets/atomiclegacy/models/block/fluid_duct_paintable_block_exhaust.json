@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/fluid_duct_paintable_block_exhaust"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

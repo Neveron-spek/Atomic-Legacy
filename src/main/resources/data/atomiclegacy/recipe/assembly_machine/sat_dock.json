@@ -1,0 +1,29 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.satdock",
+  "duration": 100,
+  "power": 5000,
+  "ingredients": [
+    {
+      "ingredient": {
+        "tag": "c:ingots/resistant_alloy"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/hard_plastic"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:sat_dock"
+  }
+}

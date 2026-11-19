@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BBB",
+    "PGM"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:gun_parts/barrel_heavy/weaponsteel"
+    },
+    "P": {
+      "item": "atomiclegacy:circuit_advanced"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/weaponsteel"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_stinger",
+    "count": 1
+  }
+}

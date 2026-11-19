@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/glass_polonium"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

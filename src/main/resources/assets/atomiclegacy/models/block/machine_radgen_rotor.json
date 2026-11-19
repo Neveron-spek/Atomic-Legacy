@@ -1,0 +1,9 @@
+{
+  "parent": "atomiclegacy:block/machine_radgen",
+  "visibility": {
+    "Glass": false,
+    "Light": false,
+    "Rotor": true,
+    "Base": false
+  }
+}

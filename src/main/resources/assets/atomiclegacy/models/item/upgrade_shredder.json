@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/upgrade_shredder"
+                 },
+    "parent":  "minecraft:item/generated"
+}

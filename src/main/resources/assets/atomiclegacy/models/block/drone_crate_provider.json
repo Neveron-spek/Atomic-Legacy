@@ -1,0 +1,8 @@
+{
+    "textures": {
+        "top": "atomiclegacy:block/drone_crate_provider_top",
+        "side": "atomiclegacy:block/drone_crate_provider_side",
+        "bottom": "atomiclegacy:block/drone_crate_provider_bottom"
+    },
+    "parent": "minecraft:block/cube_bottom_top"
+}

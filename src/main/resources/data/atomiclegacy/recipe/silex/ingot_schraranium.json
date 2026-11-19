@@ -1,0 +1,30 @@
+{
+  "type": "atomiclegacy:silex",
+  "group": "silex.ingot_schraranium",
+  "ingredient": {
+    "item": "atomiclegacy:ingot_schraranium"
+  },
+  "fluid_produced": 900,
+  "fluid_consumed": 100,
+  "wavelength": "visible",
+  "outputs": [
+    {
+      "item": {
+        "id": "atomiclegacy:nugget_schrabidium"
+      },
+      "weight": 4
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:nugget_uranium"
+      },
+      "weight": 3
+    },
+    {
+      "item": {
+        "id": "atomiclegacy:nugget_neptunium"
+      },
+      "weight": 2
+    }
+  ]
+}

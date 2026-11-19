@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:rod_dual_empty"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:rod_empty",
+    "count": 2
+  }
+}

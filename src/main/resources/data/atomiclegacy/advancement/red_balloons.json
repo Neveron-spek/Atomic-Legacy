@@ -1,0 +1,28 @@
+{
+  "parent": "atomiclegacy:polymer",
+  "display": {
+    "icon": {
+      "id": "atomiclegacy:missile_nuclear"
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.red_balloons.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.red_balloons.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "triggered"
+    ]
+  ]
+}

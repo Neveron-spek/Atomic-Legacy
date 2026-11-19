@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/glass_ash"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

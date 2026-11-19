@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:rbmk_outgasser","group":"outgasser.coal","ingredient":{"item":"minecraft:coal_block"},"item_output":{"id":"atomiclegacy:oil_tar_coal","count":9},"fluid_output":{"fluid":"syngas","amount":500}}

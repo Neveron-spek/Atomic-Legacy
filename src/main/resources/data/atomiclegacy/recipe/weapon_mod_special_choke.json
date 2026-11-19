@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "P",
+    "B",
+    "P"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:plates/weaponsteel"
+    },
+    "B": {
+      "tag": "c:gun_parts/barrel_light/dura_steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_choke",
+    "count": 1
+  }
+}

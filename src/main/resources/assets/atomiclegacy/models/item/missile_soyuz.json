@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:item/missile_soyuz_0"
+  },
+  "overrides": [
+    { "predicate": { "atomiclegacy:soyuz_skin": 1 }, "model": "atomiclegacy:item/missile_soyuz_1" },
+    { "predicate": { "atomiclegacy:soyuz_skin": 2 }, "model": "atomiclegacy:item/missile_soyuz_2" }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:crystal_gold"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_gold",
+    "count": 3
+  }
+}

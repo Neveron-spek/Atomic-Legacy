@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/pneumatic_storage_importer" },
+    "facing=east": { "model": "atomiclegacy:block/pneumatic_storage_importer" },
+    "facing=south": { "model": "atomiclegacy:block/pneumatic_storage_importer" },
+    "facing=west": { "model": "atomiclegacy:block/pneumatic_storage_importer" }
+  }
+}

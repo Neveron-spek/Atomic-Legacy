@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:crate_iron"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_iron",
+    "count": 8
+  }
+}

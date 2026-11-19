@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " RD",
+    "CTT",
+    "GMS"
+  ],
+  "key": {
+    "R": {
+      "tag": "c:gun_parts/receiver_light/saturnite"
+    },
+    "D": {
+      "item": "atomiclegacy:circuit_bismoid"
+    },
+    "C": {
+      "tag": "c:pipes/copper"
+    },
+    "T": {
+      "item": "atomiclegacy:coil_copper_torus"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/any_hardplastic"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/saturnite"
+    },
+    "S": {
+      "tag": "c:gun_parts/stock/any_hardplastic"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_tau",
+    "count": 1
+  }
+}

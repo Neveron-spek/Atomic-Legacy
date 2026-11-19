@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AAD",
+    "CHF",
+    "AAD"
+  ],
+  "key": {
+    "A": {
+      "item": "atomiclegacy:wire_aluminium"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_basic"
+    },
+    "H": {
+      "item": "atomiclegacy:shell_aluminium"
+    },
+    "F": {
+      "item": "atomiclegacy:fins_quad_titanium"
+    },
+    "D": {
+      "tag": "c:dyes/white"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:bomb_multi"
+  }
+}

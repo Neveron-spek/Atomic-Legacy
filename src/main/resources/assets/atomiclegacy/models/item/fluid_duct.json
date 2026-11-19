@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:item/duct",
+    "layer1": "atomiclegacy:item/duct_overlay"
+  }
+}

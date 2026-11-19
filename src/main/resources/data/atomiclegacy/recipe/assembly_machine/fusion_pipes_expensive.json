@@ -1,0 +1,44 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.fusionpipes",
+  "blueprint_pools": [
+    "528.tcalloy"
+  ],
+  "duration": 100,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_plastic"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:pipe_copper"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_circuit"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:fusion_component",
+    "count": 4,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "motor"
+      },
+      "minecraft:custom_model_data": 3
+    }
+  }
+}

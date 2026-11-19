@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "atomiclegacy:ingot_raw_slag"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:block_slag"
+  }
+}

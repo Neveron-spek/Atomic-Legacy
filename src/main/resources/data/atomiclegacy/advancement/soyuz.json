@@ -1,0 +1,28 @@
+{
+  "parent": "atomiclegacy:desh",
+  "display": {
+    "icon": {
+      "id": "minecraft:baked_potato"
+    },
+    "title": {
+      "translate": "advancements.atomiclegacy.soyuz.title"
+    },
+    "description": {
+      "translate": "advancements.atomiclegacy.soyuz.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "triggered"
+    ]
+  ]
+}

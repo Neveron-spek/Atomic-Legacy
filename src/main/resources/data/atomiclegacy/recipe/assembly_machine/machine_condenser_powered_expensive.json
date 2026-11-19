@@ -1,0 +1,56 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.hpcondenser",
+  "duration": 600,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_ferro_plating"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:motor_desh"
+      },
+      "count": 5
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:pipe_steel"
+      },
+      "count": 24
+    },
+    {
+      "ingredient": {
+        "type": "neoforge:compound",
+        "children": [
+          {
+            "tag": "atomiclegacy:container1000/lubricant"
+          },
+          {
+            "type": "neoforge:components",
+            "items": [
+              "atomiclegacy:fluid_tank_full"
+            ],
+            "components": {
+              "minecraft:custom_data": {
+                "fluid": "lubricant"
+              }
+            }
+          }
+        ]
+      },
+      "count": 16
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:machine_condenser_powered"
+  }
+}

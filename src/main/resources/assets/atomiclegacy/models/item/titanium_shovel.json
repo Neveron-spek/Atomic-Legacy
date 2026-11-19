@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/titanium_shovel"
+                 },
+    "parent":  "minecraft:item/handheld"
+}

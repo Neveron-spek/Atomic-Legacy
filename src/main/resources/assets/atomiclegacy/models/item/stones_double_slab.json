@@ -1,0 +1,6 @@
+{
+  "parent": "atomiclegacy:block/stones_slab_tile_double",
+  "overrides": [
+    { "predicate": { "minecraft:custom_model_data": 1 }, "model": "atomiclegacy:block/stones_slab_bricks_double" }
+  ]
+}

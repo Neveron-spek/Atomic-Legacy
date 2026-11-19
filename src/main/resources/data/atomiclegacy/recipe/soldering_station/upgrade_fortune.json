@@ -1,0 +1,12 @@
+{
+  "type": "atomiclegacy:soldering_station", "group": "soldering.upgrade", "duration": 200, "consumption": 1000,
+  "toppings": [
+    { "ingredient": { "item": "atomiclegacy:circuit_vacuum_tube" }, "count": 4 },
+    { "ingredient": { "item": "atomiclegacy:circuit_capacitor" }, "count": 1 }
+  ],
+  "pcb": [
+    { "ingredient": { "item": "atomiclegacy:upgrade_template" }, "count": 1 },
+    { "ingredient": { "tag": "c:dusts/niobium" }, "count": 4 }
+  ],
+  "solder": [], "result": { "id": "atomiclegacy:upgrade_fortune_1" }
+}

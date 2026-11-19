@@ -1,0 +1,1 @@
+{"type":"atomiclegacy:refinery","group":"refinery.hotoil_ds","input":{"fluid":"hotoil_ds","amount":100},"outputs":[{"fluid":"heavyoil","amount":30},{"fluid":"naphtha_ds","amount":35},{"fluid":"lightoil_ds","amount":20},{"fluid":"unsaturateds","amount":15}],"byproduct":{"id":"atomiclegacy:oil_tar_paraffin"},"byproduct_interval": 10,"power":5}

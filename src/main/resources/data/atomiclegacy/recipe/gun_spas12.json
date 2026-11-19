@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BRM",
+    "BGS"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:gun_parts/barrel_light/desh"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_light/desh"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/gunmetal"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/any_plastic"
+    },
+    "S": {
+      "tag": "c:gun_parts/stock/desh"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_spas12",
+    "count": 1
+  }
+}

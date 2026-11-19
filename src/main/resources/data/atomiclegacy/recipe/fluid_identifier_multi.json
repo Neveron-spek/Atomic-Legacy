@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "D",
+    "C",
+    "P"
+  ],
+  "key": {
+    "D": {
+      "tag": "c:dyes"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_vacuum_tube"
+    },
+    "P": {
+      "tag": "c:plates/iron"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:fluid_identifier_multi"
+  }
+}

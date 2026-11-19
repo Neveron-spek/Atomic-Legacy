@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/medal_liquidator"
+                 },
+    "parent":  "minecraft:item/generated"
+}

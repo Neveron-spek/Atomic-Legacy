@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:billet_uranium"
+    },
+    {
+      "item": "atomiclegacy:billet_uranium"
+    },
+    {
+      "item": "atomiclegacy:billet_uranium"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:ingot_uranium",
+    "count": 2
+  }
+}

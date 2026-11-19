@@ -1,0 +1,12 @@
+{
+    "type":  "minecraft:smelting",
+    "category":  "misc",
+    "ingredient":  {
+                       "tag":  "c:dusts/polymer"
+                   },
+    "result":  {
+                   "id":  "atomiclegacy:ingot_polymer"
+               },
+    "experience":  1,
+    "cookingtime":  200
+}

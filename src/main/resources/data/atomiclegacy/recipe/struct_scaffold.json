@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["SSS", "DCD", "SSS"],
+  "key": {
+    "S": {"item": "atomiclegacy:steel_scaffold"},
+    "D": {"item": "atomiclegacy:fluid_duct_neo"},
+    "C": {"item": "atomiclegacy:red_cable"}
+  },
+  "result": {"id": "atomiclegacy:struct_scaffold", "count": 8}
+}

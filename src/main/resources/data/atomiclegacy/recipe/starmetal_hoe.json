@@ -1,0 +1,32 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:less_bullshit_mode",
+        "feature": "simple_tools"
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "IS",
+    " B",
+    " I"
+  ],
+  "key": {
+    "I": {
+      "tag": "c:ingots/starmetal"
+    },
+    "S": {
+      "item": "atomiclegacy:ring_starmetal"
+    },
+    "B": {
+      "item": "atomiclegacy:cobalt_decorated_hoe"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:starmetal_hoe"
+  }
+}

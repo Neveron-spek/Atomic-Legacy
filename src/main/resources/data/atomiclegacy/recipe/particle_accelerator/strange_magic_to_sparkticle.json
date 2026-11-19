@@ -1,0 +1,16 @@
+{
+  "type": "atomiclegacy:particle_accelerator",
+  "input1": {
+    "item": "atomiclegacy:particle_strange"
+  },
+  "input2": {
+    "item": "atomiclegacy:powder_magic"
+  },
+  "momentum": 12500,
+  "output1": {
+    "id": "atomiclegacy:particle_sparkticle"
+  },
+  "output2": {
+    "id": "atomiclegacy:dust"
+  }
+}

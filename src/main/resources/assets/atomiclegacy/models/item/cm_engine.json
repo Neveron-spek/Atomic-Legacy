@@ -1,0 +1,1 @@
+{"parent":"minecraft:item/generated","textures":{"layer0":"atomiclegacy:block/cm_engine_standard"},"overrides":[{"predicate":{"minecraft:custom_model_data":1},"model":"atomiclegacy:item/cm_engine_desh"},{"predicate":{"minecraft:custom_model_data":2},"model":"atomiclegacy:item/cm_engine_bismuth"}]}

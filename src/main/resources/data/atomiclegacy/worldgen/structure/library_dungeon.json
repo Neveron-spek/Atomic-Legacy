@@ -1,0 +1,7 @@
+{
+  "type": "atomiclegacy:hbm_legacy_scatter",
+  "biomes": "#atomiclegacy:has_structure/hbm_legacy",
+  "spawn_overrides": {},
+  "step": "underground_structures",
+  "legacy_scatter": "library_dungeon"
+}

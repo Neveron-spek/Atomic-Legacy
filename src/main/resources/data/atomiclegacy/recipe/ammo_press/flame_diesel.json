@@ -1,0 +1,72 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.flame_diesel",
+  "order": 72,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:plates/steel"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "type": "neoforge:compound",
+        "children": [
+          {
+            "type": "neoforge:components",
+            "items": [
+              "atomiclegacy:canister_full"
+            ],
+            "components": {
+              "minecraft:custom_data": {
+                "fluid": "diesel"
+              }
+            }
+          },
+          {
+            "type": "neoforge:components",
+            "items": [
+              "atomiclegacy:fluid_tank_lead_full"
+            ],
+            "components": {
+              "minecraft:custom_data": {
+                "fluid": "diesel"
+              }
+            }
+          },
+          {
+            "type": "neoforge:components",
+            "items": [
+              "atomiclegacy:fluid_tank_full"
+            ],
+            "components": {
+              "minecraft:custom_data": {
+                "fluid": "diesel"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:plates/steel"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "flame_diesel"
+      },
+      "minecraft:custom_model_data": 19
+    }
+  }
+}

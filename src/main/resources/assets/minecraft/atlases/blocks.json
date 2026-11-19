@@ -1,0 +1,310 @@
+{
+  "sources": [
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models",
+      "prefix": "models/"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "block/forgefluid",
+      "prefix": "block/forgefluid/"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models/particleaccelerator",
+      "prefix": "models/particleaccelerator/"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models/fusion",
+      "prefix": "models/fusion/"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models/machines",
+      "prefix": "models/machines/"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models/network",
+      "prefix": "models/network/"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models/turrets",
+      "prefix": "models/turrets/"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models/projectiles",
+      "prefix": "models/projectiles/"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models/weapons",
+      "prefix": "models/weapons/"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models/armor",
+      "prefix": "models/armor/"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models/trinkets",
+      "prefix": "models/trinkets/"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models/horse",
+      "prefix": "models/horse/"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models/effect",
+      "prefix": "models/effect/"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models/bombs",
+      "prefix": "models/bombs/"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models/soyuz",
+      "prefix": "models/soyuz/"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models/soyuz_capsule",
+      "prefix": "models/soyuz_capsule/"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models/legacy",
+      "prefix": "models/legacy/"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:models/bomb_multi"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:models/file_cabinet"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:models/file_cabinet_steel"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models/tank",
+      "prefix": "models/tank/"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:models/lilboy"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:models/fatman"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:models/customnuke"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:models/mine_fat"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:models/bombs/mine_marelet"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:models/nmine"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:models/compact_launcher"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models/launchpad",
+      "prefix": "models/launchpad/"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models/missile_parts",
+      "prefix": "models/missile_parts/"
+    },
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "atomiclegacy",
+      "source": "models/missile",
+      "prefix": "models/missile/"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:models/boxcar"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:models/thegadget3_"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:models/model_radio_receiver"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:models/trinkets/lantern"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:models/trinkets/lantern_rusty"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:block/boxduct_exhaust_straight"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:block/boxduct_exhaust_end"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:block/boxduct_exhaust_curve_tl"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:block/boxduct_exhaust_curve_tr"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:block/boxduct_exhaust_curve_bl"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:block/boxduct_exhaust_curve_br"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:block/boxduct_exhaust_junction_0"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:block/boxduct_exhaust_junction_1"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:block/boxduct_exhaust_junction_2"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:block/boxduct_exhaust_junction_3"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:block/boxduct_exhaust_junction_4"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:entity/glyphid"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:entity/maskman"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:entity/iou"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:entity/quadcopter"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:entity/plasticbag"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:entity/teslacrab"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:entity/taintcrab"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:entity/blockspider"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:item/polaroid_memento"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:armor/no9"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:armor/no9_insignia"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:armor/ncrpa_chest"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:armor/ncrpa_helmet"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:armor/ncrpa_arm"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:armor/ncrpa_leg"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:armor/trenchmaster_chest"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:armor/trenchmaster_helmet"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:armor/trenchmaster_arm"
+    },
+    {
+      "type": "single",
+      "resource": "atomiclegacy:armor/trenchmaster_leg"
+    }
+  ]
+}

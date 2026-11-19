@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ZCZ",
+    "ZRZ",
+    "ZCZ"
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:shell_steel"
+    },
+    "R": {
+      "item": "atomiclegacy:rbmk_blank"
+    },
+    "Z": {
+      "tag": "c:ingots/zirconium"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:rbmk_rod_reasim"
+  }
+}

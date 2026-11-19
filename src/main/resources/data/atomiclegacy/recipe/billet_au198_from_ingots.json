@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["##"],
+  "key": {"#": {"tag": "c:ingots/au198"}},
+  "result": {"id": "atomiclegacy:billet_au198", "count": 3}
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "atomiclegacy:block/wand_loot",
+    "down": "atomiclegacy:block/wand_loot_top",
+    "up": "atomiclegacy:block/wand_loot_top",
+    "north": "atomiclegacy:block/wand_loot",
+    "south": "atomiclegacy:block/wand_loot",
+    "west": "atomiclegacy:block/wand_loot",
+    "east": "atomiclegacy:block/wand_loot"
+  }
+}

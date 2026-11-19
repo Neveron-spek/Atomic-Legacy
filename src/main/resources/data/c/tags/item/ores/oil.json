@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:ore_oil",
+    "atomiclegacy:ore_deepslate_oil"
+  ]
+}

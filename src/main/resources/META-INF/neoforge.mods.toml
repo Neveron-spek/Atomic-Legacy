@@ -1,0 +1,68 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+
+[[mods]]
+    modId="${mod_id}"
+    version="${mod_version}"
+    displayName="${mod_name}"
+    logoFile="assets/atomiclegacy/textures/models/bombs/tsar.png"
+    authors="${mod_authors}"
+    description='''${mod_description}'''
+
+[[mixins]]
+    config="atomiclegacy.mixins.json"
+
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="[${neo_version},)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="create"
+    type="optional"
+    reason="Moves the exact legacy BlockDummyable proxy chain with Create contraptions and trains."
+    versionRange="[6.0.10,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="immersiveengineering"
+    type="optional"
+    reason="Applies HBM's modern FE balance defaults to IE diesel generators and HV connectors."
+    versionRange="[12.4.2,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="ae2"
+    type="optional"
+    reason="Lets HBM quartz materials interoperate with Applied Energistics 2 recipes and tags."
+    versionRange="[19.0.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="jecharacters"
+    type="optional"
+    reason="Lets HBM's custom anvil search reuse Just Enough Characters pinyin matching when installed."
+    versionRange="[4.5,)"
+    ordering="AFTER"
+    side="CLIENT"
+
+[[dependencies.${mod_id}]]
+    modId="curios"
+    type="optional"
+    reason="Enables HBM gas masks and portable storage crates in dedicated Curios slots."
+    versionRange="[9.5,)"
+    ordering="AFTER"
+    side="BOTH"

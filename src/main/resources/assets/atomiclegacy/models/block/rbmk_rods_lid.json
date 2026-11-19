@@ -1,0 +1,12 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/rbmk/rbmk_rods_lid.obj",
+  "mtl_override": "atomiclegacy:models/obj/rbmk/rbmk_rods.mtl",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "textures": {
+    "particle": "atomiclegacy:block/rbmk/rbmk_control"
+  }
+}
+

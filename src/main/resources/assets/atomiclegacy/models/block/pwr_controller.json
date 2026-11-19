@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "atomiclegacy:block/pwr_casing_blank",
+    "front": "atomiclegacy:block/pwr_controller",
+    "side": "atomiclegacy:block/pwr_casing_blank"
+  }
+}

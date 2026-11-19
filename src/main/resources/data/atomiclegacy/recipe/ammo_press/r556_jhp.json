@@ -1,0 +1,45 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.r556_jhp",
+  "order": 27,
+  "input": [
+    {
+      "ingredient": {
+        "tag": "c:ingots/plastic"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/copper"
+      },
+      "count": 2
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      },
+      "count": 2
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_small"
+      },
+      "count": 2
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 16,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "r556_jhp"
+      },
+      "minecraft:custom_model_data": 7
+    }
+  }
+}

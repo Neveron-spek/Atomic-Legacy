@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:powder_titanium"
+  },
+  "result": {
+    "id": "atomiclegacy:dust"
+  }
+}

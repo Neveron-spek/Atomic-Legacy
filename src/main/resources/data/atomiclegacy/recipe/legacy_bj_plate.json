@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "N N",
+    "MSM",
+    "NCN"
+  ],
+  "key": {
+    "N": {
+      "tag": "c:plates/armor_lunar"
+    },
+    "M": {
+      "item": "atomiclegacy:motor_desh"
+    },
+    "S": {
+      "item": "atomiclegacy:starmetal_plate"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_advanced"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:bj_plate"
+  }
+}

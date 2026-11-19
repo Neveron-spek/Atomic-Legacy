@@ -1,0 +1,181 @@
+package com.atomiclegacy.render;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
+import com.atomiclegacy.AtomicLegacy;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.client.event.ModelEvent;
+
+/**
+ * Direct port of {@code RenderBarrel#renderInventoryBlock} for the three
+ * craftable fluid barrels. These were rendered by the legacy block handler,
+ * never by an OBJ auto-fit profile.
+ */
+public final class FluidBarrelItemRenderer extends BlockEntityWithoutLevelRenderer {
+    private static final ModelResourceLocation PLASTIC = model("block/barrel_plastic");
+    private static final ModelResourceLocation STEEL = model("block/barrel_steel");
+    private static final ModelResourceLocation TCALLOY = model("block/barrel_tcalloy");
+    /** barrel_antimatter is the same BlockFluidBarrel / RenderBarrel as the other three in 1.7.10. */
+    private static final ModelResourceLocation ANTIMATTER = model("block/barrel_antimatter");
+
+    public FluidBarrelItemRenderer() {
+        super(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels());
+    }
+
+    public static void registerAdditionalModels(ModelEvent.RegisterAdditional event) {
+        event.register(PLASTIC);
+        event.register(STEEL);
+        event.register(TCALLOY);
+        event.register(ANTIMATTER);
+    }
+
+    @Override
+    public void renderByItem(ItemStack stack, ItemDisplayContext context, PoseStack poseStack,
+                             MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
+        switch (BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath()) {
+            case "barrel_plastic" -> renderPlasticBarrelItem(stack, context, poseStack, bufferSource, packedLight, packedOverlay);
+            case "barrel_steel" -> renderSteelBarrelItem(stack, context, poseStack, bufferSource, packedLight, packedOverlay);
+            case "barrel_tcalloy" -> renderTcAlloyBarrelItem(stack, context, poseStack, bufferSource, packedLight, packedOverlay);
+            case "barrel_antimatter" -> {
+                BlockState state = ((BlockItem) stack.getItem()).getBlock().defaultBlockState();
+                poseStack.pushPose();
+                poseStack.translate(0.5F, 0.5F, 0.5F);
+                applySteelBarrelItemPose(context, poseStack);
+                poseStack.translate(-0.5F, -0.5F, -0.5F);
+                renderFluidBarrelModel(ANTIMATTER, state, poseStack, bufferSource, packedLight, packedOverlay);
+                poseStack.popPose();
+            }
+            default -> throw new IllegalArgumentException("Fluid barrel renderer received an unsupported item: " + stack.getItem());
+        }
+    }
+
+    private static void renderPlasticBarrelItem(ItemStack stack, ItemDisplayContext context, PoseStack poseStack,
+                                                MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
+        BlockState state = ((BlockItem) stack.getItem()).getBlock().defaultBlockState();
+        poseStack.pushPose();
+        poseStack.translate(0.5F, 0.5F, 0.5F);
+        applyPlasticBarrelItemPose(context, poseStack);
+        poseStack.translate(-0.5F, -0.5F, -0.5F);
+        renderFluidBarrelModel(PLASTIC, state, poseStack, bufferSource, packedLight, packedOverlay);
+        poseStack.popPose();
+    }
+
+    private static void renderSteelBarrelItem(ItemStack stack, ItemDisplayContext context, PoseStack poseStack,
+                                              MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
+        BlockState state = ((BlockItem) stack.getItem()).getBlock().defaultBlockState();
+        poseStack.pushPose();
+        poseStack.translate(0.5F, 0.5F, 0.5F);
+        applySteelBarrelItemPose(context, poseStack);
+        poseStack.translate(-0.5F, -0.5F, -0.5F);
+        renderFluidBarrelModel(STEEL, state, poseStack, bufferSource, packedLight, packedOverlay);
+        poseStack.popPose();
+    }
+
+    private static void renderTcAlloyBarrelItem(ItemStack stack, ItemDisplayContext context, PoseStack poseStack,
+                                                MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
+        BlockState state = ((BlockItem) stack.getItem()).getBlock().defaultBlockState();
+        poseStack.pushPose();
+        poseStack.translate(0.5F, 0.5F, 0.5F);
+        applyTcAlloyBarrelItemPose(context, poseStack);
+        poseStack.translate(-0.5F, -0.5F, -0.5F);
+        renderFluidBarrelModel(TCALLOY, state, poseStack, bufferSource, packedLight, packedOverlay);
+        poseStack.popPose();
+    }
+
+    private static void applyPlasticBarrelItemPose(ItemDisplayContext context, PoseStack poseStack) {
+        switch (context) {
+            case GUI -> {
+                poseStack.mulPose(Axis.XP.rotationDegrees(30.0F));
+                poseStack.mulPose(Axis.YP.rotationDegrees(225.0F));
+                poseStack.scale(0.625F, 0.625F, 0.625F);
+            }
+            case THIRD_PERSON_LEFT_HAND, THIRD_PERSON_RIGHT_HAND -> {
+                poseStack.mulPose(Axis.XP.rotationDegrees(75.0F));
+                poseStack.mulPose(Axis.YP.rotationDegrees(45.0F));
+                poseStack.translate(0.0F, 2.5F / 16.0F, 0.0F);
+                poseStack.scale(0.375F, 0.375F, 0.375F);
+            }
+            case FIRST_PERSON_LEFT_HAND, FIRST_PERSON_RIGHT_HAND -> {
+                poseStack.mulPose(Axis.YP.rotationDegrees(45.0F));
+                poseStack.scale(0.4F, 0.4F, 0.4F);
+            }
+            case GROUND -> {
+                poseStack.translate(0.0F, 3.0F / 16.0F, 0.0F);
+                poseStack.scale(0.25F, 0.25F, 0.25F);
+            }
+            case FIXED -> poseStack.scale(0.5F, 0.5F, 0.5F);
+            default -> {
+            }
+        }
+    }
+
+    private static void applySteelBarrelItemPose(ItemDisplayContext context, PoseStack poseStack) {
+        switch (context) {
+            case GUI -> {
+                poseStack.mulPose(Axis.XP.rotationDegrees(30.0F));
+                poseStack.mulPose(Axis.YP.rotationDegrees(225.0F));
+                poseStack.scale(0.625F, 0.625F, 0.625F);
+            }
+            case THIRD_PERSON_LEFT_HAND, THIRD_PERSON_RIGHT_HAND -> {
+                poseStack.mulPose(Axis.XP.rotationDegrees(75.0F));
+                poseStack.mulPose(Axis.YP.rotationDegrees(45.0F));
+                poseStack.translate(0.0F, 2.5F / 16.0F, 0.0F);
+                poseStack.scale(0.375F, 0.375F, 0.375F);
+            }
+            case FIRST_PERSON_LEFT_HAND, FIRST_PERSON_RIGHT_HAND -> {
+                poseStack.mulPose(Axis.YP.rotationDegrees(45.0F));
+                poseStack.scale(0.4F, 0.4F, 0.4F);
+            }
+            case GROUND -> {
+                poseStack.translate(0.0F, 3.0F / 16.0F, 0.0F);
+                poseStack.scale(0.25F, 0.25F, 0.25F);
+            }
+            case FIXED -> poseStack.scale(0.5F, 0.5F, 0.5F);
+            default -> { }
+        }
+    }
+
+    private static void applyTcAlloyBarrelItemPose(ItemDisplayContext context, PoseStack poseStack) {
+        switch (context) {
+            case GUI -> {
+                poseStack.mulPose(Axis.XP.rotationDegrees(30.0F));
+                poseStack.mulPose(Axis.YP.rotationDegrees(225.0F));
+                poseStack.scale(0.625F, 0.625F, 0.625F);
+            }
+            case THIRD_PERSON_LEFT_HAND, THIRD_PERSON_RIGHT_HAND -> {
+                poseStack.mulPose(Axis.XP.rotationDegrees(75.0F));
+                poseStack.mulPose(Axis.YP.rotationDegrees(45.0F));
+                poseStack.translate(0.0F, 2.5F / 16.0F, 0.0F);
+                poseStack.scale(0.375F, 0.375F, 0.375F);
+            }
+            case FIRST_PERSON_LEFT_HAND, FIRST_PERSON_RIGHT_HAND -> {
+                poseStack.mulPose(Axis.YP.rotationDegrees(45.0F));
+                poseStack.scale(0.4F, 0.4F, 0.4F);
+            }
+            case GROUND -> {
+                poseStack.translate(0.0F, 3.0F / 16.0F, 0.0F);
+                poseStack.scale(0.25F, 0.25F, 0.25F);
+            }
+            case FIXED -> poseStack.scale(0.5F, 0.5F, 0.5F);
+            default -> { }
+        }
+    }
+
+    private static void renderFluidBarrelModel(ModelResourceLocation model, BlockState state, PoseStack poseStack,
+                                               MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
+        MachineModelRenderer.renderUnculled(MachineModelRenderer.model(model), poseStack,
+                bufferSource, state, packedLight, packedOverlay);
+    }
+
+    private static ModelResourceLocation model(String path) {
+        return ModelResourceLocation.standalone(AtomicLegacy.id(path));
+    }
+}

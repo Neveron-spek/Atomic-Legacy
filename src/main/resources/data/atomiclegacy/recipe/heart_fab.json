@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":["GHG","MCM","GHG"],"key":{"G":{"tag":"c:billets/polonium"},"H":{"item":"atomiclegacy:heart_booster"},"M":{"tag":"c:gems/coke"},"C":{"item":"atomiclegacy:coin_worm"}},"result":{"id":"atomiclegacy:heart_fab"}}

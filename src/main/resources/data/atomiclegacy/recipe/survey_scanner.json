@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SWS",
+    " G ",
+    "PCP"
+  ],
+  "key": {
+    "W": {
+      "item": "atomiclegacy:wire_gold"
+    },
+    "P": {
+      "tag": "c:ingots/plastic"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_advanced"
+    },
+    "S": {
+      "tag": "c:plates/steel"
+    },
+    "G": {
+      "tag": "c:ingots/gold"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:survey_scanner"
+  }
+}

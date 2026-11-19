@@ -1,0 +1,24 @@
+{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    " I ",
+                    "CPC",
+                    " I "
+                ],
+    "key":  {
+                "I":  {
+                          "tag":  "c:ingots/steel"
+                      },
+                "C":  {
+                          "tag":  "c:ingots/titanium"
+                      },
+                "P":  {
+                          "tag":  "atomiclegacy:container1000/lubricant"
+                      }
+            },
+    "result":  {
+                   "id":  "atomiclegacy:part_generic_piston_hydraulic",
+                   "count":  4
+               }
+}

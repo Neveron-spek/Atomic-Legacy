@@ -1,0 +1,16 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.himarssmalltb",
+  "duration": 100,
+  "power": 100,
+  "ingredients": [
+    { "ingredient": { "tag": "c:plates/steel" }, "count": 24 },
+    { "ingredient": { "tag": "c:ingots/plastic" }, "count": 24 },
+    { "ingredient": { "item": "atomiclegacy:rocket_fuel" }, "count": 48 },
+    { "ingredient": { "item": "atomiclegacy:ball_tatb" }, "count": 32 },
+    { "ingredient": { "type": "neoforge:components", "items": ["atomiclegacy:fluid_tank_full"], "components": { "minecraft:custom_data": { "fluid": "kerosene_reform" } } }, "count": 12 },
+    { "ingredient": { "type": "neoforge:components", "items": ["atomiclegacy:fluid_tank_full"], "components": { "minecraft:custom_data": { "fluid": "peroxide" } } }, "count": 12 },
+    { "ingredient": { "item": "atomiclegacy:circuit_basic" }, "count": 6 }
+  ],
+  "result": { "id": "atomiclegacy:ammo_himars", "components": { "minecraft:custom_data": { "variant": "standard_tb" }, "minecraft:custom_model_data": 4 } }
+}

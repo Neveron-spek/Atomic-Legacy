@@ -1,0 +1,82 @@
+{
+    "neoforge:conditions": [
+        {
+            "type": "atomiclegacy:enable_528_mode"
+        }
+    ],
+    "type": "atomiclegacy:precision_assembler",
+    "group": "precass.recycle",
+    "duration": 600,
+    "power": 250000,
+    "ingredients": [
+        {
+            "ingredient": {
+                "type": "neoforge:components",
+                "items": "atomiclegacy:broken_item",
+                "components": {
+                    "minecraft:custom_data": "{item_id:\"atomiclegacy:circuit_controller_quantum\",item_count:1}"
+                }
+            },
+            "count": 1
+        }
+    ],
+    "outputs": [
+        {
+            "result": {
+                "id": "atomiclegacy:circuit_chip_quantum",
+                "count": 16
+            },
+            "weight": 75
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:circuit_chip_bismoid",
+                "count": 48
+            },
+            "weight": 75
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:circuit_atomic_clock",
+                "count": 8
+            },
+            "weight": 75
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:circuit_controller_advanced",
+                "count": 2
+            },
+            "weight": 75
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:upgrade_overdrive_1",
+                "count": 1
+            },
+            "weight": 75
+        },
+        {
+            "result": {
+                "id": "atomiclegacy:wire_lead",
+                "count": 32
+            },
+            "weight": 75
+        }
+    ],
+    "output_mode": "independent",
+    "expensive_output_weights": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+    ],
+    "output_fluids": [
+        {
+            "fluid": "perfluoromethyl_cold",
+            "amount": 4500
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:holotape_image"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "holo_digamma"
+        }
+      }
+    },
+    {
+      "tag": "c:tools/screwdrivers"
+    },
+    {
+      "item": "atomiclegacy:ducttape"
+    },
+    {
+      "item": "atomiclegacy:armor_polish"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:holotape_image",
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "holo_restored"
+      },
+      "minecraft:custom_model_data": 1
+    }
+  }
+}

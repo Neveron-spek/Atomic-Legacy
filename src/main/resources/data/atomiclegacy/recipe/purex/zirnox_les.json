@@ -1,0 +1,40 @@
+{
+  "type": "atomiclegacy:purex",
+  "group": "autoswitch.zirnox",
+  "duration": 100,
+  "power": 1000,
+  "input_items": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:waste_schrabidium"
+      },
+      "count": 1
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "kerosene",
+      "amount": 500
+    },
+    {
+      "fluid": "nitric_acid",
+      "amount": 250
+    }
+  ],
+  "output_items": [
+    {
+      "id": "atomiclegacy:nugget_beryllium",
+      "count": 2
+    },
+    {
+      "id": "atomiclegacy:nugget_pu239"
+    },
+    {
+      "id": "atomiclegacy:nuclear_waste_tiny"
+    },
+    {
+      "id": "atomiclegacy:nuclear_waste_tiny",
+      "count": 2
+    }
+  ]
+}

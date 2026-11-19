@@ -1,0 +1,39 @@
+{
+  "type": "atomiclegacy:soldering_station",
+  "group": "soldering.sat_chip",
+  "duration": 100,
+  "consumption": 100,
+  "toppings": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_chip"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_capacitor"
+      },
+      "count": 2
+    }
+  ],
+  "pcb": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_pcb"
+      },
+      "count": 2
+    }
+  ],
+  "solder": [
+    {
+      "ingredient": {
+        "tag": "c:wires/lead"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:sat_chip"
+  }
+}

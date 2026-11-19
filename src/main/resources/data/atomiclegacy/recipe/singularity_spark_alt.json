@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "XBX",
+    "ACA",
+    "XBX"
+  ],
+  "key": {
+    "X": { "tag": "c:plates/dineutronium" },
+    "A": { "item": "atomiclegacy:singularity_counter_resonant" },
+    "B": { "item": "atomiclegacy:singularity_super_heated" },
+    "C": { "item": "atomiclegacy:black_hole" }
+  },
+  "result": {
+    "id": "atomiclegacy:singularity_spark",
+    "count": 1
+  }
+}

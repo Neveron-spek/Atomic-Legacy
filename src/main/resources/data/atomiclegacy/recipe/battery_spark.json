@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " W ",
+    "DSD",
+    "DSD"
+  ],
+  "key": {
+    "W": {
+      "item": "atomiclegacy:wire_dense_magnetized_tungsten"
+    },
+    "D": {
+      "tag": "c:plates/dineutronium"
+    },
+    "S": {
+      "tag": "c:dusts/spark_mix"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:battery_spark"
+  }
+}

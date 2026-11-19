@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:dungeon_chain"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_steel_tiny"
+  }
+}

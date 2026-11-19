@@ -1,0 +1,29 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.rtgunit",
+  "duration": 100,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_lead"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/copper"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:thermo_element"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:rtg_unit"
+  }
+}

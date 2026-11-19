@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/foundry_slagtap", "y": 90 },
+    "facing=east": { "model": "atomiclegacy:block/foundry_slagtap", "y": 180 },
+    "facing=south": { "model": "atomiclegacy:block/foundry_slagtap", "y": 270 },
+    "facing=west": { "model": "atomiclegacy:block/foundry_slagtap" }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "tag": "c:dusts/borax"
+  },
+  "acid": {
+    "fluid": "sulfuric_acid",
+    "amount": 500
+  },
+  "duration": 600,
+  "productivity": 0.25,
+  "result": {
+    "id": "atomiclegacy:powder_boron_tiny",
+    "count": 3
+  }
+}

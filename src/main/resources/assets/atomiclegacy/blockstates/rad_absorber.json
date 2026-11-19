@@ -1,0 +1,28 @@
+﻿{
+    "variants":  {
+                     "variant=0":  {
+                              "model":  "atomiclegacy:block/rad_absorber_base"
+                          },
+                     "variant=1":  {
+                              "model":  "atomiclegacy:block/rad_absorber_red"
+                          },
+                     "variant=2":  {
+                              "model":  "atomiclegacy:block/rad_absorber_green"
+                          },
+                     "variant=3":  {
+                              "model":  "atomiclegacy:block/rad_absorber_pink"
+                          },
+                     "variant=4":  {
+                              "model":  "atomiclegacy:block/rad_absorber_pink"
+                          },
+                     "variant=5":  {
+                              "model":  "atomiclegacy:block/rad_absorber_pink"
+                          },
+                     "variant=6":  {
+                              "model":  "atomiclegacy:block/rad_absorber_pink"
+                          },
+                     "variant=7":  {
+                              "model":  "atomiclegacy:block/rad_absorber_pink"
+                          }
+                 }
+}

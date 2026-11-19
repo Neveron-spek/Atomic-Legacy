@@ -1,0 +1,45 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.warheadnuke",
+  "duration": 400,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_titanium"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_lead"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:billet_u235"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:cordite"
+      },
+      "count": 12
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:warhead_nuclear",
+    "count": 1
+  },
+  "blueprint_pools": [
+    "528.controller"
+  ]
+}

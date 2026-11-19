@@ -1,0 +1,15 @@
+{
+  "type": "atomiclegacy:shredder",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ae2"
+    }
+  ],
+  "ingredient": {
+    "tag": "ae2:all_nether_quartz"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_quartz"
+  }
+}

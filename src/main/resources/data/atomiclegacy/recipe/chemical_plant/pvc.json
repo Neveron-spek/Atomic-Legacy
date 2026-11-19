@@ -1,0 +1,35 @@
+{
+  "type": "atomiclegacy:chemical_plant",
+  "group": "chem.pvc",
+  "duration": 100,
+  "power": 1000,
+  "input_items": [
+    {
+      "ingredient": {
+        "tag": "c:dusts/cadmium"
+      },
+      "count": 1
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "unsaturateds",
+      "amount": 250,
+      "pressure": 2,
+      "pressure_528_only": true
+    },
+    {
+      "fluid": "chlorine",
+      "amount": 250,
+      "pressure": 2,
+      "pressure_528_only": true
+    }
+  ],
+  "output_items": [
+    {
+      "id": "atomiclegacy:ingot_pvc",
+      "count": 2
+    }
+  ],
+  "output_fluids": []
+}

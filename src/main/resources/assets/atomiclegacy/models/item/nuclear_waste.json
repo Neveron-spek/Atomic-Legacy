@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/nuclear_waste"
+                 },
+    "parent":  "minecraft:item/generated"
+}

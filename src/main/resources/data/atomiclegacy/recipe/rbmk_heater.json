@@ -1,0 +1,34 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_528_mode"
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CIC",
+    "PRP",
+    "CIC"
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:pipe_copper"
+    },
+    "P": {
+      "item": "atomiclegacy:shell_steel"
+    },
+    "R": {
+      "item": "atomiclegacy:rbmk_blank"
+    },
+    "I": {
+      "tag": "c:ingots/plastic"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:rbmk_heater"
+  }
+}

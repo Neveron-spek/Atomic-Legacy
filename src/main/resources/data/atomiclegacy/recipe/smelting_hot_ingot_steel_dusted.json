@@ -1,0 +1,8 @@
+{
+  "type": "atomiclegacy:hot_smelting",
+  "category": "misc",
+  "ingredient": { "item": "atomiclegacy:ingot_steel_dusted" },
+  "result": { "id": "atomiclegacy:ingot_steel_dusted" },
+  "experience": 1.0,
+  "cookingtime": 200
+}

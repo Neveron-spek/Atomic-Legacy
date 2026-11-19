@@ -1,0 +1,43 @@
+{
+    "type": "atomiclegacy:precision_assembler",
+    "group": "precass.rpalegs",
+    "blueprint_pools": [
+        "discover..rpa"
+    ],
+    "duration": 3600,
+    "power": 25000,
+    "ingredients": [
+        {
+            "ingredient": {
+                "item": "atomiclegacy:plate_armor_ajr"
+            },
+            "count": 24
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:plate_cast_saturnite"
+            },
+            "count": 8
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:motor_desh"
+            },
+            "count": 8
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:plate_kevlar"
+            },
+            "count": 16
+        }
+    ],
+    "outputs": [
+        {
+            "result": {
+                "id": "atomiclegacy:rpa_legs"
+            },
+            "weight": 100
+        }
+    ]
+}

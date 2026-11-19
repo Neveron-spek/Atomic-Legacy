@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:ingot_boron"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_boron"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "atomiclegacy:block/dungeon_spawner",
+    "particle": "atomiclegacy:block/dungeon_spawner"
+  }
+}

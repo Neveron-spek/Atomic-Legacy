@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:powder_ash_wood",
+    "atomiclegacy:powder_ash_coal",
+    "atomiclegacy:powder_ash_misc",
+    "atomiclegacy:powder_ash_fly",
+    "atomiclegacy:powder_ash_soot",
+    "atomiclegacy:powder_ash_fullerene"
+  ]
+}

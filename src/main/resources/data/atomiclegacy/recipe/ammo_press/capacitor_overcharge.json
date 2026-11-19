@@ -1,0 +1,39 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.capacitor_overcharge",
+  "order": 77,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/plastic"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:billets/silicon"
+      },
+      "count": 6
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:ingots/plastic"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 4,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "capacitor_overcharge"
+      },
+      "minecraft:custom_model_data": 77
+    }
+  }
+}

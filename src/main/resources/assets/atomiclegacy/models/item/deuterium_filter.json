@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/deuterium_filter"
+                 },
+    "parent":  "minecraft:item/generated"
+}

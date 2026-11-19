@@ -1,0 +1,19 @@
+{
+  "type": "atomiclegacy:plasma_forge",
+  "group": "plsm.weldaluminium",
+  "auto_switch_group": "autoswitch.weldPlates",
+  "duration": 150,
+  "power": 10000,
+  "ignition_temp": 500000,
+  "input_items": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_aluminium"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:plate_welded_aluminium"
+  }
+}

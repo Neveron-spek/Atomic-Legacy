@@ -1,0 +1,24 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:ore_nitrocrystalline"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "ore_type": "iron"
+      },
+      "minecraft:custom_model_data": 0
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:ore_enriched",
+    "components": {
+      "minecraft:custom_data": {
+        "ore_type": "iron"
+      },
+      "minecraft:custom_model_data": 0
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "CC",
+    "CC"
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:concrete_smooth"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:concrete",
+    "count": 4
+  }
+}

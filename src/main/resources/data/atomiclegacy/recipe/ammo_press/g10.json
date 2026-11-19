@@ -1,0 +1,40 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.g10",
+  "order": 50,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:nuggets/lead"
+      },
+      "count": 8
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "tag": "c:dusts/smokeless"
+      },
+      "count": 2
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:casing_buckshot_advanced"
+      }
+    },
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "count": 4,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "g10"
+      },
+      "minecraft:custom_model_data": 81
+    }
+  }
+}

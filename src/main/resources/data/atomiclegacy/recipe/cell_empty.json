@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " S ",
+    "G G",
+    " S "
+  ],
+  "key": {
+    "S": { "tag": "c:plates/steel" },
+    "G": { "tag": "c:glass_panes" }
+  },
+  "result": {
+    "count": 6,
+    "id": "atomiclegacy:cell_empty"
+  }
+}

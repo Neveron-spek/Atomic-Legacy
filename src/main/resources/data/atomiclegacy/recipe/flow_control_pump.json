@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " G ",
+    "SMS",
+    " G "
+  ],
+  "key": {
+    "S": {
+      "item": "atomiclegacy:shell_steel"
+    },
+    "G": {
+      "tag": "c:ingots/graphite"
+    },
+    "M": {
+      "item": "atomiclegacy:motor"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:flow_control_pump",
+    "count": 1
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SFS",
+    "SCS",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "tag": "c:plates/steel"
+    },
+    "F": {
+      "item": "atomiclegacy:filter_coal"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_vacuum_tube"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:pollution_detector"
+  }
+}

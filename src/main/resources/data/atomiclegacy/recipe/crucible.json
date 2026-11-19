@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["MEM", "YDY", "YCY"],
+  "key": {
+    "M": { "tag": "c:ingots/meteorite_forged" },
+    "E": { "tag": "c:ingots/euphemium" },
+    "Y": { "item": "atomiclegacy:billet_yharonite" },
+    "D": { "item": "atomiclegacy:demon_core_closed" },
+    "C": { "tag": "c:ingots/chainsteel" }
+  },
+  "result": { "id": "atomiclegacy:crucible", "components": { "minecraft:damage": 3 } }
+}

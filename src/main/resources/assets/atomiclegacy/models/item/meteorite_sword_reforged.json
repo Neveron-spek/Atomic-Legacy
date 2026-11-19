@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/meteorite_sword"
+                 },
+    "parent":  "minecraft:item/handheld"
+}

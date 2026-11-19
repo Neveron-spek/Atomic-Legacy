@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:arc_welder",
+  "group": "arc_welder.plate_welded",
+  "duration": 600,
+  "consumption": 10000,
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_zirconium"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:plate_welded_zirconium"
+  }
+}

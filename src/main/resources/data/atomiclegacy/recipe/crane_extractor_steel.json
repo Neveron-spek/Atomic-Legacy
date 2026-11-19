@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":["CCC","CPC","CBC"],"key":{"C":{"tag":"c:ingots/steel"},"P":{"item":"atomiclegacy:part_generic_piston_pneumatic"},"B":{"item":"atomiclegacy:conveyor"}},"result":{"id":"atomiclegacy:crane_extractor","count":4}}

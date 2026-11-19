@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "atomiclegacy:block/pribris_digamma"
+      }
+    }
+  ]
+}

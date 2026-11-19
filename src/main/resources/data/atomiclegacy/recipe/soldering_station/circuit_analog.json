@@ -1,0 +1,39 @@
+{
+  "type": "atomiclegacy:soldering_station",
+  "group": "soldering.circuit",
+  "duration": 100,
+  "consumption": 100,
+  "toppings": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_vacuum_tube"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_capacitor"
+      },
+      "count": 2
+    }
+  ],
+  "pcb": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_pcb"
+      },
+      "count": 4
+    }
+  ],
+  "solder": [
+    {
+      "ingredient": {
+        "tag": "c:wires/lead"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:circuit_analog"
+  }
+}

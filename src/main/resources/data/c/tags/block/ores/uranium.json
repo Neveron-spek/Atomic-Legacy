@@ -1,0 +1,13 @@
+{
+    "replace":  false,
+    "values":  [
+                   "atomiclegacy:ore_uranium",
+                   "atomiclegacy:ore_uranium_scorched",
+                   "atomiclegacy:ore_deepslate_uranium",
+                   "atomiclegacy:ore_deepslate_uranium_scorched",
+                   "atomiclegacy:ore_gneiss_uranium",
+                   "atomiclegacy:ore_gneiss_uranium_scorched",
+                   "atomiclegacy:ore_nether_uranium",
+                   "atomiclegacy:ore_nether_uranium_scorched"
+               ]
+}

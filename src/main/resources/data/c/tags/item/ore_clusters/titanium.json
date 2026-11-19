@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:cluster_titanium",
+    "atomiclegacy:cluster_deepslate_titanium"
+  ]
+}

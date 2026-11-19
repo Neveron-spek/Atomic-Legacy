@@ -1,0 +1,20 @@
+﻿{
+  "variants": {
+    "end=false,facing=north,wall=false": { "model": "atomiclegacy:block/dungeon_chain" },
+    "end=false,facing=south,wall=false": { "model": "atomiclegacy:block/dungeon_chain", "y": 180 },
+    "end=false,facing=west,wall=false": { "model": "atomiclegacy:block/dungeon_chain", "y": 270 },
+    "end=false,facing=east,wall=false": { "model": "atomiclegacy:block/dungeon_chain", "y": 90 },
+    "end=true,facing=north,wall=false": { "model": "atomiclegacy:block/dungeon_chain_end" },
+    "end=true,facing=south,wall=false": { "model": "atomiclegacy:block/dungeon_chain_end", "y": 180 },
+    "end=true,facing=west,wall=false": { "model": "atomiclegacy:block/dungeon_chain_end", "y": 270 },
+    "end=true,facing=east,wall=false": { "model": "atomiclegacy:block/dungeon_chain_end", "y": 90 },
+    "end=false,facing=north,wall=true": { "model": "atomiclegacy:block/dungeon_chain_wall" },
+    "end=false,facing=south,wall=true": { "model": "atomiclegacy:block/dungeon_chain_wall", "y": 180 },
+    "end=false,facing=west,wall=true": { "model": "atomiclegacy:block/dungeon_chain_wall", "y": 270 },
+    "end=false,facing=east,wall=true": { "model": "atomiclegacy:block/dungeon_chain_wall", "y": 90 },
+    "end=true,facing=north,wall=true": { "model": "atomiclegacy:block/dungeon_chain_wall_end" },
+    "end=true,facing=south,wall=true": { "model": "atomiclegacy:block/dungeon_chain_wall_end", "y": 180 },
+    "end=true,facing=west,wall=true": { "model": "atomiclegacy:block/dungeon_chain_wall_end", "y": 270 },
+    "end=true,facing=east,wall=true": { "model": "atomiclegacy:block/dungeon_chain_wall_end", "y": 90 }
+  }
+}

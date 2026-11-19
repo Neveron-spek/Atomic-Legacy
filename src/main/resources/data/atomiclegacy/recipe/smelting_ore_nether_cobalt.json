@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "item": "atomiclegacy:ore_nether_cobalt"
+  },
+  "result": {
+    "id": "atomiclegacy:ingot_cobalt"
+  },
+  "experience": 2.0,
+  "cookingtime": 200
+}

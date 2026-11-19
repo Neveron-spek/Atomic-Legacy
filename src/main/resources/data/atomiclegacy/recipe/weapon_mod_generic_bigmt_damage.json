@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:gun_parts/mechanism/saturnite"
+    },
+    {
+      "tag": "c:plates/cast_saturnite"
+    },
+    {
+      "tag": "c:plates/cast_saturnite"
+    },
+    {
+      "tag": "c:plates/cast_saturnite"
+    },
+    {
+      "item": "atomiclegacy:ducttape"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:weapon_mod_generic_bigmt_damage",
+    "count": 1
+  }
+}

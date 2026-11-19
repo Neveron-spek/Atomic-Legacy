@@ -1,0 +1,11 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/machines/ore_slopper_parts/base.obj",
+  "mtl_override": "atomiclegacy:models/obj/machines/ore_slopper.mtl",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "textures": {
+    "particle": "atomiclegacy:models/machines/ore_slopper"
+  }
+}

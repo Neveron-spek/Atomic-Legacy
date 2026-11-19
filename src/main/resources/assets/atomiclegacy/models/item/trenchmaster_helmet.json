@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/trenchmaster_helmet"
+                 },
+    "parent":  "minecraft:item/generated"
+}

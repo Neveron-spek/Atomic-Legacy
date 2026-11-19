@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/battery_lithium_cell"
+                 },
+    "parent":  "minecraft:item/generated"
+}

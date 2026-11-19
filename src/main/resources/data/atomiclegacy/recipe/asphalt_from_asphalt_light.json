@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "atomiclegacy:asphalt_light"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:asphalt"
+  }
+}

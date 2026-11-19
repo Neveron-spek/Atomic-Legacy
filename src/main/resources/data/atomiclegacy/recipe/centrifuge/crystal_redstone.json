@@ -1,0 +1,26 @@
+{
+    "type":  "atomiclegacy:centrifuge",
+    "group":  "centrifuge",
+    "ingredient":  {
+                       "item":  "atomiclegacy:crystal_redstone"
+                   },
+    "input_count":  1,
+    "results":  [
+                    {
+                        "id":  "minecraft:redstone",
+                        "count":  3
+                    },
+                    {
+                        "id":  "minecraft:redstone",
+                        "count":  3
+                    },
+                    {
+                        "id":  "minecraft:redstone",
+                        "count":  3
+                    },
+                    {
+                        "id":  "atomiclegacy:nugget_mercury",
+                        "count":  3
+                    }
+                ]
+}

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/powder_spark_mix"
+                 },
+    "parent":  "minecraft:item/generated"
+}

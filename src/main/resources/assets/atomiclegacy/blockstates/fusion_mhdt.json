@@ -1,0 +1,8 @@
+﻿{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/particle/fusion_mhdt" },
+    "facing=east": { "model": "atomiclegacy:block/particle/fusion_mhdt" },
+    "facing=south": { "model": "atomiclegacy:block/particle/fusion_mhdt" },
+    "facing=west": { "model": "atomiclegacy:block/particle/fusion_mhdt" }
+  }
+}

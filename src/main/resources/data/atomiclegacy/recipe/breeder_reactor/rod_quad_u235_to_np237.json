@@ -1,0 +1,25 @@
+{
+  "type": "atomiclegacy:breeder_reactor",
+  "group": "breeder.rods",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:rod_quad"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "u235"
+      }
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:rod_quad",
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "np237"
+      },
+      "minecraft:custom_model_data": 7
+    }
+  },
+  "flux": 900
+}

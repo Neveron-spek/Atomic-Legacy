@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " M ",
+    "MPM",
+    " M "
+  ],
+  "key": {
+    "M": {
+      "tag": "c:gun_parts/mechanism/saturnite"
+    },
+    "P": {
+      "item": "atomiclegacy:gun_laser_pistol"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_laser_pistol_pew_pew",
+    "count": 1
+  }
+}

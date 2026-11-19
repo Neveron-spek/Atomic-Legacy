@@ -1,0 +1,37 @@
+{
+    "type": "atomiclegacy:precision_assembler",
+    "group": "precass.rpaboots",
+    "blueprint_pools": [
+        "discover..rpa"
+    ],
+    "duration": 3600,
+    "power": 25000,
+    "ingredients": [
+        {
+            "ingredient": {
+                "item": "atomiclegacy:plate_armor_ajr"
+            },
+            "count": 12
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:plate_cast_saturnite"
+            },
+            "count": 4
+        },
+        {
+            "ingredient": {
+                "item": "atomiclegacy:plate_kevlar"
+            },
+            "count": 8
+        }
+    ],
+    "outputs": [
+        {
+            "result": {
+                "id": "atomiclegacy:rpa_boots"
+            },
+            "weight": 100
+        }
+    ]
+}

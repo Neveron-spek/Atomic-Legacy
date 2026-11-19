@@ -1,0 +1,42 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.mpw10inc",
+  "duration": 100,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:seg_10"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/steel"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/high_explosive"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "tag": "c:dusts/fire"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_basic"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:mp_warhead_10_incendiary",
+    "count": 1
+  }
+}

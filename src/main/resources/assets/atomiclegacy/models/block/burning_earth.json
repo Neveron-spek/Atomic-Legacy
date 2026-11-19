@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "atomiclegacy:block/waste_earth_bottom",
+    "side": "atomiclegacy:block/burning_grass_side",
+    "top": "atomiclegacy:block/burning_grass_top"
+  }
+}

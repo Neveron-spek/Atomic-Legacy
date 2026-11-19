@@ -1,0 +1,11 @@
+﻿{
+    "type":  "atomiclegacy:solidification",
+    "group":  "solidifier.xylene",
+    "input":  {
+                  "fluid":  "xylene",
+                  "amount":  570
+              },
+    "output":  {
+                   "id":  "atomiclegacy:solid_fuel"
+               }
+}

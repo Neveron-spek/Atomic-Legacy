@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "atomiclegacy:legacy_fluid_container",
+      "fluid": "heatingoil",
+      "amount": 1000
+    },
+    {
+      "type": "atomiclegacy:legacy_fluid_container",
+      "fluid": "unsaturateds",
+      "amount": 1000
+    },
+    {
+      "item": "atomiclegacy:canister_empty"
+    },
+    {
+      "item": "atomiclegacy:canister_empty"
+    },
+    {
+      "tag": "atomiclegacy:chemistry_set"
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:canister_full",
+    "count": 2,
+    "components": {
+      "minecraft:custom_data": {
+        "fluid": "lubricant"
+      }
+    }
+  }
+}

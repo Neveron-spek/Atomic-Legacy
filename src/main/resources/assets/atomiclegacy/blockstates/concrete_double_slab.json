@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "variant=0": { "model": "atomiclegacy:block/concrete_smooth_double_slab" },
+    "variant=1": { "model": "atomiclegacy:block/concrete_double_slab" },
+    "variant=2": { "model": "atomiclegacy:block/concrete_asbestos_double_slab" },
+    "variant=3": { "model": "atomiclegacy:block/ducrete_smooth_double_slab" },
+    "variant=4": { "model": "atomiclegacy:block/ducrete_double_slab" },
+    "variant=5": { "model": "atomiclegacy:block/asphalt_slab_double" },
+    "variant=6": { "model": "atomiclegacy:block/asphalt_slab_double" },
+    "variant=7": { "model": "atomiclegacy:block/asphalt_slab_double" }
+  }
+}

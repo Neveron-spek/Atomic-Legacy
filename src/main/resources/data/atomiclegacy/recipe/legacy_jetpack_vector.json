@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "TCT",
+    "MJM",
+    "B B"
+  ],
+  "key": {
+    "C": {
+      "item": "atomiclegacy:circuit_advanced"
+    },
+    "T": {
+      "item": "atomiclegacy:tank_steel"
+    },
+    "J": {
+      "item": "atomiclegacy:jetpack_break"
+    },
+    "M": {
+      "item": "atomiclegacy:motor"
+    },
+    "B": {
+      "item": "atomiclegacy:bolt_dura_steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:jetpack_vector"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "minecraft:carrot"
+  },
+  "result": {
+    "id": "minecraft:sugar"
+  }
+}

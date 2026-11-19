@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "ingredient": { "item": "atomiclegacy:ore_nether_cobalt" },
+  "result": { "id": "atomiclegacy:ingot_cobalt" },
+  "experience": 1,
+  "cookingtime": 100
+}

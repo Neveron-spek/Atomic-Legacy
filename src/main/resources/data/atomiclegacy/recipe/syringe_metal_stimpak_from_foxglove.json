@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "atomiclegacy:syringe_metal_empty" },
+    { "item": "minecraft:carrot" },
+    { "item": "atomiclegacy:plant_foxglove" }
+  ],
+  "result": {
+    "id": "atomiclegacy:syringe_metal_stimpak"
+  }
+}

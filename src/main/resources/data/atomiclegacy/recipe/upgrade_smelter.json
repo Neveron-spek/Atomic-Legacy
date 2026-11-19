@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":["PHP","CUC","DTD"],"key":{"P":{"tag":"c:plates/copper"},"H":{"item":"minecraft:hopper"},"C":{"item":"atomiclegacy:coil_tungsten"},"U":{"item":"atomiclegacy:upgrade_template"},"D":{"item":"atomiclegacy:coil_copper"},"T":{"item":"atomiclegacy:machine_transformer"}},"result":{"id":"atomiclegacy:upgrade_smelter"}}

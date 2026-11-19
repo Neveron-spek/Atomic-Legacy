@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " S ",
+    "BKB",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "tag": "c:plates/steel"
+    },
+    "B": {
+      "item": "atomiclegacy:bolt_steel"
+    },
+    "K": {
+      "type": "atomiclegacy:legacy_fluid_container",
+      "fluid": "kerosene",
+      "amount": 1000
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:jetpack_tank"
+  }
+}

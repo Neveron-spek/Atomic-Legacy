@@ -1,0 +1,7 @@
+{
+  "parent": "atomiclegacy:block/machine_chungus",
+  "visibility": {
+    "Body": false,
+    "Lever": false
+  }
+}

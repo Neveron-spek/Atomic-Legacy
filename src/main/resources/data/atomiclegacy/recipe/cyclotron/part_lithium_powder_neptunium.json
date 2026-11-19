@@ -1,0 +1,15 @@
+﻿{
+    "type":  "atomiclegacy:cyclotron",
+    "group":  "cyclotron",
+    "particle":  {
+                     "item":  "atomiclegacy:part_lithium"
+                 },
+    "input":  {
+                  "tag":  "c:dusts/uranium"
+              },
+    "output":  {
+                   "id":  "atomiclegacy:powder_neptunium"
+               },
+    "antimatter":  50
+}
+

@@ -1,0 +1,54 @@
+{
+    "type": "atomiclegacy:silex",
+    "group": "silex.nuclear_waste_long_depleted_schrabidium",
+    "ingredient": {
+        "type": "neoforge:components",
+        "items": [
+            "atomiclegacy:nuclear_waste_long_depleted"
+        ],
+        "components": {
+            "minecraft:custom_data": "{waste_class:4}"
+        }
+    },
+    "fluid_produced": 900,
+    "fluid_consumed": 100,
+    "wavelength": "ir",
+    "outputs": [
+        {
+            "item": {
+                "id": "atomiclegacy:nugget_solinium"
+            },
+            "weight": 20
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:nugget_euphemium"
+            },
+            "weight": 18
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:nugget_gh336"
+            },
+            "weight": 15
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:nugget_tantalium"
+            },
+            "weight": 8
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:powder_neodymium_tiny"
+            },
+            "weight": 8
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:nuclear_waste_tiny"
+            },
+            "weight": 31
+        }
+    ]
+}

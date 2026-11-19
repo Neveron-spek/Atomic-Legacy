@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " P ",
+    "BDB",
+    " P "
+  ],
+  "key": {
+    "P": {
+      "tag": "c:plates/steel"
+    },
+    "B": {
+      "item": "atomiclegacy:bolt_steel"
+    },
+    "D": {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:fluid_tank_full"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "fluid": "water"
+        }
+      }
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:ammo_fireext",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "water"
+      },
+      "minecraft:custom_model_data": 0
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " P ",
+    "PIP",
+    " P "
+  ],
+  "key": {
+    "P": {
+      "tag": "c:plates/steel"
+    },
+    "I": {
+      "item": "atomiclegacy:plate_polymer"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:filing_cabinet",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": "{variant:1}"
+    }
+  }
+}

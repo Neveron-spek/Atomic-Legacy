@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "FFF",
+    "ITI",
+    "ITI"
+  ],
+  "key": {
+    "F": { "item": "minecraft:flint" },
+    "I": { "tag": "c:plates/iron" },
+    "T": { "item": "atomiclegacy:ball_dynamite" }
+  },
+  "result": { "id": "atomiclegacy:det_miner", "count": 4 }
+}

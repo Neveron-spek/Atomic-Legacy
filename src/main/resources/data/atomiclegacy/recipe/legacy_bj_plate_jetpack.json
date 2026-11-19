@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "NFN",
+    "TPT",
+    "ICI"
+  ],
+  "key": {
+    "N": {
+      "tag": "c:plates/armor_lunar"
+    },
+    "F": {
+      "item": "atomiclegacy:fins_quad_titanium"
+    },
+    "T": {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:fluid_tank_full"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "fluid": "xenon"
+        }
+      }
+    },
+    "P": {
+      "item": "atomiclegacy:bj_plate"
+    },
+    "I": {
+      "item": "atomiclegacy:mp_thruster_10_xenon"
+    },
+    "C": {
+      "item": "atomiclegacy:crystal_phosphorus"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:bj_plate_jetpack"
+  }
+}

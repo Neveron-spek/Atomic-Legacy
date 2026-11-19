@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/seal_hatch"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

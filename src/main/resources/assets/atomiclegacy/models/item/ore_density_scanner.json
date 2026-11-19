@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/ore_density_scanner"
+                 },
+    "parent":  "minecraft:item/generated"
+}

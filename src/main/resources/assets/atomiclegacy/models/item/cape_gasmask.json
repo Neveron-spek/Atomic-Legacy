@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/cape_gasmask"
+                 },
+    "parent":  "minecraft:item/generated"
+}

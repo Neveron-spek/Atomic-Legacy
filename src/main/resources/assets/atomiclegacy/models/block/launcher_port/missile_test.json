@@ -1,0 +1,12 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/launcher_port/missile_test.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": false,
+  "textures": {
+    "particle": "atomiclegacy:models/missile/missile_test",
+    "texture": "atomiclegacy:models/missile/missile_test"
+  }
+}

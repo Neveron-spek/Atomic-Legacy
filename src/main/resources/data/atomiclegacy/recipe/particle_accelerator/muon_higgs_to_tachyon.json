@@ -1,0 +1,13 @@
+{
+  "type": "atomiclegacy:particle_accelerator",
+  "input1": {
+    "item": "atomiclegacy:particle_muon"
+  },
+  "input2": {
+    "item": "atomiclegacy:particle_higgs"
+  },
+  "momentum": 5000,
+  "output1": {
+    "id": "atomiclegacy:particle_tachyon"
+  }
+}

@@ -1,0 +1,12 @@
+{
+    "type":  "minecraft:blasting",
+    "category":  "misc",
+    "ingredient":  {
+                       "item":  "atomiclegacy:ore_beryllium"
+                   },
+    "result":  {
+                   "id":  "atomiclegacy:ingot_beryllium"
+               },
+    "experience":  2,
+    "cookingtime":  100
+}

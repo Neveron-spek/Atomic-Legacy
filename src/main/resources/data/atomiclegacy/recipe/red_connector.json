@@ -1,0 +1,24 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "C",
+                    "I",
+                    "S"
+                ],
+    "key":  {
+                "C":  {
+                          "item":  "atomiclegacy:coil_copper"
+                      },
+                "I":  {
+                          "tag":  "c:plates/polymer"
+                      },
+                "S":  {
+                          "tag":  "c:ingots/steel"
+                      }
+            },
+    "result":  {
+                   "id":  "atomiclegacy:red_connector",
+                   "count":  4
+               }
+}

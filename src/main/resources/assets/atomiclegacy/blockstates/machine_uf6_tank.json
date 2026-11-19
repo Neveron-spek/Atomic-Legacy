@@ -1,0 +1,8 @@
+﻿{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/machine_uf6_tank_empty" },
+    "facing=south": { "model": "atomiclegacy:block/machine_uf6_tank_empty" },
+    "facing=west": { "model": "atomiclegacy:block/machine_uf6_tank_empty" },
+    "facing=east": { "model": "atomiclegacy:block/machine_uf6_tank_empty" }
+  }
+}

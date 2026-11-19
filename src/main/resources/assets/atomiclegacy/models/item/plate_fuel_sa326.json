@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/plate_fuel_sa326"
+                 },
+    "parent":  "minecraft:item/generated"
+}

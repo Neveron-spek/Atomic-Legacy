@@ -1,0 +1,15 @@
+﻿{
+    "type":  "atomiclegacy:cyclotron",
+    "group":  "cyclotron",
+    "particle":  {
+                     "item":  "atomiclegacy:part_plutonium"
+                 },
+    "input":  {
+                  "item":  "atomiclegacy:pellet_charged"
+              },
+    "output":  {
+                   "id":  "atomiclegacy:nugget_schrabidium"
+               },
+    "antimatter":  1000
+}
+

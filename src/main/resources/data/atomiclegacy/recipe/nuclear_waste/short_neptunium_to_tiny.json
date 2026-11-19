@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:nuclear_waste_short"
+      ],
+      "components": {
+        "minecraft:custom_data": "{waste_class:2}"
+      }
+    }
+  },
+  "pattern": [
+    "#"
+  ],
+  "result": {
+    "id": "atomiclegacy:nuclear_waste_short_tiny",
+    "count": 9,
+    "components": {
+      "minecraft:custom_data": "{waste_class:2}"
+    }
+  }
+}

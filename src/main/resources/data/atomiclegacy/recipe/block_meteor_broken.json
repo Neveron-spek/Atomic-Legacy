@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": ["###", "###", "###"],
+  "key": { "#": { "item": "atomiclegacy:fragment_meteorite" } },
+  "result": { "id": "atomiclegacy:block_meteor_broken" }
+}

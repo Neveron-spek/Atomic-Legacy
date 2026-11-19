@@ -1,0 +1,30 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:ore_separated"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "ore_type": "iron"
+      },
+      "minecraft:custom_model_data": 0
+    }
+  },
+  "acid": {
+    "fluid": "nitric_acid",
+    "amount": 500
+  },
+  "duration": 200,
+  "result": {
+    "id": "atomiclegacy:ore_nitrated",
+    "components": {
+      "minecraft:custom_data": {
+        "ore_type": "iron"
+      },
+      "minecraft:custom_model_data": 0
+    }
+  }
+}

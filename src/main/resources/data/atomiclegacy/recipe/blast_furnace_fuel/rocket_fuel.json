@@ -1,0 +1,7 @@
+{
+  "type": "atomiclegacy:blast_furnace_fuel",
+  "ingredient": {
+    "item": "atomiclegacy:rocket_fuel"
+  },
+  "power": 6400
+}

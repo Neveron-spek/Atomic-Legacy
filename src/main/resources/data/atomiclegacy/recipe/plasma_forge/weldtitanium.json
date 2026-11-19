@@ -1,0 +1,19 @@
+{
+  "type": "atomiclegacy:plasma_forge",
+  "group": "plsm.weldtitanium",
+  "auto_switch_group": "autoswitch.weldPlates",
+  "duration": 300,
+  "power": 50000,
+  "ignition_temp": 500000,
+  "input_items": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_titanium"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:plate_welded_titanium"
+  }
+}

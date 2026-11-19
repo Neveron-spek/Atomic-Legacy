@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "HB",
+    " T"
+  ],
+  "key": {
+    "H": {
+      "item": "atomiclegacy:pipe_steel"
+    },
+    "B": {
+      "item": "atomiclegacy:bolt_steel"
+    },
+    "T": {
+      "item": "atomiclegacy:tank_steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_fireext",
+    "count": 1
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": { "item": "atomiclegacy:crystal_starmetal" },
+  "result": { "id": "atomiclegacy:ingot_starmetal", "count": 2 },
+  "experience": 2.0,
+  "cookingtime": 200
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:ore_meteor"
+    ],
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "rareearth"
+      }
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:chunk_ore_rare",
+    "count": 16
+  },
+  "experience": 10.0,
+  "cookingtime": 200
+}

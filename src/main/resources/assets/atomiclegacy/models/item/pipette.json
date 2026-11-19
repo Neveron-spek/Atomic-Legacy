@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:item/pipette",
+    "layer1": "atomiclegacy:item/pipette_empty"
+  },
+  "overrides": [
+    { "predicate": { "custom_model_data": 1 }, "model": "atomiclegacy:item/pipette_filled" }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "atomiclegacy:nuclear_waste_vitrified"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:block_waste_vitrified"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": [
+      "atomiclegacy:ore_basalt"
+    ],
+    "components": {
+      "minecraft:custom_data": "{variant:4}",
+      "minecraft:custom_model_data": 4
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:powder_molysite",
+    "count": 2
+  }
+}

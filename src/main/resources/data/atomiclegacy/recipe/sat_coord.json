@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SII",
+    "SCA",
+    "SPP"
+  ],
+  "key": {
+    "I": {
+      "tag": "c:ingots/steel"
+    },
+    "S": {
+      "tag": "c:ingots/starmetal"
+    },
+    "P": {
+      "tag": "c:plates/polymer"
+    },
+    "C": {
+      "item": "atomiclegacy:sat_chip"
+    },
+    "A": {
+      "item": "atomiclegacy:circuit_advanced"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:sat_coord",
+    "count": 1
+  }
+}
+

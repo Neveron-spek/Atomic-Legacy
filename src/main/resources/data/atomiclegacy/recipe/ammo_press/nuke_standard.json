@@ -1,0 +1,33 @@
+{
+  "type": "atomiclegacy:ammo_press",
+  "group": "ammo_press.nuke_standard",
+  "order": 82,
+  "input": [
+    {},
+    {
+      "ingredient": {
+        "tag": "c:nuggets/pu239"
+      }
+    },
+    {},
+    {},
+    {
+      "ingredient": {
+        "item": "atomiclegacy:assembly_nuke"
+      }
+    },
+    {},
+    {},
+    {},
+    {}
+  ],
+  "result": {
+    "id": "atomiclegacy:ammo_standard",
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "nuke_standard"
+      },
+      "minecraft:custom_model_data": 21
+    }
+  }
+}

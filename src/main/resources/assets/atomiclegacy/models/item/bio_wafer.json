@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/bio_wafer"
+                 },
+    "parent":  "minecraft:item/generated"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "atomiclegacy:plasma_forge",
+  "group": "plsm.weldcopper",
+  "auto_switch_group": "autoswitch.weldPlates",
+  "duration": 50,
+  "power": 1000,
+  "ignition_temp": 500000,
+  "input_items": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_cast_copper"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:plate_welded_copper"
+  }
+}

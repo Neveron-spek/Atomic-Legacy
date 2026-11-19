@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=north,lit=false": { "model": "atomiclegacy:block/particle/machine_centrifuge" },
+    "facing=east,lit=false": { "model": "atomiclegacy:block/particle/machine_centrifuge" },
+    "facing=south,lit=false": { "model": "atomiclegacy:block/particle/machine_centrifuge" },
+    "facing=west,lit=false": { "model": "atomiclegacy:block/particle/machine_centrifuge" },
+    "facing=north,lit=true": { "model": "atomiclegacy:block/particle/machine_centrifuge" },
+    "facing=east,lit=true": { "model": "atomiclegacy:block/particle/machine_centrifuge" },
+    "facing=south,lit=true": { "model": "atomiclegacy:block/particle/machine_centrifuge" },
+    "facing=west,lit=true": { "model": "atomiclegacy:block/particle/machine_centrifuge" }
+  }
+}

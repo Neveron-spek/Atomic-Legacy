@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "UMU"
+  ],
+  "key": {
+    "U": {
+      "item": "atomiclegacy:gun_uzi"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_uzi_akimbo",
+    "count": 1
+  }
+}

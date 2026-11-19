@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:crafting_shaped", "category": "misc", "pattern": ["##"],
+  "key": { "#": { "tag": "c:ingots/solinium" } },
+  "result": { "id": "atomiclegacy:billet_solinium", "count": 3 }
+}

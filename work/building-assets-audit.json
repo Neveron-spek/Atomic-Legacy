@@ -1,0 +1,26 @@
+{
+  "byte_identical": 139,
+  "different": [],
+  "missing": [
+    "stone_gneiss_var",
+    "stone_depth",
+    "depth_brick",
+    "depth_tiles",
+    "depth_nether_brick",
+    "depth_nether_tiles",
+    "stone_depth_nether",
+    "cage_lamp",
+    "cage_lamp_off",
+    "fluorescent_lamp",
+    "fluorescent_lamp_off",
+    "flood_lamp",
+    "flood_lamp_off",
+    "meteor",
+    "meteor_cobble",
+    "meteor_crushed",
+    "meteor_cobble_molten",
+    "meteor_treasure",
+    "deco_tape_recorder",
+    "deco_pole_top"
+  ]
+}

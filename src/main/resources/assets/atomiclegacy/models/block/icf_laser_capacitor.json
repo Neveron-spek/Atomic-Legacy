@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "atomiclegacy:block/icf_capacitor_top", "up": "atomiclegacy:block/icf_capacitor_top",
+    "north": "atomiclegacy:block/icf_capacitor_side", "south": "atomiclegacy:block/icf_capacitor_side",
+    "west": "atomiclegacy:block/icf_capacitor_side", "east": "atomiclegacy:block/icf_capacitor_side",
+    "particle": "#north"
+  }
+}

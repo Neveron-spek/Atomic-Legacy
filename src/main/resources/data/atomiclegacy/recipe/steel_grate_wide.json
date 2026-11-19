@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "atomiclegacy:steel_grate"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:steel_grate_wide",
+    "count": 4
+  }
+}

@@ -1,0 +1,19 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "S",
+                    "W"
+                ],
+    "key":  {
+                "S":  {
+                          "item":  "atomiclegacy:circuit_chip"
+                      },
+                "W":  {
+                          "item":  "atomiclegacy:fluid_switch"
+                      }
+            },
+    "result":  {
+                   "id":  "atomiclegacy:fluid_counter_valve"
+               }
+}

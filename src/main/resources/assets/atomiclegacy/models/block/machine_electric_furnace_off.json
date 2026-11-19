@@ -1,0 +1,12 @@
+{
+    "parent": "minecraft:block/cube",
+    "textures": {
+        "particle": "atomiclegacy:block/machine_electric_furnace_side",
+        "down": "atomiclegacy:block/machine_electric_furnace_bottom",
+        "up": "atomiclegacy:block/machine_electric_furnace_top",
+        "north": "atomiclegacy:block/machine_electric_furnace_front_off",
+        "south": "atomiclegacy:block/machine_electric_furnace_side",
+        "west": "atomiclegacy:block/machine_electric_furnace_side",
+        "east": "atomiclegacy:block/machine_electric_furnace_side"
+    }
+}

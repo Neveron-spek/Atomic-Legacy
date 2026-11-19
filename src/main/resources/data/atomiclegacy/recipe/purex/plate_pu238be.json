@@ -1,0 +1,40 @@
+{
+  "type": "atomiclegacy:purex",
+  "group": "autoswitch.plate",
+  "duration": 100,
+  "power": 1500,
+  "input_items": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:waste_plate_pu238be"
+      },
+      "count": 1
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid": "kerosene",
+      "amount": 500
+    },
+    {
+      "fluid": "nitric_acid",
+      "amount": 250
+    }
+  ],
+  "output_items": [
+    {
+      "id": "atomiclegacy:nugget_beryllium"
+    },
+    {
+      "id": "atomiclegacy:nugget_pu238"
+    },
+    {
+      "id": "atomiclegacy:powder_coal_tiny",
+      "count": 2
+    },
+    {
+      "id": "atomiclegacy:nugget_lead",
+      "count": 2
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "RWR",
+    "PCP",
+    "SFS"
+  ],
+  "key": {
+    "R": {
+      "item": "atomiclegacy:crystal_rare"
+    },
+    "W": {
+      "item": "atomiclegacy:wire_gold"
+    },
+    "P": {
+      "tag": "c:plates/bismuth"
+    },
+    "C": {
+      "item": "atomiclegacy:laser_crystal_bismuth"
+    },
+    "S": {
+      "item": "atomiclegacy:ring_starmetal"
+    },
+    "F": {
+      "item": "atomiclegacy:rag"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:bismuth_plate"
+  }
+}

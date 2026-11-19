@@ -1,0 +1,19 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "S",
+                    "W"
+                ],
+    "key":  {
+                "S":  {
+                          "item":  "minecraft:lever"
+                      },
+                "W":  {
+                          "item":  "atomiclegacy:fluid_duct_paintable"
+                      }
+            },
+    "result":  {
+                   "id":  "atomiclegacy:fluid_valve"
+               }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "W ",
+    " W",
+    " W"
+  ],
+  "key": {
+    "W": {
+      "tag": "c:ingots/polymer"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:part_grip_polymer",
+    "count": 1
+  }
+}

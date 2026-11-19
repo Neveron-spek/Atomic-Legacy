@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "group": "shredder.magic",
+  "ingredient": {
+    "item": "minecraft:enchanted_book"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_magic"
+  }
+}

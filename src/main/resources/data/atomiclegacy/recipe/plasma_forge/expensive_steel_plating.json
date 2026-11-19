@@ -1,0 +1,13 @@
+{
+  "type": "atomiclegacy:plasma_forge",
+  "group": "plsm.exsteelplating",
+  "duration": 40,
+  "power": 100000,
+  "ignition_temp": 1000000,
+  "input_items": [
+    { "ingredient": { "item": "atomiclegacy:plate_cast_steel" }, "count": 4 },
+    { "ingredient": { "tag": "c:plates/titanium" }, "count": 4 },
+    { "ingredient": { "item": "atomiclegacy:bolt_steel" }, "count": 16 }
+  ],
+  "result": { "id": "atomiclegacy:item_expensive_steel_plating" }
+}

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/crystal_hardened"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

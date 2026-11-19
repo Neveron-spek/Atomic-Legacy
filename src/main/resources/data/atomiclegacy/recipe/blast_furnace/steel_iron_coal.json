@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:blast_furnace",
+  "group": "blast.steelFromIngot",
+  "input_a": { "tag": "c:ingots/iron" },
+  "input_a_count": 2,
+  "input_b": { "tag": "c:sands" },
+  "duration": 800,
+  "result": { "id": "atomiclegacy:ingot_steel", "count": 2 },
+  "byproduct": { "id": "atomiclegacy:ingot_raw_slag" }
+}

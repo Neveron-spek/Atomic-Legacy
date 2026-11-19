@@ -1,0 +1,825 @@
+package com.atomiclegacy.blocks;
+
+import com.atomiclegacy.tileentity.MachineDummyBlockEntity;
+import com.atomiclegacy.tileentity.MachineDummyMenuAccess;
+import com.atomiclegacy.tileentity.ClientRenderNeighborSnapshot;
+import com.atomiclegacy.event.LegacyMobSpawnEvents;
+import com.atomiclegacy.tileentity.CatalyticCrackerBlockEntity;
+import com.atomiclegacy.tileentity.CentrifugeBlockEntity;
+import com.atomiclegacy.tileentity.CombustionEngineBlockEntity;
+import com.atomiclegacy.tileentity.ConveyorPressBlockEntity;
+import com.atomiclegacy.tileentity.GasFlareBlockEntity;
+import com.atomiclegacy.tileentity.CrystallizerBlockEntity;
+import com.atomiclegacy.tileentity.CrucibleBlockEntity;
+import com.atomiclegacy.tileentity.DrainBlockEntity;
+import com.atomiclegacy.tileentity.ElectrolyzerBlockEntity;
+import com.atomiclegacy.tileentity.FluidTankBlockEntity;
+import com.atomiclegacy.tileentity.FractionTowerBlockEntity;
+import com.atomiclegacy.tileentity.FusionMachineBlockEntity;
+import com.atomiclegacy.tileentity.GasCentrifugeBlockEntity;
+import com.atomiclegacy.tileentity.GeothermalHeatExchangerBlockEntity;
+import com.atomiclegacy.tileentity.GasTurbineBlockEntity;
+import com.atomiclegacy.tileentity.HeatBoilerBlockEntity;
+import com.atomiclegacy.tileentity.HeaterBlockEntity;
+import com.atomiclegacy.tileentity.IndustrialTurbineBlockEntity;
+import com.atomiclegacy.tileentity.LeviathanTurbineBlockEntity;
+import com.atomiclegacy.tileentity.LegacyTurretBlockEntity;
+import com.atomiclegacy.tileentity.LegacyTurretType;
+import com.atomiclegacy.tileentity.LegacyMachineBlockEntity;
+import com.atomiclegacy.tileentity.OreSlopperBlockEntity;
+import com.atomiclegacy.tileentity.RbmkComponentBlockEntity;
+import com.atomiclegacy.tileentity.RadarScreenBlockEntity;
+import com.atomiclegacy.tileentity.RefineryBlockEntity;
+import com.atomiclegacy.tileentity.StrandCasterBlockEntity;
+import com.atomiclegacy.blocks.TurretChekhovBlock;
+import com.atomiclegacy.blocks.LegacyTurretBlock;
+import com.atomiclegacy.blocks.TurretJeremyBlock;
+import com.atomiclegacy.tileentity.TurretChekhovBlockEntity;
+import com.atomiclegacy.tileentity.TurretJeremyBlockEntity;
+import com.atomiclegacy.tileentity.WatzBlockEntity;
+import com.atomiclegacy.items.FluidIdentifierItem;
+import com.atomiclegacy.items.FoundryMoldItem;
+import com.atomiclegacy.items.ScrewdriverItem;
+import com.atomiclegacy.items.WiringRedCopperItem;
+import com.atomiclegacy.tileentity.StirlingGeneratorBlockEntity;
+import com.atomiclegacy.tileentity.LanternBehemothBlockEntity;
+import com.atomiclegacy.registry.HbmSoundEvents;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.core.BlockPos;
+import org.jetbrains.annotations.Nullable;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Explosion;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
+
+public class MachineDummyBlock extends Block implements EntityBlock, LegacyCoreProxy /* [parity U3: dummy parts] */ {
+    private static final VoxelShape FULL_BLOCK = Shapes.block();
+    private static final VoxelShape HALF_BLOCK = Shapes.box(0.0D, 0.0D, 0.0D, 1.0D, 0.5D, 1.0D);
+    private static final VoxelShape RBMK_LID_COLLISION = Shapes.box(0.0D, 0.0D, 0.0D, 1.0D, 0.25D, 1.0D);
+    private static final VoxelShape CENTRIFUGE_TOWER = Shapes.box(0.125D, 0.0D, 0.125D, 0.875D, 1.0D, 0.875D);
+    private static final VoxelShape GAS_CENTRIFUGE_TOWER = Shapes.box(0.0625D, 0.0D, 0.0625D, 0.9375D, 1.0D, 0.9375D);
+    private static final ThreadLocal<Boolean> SUPPRESS_CORE_DESTROY = ThreadLocal.withInitial(() -> false);
+
+    public MachineDummyBlock(Properties properties) {
+        super(LargeMachineBlock.nonOccludingMachineProperties(properties));
+    }
+
+    @Override
+    public boolean isSignalSource(BlockState state) {
+        return true;
+    }
+
+    @Override
+    protected int getSignal(BlockState state, BlockGetter level, BlockPos pos, net.minecraft.core.Direction direction) {
+        if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && dummy.core() instanceof LegacyMachineBlockEntity machine
+                && machine.machineId().equals("machine_radar_large")) {
+            BlockPos delta = pos.subtract(dummy.getCorePos());
+            // TileEntityMachineRadarLarge#getConPos: exactly +/-2 on the two horizontal core axes.
+            if ((Math.abs(delta.getX()) == 2 && delta.getY() == 0 && delta.getZ() == 0)
+                    || (Math.abs(delta.getZ()) == 2 && delta.getY() == 0 && delta.getX() == 0)) {
+            return machine.radarRedPower();
+            }
+        }
+        return 0;
+    }
+
+    @Override
+    protected int getDirectSignal(BlockState state, BlockGetter level, BlockPos pos, net.minecraft.core.Direction direction) {
+        return getSignal(state, level, pos, direction);
+    }
+
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new MachineDummyBlockEntity(pos, state);
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return shapeFor(level, pos);
+    }
+
+    @Override
+    protected VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return shapeFor(level, pos);
+    }
+
+    @Override
+    protected VoxelShape getOcclusionShape(BlockState state, BlockGetter level, BlockPos pos) {
+        return Shapes.empty();
+    }
+
+    @Override
+    protected VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return Shapes.empty();
+    }
+
+    /** Invisible multiblock footprint blocks must not darken adjacent terrain. */
+    @Override
+    public int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) {
+        return 0;
+    }
+
+    @Override
+    protected float getShadeBrightness(BlockState state, BlockGetter level, BlockPos pos) {
+        return 1.0F;
+    }
+
+    @Override
+    public boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) {
+        return true;
+    }
+
+    // [parity U3: dummy parts] 1.7.10 cells are the machine block itself: same explosion resistance as the core.
+    @Nullable
+    @Override
+    public BlockPos legacyCorePos(BlockGetter level, BlockPos pos) {
+        return level.getBlockEntity(pos) instanceof MachineDummyBlockEntity cell ? cell.getCorePos() : null;
+    }
+
+    @Override
+    public float getExplosionResistance(BlockState state, BlockGetter level, BlockPos pos, Explosion explosion) {
+        BlockState core = LegacyCoreProxy.valueState(level, pos, state);
+        if (core != state) {
+            BlockPos corePos = legacyCorePos(level, pos);
+            return core.getExplosionResistance(level, corePos, explosion);
+        }
+        return super.getExplosionResistance(state, level, pos, explosion);
+    }
+
+    @Override
+    protected float getDestroyProgress(BlockState state, Player player, BlockGetter level, BlockPos pos) {
+        if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy) {
+            BlockPos corePos = dummy.getCorePos();
+            if (!corePos.equals(pos)) {
+                BlockState coreState = level.getBlockState(corePos);
+                if (!coreState.isAir()) {
+                    return coreState.getDestroyProgress(player, level, corePos);
+                }
+            }
+        }
+        return super.getDestroyProgress(state, player, level, pos);
+    }
+
+    @Override
+    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
+        if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy) {
+            BlockState coreState = level.getBlockState(dummy.getCorePos());
+            return coreState.getBlock().getCloneItemStack(level, dummy.getCorePos(), coreState);
+        }
+        return ItemStack.EMPTY;
+    }
+
+    @Override
+    public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+        if (!level.isClientSide && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy) {
+            dummy.armPlayerRemoval(!player.isCreative());
+        }
+        return super.playerWillDestroy(level, pos, state, player);
+    }
+
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity pumpPart // [parity T1: flow_control_pump]
+                && level.getBlockState(pumpPart.getCorePos()).getBlock() instanceof FlowControlPumpBlock) {
+            return FlowControlPumpBlock.openOnCore(level, pumpPart.getCorePos(), player);
+        }
+        if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity separatorPart // [parity U1: network_separator]
+                && level.getBlockState(separatorPart.getCorePos()).getBlock() instanceof NetworkSeparatorBlock) {
+            return NetworkSeparatorBlock.openOnCore(level, separatorPart.getCorePos(), player);
+        }
+        if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity part
+                && level.getBlockEntity(part.getCorePos()) instanceof com.atomiclegacy.tileentity.LauncherBlockEntity launcher) {
+            if (level.isClientSide) return InteractionResult.SUCCESS;
+            if (player.isCrouching()) return InteractionResult.PASS;
+            if (player instanceof ServerPlayer serverPlayer) {
+                serverPlayer.openMenu(launcher, buffer -> buffer.writeBlockPos(launcher.getBlockPos()));
+                MachineDummyMenuAccess.record(serverPlayer, pos, launcher.getBlockPos());
+            }
+            return InteractionResult.CONSUME;
+        }
+        if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity tankPart
+                && level.getBlockEntity(tankPart.getCorePos()) instanceof FluidTankBlockEntity tank) {
+            if (player.isShiftKeyDown()) {
+                return InteractionResult.PASS;
+            }
+            if (tank.isDamaged()) {
+                return FluidTankBlock.damagedInteraction(level, player);
+            }
+            if (level.isClientSide) {
+                return InteractionResult.SUCCESS;
+            }
+            if (player instanceof ServerPlayer serverPlayer) {
+                serverPlayer.openMenu(tank, buffer -> buffer.writeBlockPos(tank.getBlockPos()));
+                MachineDummyMenuAccess.record(serverPlayer, pos, tank.getBlockPos());
+                return InteractionResult.CONSUME;
+            }
+            return InteractionResult.PASS;
+        }
+        if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof LegacyTurretBlockEntity turret
+                && turret.type() == LegacyTurretType.HOWARD_DAMAGED) {
+            return InteractionResult.PASS;
+        }
+        // The legacy RBMK crane dummy had no onBlockActivated/openInv path;
+        // preserve vanilla PASS on both sides instead of forwarding a GUI or
+        // generic info interaction that did not exist in 1.7.10.
+        if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof RbmkComponentBlockEntity rbmk
+                && rbmk.kind() == RbmkComponentBlock.Kind.CRANE_CONSOLE) {
+            return InteractionResult.PASS;
+        }
+        if (!level.isClientSide && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy) {
+            BlockPos corePos = dummy.getCorePos();
+            BlockState coreState = level.getBlockState(corePos);
+            BlockEntity coreEntity = level.getBlockEntity(corePos);
+            if (coreEntity instanceof IndustrialTurbineBlockEntity) {
+                InteractionResult result = IndustrialTurbineBlock.useOnPart(level, pos, corePos, player);
+                if (result.consumesAction()) {
+                    return result;
+                }
+            }
+            if (coreEntity instanceof LeviathanTurbineBlockEntity) {
+                InteractionResult result = LeviathanTurbineBlock.useOnPart(level, pos, corePos, player);
+                if (result.consumesAction()) {
+                    return result;
+                }
+            }
+            if (coreEntity instanceof RbmkComponentBlockEntity rbmk) {
+                markFbiTarget(player, rbmk.kind());
+                if (coreEntity instanceof MenuProvider menuProvider
+                        && rbmk.kind().hasMenu()
+                        && !player.isShiftKeyDown()
+                        && player instanceof ServerPlayer serverPlayer) {
+                    serverPlayer.openMenu(menuProvider, buffer -> buffer.writeBlockPos(corePos));
+                    MachineDummyMenuAccess.record(serverPlayer, pos, corePos);
+                    return InteractionResult.CONSUME;
+                }
+                // A legacy dummy forwarded a sneaking RBMK click to
+                // RBMKBase.openInv, which consumed it without opening a GUI
+                // or changing control/fuel state.
+                if (player.isShiftKeyDown()) {
+                    return InteractionResult.CONSUME;
+                }
+                if (rbmk.handleEmptyHand(player)) {
+                    return InteractionResult.CONSUME;
+                }
+                rbmk.printInfo(player);
+                return InteractionResult.CONSUME;
+            }
+            if (coreEntity instanceof RadarScreenBlockEntity screen
+                    && player instanceof ServerPlayer serverPlayer) {
+                screen.openLinkedRadar(serverPlayer, pos, corePos);
+                return InteractionResult.CONSUME;
+            }
+            if (coreEntity instanceof LegacyMachineBlockEntity machine
+                    && machine.handleEmptyHandInteraction(player)) {
+                markFbiTarget(player, machine);
+                return InteractionResult.CONSUME;
+            }
+            if (coreEntity instanceof LegacyMachineBlockEntity machine) {
+                markFbiTarget(player, machine);
+            }
+            if (coreEntity instanceof LegacyMachineBlockEntity machine
+                    && machine.machineId().equals("machine_orbus") && player.isCrouching()) {
+                return InteractionResult.CONSUME;
+            }
+            if (coreEntity instanceof FractionTowerBlockEntity tower) {
+                FractionTowerBlock.printTowerInfo(player, corePos, tower);
+                return InteractionResult.CONSUME;
+            }
+            if (coreEntity instanceof FusionMachineBlockEntity fusion) {
+                if (coreEntity instanceof MenuProvider menuProvider && player instanceof ServerPlayer serverPlayer) {
+                    serverPlayer.openMenu(menuProvider, buffer -> buffer.writeBlockPos(corePos));
+                    MachineDummyMenuAccess.record(serverPlayer, pos, corePos);
+                    return InteractionResult.CONSUME;
+                }
+                fusion.printInfo(player);
+                return InteractionResult.CONSUME;
+            }
+            if (coreEntity instanceof CatalyticCrackerBlockEntity cracker) {
+                CatalyticCrackerBlock.printInfo(player, cracker);
+                return InteractionResult.CONSUME;
+            }
+            if (coreEntity instanceof HeaterBlockEntity heater
+                    && coreEntity instanceof MenuProvider menuProvider
+                    && heater.hasMenu()
+                    && player instanceof ServerPlayer serverPlayer) {
+                serverPlayer.openMenu(menuProvider, buffer -> {
+                    buffer.writeBlockPos(corePos);
+                    buffer.writeVarInt(heater.kind().ordinal());
+                });
+                MachineDummyMenuAccess.record(serverPlayer, pos, corePos);
+            } else if (coreEntity instanceof ElectrolyzerBlockEntity electrolyzer && player instanceof ServerPlayer serverPlayer) {
+                serverPlayer.openMenu(electrolyzer, buffer -> {
+                    buffer.writeBlockPos(corePos);
+                    buffer.writeVarInt(electrolyzer.selectedGui());
+                });
+                MachineDummyMenuAccess.record(serverPlayer, pos, corePos);
+            } else if (coreEntity instanceof MenuProvider menuProvider && player instanceof ServerPlayer serverPlayer) {
+                serverPlayer.openMenu(menuProvider, buffer -> buffer.writeBlockPos(corePos));
+                MachineDummyMenuAccess.record(serverPlayer, pos, corePos);
+            }
+        }
+        return InteractionResult.sidedSuccess(level.isClientSide);
+    }
+
+    @Override
+    protected ItemInteractionResult useItemOn(
+            ItemStack stack,
+            BlockState state,
+            Level level,
+            BlockPos pos,
+            Player player,
+            InteractionHand hand,
+            BlockHitResult hitResult
+    ) {
+        if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity pumpPart // [parity T1: flow_control_pump]
+                && level.getBlockState(pumpPart.getCorePos()).getBlock() instanceof FlowControlPumpBlock) {
+            return FlowControlPumpBlock.useOnCore(stack, level, pumpPart.getCorePos(), player);
+        }
+        if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity separatorPart // [parity U1: network_separator]
+                && level.getBlockState(separatorPart.getCorePos()).getBlock() instanceof NetworkSeparatorBlock) {
+            return NetworkSeparatorBlock.openOnCore(level, separatorPart.getCorePos(), player).consumesAction()
+                    ? ItemInteractionResult.sidedSuccess(level.isClientSide) : ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        }
+        if (VendingMachineBlock.isCoinToken(stack)
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy) {
+            BlockPos corePos = dummy.getCorePos();
+            BlockState coreState = level.getBlockState(corePos);
+            if (coreState.getBlock() instanceof VendingMachineBlock) {
+                return VendingMachineBlock.useOnPart(stack, level, pos, corePos, player);
+            }
+        }
+        if (stack.getItem() instanceof com.atomiclegacy.items.SatelliteChipItem
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof com.atomiclegacy.tileentity.SatelliteGroundStationBlockEntity) {
+            return SatelliteGroundStationBlock.setFrequencyFromChip(
+                    level, dummy.getCorePos(), player, stack);
+        }
+        if (stack.getItem() instanceof WiringRedCopperItem) {
+            return WiringRedCopperItem.useItemOnBlock(stack, level, player, pos);
+        }
+        if (stack.getItem() instanceof com.atomiclegacy.items.BlowtorchItem blowtorch
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof FluidTankBlockEntity tank) {
+            if (tank.isDamaged()) {
+                if (!level.isClientSide && blowtorch.canTorch(stack) && tank.repair(player)) {
+                    blowtorch.consumeTorchFuel(stack);
+                    com.atomiclegacy.items.BlowtorchItem.spawnTorchParticles(level, hitResult.getLocation()); // [parity I3: ItemBlowtorch tau particles]
+                    return ItemInteractionResult.sidedSuccess(false);
+                }
+                return ItemInteractionResult.sidedSuccess(level.isClientSide);
+            }
+        }
+        if (stack.getItem() instanceof com.atomiclegacy.items.BlowtorchItem blowtorch // [parity L3: refinery damage]
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof RefineryBlockEntity refinery
+                && refinery.isDamaged()) {
+            if (!level.isClientSide && blowtorch.canTorch(stack) && refinery.repair(player)) {
+                blowtorch.consumeTorchFuel(stack);
+                com.atomiclegacy.items.BlowtorchItem.spawnTorchParticles(level, hitResult.getLocation());
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof LanternBehemothBlockEntity
+                && LanternBehemothBlockEntity.tryRepair(stack, level, dummy.getCorePos(), player)) {
+            com.atomiclegacy.items.BlowtorchItem.spawnTorchParticles(level, hitResult.getLocation()); // [parity I3: ItemBlowtorch tau particles]
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof ConveyorPressBlockEntity press
+                && press.canHandleItem(stack)) {
+            if (!level.isClientSide && press.handleItemInteraction(player, stack)
+                    && press.lastInteractionInstalledStamp()) {
+                level.playSound(null, dummy.getCorePos(), HbmSoundEvents.UPGRADE_PLUG.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof StirlingGeneratorBlockEntity stirling
+                && stirling.tryInsertCog(player, hand, stack, pos)) {
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof RbmkComponentBlockEntity rbmk
+                && rbmk.handleItemUse(player, hand, stack)) {
+            markFbiTarget(player, rbmk.kind());
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (!level.isClientSide && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof RbmkComponentBlockEntity rbmk) {
+            markFbiTarget(player, rbmk.kind());
+        }
+        if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof LegacyMachineBlockEntity machine
+                && machine.handleItemInteraction(player, stack)) {
+            markFbiTarget(player, machine);
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (!level.isClientSide && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof LegacyMachineBlockEntity machine) {
+            markFbiTarget(player, machine);
+        }
+        if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof StrandCasterBlockEntity caster) {
+            if (stack.getItem() instanceof FoundryMoldItem && caster.installMold(stack, player)) {
+                if (!level.isClientSide) {
+                    level.playSound(null, dummy.getCorePos(), HbmSoundEvents.UPGRADE_PLUG.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
+                }
+                return ItemInteractionResult.sidedSuccess(level.isClientSide);
+            }
+            // [parity Q1: MachineStrandCaster - a shovel always consumes the click; the screwdriver
+            // (IToolable#onScrew) is only reached while sneaking, see ScrewdriverItem#useOn]
+            if (stack.is(ItemTags.SHOVELS)) {
+                if (!level.isClientSide) {
+                    caster.scrape(player);
+                }
+                return ItemInteractionResult.sidedSuccess(level.isClientSide);
+            }
+        }
+        if (stack.getItem() instanceof FluidIdentifierItem
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof GasCentrifugeBlockEntity gasCentrifuge) {
+            if (!level.isClientSide && gasCentrifuge.applyFluidIdentifier(stack)) {
+                level.playSound(null, dummy.getCorePos(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.25F, 1.2F);
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (stack.getItem() instanceof FluidIdentifierItem
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof GasTurbineBlockEntity turbine) {
+            if (!level.isClientSide) {
+                turbine.pasteFluidSetting(FluidIdentifierItem.primary(stack), level, player, pos);
+                level.playSound(null, dummy.getCorePos(), SoundEvents.EXPERIENCE_ORB_PICKUP,
+                        SoundSource.BLOCKS, 0.25F, 1.2F);
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (stack.getItem() instanceof FluidIdentifierItem && !player.isShiftKeyDown()
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof GeothermalHeatExchangerBlockEntity exchanger) {
+            if (!level.isClientSide) {
+                exchanger.identify(player, FluidIdentifierItem.primary(stack)); // [parity A3: hephaestus]
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (stack.getItem() instanceof FluidIdentifierItem
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof CombustionEngineBlockEntity engine) {
+            if (!level.isClientSide) {
+                engine.pasteFluidSetting(FluidIdentifierItem.primary(stack), level, player, pos);
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (stack.getItem() instanceof FluidIdentifierItem
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof DrainBlockEntity drain) {
+            if (!level.isClientSide) {
+                drain.pasteFluidSetting(FluidIdentifierItem.primary(stack), level, player, pos);
+                level.playSound(null, dummy.getCorePos(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.25F, 1.2F);
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (player.isShiftKeyDown()
+                && stack.getItem() instanceof FluidIdentifierItem
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof FluidTankBlockEntity tank) {
+            if (!level.isClientSide) {
+                if (!tank.isDamaged()) {
+                    tank.setType(FluidIdentifierItem.primary(stack));
+                }
+                level.playSound(null, dummy.getCorePos(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.25F, 1.2F);
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (stack.getItem() instanceof FluidIdentifierItem
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof FractionTowerBlockEntity tower) {
+            if (!level.isClientSide) {
+                FractionTowerBlock.applyIdentifier(level, dummy.getCorePos(), player, stack, tower);
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (stack.getItem() instanceof FluidIdentifierItem
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof CatalyticCrackerBlockEntity cracker) {
+            if (!level.isClientSide) {
+                CatalyticCrackerBlock.applyIdentifier(player, stack, cracker);
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (stack.getItem() instanceof FluidIdentifierItem
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof LeviathanTurbineBlockEntity turbine) {
+            if (!level.isClientSide) {
+                turbine.pasteFluidSetting(FluidIdentifierItem.primary(stack), level, player, pos);
+                level.playSound(null, dummy.getCorePos(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.25F, 1.2F);
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (stack.getItem() instanceof FluidIdentifierItem
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof HeatBoilerBlockEntity boiler) {
+            if (!level.isClientSide) {
+                boiler.setConfiguredInput(FluidIdentifierItem.primary(stack));
+                level.playSound(null, dummy.getCorePos(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.25F, 1.2F);
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (stack.getItem() instanceof FluidIdentifierItem
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof CrystallizerBlockEntity crystallizer) {
+            if (!level.isClientSide) {
+                crystallizer.pasteFluidSetting(FluidIdentifierItem.primary(stack), level, player, pos);
+                level.playSound(null, dummy.getCorePos(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.25F, 1.2F);
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (stack.getItem() instanceof FluidIdentifierItem
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof ElectrolyzerBlockEntity electrolyzer) {
+            if (!level.isClientSide) {
+                electrolyzer.pasteFluidSetting(FluidIdentifierItem.primary(stack), level, player, pos);
+                level.playSound(null, dummy.getCorePos(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.25F, 1.2F);
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (stack.getItem() instanceof FluidIdentifierItem
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof LegacyMachineBlockEntity machine
+                && machine.machineId().equals("machine_turbofan")) {
+            if (!level.isClientSide) {
+                machine.pasteFluidSetting(FluidIdentifierItem.primary(stack), level, player, dummy.getCorePos());
+                level.playSound(null, dummy.getCorePos(), SoundEvents.EXPERIENCE_ORB_PICKUP,
+                        SoundSource.BLOCKS, 0.25F, 1.2F);
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (ScrewdriverItem.isScrewdriver(stack)) {
+            return ScrewdriverItem.useItemOnHeater(stack, level, player, hand, pos);
+        }
+        if (stack.getItem() instanceof FluidIdentifierItem
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy) {
+            BlockPos corePos = dummy.getCorePos();
+            BlockState coreState = level.getBlockState(corePos);
+            if (coreState.getBlock() instanceof BigAssTankBlock tankBlock) {
+                return tankBlock.useItemOn(stack, coreState, level, corePos, player, hand,
+                        hitResult.withPosition(corePos));
+            }
+            if (coreState.getBlock() instanceof LargeFluidTankBlock tankBlock) {
+                return tankBlock.useItemOn(stack, coreState, level, corePos, player, hand,
+                        hitResult.withPosition(corePos));
+            }
+        }
+        if (stack.is(ItemTags.SHOVELS)
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof CrucibleBlockEntity crucible) {
+            if (!level.isClientSide) {
+                crucible.clearMoltenToScraps(player);
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (stack.getItem() instanceof WiringRedCopperItem) {
+            return WiringRedCopperItem.useItemOnBlock(stack, level, player, pos);
+        }
+        if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy) {
+            BlockPos corePos = dummy.getCorePos();
+            BlockState coreState = level.getBlockState(corePos);
+            if (coreState.getBlock() instanceof CyclotronBlock cyclotronBlock) { // [parity Q2: cyclotron plugs from any part]
+                return cyclotronBlock.useItemOn(stack, coreState, level, corePos, player, hand, hitResult);
+            }
+            if (coreState.getBlock() instanceof PowerPylonBlock pylonBlock) {
+                return pylonBlock.useItemOn(stack, coreState, level, corePos, player, hand, hitResult.withPosition(corePos));
+            }
+        }
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    }
+
+    @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        if (!SUPPRESS_CORE_DESTROY.get()
+                && !movedByPiston
+                && !state.is(newState.getBlock())
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy) {
+            BlockPos corePos = dummy.getCorePos();
+            BlockState coreState = level.getBlockState(corePos);
+            boolean playerRemoval = dummy.isPlayerRemovalArmed();
+            boolean dropCore = dummy.consumeDropCoreWhenRemoved();
+            BlockPos logicalOffset = pos.subtract(corePos);
+            if (level.getBlockEntity(corePos) instanceof RbmkComponentBlockEntity rbmk
+                    && logicalOffset.getX() == 0
+                    && logicalOffset.getZ() == 0
+                    && logicalOffset.getY() == RbmkComponentBlock.columnHeight(level)
+                    && rbmk.hasLid()
+                    && playerRemoval) {
+                ItemStack lid = rbmk.removeLidStack();
+                if (dropCore && !lid.isEmpty() && !level.isClientSide) {
+                    Block.popResource(level, pos, lid);
+                }
+                super.onRemove(state, level, pos, newState, movedByPiston);
+                return;
+            }
+            if (coreState.getBlock() instanceof LargeMachineBlock
+                    || coreState.getBlock() instanceof LargeFluidTankBlock
+                    || coreState.getBlock() instanceof GasTurbineBlock
+                    || coreState.getBlock() instanceof ElectrolyzerBlock
+                    || coreState.getBlock() instanceof MiningLaserBlock
+                    || coreState.getBlock() instanceof StirlingGeneratorBlock
+                    || coreState.getBlock() instanceof WoodBurnerBlock
+                    || coreState.getBlock() instanceof WatzPumpBlock
+                    || coreState.getBlock() instanceof PowerPylonBlock
+                    || coreState.getBlock() instanceof TurretChekhovBlock
+                    || coreState.getBlock() instanceof TurretJeremyBlock
+                    || coreState.getBlock() instanceof LegacyTurretBlock
+                    || coreState.getBlock() instanceof RbmkComponentBlock
+                    || level.getBlockEntity(corePos) instanceof FusionMachineBlockEntity
+                    || level.getBlockEntity(corePos) instanceof WatzBlockEntity) {
+                level.destroyBlock(corePos, dropCore);
+            }
+        }
+        if (!state.is(newState.getBlock())) {
+            com.atomiclegacy.power.PowerNetworkManager.markDirty(level);
+        }
+        super.onRemove(state, level, pos, newState, movedByPiston);
+    }
+
+    @Override
+    protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block,
+                                   BlockPos fromPos, boolean movedByPiston) {
+        super.neighborChanged(state, level, pos, block, fromPos, movedByPiston);
+        refreshCoreRenderNeighborSnapshot(level, pos);
+        if (!level.isClientSide && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof com.atomiclegacy.tileentity.LauncherBlockEntity launcher) {
+            // LaunchPad's old BlockDummyable received redstone updates on every
+            // dummy segment, not only on the core block.
+            launcher.updateRedstonePower(pos);
+        }
+        if (!level.isClientSide && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockState(dummy.getCorePos()).is(com.atomiclegacy.registry.HbmBlocks.MACHINE_ZIRNOX.get())) {
+            ZirnoxReactorBlock.updateRedstone(level, dummy.getCorePos());
+        }
+    }
+
+    @Override
+    public void onNeighborChange(BlockState state, LevelReader level, BlockPos pos, BlockPos neighborPos) {
+        if (level instanceof Level actual) {
+            refreshCoreRenderNeighborSnapshot(actual, pos);
+        }
+    }
+
+    private static void refreshCoreRenderNeighborSnapshot(Level level, BlockPos dummyPos) {
+        if (!level.isClientSide) {
+            return;
+        }
+        if (level.getBlockEntity(dummyPos) instanceof MachineDummyBlockEntity dummy) {
+            ClientRenderNeighborSnapshot.refreshAt(level, dummy.getCorePos());
+        }
+    }
+
+    @Override
+    public void onBlockExploded(BlockState state, Level level, BlockPos pos, Explosion explosion) {
+        if (!level.isClientSide
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof FluidTankBlockEntity tank) {
+            tank.handleExplosion(explosion);
+            runWithoutCoreDestroy(() -> level.removeBlock(pos, false));
+            return;
+        }
+        if (!level.isClientSide
+                && level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy
+                && level.getBlockEntity(dummy.getCorePos()) instanceof RefineryBlockEntity refinery) {
+            refinery.handleExplosion(explosion); // [parity L3: refinery damage]
+            return;
+        }
+        super.onBlockExploded(state, level, pos, explosion);
+    }
+
+    public static void runWithoutCoreDestroy(Runnable action) {
+        boolean previous = SUPPRESS_CORE_DESTROY.get();
+        SUPPRESS_CORE_DESTROY.set(true);
+        try {
+            action.run();
+        } finally {
+            SUPPRESS_CORE_DESTROY.set(previous);
+        }
+    }
+
+    private static void markFbiTarget(Player player, LegacyMachineBlockEntity machine) {
+        if (!player.level().isClientSide && !player.isCrouching() && player instanceof ServerPlayer serverPlayer
+                && (machine.machineId().equals("machine_missile_assembly")
+                || machine.machineId().equals("machine_radiolysis"))) {
+            LegacyMobSpawnEvents.markFbi(serverPlayer);
+        }
+    }
+
+    private static void markFbiTarget(Player player, RbmkComponentBlock.Kind kind) {
+        if (!(player instanceof ServerPlayer serverPlayer)) {
+            return;
+        }
+        if (kind == RbmkComponentBlock.Kind.STORAGE || kind.acceptsFuel()
+                || kind == RbmkComponentBlock.Kind.CONSOLE && !player.isShiftKeyDown()) {
+            LegacyMobSpawnEvents.markFbi(serverPlayer);
+        }
+    }
+
+    private static VoxelShape shapeFor(BlockGetter level, BlockPos pos) {
+        if (level.getBlockEntity(pos) instanceof MachineDummyBlockEntity dummy) {
+            BlockPos corePos = dummy.getCorePos();
+            BlockState coreState = level.getBlockState(corePos);
+            BlockPos offsetFromCore = pos.subtract(corePos);
+            int yOffset = offsetFromCore.getY();
+            BlockEntity core = level.getBlockEntity(corePos);
+            if (core instanceof LegacyMachineBlockEntity machine && machine.machineId().equals("machine_sawmill")) {
+                return SawmillBlock.shapeForPart(
+                        coreState.getValue(LargeMachineBlock.FACING), offsetFromCore);
+            }
+            if (core instanceof GasFlareBlockEntity) {
+                return GasFlareBlock.shapeForPart(offsetFromCore);
+            }
+            if (core instanceof OreSlopperBlockEntity) {
+                return OreSlopperBlock.shapeForPart(
+                        level.getBlockState(corePos).getValue(LargeMachineBlock.FACING), pos.subtract(corePos));
+            }
+            if (core instanceof com.atomiclegacy.tileentity.LauncherBlockEntity launcher
+                    && launcher.kind() == com.atomiclegacy.tileentity.LauncherBlockEntity.Kind.PAD_SMALL) {
+                return LaunchPadBlock.siloShapeForPart(
+                        level.getBlockState(corePos).getValue(LargeMachineBlock.FACING), pos.subtract(corePos));
+            }
+            if (core instanceof com.atomiclegacy.tileentity.LauncherBlockEntity launcher
+                    && launcher.kind() == com.atomiclegacy.tileentity.LauncherBlockEntity.Kind.PAD_RUSTED) {
+                return LaunchPadBlock.rustedPadShapeForPart(
+                        level.getBlockState(corePos).getValue(LargeMachineBlock.FACING), pos.subtract(corePos));
+            }
+            if (core instanceof com.atomiclegacy.tileentity.LauncherBlockEntity launcher
+                    && launcher.kind() == com.atomiclegacy.tileentity.LauncherBlockEntity.Kind.PAD_LARGE) {
+                return LaunchPadBlock.largePadShapeForPart(
+                        level.getBlockState(corePos).getValue(LargeMachineBlock.FACING), pos.subtract(corePos));
+            }
+            if (offsetFromCore.getX() == 0 && offsetFromCore.getZ() == 0 && yOffset >= 1) {
+                if (core instanceof RbmkComponentBlockEntity rbmk
+                        && rbmk.kind() == RbmkComponentBlock.Kind.AUTOLOADER
+                        && yOffset <= RbmkComponentBlock.AUTOLOADER_TOP_OFFSET) {
+                    return RbmkComponentBlock.autoloaderSegmentShape(yOffset);
+                }
+                if (core instanceof RbmkComponentBlockEntity rbmk && yOffset < RbmkComponentBlock.columnHeight(level)) {
+                    return RbmkComponentBlock.columnSegmentShape(
+                            rbmk.kind(),
+                            yOffset,
+                            RbmkComponentBlock.columnHeight(level) - 1,
+                            rbmk.hasLid()
+                    );
+                }
+                if (core instanceof RbmkComponentBlockEntity rbmk
+                        && yOffset == RbmkComponentBlock.columnHeight(level)) {
+                    return rbmk.hasLid() ? RBMK_LID_COLLISION : Shapes.empty();
+                }
+                if (yOffset <= 3 && core instanceof CentrifugeBlockEntity) {
+                    return CENTRIFUGE_TOWER;
+                }
+                if (yOffset <= 3 && core instanceof GasCentrifugeBlockEntity) {
+                    return GAS_CENTRIFUGE_TOWER;
+                }
+            }
+            if (yOffset > 0
+                    && level.getBlockEntity(corePos) instanceof RbmkComponentBlockEntity rbmk
+                    && rbmk.kind() == RbmkComponentBlock.Kind.CRANE_CONSOLE) {
+                return HALF_BLOCK;
+            }
+            if (core instanceof TurretJeremyBlockEntity || core instanceof TurretChekhovBlockEntity) {
+                return HALF_BLOCK;
+            }
+            if (core instanceof LegacyTurretBlockEntity turret && turret.type().layout() == LegacyTurretType.Layout.NT) {
+                return HALF_BLOCK;
+            }
+            return FULL_BLOCK;
+        }
+        return FULL_BLOCK;
+    }
+
+
+    // [parity V4: step sounds]
+    @Override
+    public net.minecraft.world.level.block.SoundType getSoundType(BlockState state, net.minecraft.world.level.LevelReader level,
+                                                                  BlockPos pos, @org.jetbrains.annotations.Nullable net.minecraft.world.entity.Entity entity) {
+        return LegacyCoreProxy.coreSound(level, pos, state, entity);
+    }
+}

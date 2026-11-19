@@ -1,0 +1,57 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.mpw15bf",
+  "duration": 400,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:seg_15"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:plates/weaponsteel"
+      },
+      "count": 32
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:neutron_reflector"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "tag": "c:dusts/magic"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:egg_balefire_shard"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/high_explosive"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:mp_warhead_15_balefire",
+    "count": 1
+  },
+  "blueprint_pools": [
+    "528.controller"
+  ]
+}

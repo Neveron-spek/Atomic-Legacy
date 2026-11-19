@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#c:coal_coke",
+    "atomiclegacy:coke_lignite",
+    "atomiclegacy:coke_petroleum"
+  ]
+}

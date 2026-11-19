@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AA"
+  ],
+  "key": {
+    "A": {
+      "item": "atomiclegacy:ingot_bismuth"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:billet_bismuth",
+    "count": 3
+  }
+}

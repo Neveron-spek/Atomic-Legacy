@@ -1,0 +1,11 @@
+{
+  "parent": "atomiclegacy:block/fusion_torus",
+  "visibility": {
+    "Plasma": false,
+    "Torus": false,
+    "Magnet": false,
+    "Bolts1": false,
+    "Bolts2": false,
+    "Bolts4": false
+  }
+}

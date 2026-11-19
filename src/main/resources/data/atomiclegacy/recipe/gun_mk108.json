@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " GG",
+    "BRM",
+    " D "
+  ],
+  "key": {
+    "G": {
+      "tag": "c:gun_parts/grip/any_plastic"
+    },
+    "B": {
+      "tag": "c:gun_parts/barrel_heavy/weaponsteel"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_heavy/weaponsteel"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    },
+    "D": {
+      "item": "atomiclegacy:shell_weaponsteel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_mk108",
+    "count": 1
+  }
+}

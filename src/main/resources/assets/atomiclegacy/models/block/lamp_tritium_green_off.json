@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "atomiclegacy:block/lamp_tritium_green_off"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

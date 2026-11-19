@@ -1,0 +1,54 @@
+{
+    "type": "atomiclegacy:silex",
+    "group": "silex.nuclear_waste_short_depleted_uranium235",
+    "ingredient": {
+        "type": "neoforge:components",
+        "items": [
+            "atomiclegacy:nuclear_waste_short_depleted"
+        ],
+        "components": {
+            "minecraft:custom_data": "{waste_class:0}"
+        }
+    },
+    "fluid_produced": 900,
+    "fluid_consumed": 100,
+    "wavelength": "ir",
+    "outputs": [
+        {
+            "item": {
+                "id": "atomiclegacy:nugget_zirconium"
+            },
+            "weight": 10
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:dust_tiny"
+            },
+            "weight": 32
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:nugget_lead"
+            },
+            "weight": 22
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:nugget_u238"
+            },
+            "weight": 5
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:nugget_bismuth"
+            },
+            "weight": 15
+        },
+        {
+            "item": {
+                "id": "atomiclegacy:nuclear_waste_tiny"
+            },
+            "weight": 16
+        }
+    ]
+}

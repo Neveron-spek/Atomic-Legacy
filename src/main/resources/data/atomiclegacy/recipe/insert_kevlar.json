@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "KIK",
+    "IDI",
+    "KIK"
+  ],
+  "key": {
+    "K": {
+      "tag": "c:plates/kevlar"
+    },
+    "I": {
+      "tag": "c:ingots/any_rubber"
+    },
+    "D": {
+      "item": "atomiclegacy:ducttape"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:insert_kevlar"
+  }
+}

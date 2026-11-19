@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:ore_aluminium",
+    "atomiclegacy:ore_deepslate_aluminium",
+    "atomiclegacy:cluster_aluminium",
+    "atomiclegacy:cluster_deepslate_aluminium"
+  ]
+}

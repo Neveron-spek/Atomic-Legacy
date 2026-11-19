@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BRM",
+    "WGS"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:gun_parts/barrel_light/weaponsteel"
+    },
+    "R": {
+      "tag": "c:gun_parts/receiver_light/weaponsteel"
+    },
+    "M": {
+      "tag": "c:gun_parts/mechanism/weaponsteel"
+    },
+    "W": {
+      "tag": "c:gun_parts/grip/wood"
+    },
+    "G": {
+      "tag": "c:gun_parts/grip/rubber"
+    },
+    "S": {
+      "tag": "c:gun_parts/stock/wood"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_g3",
+    "count": 1
+  }
+}

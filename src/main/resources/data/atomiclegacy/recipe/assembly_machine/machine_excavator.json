@@ -1,0 +1,41 @@
+﻿{
+    "type":  "atomiclegacy:assembly_machine",
+    "group":  "ass.excavator",
+    "duration":  200,
+    "power":  100,
+    "ingredients":  [
+                        {
+                            "count":  8,
+                            "ingredient":  {
+                                               "item":  "minecraft:stone_bricks"
+                                           }
+                        },
+                        {
+                            "count":  8,
+                            "ingredient":  {
+                                               "tag":  "c:ingots/steel"
+                                           }
+                        },
+                        {
+                            "count":  8,
+                            "ingredient":  {
+                                               "tag":  "c:ingots/iron"
+                                           }
+                        },
+                        {
+                            "count":  2,
+                            "ingredient":  {
+                                               "item":  "atomiclegacy:motor"
+                                           }
+                        },
+                        {
+                            "count":  1,
+                            "ingredient":  {
+                                               "item":  "atomiclegacy:circuit_analog"
+                                           }
+                        }
+                    ],
+    "result":  {
+                   "id":  "atomiclegacy:machine_excavator"
+               }
+}

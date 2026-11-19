@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "MPM",
+    "PCP",
+    "PSP"
+  ],
+  "key": {
+    "M": {
+      "item": "atomiclegacy:motor_desh"
+    },
+    "P": {
+      "item": "atomiclegacy:plate_cast_tcalloy"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_bismoid"
+    },
+    "S": {
+      "item": "atomiclegacy:pipe_dura_steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:watz_pump"
+  }
+}

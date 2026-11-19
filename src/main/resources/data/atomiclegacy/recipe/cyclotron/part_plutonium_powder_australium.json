@@ -1,0 +1,14 @@
+{
+    "type": "atomiclegacy:cyclotron",
+    "group": "cyclotron",
+    "particle": {
+        "item": "atomiclegacy:part_plutonium"
+    },
+    "input": {
+        "item": "atomiclegacy:powder_tennessine"
+    },
+    "output": {
+        "id": "atomiclegacy:powder_australium"
+    },
+    "antimatter": 100
+}

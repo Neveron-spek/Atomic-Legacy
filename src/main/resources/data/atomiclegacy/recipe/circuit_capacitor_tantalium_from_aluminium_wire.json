@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "I",
+    "N",
+    "W"
+  ],
+  "key": {
+    "I": {
+      "item": "atomiclegacy:plate_polymer"
+    },
+    "N": {
+      "tag": "c:nuggets/tantalium"
+    },
+    "W": {
+      "tag": "c:wires/aluminium"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:circuit_capacitor_tantalium",
+    "count": 1
+  }
+}

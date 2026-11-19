@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " A ",
+    "BCB",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "atomiclegacy:plate_gold"
+    },
+    "B": {
+      "item": "atomiclegacy:motor"
+    },
+    "C": {
+      "item": "atomiclegacy:upgrade_ejector"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:upgrade_ejector",
+    "count": 1,
+    "components": {
+      "minecraft:custom_model_data": 1
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/fragment_cerium"
+                 },
+    "parent":  "minecraft:item/generated"
+}

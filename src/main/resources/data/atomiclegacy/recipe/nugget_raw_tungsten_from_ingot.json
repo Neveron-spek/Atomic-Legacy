@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "atomiclegacy:ingot_tungsten"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:nugget_raw_tungsten",
+    "count": 9
+  }
+}

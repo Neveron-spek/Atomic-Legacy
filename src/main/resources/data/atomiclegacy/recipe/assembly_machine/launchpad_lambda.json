@@ -1,0 +1,50 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "atomiclegacy:enable_expensive_mode"
+      }
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.launchpadlambda",
+  "duration": 1200,
+  "power": 5000,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:concrete_rebar"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:plate_welded_steel"
+      },
+      "count": 24
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:motor_bismuth"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_controller_advanced"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:drive_disk_flightdata_processed"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:launchpad_lambda",
+    "count": 1
+  }
+}

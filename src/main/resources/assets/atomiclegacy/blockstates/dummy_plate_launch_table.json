@@ -1,0 +1,7 @@
+﻿{
+    "variants":  {
+                     "":  {
+                              "model":  "atomiclegacy:block/dummy_plate_launch_table"
+                          }
+                 }
+}

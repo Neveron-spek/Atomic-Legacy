@@ -1,0 +1,12 @@
+{
+    "type":  "minecraft:smelting",
+    "category":  "misc",
+    "ingredient":  {
+                       "item":  "atomiclegacy:ore_lead"
+                   },
+    "result":  {
+                   "id":  "atomiclegacy:ingot_lead"
+               },
+    "experience":  3,
+    "cookingtime":  200
+}

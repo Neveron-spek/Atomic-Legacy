@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MCM",
+    "PBP",
+    "PSP"
+  ],
+  "key": {
+    "M": {
+      "item": "atomiclegacy:motor_desh"
+    },
+    "C": {
+      "item": "atomiclegacy:demon_core_closed"
+    },
+    "P": {
+      "tag": "c:plates/armor_fau"
+    },
+    "B": {
+      "item": "atomiclegacy:starmetal_plate"
+    },
+    "S": {
+      "item": "atomiclegacy:ancient_scrap"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:fau_plate"
+  }
+}

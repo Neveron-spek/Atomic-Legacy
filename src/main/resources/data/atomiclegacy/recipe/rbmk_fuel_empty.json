@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ZRZ",
+    "Z Z",
+    "ZRZ"
+  ],
+  "key": {
+    "Z": {
+      "tag": "c:ingots/zirconium"
+    },
+    "R": {
+      "item": "atomiclegacy:rod_quad_empty"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:rbmk_fuel_empty"
+  }
+}

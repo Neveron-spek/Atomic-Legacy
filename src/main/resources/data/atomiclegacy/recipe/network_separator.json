@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SCS",
+    "DTD",
+    "SCS"
+  ],
+  "key": {
+    "S": {
+      "tag": "c:plates/steel"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_basic"
+    },
+    "D": {
+      "item": "atomiclegacy:coil_copper"
+    },
+    "T": {
+      "item": "atomiclegacy:machine_transformer"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:network_separator",
+    "count": 1
+  }
+}

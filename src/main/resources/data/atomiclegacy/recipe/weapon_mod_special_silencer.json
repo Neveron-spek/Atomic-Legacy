@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "P",
+    "B",
+    "P"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:ingots/plastic"
+    },
+    "B": {
+      "tag": "c:gun_parts/barrel_light/steel"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:weapon_mod_special_silencer",
+    "count": 1
+  }
+}

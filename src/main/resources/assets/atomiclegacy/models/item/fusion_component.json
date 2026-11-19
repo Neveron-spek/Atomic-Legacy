@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:block/fusion_component"
+  },
+  "overrides": [
+    { "predicate": { "custom_model_data": 1 }, "model": "atomiclegacy:item/fusion_component_bscco_welded" },
+    { "predicate": { "custom_model_data": 2 }, "model": "atomiclegacy:item/fusion_component_blanket" },
+    { "predicate": { "custom_model_data": 3 }, "model": "atomiclegacy:item/fusion_component_motor" }
+  ]
+}

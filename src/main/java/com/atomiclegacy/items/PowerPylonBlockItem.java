@@ -1,0 +1,38 @@
+package com.atomiclegacy.items;
+
+import com.atomiclegacy.blocks.PowerPylonBlock;
+import com.atomiclegacy.render.PowerPylonItemRenderer;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
+
+import java.util.function.Consumer;
+
+/** Keeps the multi-block pylon OBJ out of the vanilla block-item transform path. */
+public final class PowerPylonBlockItem extends BlockItem {
+    private final PowerPylonBlock.Kind kind;
+
+    public PowerPylonBlockItem(Block block, Item.Properties properties, PowerPylonBlock.Kind kind) {
+        super(block, properties);
+        this.kind = kind;
+    }
+
+    @Override
+    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+        // The existing wooden small pylon intentionally keeps the port's registered flat item model.
+        // The steel small pylon follows RenderPylon's dedicated OBJ item renderer from 1.7.10.
+        if (this.kind == PowerPylonBlock.Kind.RED_PYLON) {
+            return;
+        }
+        consumer.accept(new IClientItemExtensions() {
+            private final PowerPylonItemRenderer renderer = new PowerPylonItemRenderer(kind);
+
+            @Override
+            public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                return renderer;
+            }
+        });
+    }
+}

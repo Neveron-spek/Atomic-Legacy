@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/upgrade_gc_speed"
+                 },
+    "parent":  "minecraft:item/generated"
+}

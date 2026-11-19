@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:entity_glyphid",
+    "atomiclegacy:entity_glyphid_brawler",
+    "atomiclegacy:entity_glyphid_behemoth",
+    "atomiclegacy:entity_glyphid_brenda",
+    "atomiclegacy:entity_glyphid_bombardier",
+    "atomiclegacy:entity_glyphid_blaster",
+    "atomiclegacy:entity_glyphid_scout",
+    "atomiclegacy:entity_glyphid_nuclear",
+    "atomiclegacy:entity_glyphid_digger",
+    "atomiclegacy:entity_parasite_maggot"
+  ]
+}

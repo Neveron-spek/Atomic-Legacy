@@ -1,0 +1,75 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.himars",
+  "blueprint_pools": [
+    "528.arty"
+  ],
+  "duration": 1200,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "type": "atomiclegacy:battery",
+        "items": "atomiclegacy:battery_pack",
+        "components": {
+          "minecraft:custom_data": {
+            "variant": "battery_lithium"
+          },
+          "minecraft:custom_model_data": 2
+        }
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/steel"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/steel"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "tag": "c:ingots/plastic"
+      },
+      "count": 64
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:motor_desh"
+      },
+      "count": 5
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_advanced"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:part_mechanism_saturnite"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:machine_radar"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:crt_display"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:turret_himars"
+  }
+}

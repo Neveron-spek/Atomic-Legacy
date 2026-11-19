@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/particle_tachyon"
+                 },
+    "parent":  "minecraft:item/generated"
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "atomiclegacy:block/pink_slab" },
+    "type=top": { "model": "atomiclegacy:block/pink_slab_top" },
+    "type=double": { "model": "atomiclegacy:block/pink_double_slab" }
+  }
+}

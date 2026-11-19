@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["SUS", "RPR", "SUS"],
+  "key": {
+    "S": { "item": "atomiclegacy:semtex" },
+    "U": { "tag": "c:storage_blocks/u238" },
+    "R": { "tag": "c:ingots/tantalium" },
+    "P": { "item": "atomiclegacy:billet_pu239" }
+  },
+  "result": { "id": "atomiclegacy:fissure_bomb" }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "atomiclegacy:shredder",
+  "ingredient": {
+    "item": "atomiclegacy:crystal_phosphorus"
+  },
+  "result": {
+    "id": "atomiclegacy:powder_fire",
+    "count": 8
+  }
+}

@@ -1,0 +1,11 @@
+{
+    "type": "atomiclegacy:assembly_machine",
+    "group": "ass.capfritz",
+    "duration": 10,
+    "power": 100,
+    "ingredients": [
+        { "count": 64, "ingredient": { "item": "atomiclegacy:cap_fritz" } },
+        { "count": 64, "ingredient": { "item": "atomiclegacy:cap_fritz" } }
+    ],
+    "result": { "id": "atomiclegacy:block_cap", "components": { "minecraft:custom_data": { "type": "fritz" }, "minecraft:custom_model_data": 5 } }
+}

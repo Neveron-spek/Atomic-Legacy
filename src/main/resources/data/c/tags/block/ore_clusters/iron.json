@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "atomiclegacy:cluster_iron",
+    "atomiclegacy:cluster_deepslate_iron"
+  ]
+}

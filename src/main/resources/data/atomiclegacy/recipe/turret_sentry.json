@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PPL",
+    " MD",
+    " SC"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:plates/steel"
+    },
+    "L": {
+      "item": "atomiclegacy:part_mechanism_gunmetal"
+    },
+    "M": {
+      "item": "atomiclegacy:motor"
+    },
+    "D": {
+      "item": "atomiclegacy:crt_display"
+    },
+    "S": {
+      "item": "atomiclegacy:steel_scaffold"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_basic"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:turret_sentry"
+  }
+}

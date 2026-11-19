@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "atomiclegacy:block/ducrete_tile",
+    "top": "atomiclegacy:block/ducrete_tile",
+    "side": "atomiclegacy:block/ducrete_tile"
+  }
+}

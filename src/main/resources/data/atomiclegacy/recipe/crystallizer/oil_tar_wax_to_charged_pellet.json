@@ -1,0 +1,15 @@
+{
+  "type": "atomiclegacy:crystallizer",
+  "group": "crystallizer.oil_tar_wax",
+  "ingredient": {
+    "item": "atomiclegacy:oil_tar_wax"
+  },
+  "acid": {
+    "fluid": "iongel",
+    "amount": 500
+  },
+  "duration": 200,
+  "result": {
+    "id": "atomiclegacy:pellet_charged"
+  }
+}

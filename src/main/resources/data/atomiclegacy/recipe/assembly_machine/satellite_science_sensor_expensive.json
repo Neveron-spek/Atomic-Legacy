@@ -1,0 +1,34 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "atomiclegacy:enable_expensive_mode"
+    }
+  ],
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.sensorrelay",
+  "duration": 600,
+  "power": 25000,
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "atomiclegacy:item_expensive_bronze_tubes"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:circuit_quantum"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:part_generic_lde"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:satellite_science_sensor"
+  }
+}

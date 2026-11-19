@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/med_ipecac_new"
+                 },
+    "parent":  "minecraft:item/generated"
+}

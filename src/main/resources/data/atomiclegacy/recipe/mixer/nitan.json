@@ -1,0 +1,23 @@
+{
+    "type":  "atomiclegacy:mixer",
+    "group":  "mixer.nitan",
+    "output":  {
+                   "fluid":  "nitan",
+                   "amount":  1000
+               },
+    "duration":  50,
+    "input1":  {
+                   "fluid":  "kerosene",
+                   "amount":  600
+               },
+    "input2":  {
+                   "fluid":  "mercury",
+                   "amount":  200
+               },
+    "solid_input":  {
+                        "ingredient":  {
+                                           "tag":  "c:dusts/nitan_mix"
+                                       },
+                        "count":  1
+                    }
+}

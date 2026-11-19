@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/missile_doomsday_rusted"
+                 },
+    "parent":  "minecraft:item/generated"
+}

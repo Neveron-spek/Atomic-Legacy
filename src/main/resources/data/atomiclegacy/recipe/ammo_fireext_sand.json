@@ -1,0 +1,43 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "NNN",
+    "NFN",
+    "NNN"
+  ],
+  "key": {
+    "N": {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:sand_mix"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "boron"
+        }
+      }
+    },
+    "F": {
+      "type": "neoforge:components",
+      "items": [
+        "atomiclegacy:ammo_fireext"
+      ],
+      "components": {
+        "minecraft:custom_data": {
+          "variant": "water"
+        }
+      }
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:ammo_fireext",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "variant": "sand"
+      },
+      "minecraft:custom_model_data": 2
+    }
+  }
+}

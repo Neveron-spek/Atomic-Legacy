@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "atomiclegacy:block/press_preheater", "y": 0 },
+    "facing=east": { "model": "atomiclegacy:block/press_preheater", "y": 90 },
+    "facing=south": { "model": "atomiclegacy:block/press_preheater", "y": 180 },
+    "facing=west": { "model": "atomiclegacy:block/press_preheater", "y": 270 }
+  }
+}

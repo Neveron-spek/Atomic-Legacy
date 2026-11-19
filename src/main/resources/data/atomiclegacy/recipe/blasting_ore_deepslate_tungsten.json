@@ -1,0 +1,12 @@
+{
+    "type":  "minecraft:blasting",
+    "category":  "misc",
+    "ingredient":  {
+                       "item":  "atomiclegacy:ore_deepslate_tungsten"
+                   },
+    "result":  {
+                   "id":  "atomiclegacy:ingot_tungsten"
+               },
+    "experience":  6,
+    "cookingtime":  100
+}

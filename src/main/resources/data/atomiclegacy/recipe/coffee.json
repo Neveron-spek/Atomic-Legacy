@@ -1,0 +1,1 @@
+{"type": "minecraft:crafting_shapeless", "category": "misc", "ingredients": [{"tag": "c:dusts/coal"}, {"item": "minecraft:milk_bucket"}, {"type": "neoforge:components", "items": "minecraft:potion", "components": {"minecraft:potion_contents": {"potion": "minecraft:water"}}}, {"item": "minecraft:sugar"}], "result": {"id": "atomiclegacy:coffee"}}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "DDD",
+    "SSC",
+    "  R"
+  ],
+  "key": {
+    "D": {
+      "item": "atomiclegacy:plate_dineutronium"
+    },
+    "S": {
+      "tag": "c:ingots/starmetal"
+    },
+    "C": {
+      "item": "atomiclegacy:circuit_bismoid"
+    },
+    "R": {
+      "item": "atomiclegacy:gun_lasrifle"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:gun_b92",
+    "count": 1
+  }
+}

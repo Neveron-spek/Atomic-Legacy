@@ -1,0 +1,10 @@
+{
+  "loader": "neoforge:obj",
+  "model": "atomiclegacy:models/obj/bombs/landmine/ap_mine.obj",
+  "mtl_override": "atomiclegacy:models/obj/bombs/landmine/mine_ap_snow.mtl",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": false,
+  "textures": { "particle": "atomiclegacy:models/bombs/mine_ap_snow" }
+}

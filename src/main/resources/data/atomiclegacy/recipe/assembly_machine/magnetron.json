@@ -1,0 +1,24 @@
+{
+  "type": "atomiclegacy:assembly_machine",
+  "group": "ass.magnetron",
+  "duration": 40,
+  "power": 100,
+  "ingredients": [
+    {
+      "ingredient": {
+        "tag": "c:plates/copper"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "atomiclegacy:wire_tungsten"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "atomiclegacy:magnetron",
+    "count": 1
+  }
+}

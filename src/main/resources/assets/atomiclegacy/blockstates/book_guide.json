@@ -1,0 +1,19 @@
+﻿{
+    "variants":  {
+                     "facing=north":  {
+                              "model":  "atomiclegacy:block/book_guide"
+                          },
+                     "facing=east":  {
+                              "model":  "atomiclegacy:block/book_guide",
+                              "y":  90
+                          },
+                     "facing=south":  {
+                              "model":  "atomiclegacy:block/book_guide",
+                              "y":  180
+                          },
+                     "facing=west":  {
+                              "model":  "atomiclegacy:block/book_guide",
+                              "y":  270
+                          }
+                 }
+}

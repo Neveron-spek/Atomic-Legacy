@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PIP"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:plates/titanium"
+    },
+    "I": {
+      "item": "atomiclegacy:blades_titanium"
+    }
+  },
+  "result": {
+    "id": "atomiclegacy:blades_titanium"
+  }
+}

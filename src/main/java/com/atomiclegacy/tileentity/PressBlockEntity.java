@@ -1,0 +1,863 @@
+package com.atomiclegacy.tileentity;
+
+import com.atomiclegacy.blocks.PressMachineBlock;
+import com.atomiclegacy.items.BatteryPackItem;
+import com.atomiclegacy.items.MachineUpgradeItem;
+import com.atomiclegacy.items.StampItem;
+import com.atomiclegacy.inventory.container.MachineEPressMenu;
+import com.atomiclegacy.inventory.container.MachinePressMenu;
+import com.atomiclegacy.network.PressAnimationPayload;
+import com.atomiclegacy.power.PowerEndpoint;
+import com.atomiclegacy.power.PowerNetworkManager;
+import com.atomiclegacy.inventory.recipes.PressRecipe;
+import com.atomiclegacy.registry.HbmBlockEntities;
+import com.atomiclegacy.registry.HbmBlocks;
+import com.atomiclegacy.registry.HbmRecipeTypes;
+import com.atomiclegacy.util.FuelItemConsumption;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.Container;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.WorldlyContainer;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
+
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.function.Consumer;
+
+public class PressBlockEntity extends BlockEntity implements PowerEndpoint, MachineInventory, WorldlyContainer, MenuProvider {
+    private static volatile Consumer<PressBlockEntity> clientRenderSnapshotUpdater = ignored -> { };
+    private static volatile long clientRenderSnapshotRevision;
+    public static final int FIRE_FUEL_SLOT = 0;
+    public static final int STAMP_SLOT = 1;
+    public static final int INPUT_SLOT = 2;
+    public static final int OUTPUT_SLOT = 3;
+    public static final int FIRE_STORAGE_START = 4;
+    public static final int FIRE_STORAGE_END = 13;
+    public static final int ELECTRIC_BATTERY_SLOT = 0;
+    public static final int ELECTRIC_UPGRADE_SLOT = 4;
+    public static final int FIRE_SLOT_COUNT = 13;
+    public static final int ELECTRIC_SLOT_COUNT = 5;
+    public static final int DATA_COUNT = 7;
+    public static final int MAX_PROGRESS = 200;
+    public static final int MAX_SPEED = 400;
+    public static final int PROGRESS_AT_MAX_SPEED = 25;
+    public static final int FIRE_BURN_PER_OPERATION = 200;
+    public static final long ELECTRIC_ENERGY_CAPACITY = 50_000L;
+    public static final long ELECTRIC_DEMAND_PER_TICK = 100L;
+
+    private static final int[] NO_AUTOMATION_SLOTS = {};
+    // [parity K3] TileEntityMachinePress#getAccessibleSlotsFromSide: {0, 1, 2, 3} on every side of the core.
+    private static final int[] FIRE_AUTOMATION_SLOTS = {FIRE_FUEL_SLOT, STAMP_SLOT, INPUT_SLOT, OUTPUT_SLOT};
+    private static final int[] ELECTRIC_AUTOMATION_SLOTS = {STAMP_SLOT, INPUT_SLOT, OUTPUT_SLOT};
+
+    private final NonNullList<ItemStack> items = NonNullList.withSize(FIRE_SLOT_COUNT, ItemStack.EMPTY);
+    private long energyStored;
+    private long lastInput;
+    private int burnTime;
+    private int speed;
+    private int progress;
+    private int completedCycles;
+    private int delay;
+    private boolean retracting;
+    private boolean wasWorking;
+    private int clientProgress;
+    private int clientPrevProgress;
+    private boolean clientAnimationInitialized;
+    private int lastSyncedProgress = Integer.MIN_VALUE;
+    private int lastSyncedSpeed = Integer.MIN_VALUE;
+    private int lastSyncedDelay = Integer.MIN_VALUE;
+    private boolean lastSyncedRetracting;
+    private volatile ItemRenderSnapshot itemRenderSnapshot;
+    private boolean clientRenderSnapshotDirty = true;
+    private final ContainerData menuData = new ContainerData() {
+        @Override
+        public int get(int index) {
+            return switch (index) {
+                case 0 -> (int) PressBlockEntity.this.energyStored;
+                case 1 -> PressBlockEntity.this.kind() == Kind.FIRE ? PressBlockEntity.this.burnTime : (int) PressBlockEntity.this.lastInput;
+                case 2 -> PressBlockEntity.this.progress;
+                case 3 -> PressBlockEntity.this.speed;
+                case 4 -> PressBlockEntity.this.completedCycles;
+                case 5 -> (int) PressBlockEntity.this.currentElectricDemand();
+                case 6 -> PressBlockEntity.this.retracting ? 1 : 0;
+                default -> 0;
+            };
+        }
+
+        @Override
+        public void set(int index, int value) {
+            switch (index) {
+                case 0 -> PressBlockEntity.this.energyStored = value;
+                case 1 -> {
+                    if (PressBlockEntity.this.kind() == Kind.FIRE) {
+                        PressBlockEntity.this.burnTime = value;
+                    } else {
+                        PressBlockEntity.this.lastInput = value;
+                    }
+                }
+                case 2 -> PressBlockEntity.this.progress = value;
+                case 3 -> PressBlockEntity.this.speed = value;
+                case 4 -> PressBlockEntity.this.completedCycles = value;
+                case 6 -> PressBlockEntity.this.retracting = value != 0;
+                default -> {
+                }
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return DATA_COUNT;
+        }
+    };
+
+    public PressBlockEntity(BlockPos pos, BlockState blockState) {
+        super(HbmBlockEntities.PRESS.get(), pos, blockState);
+        this.itemRenderSnapshot = new ItemRenderSnapshot(blockState, ItemStack.EMPTY, null, null,
+                new AABB(pos.getX(), pos.getY(), pos.getZ(), pos.getX(), pos.getY(), pos.getZ()), 0L);
+    }
+
+    public static void clientTick(Level level, BlockPos pos, BlockState state, PressBlockEntity press) {
+        if (press.itemRenderSnapshot.revision() != clientRenderSnapshotRevision) {
+            press.clientRenderSnapshotDirty = true;
+        }
+        press.refreshClientRenderSnapshot();
+    }
+
+    public static void setClientRenderSnapshotUpdater(Consumer<PressBlockEntity> updater) {
+        clientRenderSnapshotUpdater = Objects.requireNonNull(updater);
+        clientRenderSnapshotRevision++;
+    }
+
+    public static long clientRenderSnapshotRevision() {
+        return clientRenderSnapshotRevision;
+    }
+
+    public ItemRenderSnapshot itemRenderSnapshot() {
+        return this.itemRenderSnapshot;
+    }
+
+    public void refreshClientRenderSnapshot() {
+        if (this.clientRenderSnapshotDirty && this.level != null && this.level.isClientSide) {
+            clientRenderSnapshotUpdater.accept(this);
+        }
+    }
+
+    public void publishClientRenderSnapshot(ItemRenderSnapshot snapshot) {
+        if (this.level == null || !this.level.isClientSide) {
+            return;
+        }
+        ItemRenderSnapshot previous = this.itemRenderSnapshot;
+        this.itemRenderSnapshot = Objects.requireNonNull(snapshot);
+        this.clientRenderSnapshotDirty = false;
+        if (!sameSectionCoverage(previous.bounds(), snapshot.bounds())) {
+            this.level.sendBlockUpdated(this.worldPosition, snapshot.blockState(), snapshot.blockState(), Block.UPDATE_CLIENTS);
+        }
+    }
+
+    public static void tick(Level level, BlockPos pos, BlockState state, PressBlockEntity blockEntity) {
+        if (blockEntity.kind() == Kind.ELECTRIC) {
+            PowerNetworkManager.tickFromEndpoint(level, blockEntity);
+            blockEntity.tickElectric(level);
+        } else {
+            blockEntity.tickFire(level);
+        }
+    }
+
+    public Kind kind() {
+        return this.getBlockState().is(HbmBlocks.MACHINE_EPRESS.get()) ? Kind.ELECTRIC : Kind.FIRE;
+    }
+
+    @Override
+    public BlockPos getPowerPos() {
+        return this.worldPosition;
+    }
+
+    @Override
+    public List<BlockPos> getPowerConnectorPositions(LevelAccessor level) {
+        if (kind() != Kind.ELECTRIC) {
+            return List.of();
+        }
+        return List.of(
+                this.worldPosition.north().immutable(),
+                this.worldPosition.east().immutable(),
+                this.worldPosition.south().immutable(),
+                this.worldPosition.west().immutable(),
+                this.worldPosition.above().immutable(),
+                this.worldPosition.below().immutable()
+        );
+    }
+
+    @Override
+    public long getAvailableOutput() {
+        return 0L;
+    }
+
+    @Override
+    public long getRequestedInput() {
+        if (kind() != Kind.ELECTRIC || this.energyStored >= ELECTRIC_ENERGY_CAPACITY) {
+            return 0L;
+        }
+        return ELECTRIC_ENERGY_CAPACITY - this.energyStored;
+    }
+
+    @Override
+    public void applyPower(long usedOutput, long receivedInput) {
+        if (kind() != Kind.ELECTRIC) {
+            return;
+        }
+        this.energyStored = Math.min(ELECTRIC_ENERGY_CAPACITY, this.energyStored + receivedInput);
+        this.lastInput = receivedInput;
+        setChanged();
+    }
+
+    @Override
+    public Component getPowerStatus() {
+        if (kind() == Kind.FIRE) {
+            return Component.translatable(
+                    "message.atomiclegacy.power.press",
+                    this.speed * 100 / MAX_SPEED,
+                    this.burnTime / FIRE_BURN_PER_OPERATION,
+                    this.progress * 100 / MAX_PROGRESS,
+                    this.completedCycles
+            );
+        }
+        return Component.translatable(
+                "message.atomiclegacy.power.epress",
+                this.lastInput,
+                currentElectricDemand(),
+                this.energyStored,
+                ELECTRIC_ENERGY_CAPACITY,
+                this.progress * 100 / MAX_PROGRESS,
+                this.completedCycles
+        );
+    }
+
+    @Override
+    public int getContainerSize() {
+        return kind() == Kind.ELECTRIC ? ELECTRIC_SLOT_COUNT : FIRE_SLOT_COUNT;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        int size = getContainerSize();
+        for (int slot = 0; slot < size; slot++) {
+            if (!this.items.get(slot).isEmpty()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public ItemStack getItem(int slot) {
+        return isValidSlot(slot) ? this.items.get(slot) : ItemStack.EMPTY;
+    }
+
+    @Override
+    public ItemStack removeItem(int slot, int amount) {
+        if (!isValidSlot(slot) || amount <= 0) {
+            return ItemStack.EMPTY;
+        }
+
+        ItemStack stack = this.items.get(slot);
+        if (stack.isEmpty()) {
+            return ItemStack.EMPTY;
+        }
+
+        ItemStack previous = stack.copy();
+        ItemStack removed = stack.split(amount);
+        if (stack.isEmpty()) {
+            this.items.set(slot, ItemStack.EMPTY);
+        }
+        if (!removed.isEmpty()) {
+            resetProgressIfProcessIdentityChanged(slot, previous, this.items.get(slot));
+            setChangedAndSync(false);
+        }
+        return removed;
+    }
+
+    @Override
+    public ItemStack removeItemNoUpdate(int slot) {
+        if (!isValidSlot(slot)) {
+            return ItemStack.EMPTY;
+        }
+        ItemStack removed = this.items.get(slot);
+        this.items.set(slot, ItemStack.EMPTY);
+        resetProgressIfProcessIdentityChanged(slot, removed, ItemStack.EMPTY);
+        return removed;
+    }
+
+    @Override
+    public void setItem(int slot, ItemStack stack) {
+        if (!isValidSlot(slot)) {
+            return;
+        }
+        ItemStack previous = this.items.get(slot).copy();
+        this.items.set(slot, stack);
+        if (!stack.isEmpty() && stack.getCount() > this.getMaxStackSize(stack)) {
+            stack.setCount(this.getMaxStackSize(stack));
+        }
+        resetProgressIfProcessIdentityChanged(slot, previous, stack);
+        if (slot == INPUT_SLOT) {
+            this.clientRenderSnapshotDirty = true;
+            refreshClientRenderSnapshot();
+        }
+        setChangedAndSync(false);
+    }
+
+    private void resetProgressIfProcessIdentityChanged(int slot, ItemStack previous, ItemStack current) {
+        // [parity K3] The 1.7.10 presses never reset the stroke when the input or the stamp changes.
+    }
+
+    @Override
+    public boolean canPlaceItem(int slot, ItemStack stack) {
+        // [parity K3] isItemValidForSlot of TileEntityMachinePress / TileEntityMachineEPress: stamps only in slot 1,
+        // fuel (burner press) in slot 0, anything else in slot 2. GUI slots are plain Slots (see the menus).
+        if (stack.getItem() instanceof StampItem) {
+            return slot == STAMP_SLOT;
+        }
+        if (kind() == Kind.FIRE && slot == FIRE_FUEL_SLOT && burnTimeOf(stack) > 0) {
+            return true;
+        }
+        return slot == INPUT_SLOT;
+    }
+
+    @Override
+    public int[] getSlotsForFace(Direction side) {
+        return getSlotsForAccessor(this.worldPosition, side);
+    }
+
+    @Override
+    public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction side) {
+        return canPlaceItemThroughAccessor(this.worldPosition, slot, stack, side);
+    }
+
+    @Override
+    public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) {
+        return canTakeItemThroughAccessor(this.worldPosition, slot, stack, side);
+    }
+
+    public int[] getSlotsForAccessor(BlockPos accessorPos, @Nullable Direction side) {
+        if (kind() == Kind.ELECTRIC) {
+            // [parity K3] MachineEPress: likewise only the core, slots {1, 2, 3}.
+            return accessorPos.equals(this.worldPosition) ? ELECTRIC_AUTOMATION_SLOTS : NO_AUTOMATION_SLOTS;
+        }
+        // [parity K3] MachinePress dummies (meta < 6) carry no TileEntityProxyCombo: only the core block is an inventory.
+        return accessorPos.equals(this.worldPosition) ? FIRE_AUTOMATION_SLOTS : NO_AUTOMATION_SLOTS;
+    }
+
+    public boolean canPlaceItemThroughAccessor(
+            BlockPos accessorPos,
+            int slot,
+            ItemStack stack,
+            @Nullable Direction side
+    ) {
+        return slot != OUTPUT_SLOT
+                && containsSlot(getSlotsForAccessor(accessorPos, side), slot)
+                && canPlaceItem(slot, stack);
+    }
+
+    public boolean canTakeItemThroughAccessor(
+            BlockPos accessorPos,
+            int slot,
+            ItemStack stack,
+            @Nullable Direction side
+    ) {
+        return slot == OUTPUT_SLOT && containsSlot(getSlotsForAccessor(accessorPos, side), slot);
+    }
+
+    private static boolean containsSlot(int[] slots, int slot) {
+        for (int accessibleSlot : slots) {
+            if (accessibleSlot == slot) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean stillValid(Player player) {
+        return MachineDummyMenuAccess.stillValid(this, player);
+    }
+
+    @Override
+    public void clearContent() {
+        for (int slot = 0; slot < this.items.size(); slot++) {
+            this.items.set(slot, ItemStack.EMPTY);
+        }
+        this.progress = 0;
+        setChangedAndSync(false);
+    }
+
+    @Override
+    public Component getDisplayName() {
+        return Component.translatable(kind() == Kind.ELECTRIC ? "container.atomiclegacy.epress" : "container.atomiclegacy.press");
+    }
+
+    @Override
+    public AbstractContainerMenu createMenu(int containerId, Inventory playerInventory, Player player) {
+        return kind() == Kind.ELECTRIC
+                ? new MachineEPressMenu(containerId, playerInventory, this, this.menuData)
+                : new MachinePressMenu(containerId, playerInventory, this, this.menuData);
+    }
+
+    public ContainerData getMenuData() {
+        return this.menuData;
+    }
+
+    public boolean canAcceptInput(ItemStack stack) {
+        if (stack.isEmpty() || this.level == null) {
+            return false;
+        }
+        for (RecipeHolder<PressRecipe> holder : this.level.getRecipeManager().getAllRecipesFor(HbmRecipeTypes.PRESS.get())) {
+            if (holder.value().ingredient().test(stack)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int energy() {
+        return (int) this.energyStored;
+    }
+
+    public int burnTime() {
+        return this.burnTime;
+    }
+
+    public int speed() {
+        return this.speed;
+    }
+
+    public int progress() {
+        return this.progress;
+    }
+
+    public ItemStack visualInput() {
+        return this.items.get(INPUT_SLOT);
+    }
+
+    public void acceptAnimationSync(int progress, int speed, int delay, boolean retracting) {
+        int clampedProgress = Math.max(0, Math.min(MAX_PROGRESS, progress));
+        if (!this.clientAnimationInitialized) {
+            this.clientProgress = clampedProgress;
+            this.clientPrevProgress = clampedProgress;
+            this.clientAnimationInitialized = true;
+        } else {
+            this.clientPrevProgress = this.clientProgress;
+            this.clientProgress = clampedProgress;
+        }
+        this.progress = clampedProgress;
+        this.speed = Math.max(0, Math.min(MAX_SPEED, speed));
+        this.delay = Math.max(0, delay);
+        this.retracting = retracting;
+    }
+
+    public float clientHeadTravel(float partialTick) {
+        return (float) lerp(this.clientPrevProgress, this.clientProgress, partialTick) * 0.875F / MAX_PROGRESS;
+    }
+
+    @Override
+    public void dropContents(Level level, BlockPos pos) {
+        int size = getContainerSize();
+        for (int slot = 0; slot < size; slot++) {
+            drop(level, pos, this.items.get(slot));
+            this.items.set(slot, ItemStack.EMPTY);
+        }
+    }
+
+    @Override
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.saveAdditional(tag, registries);
+        for (int slot = 0; slot < this.items.size(); slot++) {
+            tag.put("Slot" + slot, this.items.get(slot).saveOptional(registries));
+        }
+        tag.putLong("EnergyStored", this.energyStored);
+        tag.putLong("LastInput", this.lastInput);
+        tag.putInt("BurnTime", this.burnTime);
+        tag.putInt("Speed", this.speed);
+        tag.putInt("Progress", this.progress);
+        tag.putInt("CompletedCycles", this.completedCycles);
+        tag.putInt("Delay", this.delay);
+        tag.putBoolean("Retracting", this.retracting);
+        tag.putBoolean("WasWorking", this.wasWorking);
+    }
+
+    @Override
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.loadAdditional(tag, registries);
+        for (int slot = 0; slot < this.items.size(); slot++) {
+            this.items.set(slot, ItemStack.parseOptional(registries, tag.getCompound("Slot" + slot)));
+        }
+        this.energyStored = tag.getLong("EnergyStored");
+        this.lastInput = tag.getLong("LastInput");
+        this.burnTime = tag.getInt("BurnTime");
+        this.speed = tag.getInt("Speed");
+        this.progress = tag.getInt("Progress");
+        this.completedCycles = tag.getInt("CompletedCycles");
+        this.delay = tag.getInt("Delay");
+        this.retracting = tag.getBoolean("Retracting");
+        this.wasWorking = tag.getBoolean("WasWorking");
+        if (!this.clientAnimationInitialized) {
+            this.clientProgress = this.progress;
+            this.clientPrevProgress = this.progress;
+            this.clientAnimationInitialized = true;
+        }
+        this.clientRenderSnapshotDirty = true;
+        refreshClientRenderSnapshot();
+    }
+
+    @Override
+    public void onLoad() {
+        super.onLoad();
+        this.clientRenderSnapshotDirty = true;
+        refreshClientRenderSnapshot();
+    }
+
+    @Override
+    public void setBlockState(BlockState state) {
+        super.setBlockState(state);
+        this.clientRenderSnapshotDirty = true;
+        refreshClientRenderSnapshot();
+    }
+
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+        CompoundTag tag = super.getUpdateTag(registries);
+        saveAdditional(tag, registries);
+        return tag;
+    }
+
+    @Nullable
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    private void tickFire(Level level) {
+        boolean canProcess = canProcess(level);
+        boolean preheated = isPreheated(level);
+        boolean impact = false;
+
+        if ((canProcess || this.retracting) && this.burnTime >= FIRE_BURN_PER_OPERATION) {
+            this.speed = Math.min(MAX_SPEED, this.speed + (preheated ? 4 : 1));
+        } else {
+            this.speed = Math.max(0, this.speed - 1);
+        }
+
+        if (this.delay <= 0) {
+            int stampSpeed = this.speed * PROGRESS_AT_MAX_SPEED / MAX_SPEED;
+            if (this.retracting) {
+                this.progress -= stampSpeed;
+                if (this.progress <= 0) {
+                    this.retracting = false;
+                    this.delay = 5;
+                }
+            } else if (canProcess) {
+                this.progress += stampSpeed;
+                if (this.progress >= MAX_PROGRESS) {
+                    impact = craft(level);
+                    this.retracting = true;
+                    this.delay = 5;
+                    if (this.burnTime >= FIRE_BURN_PER_OPERATION) {
+                        this.burnTime -= FIRE_BURN_PER_OPERATION;
+                    }
+                }
+            } else if (this.progress > 0) {
+                this.retracting = true;
+            }
+        } else {
+            this.delay--;
+        }
+
+        if (!this.items.get(FIRE_FUEL_SLOT).isEmpty() && this.burnTime < FIRE_BURN_PER_OPERATION) {
+            startBurningFuel();
+        }
+
+        setLit(this.progress > 0 || this.speed > 0);
+        syncActiveVisuals(level);
+        syncAnimation(level, impact);
+    }
+
+    private void tickElectric(Level level) {
+        boolean canProcess = canProcess(level);
+        boolean active = false;
+        boolean impact = false;
+        this.energyStored = BatteryPackItem.dischargeIntoMachine(this.items.get(ELECTRIC_BATTERY_SLOT), this.energyStored, ELECTRIC_ENERGY_CAPACITY);
+
+        if ((canProcess || this.retracting || this.delay > 0) && this.energyStored >= ELECTRIC_DEMAND_PER_TICK) {
+            this.energyStored -= ELECTRIC_DEMAND_PER_TICK;
+            active = true;
+
+            if (this.delay <= 0) {
+                int speedLevel = 1 + Math.min(3, upgradeLevel(MachineUpgradeItem.UpgradeType.SPEED));
+                double processSpeed = this.retracting ? 20.0D : 45.0D;
+                processSpeed *= 1.0D + speedLevel / 4.0D;
+                // The legacy Java assignment truncated the upgraded movement
+                // step instead of rounding it.
+                int step = (int) processSpeed;
+
+                if (this.retracting) {
+                    this.progress -= step;
+                    if (this.progress <= 0) {
+                        this.retracting = false;
+                        this.delay = Math.max(0, 6 - speedLevel);
+                    }
+                } else if (canProcess) {
+                    this.progress += step;
+                    if (this.progress >= MAX_PROGRESS) {
+                        impact = craft(level);
+                        this.retracting = true;
+                        this.delay = Math.max(0, 6 - speedLevel);
+                    }
+                }
+            } else {
+                this.delay--;
+            }
+        }
+
+        setLit(active || this.progress > 0);
+        syncActiveVisuals(level);
+        syncAnimation(level, impact);
+    }
+
+    private Optional<RecipeHolder<PressRecipe>> getRecipe(Level level) {
+        return level.getRecipeManager().getRecipeFor(
+                HbmRecipeTypes.PRESS.get(),
+                new PressRecipe.Input(this.items.get(INPUT_SLOT), this.items.get(STAMP_SLOT)),
+                level
+        );
+    }
+
+    private boolean canProcess(Level level) {
+        if (kind() == Kind.FIRE && this.burnTime < FIRE_BURN_PER_OPERATION) {
+            return false;
+        }
+        if (this.items.get(STAMP_SLOT).isEmpty() || this.items.get(INPUT_SLOT).isEmpty()) {
+            return false;
+        }
+        Optional<RecipeHolder<PressRecipe>> recipe = getRecipe(level);
+        return recipe.isPresent() && canOutput(recipe.get().value().result());
+    }
+
+    private boolean canOutput(ItemStack result) {
+        if (result.isEmpty()) {
+            return false;
+        }
+        ItemStack output = this.items.get(OUTPUT_SLOT);
+        if (output.isEmpty()) {
+            return true;
+        }
+        return ItemStack.isSameItemSameComponents(output, result)
+                && output.getCount() + result.getCount() <= output.getMaxStackSize();
+    }
+
+    private boolean craft(Level level) {
+        Optional<RecipeHolder<PressRecipe>> recipeHolder = getRecipe(level);
+        if (recipeHolder.isEmpty()) {
+            return false;
+        }
+
+        PressRecipe recipe = recipeHolder.get().value();
+        ItemStack result = recipe.result().copy();
+        ItemStack output = this.items.get(OUTPUT_SLOT);
+        if (output.isEmpty()) {
+            this.items.set(OUTPUT_SLOT, result);
+        } else {
+            output.grow(result.getCount());
+        }
+
+        this.items.get(INPUT_SLOT).shrink(1); // [parity K3] decrStackSize(2, 1)
+        if (this.items.get(INPUT_SLOT).isEmpty()) {
+            this.items.set(INPUT_SLOT, ItemStack.EMPTY);
+        }
+
+        ItemStack stamp = this.items.get(STAMP_SLOT);
+        StampItem.damageStamp(stamp);
+        if (stamp.isEmpty()) {
+            this.items.set(STAMP_SLOT, ItemStack.EMPTY);
+        }
+
+        this.completedCycles++;
+        setChangedAndSync(true);
+        return true;
+    }
+
+    private void startBurningFuel() {
+        ItemStack fuel = this.items.get(FIRE_FUEL_SLOT);
+        int duration = burnTimeOf(fuel);
+        if (duration <= 0) {
+            return;
+        }
+
+        ItemStack remainder = FuelItemConsumption.consumeOne(fuel);
+        if (fuel.isEmpty()) {
+            this.items.set(FIRE_FUEL_SLOT, remainder);
+        }
+        this.burnTime += duration;
+        setChangedAndSync(false);
+    }
+
+    /** [parity K3] TileEntityFurnace.getItemBurnTime(stack) as used by TileEntityMachinePress. */
+    public static int burnTimeOf(ItemStack stack) {
+        return com.atomiclegacy.util.LegacyBurnModule.baseBurnTime(stack);
+    }
+
+    private boolean isPreheated(Level level) {
+        for (Direction direction : Direction.values()) {
+            if (level.getBlockState(this.worldPosition.relative(direction)).is(HbmBlocks.PRESS_PREHEATER.get())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private int upgradeLevel(MachineUpgradeItem.UpgradeType type) {
+        ItemStack stack = this.items.get(ELECTRIC_UPGRADE_SLOT);
+        if (MachineUpgradeItem.upgradeType(stack) != type) {
+            return 0;
+        }
+        return Math.max(0, MachineUpgradeItem.upgradeTier(stack));
+    }
+
+    private long currentElectricDemand() {
+        return kind() == Kind.ELECTRIC ? ELECTRIC_DEMAND_PER_TICK : 0L;
+    }
+
+    private static boolean isSupportedUpgrade(ItemStack stack) {
+        return MachineUpgradeItem.isMachineUpgrade(stack)
+                && MachineUpgradeItem.upgradeType(stack) == MachineUpgradeItem.UpgradeType.SPEED;
+    }
+
+    private boolean isValidSlot(int slot) {
+        return slot >= 0 && slot < getContainerSize();
+    }
+
+    private void setLit(boolean lit) {
+        if (this.level == null) {
+            return;
+        }
+
+        BlockState state = this.level.getBlockState(this.worldPosition);
+        if (state.getBlock() instanceof PressMachineBlock && state.getValue(PressMachineBlock.LIT) != lit) {
+            this.level.setBlock(this.worldPosition, state.setValue(PressMachineBlock.LIT, lit), Block.UPDATE_CLIENTS);
+        }
+    }
+
+    private void syncActiveVisuals(Level level) {
+        boolean working = this.progress > 0 || this.retracting || this.speed > 0;
+        if (working != this.wasWorking) {
+            setChangedAndSync(true);
+            this.wasWorking = working;
+        } else {
+            setChanged();
+        }
+    }
+
+    private void syncAnimation(Level level, boolean impact) {
+        if (level.isClientSide) {
+            return;
+        }
+        boolean changed = this.progress != this.lastSyncedProgress
+                || this.speed != this.lastSyncedSpeed
+                || this.delay != this.lastSyncedDelay
+                || this.retracting != this.lastSyncedRetracting;
+        if (!changed && !impact) {
+            return;
+        }
+
+        PressAnimationPayload.sendToTracking(
+                level,
+                this.worldPosition,
+                this.progress,
+                this.speed,
+                this.delay,
+                this.retracting,
+                impact
+        );
+        this.lastSyncedProgress = this.progress;
+        this.lastSyncedSpeed = this.speed;
+        this.lastSyncedDelay = this.delay;
+        this.lastSyncedRetracting = this.retracting;
+    }
+
+    private void setChangedAndSync(boolean forceUpdate) {
+        setChanged();
+        if (forceUpdate && this.level != null && !this.level.isClientSide) {
+            this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), Block.UPDATE_CLIENTS);
+        }
+    }
+
+    private static void drop(Level level, BlockPos pos, ItemStack stack) {
+        if (stack.isEmpty()) {
+            return;
+        }
+
+        level.addFreshEntity(new ItemEntity(
+                level,
+                pos.getX() + 0.5D,
+                pos.getY() + 0.5D,
+                pos.getZ() + 0.5D,
+                stack.copy()
+        ));
+    }
+
+    private static double lerp(double previous, double current, float partialTick) {
+        return previous + (current - previous) * partialTick;
+    }
+
+    private static boolean sameSectionCoverage(AABB first, AABB second) {
+        return sectionMin(first.minX) == sectionMin(second.minX)
+                && sectionMin(first.minY) == sectionMin(second.minY)
+                && sectionMin(first.minZ) == sectionMin(second.minZ)
+                && sectionMax(first.maxX) == sectionMax(second.maxX)
+                && sectionMax(first.maxY) == sectionMax(second.maxY)
+                && sectionMax(first.maxZ) == sectionMax(second.maxZ);
+    }
+
+    private static int sectionMin(double value) {
+        return net.minecraft.util.Mth.floor(value) >> 4;
+    }
+
+    private static int sectionMax(double value) {
+        return net.minecraft.util.Mth.floor(Math.nextDown(value)) >> 4;
+    }
+
+    public record ItemRenderSnapshot(BlockState blockState, ItemStack renderedInput,
+                                     Object itemModelToken, Object geometryToken,
+                                     AABB bounds, long revision) {
+        public ItemRenderSnapshot {
+            Objects.requireNonNull(blockState);
+            renderedInput = renderedInput.copy();
+            Objects.requireNonNull(bounds);
+        }
+    }
+
+    public enum Kind {
+        FIRE,
+        ELECTRIC
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "atomiclegacy:item/wand_k"
+                 },
+    "parent":  "minecraft:item/generated"
+}

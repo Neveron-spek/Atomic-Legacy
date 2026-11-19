@@ -1,0 +1,9 @@
+{
+    "replace":  false,
+    "values":  [
+                   "atomiclegacy:ore_schrabidium",
+                   "atomiclegacy:ore_deepslate_schrabidium",
+                   "atomiclegacy:ore_gneiss_schrabidium",
+                   "atomiclegacy:ore_nether_schrabidium"
+               ]
+}
