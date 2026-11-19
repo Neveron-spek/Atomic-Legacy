@@ -2081,5 +2081,9 @@
   "chem.oilelectrodes": "即席電極（暖房油）",
   "chem.lubeelectrodes": "即席電極（潤滑油）",
   "chem.birkeland": "空気からの硝酸",
-  "block.atomiclegacy.machine_reactor": "増殖炉"
+  "block.atomiclegacy.machine_reactor": "増殖炉",
+  "block.atomiclegacy.rail_booster": "高速ブースターレール",
+  "block.atomiclegacy.rail_highspeed": "高速レール",
+  "block.atomiclegacy.rail_wood": "木製レール",
+  "block.atomiclegacy.rail_narrow": "ナローゲージカートレール"
 }

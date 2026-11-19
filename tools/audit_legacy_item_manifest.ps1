@@ -22,14 +22,14 @@ $LegacyRoot = (Resolve-Path -LiteralPath $LegacyRoot).Path
     -ProjectRoot $ProjectRoot `
     -LegacyRoot $LegacyRoot
 
-$legacyDir = Join-Path $ProjectRoot "src\main\resources\legacy\reinhardtshbm"
+$legacyDir = Join-Path $ProjectRoot "src\main\resources\legacy\atomiclegacy"
 $itemManifest = Join-Path $legacyDir "item_catalog.txt"
 $blockCatalog = Join-Path $legacyDir "block_catalog.txt"
 $oldItemSource = Join-Path $LegacyRoot "src\main\java\com\hbm\items\ModItems.java"
 $oldItemTextures = Join-Path $LegacyRoot "src\main\resources\assets\hbm\textures\items"
-$newItemTextures = Join-Path $ProjectRoot "src\main\resources\assets\reinhardtshbm\textures\item"
+$newItemTextures = Join-Path $ProjectRoot "src\main\resources\assets\atomiclegacy\textures\item"
 $oldChinese = Join-Path $LegacyRoot "src\main\resources\assets\hbm\lang\zh_CN.lang"
-$newChinese = Join-Path $ProjectRoot "src\main\resources\assets\reinhardtshbm\lang\zh_cn.json"
+$newChinese = Join-Path $ProjectRoot "src\main\resources\assets\atomiclegacy\lang\zh_cn.json"
 $reportPath = Join-Path $legacyDir "item_audit.tsv"
 $remainingPortsPath = Join-Path $legacyDir "remaining_item_ports.csv"
 
@@ -45,11 +45,11 @@ $sourceWithoutComments = [regex]::Replace($source, '(?s)/\*.*?\*/', '')
 $sourceWithoutComments = [regex]::Replace($sourceWithoutComments, '(?m)//.*$', '')
 $oldChineseText = Get-Content -LiteralPath $oldChinese -Raw
 $newChineseText = Get-Content -LiteralPath $newChinese -Raw
-$legacyContentPath = Join-Path $ProjectRoot "src\main\java\com\reinhardt\hbm\registry\LegacyHbmContent.java"
+$legacyContentPath = Join-Path $ProjectRoot "src\main\java\com\atomiclegacy\registry\LegacyHbmContent.java"
 $legacyContentText = Get-Content -LiteralPath $legacyContentPath -Raw
-$hbmItemsPath = Join-Path $ProjectRoot "src\main\java\com\reinhardt\hbm\registry\HbmItems.java"
-$hbmBlocksPath = Join-Path $ProjectRoot "src\main\java\com\reinhardt\hbm\registry\HbmBlocks.java"
-$hbmFluidsPath = Join-Path $ProjectRoot "src\main\java\com\reinhardt\hbm\registry\HbmFluids.java"
+$hbmItemsPath = Join-Path $ProjectRoot "src\main\java\com\atomiclegacy\registry\HbmItems.java"
+$hbmBlocksPath = Join-Path $ProjectRoot "src\main\java\com\atomiclegacy\registry\HbmBlocks.java"
+$hbmFluidsPath = Join-Path $ProjectRoot "src\main\java\com\atomiclegacy\registry\HbmFluids.java"
 $hbmItemsText = Get-Content -LiteralPath $hbmItemsPath -Raw
 $hbmBlocksText = Get-Content -LiteralPath $hbmBlocksPath -Raw
 $hbmFluidsText = Get-Content -LiteralPath $hbmFluidsPath -Raw
@@ -203,7 +203,7 @@ foreach ($id in $items) {
     $oldTexture = Test-Path -LiteralPath (Join-Path $oldItemTextures "$id.png")
     $newTexture = Test-Path -LiteralPath (Join-Path $newItemTextures "$id.png")
     $oldLang = $oldChineseText -match [regex]::Escape("item.$id.name=")
-    $newLang = $newChineseText -match [regex]::Escape('"item.reinhardtshbm.' + $id + '"')
+    $newLang = $newChineseText -match [regex]::Escape('"item.atomiclegacy.' + $id + '"')
     $legacyBlock = $blocks.Contains($id)
     $safeExpression = $expression.Replace("`t", ' ').Replace("`r", ' ').Replace("`n", ' ')
     if ($legacyBlock) {

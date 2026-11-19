@@ -194,10 +194,10 @@ function Get-ItemStatus(
     [string]$Id
 ) {
     $registered = Test-SourceLiteral $ItemSource $Id
-    $model = Test-Path -LiteralPath (Join-Path $Project "src\main\resources\assets\reinhardtshbm\models\item\$Id.json")
-    $en = $English.ContainsKey("item.reinhardtshbm.$Id")
-    $zh = $Chinese.ContainsKey("item.reinhardtshbm.$Id")
-    $acquisition = $AcquisitionIds.Contains("reinhardtshbm:$Id")
+    $model = Test-Path -LiteralPath (Join-Path $Project "src\main\resources\assets\atomiclegacy\models\item\$Id.json")
+    $en = $English.ContainsKey("item.atomiclegacy.$Id")
+    $zh = $Chinese.ContainsKey("item.atomiclegacy.$Id")
+    $acquisition = $AcquisitionIds.Contains("atomiclegacy:$Id")
     $complete = $registered -and $model -and $en -and $zh -and $acquisition
     return [pscustomobject]@{
         Registered = $registered
@@ -223,7 +223,7 @@ function Get-BlockStatus(
         # through heavyDoor(HbmDoorDecl.X), so HbmBlocks intentionally has no
         # duplicate string literal. Resolve that exact two-file registration
         # contract instead of reporting a false gap.
-        $doorDeclPath = Join-Path $Project "src\main\java\com\reinhardt\hbm\door\HbmDoorDecl.java"
+        $doorDeclPath = Join-Path $Project "src\main\java\com\atomiclegacy\door\HbmDoorDecl.java"
         if (Test-Path -LiteralPath $doorDeclPath) {
             $doorDeclSource = Get-Content -LiteralPath $doorDeclPath -Raw
             $declMatch = [regex]::Match(
@@ -235,20 +235,20 @@ function Get-BlockStatus(
             }
         }
     }
-    $blockstate = Test-Path -LiteralPath (Join-Path $Project "src\main\resources\assets\reinhardtshbm\blockstates\$Id.json")
-    $itemModel = Test-Path -LiteralPath (Join-Path $Project "src\main\resources\assets\reinhardtshbm\models\item\$Id.json")
-    $blockModelPath = Join-Path $Project "src\main\resources\assets\reinhardtshbm\models\block\$Id.json"
+    $blockstate = Test-Path -LiteralPath (Join-Path $Project "src\main\resources\assets\atomiclegacy\blockstates\$Id.json")
+    $itemModel = Test-Path -LiteralPath (Join-Path $Project "src\main\resources\assets\atomiclegacy\models\item\$Id.json")
+    $blockModelPath = Join-Path $Project "src\main\resources\assets\atomiclegacy\models\block\$Id.json"
     $blockModel = Test-Path -LiteralPath $blockModelPath
     if (-not $blockModel -and $itemModel) {
         # Standalone BER machines intentionally render an empty blockstate and
         # point their item model at an assembled block-model variant. Count the
         # referenced, existing block model instead of requiring a fake unused
         # canonical model at models/block/<registry-id>.json.
-        $itemModelPath = Join-Path $Project "src\main\resources\assets\reinhardtshbm\models\item\$Id.json"
+        $itemModelPath = Join-Path $Project "src\main\resources\assets\atomiclegacy\models\item\$Id.json"
         $itemModelJson = Get-Content -LiteralPath $itemModelPath -Raw | ConvertFrom-Json
-        if ($itemModelJson.parent -is [string] -and $itemModelJson.parent.StartsWith('reinhardtshbm:block/')) {
-            $parentName = $itemModelJson.parent.Substring('reinhardtshbm:block/'.Length)
-            $blockModel = Test-Path -LiteralPath (Join-Path $Project "src\main\resources\assets\reinhardtshbm\models\block\$parentName.json")
+        if ($itemModelJson.parent -is [string] -and $itemModelJson.parent.StartsWith('atomiclegacy:block/')) {
+            $parentName = $itemModelJson.parent.Substring('atomiclegacy:block/'.Length)
+            $blockModel = Test-Path -LiteralPath (Join-Path $Project "src\main\resources\assets\atomiclegacy\models\block\$parentName.json")
         }
 
         # The two latest-upstream launch pads are rendered entirely by their
@@ -260,24 +260,24 @@ function Get-BlockStatus(
                 -and $itemModelJson.parent -eq 'minecraft:builtin/entity' `
                 -and $Id -in @('launchpad_lambda', 'launchpad_soyuz')) {
             $pascal = if ($Id -eq 'launchpad_lambda') { 'LambdaLaunchpad' } else { 'SoyuzLaunchpad' }
-            $blockItemPath = Join-Path $Project "src\main\java\com\reinhardt\hbm\items\${pascal}BlockItem.java"
-            $itemRendererPath = Join-Path $Project "src\main\java\com\reinhardt\hbm\render\${pascal}ItemRenderer.java"
-            $entityRendererPath = Join-Path $Project "src\main\java\com\reinhardt\hbm\render\${pascal}BlockEntityRenderer.java"
-            $emptyModelPath = Join-Path $Project "src\main\resources\assets\reinhardtshbm\models\block\empty.json"
+            $blockItemPath = Join-Path $Project "src\main\java\com\atomiclegacy\items\${pascal}BlockItem.java"
+            $itemRendererPath = Join-Path $Project "src\main\java\com\atomiclegacy\render\${pascal}ItemRenderer.java"
+            $entityRendererPath = Join-Path $Project "src\main\java\com\atomiclegacy\render\${pascal}BlockEntityRenderer.java"
+            $emptyModelPath = Join-Path $Project "src\main\resources\assets\atomiclegacy\models\block\empty.json"
             $blockstateSource = if ($blockstate) {
-                Get-Content -LiteralPath (Join-Path $Project "src\main\resources\assets\reinhardtshbm\blockstates\$Id.json") -Raw
+                Get-Content -LiteralPath (Join-Path $Project "src\main\resources\assets\atomiclegacy\blockstates\$Id.json") -Raw
             } else { '' }
             $blockModel = (Test-Path -LiteralPath $blockItemPath) `
                     -and (Test-Path -LiteralPath $itemRendererPath) `
                     -and (Test-Path -LiteralPath $entityRendererPath) `
                     -and (Test-Path -LiteralPath $emptyModelPath) `
-                    -and $blockstateSource.Contains('reinhardtshbm:block/empty')
+                    -and $blockstateSource.Contains('atomiclegacy:block/empty')
         }
     }
-    $loot = Test-Path -LiteralPath (Join-Path $Project "src\main\resources\data\reinhardtshbm\loot_table\blocks\$Id.json")
-    $en = $English.ContainsKey("block.reinhardtshbm.$Id")
-    $zh = $Chinese.ContainsKey("block.reinhardtshbm.$Id")
-    $recipe = $ProducedRecipeIds.Contains("reinhardtshbm:$Id")
+    $loot = Test-Path -LiteralPath (Join-Path $Project "src\main\resources\data\atomiclegacy\loot_table\blocks\$Id.json")
+    $en = $English.ContainsKey("block.atomiclegacy.$Id")
+    $zh = $Chinese.ContainsKey("block.atomiclegacy.$Id")
+    $recipe = $ProducedRecipeIds.Contains("atomiclegacy:$Id")
     $complete = $registered -and $blockstate -and $blockModel -and $itemModel -and $loot -and $en -and $zh -and $recipe
     return [pscustomobject]@{
         Registered = $registered
@@ -436,19 +436,19 @@ if ($duplicateTargets.Count -gt 0) {
     throw "Duplicate flattened target ids: $($duplicateTargets -join ', ')"
 }
 
-$itemSourcePath = Join-Path $ProjectRoot "src\main\java\com\reinhardt\hbm\registry\HbmItems.java"
-$blockSourcePath = Join-Path $ProjectRoot "src\main\java\com\reinhardt\hbm\registry\HbmBlocks.java"
+$itemSourcePath = Join-Path $ProjectRoot "src\main\java\com\atomiclegacy\registry\HbmItems.java"
+$blockSourcePath = Join-Path $ProjectRoot "src\main\java\com\atomiclegacy\registry\HbmBlocks.java"
 $itemSource = Get-Content -LiteralPath $itemSourcePath -Raw
 $blockSource = Get-Content -LiteralPath $blockSourcePath -Raw
-$english = Get-LanguageKeys (Join-Path $ProjectRoot "src\main\resources\assets\reinhardtshbm\lang\en_us.json")
-$chinese = Get-LanguageKeys (Join-Path $ProjectRoot "src\main\resources\assets\reinhardtshbm\lang\zh_cn.json")
-$recipeRoot = Join-Path $ProjectRoot "src\main\resources\data\reinhardtshbm\recipe"
+$english = Get-LanguageKeys (Join-Path $ProjectRoot "src\main\resources\assets\atomiclegacy\lang\en_us.json")
+$chinese = Get-LanguageKeys (Join-Path $ProjectRoot "src\main\resources\assets\atomiclegacy\lang\zh_cn.json")
+$recipeRoot = Join-Path $ProjectRoot "src\main\resources\data\atomiclegacy\recipe"
 $producedRecipeIds = Get-ProducedRecipeIds $recipeRoot
-$anvilRecipePath = Join-Path $ProjectRoot "src\main\java\com\reinhardt\hbm\inventory\recipes\anvil\HbmAnvilRecipes.java"
+$anvilRecipePath = Join-Path $ProjectRoot "src\main\java\com\atomiclegacy\inventory\recipes\anvil\HbmAnvilRecipes.java"
 if (Test-Path -LiteralPath $anvilRecipePath) {
     $anvilSource = Get-UncommentedJava $anvilRecipePath
     foreach ($match in [regex]::Matches($anvilSource, 'blockItem\(\s*"([a-z0-9_]+)"\s*,\s*\d+\s*\)')) {
-        [void]$producedRecipeIds.Add("reinhardtshbm:$($match.Groups[1].Value)")
+        [void]$producedRecipeIds.Add("atomiclegacy:$($match.Groups[1].Value)")
     }
 }
 
@@ -456,22 +456,22 @@ if (Test-Path -LiteralPath $anvilRecipePath) {
 # Count only the exact brick-to-core conversion used by the modern pile
 # assembler; inventing a standalone recipe would expose an implementation
 # block that upstream deliberately keeps unobtainable.
-$pileBrickPath = Join-Path $ProjectRoot "src\main\java\com\reinhardt\hbm\blocks\PileMk2BrickBlock.java"
+$pileBrickPath = Join-Path $ProjectRoot "src\main\java\com\atomiclegacy\blocks\PileMk2BrickBlock.java"
 if (Test-Path -LiteralPath $pileBrickPath) {
     $pileBrickSource = Get-UncommentedJava $pileBrickPath
     if ($pileBrickSource -match 'level\.setBlock\(\s*place\s*,\s*HbmBlocks\.PILE_BLOCK\.get\(\)\.defaultBlockState\(\)' -and
             $pileBrickSource -match 'PileMk2Block\.KIND') {
-        [void]$producedRecipeIds.Add('reinhardtshbm:pile_block')
+        [void]$producedRecipeIds.Add('atomiclegacy:pile_block')
     }
 }
 $acquisitionIds = [System.Collections.Generic.HashSet[string]]::new($producedRecipeIds)
-$forgottenBrickPath = Join-Path $ProjectRoot "src\main\java\com\reinhardt\hbm\blocks\ForgottenBrickBlock.java"
+$forgottenBrickPath = Join-Path $ProjectRoot "src\main\java\com\atomiclegacy\blocks\ForgottenBrickBlock.java"
 if (Test-Path -LiteralPath $forgottenBrickPath) {
     $forgottenBrickSource = Get-UncommentedJava $forgottenBrickPath
     if ($forgottenBrickSource -match 'Variant\.HOLE' -and
             $forgottenBrickSource -match 'HbmItems\.COAL_ETERNAL\.get\(\)' -and
             $forgottenBrickSource -match 'Variant\.HOLE_EMPTY') {
-        [void]$acquisitionIds.Add('reinhardtshbm:coal_eternal')
+        [void]$acquisitionIds.Add('atomiclegacy:coal_eternal')
     }
 }
 
@@ -479,18 +479,18 @@ if (Test-Path -LiteralPath $forgottenBrickPath) {
 # Runtime products are valid acquisition paths even though they cannot be
 # represented as static recipe JSON. Validate the exact producer transitions
 # rather than granting blanket exemptions.
-$satelliteDataPath = Join-Path $ProjectRoot "src\main\java\com\reinhardt\hbm\satellite\SatelliteSavedData.java"
+$satelliteDataPath = Join-Path $ProjectRoot "src\main\java\com\atomiclegacy\satellite\SatelliteSavedData.java"
 if (Test-Path -LiteralPath $satelliteDataPath) {
     $satelliteDataSource = Get-UncommentedJava $satelliteDataPath
     if ($satelliteDataSource -match 'produceData\(\s*DRIVE_DISK_EMPTY\s*,\s*DRIVE_DISK_FLIGHTDATA\s*\)') {
-        [void]$acquisitionIds.Add('reinhardtshbm:drive_disk_flightdata')
+        [void]$acquisitionIds.Add('atomiclegacy:drive_disk_flightdata')
     }
     if ($satelliteDataSource -match 'produceData\(\s*DRIVE_DISK_EMPTY\s*,\s*DRIVE_DISK_ORBITDATA\s*\)') {
-        [void]$acquisitionIds.Add('reinhardtshbm:drive_disk_orbitdata')
+        [void]$acquisitionIds.Add('atomiclegacy:drive_disk_orbitdata')
     }
 }
 
-$pileRodPath = Join-Path $ProjectRoot "src\main\java\com\reinhardt\hbm\items\PileRodMk2Item.java"
+$pileRodPath = Join-Path $ProjectRoot "src\main\java\com\atomiclegacy\items\PileRodMk2Item.java"
 if (Test-Path -LiteralPath $pileRodPath) {
     $pileRodSource = Get-UncommentedJava $pileRodPath
     $runtimeRodTargets = [ordered]@{
@@ -501,7 +501,7 @@ if (Test-Path -LiteralPath $pileRodPath) {
     }
     foreach ($target in $runtimeRodTargets.Keys) {
         if ($pileRodSource -match $runtimeRodTargets[$target]) {
-            [void]$acquisitionIds.Add("reinhardtshbm:$target")
+            [void]$acquisitionIds.Add("atomiclegacy:$target")
         }
     }
 }

@@ -262,8 +262,8 @@ public final class RecipeDiagnostics {
     private static void validateRotaryFurnaceRuntime(MinecraftServer server) {
         List<RecipeHolder<RotaryFurnaceRecipe>> recipes = server.getRecipeManager()
                 .getAllRecipesFor(HbmRecipeTypes.ROTARY_FURNACE.get());
-        if (recipes.size() != 12) {
-            throw new IllegalStateException("Rotary furnace recipe parity failed: expected 12 recipes, got "
+        if (recipes.size() != 13) { // RotaryFurnaceRecipes 1.7.10: 13, incl. titanium tetrachloride
+            throw new IllegalStateException("Rotary furnace recipe parity failed: expected 13 recipes, got "
                     + recipes.size());
         }
 

@@ -6,7 +6,7 @@ $ErrorActionPreference = 'Stop'
 $currentRoot = Join-Path $PSScriptRoot '../src/main'
 $oldRoot = Join-Path $LegacyRoot 'src/main'
 $old = Get-Content (Join-Path $oldRoot 'java/com/hbm/render/model/ModelHunterChopper.java') -Raw
-$current = Get-Content (Join-Path $currentRoot 'java/com/reinhardt/hbm/render/LegacyChopperModel.java') -Raw
+$current = Get-Content (Join-Path $currentRoot 'java/com/atomiclegacy/render/LegacyChopperModel.java') -Raw
 $numberEvaluator = [System.Data.DataTable]::new()
 
 function Read-Number([string]$expression) {
@@ -60,7 +60,7 @@ if ($current -notmatch 'LayerDefinition\.create\(mesh, 256, 128\)') {
     throw 'Unexpected texture dimensions in model layer.'
 }
 $oldTexture = Join-Path $oldRoot 'resources/assets/hbm/textures/entity/chopper.png'
-$texture = Join-Path $currentRoot 'resources/assets/reinhardtshbm/textures/entity/chopper.png'
+$texture = Join-Path $currentRoot 'resources/assets/atomiclegacy/textures/entity/chopper.png'
 if ((Get-FileHash $oldTexture).Hash -ne (Get-FileHash $texture).Hash) {
     throw 'Texture bytes differ from the legacy source.'
 }

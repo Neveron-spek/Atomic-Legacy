@@ -1462,5 +1462,9 @@
   "item.atomiclegacy.key_red.desc.P11": "§4e§r",
   "item.atomiclegacy.crystal_horn.desc.P11": "An actual horn.",
   "item.atomiclegacy.crystal_charred.desc.P11": "Also a real horn. Weird, right?",
-  "block.atomiclegacy.machine_reactor": "Breeding Reactor"
+  "block.atomiclegacy.machine_reactor": "Breeding Reactor",
+  "block.atomiclegacy.rail_booster": "High Speed Booster Rail",
+  "block.atomiclegacy.rail_highspeed": "High Speed Rail",
+  "block.atomiclegacy.rail_wood": "Wooden Tracks",
+  "block.atomiclegacy.rail_narrow": "Narrow Gauge Cart Rail"
 }

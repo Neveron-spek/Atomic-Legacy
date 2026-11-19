@@ -4,10 +4,10 @@ $ErrorActionPreference = "Stop"
 Set-StrictMode -Version Latest
 
 $projectRoot = Split-Path -Parent $PSScriptRoot
-$recipeRoot = Join-Path $projectRoot "src\main\resources\data\reinhardtshbm\recipe"
+$recipeRoot = Join-Path $projectRoot "src\main\resources\data\atomiclegacy\recipe"
 $crystallizerRoot = Join-Path $recipeRoot "crystallizer"
 $centrifugeRoot = Join-Path $recipeRoot "centrifuge"
-$modId = "reinhardtshbm"
+$modId = "atomiclegacy"
 
 function Write-JsonFile {
     param(

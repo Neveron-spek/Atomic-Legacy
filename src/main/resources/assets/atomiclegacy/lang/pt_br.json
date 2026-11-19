@@ -2217,5 +2217,9 @@
   "chem.oilelectrodes": "Eletrodos Instantâneos (Óleo de Aquecimento)",
   "chem.lubeelectrodes": "Eletrodos Instantâneos (Lubrificante)",
   "chem.birkeland": "Ácido Nítrico a partir do Ar",
-  "block.atomiclegacy.machine_reactor": "Reator Reprodutor (LEGADO)"
+  "block.atomiclegacy.machine_reactor": "Reator Reprodutor (LEGADO)",
+  "block.atomiclegacy.rail_booster": "Trilho Impulsionador de Alta Velocidade",
+  "block.atomiclegacy.rail_highspeed": "Trilho de Alta Velocidade",
+  "block.atomiclegacy.rail_wood": "Trilhos de Madeira",
+  "block.atomiclegacy.rail_narrow": "Trilho para Vagonete de Bitola Estreita"
 }

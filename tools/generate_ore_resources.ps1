@@ -4,9 +4,9 @@ $ErrorActionPreference = "Stop"
 Set-StrictMode -Version 2.0
 
 $ProjectRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
-$AssetsRoot = Join-Path $ProjectRoot "src\main\resources\assets\reinhardtshbm"
+$AssetsRoot = Join-Path $ProjectRoot "src\main\resources\assets\atomiclegacy"
 $DataRoot = Join-Path $ProjectRoot "src\main\resources\data"
-$ModId = "reinhardtshbm"
+$ModId = "atomiclegacy"
 
 Add-Type -AssemblyName System.Drawing
 Add-Type -AssemblyName System.IO.Compression.FileSystem

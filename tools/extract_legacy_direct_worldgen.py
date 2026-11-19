@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OLD_DUNGEON = ROOT.parents[1] / "HBM_1.7.10" / "src" / "main" / "java" / "com" / "hbm" / "world" / "dungeon"
-OUT = ROOT / "src" / "main" / "resources" / "data" / "reinhardtshbm" / "legacy_worldgen"
+OUT = ROOT / "src" / "main" / "resources" / "data" / "atomiclegacy" / "legacy_worldgen"
 
 
 STRUCTURES = {
@@ -123,7 +123,7 @@ def signed_int(value: str) -> int:
 
 
 def hbm_id(name: str) -> str:
-    return f"reinhardtshbm:{HBM_ALIASES.get(name, name)}"
+    return f"atomiclegacy:{HBM_ALIASES.get(name, name)}"
 
 
 def vanilla_id(name: str) -> str:

@@ -1350,6 +1350,7 @@ tasks.register('validateBlockDestroyParticles') {
                 'minecraft:block/inner_stairs'                  : '#side',
                 'minecraft:block/ladder'                        : 'minecraft:block/ladder',
                 'minecraft:block/orientable'                    : '#front',
+                'minecraft:block/orientable_with_bottom'        : '#front',
                 'minecraft:block/outer_stairs'                  : '#side',
                 'minecraft:block/rail_curved'                   : '#rail',
                 'minecraft:block/rail_flat'                     : '#rail',
@@ -3469,10 +3470,12 @@ tasks.register('validatePortRegressionFixes') {
                 || !funnelRenderer.contains('renderPart(SIDE')) {
             problems << 'Combinator funnel must render its three legacy OBJ parts once through the BER at the block center.'
         }
-        if (hydrotreater.contains('renderLabels(')
+        // GUIMachineHydrotreater draws the title in 0xffffff, so the default grey label is overridden.
+        if (!hydrotreater.contains('graphics.drawString(font, title, titleLabelX, titleLabelY, 0xFFFFFF, false);')
+                || !hydrotreater.contains('graphics.drawString(font, playerInventoryTitle, inventoryLabelX, inventoryLabelY, 4210752, false);')
                 || !hydrotreater.contains('titleLabelY = 5;')
                 || !hydrotreater.contains('inventoryLabelX = 8;')) {
-            problems << 'Hydrotreater labels must be drawn only by AbstractContainerScreen at the verified 1.7.10 coordinates.'
+            problems << 'Hydrotreater labels must match GUIMachineHydrotreater (white title at y=5, grey inventory label at x=8).'
         }
          if (!hydrotreater.contains('protected void renderTooltip(GuiGraphics graphics, int mouseX, int mouseY)')
                  || !hydrotreater.contains('if (!renderMachineTooltip(graphics, mouseX, mouseY))')
@@ -3480,7 +3483,7 @@ tasks.register('validatePortRegressionFixes') {
                  || !hydrotreater.contains('this.renderTooltip(graphics, mouseX, mouseY);')
                  || !hydrotreater.contains('graphics.renderComponentTooltip(font,')
                  || !hydrotreater.contains('return true;')
-                 || hydrotreater.contains('HbmFluidTooltipRenderer.render(graphics, font,')) {
+                 || !hydrotreater.contains('HbmFluidTooltipRenderer.render(graphics, font,')) {
              problems << 'Hydrotreater hover tooltips must use one mutually exclusive vanilla tooltip per hovered region.'
          }
          if (!compressorScreen.contains('protected void renderTooltip(GuiGraphics guiGraphics, int mouseX, int mouseY)')
@@ -8935,7 +8938,9 @@ tasks.register('validateCraneRecipeParity') {
         ]
 
         def casings = [
-                stone: [ingredient: item('minecraft:stone_bricks'), count: 1],
+                // Blocks.stonebrick is a wildcard-meta ingredient in 1.7.10 (any stone-brick variant).
+                stone: [ingredient: [item('minecraft:chiseled_stone_bricks'), item('minecraft:cracked_stone_bricks'),
+                                     item('minecraft:mossy_stone_bricks'), item('minecraft:stone_bricks')], count: 1],
                 iron: [ingredient: tag('c:ingots/iron'), count: 2],
                 steel: [ingredient: tag('c:ingots/steel'), count: 4]
         ]

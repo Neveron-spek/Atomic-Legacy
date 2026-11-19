@@ -1818,5 +1818,9 @@
   "chem.oilelectrodes": "Instant-Elektroden (Heizöl)",
   "chem.lubeelectrodes": "Instant-Elektroden (Schmiermittel)",
   "chem.birkeland": "Salpetersäure aus Luft",
-  "block.atomiclegacy.machine_reactor": "Brutreaktor (LEGACY)"
+  "block.atomiclegacy.machine_reactor": "Brutreaktor (LEGACY)",
+  "block.atomiclegacy.rail_booster": "Hochgeschwindigkeits-Boosterschienen",
+  "block.atomiclegacy.rail_highspeed": "Hochgeschwindigkeitsschienen",
+  "block.atomiclegacy.rail_wood": "Holzschienen",
+  "block.atomiclegacy.rail_narrow": "Schmalspurschienen"
 }

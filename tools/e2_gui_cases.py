@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""[parity e2] Builds /legacy/reinhardtshbm/parity-e2-gui-slots.json: 1.7.10 container slot tables paired with port menu
+"""[parity e2] Builds /legacy/atomiclegacy/parity-e2-gui-slots.json: 1.7.10 container slot tables paired with port menu
 layouts (run-building-audit/parity-e2-menus.tsv written by ParityE2Diagnostics).
 Pairing: explicit entries of tools/e2_gui_map.json first, then exact layout matches.
 Usage: e2_gui_cases.py <orig.json> <menus.tsv> <map.json> <out.json> [report.txt]"""

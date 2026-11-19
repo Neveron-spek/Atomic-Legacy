@@ -153,7 +153,7 @@ final class ParityK3BDiagnostics {
 		"M:yellow_terracotta M:clay_ball 4",
 		"M:yellow_wool M:string 4",
 		"M:zombie_head R:biomass 4",
-		"R:bedrock_ore M:gravel 1",
+		"R:bedrock_ore_new M:gravel 1", // 1.7.10 ModItems.bedrock_ore (ItemBedrockOreNew) is bedrock_ore_new here
 		"R:block_actinium R:powder_actinium 9",
 		"R:block_aluminium R:powder_aluminium 9",
 		"R:block_asbestos R:powder_asbestos 9",

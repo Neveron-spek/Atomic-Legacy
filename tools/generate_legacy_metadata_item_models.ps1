@@ -4,7 +4,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 $ProjectRoot = (Resolve-Path -LiteralPath $ProjectRoot).Path
-$modelRoot = Join-Path $ProjectRoot "src\main\resources\assets\reinhardtshbm\models\item"
+$modelRoot = Join-Path $ProjectRoot "src\main\resources\assets\atomiclegacy\models\item"
 $encoding = [System.Text.UTF8Encoding]::new($false)
 
 function Write-Json([string]$path, [object]$value) {
@@ -13,20 +13,20 @@ function Write-Json([string]$path, [object]$value) {
 
 function Write-VariantModels([string]$id, [string[]]$variants) {
     $base = [ordered]@{
-        parent = "reinhardtshbm:item/$id.$($variants[0])"
+        parent = "atomiclegacy:item/$id.$($variants[0])"
         overrides = @()
     }
     for ($index = 1; $index -lt $variants.Count; $index++) {
         $base.overrides += [ordered]@{
             predicate = [ordered]@{ "minecraft:custom_model_data" = $index }
-            model = "reinhardtshbm:item/$id.$($variants[$index])"
+            model = "atomiclegacy:item/$id.$($variants[$index])"
         }
     }
     Write-Json (Join-Path $modelRoot "$id.json") $base
     foreach ($variant in $variants) {
         Write-Json (Join-Path $modelRoot "$id.$variant.json") ([ordered]@{
             parent = "minecraft:item/generated"
-            textures = [ordered]@{ layer0 = "reinhardtshbm:item/$id.$variant" }
+            textures = [ordered]@{ layer0 = "atomiclegacy:item/$id.$variant" }
         })
     }
 }
@@ -39,17 +39,17 @@ Write-VariantModels "item_secret" @("canister", "controller", "selenium_steel", 
 Write-VariantModels "parts_legendary" @("tier1", "tier2", "tier3")
 
 Write-Json (Join-Path $modelRoot "marshmallow.json") ([ordered]@{
-    parent = "reinhardtshbm:item/marshmallow.raw"
+    parent = "atomiclegacy:item/marshmallow.raw"
     overrides = @(
         [ordered]@{
             predicate = [ordered]@{ "minecraft:custom_model_data" = 1 }
-            model = "reinhardtshbm:item/marshmallow_roasted"
+            model = "atomiclegacy:item/marshmallow_roasted"
         }
     )
 })
 Write-Json (Join-Path $modelRoot "marshmallow.raw.json") ([ordered]@{
     parent = "minecraft:item/generated"
-    textures = [ordered]@{ layer0 = "reinhardtshbm:item/marshmallow" }
+    textures = [ordered]@{ layer0 = "atomiclegacy:item/marshmallow" }
 })
 
 $dyeNames = @(
@@ -59,15 +59,15 @@ $dyeNames = @(
 $dye = [ordered]@{
     parent = "minecraft:item/generated"
     textures = [ordered]@{
-        layer0 = "reinhardtshbm:item/chemical_dye"
-        layer1 = "reinhardtshbm:item/chemical_dye_overlay"
+        layer0 = "atomiclegacy:item/chemical_dye"
+        layer1 = "atomiclegacy:item/chemical_dye_overlay"
     }
     overrides = @()
 }
 for ($index = 1; $index -lt $dyeNames.Count; $index++) {
     $dye.overrides += [ordered]@{
         predicate = [ordered]@{ "minecraft:custom_model_data" = $index }
-        model = "reinhardtshbm:item/chemical_dye.$($dyeNames[$index])"
+        model = "atomiclegacy:item/chemical_dye.$($dyeNames[$index])"
     }
 }
 Write-Json (Join-Path $modelRoot "chemical_dye.json") $dye
@@ -75,8 +75,8 @@ foreach ($name in $dyeNames) {
     Write-Json (Join-Path $modelRoot "chemical_dye.$name.json") ([ordered]@{
         parent = "minecraft:item/generated"
         textures = [ordered]@{
-            layer0 = "reinhardtshbm:item/chemical_dye"
-            layer1 = "reinhardtshbm:item/chemical_dye_overlay"
+            layer0 = "atomiclegacy:item/chemical_dye"
+            layer1 = "atomiclegacy:item/chemical_dye_overlay"
         }
     })
 }

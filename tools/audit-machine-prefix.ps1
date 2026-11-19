@@ -17,8 +17,8 @@ function Escape-Markdown([string]$Text) {
 # The 1.7.10 block declarations are the source of truth. The old placeholder
 # list is intentionally not used here: a machine absent from that list is
 # precisely the kind of migration hole this audit needs to expose.
-$hbmBlocksPath = Join-Path $ProjectRoot "src\\main\\java\\com\\reinhardt\\hbm\\registry\\HbmBlocks.java"
-$blockEntitiesPath = Join-Path $ProjectRoot "src\\main\\java\\com\\reinhardt\\hbm\\registry\\HbmBlockEntities.java"
+$hbmBlocksPath = Join-Path $ProjectRoot "src\\main\\java\\com\\atomiclegacy\\registry\\HbmBlocks.java"
+$blockEntitiesPath = Join-Path $ProjectRoot "src\\main\\java\\com\\atomiclegacy\\registry\\HbmBlockEntities.java"
 $oldBlocksPath = Join-Path $LegacyRoot "src\\main\\java\\com\\hbm\\blocks\\ModBlocks.java"
 $oldTileMappingsPath = Join-Path $LegacyRoot "src\\main\\java\\com\\hbm\\tileentity\\TileMappings.java"
 

@@ -3,13 +3,13 @@ param(
     [string]$Mode528RuntimeReport = "run-recipe-audit-528/recipe-audit.tsv",
     [string]$ExpensiveRuntimeReport = "run-recipe-audit-expensive/recipe-audit.tsv",
     [string]$Mode528ExpensiveRuntimeReport = "run-recipe-audit-528-expensive/recipe-audit.tsv",
-    [string]$RecipeRoot = "src/main/resources/data/reinhardtshbm/recipe",
+    [string]$RecipeRoot = "src/main/resources/data/atomiclegacy/recipe",
     [string]$OutputReport = "build/reports/machine-recipe-mode-matrix.txt",
     [switch]$FailOnMismatch
 )
 
 $ErrorActionPreference = "Stop"
-$modId = "reinhardtshbm"
+$modId = "atomiclegacy"
 $condition528 = "$modId`:enable_528_mode"
 $conditionExpensive = "$modId`:enable_expensive_mode"
 $problems = [System.Collections.Generic.List[string]]::new()
@@ -174,7 +174,7 @@ foreach ($recipe in $recipes) {
 }
 
 $expectedExpensivePartitions = [ordered]@{
-    "$modId`:assembly_machine" = [pscustomobject]@{ Groups = 90; ExpensiveFiles = 92 }
+    "$modId`:assembly_machine" = [pscustomobject]@{ Groups = 88; ExpensiveFiles = 90 }
     "$modId`:plasma_forge" = [pscustomobject]@{ Groups = 13; ExpensiveFiles = 15 }
     "$modId`:precision_assembler" = [pscustomobject]@{ Groups = 2; ExpensiveFiles = 2 }
     "$modId`:exposure_chamber" = [pscustomobject]@{ Groups = 1; ExpensiveFiles = 1 }
@@ -376,12 +376,12 @@ foreach ($modeEntry in $modes.GetEnumerator()) {
     Assert-PrecisionOutputWeights $modeEntry.Key $mode.ReportLines $crystalRecycleRecipe $crystalRecycleWeights
 }
 
-$normalExposurePath = Join-Path $recipeRootPath 'exposure_chamber/particle_sparkticle_c_ingots_schrabidium_ingot_dineutronium.json'
+$normalExposurePath = Join-Path $recipeRootPath 'exposure_chamber/particle_sparkticle_c_ingots_schrabidate_ingot_dineutronium.json'
 $expensiveExposurePath = Join-Path $recipeRootPath 'exposure_chamber/particle_sparkticle_item_expensive_degenerate_matter_ingot_dineutronium.json'
 $normalExposure = Get-Content -LiteralPath $normalExposurePath -Raw | ConvertFrom-Json
 $expensiveExposure = Get-Content -LiteralPath $expensiveExposurePath -Raw | ConvertFrom-Json
 if ($normalExposure.particle.item -cne "$modId`:particle_sparkticle" -or
-        $normalExposure.ingredient.tag -cne 'c:ingots/schrabidium' -or
+        $normalExposure.ingredient.tag -cne 'c:ingots/schrabidate' -or
         $normalExposure.output.id -cne "$modId`:ingot_dineutronium") {
     $problems.Add('normal exposure-chamber dineutronium branch no longer matches latest 1.7.10')
 }

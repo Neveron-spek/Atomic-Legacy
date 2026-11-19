@@ -1,5 +1,5 @@
 param(
-    [string]$RecipeRoot = "src/main/resources/data/reinhardtshbm/recipe",
+    [string]$RecipeRoot = "src/main/resources/data/atomiclegacy/recipe",
     [string]$OutputReport = "build/reports/latest-upstream-machine-recipes.txt",
     [switch]$FailOnMismatch
 )
@@ -132,7 +132,7 @@ function Assert-AssemblyRoute(
     $relative = "assembly_machine/$File"
     $recipe = Read-Recipe $relative
     if ($null -eq $recipe) { return }
-    Assert-Equal "$relative type" $recipe.type 'reinhardtshbm:assembly_machine'
+    Assert-Equal "$relative type" $recipe.type 'atomiclegacy:assembly_machine'
     Assert-Equal "$relative group" $recipe.group $Group
     Assert-Equal "$relative duration" $recipe.duration $Duration
     Assert-Equal "$relative power" $recipe.power $Power
@@ -155,29 +155,29 @@ function Assert-FluidPackRecipe([string]$FluidName) {
     $packRelative = "assembly_machine/fluid_pack_$FluidName.json"
     $pack = Read-Recipe $packRelative
     if ($null -ne $pack) {
-        Assert-Equal "$packRelative type" $pack.type 'reinhardtshbm:assembly_machine'
+        Assert-Equal "$packRelative type" $pack.type 'atomiclegacy:assembly_machine'
         Assert-Equal "$packRelative group" $pack.group "ass.packagehbmfluid.$FluidName"
         Assert-Equal "$packRelative duration" $pack.duration 40
         Assert-Equal "$packRelative power" $pack.power 100
-        Assert-Sequence "$packRelative ingredients" (Ingredient-Keys $pack.ingredients) @('item:reinhardtshbm:fluid_pack_emptyx1')
+        Assert-Sequence "$packRelative ingredients" (Ingredient-Keys $pack.ingredients) @('item:atomiclegacy:fluid_pack_emptyx1')
         Assert-Sequence "$packRelative input fluids" (Fluid-Keys $pack.input_fluids) @("${FluidName}x32000@p0")
-        Assert-Equal "$packRelative result" (Stack-Key $pack.result) 'reinhardtshbm:fluid_pack_fullx1'
+        Assert-Equal "$packRelative result" (Stack-Key $pack.result) 'atomiclegacy:fluid_pack_fullx1'
         Assert-Equal "$packRelative result fluid" $pack.result.components.'minecraft:custom_data'.fluid $FluidName
     }
 
     $unpackRelative = "assembly_machine/fluid_unpack_$FluidName.json"
     $unpack = Read-Recipe $unpackRelative
     if ($null -ne $unpack) {
-        Assert-Equal "$unpackRelative type" $unpack.type 'reinhardtshbm:assembly_machine'
+        Assert-Equal "$unpackRelative type" $unpack.type 'atomiclegacy:assembly_machine'
         Assert-Equal "$unpackRelative group" $unpack.group "ass.unpackagehbmfluid.$FluidName"
         Assert-Equal "$unpackRelative duration" $unpack.duration 40
         Assert-Equal "$unpackRelative power" $unpack.power 100
         Assert-Equal "$unpackRelative ingredient count" $unpack.ingredients[0].count 1
         Assert-Equal "$unpackRelative ingredient type" $unpack.ingredients[0].ingredient.type 'neoforge:components'
-        Assert-Sequence "$unpackRelative ingredient items" @($unpack.ingredients[0].ingredient.items) @('reinhardtshbm:fluid_pack_full')
+        Assert-Sequence "$unpackRelative ingredient items" @($unpack.ingredients[0].ingredient.items) @('atomiclegacy:fluid_pack_full')
         Assert-Equal "$unpackRelative ingredient fluid" $unpack.ingredients[0].ingredient.components.'minecraft:custom_data'.fluid $FluidName
         Assert-Sequence "$unpackRelative output fluids" (Fluid-Keys $unpack.output_fluids) @("${FluidName}x32000@p0")
-        Assert-Equal "$unpackRelative result" (Stack-Key $unpack.result) 'reinhardtshbm:fluid_pack_emptyx1'
+        Assert-Equal "$unpackRelative result" (Stack-Key $unpack.result) 'atomiclegacy:fluid_pack_emptyx1'
     }
 }
 
@@ -206,49 +206,49 @@ function Assert-GenericRecipe(
 
 # Exact latest-upstream machine/block manufacturing changes from CraftingManager.
 Assert-ShapedRecipe 'red_pylon.json' @('CWC', 'PWP', ' S ') @{
-    C = 'item:reinhardtshbm:coil_copperx1'; W = 'tag:minecraft:planksx1';
+    C = 'item:atomiclegacy:coil_copperx1'; W = 'tag:minecraft:planksx1';
     P = 'tag:c:plates/polymerx1'; S = 'tag:c:cobblestonesx1'
-} 'reinhardtshbm:red_pylon' 4
+} 'atomiclegacy:red_pylon' 4
 Assert-ShapedRecipe 'red_pylon_steel.json' @('CWC', 'PWP', ' S ') @{
-    C = 'item:reinhardtshbm:coil_copperx1'; W = 'tag:c:pipes/steelx1';
+    C = 'item:atomiclegacy:coil_copperx1'; W = 'tag:c:pipes/steelx1';
     P = 'tag:c:plates/polymerx1'; S = 'tag:c:cobblestonesx1'
-} 'reinhardtshbm:red_pylon_steel' 4
+} 'atomiclegacy:red_pylon_steel' 4
 Assert-ShapedRecipe 'pile_loader.json' @(' A ', 'CBS') @{
     A = 'tag:c:plates/aluminiumx1'; C = 'tag:c:plates/cast_steelx1';
-    B = 'tag:c:ingots/boronx1'; S = 'item:reinhardtshbm:shell_steelx1'
-} 'reinhardtshbm:pile_loader'
+    B = 'tag:c:ingots/boronx1'; S = 'item:atomiclegacy:shell_steelx1'
+} 'atomiclegacy:pile_loader'
 Assert-ShapedRecipe 'pile_vent.json' @(' M ', 'ACA', ' S ') @{
-    M = 'item:reinhardtshbm:motorx1'; A = 'tag:c:plates/aluminiumx1';
-    C = 'item:reinhardtshbm:shell_copperx1'; S = 'tag:c:plates/cast_steelx1'
-} 'reinhardtshbm:pile_vent'
+    M = 'item:atomiclegacy:motorx1'; A = 'tag:c:plates/aluminiumx1';
+    C = 'item:atomiclegacy:shell_copperx1'; S = 'tag:c:plates/cast_steelx1'
+} 'atomiclegacy:pile_vent'
 Assert-ShapedRecipe 'pile_control.json' @(' B ', 'SBS', 'SBS') @{
     B = 'tag:c:ingots/boronx1'; S = 'tag:c:plates/steelx1'
-} 'reinhardtshbm:pile_control'
+} 'atomiclegacy:pile_control'
 Assert-ShapedRecipe 'fluid_pump.json' @('S', 'G', 'M') @{
-    S = 'item:reinhardtshbm:shell_steelx1'; G = 'tag:c:ingots/graphitex1';
-    M = 'item:reinhardtshbm:motorx1'
-} 'reinhardtshbm:fluid_pump'
+    S = 'item:atomiclegacy:shell_steelx1'; G = 'tag:c:ingots/graphitex1';
+    M = 'item:atomiclegacy:motorx1'
+} 'atomiclegacy:fluid_pump'
 Assert-ShapedRecipe 'photo_panel.json' @(' G ', 'IPI', ' C ') @{
     G = 'tag:c:glass_panesx1'; I = 'tag:c:plates/polymerx1';
-    P = 'item:reinhardtshbm:billet_siliconx1'; C = 'item:reinhardtshbm:circuit_pcbx1'
-} 'reinhardtshbm:photo_panel'
+    P = 'item:atomiclegacy:billet_siliconx1'; C = 'item:atomiclegacy:circuit_pcbx1'
+} 'atomiclegacy:photo_panel'
 Assert-ShapedRecipe 'machine_satlinker.json' @('PSP', 'SCS', 'PSP') @{
     P = 'tag:c:ingots/resistant_alloyx1'; S = 'tag:c:ingots/plasticx1';
-    C = 'item:reinhardtshbm:sat_chipx1'
-} 'reinhardtshbm:machine_satlinker'
+    C = 'item:atomiclegacy:sat_chipx1'
+} 'atomiclegacy:machine_satlinker'
 Assert-ShapedRecipe 'machine_tape_drive.json' @('PPP', 'CCC', 'PPP') @{
-    P = 'tag:c:ingots/plasticx1'; C = 'item:reinhardtshbm:circuit_pcbx1'
-} 'reinhardtshbm:machine_tape_drive'
+    P = 'tag:c:ingots/plasticx1'; C = 'item:atomiclegacy:circuit_pcbx1'
+} 'atomiclegacy:machine_tape_drive'
 Assert-ShapedRecipe 'barrel_tcalloy.json' @('IPI', 'I I', 'IPI') @{
     I = 'tag:c:ingots/tcalloyx1'; P = 'tag:c:plates/titaniumx1'
-} 'reinhardtshbm:barrel_tcalloy'
+} 'atomiclegacy:barrel_tcalloy'
 Assert-ShapedRecipe 'barrel_antimatter.json' @('IPI', 'I I', 'IPI') @{
     I = 'tag:c:plates/saturnitex1'; P = 'tag:c:wires_dense/bsccox1'
-} 'reinhardtshbm:barrel_antimatter'
+} 'atomiclegacy:barrel_antimatter'
 Assert-ShapedRecipe 'rtty_designator.json' @('R', 'C', 'T') @{
-    R = 'item:reinhardtshbm:radio_torch_readerx1'; C = 'item:reinhardtshbm:circuit_analogx1';
-    T = 'item:reinhardtshbm:rangefinderx1'
-} 'reinhardtshbm:rtty_designator'
+    R = 'item:atomiclegacy:radio_torch_readerx1'; C = 'item:atomiclegacy:circuit_analogx1';
+    T = 'item:atomiclegacy:rangefinderx1'
+} 'atomiclegacy:rtty_designator'
 
 # New latest-upstream recipe families are exact sets, not merely non-empty directories.
 Assert-FileSet 'rock_mill' @(
@@ -267,107 +267,107 @@ Assert-FileSet 'space_assembler' @('crystal_circuit.json')
 
 # Assembly-machine additions and all changed upstream result/timing identities.
 $assemblyRoutes = @(
-    @('drive_flash_empty.json', 'ass.flashdrive', 100, 250, 'reinhardtshbm:drive_flash_emptyx1'),
-    @('drive_disk_empty.json', 'ass.diskdrive', 200, 250, 'reinhardtshbm:drive_disk_emptyx1'),
-    @('pile_rod_ra226be.json', 'autoswitch.pilerod', 40, 200, 'reinhardtshbm:pile_rod_ra226bex1'),
-    @('pile_rod_po210be.json', 'autoswitch.pilerod', 40, 200, 'reinhardtshbm:pile_rod_po210bex1'),
-    @('pile_rod_zirconium.json', 'autoswitch.pilerod', 40, 200, 'reinhardtshbm:pile_rod_zrx3'),
-    @('pile_rod_natural_uranium.json', 'autoswitch.pilerod', 40, 200, 'reinhardtshbm:pile_rod_nux1'),
-    @('pile_rod_thorium.json', 'autoswitch.pilerod', 40, 200, 'reinhardtshbm:pile_rod_thoriumx1'),
-    @('cargo_door.json', 'ass.cargodoor', 200, 100, 'reinhardtshbm:cargo_doorx1'),
-    @('machine_chemical_plant_alt.json', 'ass.chemplantAlt', 200, 100, 'reinhardtshbm:machine_chemical_plantx1'),
-    @('machine_chemical_plant_alt_expensive.json', 'ass.chemplantAlt', 200, 100, 'reinhardtshbm:machine_chemical_plantx1'),
-    @('machine_supercomputer.json', 'ass.sal9000', 400, 1000, 'reinhardtshbm:machine_supercomputerx1'),
-    @('machine_supercomputer_expensive.json', 'ass.sal9000', 400, 1000, 'reinhardtshbm:machine_supercomputerx1'),
-    @('pile_brick.json', 'ass.pileblock', 20, 250, 'reinhardtshbm:pile_brickx1'),
-    @('pile_brick_expensive.json', 'ass.pileblock', 20, 250, 'reinhardtshbm:pile_brickx1'),
-    @('mp_thruster_15_balefire.json', 'ass.mpt15bf', 200, 100, 'reinhardtshbm:mp_thruster_15_balefirex1'),
-    @('mp_fuselage_10_long_kerosene.json', 'ass.mpf10kerolong', 100, 100, 'reinhardtshbm:mp_fuselage_10_long_kerosenex1'),
-    @('mp_fuselage_10_long_solid.json', 'ass.mpf10solidlong', 100, 100, 'reinhardtshbm:mp_fuselage_10_long_solidx1'),
-    @('launchpad_soyuz.json', 'ass.launchpadsoyuz', 1200, 5000, 'reinhardtshbm:launchpad_soyuzx1'),
-    @('launchpad_soyuz_expensive.json', 'ass.launchpadsoyuz', 1200, 5000, 'reinhardtshbm:launchpad_soyuzx1'),
-    @('launchpad_lambda.json', 'ass.launchpadlambda', 1200, 5000, 'reinhardtshbm:launchpad_lambdax1'),
-    @('launchpad_lambda_expensive.json', 'ass.launchpadlambda', 1200, 5000, 'reinhardtshbm:launchpad_lambdax1'),
-    @('part_generic_alclad.json', 'ass.alclad', 200, 50000, 'reinhardtshbm:part_generic_alcladx1'),
-    @('part_generic_alclad_titanium.json', 'ass.titaniumconstruction', 600, 1000, 'reinhardtshbm:part_generic_alcladx1'),
-    @('missile_soyuz.json', 'ass.soyuz', 6000, 25000, 'reinhardtshbm:missile_soyuzx1'),
-    @('missile_soyuz_lander.json', 'ass.lander', 2400, 25000, 'reinhardtshbm:missile_soyuz_landerx1'),
-    @('missile_lambda.json', 'ass.lambdarocket', 1200, 50000, 'reinhardtshbm:missile_lambdax1'),
-    @('satellite_science.json', 'ass.spacelab', 1200, 25000, 'reinhardtshbm:satellite_sciencex1'),
-    @('satellite_science_sensor.json', 'ass.sensorrelay', 600, 25000, 'reinhardtshbm:satellite_science_sensorx1'),
-    @('satellite_science_sensor_expensive.json', 'ass.sensorrelay', 600, 25000, 'reinhardtshbm:satellite_science_sensorx1'),
-    @('satellite_science_assembler.json', 'ass.0gassembler', 600, 25000, 'reinhardtshbm:satellite_science_assemblerx1'),
-    @('satellite_spy.json', 'ass.spysat', 1200, 25000, 'reinhardtshbm:satellite_spyx1'),
-    @('satellite_scanner.json', 'ass.scansat', 1200, 25000, 'reinhardtshbm:satellite_scannerx1'),
-    @('satellite_radar.json', 'ass.radarsat', 1200, 25000, 'reinhardtshbm:satellite_radarx1'),
-    @('satellite_miner_astro.json', 'ass.astrominer', 1200, 25000, 'reinhardtshbm:satellite_miner_astrox1'),
-    @('satellite_miner_lunar.json', 'ass.lunarminer', 1200, 25000, 'reinhardtshbm:satellite_miner_lunarx1'),
-    @('satellite_precision_laser.json', 'ass.orbitallaser', 1200, 25000, 'reinhardtshbm:satellite_precision_laserx1'),
-    @('satellite_death_ray.json', 'ass.deathray', 1200, 25000, 'reinhardtshbm:satellite_death_rayx1'),
-    @('satellite_xenium_resonator.json', 'ass.xenrelay', 1200, 25000, 'reinhardtshbm:satellite_xenium_resonatorx1'),
-    @('satellite_relay.json', 'ass.relaysat', 1200, 25000, 'reinhardtshbm:satellite_relayx1'),
-    @('satellite_detector.json', 'ass.detectorsat', 1200, 25000, 'reinhardtshbm:satellite_detectorx1'),
-    @('satellite_ray_scan.json', 'ass.rayscansat', 1200, 25000, 'reinhardtshbm:satellite_ray_scanx1'),
-    @('machine_satlink.json', 'ass.satlink', 100, 1000, 'reinhardtshbm:machine_satlinkx1')
+    @('drive_flash_empty.json', 'ass.flashdrive', 100, 250, 'atomiclegacy:drive_flash_emptyx1'),
+    @('drive_disk_empty.json', 'ass.diskdrive', 200, 250, 'atomiclegacy:drive_disk_emptyx1'),
+    @('pile_rod_ra226be.json', 'autoswitch.pilerod', 40, 200, 'atomiclegacy:pile_rod_ra226bex1'),
+    @('pile_rod_po210be.json', 'autoswitch.pilerod', 40, 200, 'atomiclegacy:pile_rod_po210bex1'),
+    @('pile_rod_zirconium.json', 'autoswitch.pilerod', 40, 200, 'atomiclegacy:pile_rod_zrx3'),
+    @('pile_rod_natural_uranium.json', 'autoswitch.pilerod', 40, 200, 'atomiclegacy:pile_rod_nux1'),
+    @('pile_rod_thorium.json', 'autoswitch.pilerod', 40, 200, 'atomiclegacy:pile_rod_thoriumx1'),
+    @('cargo_door.json', 'ass.cargodoor', 200, 100, 'atomiclegacy:cargo_doorx1'),
+    @('machine_chemical_plant_alt.json', 'ass.chemplantAlt', 200, 100, 'atomiclegacy:machine_chemical_plantx1'),
+    @('machine_chemical_plant_alt_expensive.json', 'ass.chemplantAlt', 200, 100, 'atomiclegacy:machine_chemical_plantx1'),
+    @('machine_supercomputer.json', 'ass.sal9000', 400, 1000, 'atomiclegacy:machine_supercomputerx1'),
+    @('machine_supercomputer_expensive.json', 'ass.sal9000', 400, 1000, 'atomiclegacy:machine_supercomputerx1'),
+    @('pile_brick.json', 'ass.pileblock', 20, 250, 'atomiclegacy:pile_brickx1'),
+    @('pile_brick_expensive.json', 'ass.pileblock', 20, 250, 'atomiclegacy:pile_brickx1'),
+    @('mp_thruster_15_balefire.json', 'ass.mpt15bf', 200, 100, 'atomiclegacy:mp_thruster_15_balefirex1'),
+    @('mp_fuselage_10_long_kerosene.json', 'ass.mpf10kerolong', 100, 100, 'atomiclegacy:mp_fuselage_10_long_kerosenex1'),
+    @('mp_fuselage_10_long_solid.json', 'ass.mpf10solidlong', 100, 100, 'atomiclegacy:mp_fuselage_10_long_solidx1'),
+    @('launchpad_soyuz.json', 'ass.launchpadsoyuz', 1200, 5000, 'atomiclegacy:launchpad_soyuzx1'),
+    @('launchpad_soyuz_expensive.json', 'ass.launchpadsoyuz', 1200, 5000, 'atomiclegacy:launchpad_soyuzx1'),
+    @('launchpad_lambda.json', 'ass.launchpadlambda', 1200, 5000, 'atomiclegacy:launchpad_lambdax1'),
+    @('launchpad_lambda_expensive.json', 'ass.launchpadlambda', 1200, 5000, 'atomiclegacy:launchpad_lambdax1'),
+    @('part_generic_alclad.json', 'ass.alclad', 200, 50000, 'atomiclegacy:part_generic_alcladx1'),
+    @('part_generic_alclad_titanium.json', 'ass.titaniumconstruction', 600, 1000, 'atomiclegacy:part_generic_alcladx1'),
+    @('missile_soyuz.json', 'ass.soyuz', 6000, 25000, 'atomiclegacy:missile_soyuzx1'),
+    @('missile_soyuz_lander.json', 'ass.lander', 2400, 25000, 'atomiclegacy:missile_soyuz_landerx1'),
+    @('missile_lambda.json', 'ass.lambdarocket', 1200, 50000, 'atomiclegacy:missile_lambdax1'),
+    @('satellite_science.json', 'ass.spacelab', 1200, 25000, 'atomiclegacy:satellite_sciencex1'),
+    @('satellite_science_sensor.json', 'ass.sensorrelay', 600, 25000, 'atomiclegacy:satellite_science_sensorx1'),
+    @('satellite_science_sensor_expensive.json', 'ass.sensorrelay', 600, 25000, 'atomiclegacy:satellite_science_sensorx1'),
+    @('satellite_science_assembler.json', 'ass.0gassembler', 600, 25000, 'atomiclegacy:satellite_science_assemblerx1'),
+    @('satellite_spy.json', 'ass.spysat', 1200, 25000, 'atomiclegacy:satellite_spyx1'),
+    @('satellite_scanner.json', 'ass.scansat', 1200, 25000, 'atomiclegacy:satellite_scannerx1'),
+    @('satellite_radar.json', 'ass.radarsat', 1200, 25000, 'atomiclegacy:satellite_radarx1'),
+    @('satellite_miner_astro.json', 'ass.astrominer', 1200, 25000, 'atomiclegacy:satellite_miner_astrox1'),
+    @('satellite_miner_lunar.json', 'ass.lunarminer', 1200, 25000, 'atomiclegacy:satellite_miner_lunarx1'),
+    @('satellite_precision_laser.json', 'ass.orbitallaser', 1200, 25000, 'atomiclegacy:satellite_precision_laserx1'),
+    @('satellite_death_ray.json', 'ass.deathray', 1200, 25000, 'atomiclegacy:satellite_death_rayx1'),
+    @('satellite_xenium_resonator.json', 'ass.xenrelay', 1200, 25000, 'atomiclegacy:satellite_xenium_resonatorx1'),
+    @('satellite_relay.json', 'ass.relaysat', 1200, 25000, 'atomiclegacy:satellite_relayx1'),
+    @('satellite_detector.json', 'ass.detectorsat', 1200, 25000, 'atomiclegacy:satellite_detectorx1'),
+    @('satellite_ray_scan.json', 'ass.rayscansat', 1200, 25000, 'atomiclegacy:satellite_ray_scanx1'),
+    @('machine_satlink.json', 'ass.satlink', 100, 1000, 'atomiclegacy:machine_satlinkx1')
 )
 foreach ($route in $assemblyRoutes) {
     Assert-AssemblyRoute $route[0] $route[1] ([int]$route[2]) ([long]$route[3]) $route[4]
 }
 
 # Exact ingredient changes which a count-only check cannot catch.
-Assert-AssemblyRoute 'machine_assembly_machine.json' 'ass.assembler' 200 100 'reinhardtshbm:machine_assembly_machinex1' @(
-    'tag:c:ingots/steelx4', 'tag:c:plates/copperx4', 'item:reinhardtshbm:motorx2', 'item:reinhardtshbm:circuit_basicx1'
+Assert-AssemblyRoute 'machine_assembly_machine.json' 'ass.assembler' 200 100 'atomiclegacy:machine_assembly_machinex1' @(
+    'tag:c:ingots/steelx4', 'tag:c:plates/copperx4', 'item:atomiclegacy:motorx2', 'item:atomiclegacy:circuit_basicx1'
 )
-Assert-AssemblyRoute 'machine_pyrooven.json' 'ass.pyrooven' 300 100 'reinhardtshbm:machine_pyroovenx1' @(
-    'item:reinhardtshbm:plate_welded_steelx16', 'tag:c:ingots/hard_plasticx24', 'item:reinhardtshbm:pipe_copperx12',
-    'item:reinhardtshbm:motor_deshx1', 'item:reinhardtshbm:circuit_bismoidx1'
+Assert-AssemblyRoute 'machine_pyrooven.json' 'ass.pyrooven' 300 100 'atomiclegacy:machine_pyroovenx1' @(
+    'item:atomiclegacy:plate_welded_steelx16', 'tag:c:ingots/hard_plasticx24', 'item:atomiclegacy:pipe_copperx12',
+    'item:atomiclegacy:motor_deshx1', 'item:atomiclegacy:circuit_bismoidx1'
 )
-Assert-AssemblyRoute 'machine_turbinegas.json' 'ass.gasturbine' 400 100 'reinhardtshbm:machine_turbinegasx1' @(
-    'item:reinhardtshbm:shell_steelx10', 'item:reinhardtshbm:wire_dense_goldx12', 'item:reinhardtshbm:pipe_dura_steelx4',
-    'item:reinhardtshbm:pipe_steelx4', 'item:reinhardtshbm:turbine_tungstenx1', 'tag:c:ingots/rubberx12',
-    'item:reinhardtshbm:circuit_basicx3'
+Assert-AssemblyRoute 'machine_turbinegas.json' 'ass.gasturbine' 400 100 'atomiclegacy:machine_turbinegasx1' @(
+    'item:atomiclegacy:shell_steelx10', 'item:atomiclegacy:wire_dense_goldx12', 'item:atomiclegacy:pipe_dura_steelx4',
+    'item:atomiclegacy:pipe_steelx4', 'item:atomiclegacy:turbine_tungstenx1', 'tag:c:ingots/rubberx12',
+    'item:atomiclegacy:circuit_basicx3'
 )
-Assert-AssemblyRoute 'machine_shredder_expensive.json' 'ass.shredder' 100 100 'reinhardtshbm:machine_shredderx1' @(
-    'item:reinhardtshbm:item_expensive_steel_platingx1', 'tag:c:plates/copperx4', 'item:reinhardtshbm:motorx2'
+Assert-AssemblyRoute 'machine_shredder_expensive.json' 'ass.shredder' 100 100 'atomiclegacy:machine_shredderx1' @(
+    'item:atomiclegacy:item_expensive_steel_platingx1', 'tag:c:plates/copperx4', 'item:atomiclegacy:motorx2'
 )
-Assert-AssemblyRoute 'machine_chemical_plant_expensive.json' 'ass.chemplant' 200 100 'reinhardtshbm:machine_chemical_plantx1' @(
-    'item:reinhardtshbm:item_expensive_steel_platingx3', 'tag:c:pipes/copperx2', 'item:reinhardtshbm:plate_polymerx16',
-    'item:reinhardtshbm:motorx2', 'item:reinhardtshbm:coil_tungstenx2', 'item:reinhardtshbm:circuit_analogx3'
+Assert-AssemblyRoute 'machine_chemical_plant_expensive.json' 'ass.chemplant' 200 100 'atomiclegacy:machine_chemical_plantx1' @(
+    'item:atomiclegacy:item_expensive_steel_platingx3', 'tag:c:pipes/copperx2', 'item:atomiclegacy:plate_polymerx16',
+    'item:atomiclegacy:motorx2', 'item:atomiclegacy:coil_tungstenx2', 'item:atomiclegacy:circuit_analogx3'
 )
-Assert-AssemblyRoute 'machine_combustion_engine_expensive.json' 'ass.combustiongen' 300 100 'reinhardtshbm:machine_combustion_enginex1' @(
-    'item:reinhardtshbm:item_expensive_heavy_framex2', 'item:reinhardtshbm:wire_dense_goldx16',
-    'item:reinhardtshbm:canister_emptyx4', 'item:reinhardtshbm:item_expensive_circuitx1'
+Assert-AssemblyRoute 'machine_combustion_engine_expensive.json' 'ass.combustiongen' 300 100 'atomiclegacy:machine_combustion_enginex1' @(
+    'item:atomiclegacy:item_expensive_heavy_framex2', 'item:atomiclegacy:wire_dense_goldx16',
+    'item:atomiclegacy:canister_emptyx4', 'item:atomiclegacy:item_expensive_circuitx1'
 )
-Assert-AssemblyRoute 'machine_cyclotron_expensive.json' 'ass.cyclotron' 600 100 'reinhardtshbm:machine_cyclotronx1' @(
-    'item:reinhardtshbm:item_expensive_ferro_platingx8', 'item:reinhardtshbm:wire_dense_neodymiumx32',
-    'item:reinhardtshbm:plate_welded_aluminiumx16', 'tag:c:ingots/rubberx32',
-    'item:reinhardtshbm:item_expensive_circuitx8'
+Assert-AssemblyRoute 'machine_cyclotron_expensive.json' 'ass.cyclotron' 600 100 'atomiclegacy:machine_cyclotronx1' @(
+    'item:atomiclegacy:item_expensive_ferro_platingx8', 'item:atomiclegacy:wire_dense_neodymiumx32',
+    'item:atomiclegacy:plate_welded_aluminiumx16', 'tag:c:ingots/rubberx32',
+    'item:atomiclegacy:item_expensive_circuitx8'
 )
-Assert-AssemblyRoute 'machine_epress_expensive.json' 'ass.epress' 100 100 'reinhardtshbm:machine_epressx1' @(
-    'item:reinhardtshbm:item_expensive_heavy_framex1', 'item:reinhardtshbm:part_piston_hydraulicx4',
-    'item:reinhardtshbm:circuit_basicx4'
+Assert-AssemblyRoute 'machine_epress_expensive.json' 'ass.epress' 100 100 'atomiclegacy:machine_epressx1' @(
+    'item:atomiclegacy:item_expensive_heavy_framex1', 'item:atomiclegacy:part_piston_hydraulicx4',
+    'item:atomiclegacy:circuit_basicx4'
 )
-Assert-AssemblyRoute 'machine_exposure_chamber_expensive.json' 'ass.exposurechamber' 200 100 'reinhardtshbm:machine_exposure_chamberx1' @(
-    'item:reinhardtshbm:item_expensive_lead_platingx8', 'tag:c:ingots/hard_plasticx24',
-    'item:reinhardtshbm:wire_dense_goldx32', 'item:reinhardtshbm:circuit_bismoidx4',
-    'item:reinhardtshbm:item_expensive_computerx2'
+Assert-AssemblyRoute 'machine_exposure_chamber_expensive.json' 'ass.exposurechamber' 200 100 'atomiclegacy:machine_exposure_chamberx1' @(
+    'item:atomiclegacy:item_expensive_lead_platingx8', 'tag:c:ingots/hard_plasticx24',
+    'item:atomiclegacy:wire_dense_goldx32', 'item:atomiclegacy:circuit_bismoidx4',
+    'item:atomiclegacy:item_expensive_computerx2'
 )
-Assert-AssemblyRoute 'machine_turbinegas_expensive.json' 'ass.gasturbine' 400 100 'reinhardtshbm:machine_turbinegasx1' @(
-    'item:reinhardtshbm:item_expensive_heavy_framex4', 'item:reinhardtshbm:wire_dense_goldx16',
-    'item:reinhardtshbm:pipe_dura_steelx16', 'item:reinhardtshbm:turbine_tungstenx2',
-    'item:reinhardtshbm:item_expensive_circuitx3'
+Assert-AssemblyRoute 'machine_turbinegas_expensive.json' 'ass.gasturbine' 400 100 'atomiclegacy:machine_turbinegasx1' @(
+    'item:atomiclegacy:item_expensive_heavy_framex4', 'item:atomiclegacy:wire_dense_goldx16',
+    'item:atomiclegacy:pipe_dura_steelx16', 'item:atomiclegacy:turbine_tungstenx2',
+    'item:atomiclegacy:item_expensive_circuitx3'
 )
-Assert-AssemblyRoute 'machine_industrial_turbine_expensive.json' 'ass.iturbine' 200 100 'reinhardtshbm:machine_industrial_turbinex1' @(
-    'item:reinhardtshbm:item_expensive_heavy_framex4', 'item:reinhardtshbm:turbine_titaniumx3',
-    'item:reinhardtshbm:wire_dense_goldx16', 'item:reinhardtshbm:pipe_dura_steelx16',
-    'item:reinhardtshbm:item_expensive_circuitx3'
+Assert-AssemblyRoute 'machine_industrial_turbine_expensive.json' 'ass.iturbine' 200 100 'atomiclegacy:machine_industrial_turbinex1' @(
+    'item:atomiclegacy:item_expensive_heavy_framex4', 'item:atomiclegacy:turbine_titaniumx3',
+    'item:atomiclegacy:wire_dense_goldx16', 'item:atomiclegacy:pipe_dura_steelx16',
+    'item:atomiclegacy:item_expensive_circuitx3'
 )
-Assert-AssemblyRoute 'machine_fluidtank_expensive.json' 'ass.tank' 200 100 'reinhardtshbm:machine_fluidtankx1' @(
-    'item:reinhardtshbm:item_expensive_steel_platingx4', 'tag:c:tarsx16'
+Assert-AssemblyRoute 'machine_fluidtank_expensive.json' 'ass.tank' 200 100 'atomiclegacy:machine_fluidtankx1' @(
+    'item:atomiclegacy:item_expensive_steel_platingx4', 'tag:c:tarsx16'
 )
-Assert-AssemblyRoute 'machine_precass_expensive.json' 'ass.precass' 1200 100 'reinhardtshbm:machine_precassx1' @(
-    'item:reinhardtshbm:item_expensive_steel_platingx4', 'tag:c:ingots/zirconiumx8', 'item:reinhardtshbm:motorx4',
-    'item:reinhardtshbm:circuit_capacitor_boardx8'
+Assert-AssemblyRoute 'machine_precass_expensive.json' 'ass.precass' 1200 100 'atomiclegacy:machine_precassx1' @(
+    'item:atomiclegacy:item_expensive_steel_platingx4', 'tag:c:ingots/zirconiumx8', 'item:atomiclegacy:motorx4',
+    'item:atomiclegacy:circuit_capacitor_boardx8'
 )
 $unconditionalExpensiveParts = @(
     'item_expensive_steel_plating.json', 'item_expensive_heavy_frame.json', 'item_expensive_circuit.json',
@@ -379,21 +379,21 @@ foreach ($file in $unconditionalExpensiveParts) {
 }
 $clusterPellet = Read-Recipe 'pellet_cluster.json'
 if ($null -ne $clusterPellet) {
-    Assert-Equal 'pellet_cluster.json type' $clusterPellet.type 'reinhardtshbm:assembly_machine'
+    Assert-Equal 'pellet_cluster.json type' $clusterPellet.type 'atomiclegacy:assembly_machine'
     Assert-Equal 'pellet_cluster.json group' $clusterPellet.group 'ass.clusterpellets'
     Assert-Equal 'pellet_cluster.json duration' $clusterPellet.duration 50
     Assert-Equal 'pellet_cluster.json power' $clusterPellet.power 100
-    Assert-Equal 'pellet_cluster.json result' (Stack-Key $clusterPellet.result) 'reinhardtshbm:pellet_clusterx1'
+    Assert-Equal 'pellet_cluster.json result' (Stack-Key $clusterPellet.result) 'atomiclegacy:pellet_clusterx1'
     Assert-Sequence 'pellet_cluster.json ingredients' (Ingredient-Keys $clusterPellet.ingredients) @(
         'tag:c:plates/steelx4', 'tag:c:ingots/high_explosivex1'
     )
 }
 $paExpensive = @{
-    'pa_rfc_expensive.json' = @('item:reinhardtshbm:pa_beamlinex3', 'item:reinhardtshbm:item_expensive_lead_platingx4', 'tag:c:plates/copperx64', 'item:reinhardtshbm:item_expensive_plasticx4', 'item:reinhardtshbm:magnetronx16')
-    'pa_quadrupole_expensive.json' = @('item:reinhardtshbm:pa_beamlinex1', 'item:reinhardtshbm:item_expensive_cmb_tubesx2', 'item:reinhardtshbm:item_expensive_plasticx4', 'item:reinhardtshbm:circuit_bismoidx4', 'item:reinhardtshbm:item_expensive_computerx1')
-    'pa_dipole_expensive.json' = @('item:reinhardtshbm:pa_beamlinex2', 'item:reinhardtshbm:item_expensive_cmb_tubesx2', 'item:reinhardtshbm:item_expensive_plasticx4', 'item:reinhardtshbm:circuit_bismoidx16', 'item:reinhardtshbm:item_expensive_computerx1')
-    'pa_source_expensive.json' = @('item:reinhardtshbm:pa_beamlinex3', 'item:reinhardtshbm:item_expensive_cmb_tubesx8', 'item:reinhardtshbm:item_expensive_plasticx8', 'item:reinhardtshbm:magnetronx16', 'item:reinhardtshbm:circuit_quantumx4', 'item:reinhardtshbm:item_expensive_computerx4')
-    'pa_detector_expensive.json' = @('item:reinhardtshbm:pa_beamlinex3', 'item:reinhardtshbm:item_expensive_cmb_tubesx8', 'item:reinhardtshbm:wire_dense_goldx64', 'item:reinhardtshbm:item_expensive_plasticx8', 'item:reinhardtshbm:circuit_quantumx4', 'item:reinhardtshbm:item_expensive_computerx8')
+    'pa_rfc_expensive.json' = @('item:atomiclegacy:pa_beamlinex3', 'item:atomiclegacy:item_expensive_lead_platingx4', 'tag:c:plates/copperx64', 'item:atomiclegacy:item_expensive_plasticx4', 'item:atomiclegacy:magnetronx16')
+    'pa_quadrupole_expensive.json' = @('item:atomiclegacy:pa_beamlinex1', 'item:atomiclegacy:item_expensive_cmb_tubesx2', 'item:atomiclegacy:item_expensive_plasticx4', 'item:atomiclegacy:circuit_bismoidx4', 'item:atomiclegacy:item_expensive_computerx1')
+    'pa_dipole_expensive.json' = @('item:atomiclegacy:pa_beamlinex2', 'item:atomiclegacy:item_expensive_cmb_tubesx2', 'item:atomiclegacy:item_expensive_plasticx4', 'item:atomiclegacy:circuit_bismoidx16', 'item:atomiclegacy:item_expensive_computerx1')
+    'pa_source_expensive.json' = @('item:atomiclegacy:pa_beamlinex3', 'item:atomiclegacy:item_expensive_cmb_tubesx8', 'item:atomiclegacy:item_expensive_plasticx8', 'item:atomiclegacy:magnetronx16', 'item:atomiclegacy:circuit_quantumx4', 'item:atomiclegacy:item_expensive_computerx4')
+    'pa_detector_expensive.json' = @('item:atomiclegacy:pa_beamlinex3', 'item:atomiclegacy:item_expensive_cmb_tubesx8', 'item:atomiclegacy:wire_dense_goldx64', 'item:atomiclegacy:item_expensive_plasticx8', 'item:atomiclegacy:circuit_quantumx4', 'item:atomiclegacy:item_expensive_computerx8')
 }
 foreach ($file in $paExpensive.Keys) {
     $recipe = Read-Recipe "assembly_machine/$file"
@@ -403,17 +403,17 @@ foreach ($file in $paExpensive.Keys) {
 # Weighted nitra output: one roll at completion with the exact upstream pool.
 $nitra = Read-Recipe 'assembly_machine/nitra.json'
 if ($null -ne $nitra) {
-    Assert-Equal 'assembly_machine/nitra.json type' $nitra.type 'reinhardtshbm:assembly_machine'
+    Assert-Equal 'assembly_machine/nitra.json type' $nitra.type 'atomiclegacy:assembly_machine'
     Assert-Equal 'assembly_machine/nitra.json group' $nitra.group 'ass.nitra'
     Assert-Equal 'assembly_machine/nitra.json duration' $nitra.duration 200
     Assert-Equal 'assembly_machine/nitra.json power' $nitra.power 500
-    Assert-Sequence 'assembly_machine/nitra.json ingredients' (Ingredient-Keys $nitra.ingredients) @('item:reinhardtshbm:nitrax1')
+    Assert-Sequence 'assembly_machine/nitra.json ingredients' (Ingredient-Keys $nitra.ingredients) @('item:atomiclegacy:nitrax1')
     Assert-Sequence 'assembly_machine/nitra.json weighted outputs' @($nitra.outputs | ForEach-Object { "$(Stack-Key $_.result)@$([int]$_.weight)" }) @(
-        'reinhardtshbm:casing_shotshellx1@20', 'reinhardtshbm:casing_buckshotx1@10',
-        'reinhardtshbm:casing_smallx2@20', 'reinhardtshbm:casing_largex1@10', 'minecraft:gunpowderx1@30',
-        'reinhardtshbm:corditex1@20', 'reinhardtshbm:ballistitex1@20',
-        'reinhardtshbm:grenade_shell_fragx1@5', 'reinhardtshbm:grenade_shell_stickx1@5',
-        'reinhardtshbm:grenade_fuze_s3x1@10'
+        'atomiclegacy:casing_shotshellx1@20', 'atomiclegacy:casing_buckshotx1@10',
+        'atomiclegacy:casing_smallx2@20', 'atomiclegacy:casing_largex1@10', 'minecraft:gunpowderx1@30',
+        'atomiclegacy:corditex1@20', 'atomiclegacy:ballistitex1@20',
+        'atomiclegacy:grenade_shell_fragx1@5', 'atomiclegacy:grenade_shell_stickx1@5',
+        'atomiclegacy:grenade_fuze_s3x1@10'
     )
 }
 
@@ -421,9 +421,9 @@ if ($null -ne $nitra) {
 # marked NO_CONTAINER. Derive the complete set from the port's authoritative fluid registry so a
 # newly added fluid cannot silently omit either direction. This also covers lead-container and
 # antimatter fluids; ordinary tank compatibility is deliberately not the fluid-pack filter.
-$fluidDefinitionPath = 'src/main/java/com/reinhardt/hbm/fluid/HbmFluidDefinitions.java'
-$fluidContainerPath = 'src/main/java/com/reinhardt/hbm/items/HbmFluidContainerItem.java'
-$assemblyMachinePath = 'src/main/java/com/reinhardt/hbm/tileentity/AssemblyMachineBlockEntity.java'
+$fluidDefinitionPath = 'src/main/java/com/atomiclegacy/fluid/HbmFluidDefinitions.java'
+$fluidContainerPath = 'src/main/java/com/atomiclegacy/items/HbmFluidContainerItem.java'
+$assemblyMachinePath = 'src/main/java/com/atomiclegacy/tileentity/AssemblyMachineBlockEntity.java'
 if (-not (Test-Path -LiteralPath $fluidDefinitionPath -PathType Leaf)) {
     Add-Problem "Missing fluid definition table $fluidDefinitionPath"
 } else {
@@ -485,13 +485,13 @@ if (-not (Test-Path -LiteralPath $assemblyMachinePath -PathType Leaf)) {
 # Other latest-upstream work recipe deltas.
 $ammoDgk = Read-Recipe 'ammo_press/ammo_dgk.json'
 if ($null -ne $ammoDgk) {
-    Assert-Equal 'ammo_press/ammo_dgk.json type' $ammoDgk.type 'reinhardtshbm:ammo_press'
+    Assert-Equal 'ammo_press/ammo_dgk.json type' $ammoDgk.type 'atomiclegacy:ammo_press'
     Assert-Sequence 'ammo_press/ammo_dgk.json grid' (Ingredient-Keys $ammoDgk.input) @(
         'unknown:{}x1', 'tag:c:ingots/steelx5', 'unknown:{}x1',
         'unknown:{}x1', 'tag:c:dusts/smokelessx5', 'unknown:{}x1',
         'unknown:{}x1', 'tag:c:plates/gunmetalx5', 'unknown:{}x1'
     )
-    Assert-Equal 'ammo_press/ammo_dgk.json result' (Stack-Key $ammoDgk.result) 'reinhardtshbm:ammo_dgkx1'
+    Assert-Equal 'ammo_press/ammo_dgk.json result' (Stack-Key $ammoDgk.result) 'atomiclegacy:ammo_dgkx1'
 }
 
 $blast = Read-Recipe 'blast_furnace/firebrick_limestone.json'
@@ -499,33 +499,33 @@ if ($null -ne $blast) {
     Assert-Equal 'blast furnace limestone ingredient' (Ingredient-Key $blast.input_a) 'tag:c:dusts/limestonex1'
     Assert-Equal 'blast furnace limestone clay count' $blast.input_b_count 6
     Assert-Equal 'blast furnace limestone duration' $blast.duration 800
-    Assert-Equal 'blast furnace limestone result' (Stack-Key $blast.result) 'reinhardtshbm:ingot_firebrickx8'
+    Assert-Equal 'blast furnace limestone result' (Stack-Key $blast.result) 'atomiclegacy:ingot_firebrickx8'
 }
 $rareEarth = Read-Recipe 'centrifuge/ore_rare_earth.json'
 if ($null -ne $rareEarth) { Assert-Equal 'centrifuge rare-earth input' (Ingredient-Key $rareEarth.ingredient) 'tag:c:ores/rare_earthsx1' }
 $thorium = Read-Recipe 'centrifuge/ore_thorium.json'
 if ($null -ne $thorium) { Assert-Equal 'centrifuge thorium input' (Ingredient-Key $thorium.ingredient) 'tag:c:ores/thoriumx1' }
 
-Assert-GenericRecipe 'chemical_plant/helium3.json' 'reinhardtshbm:chemical_plant' 'chem.helium3' 25 2000 @('item:reinhardtshbm:moon_turfx1') @() @() @('helium3x500@p0')
-Assert-GenericRecipe 'chemical_plant/part_generic_alclad_light_construction.json' 'reinhardtshbm:chemical_plant' 'chem.lightconstruction' 400 25000 @('tag:c:plates/dura_steelx2') @('xylenex1000@p0', 'phosgenex1000@p0', 'sourgasx4000@p0') @('reinhardtshbm:part_generic_alcladx1') @()
-Assert-GenericRecipe 'chemical_plant/part_generic_alclad_carbon_carbon.json' 'reinhardtshbm:chemical_plant' 'chem.carboncarbon' 400 100000 @('tag:c:gems/cokex8', 'tag:c:plates/titaniumx1') @('heavyoil_vacuumx1000@p0', 'syngasx8000@p0') @('reinhardtshbm:part_generic_alcladx1') @()
+Assert-GenericRecipe 'chemical_plant/helium3.json' 'atomiclegacy:chemical_plant' 'chem.helium3' 25 2000 @('item:atomiclegacy:moon_turfx1') @() @() @('helium3x500@p0')
+Assert-GenericRecipe 'chemical_plant/part_generic_alclad_light_construction.json' 'atomiclegacy:chemical_plant' 'chem.lightconstruction' 400 25000 @('tag:c:plates/dura_steelx2') @('xylenex1000@p0', 'phosgenex1000@p0', 'sourgasx4000@p0') @('atomiclegacy:part_generic_alcladx1') @()
+Assert-GenericRecipe 'chemical_plant/part_generic_alclad_carbon_carbon.json' 'atomiclegacy:chemical_plant' 'chem.carboncarbon' 400 100000 @('tag:c:gems/cokex8', 'tag:c:plates/titaniumx1') @('heavyoil_vacuumx1000@p0', 'syngasx8000@p0') @('atomiclegacy:part_generic_alcladx1') @()
 
 $rebar = Read-Recipe 'crystallizer/rebar_to_concrete_rebar.json'
 if ($null -ne $rebar) {
     Assert-Equal 'crystallizer rebar duration' $rebar.duration 1
-    Assert-Equal 'crystallizer rebar input' (Ingredient-Key $rebar.ingredient) 'item:reinhardtshbm:rebarx1'
+    Assert-Equal 'crystallizer rebar input' (Ingredient-Key $rebar.ingredient) 'item:atomiclegacy:rebarx1'
     Assert-Equal 'crystallizer rebar fluid' (Fluid-Key $rebar.acid) 'concretex1000@p0'
-    Assert-Equal 'crystallizer rebar result' (Stack-Key $rebar.result) 'reinhardtshbm:concrete_rebarx1'
+    Assert-Equal 'crystallizer rebar result' (Stack-Key $rebar.result) 'atomiclegacy:concrete_rebarx1'
 }
 
 $liquefaction = @{
     'coal_to_coaloil.json' = @('item:minecraft:coalx1', 'coaloilx250@p0')
     'coal_dust_to_coaloil.json' = @('tag:c:dusts/coalx1', 'coaloilx250@p0')
-    'lignite_to_coaloil.json' = @('item:reinhardtshbm:lignitex1', 'coaloilx150@p0')
+    'lignite_to_coaloil.json' = @('item:atomiclegacy:lignitex1', 'coaloilx150@p0')
     'lignite_dust_to_coaloil.json' = @('tag:c:dusts/lignitex1', 'coaloilx150@p0')
     'melon_slice_to_ethanol.json' = @('item:minecraft:melon_slicex1', 'ethanolx100@p0')
-    'hemp_to_ethanol.json' = @('item:reinhardtshbm:plant_hempx1', 'ethanolx100@p0')
-    'mustard_willow_to_ethanol.json' = @('item:reinhardtshbm:plant_mustard_willowx1', 'ethanolx50@p0')
+    'hemp_to_ethanol.json' = @('item:atomiclegacy:plant_hempx1', 'ethanolx100@p0')
+    'mustard_willow_to_ethanol.json' = @('item:atomiclegacy:plant_mustard_willowx1', 'ethanolx50@p0')
 }
 foreach ($file in $liquefaction.Keys) {
     $recipe = Read-Recipe "liquefaction/$file"
@@ -536,12 +536,12 @@ foreach ($file in $liquefaction.Keys) {
 }
 
 $purexRoutes = @{
-    'flash_gold.json' = @('600', '1000', 'item:reinhardtshbm:billet_au198x1|item:reinhardtshbm:pellet_chargedx1', 'amatx1000@p0', 'reinhardtshbm:billet_balefire_goldx2')
-    'flash_lead.json' = @('600', '1000', 'item:reinhardtshbm:billet_pb209x1|item:reinhardtshbm:billet_balefire_goldx1', 'amatx1000@p0', 'reinhardtshbm:billet_flashleadx1')
-    'pile_pu239.json' = @('40', '100', 'item:reinhardtshbm:pile_rod_pu239x1', 'sulfuric_acidx100@p0', 'reinhardtshbm:billet_pu239x2|reinhardtshbm:billet_uraniumx1')
-    'pile_rgp.json' = @('40', '100', 'item:reinhardtshbm:pile_rod_rgpx1', 'sulfuric_acidx100@p0', 'reinhardtshbm:billet_pu_mixx2|reinhardtshbm:billet_nuclear_wastex1')
-    'pile_thorium.json' = @('40', '100', 'item:reinhardtshbm:pile_rod_thorium_fuelx1', 'sulfuric_acidx100@p0', 'reinhardtshbm:billet_thorium_fuelx2|reinhardtshbm:billet_nuclear_wastex1')
-    'pile_waste.json' = @('40', '100', 'item:reinhardtshbm:pile_rod_wastex1', 'sulfuric_acidx100@p0', 'reinhardtshbm:billet_nuclear_wastex2|reinhardtshbm:billet_poloniumx1')
+    'flash_gold.json' = @('600', '1000', 'item:atomiclegacy:billet_au198x1|item:atomiclegacy:pellet_chargedx1', 'amatx1000@p0', 'atomiclegacy:billet_balefire_goldx2')
+    'flash_lead.json' = @('600', '1000', 'item:atomiclegacy:billet_pb209x1|item:atomiclegacy:billet_balefire_goldx1', 'amatx1000@p0', 'atomiclegacy:billet_flashleadx1')
+    'pile_pu239.json' = @('40', '100', 'item:atomiclegacy:pile_rod_pu239x1', 'sulfuric_acidx100@p0', 'atomiclegacy:billet_pu239x2|atomiclegacy:billet_uraniumx1')
+    'pile_rgp.json' = @('40', '100', 'item:atomiclegacy:pile_rod_rgpx1', 'sulfuric_acidx100@p0', 'atomiclegacy:billet_pu_mixx2|atomiclegacy:billet_nuclear_wastex1')
+    'pile_thorium.json' = @('40', '100', 'item:atomiclegacy:pile_rod_thorium_fuelx1', 'sulfuric_acidx100@p0', 'atomiclegacy:billet_thorium_fuelx2|atomiclegacy:billet_nuclear_wastex1')
+    'pile_waste.json' = @('40', '100', 'item:atomiclegacy:pile_rod_wastex1', 'sulfuric_acidx100@p0', 'atomiclegacy:billet_nuclear_wastex2|atomiclegacy:billet_poloniumx1')
 }
 foreach ($file in $purexRoutes.Keys) {
     $recipe = Read-Recipe "purex/$file"
@@ -556,9 +556,9 @@ foreach ($file in $purexRoutes.Keys) {
 }
 
 $shredderRoutes = @{
-    'drive_flash_broken_to_powder_polymer.json' = @('item:reinhardtshbm:drive_flash_brokenx1', 'reinhardtshbm:powder_polymerx2')
-    'drive_disk_broken_to_powder_polymer.json' = @('item:reinhardtshbm:drive_disk_brokenx1', 'reinhardtshbm:powder_polymerx4')
-    'powder_lapis_to_powder_cobalt_tiny.json' = @('tag:c:dusts/lapisx1', 'reinhardtshbm:powder_cobalt_tinyx1')
+    'drive_flash_broken_to_powder_polymer.json' = @('item:atomiclegacy:drive_flash_brokenx1', 'atomiclegacy:powder_polymerx2')
+    'drive_disk_broken_to_powder_polymer.json' = @('item:atomiclegacy:drive_disk_brokenx1', 'atomiclegacy:powder_polymerx4')
+    'powder_lapis_to_powder_cobalt_tiny.json' = @('tag:c:dusts/lapisx1', 'atomiclegacy:powder_cobalt_tinyx1')
 }
 foreach ($file in $shredderRoutes.Keys) {
     $recipe = Read-Recipe "shredder/$file"
@@ -569,10 +569,10 @@ foreach ($file in $shredderRoutes.Keys) {
 }
 
 $solderingPcb = @{
-    'circuit_controller.json' = @('item:reinhardtshbm:circuit_controller_chassisx1', 'tag:c:ingots/rubberx4')
-    'circuit_controller_advanced.json' = @('item:reinhardtshbm:circuit_controller_chassisx1', 'tag:c:ingots/hard_plasticx4')
-    'circuit_controller_quantum.json' = @('item:reinhardtshbm:circuit_controller_advancedx2', 'item:reinhardtshbm:upgrade_speed_3x1')
-    'sat_chip.json' = @('item:reinhardtshbm:circuit_pcbx2')
+    'circuit_controller.json' = @('item:atomiclegacy:circuit_controller_chassisx1', 'tag:c:ingots/rubberx4')
+    'circuit_controller_advanced.json' = @('item:atomiclegacy:circuit_controller_chassisx1', 'tag:c:ingots/hard_plasticx4')
+    'circuit_controller_quantum.json' = @('item:atomiclegacy:circuit_controller_advancedx2', 'item:atomiclegacy:upgrade_speed_3x1')
+    'sat_chip.json' = @('item:atomiclegacy:circuit_pcbx2')
 }
 foreach ($file in $solderingPcb.Keys) {
     $recipe = Read-Recipe "soldering_station/$file"
@@ -580,12 +580,12 @@ foreach ($file in $solderingPcb.Keys) {
 }
 
 $precisionRoutes = @{
-    'orbital_assembly_crystal_circuit.json' = 'reinhardtshbm:orbital_assembly_crystal_circuitx1@50|reinhardtshbm:broken_itemx1@50'
-    'orbital_assembly_crystal_circuit_expensive.json' = 'reinhardtshbm:orbital_assembly_crystal_circuitx1@25|reinhardtshbm:broken_itemx1@75'
-    'rpa_helmet.json' = 'reinhardtshbm:rpa_helmetx1@100'
-    'rpa_plate.json' = 'reinhardtshbm:rpa_platex1@100'
-    'rpa_legs.json' = 'reinhardtshbm:rpa_legsx1@100'
-    'rpa_boots.json' = 'reinhardtshbm:rpa_bootsx1@100'
+    'orbital_assembly_crystal_circuit.json' = 'atomiclegacy:orbital_assembly_crystal_circuitx1@50|atomiclegacy:broken_itemx1@50'
+    'orbital_assembly_crystal_circuit_expensive.json' = 'atomiclegacy:orbital_assembly_crystal_circuitx1@25|atomiclegacy:broken_itemx1@75'
+    'rpa_helmet.json' = 'atomiclegacy:rpa_helmetx1@100'
+    'rpa_plate.json' = 'atomiclegacy:rpa_platex1@100'
+    'rpa_legs.json' = 'atomiclegacy:rpa_legsx1@100'
+    'rpa_boots.json' = 'atomiclegacy:rpa_bootsx1@100'
 }
 foreach ($file in $precisionRoutes.Keys) {
     $recipe = Read-Recipe "precision_assembler/$file"
@@ -596,16 +596,16 @@ foreach ($file in $precisionRoutes.Keys) {
 }
 
 $plasmaNew = @{
-    'expensive_steel_plating.json' = @('plsm.exsteelplating', '40', '100000', '1000000', 'reinhardtshbm:item_expensive_steel_platingx1')
-    'expensive_heavy_frame.json' = @('plsm.exheavyframe', '120', '100000', '1000000', 'reinhardtshbm:item_expensive_heavy_framex1')
-    'expensive_circuit.json' = @('plsm.excircuit', '80', '100000', '1000000', 'reinhardtshbm:item_expensive_circuitx1')
-    'expensive_lead_plating.json' = @('plsm.exleadplating', '80', '100000', '1000000', 'reinhardtshbm:item_expensive_lead_platingx1')
-    'expensive_ferro_plating.json' = @('plsm.exferroplating', '240', '100000', '1000000', 'reinhardtshbm:item_expensive_ferro_platingx1')
-    'expensive_computer.json' = @('plsm.excomputer', '240', '100000', '1000000', 'reinhardtshbm:item_expensive_computerx1')
-    'expensive_bronze_tubes.json' = @('plsm.bronzetubes', '600', '1000000', '10000000', 'reinhardtshbm:item_expensive_bronze_tubesx1')
-    'expensive_plastic.json' = @('plsm.explastic', '120', '100000', '1000000', 'reinhardtshbm:item_expensive_plasticx1')
-    'expensive_gold_dust.json' = @('plsm.exgold', '120', '100000', '1000000', 'reinhardtshbm:item_expensive_gold_dustx1')
-    'cmb_tubes.json' = @('plsm.cmbtubes', '6000', '10000000', '12500000', 'reinhardtshbm:item_expensive_cmb_tubesx1')
+    'expensive_steel_plating.json' = @('plsm.exsteelplating', '40', '100000', '1000000', 'atomiclegacy:item_expensive_steel_platingx1')
+    'expensive_heavy_frame.json' = @('plsm.exheavyframe', '120', '100000', '1000000', 'atomiclegacy:item_expensive_heavy_framex1')
+    'expensive_circuit.json' = @('plsm.excircuit', '80', '100000', '1000000', 'atomiclegacy:item_expensive_circuitx1')
+    'expensive_lead_plating.json' = @('plsm.exleadplating', '80', '100000', '1000000', 'atomiclegacy:item_expensive_lead_platingx1')
+    'expensive_ferro_plating.json' = @('plsm.exferroplating', '240', '100000', '1000000', 'atomiclegacy:item_expensive_ferro_platingx1')
+    'expensive_computer.json' = @('plsm.excomputer', '240', '100000', '1000000', 'atomiclegacy:item_expensive_computerx1')
+    'expensive_bronze_tubes.json' = @('plsm.bronzetubes', '600', '1000000', '10000000', 'atomiclegacy:item_expensive_bronze_tubesx1')
+    'expensive_plastic.json' = @('plsm.explastic', '120', '100000', '1000000', 'atomiclegacy:item_expensive_plasticx1')
+    'expensive_gold_dust.json' = @('plsm.exgold', '120', '100000', '1000000', 'atomiclegacy:item_expensive_gold_dustx1')
+    'cmb_tubes.json' = @('plsm.cmbtubes', '6000', '10000000', '12500000', 'atomiclegacy:item_expensive_cmb_tubesx1')
 }
 foreach ($file in $plasmaNew.Keys) {
     $recipe = Read-Recipe "plasma_forge/$file"
@@ -620,7 +620,7 @@ foreach ($file in $plasmaNew.Keys) {
 }
 
 # Latest annihilator payout is code-backed rather than a custom recipe type.
-$annihilatorPath = 'src/main/java/com/reinhardt/hbm/machine/AnnihilatorRecipes.java'
+$annihilatorPath = 'src/main/java/com/atomiclegacy/machine/AnnihilatorRecipes.java'
 if (-not (Test-Path -LiteralPath $annihilatorPath -PathType Leaf)) {
     Add-Problem "Missing annihilator recipe table $annihilatorPath"
 } else {
@@ -632,7 +632,7 @@ if (-not (Test-Path -LiteralPath $annihilatorPath -PathType Leaf)) {
 }
 
 # Latest anvil construction deltas are code-backed and must remain exact.
-$anvilPath = 'src/main/java/com/reinhardt/hbm/inventory/recipes/anvil/HbmAnvilRecipes.java'
+$anvilPath = 'src/main/java/com/atomiclegacy/inventory/recipes/anvil/HbmAnvilRecipes.java'
 if (-not (Test-Path -LiteralPath $anvilPath -PathType Leaf)) {
     Add-Problem "Missing anvil recipe table $anvilPath"
 } else {
@@ -657,49 +657,49 @@ if (-not (Test-Path -LiteralPath $anvilPath -PathType Leaf)) {
 # projection so those recipes cannot silently disappear while the static JSON
 # count remains unchanged.
 $dynamicRecipeContracts = @(
-    @('src/main/java/com/reinhardt/hbm/inventory/recipes/ArcFurnaceRecipe.java',
+    @('src/main/java/com/atomiclegacy/inventory/recipes/ArcFurnaceRecipe.java',
       'Arc furnace dynamic foundry-material projection',
       'dynamicOutputs\(ItemStack stack\)[\s\S]*?FoundryMaterial\.smeltingMaterialsFromItem\(stack\)[\s\S]*?SmeltingBehavior\.SMELTABLE'),
-    @('src/main/java/com/reinhardt/hbm/tileentity/ArcFurnaceBlockEntity.java',
+    @('src/main/java/com/atomiclegacy/tileentity/ArcFurnaceBlockEntity.java',
       'Arc furnace machine fallback to dynamic liquid recipes',
       'isLiquidMode\(\)\s*&&\s*!ArcFurnaceRecipe\.dynamicOutputs\(stack\)\.isEmpty\(\)[\s\S]*?dynamicRecipe\(stack\)'),
-    @('src/main/java/com/reinhardt/hbm/integration/jei/ArcFurnaceJeiRecipes.java',
+    @('src/main/java/com/atomiclegacy/integration/jei/ArcFurnaceJeiRecipes.java',
       'Arc furnace JEI projection of every dynamic foundry input',
       'for\s*\(Item item\s*:\s*BuiltInRegistries\.ITEM\)[\s\S]*?ArcFurnaceRecipe\.dynamicOutputs\(input\)'),
-    @('src/main/java/com/reinhardt/hbm/integration/jei/ArcFurnaceJeiRecipes.java',
+    @('src/main/java/com/atomiclegacy/integration/jei/ArcFurnaceJeiRecipes.java',
       'Arc furnace JEI projection of compatible vanilla smelting recipes',
       'getAllRecipesFor\(RecipeType\.SMELTING\)[\s\S]*?ArcFurnaceRecipe\.isArcSmeltable\(input, output\)'),
-    @('src/main/java/com/reinhardt/hbm/tileentity/CrucibleBlockEntity.java',
+    @('src/main/java/com/atomiclegacy/tileentity/CrucibleBlockEntity.java',
       'Crucible runtime consumption of flattened foundry materials',
       'FoundryMaterial\.smeltingMaterialsFromItem\(getItem\(slot\)\)'),
-    @('src/main/java/com/reinhardt/hbm/tileentity/CrucibleBlockEntity.java',
+    @('src/main/java/com/atomiclegacy/tileentity/CrucibleBlockEntity.java',
       'Crucible input validation against flattened foundry materials',
       'isItemSmeltable\(ItemStack stack\)[\s\S]*?FoundryMaterial\.smeltingMaterialsFromItem\(stack\)'),
-    @('src/main/java/com/reinhardt/hbm/tileentity/LegacyMachineBlockEntity.java',
+    @('src/main/java/com/atomiclegacy/tileentity/LegacyMachineBlockEntity.java',
       'Pyrolysis fallback order for bedrock roasting and generated solid fuel',
       'pyroBedrockOreRecipe\(\)[\s\S]*?bedrockRecipe\.isPresent\(\)\s*\?\s*bedrockRecipe\s*:\s*pyroSolidFuelRecipe\(\)'),
-    @('src/main/java/com/reinhardt/hbm/tileentity/LegacyMachineBlockEntity.java',
+    @('src/main/java/com/atomiclegacy/tileentity/LegacyMachineBlockEntity.java',
       'Pyrolysis five-grade flattened bedrock roasting table',
       'case BASE\s*->\s*BedrockOreItem\.Grade\.BASE_ROASTED;[\s\S]*?case PRIMARY\s*->\s*BedrockOreItem\.Grade\.PRIMARY_ROASTED;[\s\S]*?case SULFURIC_BYPRODUCT\s*->\s*BedrockOreItem\.Grade\.SULFURIC_ROASTED;[\s\S]*?case SOLVENT_BYPRODUCT\s*->\s*BedrockOreItem\.Grade\.SOLVENT_ROASTED;[\s\S]*?case RAD_BYPRODUCT\s*->\s*BedrockOreItem\.Grade\.RAD_ROASTED;'),
-    @('src/main/java/com/reinhardt/hbm/tileentity/LegacyMachineBlockEntity.java',
+    @('src/main/java/com/atomiclegacy/tileentity/LegacyMachineBlockEntity.java',
       'Pyrolysis runtime solid-fuel amount derived from flammable heat energy',
       'pyroSolidFuelRecipe\(\)[\s\S]*?flammableHeatEnergy\(\)[\s\S]*?24_000_000L\s*:\s*1_440_000L[\s\S]*?new PyroOvenRecipe\.FluidInput\(fluid, amount\)'),
-    @('src/main/java/com/reinhardt/hbm/integration/jei/PyroOvenJeiRecipes.java',
+    @('src/main/java/com/atomiclegacy/integration/jei/PyroOvenJeiRecipes.java',
       'Pyrolysis JEI projection of every flattened bedrock type and roast grade',
       'appendBedrockOreRecipes\(recipes\)[\s\S]*?for\s*\(BedrockOreItem\.Type type\s*:\s*BedrockOreItem\.Type\.values\(\)\)[\s\S]*?for\s*\(BedrockRoast roast\s*:\s*BedrockRoast\.values\(\)\)'),
-    @('src/main/java/com/reinhardt/hbm/integration/jei/PyroOvenJeiRecipes.java',
+    @('src/main/java/com/atomiclegacy/integration/jei/PyroOvenJeiRecipes.java',
       'Pyrolysis JEI projection of every flammable registered fluid',
       'for\s*\(HbmFluidDefinition fluid\s*:\s*HbmFluids\.definitions\(\)\)[\s\S]*?fluid\.flammableHeatEnergy\(\)'),
-    @('src/main/java/com/reinhardt/hbm/tileentity/WasteDrumBlockEntity.java',
+    @('src/main/java/com/atomiclegacy/tileentity/WasteDrumBlockEntity.java',
       'Spent-fuel pool dynamic cooling of every flattened RBMK fuel rod',
       'stack\.getItem\(\) instanceof RbmkFuelRodItem[\s\S]*?RbmkFuelRodItem\.coolInSpentFuelPool\('),
-    @('src/main/java/com/reinhardt/hbm/tileentity/FusionMachineBlockEntity.java',
+    @('src/main/java/com/atomiclegacy/tileentity/FusionMachineBlockEntity.java',
       'Fusion breeder reuse of the complete RBMK outgasser recipe table',
       'outgasserRecipe\(Level level, ItemStack input\)[\s\S]*?getAllRecipesFor\(HbmRecipeTypes\.RBMK_OUTGASSER\.get\(\)\)[\s\S]*?ingredient\(\)\.test\(input\)'),
-    @('src/main/java/com/reinhardt/hbm/tileentity/FusionMachineBlockEntity.java',
+    @('src/main/java/com/atomiclegacy/tileentity/FusionMachineBlockEntity.java',
       'Fusion breeder execution of shared outgasser item and fluid outputs',
       'processBreederSolid\(Level level\)[\s\S]*?outgasserRecipe\(level, input\)[\s\S]*?mergeOutput\(BREEDER_OUTPUT_SLOT, recipe\.itemOutput\(\)\.copy\(\)\)[\s\S]*?tank\(1\)\.fill\(recipe\.fluidOutput\(\)\.fluid\(\), recipe\.fluidOutput\(\)\.amount\(\), false\)'),
-    @('src/main/java/com/reinhardt/hbm/integration/jei/HbmJeiPlugin.java',
+    @('src/main/java/com/atomiclegacy/integration/jei/HbmJeiPlugin.java',
       'Fusion breeder JEI catalyst for the shared outgasser recipe table',
       'addRecipeCatalyst\(HbmBlocks\.FUSION_BREEDER\.get\(\), RBMK_OUTGASSER\)')
 )
@@ -721,15 +721,15 @@ if (-not (Test-Path -LiteralPath $assemblyDirectory -PathType Container)) {
     $unconditional = 0
     foreach ($file in Get-ChildItem -LiteralPath $assemblyDirectory -Filter '*.json' -File) {
         $raw = Get-Content -LiteralPath $file.FullName -Raw
-        $hasExpensive = $raw -match '"type"\s*:\s*"reinhardtshbm:enable_expensive_mode"'
-        $has528 = $raw -match '"type"\s*:\s*"reinhardtshbm:enable_528_mode"'
+        $hasExpensive = $raw -match '"type"\s*:\s*"atomiclegacy:enable_expensive_mode"'
+        $has528 = $raw -match '"type"\s*:\s*"atomiclegacy:enable_528_mode"'
         if ($hasExpensive -and $has528) {
             Add-Problem "Assembly recipe mixes 528 and expensive-mode conditions: $($file.Name)"
-        } elseif ($hasExpensive -and $raw -match '"type"\s*:\s*"neoforge:not"[\s\S]*?"type"\s*:\s*"reinhardtshbm:enable_expensive_mode"') {
+        } elseif ($hasExpensive -and $raw -match '"type"\s*:\s*"neoforge:not"[\s\S]*?"type"\s*:\s*"atomiclegacy:enable_expensive_mode"') {
             $normalExpensiveBranch++
         } elseif ($hasExpensive) {
             $expensiveOnly++
-        } elseif ($has528 -and $raw -match '"type"\s*:\s*"neoforge:not"[\s\S]*?"type"\s*:\s*"reinhardtshbm:enable_528_mode"') {
+        } elseif ($has528 -and $raw -match '"type"\s*:\s*"neoforge:not"[\s\S]*?"type"\s*:\s*"atomiclegacy:enable_528_mode"') {
             $normal528Branch++
         } elseif ($has528) {
             Add-Problem "Unexpected 528-only assembly recipe after inputItemsEx separation: $($file.Name)"

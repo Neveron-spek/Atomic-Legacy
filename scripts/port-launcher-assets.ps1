@@ -1,7 +1,7 @@
 param([string]$LegacyRoot = 'E:/MC/Modsource/HBM_1.7.10')
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path $PSScriptRoot -Parent
-$assets = Join-Path $projectRoot 'src/main/resources/assets/reinhardtshbm'
+$assets = Join-Path $projectRoot 'src/main/resources/assets/atomiclegacy'
 $oldAssets = Join-Path $LegacyRoot 'src/main/resources/assets/hbm'
 $utf8 = [System.Text.UTF8Encoding]::new($false)
 
@@ -36,8 +36,8 @@ function Export-Model([string]$source, [string]$name, [string]$texture, [string]
         Copy-Item -LiteralPath $sourceTexture -Destination $textureFile
     }
     [IO.File]::WriteAllLines((Join-Path $objDir ($name + '.obj')), $geometry, $utf8)
-    [IO.File]::WriteAllText((Join-Path $objDir ($name + '.mtl')), "newmtl launcher_material`nKa 0 0 0`nKd 1 1 1`nmap_Kd reinhardtshbm:$texture`n", $utf8)
-    $model = [ordered]@{ loader='neoforge:obj'; model="reinhardtshbm:models/obj/launcher_port/$name.obj"; automatic_culling=$false; shade_quads=$true; flip_v=$true; emissive_ambient=$false; textures=@{particle="reinhardtshbm:$texture"} }
+    [IO.File]::WriteAllText((Join-Path $objDir ($name + '.mtl')), "newmtl launcher_material`nKa 0 0 0`nKd 1 1 1`nmap_Kd atomiclegacy:$texture`n", $utf8)
+    $model = [ordered]@{ loader='neoforge:obj'; model="atomiclegacy:models/obj/launcher_port/$name.obj"; automatic_culling=$false; shade_quads=$true; flip_v=$true; emissive_ambient=$false; textures=@{particle="atomiclegacy:$texture"} }
     [IO.File]::WriteAllText((Join-Path $jsonDir ($name + '.json')), ($model | ConvertTo-Json -Depth 5), $utf8)
     Write-Output "$name : $faces faces"
 }

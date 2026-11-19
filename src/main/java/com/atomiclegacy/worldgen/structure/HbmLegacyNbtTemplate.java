@@ -777,12 +777,8 @@ public final class HbmLegacyNbtTemplate {
     static boolean migrateLegacyItemStack(CompoundTag tag, Map<Short, String> itemPalette) {
         if (tag.contains("id", Tag.TAG_STRING)) {
             tag.putString("id", normalizeItemId(tag.getString("id")));
-        } else if (tag.contains("id", Tag.TAG_SHORT)) {
-            String mapped = itemPalette.get(tag.getShort("id"));
-            if (mapped != null) {
-                tag.putString("id", normalizeItemId(mapped));
-            }
-        } else if (tag.contains("id", Tag.TAG_INT)) {
+        } else if (tag.contains("id", Tag.TAG_SHORT) || tag.contains("id", Tag.TAG_INT)) {
+            // [fix: l2] the lighthouse book is stored as a SHORT id; int-only handling left it numeric ("Not a string")
             int id = tag.getInt("id");
             if (id >= Short.MIN_VALUE && id <= Short.MAX_VALUE) {
                 String mapped = itemPalette.get((short) id);
@@ -804,7 +800,8 @@ public final class HbmLegacyNbtTemplate {
                 && !tag.contains("components", Tag.TAG_COMPOUND)) {
             migrateLegacyWrittenBook(tag);
         }
-        return !tag.contains("id", Tag.TAG_STRING) || !tag.getString("id").equals("minecraft:air");
+        // An id that is still numeric has no item in this template, as an unknown 1.7.10 id loads as nothing.
+        return tag.contains("id", Tag.TAG_STRING) && !tag.getString("id").equals("minecraft:air");
     }
 
     private static void migrateLegacyWrittenBook(CompoundTag stack) {

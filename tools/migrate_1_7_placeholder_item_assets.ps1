@@ -8,8 +8,8 @@ $ErrorActionPreference = "Stop"
 $ProjectRoot = (Resolve-Path $ProjectRoot).Path
 $LegacyRoot = (Resolve-Path $LegacyRoot).Path
 $legacyItems = Join-Path $LegacyRoot "src\main\resources\assets\hbm\textures\items"
-$models = Join-Path $ProjectRoot "src\main\resources\assets\reinhardtshbm\models\item"
-$textures = Join-Path $ProjectRoot "src\main\resources\assets\reinhardtshbm\textures\item"
+$models = Join-Path $ProjectRoot "src\main\resources\assets\atomiclegacy\models\item"
+$textures = Join-Path $ProjectRoot "src\main\resources\assets\atomiclegacy\textures\item"
 
 # 1.7.10 uses a number of IDs whose visual asset has a different name. Keep
 # this map source-controlled: generation must never silently substitute steel.
@@ -80,7 +80,7 @@ $missing = [System.Collections.Generic.List[string]]::new()
 
 Get-ChildItem -LiteralPath $models -Filter *.json | ForEach-Object {
     $model = Get-Content -LiteralPath $_.FullName -Raw | ConvertFrom-Json
-    if ($model.textures.layer0 -ne "reinhardtshbm:item/legacy_placeholder") {
+    if ($model.textures.layer0 -ne "atomiclegacy:item/legacy_placeholder") {
         return
     }
 
@@ -97,7 +97,7 @@ Get-ChildItem -LiteralPath $models -Filter *.json | ForEach-Object {
     }
 
     Copy-Item -LiteralPath $source -Destination (Join-Path $textures "$id.png") -Force
-    $json = @{ parent = "minecraft:item/generated"; textures = @{ layer0 = "reinhardtshbm:item/$id" } } | ConvertTo-Json -Depth 3
+    $json = @{ parent = "minecraft:item/generated"; textures = @{ layer0 = "atomiclegacy:item/$id" } } | ConvertTo-Json -Depth 3
     [System.IO.File]::WriteAllText($_.FullName, $json + [Environment]::NewLine, $encoding)
 }
 

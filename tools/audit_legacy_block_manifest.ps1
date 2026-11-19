@@ -15,11 +15,11 @@ $legacyRootPath = if ([IO.Path]::IsPathRooted($LegacyRoot)) {
     -ProjectRoot $ProjectRoot `
     -LegacyRoot $legacyRootPath
 
-$legacyDir = Join-Path $ProjectRoot "src\main\resources\legacy\reinhardtshbm"
+$legacyDir = Join-Path $ProjectRoot "src\main\resources\legacy\atomiclegacy"
 $catalogPath = Join-Path $legacyDir "block_catalog.txt"
 $placeholderPath = Join-Path $legacyDir "blocks.txt"
-$hbmBlocksPath = Join-Path $ProjectRoot "src\main\java\com\reinhardt\hbm\registry\HbmBlocks.java"
-$legacyContentPath = Join-Path $ProjectRoot "src\main\java\com\reinhardt\hbm\registry\LegacyHbmContent.java"
+$hbmBlocksPath = Join-Path $ProjectRoot "src\main\java\com\atomiclegacy\registry\HbmBlocks.java"
+$legacyContentPath = Join-Path $ProjectRoot "src\main\java\com\atomiclegacy\registry\LegacyHbmContent.java"
 $reportPath = Join-Path $legacyDir "block_audit.txt"
 
 function Read-Ids([string]$Path) {
@@ -53,7 +53,7 @@ foreach ($match in [regex]::Matches($coreText, '"([a-z0-9_.-]+)"')) {
 # Some real blocks are registered through an enum-backed factory rather than
 # a string literal at the field declaration. Keep the audit aligned with the
 # registry by reading those ids from the same source of truth.
-$doorDeclPath = Join-Path $ProjectRoot 'src\main\java\com\reinhardt\hbm\door\HbmDoorDecl.java'
+$doorDeclPath = Join-Path $ProjectRoot 'src\main\java\com\atomiclegacy\door\HbmDoorDecl.java'
 if (Test-Path -LiteralPath $doorDeclPath) {
     $doorDeclText = Get-Content -LiteralPath $doorDeclPath -Raw
     foreach ($match in [regex]::Matches($doorDeclText, '^\s*[A-Z0-9_]+\("([a-z0-9_.-]+)"', [Text.RegularExpressions.RegexOptions]::Multiline)) {

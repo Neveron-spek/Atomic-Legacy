@@ -409,5 +409,7 @@
   "block.atomiclegacy.machine_rtg_furnace_off": "Four RTG",
   "block.atomiclegacy.machine_rtg_furnace_on": "Four RTG",
   "block.atomiclegacy.machine_battery": "Bloc de stockage d'énergie",
-  "block.atomiclegacy.machine_reactor": "Reacteur de fusion"
+  "block.atomiclegacy.machine_reactor": "Reacteur de fusion",
+  "block.atomiclegacy.rail_highspeed": "Rail à haute vitesse",
+  "block.atomiclegacy.rail_booster": "Rail d'accélération haute vitesse"
 }

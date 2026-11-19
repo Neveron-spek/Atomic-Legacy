@@ -2203,5 +2203,9 @@
   "chem.oilelectrodes": "Миттєві електроди (Мазут)",
   "chem.lubeelectrodes": "Миттєві електроди (Машинна олива)",
   "chem.birkeland": "Азотна кислота з повітря",
-  "block.atomiclegacy.machine_reactor": "Реактор розмножувач"
+  "block.atomiclegacy.machine_reactor": "Реактор розмножувач",
+  "block.atomiclegacy.rail_booster": "Швидкісні прискорювальні рейки",
+  "block.atomiclegacy.rail_highspeed": "Швидкісні рейки",
+  "block.atomiclegacy.rail_wood": "Дерев'яні рейки",
+  "block.atomiclegacy.rail_narrow": "Вузькоколійні рейки"
 }

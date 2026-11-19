@@ -45,24 +45,24 @@ function Read-SalvageableJson([string]$Path) {
 }
 
 function Find-LegacyValue([string]$ModernKey, [hashtable]$LegacyEntries) {
-    $unscoped = $ModernKey.Replace('.reinhardtshbm.', '.')
+    $unscoped = $ModernKey.Replace('.atomiclegacy.', '.')
     $candidates = [Collections.Generic.List[string]]::new()
     $candidates.Add($unscoped)
 
-    if ($ModernKey.StartsWith('item.reinhardtshbm.')) {
-        $id = $ModernKey.Substring('item.reinhardtshbm.'.Length)
+    if ($ModernKey.StartsWith('item.atomiclegacy.')) {
+        $id = $ModernKey.Substring('item.atomiclegacy.'.Length)
         $candidates.Add("item.$id.name")
     }
-    if ($ModernKey.StartsWith('block.reinhardtshbm.')) {
-        $id = $ModernKey.Substring('block.reinhardtshbm.'.Length)
+    if ($ModernKey.StartsWith('block.atomiclegacy.')) {
+        $id = $ModernKey.Substring('block.atomiclegacy.'.Length)
         $candidates.Add("tile.$id.name")
     }
-    if ($ModernKey.StartsWith('entity.reinhardtshbm.')) {
-        $id = $ModernKey.Substring('entity.reinhardtshbm.'.Length)
+    if ($ModernKey.StartsWith('entity.atomiclegacy.')) {
+        $id = $ModernKey.Substring('entity.atomiclegacy.'.Length)
         $candidates.Add("entity.$id.name")
     }
-    if ($ModernKey.StartsWith('container.reinhardtshbm.')) {
-        $id = $ModernKey.Substring('container.reinhardtshbm.'.Length)
+    if ($ModernKey.StartsWith('container.atomiclegacy.')) {
+        $id = $ModernKey.Substring('container.atomiclegacy.'.Length)
         $candidates.Add("container.$id")
     }
 
@@ -74,20 +74,20 @@ function Find-LegacyValue([string]$ModernKey, [hashtable]$LegacyEntries) {
     return $null
 }
 
-$assetRoot = Join-Path $ProjectRoot 'src\main\resources\assets\reinhardtshbm\lang'
+$assetRoot = Join-Path $ProjectRoot 'src\main\resources\assets\atomiclegacy\lang'
 $tabTranslations = [ordered]@{
-    'itemGroup.reinhardtshbm' = 'Reinhardt''s HBM'
-    'creative_tab.reinhardtshbm.miscellaneous' = 'HBM ' + [char]0x6742 + [char]0x9879
-    'creative_tab.reinhardtshbm.parts' = 'HBM ' + [char]0x6750 + [char]0x6599
-    'creative_tab.reinhardtshbm.blocks' = 'HBM ' + [char]0x65B9 + [char]0x5757
-    'creative_tab.reinhardtshbm.tools' = 'HBM ' + [char]0x5DE5 + [char]0x5177
-    'creative_tab.reinhardtshbm.power' = 'HBM ' + [char]0x7535 + [char]0x529B
-    'creative_tab.reinhardtshbm.power_grid' = 'HBM ' + [char]0x7535 + [char]0x7F51
-    'creative_tab.reinhardtshbm.generators' = 'HBM ' + [char]0x53D1 + [char]0x7535 + [char]0x673A
-    'creative_tab.reinhardtshbm.power_storage' = 'HBM ' + [char]0x50A8 + [char]0x80FD
-    'creative_tab.reinhardtshbm.building' = 'HBM ' + [char]0x5EFA + [char]0x6750
-    'creative_tab.reinhardtshbm.legacy_items' = 'HBM ' + [char]0x65E7 + [char]0x7248 + [char]0x5360 + [char]0x4F4D + [char]0x7269 + [char]0x54C1
-    'creative_tab.reinhardtshbm.legacy_blocks' = 'HBM ' + [char]0x65E7 + [char]0x7248 + [char]0x5360 + [char]0x4F4D + [char]0x65B9 + [char]0x5757
+    'itemGroup.atomiclegacy' = 'Atomic Legacy'
+    'creative_tab.atomiclegacy.miscellaneous' = 'HBM ' + [char]0x6742 + [char]0x9879
+    'creative_tab.atomiclegacy.parts' = 'HBM ' + [char]0x6750 + [char]0x6599
+    'creative_tab.atomiclegacy.blocks' = 'HBM ' + [char]0x65B9 + [char]0x5757
+    'creative_tab.atomiclegacy.tools' = 'HBM ' + [char]0x5DE5 + [char]0x5177
+    'creative_tab.atomiclegacy.power' = 'HBM ' + [char]0x7535 + [char]0x529B
+    'creative_tab.atomiclegacy.power_grid' = 'HBM ' + [char]0x7535 + [char]0x7F51
+    'creative_tab.atomiclegacy.generators' = 'HBM ' + [char]0x53D1 + [char]0x7535 + [char]0x673A
+    'creative_tab.atomiclegacy.power_storage' = 'HBM ' + [char]0x50A8 + [char]0x80FD
+    'creative_tab.atomiclegacy.building' = 'HBM ' + [char]0x5EFA + [char]0x6750
+    'creative_tab.atomiclegacy.legacy_items' = 'HBM ' + [char]0x65E7 + [char]0x7248 + [char]0x5360 + [char]0x4F4D + [char]0x7269 + [char]0x54C1
+    'creative_tab.atomiclegacy.legacy_blocks' = 'HBM ' + [char]0x65E7 + [char]0x7248 + [char]0x5360 + [char]0x4F4D + [char]0x65B9 + [char]0x5757
 }
 
 $encoding = [Text.UTF8Encoding]::new($false)

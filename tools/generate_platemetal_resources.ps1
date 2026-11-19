@@ -56,25 +56,25 @@ function Copy-Verified([string]$Source, [string]$Destination) {
     }
 }
 
-$assets = Join-Path $ProjectRoot 'src\main\resources\assets\reinhardtshbm'
-$data = Join-Path $ProjectRoot 'src\main\resources\data\reinhardtshbm'
+$assets = Join-Path $ProjectRoot 'src\main\resources\assets\atomiclegacy'
+$data = Join-Path $ProjectRoot 'src\main\resources\data\atomiclegacy'
 $upstreamAssets = Join-Path $UpstreamRoot 'src\main\resources\assets\hbm'
-$ids = @($variants | ForEach-Object { "reinhardtshbm:$($_.Id)" })
+$ids = @($variants | ForEach-Object { "atomiclegacy:$($_.Id)" })
 $connectTo = @($ids | ForEach-Object { [ordered]@{ block = $_ } })
 
 foreach ($variant in $variants) {
     $id = $variant.Id
     Write-Json (Join-Path $assets "blockstates\$id.json") ([ordered]@{
         variants = [ordered]@{
-            '' = [ordered]@{ model = "reinhardtshbm:block/$id" }
+            '' = [ordered]@{ model = "atomiclegacy:block/$id" }
         }
     })
     Write-Json (Join-Path $assets "models\block\$id.json") ([ordered]@{
         parent = 'minecraft:block/cube_all'
-        textures = [ordered]@{ all = "reinhardtshbm:block/$id" }
+        textures = [ordered]@{ all = "atomiclegacy:block/$id" }
     })
     Write-Json (Join-Path $assets "models\item\$id.json") ([ordered]@{
-        parent = "reinhardtshbm:block/$id"
+        parent = "atomiclegacy:block/$id"
     })
     Write-Json (Join-Path $data "loot_table\blocks\$id.json") ([ordered]@{
         type = 'minecraft:block'
@@ -82,7 +82,7 @@ foreach ($variant in $variants) {
             [ordered]@{
                 rolls = 1
                 conditions = @([ordered]@{ condition = 'minecraft:survives_explosion' })
-                entries = @([ordered]@{ type = 'minecraft:item'; name = "reinhardtshbm:$id" })
+                entries = @([ordered]@{ type = 'minecraft:item'; name = "atomiclegacy:$id" })
             }
         )
     })
@@ -95,7 +95,7 @@ foreach ($variant in $variants) {
         ctm = [ordered]@{
             ctm_version = 1
             type = 'CTM'
-            textures = @("reinhardtshbm:block/${id}_ctm")
+            textures = @("atomiclegacy:block/${id}_ctm")
             extra = [ordered]@{ connect_to = $connectTo }
         }
     })
@@ -106,10 +106,10 @@ foreach ($variant in $variants) {
             category = 'building'
             pattern = @('PPP', 'PDP', 'PPP')
             key = [ordered]@{
-                P = [ordered]@{ item = 'reinhardtshbm:platemetal' }
+                P = [ordered]@{ item = 'atomiclegacy:platemetal' }
                 D = [ordered]@{ tag = "c:dyes/$($variant.Dye)" }
             }
-            result = [ordered]@{ id = "reinhardtshbm:$id"; count = 8 }
+            result = [ordered]@{ id = "atomiclegacy:$id"; count = 8 }
         })
     }
 }
@@ -125,8 +125,8 @@ Write-Json (Join-Path $data 'tags\block\platemetal.json') ([ordered]@{
 Write-Json (Join-Path $data 'recipe\platemetal\reset_to_base.json') ([ordered]@{
     type = 'minecraft:crafting_shapeless'
     category = 'building'
-    ingredients = @([ordered]@{ tag = 'reinhardtshbm:platemetal' })
-    result = [ordered]@{ id = 'reinhardtshbm:platemetal' }
+    ingredients = @([ordered]@{ tag = 'atomiclegacy:platemetal' })
+    result = [ordered]@{ id = 'atomiclegacy:platemetal' }
 })
 
 foreach ($sound in @(

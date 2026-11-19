@@ -2322,5 +2322,9 @@
   "chem.biooilsolidfuel": "Твёрдое топливо из нефти и биомассы",
   "chem.oilelectrodes": "Мгновенные электроды (Мазут)",
   "chem.lubeelectrodes": "Мгновенные электроды (Моторное масло)",
-  "chem.birkeland": "Азотная кислота из воздуха"
+  "chem.birkeland": "Азотная кислота из воздуха",
+  "block.atomiclegacy.rail_booster": "Ускоряющие высокоскоростные рельсы",
+  "block.atomiclegacy.rail_highspeed": "Высокоскоростные рельсы",
+  "block.atomiclegacy.rail_wood": "Деревянные рельсы",
+  "block.atomiclegacy.rail_narrow": "Узкоколейные вагонеточные рельсы"
 }

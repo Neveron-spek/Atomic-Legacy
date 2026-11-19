@@ -3,7 +3,7 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-$outputDirectory = Join-Path $ProjectRoot 'src/main/resources/data/reinhardtshbm/recipe/silex'
+$outputDirectory = Join-Path $ProjectRoot 'src/main/resources/data/atomiclegacy/recipe/silex'
 New-Item -ItemType Directory -Force -Path $outputDirectory | Out-Null
 
 function ItemOutput([string]$id, [int]$weight) {
@@ -14,13 +14,13 @@ function ItemOutput([string]$id, [int]$weight) {
 }
 
 function HbmOutput([string]$id, [int]$weight) {
-    return ItemOutput ("reinhardtshbm:$id") $weight
+    return ItemOutput ("atomiclegacy:$id") $weight
 }
 
 function WasteOutput([string]$family, [int]$wasteClass, [int]$weight) {
     return [ordered]@{
         item = [ordered]@{
-            id = "reinhardtshbm:nuclear_waste_${family}_tiny"
+            id = "atomiclegacy:nuclear_waste_${family}_tiny"
             components = [ordered]@{
                 'minecraft:custom_data' = [ordered]@{ waste_class = $wasteClass }
             }
@@ -38,11 +38,11 @@ function Write-SilexRecipe(
 ) {
     $name = "rbmk_pellet_${pellet}_${state}"
     $recipe = [ordered]@{
-        type = 'reinhardtshbm:silex'
+        type = 'atomiclegacy:silex'
         group = "silex.$name"
         ingredient = [ordered]@{
             type = 'neoforge:components'
-            items = @("reinhardtshbm:rbmk_pellet_$pellet")
+            items = @("atomiclegacy:rbmk_pellet_$pellet")
             components = [ordered]@{ 'minecraft:custom_model_data' = $state }
         }
         fluid_produced = $fluidProduced

@@ -12,7 +12,7 @@ $LegacyRoot = if ([IO.Path]::IsPathRooted($LegacyRoot)) {
 }
 $LegacyRoot = (Resolve-Path -LiteralPath $LegacyRoot).Path
 $sourcePath = Join-Path $LegacyRoot "src\main\java\com\hbm\items\ModItems.java"
-$manifestPath = Join-Path $ProjectRoot "src\main\resources\legacy\reinhardtshbm\item_catalog.txt"
+$manifestPath = Join-Path $ProjectRoot "src\main\resources\legacy\atomiclegacy\item_catalog.txt"
 
 if (-not (Test-Path -LiteralPath $sourcePath)) {
     throw "Missing 1.7.10 item registry source: $sourcePath"

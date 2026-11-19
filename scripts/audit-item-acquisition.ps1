@@ -6,7 +6,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$modId = "reinhardtshbm"
+$modId = "atomiclegacy"
 $recipeRoot = (Resolve-Path "src/main/resources/data/$modId/recipe").Path
 $runtimeLines = Get-Content $RuntimeReport
 $activeRecipes = [System.Collections.Generic.HashSet[string]]::new()
@@ -150,7 +150,7 @@ Get-ChildItem src/main/resources/data -Recurse -Filter *.json |
     Where-Object { $_.FullName -match "[\\/]loot_table[s]?[\\/]" } |
     ForEach-Object {
         $raw = Get-Content $_.FullName -Raw
-        [regex]::Matches($raw, '"name"\s*:\s*"(reinhardtshbm:[a-z0-9_./-]+)"') |
+        [regex]::Matches($raw, '"name"\s*:\s*"(atomiclegacy:[a-z0-9_./-]+)"') |
             ForEach-Object {
                 [void]$sources.Add($_.Groups[1].Value)
                 [void]$baseSources.Add($_.Groups[1].Value)

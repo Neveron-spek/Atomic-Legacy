@@ -7521,5 +7521,8 @@
   "chem.birkeland": "伯克兰-艾德法制硝酸",
   "chem.growinertanthrax": "Replicating of Inert Anthrax",
   "chem.growmutatedanthrax": "Replicating of Mutated Anthrax",
-  "chem.mutateanthrax": "Anthrax Mutation"
+  "chem.mutateanthrax": "Anthrax Mutation",
+  "block.atomiclegacy.rail_booster": "高速动力轨道",
+  "block.atomiclegacy.rail_highspeed": "高速轨道",
+  "block.atomiclegacy.rail_wood": "木制轨道"
 }

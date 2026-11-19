@@ -8,10 +8,10 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$modId = "reinhardtshbm"
-$blocksSourcePath = "src/main/java/com/reinhardt/hbm/registry/HbmBlocks.java"
-$blockEntitiesSourcePath = "src/main/java/com/reinhardt/hbm/registry/HbmBlockEntities.java"
-$recipeTypesSourcePath = "src/main/java/com/reinhardt/hbm/registry/HbmRecipeTypes.java"
+$modId = "atomiclegacy"
+$blocksSourcePath = "src/main/java/com/atomiclegacy/registry/HbmBlocks.java"
+$blockEntitiesSourcePath = "src/main/java/com/atomiclegacy/registry/HbmBlockEntities.java"
+$recipeTypesSourcePath = "src/main/java/com/atomiclegacy/registry/HbmRecipeTypes.java"
 $recipeRoot = "src/main/resources/data/$modId/recipe"
 
 foreach ($required in @(
@@ -114,7 +114,7 @@ foreach ($match in [regex]::Matches(
 
 # Heavy-door ids live in HbmDoorDecl and are registered through
 # heavyDoor(HbmDoorDecl.X); resolve that explicit indirection as well.
-$doorDeclPath = 'src/main/java/com/reinhardt/hbm/door/HbmDoorDecl.java'
+$doorDeclPath = 'src/main/java/com/atomiclegacy/door/HbmDoorDecl.java'
 if (Test-Path -LiteralPath $doorDeclPath) {
     $doorDeclSource = Get-Content -LiteralPath $doorDeclPath -Raw
     $doorIds = @{}
@@ -123,7 +123,7 @@ if (Test-Path -LiteralPath $doorDeclPath) {
     }
     foreach ($match in [regex]::Matches(
             $blocksSource,
-            '(?m)^\s*public\s+static\s+final\s+DeferredBlock<Block>\s+([A-Z0-9_]+)\s*=\s*heavyDoor\((?:com\.reinhardt\.hbm\.door\.)?HbmDoorDecl\.([A-Z0-9_]+)\);')) {
+            '(?m)^\s*public\s+static\s+final\s+DeferredBlock<Block>\s+([A-Z0-9_]+)\s*=\s*heavyDoor\((?:com\.atomiclegacy\.door\.)?HbmDoorDecl\.([A-Z0-9_]+)\);')) {
         $doorConstant = $match.Groups[2].Value
         if ($doorIds.ContainsKey($doorConstant)) {
             $blockIdsByConstant[$match.Groups[1].Value] = $doorIds[$doorConstant]
@@ -154,7 +154,9 @@ foreach ($category in $auditedCategories) {
     if (-not $categoryMatch.Success) {
         throw "Unable to resolve HbmBlocks.$category for the machine manufacturing audit"
     }
-    foreach ($constant in [regex]::Matches($categoryMatch.Groups[1].Value, '\b[A-Z][A-Z0-9_]+\b')) {
+    # Line comments inside List.of(...) carry parity tags such as "[parity T1: ...]"; they are not constants.
+    $categoryBody = [regex]::Replace($categoryMatch.Groups[1].Value, '//[^\r\n]*', '')
+    foreach ($constant in [regex]::Matches($categoryBody, '\b[A-Z][A-Z0-9_]+\b')) {
         [void]$candidateConstants.Add($constant.Value)
     }
 }
@@ -267,7 +269,7 @@ foreach ($match in [regex]::Matches(
     $recipeTypeIdsByConstant[$match.Groups[1].Value] = "$modId`:$($match.Groups[2].Value)"
 }
 $referencedTypeConstants = [System.Collections.Generic.HashSet[string]]::new()
-foreach ($file in Get-ChildItem 'src/main/java/com/reinhardt/hbm/blockentity' -Filter '*.java' -File -Recurse) {
+foreach ($file in Get-ChildItem 'src/main/java/com/atomiclegacy/tileentity' -Filter '*.java' -File -Recurse) {
     $source = Get-Content -LiteralPath $file.FullName -Raw
     foreach ($match in [regex]::Matches($source, 'HbmRecipeTypes\.([A-Z][A-Z0-9_]+)')) {
         [void]$referencedTypeConstants.Add($match.Groups[1].Value)
@@ -276,7 +278,7 @@ foreach ($file in Get-ChildItem 'src/main/java/com/reinhardt/hbm/blockentity' -F
 # The orbital assembler is a satellite work machine backed by world saved
 # data, not a block entity. Keep its recipe family in the same exact-count
 # contract instead of letting that architectural difference evade coverage.
-$satelliteSourcePath = 'src/main/java/com/reinhardt/hbm/satellite/SatelliteSavedData.java'
+$satelliteSourcePath = 'src/main/java/com/atomiclegacy/satellite/SatelliteSavedData.java'
 if (Test-Path -LiteralPath $satelliteSourcePath) {
     $source = Get-Content -LiteralPath $satelliteSourcePath -Raw
     foreach ($match in [regex]::Matches($source, 'HbmRecipeTypes\.([A-Z][A-Z0-9_]+)')) {
@@ -314,15 +316,16 @@ foreach ($constant in $referencedTypeConstants) {
     [void]$referencedTypeIds.Add($type)
     $normalCount = if ($defaultRuntime.Counts.ContainsKey($type)) { [int]$defaultRuntime.Counts[$type] } else { 0 }
     $mode528Count = if ($mode528Runtime.Counts.ContainsKey($type)) { [int]$mode528Runtime.Counts[$type] } else { 0 }
-    if ($normalCount -le 0) { $problems.Add("Machine work-recipe family is empty in normal mode: $type") }
-    if ($mode528Count -le 0) { $problems.Add("Machine work-recipe family is empty in 528 mode: $type") }
     if (-not $expectedCounts.ContainsKey($type)) {
         $problems.Add("Machine work-recipe family has no exact-count contract: $type")
         continue
     }
     $expected = $expectedCounts[$type]
+    # A contract of 0 documents a family that 1.7.10 itself leaves empty (fusion breeder items).
+    if ($normalCount -le 0 -and $expected.Normal -ne 0) { $problems.Add("Machine work-recipe family is empty in normal mode: $type") }
+    if ($mode528Count -le 0 -and $expected.Mode528 -ne 0) { $problems.Add("Machine work-recipe family is empty in 528 mode: $type") }
     if ($normalCount -ne $expected.Normal -or $mode528Count -ne $expected.Mode528) {
-        $problems.Add("Machine work-recipe count changed for ${type}: normal ${normalCount}/${expected.Normal}, 528 ${mode528Count}/${expected.Mode528}")
+        $problems.Add("Machine work-recipe count changed for ${type}: normal ${normalCount}/$($expected.Normal), 528 ${mode528Count}/$($expected.Mode528)")
     }
 }
 foreach ($type in $expectedCounts.Keys) {
@@ -333,7 +336,12 @@ foreach ($type in $expectedCounts.Keys) {
 # HbmRecipeTypes is exclusively the machine/work-recipe registry.  Auditing
 # only references discovered from block entities would let a newly registered
 # but never consumed family evade this check, so require exact two-way coverage.
+# Registered families that no machine consumes, each with the reason it is tolerated.
+$unconsumedRecipeFamilies = @{
+    'BLAST_FURNACE_FUEL' = 'Port-only fuel table; the 1.7.10 blast furnace burns fuel through its burn module (LegacyFurnaceFuels)'
+}
 foreach ($constant in $recipeTypeIdsByConstant.Keys) {
+    if ($unconsumedRecipeFamilies.ContainsKey($constant)) { continue }
     if (-not $referencedTypeConstants.Contains($constant)) {
         $problems.Add("Registered machine work-recipe family is not consumed by any block entity or satellite machine: HbmRecipeTypes.$constant ($($recipeTypeIdsByConstant[$constant]))")
     }

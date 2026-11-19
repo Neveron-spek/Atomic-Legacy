@@ -152,7 +152,7 @@ $oldUnpack = @($upstreamAssembly.recipes |
         ForEach-Object { $_.name.Substring('ass.unpackagehbmfluid.'.Length) } | Sort-Object -Unique)
 $currentPack = @()
 $currentUnpack = @()
-foreach ($file in Get-ChildItem 'src/main/resources/data/reinhardtshbm/recipe/assembly_machine' -Filter '*.json' -File) {
+foreach ($file in Get-ChildItem 'src/main/resources/data/atomiclegacy/recipe/assembly_machine' -Filter '*.json' -File) {
     $recipe = Get-Content -LiteralPath $file.FullName -Raw | ConvertFrom-Json
     if ($recipe.group -isnot [string]) { continue }
     if ($recipe.group.StartsWith('ass.packagehbmfluid.')) {

@@ -3,13 +3,13 @@ param()
 $ErrorActionPreference = 'Stop'
 $root = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $legacy = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..\HBM_1.7.10')).Path
-$assets = Join-Path $root 'src\main\resources\assets\reinhardtshbm'
+$assets = Join-Path $root 'src\main\resources\assets\atomiclegacy'
 $legacyAssets = Join-Path $legacy 'src\main\resources\assets\hbm'
 $objDir = Join-Path $assets 'models\obj\trinkets'
 $modelDir = Join-Path $assets 'models\block'
 $textureDir = Join-Path $assets 'textures\models\trinkets'
 $accessoryTextureDir = Join-Path $textureDir 'accessory'
-$recipeDir = Join-Path $root 'src\main\resources\data\reinhardtshbm\recipe\shredder'
+$recipeDir = Join-Path $root 'src\main\resources\data\atomiclegacy\recipe\shredder'
 New-Item -ItemType Directory -Force -Path $objDir, $modelDir, $textureDir, $accessoryTextureDir, $recipeDir | Out-Null
 
 $obj = Get-Content (Join-Path $legacyAssets 'models\trinkets\bobble.obj') -Raw
@@ -19,7 +19,7 @@ Set-Content -Path (Join-Path $objDir 'bobble.obj') -Value ("mtllib bobble.mtl`n"
 newmtl bobble
 Ka 0.0 0.0 0.0
 Kd 1.0 1.0 1.0
-map_Kd reinhardtshbm:models/thegadget3_
+map_Kd atomiclegacy:models/thegadget3_
 '@ | Set-Content -Path (Join-Path $objDir 'bobble.mtl') -Encoding ascii
 
 $groups = @('Body', 'Body17', 'Drillgon', 'Fumo', 'FumoHead', 'Head', 'Head17', 'Horn', 'LA', 'LA17', 'LL', 'LL17', 'PeepHat', 'PeepTail', 'Pellet', 'PelletShine', 'RA', 'RA17', 'RL', 'RL17', 'Socket', 'Fluoro', 'Glow')
@@ -28,13 +28,13 @@ foreach ($group in $groups) {
     foreach ($candidate in $groups) { $visibility[$candidate] = $candidate -eq $group }
     $model = [ordered]@{
         loader = 'neoforge:obj'
-        model = 'reinhardtshbm:models/obj/trinkets/bobble.obj'
-        mtl_override = 'reinhardtshbm:models/obj/trinkets/bobble.mtl'
+        model = 'atomiclegacy:models/obj/trinkets/bobble.obj'
+        mtl_override = 'atomiclegacy:models/obj/trinkets/bobble.mtl'
         automatic_culling = $false
         shade_quads = $true
         flip_v = $false
         visibility = $visibility
-        textures = [ordered]@{ particle = 'reinhardtshbm:models/thegadget3_' }
+        textures = [ordered]@{ particle = 'atomiclegacy:models/thegadget3_' }
     }
     $file = 'bobble_' + $group.ToLowerInvariant() + '.json'
     $model | ConvertTo-Json -Depth 4 | Set-Content -Path (Join-Path $modelDir $file) -Encoding ascii
@@ -49,7 +49,7 @@ foreach ($texture in $textures) {
 newmtl accessory
 Ka 0.0 0.0 0.0
 Kd 1.0 1.0 1.0
-map_Kd reinhardtshbm:models/thegadget3_
+map_Kd atomiclegacy:models/thegadget3_
 '@ | Set-Content -Path (Join-Path $objDir 'bobble_accessory.mtl') -Encoding ascii
 
 function Copy-BobbleAccessoryObj([string]$name, [string]$legacyModel) {
@@ -64,13 +64,13 @@ function Write-BobbleAccessoryModel([string]$name, [string[]]$objects, [string[]
     foreach ($object in $objects) { $visibility[$object] = $visible -contains $object }
     $model = [ordered]@{
         loader = 'neoforge:obj'
-        model = 'reinhardtshbm:models/obj/trinkets/bobble_accessory_' + $name + '.obj'
-        mtl_override = 'reinhardtshbm:models/obj/trinkets/bobble_accessory.mtl'
+        model = 'atomiclegacy:models/obj/trinkets/bobble_accessory_' + $name + '.obj'
+        mtl_override = 'atomiclegacy:models/obj/trinkets/bobble_accessory.mtl'
         automatic_culling = $false
         shade_quads = $true
         flip_v = $false
         visibility = $visibility
-        textures = [ordered]@{ particle = 'reinhardtshbm:models/thegadget3_' }
+        textures = [ordered]@{ particle = 'atomiclegacy:models/thegadget3_' }
     }
     $model | ConvertTo-Json -Depth 4 | Set-Content -Path (Join-Path $modelDir ('bobble_accessory_' + $name + '.json')) -Encoding ascii
 }
@@ -108,17 +108,17 @@ $types = @(
 for ($index = 0; $index -lt $types.Count; $index++) {
     $type = $types[$index]
     $recipe = [ordered]@{
-        type = 'reinhardtshbm:shredder'
+        type = 'atomiclegacy:shredder'
         ingredient = [ordered]@{
             type = 'neoforge:components'
-            items = @('reinhardtshbm:bobblehead')
+            items = @('atomiclegacy:bobblehead')
             components = [ordered]@{
                 'minecraft:custom_data' = [ordered]@{ type = $type[0] }
                 'minecraft:custom_model_data' = $index
             }
         }
         result = [ordered]@{
-            id = 'reinhardtshbm:scrap_plastic'
+            id = 'atomiclegacy:scrap_plastic'
             components = [ordered]@{
                 'minecraft:custom_data' = [ordered]@{ variant = $type[1] }
                 'minecraft:custom_model_data' = @('board_blank', 'board_transistor', 'board_converter', 'bridge_north', 'bridge_south', 'bridge_io', 'bridge_bus', 'bridge_chipset', 'bridge_cmos', 'bridge_bios', 'cpu_register', 'cpu_clock', 'cpu_logic', 'cpu_cache', 'cpu_ext', 'cpu_socket', 'mem_socket', 'mem_16k_a', 'mem_16k_b', 'mem_16k_c', 'mem_16k_d', 'card_board', 'card_processor').IndexOf($type[1])

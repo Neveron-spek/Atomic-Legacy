@@ -8,7 +8,7 @@ $ProjectRoot = (Resolve-Path -LiteralPath $ProjectRoot).Path
 $LegacyRoot = if ([IO.Path]::IsPathRooted($LegacyRoot)) { $LegacyRoot } else { Join-Path $ProjectRoot $LegacyRoot }
 $LegacyRoot = (Resolve-Path -LiteralPath $LegacyRoot).Path
 $sourcePath = Join-Path $LegacyRoot "src\main\java\com\hbm\items\ModItems.java"
-$outputPath = Join-Path $ProjectRoot "src\main\resources\legacy\reinhardtshbm\missile_part_metadata.tsv"
+$outputPath = Join-Path $ProjectRoot "src\main\resources\legacy\atomiclegacy\missile_part_metadata.tsv"
 
 $source = Get-Content -LiteralPath $sourcePath -Raw -Encoding UTF8 # [parity P1: read the 1.7.10 source as UTF-8; mp_stability_15_soyuz witty text was mojibake]
 $source = [regex]::Replace($source, '(?s)/\*.*?\*/', '')

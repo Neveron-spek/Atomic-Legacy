@@ -8,8 +8,8 @@ $ErrorActionPreference = "Stop"
 $ProjectRoot = Resolve-Path $ProjectRoot
 $LegacyRoot = Resolve-Path $LegacyRoot
 $legacyAssets = Join-Path $LegacyRoot "src\main\resources\assets\hbm"
-$legacyDir = Join-Path $ProjectRoot "src\main\resources\legacy\reinhardtshbm"
-$assets = Join-Path $ProjectRoot "src\main\resources\assets\reinhardtshbm"
+$legacyDir = Join-Path $ProjectRoot "src\main\resources\legacy\atomiclegacy"
+$assets = Join-Path $ProjectRoot "src\main\resources\assets\atomiclegacy"
 $data = Join-Path $ProjectRoot "src\main\resources\data"
 
 function New-JsonFile($Path, $Object) {
@@ -26,7 +26,7 @@ function Copy-TextureOrFallback($Kind, $Id, $Fallback) {
     $target = Join-Path $assets "textures\$Kind\$Id.png"
     if (Test-Path $source) {
         Copy-Item -LiteralPath $source -Destination $target -Force
-        return "reinhardtshbm:$Kind/$Id"
+        return "atomiclegacy:$Kind/$Id"
     }
     throw "Missing legacy $Kind texture for '$Id'. Add an explicit 1.7.10 asset mapping before regenerating resources."
 }
@@ -46,7 +46,7 @@ New-Item -ItemType Directory -Force -Path (Join-Path $assets "models\block") | O
 New-Item -ItemType Directory -Force -Path (Join-Path $assets "blockstates") | Out-Null
 New-Item -ItemType Directory -Force -Path (Join-Path $assets "textures\item") | Out-Null
 New-Item -ItemType Directory -Force -Path (Join-Path $assets "textures\block") | Out-Null
-New-Item -ItemType Directory -Force -Path (Join-Path $data "reinhardtshbm\loot_table\blocks") | Out-Null
+New-Item -ItemType Directory -Force -Path (Join-Path $data "atomiclegacy\loot_table\blocks") | Out-Null
 
 $legacyItems = Get-Content (Join-Path $legacyDir "item_catalog.txt")
 $legacyBlocks = Get-Content (Join-Path $legacyDir "blocks.txt")
@@ -69,16 +69,16 @@ foreach ($id in $legacyBlocks) {
         textures = @{ all = $texture }
     }
     New-JsonFile (Join-Path $assets "models\item\$id.json") @{
-        parent = "reinhardtshbm:block/$id"
+        parent = "atomiclegacy:block/$id"
     }
     New-JsonFile (Join-Path $assets "blockstates\$id.json") @{
-        variants = @{ "" = @{ model = "reinhardtshbm:block/$id" } }
+        variants = @{ "" = @{ model = "atomiclegacy:block/$id" } }
     }
-    New-JsonFile (Join-Path $data "reinhardtshbm\loot_table\blocks\$id.json") @{
+    New-JsonFile (Join-Path $data "atomiclegacy\loot_table\blocks\$id.json") @{
         type = "minecraft:block"
         pools = @(@{
             rolls = 1
-            entries = @(@{ type = "minecraft:item"; name = "reinhardtshbm:$id" })
+            entries = @(@{ type = "minecraft:item"; name = "atomiclegacy:$id" })
             conditions = @(@{ condition = "minecraft:survives_explosion" })
         })
     }
@@ -86,12 +86,12 @@ foreach ($id in $legacyBlocks) {
 
 New-JsonFile (Join-Path $data "minecraft\tags\block\mineable\pickaxe.json") @{
     replace = $false
-    values = @($legacyBlocks | ForEach-Object { "reinhardtshbm:$_" })
+    values = @($legacyBlocks | ForEach-Object { "atomiclegacy:$_" })
 }
 
 New-JsonFile (Join-Path $data "minecraft\tags\block\needs_iron_tool.json") @{
     replace = $false
-    values = @(($legacyBlocks | Where-Object { $_ -match "^(ore_|brick_|concrete|reinforced|machine_|block_)" }) | ForEach-Object { "reinhardtshbm:$_" })
+    values = @(($legacyBlocks | Where-Object { $_ -match "^(ore_|brick_|concrete|reinforced|machine_|block_)" }) | ForEach-Object { "atomiclegacy:$_" })
 }
 
 Write-Host "Regenerated legacy model, blockstate, loot, and tag resources."

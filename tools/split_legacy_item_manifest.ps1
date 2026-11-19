@@ -10,16 +10,16 @@ $LegacyRoot = if ([IO.Path]::IsPathRooted($LegacyRoot)) {
 } else {
     Join-Path $ProjectRoot $LegacyRoot
 }
-$legacyDir = Join-Path $ProjectRoot "src\main\resources\legacy\reinhardtshbm"
+$legacyDir = Join-Path $ProjectRoot "src\main\resources\legacy\atomiclegacy"
 $catalogPath = Join-Path $legacyDir "item_catalog.txt"
 $placeholderPath = Join-Path $legacyDir "items.txt"
 $blocksPath = Join-Path $legacyDir "blocks.txt"
 $rebuildScript = Join-Path $PSScriptRoot "rebuild_legacy_item_manifest.ps1"
 & $rebuildScript -ProjectRoot $ProjectRoot -LegacyRoot $LegacyRoot
 
-$hbmItemsPath = Join-Path $ProjectRoot "src\main\java\com\reinhardt\hbm\registry\HbmItems.java"
-$hbmBlocksPath = Join-Path $ProjectRoot "src\main\java\com\reinhardt\hbm\registry\HbmBlocks.java"
-$legacyContentPath = Join-Path $ProjectRoot "src\main\java\com\reinhardt\hbm\registry\LegacyHbmContent.java"
+$hbmItemsPath = Join-Path $ProjectRoot "src\main\java\com\atomiclegacy\registry\HbmItems.java"
+$hbmBlocksPath = Join-Path $ProjectRoot "src\main\java\com\atomiclegacy\registry\HbmBlocks.java"
+$legacyContentPath = Join-Path $ProjectRoot "src\main\java\com\atomiclegacy\registry\LegacyHbmContent.java"
 
 if (-not (Test-Path -LiteralPath $catalogPath)) {
     Copy-Item -LiteralPath $placeholderPath -Destination $catalogPath

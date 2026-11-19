@@ -97,12 +97,12 @@ function Find-UvConflicts($obj) {
 
 $targets = @(
     [pscustomobject]@{
-        RelativePath = 'src/main/resources/assets/reinhardtshbm/models/obj/machines/core_emitter.obj'
+        RelativePath = 'src/main/resources/assets/atomiclegacy/models/obj/machines/core_emitter.obj'
         ExpectedConflicts = 8
         Policy = 'RemoveLaterBodyFace'
     },
     [pscustomobject]@{
-        RelativePath = 'src/main/resources/assets/reinhardtshbm/models/obj/launcher_port/missile_shuttle.obj'
+        RelativePath = 'src/main/resources/assets/atomiclegacy/models/obj/launcher_port/missile_shuttle.obj'
         ExpectedConflicts = 162
         Policy = 'RemoveEarlierShellFace'
     }

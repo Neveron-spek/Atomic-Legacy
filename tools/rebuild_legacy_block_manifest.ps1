@@ -12,7 +12,7 @@ $LegacyRoot = if ([IO.Path]::IsPathRooted($LegacyRoot)) {
 }
 $LegacyRoot = (Resolve-Path -LiteralPath $LegacyRoot).Path
 $sourcePath = Join-Path $LegacyRoot "src\main\java\com\hbm\blocks\ModBlocks.java"
-$catalogPath = Join-Path $ProjectRoot "src\main\resources\legacy\reinhardtshbm\block_catalog.txt"
+$catalogPath = Join-Path $ProjectRoot "src\main\resources\legacy\atomiclegacy\block_catalog.txt"
 
 if (-not (Test-Path -LiteralPath $sourcePath)) {
     throw "Missing 1.7.10 block registry source: $sourcePath"
