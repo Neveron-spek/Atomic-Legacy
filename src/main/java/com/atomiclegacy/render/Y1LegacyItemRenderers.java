@@ -41,6 +41,71 @@ final class Y1LegacyItemRenderers {
         }
     }
 
+    /** ItemRenderLibrary: ModBlocks.tesla (ResourceManager.tesla renderAll, tesla_tex, GL_CULL_FACE disabled). */
+    static final class Tesla extends Base {
+        private static final LegacyEntityObjMesh TESLA = mesh("tesla");
+        private static final ResourceLocation TESLA_TEX = tex("models/machines/tesla.png");
+
+        @Override void renderInventory() {
+            pose.translate(0, -3, 0);
+            pose.scale(6, 6, 6);
+        }
+
+        @Override void renderCommon() {
+            draw(TESLA, null, TESLA_TEX, false);
+        }
+    }
+
+    /** RenderVendingMachine#getRenderer: part Soda (damage % 2 == 0) or Obamna, vending_machine_tex. */
+    static final class VendingMachine extends Base {
+        private static final LegacyEntityObjMesh VENDING_MACHINE = mesh("vending_machine");
+        private static final ResourceLocation VENDING_MACHINE_TEX = tex("models/machines/vending_machine.png");
+
+        @Override void renderInventory() {
+            pose.translate(0, -4, 0);
+            pose.scale(6.25F, 6.25F, 6.25F);
+        }
+
+        @Override void renderCommonWithStack(net.minecraft.world.item.ItemStack item) {
+            boolean soda = !(item.getItem() instanceof com.atomiclegacy.items.VendingMachineBlockItem vending)
+                    || vending.variantIndex(item) % 2 == 0;
+            draw(VENDING_MACHINE, soda ? "Soda" : "Obamna", VENDING_MACHINE_TEX, true);
+        }
+    }
+
+    /** ItemRenderLibrary: ModBlocks.rbmk_console (rbmk_console renderAll, rbmk_console_tex). */
+    static final class RbmkConsole extends Base {
+        private static final LegacyEntityObjMesh RBMK_CONSOLE = mesh("rbmk_console");
+        private static final ResourceLocation RBMK_CONSOLE_TEX = tex("models/machines/rbmk_control.png");
+
+        @Override void renderInventory() {
+            pose.translate(0, -3, 0);
+            pose.scale(2.5F, 2.5F, 2.5F);
+        }
+
+        @Override void renderCommon() {
+            draw(RBMK_CONSOLE, null, RBMK_CONSOLE_TEX, true);
+        }
+    }
+
+    /** ItemRenderLibrary: ModBlocks.rbmk_crane_console (renderPart is case-insensitive: "JoyStick" = group Joystick). */
+    static final class RbmkCraneConsole extends Base {
+        private static final LegacyEntityObjMesh CRANE_CONSOLE = mesh("rbmk_crane_console");
+        private static final ResourceLocation CRANE_CONSOLE_TEX = tex("models/machines/crane_console.png");
+
+        @Override void renderInventory() {
+            pose.translate(0, -3, 0);
+            pose.scale(3.5F, 3.5F, 3.5F);
+        }
+
+        @Override void renderCommon() {
+            draw(CRANE_CONSOLE, "Console_Coonsole", CRANE_CONSOLE_TEX, true);
+            draw(CRANE_CONSOLE, "Joystick", CRANE_CONSOLE_TEX, true);
+            draw(CRANE_CONSOLE, "Meter1", CRANE_CONSOLE_TEX, true);
+            draw(CRANE_CONSOLE, "Meter2", CRANE_CONSOLE_TEX, true);
+        }
+    }
+
     /** ItemRenderLibrary: ModBlocks.soyuz_capsule (soyuz_lander "Capsule", soyuz_lander_tex). */
     static final class SoyuzCapsule extends Base {
         private static final LegacyEntityObjMesh SOYUZ_LANDER = mesh("soyuz_lander");

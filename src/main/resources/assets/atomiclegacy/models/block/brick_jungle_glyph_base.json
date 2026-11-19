@@ -1,15 +1,46 @@
 {
-  "textures": { "base": "atomiclegacy:block/brick_jungle", "particle": "atomiclegacy:block/brick_jungle" },
+  "parent": "minecraft:block/block",
+  "textures": {
+    "base": "atomiclegacy:block/brick_jungle",
+    "particle": "atomiclegacy:block/brick_jungle"
+  },
   "elements": [
     {
-      "from": [0, 0, 0], "to": [16, 16, 16],
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
       "faces": {
-        "down": { "texture": "#base", "cullface": "down" },
-        "up": { "texture": "#base", "cullface": "up" },
-        "north": { "texture": "#glyph", "cullface": "north" },
-        "south": { "texture": "#glyph", "cullface": "south" },
-        "west": { "texture": "#glyph", "cullface": "west" },
-        "east": { "texture": "#glyph", "cullface": "east" }
+        "down": {
+          "texture": "#base",
+          "cullface": "down"
+        },
+        "up": {
+          "texture": "#base",
+          "cullface": "up"
+        },
+        "north": {
+          "texture": "#glyph",
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#glyph",
+          "cullface": "south"
+        },
+        "west": {
+          "texture": "#glyph",
+          "cullface": "west"
+        },
+        "east": {
+          "texture": "#glyph",
+          "cullface": "east"
+        }
       }
     }
   ]

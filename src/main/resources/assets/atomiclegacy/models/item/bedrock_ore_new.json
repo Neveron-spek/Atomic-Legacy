@@ -1,6 +1,938 @@
 {
-    "textures":  {
-                     "layer0":  "atomiclegacy:item/bedrock_ore_new"
-                 },
-    "parent":  "minecraft:item/generated"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:item/bedrock_ore_mutated/base_light"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 1
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/base_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 2
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/base_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 3
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/base_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 4
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/base_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 5
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/base_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 6
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/base_roasted_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 7
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/base_roasted_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 8
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/base_roasted_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 9
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/base_roasted_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 10
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/base_roasted_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 11
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/base_roasted_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 12
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/base_washed_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 13
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/base_washed_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 14
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/base_washed_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 15
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/base_washed_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 16
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/base_washed_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 17
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/base_washed_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 18
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 19
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 20
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 21
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 22
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 23
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 24
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_roasted_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 25
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_roasted_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 26
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_roasted_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 27
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_roasted_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 28
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_roasted_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 29
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_roasted_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 30
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_sulfuric_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 31
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_sulfuric_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 32
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_sulfuric_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 33
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_sulfuric_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 34
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_sulfuric_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 35
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_sulfuric_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 36
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_nosulfuric_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 37
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_nosulfuric_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 38
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_nosulfuric_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 39
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_nosulfuric_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 40
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_nosulfuric_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 41
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_nosulfuric_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 42
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_solvent_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 43
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_solvent_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 44
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_solvent_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 45
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_solvent_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 46
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_solvent_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 47
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_solvent_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 48
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_nosolvent_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 49
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_nosolvent_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 50
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_nosolvent_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 51
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_nosolvent_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 52
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_nosolvent_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 53
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_nosolvent_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 54
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_rad_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 55
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_rad_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 56
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_rad_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 57
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_rad_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 58
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_rad_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 59
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_rad_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 60
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_norad_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 61
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_norad_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 62
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_norad_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 63
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_norad_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 64
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_norad_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 65
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_norad_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 66
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_first_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 67
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_first_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 68
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_first_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 69
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_first_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 70
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_first_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 71
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_first_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 72
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_second_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 73
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_second_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 74
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_second_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 75
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_second_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 76
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_second_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 77
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/primary_second_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 78
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/crumbs_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 79
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/crumbs_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 80
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/crumbs_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 81
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/crumbs_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 82
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/crumbs_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 83
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/crumbs_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 84
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_byproduct_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 85
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_byproduct_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 86
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_byproduct_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 87
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_byproduct_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 88
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_byproduct_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 89
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_byproduct_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 90
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_roasted_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 91
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_roasted_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 92
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_roasted_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 93
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_roasted_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 94
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_roasted_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 95
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_roasted_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 96
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_arc_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 97
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_arc_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 98
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_arc_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 99
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_arc_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 100
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_arc_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 101
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_arc_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 102
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_washed_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 103
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_washed_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 104
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_washed_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 105
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_washed_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 106
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_washed_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 107
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/sulfuric_washed_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 108
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_byproduct_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 109
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_byproduct_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 110
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_byproduct_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 111
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_byproduct_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 112
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_byproduct_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 113
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_byproduct_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 114
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_roasted_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 115
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_roasted_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 116
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_roasted_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 117
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_roasted_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 118
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_roasted_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 119
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_roasted_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 120
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_arc_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 121
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_arc_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 122
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_arc_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 123
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_arc_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 124
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_arc_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 125
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_arc_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 126
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_washed_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 127
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_washed_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 128
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_washed_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 129
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_washed_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 130
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_washed_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 131
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/solvent_washed_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 132
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_byproduct_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 133
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_byproduct_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 134
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_byproduct_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 135
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_byproduct_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 136
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_byproduct_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 137
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_byproduct_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 138
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_roasted_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 139
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_roasted_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 140
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_roasted_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 141
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_roasted_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 142
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_roasted_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 143
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_roasted_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 144
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_arc_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 145
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_arc_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 146
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_arc_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 147
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_arc_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 148
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_arc_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 149
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_arc_crystal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 150
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_washed_light"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 151
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_washed_heavy"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 152
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_washed_rare"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 153
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_washed_actinide"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 154
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_washed_nonmetal"
+    },
+    {
+      "predicate": {
+        "atomiclegacy:ore_variant": 155
+      },
+      "model": "atomiclegacy:item/bedrock_ore_new/rad_washed_crystal"
+    }
+  ]
 }

@@ -770,7 +770,7 @@ public final class HbmBlocks {
     public static final DeferredBlock<Block> METEOR_SPAWNER = cyberCrabSpawner("meteor_spawner");
     // 1.7.10 BlockPillar: a coil above this block is kept fully charged.
     public static final DeferredBlock<Block> METEOR_BATTERY = meteorBattery("meteor_battery");
-    public static final DeferredBlock<Block> TESLA = registerObjBlock("tesla",
+    public static final DeferredBlock<Block> TESLA = registerBlock("tesla", // [parity l1] item: ItemRenderLibrary via U4LegacyItemRenderSetup
             () -> new TeslaCoilBlock(metal().strength(5.0F, 6.0F).noOcclusion())); // [parity T3: original r*3/5]
     public static final DeferredBlock<Block> MUD_BLOCK = registerBlock("mud_block",
             () -> new LegacyHazardLiquidBlock(() -> HbmFluids.source("mud_fluid"),

@@ -1,3 +1,6 @@
 {
-  "parent": "atomiclegacy:block/plant_flower_nightshade"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:block/plant_flower_nightshade"
+  }
 }

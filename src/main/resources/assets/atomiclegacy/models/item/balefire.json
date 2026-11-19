@@ -1,3 +1,6 @@
 {
-    "parent":  "atomiclegacy:block/balefire"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:block/balefire"
+  }
 }

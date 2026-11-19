@@ -48,6 +48,10 @@ public final class U4LegacyItemRenderSetup {
         map.put("sawblade", new LegacyModelItemRenderers.Sawblade());
         map.put("ammo_himars", new LegacyModelItemRenderers.Himars());
         map.put("red_pylon", new LegacyModelItemRenderers.RedPylon());
+        map.put("tesla", new Y1LegacyItemRenderers.Tesla()); // [parity l1]
+        map.put("vending_machine", new Y1LegacyItemRenderers.VendingMachine()); // [parity l1]
+        map.put("rbmk_console", new Y1LegacyItemRenderers.RbmkConsole()); // [parity l1]
+        map.put("rbmk_crane_console", new Y1LegacyItemRenderers.RbmkCraneConsole()); // [parity l1]
         // [parity Y1: ItemRenderBase items previously drawn as baked OBJ with invented display transforms]
         map.put("soyuz_capsule", new Y1LegacyItemRenderers.SoyuzCapsule());
         map.put("machine_press", new Y1LegacyItemRenderers.Press());

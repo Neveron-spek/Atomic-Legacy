@@ -64,6 +64,16 @@ public class BedrockOreItem extends Item {
         return stack;
     }
 
+    /** Icon index of ItemBedrockOreNew#getIconFromDamage: grade * types + type (item model override "atomiclegacy:ore_variant"). */
+    public static int iconIndex(ItemStack stack) {
+        return gradeOf(stack).ordinal() * Type.values().length + typeOf(stack).ordinal();
+    }
+
+    /** ItemBedrockOreNew#getColorFromItemStack: grade tint on pass 0, white on the trait overlays. */
+    public static int tint(ItemStack stack, int layer) {
+        return layer == 0 ? 0xFF000000 | gradeOf(stack).tint() : 0xFFFFFFFF;
+    }
+
     public static Grade gradeOf(ItemStack stack) {
         return Grade.byId(stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString(GRADE));
     }
@@ -127,37 +137,40 @@ public class BedrockOreItem extends Item {
     }
 
     public enum Grade {
-        BASE("base"),
-        BASE_ROASTED("base_roasted", Trait.ROASTED),
-        BASE_WASHED("base_washed", Trait.WASHED),
-        PRIMARY("primary", Trait.CENTRIFUGED),
-        PRIMARY_ROASTED("primary_roasted", Trait.ROASTED),
-        PRIMARY_SULFURIC("primary_sulfuric", Trait.SULFURIC),
-        PRIMARY_NOSULFURIC("primary_nosulfuric", Trait.CENTRIFUGED, Trait.SULFURIC),
-        PRIMARY_SOLVENT("primary_solvent", Trait.SOLVENT),
-        PRIMARY_NOSOLVENT("primary_nosolvent", Trait.CENTRIFUGED, Trait.SOLVENT),
-        PRIMARY_RAD("primary_rad", Trait.RAD),
-        PRIMARY_NORAD("primary_norad", Trait.CENTRIFUGED, Trait.RAD),
-        PRIMARY_FIRST("primary_first", Trait.CENTRIFUGED),
-        PRIMARY_SECOND("primary_second", Trait.CENTRIFUGED),
-        CRUMBS("crumbs", Trait.CENTRIFUGED),
-        SULFURIC_BYPRODUCT("sulfuric_byproduct", Trait.CENTRIFUGED, Trait.SULFURIC),
-        SULFURIC_ROASTED("sulfuric_roasted", Trait.ROASTED, Trait.SULFURIC),
-        SULFURIC_ARC("sulfuric_arc", Trait.ARC, Trait.SULFURIC),
-        SULFURIC_WASHED("sulfuric_washed", Trait.WASHED, Trait.SULFURIC),
-        SOLVENT_BYPRODUCT("solvent_byproduct", Trait.CENTRIFUGED, Trait.SOLVENT),
-        SOLVENT_ROASTED("solvent_roasted", Trait.ROASTED, Trait.SOLVENT),
-        SOLVENT_ARC("solvent_arc", Trait.ARC, Trait.SOLVENT),
-        SOLVENT_WASHED("solvent_washed", Trait.WASHED, Trait.SOLVENT),
-        RAD_BYPRODUCT("rad_byproduct", Trait.CENTRIFUGED, Trait.RAD),
-        RAD_ROASTED("rad_roasted", Trait.ROASTED, Trait.RAD),
-        RAD_ARC("rad_arc", Trait.ARC, Trait.RAD),
-        RAD_WASHED("rad_washed", Trait.WASHED, Trait.RAD);
+        BASE(0xFFFFFF, "base"),
+        BASE_ROASTED(0xCFCFCF, "base_roasted", Trait.ROASTED),
+        BASE_WASHED(0xDBE2CB, "base_washed", Trait.WASHED),
+        PRIMARY(0xFFFFFF, "primary", Trait.CENTRIFUGED),
+        PRIMARY_ROASTED(0xCFCFCF, "primary_roasted", Trait.ROASTED),
+        PRIMARY_SULFURIC(0xFFFFD3, "primary_sulfuric", Trait.SULFURIC),
+        PRIMARY_NOSULFURIC(0xD3D4FF, "primary_nosulfuric", Trait.CENTRIFUGED, Trait.SULFURIC),
+        PRIMARY_SOLVENT(0xD3F0FF, "primary_solvent", Trait.SOLVENT),
+        PRIMARY_NOSOLVENT(0xFFDED3, "primary_nosolvent", Trait.CENTRIFUGED, Trait.SOLVENT),
+        PRIMARY_RAD(0xECFFD3, "primary_rad", Trait.RAD),
+        PRIMARY_NORAD(0xEBD3FF, "primary_norad", Trait.CENTRIFUGED, Trait.RAD),
+        PRIMARY_FIRST(0xFFD3D4, "primary_first", Trait.CENTRIFUGED),
+        PRIMARY_SECOND(0xD3FFEB, "primary_second", Trait.CENTRIFUGED),
+        CRUMBS(0xFFFFFF, "crumbs", Trait.CENTRIFUGED),
+        SULFURIC_BYPRODUCT(0xFFFFFF, "sulfuric_byproduct", Trait.CENTRIFUGED, Trait.SULFURIC),
+        SULFURIC_ROASTED(0xCFCFCF, "sulfuric_roasted", Trait.ROASTED, Trait.SULFURIC),
+        SULFURIC_ARC(0xC3A2A2, "sulfuric_arc", Trait.ARC, Trait.SULFURIC),
+        SULFURIC_WASHED(0xDBE2CB, "sulfuric_washed", Trait.WASHED, Trait.SULFURIC),
+        SOLVENT_BYPRODUCT(0xFFFFFF, "solvent_byproduct", Trait.CENTRIFUGED, Trait.SOLVENT),
+        SOLVENT_ROASTED(0xCFCFCF, "solvent_roasted", Trait.ROASTED, Trait.SOLVENT),
+        SOLVENT_ARC(0xC3A2A2, "solvent_arc", Trait.ARC, Trait.SOLVENT),
+        SOLVENT_WASHED(0xDBE2CB, "solvent_washed", Trait.WASHED, Trait.SOLVENT),
+        RAD_BYPRODUCT(0xFFFFFF, "rad_byproduct", Trait.CENTRIFUGED, Trait.RAD),
+        RAD_ROASTED(0xCFCFCF, "rad_roasted", Trait.ROASTED, Trait.RAD),
+        RAD_ARC(0xC3A2A2, "rad_arc", Trait.ARC, Trait.RAD),
+        RAD_WASHED(0xDBE2CB, "rad_washed", Trait.WASHED, Trait.RAD);
 
         private final String id;
+        /** ItemBedrockOreNew.BedrockOreGrade#tint (getColorFromItemStack, pass 0). */
+        private final int tint;
         private final List<Trait> traits;
 
-        Grade(String id, Trait... traits) {
+        Grade(int tint, String id, Trait... traits) {
+            this.tint = tint;
             this.id = id;
             this.traits = List.of(traits);
         }
@@ -168,6 +181,10 @@ public class BedrockOreItem extends Item {
 
         public List<Trait> traits() {
             return this.traits;
+        }
+
+        public int tint() {
+            return this.tint;
         }
 
         public static Grade byId(String id) {

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "atomiclegacy:item/bedrock_ore_fragment"
+    "layer0": "atomiclegacy:item/material/bedrock_ore_fragment_niobium"
   }
 }

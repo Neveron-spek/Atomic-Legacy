@@ -1,3 +1,6 @@
 {
-  "parent": "atomiclegacy:block/plant_tall_cd4_lower"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:block/plant_tall_cd4_lower"
+  }
 }

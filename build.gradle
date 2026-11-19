@@ -6030,15 +6030,7 @@ tasks.register('validateRendererCullingBounds') {
                 [method: 'renderLargeRadarItem', scale: '/ 10.0F', center: 'pose.translate(0.0F, -5.0F, -0.171875F);'],
                 [method: 'renderRadgenItem', scale: '/ 6.125F', center: 'pose.translate(0.4375F, -1.5F, 0.0F);'],
                 [method: 'renderBlastFurnaceItem', scale: '/ 7.0F', center: 'pose.translate(0.0F, -3.5F, 0.0F);'],
-                [method: 'renderTeslaItem', scale: '/ 1.9375F', center: 'pose.translate(0.0F, -0.96875F, 0.0F);'],
-                [method: 'renderIncandescentSpotlightItem', scale: '/ 0.5F', center: 'pose.translate(-0.1015625F, 0.0F, 0.0F);'],
-                [method: 'renderUnlitIncandescentSpotlightItem', scale: '/ 0.5F', center: 'pose.translate(-0.1015625F, 0.0F, 0.0F);'],
-                [method: 'renderFluorescentSpotlightItem', scale: '/ 0.75F', center: 'pose.translate(-0.0625F, 0.0F, 0.0F);'],
-                [method: 'renderUnlitFluorescentSpotlightItem', scale: '/ 0.75F', center: 'pose.translate(-0.0625F, 0.0F, 0.0F);'],
-                [method: 'renderHalogenSpotlightItem', scale: '/ 0.625F', center: 'pose.translate(-0.15625F, 0.0F, 0.0F);'],
-                [method: 'renderUnlitHalogenSpotlightItem', scale: '/ 0.625F', center: 'pose.translate(-0.15625F, 0.0F, 0.0F);'],
                 [method: 'renderSatelliteDockItem', scale: '/ 3.0F', center: 'pose.translate(0.0F, -0.375F, 0.0F);'],
-                [method: 'renderTapeRecorderItem', scale: 'ItemDisplayContext.GUI ? 0.82F : 0.85F', center: 'pose.translate(0.0625F, -0.5F, 0.0F);'],
                 [method: 'renderSkeletonHolderItem', scale: '/ 1.42579401F', center: 'pose.translate(0.0847695023F, -0.712897003F, 0.0F);'],
                 [method: 'renderBrickChimneyItem', scale: '/ 13.0F', center: 'pose.translate(-0.5F, -6.5F, -0.5F);'],
                 [method: 'renderIndustrialChimneyItem', scale: '/ 23.0F', center: 'pose.translate(-0.5F, -11.5F, -0.5F);'],
@@ -6057,29 +6049,7 @@ tasks.register('validateRendererCullingBounds') {
                     ['measuredFit(', 'FIT_CACHE', 'Fit.measure(', 'applyItemRenderBasePose(',
                      'applyLegacyBlockItemDisplayPose('], "Fixed OBJ item ${pose.method}")
         }
-        ['renderSodaVendingMachineItem', 'renderSnackVendingMachineItem'].each { methodName ->
-            auditOwnedMethod(objItemPath, objItemPolicy, "private static void ${methodName}(",
-                    ['pose.translate(0.5F, 0.5F, 0.5F);',
-                     'switch (item.context())',
-                     'case GUI ->',
-                     'pose.scale(1.0F / 16.0F, -1.0F / 16.0F, 1.0F / 16.0F);',
-                     'pose.translate(0.0F, 2.0F, 0.0F);',
-                     'pose.mulPose(Axis.XP.rotationDegrees(-30.0F));',
-                     'pose.mulPose(Axis.YP.rotationDegrees(45.0F));',
-                     'pose.scale(-1.0F, -1.0F, -1.0F);',
-                     'pose.translate(0.0F, -4.0F, 0.0F);',
-                     'pose.scale(6.25F, 6.25F, 6.25F);',
-                     'case GROUND, FIXED ->',
-                     'pose.scale(1.5F, 1.5F, 1.5F);',
-                     'case THIRD_PERSON_LEFT_HAND, THIRD_PERSON_RIGHT_HAND ->',
-                     'pose.translate(0.5F, 0.25F, 0.0F);',
-                     'pose.scale(0.25F, 0.25F, 0.25F);',
-                     'case FIRST_PERSON_LEFT_HAND, FIRST_PERSON_RIGHT_HAND ->',
-                     'pose.mulPose(Axis.YP.rotationDegrees(90.0F));'],
-                    ['11.3F', 'Axis.XP.rotationDegrees(30.0F)', 'Axis.YP.rotationDegrees(225.0F)',
-                     'measuredFit(', 'FIT_CACHE', 'Fit.measure(', 'applyItemRenderBasePose(',
-                     'applyLegacyBlockItemDisplayPose('], "Legacy vending-machine item pose ${methodName}")
-        }
+        // [parity l1] tesla, spotlight_*, tape_recorder, vending_machine: original ItemRenderBase / ISBRH paths (U4LegacyItemRenderSetup, item models)
 
         def toasterItemPath = 'src/main/java/com/atomiclegacy/render/ToasterItemRenderer.java'
         def toasterItemPolicy = readSource(toasterItemPath)

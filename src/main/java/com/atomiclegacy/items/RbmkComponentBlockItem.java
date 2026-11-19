@@ -43,6 +43,12 @@ public class RbmkComponentBlockItem extends BlockItem {
 
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+        // [parity l1] consoles: ItemRenderLibrary ItemRenderBase (U4LegacyItemRenderSetup); mini panels:
+        // RBMKMiniPanelBase#renderInventoryBlock baked as plain item models
+        if (this.kind == RbmkComponentBlock.Kind.CONSOLE || this.kind == RbmkComponentBlock.Kind.CRANE_CONSOLE
+                || this.kind.isMiniPanel()) {
+            return;
+        }
         consumer.accept(new IClientItemExtensions() {
             private final RbmkComponentItemRenderer renderer = new RbmkComponentItemRenderer();
 

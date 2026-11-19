@@ -3040,17 +3040,7 @@ public final class ObjMachineItemRenderer extends BlockEntityWithoutLevelRendere
             case "machine_radar_large" -> renderLargeRadarItem(item);
             case "machine_radgen" -> renderRadgenItem(item);
             case "machine_blast_furnace" -> renderBlastFurnaceItem(item);
-            case "tesla" -> renderTeslaItem(item);
-            case "spotlight_incandescent" -> renderIncandescentSpotlightItem(item);
-            case "spotlight_incandescent_off" -> renderUnlitIncandescentSpotlightItem(item);
-            case "spotlight_fluoro" -> renderFluorescentSpotlightItem(item);
-            case "spotlight_fluoro_off" -> renderUnlitFluorescentSpotlightItem(item);
-            case "spotlight_halogen" -> renderHalogenSpotlightItem(item);
-            case "spotlight_halogen_off" -> renderUnlitHalogenSpotlightItem(item);
             case "sat_dock" -> renderSatelliteDockItem(item);
-            case "vending_machine_soda" -> renderSodaVendingMachineItem(item);
-            case "vending_machine_snacks" -> renderSnackVendingMachineItem(item);
-            case "tape_recorder" -> renderTapeRecorderItem(item);
             case "skeleton_holder" -> renderSkeletonHolderItem(item);
             case "chimney_brick" -> renderBrickChimneyItem(item);
             case "chimney_industrial" -> renderIndustrialChimneyItem(item);
@@ -3151,95 +3141,12 @@ public final class ObjMachineItemRenderer extends BlockEntityWithoutLevelRendere
         pose.popPose();
     }
 
-    private static void renderTeslaItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.YP.rotationDegrees(180.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.90F : 0.85F) / 1.9375F;
-        pose.scale(scale, scale, scale);
-        pose.translate(0.0F, -0.96875F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
 
-    private static void renderIncandescentSpotlightItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.XP.rotationDegrees(30.0F));
-        pose.mulPose(Axis.YP.rotationDegrees(225.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.82F : 0.85F) / 0.5F;
-        pose.scale(scale, scale, scale);
-        pose.translate(-0.1015625F, 0.0F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
 
-    private static void renderUnlitIncandescentSpotlightItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.XP.rotationDegrees(30.0F));
-        pose.mulPose(Axis.YP.rotationDegrees(225.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.82F : 0.85F) / 0.5F;
-        pose.scale(scale, scale, scale);
-        pose.translate(-0.1015625F, 0.0F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
 
-    private static void renderFluorescentSpotlightItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.XP.rotationDegrees(30.0F));
-        pose.mulPose(Axis.YP.rotationDegrees(225.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.82F : 0.85F) / 0.75F;
-        pose.scale(scale, scale, scale);
-        pose.translate(-0.0625F, 0.0F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
 
-    private static void renderUnlitFluorescentSpotlightItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.XP.rotationDegrees(30.0F));
-        pose.mulPose(Axis.YP.rotationDegrees(225.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.82F : 0.85F) / 0.75F;
-        pose.scale(scale, scale, scale);
-        pose.translate(-0.0625F, 0.0F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
 
-    private static void renderHalogenSpotlightItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.XP.rotationDegrees(30.0F));
-        pose.mulPose(Axis.YP.rotationDegrees(225.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.82F : 0.85F) / 0.625F;
-        pose.scale(scale, scale, scale);
-        pose.translate(-0.15625F, 0.0F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
 
-    private static void renderUnlitHalogenSpotlightItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.XP.rotationDegrees(30.0F));
-        pose.mulPose(Axis.YP.rotationDegrees(225.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.82F : 0.85F) / 0.625F;
-        pose.scale(scale, scale, scale);
-        pose.translate(-0.15625F, 0.0F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
 
     private static void renderSatelliteDockItem(DedicatedItemRender item) {
         PoseStack pose = item.poseStack();
@@ -3252,104 +3159,8 @@ public final class ObjMachineItemRenderer extends BlockEntityWithoutLevelRendere
         pose.popPose();
     }
 
-    private static void renderSodaVendingMachineItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        // Cancel ItemRenderer's BEWLR origin.  Every following operation is the
-        // soda machine's own 1.7.10 ItemRenderBase matrix, not a shared fit.
-        pose.translate(0.5F, 0.5F, 0.5F);
-        switch (item.context()) {
-            case GUI -> {
-                // Exact solution from the legacy inventory screen matrix to
-                // GuiGraphics' 16/-16/16 basis; no fitted 11.3 approximation.
-                pose.scale(1.0F / 16.0F, -1.0F / 16.0F, 1.0F / 16.0F);
-                pose.translate(0.0F, 2.0F, 0.0F);
-                pose.mulPose(Axis.XP.rotationDegrees(-30.0F));
-                pose.mulPose(Axis.YP.rotationDegrees(45.0F));
-                pose.scale(-1.0F, -1.0F, -1.0F);
-                pose.translate(0.0F, -4.0F, 0.0F);
-                pose.scale(6.25F, 6.25F, 6.25F);
-            }
-            case GROUND, FIXED -> {
-                // 1.7.10 item entities and item frames both used ENTITY.
-                pose.scale(1.5F, 1.5F, 1.5F);
-                pose.scale(0.25F, 0.25F, 0.25F);
-                pose.mulPose(Axis.YP.rotationDegrees(90.0F));
-            }
-            case THIRD_PERSON_LEFT_HAND, THIRD_PERSON_RIGHT_HAND -> {
-                pose.translate(0.5F, 0.25F, 0.0F);
-                pose.scale(0.25F, 0.25F, 0.25F);
-            }
-            case FIRST_PERSON_LEFT_HAND, FIRST_PERSON_RIGHT_HAND -> {
-                pose.translate(0.5F, 0.25F, 0.0F);
-                pose.scale(0.25F, 0.25F, 0.25F);
-                pose.mulPose(Axis.YP.rotationDegrees(90.0F));
-            }
-            case HEAD, NONE -> {
-                // No corresponding 1.7.10 render type exists for this block.
-                pose.popPose();
-                return;
-            }
-        }
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
 
-    private static void renderSnackVendingMachineItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        // Cancel ItemRenderer's BEWLR origin.  Every following operation is the
-        // snack machine's own 1.7.10 ItemRenderBase matrix, not a shared fit.
-        pose.translate(0.5F, 0.5F, 0.5F);
-        switch (item.context()) {
-            case GUI -> {
-                // Exact solution from the legacy inventory screen matrix to
-                // GuiGraphics' 16/-16/16 basis; no fitted 11.3 approximation.
-                pose.scale(1.0F / 16.0F, -1.0F / 16.0F, 1.0F / 16.0F);
-                pose.translate(0.0F, 2.0F, 0.0F);
-                pose.mulPose(Axis.XP.rotationDegrees(-30.0F));
-                pose.mulPose(Axis.YP.rotationDegrees(45.0F));
-                pose.scale(-1.0F, -1.0F, -1.0F);
-                pose.translate(0.0F, -4.0F, 0.0F);
-                pose.scale(6.25F, 6.25F, 6.25F);
-            }
-            case GROUND, FIXED -> {
-                // 1.7.10 item entities and item frames both used ENTITY.
-                pose.scale(1.5F, 1.5F, 1.5F);
-                pose.scale(0.25F, 0.25F, 0.25F);
-                pose.mulPose(Axis.YP.rotationDegrees(90.0F));
-            }
-            case THIRD_PERSON_LEFT_HAND, THIRD_PERSON_RIGHT_HAND -> {
-                pose.translate(0.5F, 0.25F, 0.0F);
-                pose.scale(0.25F, 0.25F, 0.25F);
-            }
-            case FIRST_PERSON_LEFT_HAND, FIRST_PERSON_RIGHT_HAND -> {
-                pose.translate(0.5F, 0.25F, 0.0F);
-                pose.scale(0.25F, 0.25F, 0.25F);
-                pose.mulPose(Axis.YP.rotationDegrees(90.0F));
-            }
-            case HEAD, NONE -> {
-                // No corresponding 1.7.10 render type exists for this block.
-                pose.popPose();
-                return;
-            }
-        }
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
 
-    private static void renderTapeRecorderItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.XP.rotationDegrees(30.0F));
-        pose.mulPose(Axis.YP.rotationDegrees(225.0F));
-        float scale = item.context() == ItemDisplayContext.GUI ? 0.82F : 0.85F;
-        pose.scale(scale, scale, scale);
-        pose.translate(0.0625F, -0.5F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
 
     private static void renderSkeletonHolderItem(DedicatedItemRender item) {
         PoseStack pose = item.poseStack();
@@ -4327,22 +4138,13 @@ public final class ObjMachineItemRenderer extends BlockEntityWithoutLevelRendere
         models(profiles, "machine_silex", "block/machine_silex");
         models(profiles, "machine_fel", "block/machine_fel");
         models(profiles, "machine_rotary_furnace", "block/machine_rotary_furnace");
-        models(profiles, "tesla", "block/tesla");
+        // [parity l1] tesla and spotlight_* left this route: ItemRenderLibrary / RenderLight#renderInventoryBlock
         models(profiles, "fan", "block/fan_frame", "block/fan_blades");
         models(profiles, "floodlight", "block/floodlight_base", "block/floodlight_lights", "block/floodlight_lamps");
-        models(profiles, "spotlight_incandescent", "block/spotlight_incandescent_world");
-        models(profiles, "spotlight_incandescent_off", "block/spotlight_incandescent_off_world");
-        models(profiles, "spotlight_fluoro", "block/spotlight_fluoro_single_world");
-        models(profiles, "spotlight_fluoro_off", "block/spotlight_fluoro_single_off_world");
-        models(profiles, "spotlight_halogen", "block/spotlight_halogen_world");
-        models(profiles, "spotlight_halogen_off", "block/spotlight_halogen_off_world");
         models(profiles, "cargo_elevator", "block/cargo_elevator_base", "block/cargo_elevator_piston", "block/cargo_elevator_guides", "block/cargo_elevator_platform");
         models(profiles, "sat_dock", "block/sat_dock");
         models(profiles, "radio_autocal", "block/radio_autocal");
         models(profiles, "radio_telex", "block/radio_telex_item");
-        models(profiles, "vending_machine_soda", "block/vending_machine_soda");
-        models(profiles, "vending_machine_snacks", "block/vending_machine_snacks");
-        models(profiles, "tape_recorder", "block/tape_recorder");
         models(profiles, "skeleton_holder", "block/skeleton_holder_world");
         models(profiles, "chimney_brick", "block/chimney_brick");
         models(profiles, "chimney_industrial", "block/chimney_industrial");

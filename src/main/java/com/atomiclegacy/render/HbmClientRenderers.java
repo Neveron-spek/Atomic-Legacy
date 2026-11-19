@@ -153,6 +153,9 @@ public final class HbmClientRenderers {
     public static void registerItemProperties(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             // [parity S1: carts/trains] two-layer cart icon (base + overlay) and the ItemTrain variant textures
+            // ItemBedrockOreNew#getIconFromDamage / getIconFromDamageForRenderPass (baked icons, see models/item/bedrock_ore_new)
+            ItemProperties.register(HbmItems.BEDROCK_ORE_NEW.get(), AtomicLegacy.id("ore_variant"),
+                    (stack, level, entity, seed) -> com.atomiclegacy.items.BedrockOreItem.iconIndex(stack));
             ItemProperties.register(HbmItems.CART.get(), AtomicLegacy.id("cart_variant"),
                     (stack, level, entity, seed) -> com.atomiclegacy.items.ModMinecartItem.modelVariant(stack));
             ItemProperties.register(HbmItems.TRAIN.get(), AtomicLegacy.id("train_variant"),
@@ -825,6 +828,7 @@ public final class HbmClientRenderers {
 
     @SubscribeEvent
     public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
+        event.register(com.atomiclegacy.items.BedrockOreItem::tint, HbmItems.BEDROCK_ORE_NEW.get());
         event.register(
                 GlyphidSpawnEggItem::tint,
                 HbmItems.SPAWN_GLYPHID.get(),

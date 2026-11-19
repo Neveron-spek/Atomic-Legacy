@@ -1,11 +1,44 @@
 {
-  "parent": "atomiclegacy:block/stalagmite_sulfur",
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:block/stalagmite.sulfur"
+  },
   "overrides": [
-    { "predicate": { "minecraft:custom_model_data": 1 }, "model": "atomiclegacy:block/stalagmite_asbestos" },
-    { "predicate": { "minecraft:custom_model_data": 2 }, "model": "atomiclegacy:block/stalagmite_ice" },
-    { "predicate": { "minecraft:custom_model_data": 3 }, "model": "atomiclegacy:block/stalagmite_snow" },
-    { "predicate": { "minecraft:custom_model_data": 4 }, "model": "atomiclegacy:block/stalagmite_glyphid1" },
-    { "predicate": { "minecraft:custom_model_data": 5 }, "model": "atomiclegacy:block/stalagmite_glyphid2" },
-    { "predicate": { "minecraft:custom_model_data": 6 }, "model": "atomiclegacy:block/stalagmite_glyphid3" }
+    {
+      "predicate": {
+        "minecraft:custom_model_data": 1
+      },
+      "model": "atomiclegacy:item/legacy_flat/stalagmite_asbestos"
+    },
+    {
+      "predicate": {
+        "minecraft:custom_model_data": 2
+      },
+      "model": "atomiclegacy:item/legacy_flat/stalagmite_ice"
+    },
+    {
+      "predicate": {
+        "minecraft:custom_model_data": 3
+      },
+      "model": "atomiclegacy:item/legacy_flat/stalagmite_snow"
+    },
+    {
+      "predicate": {
+        "minecraft:custom_model_data": 4
+      },
+      "model": "atomiclegacy:item/legacy_flat/stalagmite_glyphid1"
+    },
+    {
+      "predicate": {
+        "minecraft:custom_model_data": 5
+      },
+      "model": "atomiclegacy:item/legacy_flat/stalagmite_glyphid2"
+    },
+    {
+      "predicate": {
+        "minecraft:custom_model_data": 6
+      },
+      "model": "atomiclegacy:item/legacy_flat/stalagmite_glyphid3"
+    }
   ]
 }

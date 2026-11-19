@@ -1,3 +1,6 @@
 {
-    "parent":  "atomiclegacy:block/fire_digamma"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atomiclegacy:block/fire_digamma"
+  }
 }
