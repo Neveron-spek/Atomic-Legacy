@@ -25,6 +25,8 @@ public final class FluidBarrelItemRenderer extends BlockEntityWithoutLevelRender
     private static final ModelResourceLocation TCALLOY = model("block/barrel_tcalloy");
     /** barrel_antimatter is the same BlockFluidBarrel / RenderBarrel as the other three in 1.7.10. */
     private static final ModelResourceLocation ANTIMATTER = model("block/barrel_antimatter");
+    /** [parity m1] barrel_corroded: same BlockFluidBarrel / RenderBarrel. */
+    private static final ModelResourceLocation CORRODED = model("block/barrel_corroded");
 
     public FluidBarrelItemRenderer() {
         super(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels());
@@ -35,6 +37,7 @@ public final class FluidBarrelItemRenderer extends BlockEntityWithoutLevelRender
         event.register(STEEL);
         event.register(TCALLOY);
         event.register(ANTIMATTER);
+        event.register(CORRODED);
     }
 
     @Override
@@ -44,13 +47,14 @@ public final class FluidBarrelItemRenderer extends BlockEntityWithoutLevelRender
             case "barrel_plastic" -> renderPlasticBarrelItem(stack, context, poseStack, bufferSource, packedLight, packedOverlay);
             case "barrel_steel" -> renderSteelBarrelItem(stack, context, poseStack, bufferSource, packedLight, packedOverlay);
             case "barrel_tcalloy" -> renderTcAlloyBarrelItem(stack, context, poseStack, bufferSource, packedLight, packedOverlay);
-            case "barrel_antimatter" -> {
+            case "barrel_antimatter", "barrel_corroded" -> {
                 BlockState state = ((BlockItem) stack.getItem()).getBlock().defaultBlockState();
                 poseStack.pushPose();
                 poseStack.translate(0.5F, 0.5F, 0.5F);
                 applySteelBarrelItemPose(context, poseStack);
                 poseStack.translate(-0.5F, -0.5F, -0.5F);
-                renderFluidBarrelModel(ANTIMATTER, state, poseStack, bufferSource, packedLight, packedOverlay);
+                renderFluidBarrelModel(BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath().equals("barrel_corroded")
+                        ? CORRODED : ANTIMATTER, state, poseStack, bufferSource, packedLight, packedOverlay);
                 poseStack.popPose();
             }
             default -> throw new IllegalArgumentException("Fluid barrel renderer received an unsupported item: " + stack.getItem());

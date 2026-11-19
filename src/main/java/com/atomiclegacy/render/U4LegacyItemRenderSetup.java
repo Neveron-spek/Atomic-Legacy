@@ -52,6 +52,23 @@ public final class U4LegacyItemRenderSetup {
         map.put("vending_machine", new Y1LegacyItemRenderers.VendingMachine()); // [parity l1]
         map.put("rbmk_console", new Y1LegacyItemRenderers.RbmkConsole()); // [parity l1]
         map.put("rbmk_crane_console", new Y1LegacyItemRenderers.RbmkCraneConsole()); // [parity l1]
+        // [parity m1] ItemRenderLibrary / IItemRendererProvider#getRenderer / ItemRenderBoltgun
+        map.put("machine_ammo_press", new M1LegacyItemRenderers.AmmoPress());
+        map.put("machine_blast_furnace", new M1LegacyItemRenderers.BlastFurnace());
+        map.put("machine_boiler", new M1LegacyItemRenderers.Boiler());
+        map.put("machine_industrial_boiler", new M1LegacyItemRenderers.IndustrialBoiler());
+        map.put("chimney_brick", new M1LegacyItemRenderers.ChimneyBrick());
+        map.put("chimney_industrial", new M1LegacyItemRenderers.ChimneyIndustrial());
+        map.put("machine_condenser_powered", new M1LegacyItemRenderers.PoweredCondenser());
+        map.put("machine_tower_small", new M1LegacyItemRenderers.TowerSmall());
+        map.put("machine_tower_large", new M1LegacyItemRenderers.TowerLarge());
+        map.put("machine_radar", new M1LegacyItemRenderers.Radar());
+        map.put("machine_radar_large", new M1LegacyItemRenderers.RadarLarge());
+        map.put("machine_radgen", new M1LegacyItemRenderers.Radgen());
+        map.put("sat_dock", new M1LegacyItemRenderers.SatDock());
+        map.put("boat", new M1LegacyItemRenderers.Boat());
+        map.put("rbmk_autoloader", new M1LegacyItemRenderers.RbmkAutoloader());
+        map.put("boltgun", new M1LegacyItemRenderers.Boltgun());
         // [parity Y1: ItemRenderBase items previously drawn as baked OBJ with invented display transforms]
         map.put("soyuz_capsule", new Y1LegacyItemRenderers.SoyuzCapsule());
         map.put("machine_press", new Y1LegacyItemRenderers.Press());

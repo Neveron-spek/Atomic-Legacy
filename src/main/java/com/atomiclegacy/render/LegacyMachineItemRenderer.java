@@ -30,12 +30,6 @@ public final class LegacyMachineItemRenderer extends BlockEntityWithoutLevelRend
             renderOrbusItem(context, poseStack, bufferSource, packedLight, packedOverlay);
         } else if (stack.is(HbmBlocks.MACHINE_PRECASS.get().asItem())) {
             renderPrecisionAssemblerItem(context, poseStack, bufferSource, packedLight, packedOverlay);
-        } else if (stack.is(HbmBlocks.MACHINE_RADAR.get().asItem())) {
-            renderRadarItem(context, poseStack, bufferSource, packedLight, packedOverlay);
-        } else if (stack.is(HbmBlocks.MACHINE_RADAR_LARGE.get().asItem())) {
-            renderLargeRadarItem(context, poseStack, bufferSource, packedLight, packedOverlay);
-        } else if (stack.is(HbmBlocks.MACHINE_RADGEN.get().asItem())) {
-            renderRadiationGeneratorItem(context, poseStack, bufferSource, packedLight, packedOverlay);
         } else if (stack.is(HbmBlocks.MACHINE_RADIOLYSIS.get().asItem())) {
             renderRadiolysisItem(context, poseStack, bufferSource, packedLight, packedOverlay);
         } else if (stack.is(HbmBlocks.MACHINE_REACTOR.get().asItem())) {
@@ -181,109 +175,7 @@ public final class LegacyMachineItemRenderer extends BlockEntityWithoutLevelRend
         poseStack.scale(0.75F, 0.75F, 0.75F);
     }
 
-    private static void renderRadarItem(ItemDisplayContext context, PoseStack poseStack,
-                                         MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
-        poseStack.pushPose();
-        applyRadarItemPose(context, poseStack);
-        LegacyMachineBlockEntityRenderer.renderItemRadar(legacyItemState(), poseStack, bufferSource, packedLight, packedOverlay);
-        poseStack.popPose();
-    }
-
-    private static void applyRadarItemPose(ItemDisplayContext context, PoseStack poseStack) {
-        if (context == ItemDisplayContext.GUI) {
-            poseStack.mulPose(Axis.XP.rotationDegrees(30.0F));
-            poseStack.mulPose(Axis.YP.rotationDegrees(225.0F));
-            poseStack.scale(1.0F / 16.0F, 1.0F / 16.0F, 1.0F / 16.0F);
-            poseStack.translate(0.0F, 11.3F, -11.3F);
-            poseStack.translate(0.0F, -4.0F, 0.0F);
-            poseStack.scale(5.0F, 5.0F, 5.0F);
-        } else {
-            poseStack.translate(0.5F, 0.25F, 0.0F);
-            poseStack.scale(0.25F, 0.25F, 0.25F);
-            if (context != ItemDisplayContext.THIRD_PERSON_RIGHT_HAND) poseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
-        }
-    }
-
-    private static void renderLargeRadarItem(ItemDisplayContext context, PoseStack poseStack,
-                                              MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
-        poseStack.pushPose();
-        applyLargeRadarItemPose(context, poseStack);
-        LegacyMachineBlockEntityRenderer.renderItemLargeRadar(legacyItemState(), poseStack, bufferSource, packedLight, packedOverlay);
-        poseStack.popPose();
-    }
-
-    private static void applyLargeRadarItemPose(ItemDisplayContext context, PoseStack poseStack) {
-        if (context == ItemDisplayContext.GUI) {
-            poseStack.mulPose(Axis.XP.rotationDegrees(30.0F));
-            poseStack.mulPose(Axis.YP.rotationDegrees(225.0F));
-            poseStack.scale(1.0F / 16.0F, 1.0F / 16.0F, 1.0F / 16.0F);
-            poseStack.translate(0.0F, 11.3F, -11.3F);
-            poseStack.translate(0.0F, -5.0F, 0.0F);
-            poseStack.scale(3.0F, 3.0F, 3.0F);
-        } else {
-            poseStack.translate(0.5F, 0.25F, 0.0F);
-            poseStack.scale(0.25F, 0.25F, 0.25F);
-            if (context != ItemDisplayContext.THIRD_PERSON_RIGHT_HAND) poseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
-        }
-        poseStack.mulPose(Axis.YP.rotationDegrees(180.0F));
-        poseStack.scale(0.5F, 0.5F, 0.5F);
-    }
-
-    private static void renderRadiationGeneratorItem(ItemDisplayContext context, PoseStack poseStack,
-                                                      MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
-        poseStack.pushPose();
-        if (context == ItemDisplayContext.HEAD || context == ItemDisplayContext.NONE) {
-            // ItemRenderBase did not accept either of these modern-only contexts.
-            poseStack.popPose();
-            return;
-        }
-        applyRadiationGeneratorItemPose(context, poseStack);
-        LegacyMachineBlockEntityRenderer.renderItemRadiationGenerator(legacyItemState(), poseStack, bufferSource, packedLight, packedOverlay);
-        poseStack.popPose();
-    }
-
-    private static void applyRadiationGeneratorItemPose(ItemDisplayContext context, PoseStack poseStack) {
-        // ItemRenderer applies (-0.5, -0.5, -0.5) before invoking a BEWLR.
-        // Cancel that framework transform first.  Every operation below is the
-        // radiation generator's own ItemRenderBase matrix, with no shared fit.
-        poseStack.translate(0.5F, 0.5F, 0.5F);
-        switch (context) {
-            case GUI -> {
-                // Exact solution of ItemRenderBase's inventory matrix against
-                // GuiGraphics' 16/-16/16 basis:
-                // T(8,10,0) Rx(-30) Ry(45) S(-1) T(0,-1,0) S(4.5).
-                poseStack.scale(1.0F / 16.0F, -1.0F / 16.0F, 1.0F / 16.0F);
-                poseStack.translate(0.0F, 2.0F, 0.0F);
-                poseStack.mulPose(Axis.XP.rotationDegrees(-30.0F));
-                poseStack.mulPose(Axis.YP.rotationDegrees(45.0F));
-                poseStack.scale(-1.0F, -1.0F, -1.0F);
-                poseStack.translate(0.0F, -1.0F, 0.0F);
-                poseStack.scale(4.5F, 4.5F, 4.5F);
-            }
-            case GROUND, FIXED -> {
-                // ItemRenderBase mapped dropped items (and the old item-frame
-                // path) to ENTITY.
-                poseStack.scale(1.5F, 1.5F, 1.5F);
-                poseStack.scale(0.25F, 0.25F, 0.25F);
-                poseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
-            }
-            case THIRD_PERSON_LEFT_HAND, THIRD_PERSON_RIGHT_HAND -> {
-                poseStack.translate(0.5F, 0.25F, 0.0F);
-                poseStack.scale(0.25F, 0.25F, 0.25F);
-            }
-            case FIRST_PERSON_LEFT_HAND, FIRST_PERSON_RIGHT_HAND -> {
-                poseStack.translate(0.5F, 0.25F, 0.0F);
-                poseStack.scale(0.25F, 0.25F, 0.25F);
-                poseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
-            }
-            case HEAD, NONE -> {
-                // Rejected by renderRadiationGeneratorItem before this method.
-            }
-        }
-        // Exact machine_radgen renderCommon matrix.
-        poseStack.scale(0.5F, 0.5F, 0.5F);
-        poseStack.translate(0.5F, 0.0F, 0.0F);
-    }
+    // [parity m1] machine_radar, machine_radar_large, machine_radgen: M1LegacyItemRenderers (ItemRenderBase).
 
     private static void renderRadiolysisItem(ItemDisplayContext context, PoseStack poseStack,
                                               MultiBufferSource bufferSource, int packedLight, int packedOverlay) {

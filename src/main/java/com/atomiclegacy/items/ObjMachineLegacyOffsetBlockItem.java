@@ -14,6 +14,6 @@ public final class ObjMachineLegacyOffsetBlockItem extends LegacyOffsetBlockItem
 
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        ObjMachineBlockItem.installRenderer(consumer);
+        ObjMachineBlockItem.installRenderer(this, consumer);
     }
 }

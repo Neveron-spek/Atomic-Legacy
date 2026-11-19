@@ -646,13 +646,7 @@ public final class HbmBlocks {
                     .sound(SoundType.SNOW)
                     .noCollission()
                     .noOcclusion()));
-    public static final DeferredBlock<Block> PLANT_DEAD = registerBlock("plant_dead",
-            () -> new DeadPlantBlock(BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.PLANT)
-                    .strength(0.0F, 0.0F)
-                    .sound(SoundType.GRASS)
-                    .noCollission()
-                    .noOcclusion()));
+    public static final DeferredBlock<Block> PLANT_DEAD = deadPlant("plant_dead");
     public static final DeferredBlock<Block> PLANT_FOXGLOVE = registerBlockWithoutItem("plant_foxglove",
             () -> new HbmPlantBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.PLANT)
@@ -4825,8 +4819,8 @@ public final class HbmBlocks {
                     new LegacyMachineRendererBlockItem(block.get(), new Item.Properties(), offset, false);
             case "machine_rtg_grey" ->
                     new LegacyMachineRendererBlockItem(block.get(), new Item.Properties(), offset);
-            case "machine_radar", "machine_radar_large", "machine_radgen" ->
-                    new LegacyMachineRendererBlockItem(block.get(), new Item.Properties(), offset);
+            // [parity m1] machine_radar / machine_radar_large / machine_radgen: ItemRenderLibrary / RenderRadarLarge
+            // via U4LegacyItemRenderSetup (M1LegacyItemRenderers), plain offset item here
             default -> new LegacyOffsetBlockItem(block.get(), new Item.Properties(), offset, true);
         });
         return block;
@@ -5146,6 +5140,19 @@ public final class HbmBlocks {
                         .strength(LegacyVariantStrengths.maxHardness(strengths),
                                 LegacyBlastResistance.of(name, LegacyVariantStrengths.maxResistance(strengths))), strengths), // [parity T3: BlockMultiSlab own resistance 0; variants per parent]
                 LegacyVariantBlock.VARIANT, translationBase, variants);
+    }
+
+    /** [parity m1] BlockDeadPlant: Material.plants (destroyed by pistons), hardness 0, grass sound; 5 item variants. */
+    private static DeferredBlock<Block> deadPlant(String name) {
+        DeferredBlock<Block> block = registerBlockWithoutItem(name, () -> new DeadPlantBlock(BlockBehaviour.Properties.of()
+                .mapColor(MapColor.PLANT)
+                .strength(0.0F, 0.0F)
+                .sound(SoundType.GRASS)
+                .pushReaction(net.minecraft.world.level.material.PushReaction.DESTROY)
+                .noCollission()
+                .noOcclusion()));
+        HbmItems.ITEMS.register(name, () -> new com.atomiclegacy.items.DeadPlantBlockItem(block.get(), new Item.Properties()));
+        return block;
     }
 
     private static DeferredBlock<Block> registerVariantBlock(String name, Supplier<? extends Block> block,

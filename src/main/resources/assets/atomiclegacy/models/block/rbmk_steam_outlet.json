@@ -1,5 +1,5 @@
 {
-  "parent": "atomiclegacy:block/template/rbmk_port_block",
+  "parent": "minecraft:block/cube_all",
   "textures": {
     "all": "atomiclegacy:block/rbmk_steam_outlet"
   }

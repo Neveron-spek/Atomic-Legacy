@@ -553,7 +553,11 @@ public final class HbmCreativeTabs {
             acceptBlock(output, block);
         }
         for (var block : HbmBlocks.OIL_FIELD_BLOCKS) {
-            acceptBlock(output, block);
+            if (block.get().asItem() instanceof com.atomiclegacy.items.DeadPlantBlockItem deadPlant) {
+                deadPlant.addCreativeVariants(output); // [parity m1] BlockEnumMulti getSubBlocks: 5 variants
+            } else {
+                acceptBlock(output, block);
+            }
         }
 
         for (var block : LegacyHbmContent.LEGACY_BLOCKS) {

@@ -273,7 +273,7 @@ public final class OilFieldSurfaceEffects {
         if (!level.getBlockState(pos).isAir()) {
             return;
         }
-        DeadPlantBlock.Kind kind = random.nextBoolean() ? DeadPlantBlock.Kind.GRASS : DeadPlantBlock.Kind.GENERIC;
+        DeadPlantBlock.Kind kind = DeadPlantBlock.Kind.values()[random.nextInt(DeadPlantBlock.Kind.values().length)]; // [parity m1] rand.nextInt(deadMetaCount)
         BlockState deadPlant = HbmBlocks.PLANT_DEAD.get().defaultBlockState().setValue(DeadPlantBlock.KIND, kind);
         if (deadPlant.canSurvive(level, pos)) {
             level.setBlock(pos, deadPlant, SET_FLAGS);
@@ -284,7 +284,7 @@ public final class OilFieldSurfaceEffects {
         if (!level.getBlockState(pos).isAir()) {
             return;
         }
-        DeadPlantBlock.Kind kind = random.nextBoolean() ? DeadPlantBlock.Kind.GRASS : DeadPlantBlock.Kind.GENERIC;
+        DeadPlantBlock.Kind kind = DeadPlantBlock.Kind.values()[random.nextInt(DeadPlantBlock.Kind.values().length)]; // [parity m1] rand.nextInt(deadMetaCount)
         BlockState deadPlant = HbmBlocks.PLANT_DEAD.get().defaultBlockState().setValue(DeadPlantBlock.KIND, kind);
         if (deadPlant.canSurvive(level, pos)) {
             level.setBlock(pos, deadPlant, SET_FLAGS);

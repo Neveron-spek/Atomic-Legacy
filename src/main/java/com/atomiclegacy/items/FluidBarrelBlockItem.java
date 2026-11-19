@@ -32,7 +32,8 @@ public class FluidBarrelBlockItem extends BlockItem {
         if (this.kind == FluidBarrelBlock.Kind.PLASTIC
                 || this.kind == FluidBarrelBlock.Kind.STEEL
                 || this.kind == FluidBarrelBlock.Kind.TCALLOY
-                || this.kind == FluidBarrelBlock.Kind.ANTIMATTER) {
+                || this.kind == FluidBarrelBlock.Kind.ANTIMATTER
+                || this.kind == FluidBarrelBlock.Kind.CORRODED) { // [parity m1] barrel_corroded is BlockFluidBarrel / RenderBarrel too
             consumer.accept(new IClientItemExtensions() {
                 private final BlockEntityWithoutLevelRenderer renderer = new FluidBarrelItemRenderer();
 

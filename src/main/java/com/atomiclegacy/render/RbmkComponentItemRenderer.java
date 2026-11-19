@@ -76,10 +76,10 @@ public final class RbmkComponentItemRenderer extends BlockEntityWithoutLevelRend
 
         poseStack.pushPose();
         switch (kind) {
-            case LOADER -> renderLoaderItem(context, poseStack, bufferSource, packedLight, packedOverlay);
-            case STEAM_INLET -> renderSteamInletItem(context, poseStack, bufferSource, packedLight, packedOverlay);
-            case STEAM_OUTLET -> renderSteamOutletItem(context, poseStack, bufferSource, packedLight, packedOverlay);
-            case AUTOLOADER -> renderAutoloaderItem(context, poseStack, bufferSource, packedLight, packedOverlay);
+            case LOADER -> { }
+            case STEAM_INLET -> { }
+            case STEAM_OUTLET -> { }
+            case AUTOLOADER -> { }
             case CONSOLE -> renderConsoleItem(context, poseStack, bufferSource, packedLight, packedOverlay);
             case CRANE_CONSOLE -> renderCraneConsoleItem(context, poseStack, bufferSource, packedLight, packedOverlay);
             case DISPLAY -> renderDisplayItem(context, poseStack, bufferSource, packedLight, packedOverlay);
@@ -117,82 +117,8 @@ public final class RbmkComponentItemRenderer extends BlockEntityWithoutLevelRend
     // The 1.7.10 implementations were owned by the individual block/TESR
     // paths, and folding equal values back into a Kind-driven helper has
     // repeatedly caused unrelated RBMK items to inherit the wrong transform.
-    private static void renderLoaderItem(ItemDisplayContext context, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
-        BlockState state = HbmBlocks.RBMK_LOADER.get().defaultBlockState();
-        applyLoaderItemPose(context, poseStack);
-        renderModel(MODELS.get(RbmkComponentBlock.Kind.LOADER), state, poseStack, bufferSource, packedLight, packedOverlay);
-    }
-
-    private static void applyLoaderItemPose(ItemDisplayContext context, PoseStack poseStack) {
-        poseStack.translate(0.5F, 0.5F, 0.5F);
-        if (context == ItemDisplayContext.GUI) {
-            poseStack.mulPose(Axis.XP.rotationDegrees(30.0F));
-            poseStack.mulPose(Axis.YP.rotationDegrees(45.0F));
-        } else if (context != ItemDisplayContext.GROUND) {
-            poseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
-        }
-        float scale = context == ItemDisplayContext.GUI ? 0.78F : 0.52F;
-        poseStack.scale(scale, scale, scale);
-        poseStack.translate(-0.5F, -0.5F, -0.5F);
-    }
-
-    private static void renderSteamInletItem(ItemDisplayContext context, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
-        BlockState state = HbmBlocks.RBMK_STEAM_INLET.get().defaultBlockState();
-        applySteamInletItemPose(context, poseStack);
-        renderModel(MODELS.get(RbmkComponentBlock.Kind.STEAM_INLET), state, poseStack, bufferSource, packedLight, packedOverlay);
-    }
-
-    private static void applySteamInletItemPose(ItemDisplayContext context, PoseStack poseStack) {
-        poseStack.translate(0.5F, 0.5F, 0.5F);
-        if (context == ItemDisplayContext.GUI) {
-            poseStack.mulPose(Axis.XP.rotationDegrees(30.0F));
-            poseStack.mulPose(Axis.YP.rotationDegrees(45.0F));
-        } else if (context != ItemDisplayContext.GROUND) {
-            poseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
-        }
-        float scale = context == ItemDisplayContext.GUI ? 0.78F : 0.52F;
-        poseStack.scale(scale, scale, scale);
-        poseStack.translate(-0.5F, -0.5F, -0.5F);
-    }
-
-    private static void renderSteamOutletItem(ItemDisplayContext context, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
-        BlockState state = HbmBlocks.RBMK_STEAM_OUTLET.get().defaultBlockState();
-        applySteamOutletItemPose(context, poseStack);
-        renderModel(MODELS.get(RbmkComponentBlock.Kind.STEAM_OUTLET), state, poseStack, bufferSource, packedLight, packedOverlay);
-    }
-
-    private static void applySteamOutletItemPose(ItemDisplayContext context, PoseStack poseStack) {
-        poseStack.translate(0.5F, 0.5F, 0.5F);
-        if (context == ItemDisplayContext.GUI) {
-            poseStack.mulPose(Axis.XP.rotationDegrees(30.0F));
-            poseStack.mulPose(Axis.YP.rotationDegrees(45.0F));
-        } else if (context != ItemDisplayContext.GROUND) {
-            poseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
-        }
-        float scale = context == ItemDisplayContext.GUI ? 0.78F : 0.52F;
-        poseStack.scale(scale, scale, scale);
-        poseStack.translate(-0.5F, -0.5F, -0.5F);
-    }
-
-    private static void renderAutoloaderItem(ItemDisplayContext context, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
-        BlockState state = HbmBlocks.RBMK_AUTOLOADER.get().defaultBlockState();
-        applyAutoloaderItemPose(context, poseStack);
-        renderModel(AUTOLOADER_BASE, state, poseStack, bufferSource, packedLight, packedOverlay);
-        renderModel(AUTOLOADER_PISTON, state, poseStack, bufferSource, packedLight, packedOverlay);
-    }
-
-    private static void applyAutoloaderItemPose(ItemDisplayContext context, PoseStack poseStack) {
-        poseStack.translate(0.5F, 0.5F, 0.5F);
-        if (context == ItemDisplayContext.GUI) {
-            poseStack.mulPose(Axis.XP.rotationDegrees(30.0F));
-            poseStack.mulPose(Axis.YP.rotationDegrees(45.0F));
-        } else if (context != ItemDisplayContext.GROUND) {
-            poseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
-        }
-        float scale = context == ItemDisplayContext.GUI ? 0.12F : 0.09F;
-        poseStack.scale(scale, scale, scale);
-        poseStack.translate(0.0F, -4.5F, 0.0F);
-    }
+    // [parity m1] loader / steam inlet / steam outlet (plain cube item models) and autoloader
+    // (RenderRBMKAutoloader via U4LegacyItemRenderSetup) no longer use this renderer.
 
     private static void renderConsoleItem(ItemDisplayContext context, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
         BlockState state = HbmBlocks.RBMK_CONSOLE.get().defaultBlockState();

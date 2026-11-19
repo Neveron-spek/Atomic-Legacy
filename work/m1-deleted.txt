@@ -1,0 +1,1 @@
+src/main/resources/assets/atomiclegacy/models/block/template/rbmk_port_block.json

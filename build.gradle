@@ -3498,48 +3498,13 @@ tasks.register('validatePortRegressionFixes') {
                  || !legacyMachineItemRenderer.contains('private static void applyForcefieldItemPose(')
                  || !legacyMachineItemRenderer.contains('private static void applyMissileAssemblyItemPose(')
                  || !legacyMachineItemRenderer.contains('private static void applyPrecisionAssemblerItemPose(')
-                 || !legacyMachineItemRenderer.contains('private static void applyLargeRadarItemPose(')
                  || !legacyMachineItemRenderer.contains('private static void applyGreyRtgItemPose(')
                  || !legacyMachineItemRenderer.contains('context == ItemDisplayContext.GUI')
                  || legacyMachineItemRenderer.contains('applyItemRenderBasePose(')
                  || legacyMachineRenderer.contains('boolean inventory)')) {
              problems << 'Each legacy machine item must retain a dedicated context pose with no shared inventory transform.'
          }
-         def radgenPoseStart = legacyMachineItemRenderer.indexOf('private static void applyRadiationGeneratorItemPose(')
-         def radgenPoseEnd = legacyMachineItemRenderer.indexOf('\n    private static void renderRadiolysisItem(', radgenPoseStart)
-         def radgenPose = radgenPoseStart >= 0 && radgenPoseEnd > radgenPoseStart
-                 ? legacyMachineItemRenderer.substring(radgenPoseStart, radgenPoseEnd)
-                 : ''
-         [
-                 'poseStack.translate(0.5F, 0.5F, 0.5F);',
-                 'case GUI ->',
-                 'poseStack.scale(1.0F / 16.0F, -1.0F / 16.0F, 1.0F / 16.0F);',
-                 'poseStack.translate(0.0F, 2.0F, 0.0F);',
-                 'poseStack.mulPose(Axis.XP.rotationDegrees(-30.0F));',
-                 'poseStack.mulPose(Axis.YP.rotationDegrees(45.0F));',
-                 'poseStack.scale(-1.0F, -1.0F, -1.0F);',
-                 'poseStack.translate(0.0F, -1.0F, 0.0F);',
-                 'poseStack.scale(4.5F, 4.5F, 4.5F);',
-                 'case GROUND, FIXED ->',
-                 'poseStack.scale(1.5F, 1.5F, 1.5F);',
-                 'case THIRD_PERSON_LEFT_HAND, THIRD_PERSON_RIGHT_HAND ->',
-                 'case FIRST_PERSON_LEFT_HAND, FIRST_PERSON_RIGHT_HAND ->',
-                 'poseStack.scale(0.5F, 0.5F, 0.5F);',
-                 'poseStack.translate(0.5F, 0.0F, 0.0F);'
-         ].each { required ->
-             if (!radgenPose.contains(required)) {
-                 problems << "Radiation-generator item pose is missing exact 1.7.10 matrix '${required}'."
-             }
-         }
-         ['11.3F', 'Axis.XP.rotationDegrees(30.0F)', 'Axis.YP.rotationDegrees(225.0F)',
-          'applyItemRenderBasePose(', 'measuredFit(', 'FIT_CACHE', 'Fit.measure('].each { forbidden ->
-             if (radgenPose.contains(forbidden)) {
-                 problems << "Radiation-generator item pose reintroduced inferred/shared transform '${forbidden}'."
-             }
-         }
-         if (!legacyMachineItemRenderer.contains('context == ItemDisplayContext.HEAD || context == ItemDisplayContext.NONE')) {
-             problems << 'Radiation-generator item renderer must reject modern contexts that ItemRenderBase never handled.'
-         }
+         // [parity m1] machine_radar / machine_radar_large / machine_radgen item poses moved to M1LegacyItemRenderers (ItemRenderBase)
          if (!(blocks =~ /case\s+"machine_rtg_grey"\s*->\s*new\s+LegacyMachineRendererBlockItem\(/)
                  || !legacyMachineItemModel.contains('"machine_rtg_grey"')
                  || !legacyMachineItemRenderer.contains('renderItemRtg(HbmBlocks.MACHINE_RTG_GREY.get().defaultBlockState()')
@@ -6025,33 +5990,7 @@ tasks.register('validateRendererCullingBounds') {
                  'Fit.measure(', 'applyLegacyBlockItemDisplayPose('],
                 'DFC component items')
 
-        def fixedObjItemPoses = [
-                [method: 'renderTransitionSealItem', scale: '/ 30.1927032F', center: 'pose.translate(-3.29187918F, -15.0963478F, 0.0F);'],
-                [method: 'renderBoltgunItem', scale: '/ 8.25F', center: 'pose.translate(0.0F, -0.0410540104F, -0.375F);'],
-                [method: 'renderAmmoPressItem', scale: '/ 3.0F', center: 'pose.translate(0.0F, -1.0F, 0.0F);'],
-                [method: 'renderRadarItem', scale: '/ 3.0F', center: 'pose.translate(-0.0625F, -1.125F, 0.0F);'],
-                [method: 'renderLargeRadarItem', scale: '/ 10.0F', center: 'pose.translate(0.0F, -5.0F, -0.171875F);'],
-                [method: 'renderRadgenItem', scale: '/ 6.125F', center: 'pose.translate(0.4375F, -1.5F, 0.0F);'],
-                [method: 'renderBlastFurnaceItem', scale: '/ 7.0F', center: 'pose.translate(0.0F, -3.5F, 0.0F);'],
-                [method: 'renderSatelliteDockItem', scale: '/ 3.0F', center: 'pose.translate(0.0F, -0.375F, 0.0F);'],
-                [method: 'renderSkeletonHolderItem', scale: '/ 1.42579401F', center: 'pose.translate(0.0847695023F, -0.712897003F, 0.0F);'],
-                [method: 'renderBrickChimneyItem', scale: '/ 13.0F', center: 'pose.translate(-0.5F, -6.5F, -0.5F);'],
-                [method: 'renderIndustrialChimneyItem', scale: '/ 23.0F', center: 'pose.translate(-0.5F, -11.5F, -0.5F);'],
-                [method: 'renderBoilerItem', scale: '/ 4.0F', center: 'pose.translate(0.0F, -2.0F, 0.0F);'],
-                [method: 'renderIndustrialBoilerItem', scale: '/ 5.0F', center: 'pose.translate(0.0F, -2.5F, 0.0F);'],
-                [method: 'renderPoweredCondenserItem', scale: '/ 7.0F', center: 'pose.translate(0.0F, -1.5F, 0.0F);'],
-                [method: 'renderSmallCoolingTowerItem', scale: '/ 19.5F', center: 'pose.translate(0.0F, -9.75F, 0.0F);'],
-                [method: 'renderLargeCoolingTowerItem', scale: '/ 13.0F', center: 'pose.translate(0.0F, -6.5F, 0.0F);'],
-                [method: 'renderCorrodedBarrelItem', scale: 'ItemDisplayContext.GUI ? 0.78F : 0.82F', center: 'pose.translate(-0.5F, -0.5F, -0.5F);'],
-                [method: 'renderAntimatterBarrelItem', scale: 'ItemDisplayContext.GUI ? 0.78F : 0.82F', center: 'pose.translate(-0.5F, -0.5F, -0.5F);'],
-                [method: 'renderBoatItem', scale: '/ 21.75F', center: 'pose.translate(0.0F, -2.86756134F, -2.375F);']
-        ]
-        fixedObjItemPoses.each { pose ->
-            auditOwnedMethod(objItemPath, objItemPolicy, "private static void ${pose.method}(",
-                    [pose.scale as String, pose.center as String],
-                    ['measuredFit(', 'FIT_CACHE', 'Fit.measure(', 'applyItemRenderBasePose(',
-                     'applyLegacyBlockItemDisplayPose('], "Fixed OBJ item ${pose.method}")
-        }
+        // [parity m1] 19 fixed OBJ item poses (transition_seal ... boat) removed: original renderers in M1LegacyItemRenderers / flat icons / FluidBarrelItemRenderer
         // [parity l1] tesla, spotlight_*, tape_recorder, vending_machine: original ItemRenderBase / ISBRH paths (U4LegacyItemRenderSetup, item models)
 
         def toasterItemPath = 'src/main/java/com/atomiclegacy/render/ToasterItemRenderer.java'

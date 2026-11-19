@@ -1020,11 +1020,6 @@ public final class LegacyMachineBlockEntityRenderer implements LongRangeBlockEnt
                 state, poseStack, bufferSource, packedLight, packedOverlay);
     }
 
-    static void renderItemRadiationGenerator(BlockState state, PoseStack poseStack, MultiBufferSource bufferSource,
-                                              int packedLight, int packedOverlay) {
-        renderRadGenParts(true, 0.0F, state, poseStack, bufferSource, packedLight, packedOverlay);
-    }
-
     static void renderItemRadiolysis(BlockState state, PoseStack poseStack, MultiBufferSource bufferSource,
                                       int packedLight, int packedOverlay) {
         STATIC_MESHES.render(RADIOLYSIS, poseStack, state, packedLight, packedOverlay);
@@ -1242,21 +1237,6 @@ public final class LegacyMachineBlockEntityRenderer implements LongRangeBlockEnt
         poseStack.mulPose(Axis.YP.rotationDegrees(-machine.radarRotation(partialTick)));
         STATIC_MESHES.render(RADAR_LARGE_DISH, poseStack, state, packedLight, packedOverlay);
         poseStack.popPose();
-    }
-
-    static void renderItemRadar(BlockState state, PoseStack poseStack, MultiBufferSource bufferSource,
-                                int packedLight, int packedOverlay) {
-        STATIC_MESHES.render(RADAR_BASE, poseStack, state, packedLight, packedOverlay);
-        poseStack.mulPose(Axis.YP.rotationDegrees(-(System.currentTimeMillis() % 3600L) * 0.1F));
-        poseStack.translate(-0.125D, 0.0D, 0.0D);
-        STATIC_MESHES.render(RADAR_DISH, poseStack, state, packedLight, packedOverlay);
-    }
-
-    static void renderItemLargeRadar(BlockState state, PoseStack poseStack, MultiBufferSource bufferSource,
-                                     int packedLight, int packedOverlay) {
-        STATIC_MESHES.render(RADAR_LARGE_BASE, poseStack, state, packedLight, packedOverlay);
-        poseStack.mulPose(Axis.YP.rotationDegrees(-(System.currentTimeMillis() % 3600L) * 0.1F));
-        STATIC_MESHES.render(RADAR_LARGE_DISH, poseStack, state, packedLight, packedOverlay);
     }
 
     /** Direct port of RenderMissileAssembly, including the gantry-relative missile transform. */

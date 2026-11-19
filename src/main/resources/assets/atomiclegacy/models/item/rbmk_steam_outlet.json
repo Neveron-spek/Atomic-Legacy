@@ -1,1 +1,3 @@
-{"parent":"builtin/entity"}
+{
+  "parent": "atomiclegacy:block/rbmk_steam_outlet"
+}

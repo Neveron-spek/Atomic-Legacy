@@ -1,6 +1,32 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "atomiclegacy:block/plant_dead_grass"
-  }
+    "layer0": "atomiclegacy:block/plant_dead_generic"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "minecraft:custom_model_data": 1
+      },
+      "model": "atomiclegacy:item/legacy_flat/plant_dead_grass"
+    },
+    {
+      "predicate": {
+        "minecraft:custom_model_data": 2
+      },
+      "model": "atomiclegacy:item/legacy_flat/plant_dead_flower"
+    },
+    {
+      "predicate": {
+        "minecraft:custom_model_data": 3
+      },
+      "model": "atomiclegacy:item/legacy_flat/plant_dead_big_flower"
+    },
+    {
+      "predicate": {
+        "minecraft:custom_model_data": 4
+      },
+      "model": "atomiclegacy:item/legacy_flat/plant_dead_fern"
+    }
+  ]
 }

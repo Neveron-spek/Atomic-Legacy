@@ -18,11 +18,12 @@ import java.util.Locale;
 public class DeadPlantBlock extends BushBlock {
     public static final EnumProperty<Kind> KIND = EnumProperty.create("kind", Kind.class);
     private static final MapCodec<DeadPlantBlock> CODEC = simpleCodec(DeadPlantBlock::new);
-    private static final VoxelShape SHAPE = box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
+    // [parity m1] BlockDeadPlant extends BlockEnumMulti (not BlockBush): default full-cube selection bounds
+    private static final VoxelShape SHAPE = net.minecraft.world.phys.shapes.Shapes.block();
 
     public DeadPlantBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(KIND, Kind.GRASS));
+        this.registerDefaultState(this.stateDefinition.any().setValue(KIND, Kind.GENERIC));
     }
 
     @Override
@@ -32,7 +33,9 @@ public class DeadPlantBlock extends BushBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
-        return state.is(HbmBlocks.DIRT_OILY.get())
+        // [parity m1] canPlaceBlockOn: grass, dirt, waste_earth, dirt_oily, dirt_dead
+        return state.is(HbmBlocks.WASTE_EARTH.get())
+                || state.is(HbmBlocks.DIRT_OILY.get())
                 || state.is(HbmBlocks.DIRT_DEAD.get())
                 || state.is(Blocks.DIRT)
                 || state.is(Blocks.GRASS_BLOCK);
@@ -43,17 +46,27 @@ public class DeadPlantBlock extends BushBlock {
         return SHAPE;
     }
 
+    /** [parity m1] getPickBlock: damageDropped(meta) = meta. */
+    @Override
+    public net.minecraft.world.item.ItemStack getCloneItemStack(net.minecraft.world.level.LevelReader level, BlockPos pos, BlockState state) {
+        if (this.asItem() instanceof com.atomiclegacy.items.LegacyVariantBlockItem item) {
+            return com.atomiclegacy.items.LegacyVariantBlockItem.stackFor(item, state.getValue(KIND).ordinal());
+        }
+        return super.getCloneItemStack(level, pos, state);
+    }
+
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<net.minecraft.world.level.block.Block, BlockState> builder) {
         builder.add(KIND);
     }
 
+    /** [parity m1] EnumDeadPlantType order = metadata / item variant index: GENERIC, GRASS, FLOWER, BIGFLOWER, FERN. */
     public enum Kind implements StringRepresentable {
-        GRASS,
         GENERIC,
+        GRASS,
         FLOWER,
-        FERN,
-        BIG_FLOWER;
+        BIG_FLOWER,
+        FERN;
 
         @Override
         public String getSerializedName() {

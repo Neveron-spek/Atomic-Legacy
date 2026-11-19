@@ -1,13 +1,6 @@
 {
-  "loader": "neoforge:obj",
-  "model": "atomiclegacy:models/obj/doors/transition_seal.obj",
-  "mtl_override": "atomiclegacy:models/obj/doors/transition_seal.mtl",
-  "automatic_culling": false,
-  "shade_quads": true,
-  "flip_v": true,
-  "emissive_ambient": false,
+  "parent": "minecraft:item/generated",
   "textures": {
-    "default": "atomiclegacy:block/doors/transition_seal",
-    "particle": "atomiclegacy:block/doors/transition_seal"
+    "layer0": "atomiclegacy:block/transition_seal"
   }
 }

@@ -3033,273 +3033,8 @@ public final class ObjMachineItemRenderer extends BlockEntityWithoutLevelRendere
     /** Mathless dispatch only; every fixed-geometry item owns its pose below. */
     private static void dispatchFixedGeometryItem(String profileId, DedicatedItemRender item) {
         switch (profileId) {
-            case "transition_seal" -> renderTransitionSealItem(item);
-            case "boltgun" -> renderBoltgunItem(item);
-            case "machine_ammo_press" -> renderAmmoPressItem(item);
-            case "machine_radar" -> renderRadarItem(item);
-            case "machine_radar_large" -> renderLargeRadarItem(item);
-            case "machine_radgen" -> renderRadgenItem(item);
-            case "machine_blast_furnace" -> renderBlastFurnaceItem(item);
-            case "sat_dock" -> renderSatelliteDockItem(item);
-            case "skeleton_holder" -> renderSkeletonHolderItem(item);
-            case "chimney_brick" -> renderBrickChimneyItem(item);
-            case "chimney_industrial" -> renderIndustrialChimneyItem(item);
-            case "machine_boiler" -> renderBoilerItem(item);
-            case "machine_industrial_boiler" -> renderIndustrialBoilerItem(item);
-            case "machine_condenser_powered" -> renderPoweredCondenserItem(item);
-            case "machine_tower_small" -> renderSmallCoolingTowerItem(item);
-            case "machine_tower_large" -> renderLargeCoolingTowerItem(item);
-            case "barrel_corroded" -> renderCorrodedBarrelItem(item);
-            case "barrel_antimatter" -> renderAntimatterBarrelItem(item);
-            case "boat" -> renderBoatItem(item);
             default -> throw new IllegalStateException("Missing dedicated OBJ item pose: " + profileId);
         }
-    }
-
-    private static void renderTransitionSealItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.XP.rotationDegrees(30.0F));
-        pose.mulPose(Axis.YP.rotationDegrees(225.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.82F : 0.85F) / 30.1927032F;
-        pose.scale(scale, scale, scale);
-        pose.translate(-3.29187918F, -15.0963478F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
-
-    private static void renderBoltgunItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.XP.rotationDegrees(30.0F));
-        pose.mulPose(Axis.YP.rotationDegrees(225.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.82F : 0.85F) / 8.25F;
-        pose.scale(scale, scale, scale);
-        pose.translate(0.0F, -0.0410540104F, -0.375F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
-
-    private static void renderAmmoPressItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.YP.rotationDegrees(90.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.92F : 0.85F) / 3.0F;
-        pose.scale(scale, scale, scale);
-        pose.translate(0.0F, -1.0F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
-
-    private static void renderRadarItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.90F : 0.85F) / 3.0F;
-        pose.scale(scale, scale, scale);
-        pose.translate(-0.0625F, -1.125F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
-
-    private static void renderLargeRadarItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.YP.rotationDegrees(180.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.90F : 0.85F) / 10.0F;
-        pose.scale(scale, scale, scale);
-        pose.translate(0.0F, -5.0F, -0.171875F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
-
-    private static void renderRadgenItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.82F : 0.85F) / 6.125F;
-        pose.scale(scale, scale, scale);
-        pose.translate(0.4375F, -1.5F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
-
-    private static void renderBlastFurnaceItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.XP.rotationDegrees(30.0F));
-        pose.mulPose(Axis.YP.rotationDegrees(225.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.82F : 0.85F) / 7.0F;
-        pose.scale(scale, scale, scale);
-        pose.translate(0.0F, -3.5F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
-
-
-
-
-
-
-
-
-    private static void renderSatelliteDockItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.90F : 0.85F) / 3.0F;
-        pose.scale(scale, scale, scale);
-        pose.translate(0.0F, -0.375F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
-
-
-
-
-    private static void renderSkeletonHolderItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.YP.rotationDegrees(90.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.88F : 0.85F) / 1.42579401F;
-        pose.scale(scale, scale, scale);
-        pose.translate(0.0847695023F, -0.712897003F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
-
-    private static void renderBrickChimneyItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.XP.rotationDegrees(30.0F));
-        pose.mulPose(Axis.YP.rotationDegrees(225.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.82F : 0.85F) / 13.0F;
-        pose.scale(scale, scale, scale);
-        pose.translate(-0.5F, -6.5F, -0.5F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
-
-    private static void renderIndustrialChimneyItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.XP.rotationDegrees(30.0F));
-        pose.mulPose(Axis.YP.rotationDegrees(225.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.82F : 0.85F) / 23.0F;
-        pose.scale(scale, scale, scale);
-        pose.translate(-0.5F, -11.5F, -0.5F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
-
-    private static void renderBoilerItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.XP.rotationDegrees(30.0F));
-        pose.mulPose(Axis.YP.rotationDegrees(225.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.82F : 0.85F) / 4.0F;
-        pose.scale(scale, scale, scale);
-        pose.translate(0.0F, -2.0F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
-
-    private static void renderIndustrialBoilerItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.XP.rotationDegrees(30.0F));
-        pose.mulPose(Axis.YP.rotationDegrees(315.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.82F : 0.85F) / 5.0F;
-        pose.scale(scale, scale, scale);
-        pose.translate(0.0F, -2.5F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
-
-    private static void renderPoweredCondenserItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.XP.rotationDegrees(30.0F));
-        pose.mulPose(Axis.YP.rotationDegrees(225.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.82F : 0.85F) / 7.0F;
-        pose.scale(scale, scale, scale);
-        pose.translate(0.0F, -1.5F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
-
-    private static void renderSmallCoolingTowerItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.XP.rotationDegrees(30.0F));
-        pose.mulPose(Axis.YP.rotationDegrees(225.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.82F : 0.85F) / 19.5F;
-        pose.scale(scale, scale, scale);
-        pose.translate(0.0F, -9.75F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
-
-    private static void renderLargeCoolingTowerItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.XP.rotationDegrees(30.0F));
-        pose.mulPose(Axis.YP.rotationDegrees(225.0F));
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.82F : 0.85F) / 13.0F;
-        pose.scale(scale, scale, scale);
-        pose.translate(0.0F, -6.5F, 0.0F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
-
-    private static void renderCorrodedBarrelItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.XP.rotationDegrees(30.0F));
-        pose.mulPose(Axis.YP.rotationDegrees(225.0F));
-        float scale = item.context() == ItemDisplayContext.GUI ? 0.78F : 0.82F;
-        pose.scale(scale, scale, scale);
-        pose.translate(-0.5F, -0.5F, -0.5F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
-
-    private static void renderAntimatterBarrelItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        pose.mulPose(Axis.XP.rotationDegrees(30.0F));
-        pose.mulPose(Axis.YP.rotationDegrees(225.0F));
-        float scale = item.context() == ItemDisplayContext.GUI ? 0.78F : 0.82F;
-        pose.scale(scale, scale, scale);
-        pose.translate(-0.5F, -0.5F, -0.5F);
-        renderModels(item, item.models().size());
-        pose.popPose();
-    }
-
-    private static void renderBoatItem(DedicatedItemRender item) {
-        PoseStack pose = item.poseStack();
-        pose.pushPose();
-        pose.translate(0.5F, 0.5F, 0.5F);
-        float scale = (item.context() == ItemDisplayContext.GUI ? 0.92F : 0.85F) / 21.75F;
-        pose.scale(scale, scale, scale);
-        pose.translate(0.0F, -2.86756134F, -2.375F);
-        renderModels(item, item.models().size());
-        pose.popPose();
     }
 
     /** Exact 1.7.10 RenderDrain item renderer transform. */
@@ -4060,8 +3795,6 @@ public final class ObjMachineItemRenderer extends BlockEntityWithoutLevelRendere
         models(profiles, "compact_launcher", "block/compact_launcher_world");
         models(profiles, "launch_table", "block/launch_table_base");
         models(profiles, "machine_arc_furnace", "block/machine_arc_furnace", "block/machine_arc_furnace_lid", "block/machine_arc_furnace_ring1", "block/machine_arc_furnace_ring2", "block/machine_arc_furnace_ring3", "block/machine_arc_furnace_electrode1", "block/machine_arc_furnace_electrode2", "block/machine_arc_furnace_electrode3", "block/machine_arc_furnace_cable1", "block/machine_arc_furnace_cable2", "block/machine_arc_furnace_cable3");
-        models(profiles, "transition_seal", "block/transition_seal");
-        models(profiles, "boltgun", "block/boltgun");
         models(profiles, "icf", "block/icf");
         models(profiles, "bomb_multi", "block/bomb_multi_world");
         models(profiles, "nuke_boy", "block/nuke_boy_world");
@@ -4079,7 +3812,6 @@ public final class ObjMachineItemRenderer extends BlockEntityWithoutLevelRendere
         models(profiles, "crashed_bomb_conventional", "block/crashed_bomb_conventional");
         models(profiles, "crashed_bomb_nuke", "block/crashed_bomb_nuke");
         models(profiles, "crashed_bomb_salted", "block/crashed_bomb_salted");
-        models(profiles, "machine_ammo_press", "block/machine_ammo_press");
         models(profiles, "machine_ashpit", "block/machine_ashpit_world", "block/machine_ashpit_door");
         models(profiles, "machine_compressor", "block/machine_compressor_world", "block/machine_compressor_pump", "block/machine_compressor_fan");
         models(profiles, "machine_compressor_compact", "block/machine_compressor_compact_world", "block/machine_compressor_compact_fan1", "block/machine_compressor_compact_fan2");
@@ -4093,9 +3825,6 @@ public final class ObjMachineItemRenderer extends BlockEntityWithoutLevelRendere
         models(profiles, "machine_tacz_ammo_assembler", "block/machine_assembly_machine");
         models(profiles, "machine_cyclotron", "block/machine_cyclotron_body", "block/machine_cyclotron_b1", "block/machine_cyclotron_b2", "block/machine_cyclotron_b3", "block/machine_cyclotron_b4");
         models(profiles, "machine_exposure_chamber", "block/machine_exposure_chamber_chamber", "block/machine_exposure_chamber_magnets", "block/machine_exposure_chamber_core");
-        models(profiles, "machine_radar", "block/machine_radar_base", "block/machine_radar_dish");
-        models(profiles, "machine_radar_large", "block/machine_radar_large_base", "block/machine_radar_large_dish");
-        models(profiles, "machine_radgen", "block/machine_radgen_base", "block/machine_radgen_rotor", "block/machine_radgen_light", "block/machine_radgen_glass");
         models(profiles, "pa_source", "block/pa_source");
         models(profiles, "pa_beamline", "block/pa_beamline_body");
         models(profiles, "pa_rfc", "block/pa_rfc");
@@ -4123,7 +3852,6 @@ public final class ObjMachineItemRenderer extends BlockEntityWithoutLevelRendere
         models(profiles, "dfc_injector", "block/dfc_injector");
         models(profiles, "dfc_stabilizer", "block/dfc_stabilizer");
         models(profiles, "machine_excavator", "block/machine_excavator_main", "block/machine_excavator_crusher1", "block/machine_excavator_crusher2", "block/machine_excavator_drillbit", "block/machine_excavator_shaft");
-        models(profiles, "machine_blast_furnace", "block/machine_blast_furnace");
         models(profiles, "machine_crucible", "block/machine_crucible_world");
         models(profiles, "machine_strand_caster", "block/machine_strand_caster_item");
         models(profiles, "machine_crystallizer", "block/machine_crystallizer_body", "block/machine_crystallizer_spinner");
@@ -4142,19 +3870,13 @@ public final class ObjMachineItemRenderer extends BlockEntityWithoutLevelRendere
         models(profiles, "fan", "block/fan_frame", "block/fan_blades");
         models(profiles, "floodlight", "block/floodlight_base", "block/floodlight_lights", "block/floodlight_lamps");
         models(profiles, "cargo_elevator", "block/cargo_elevator_base", "block/cargo_elevator_piston", "block/cargo_elevator_guides", "block/cargo_elevator_platform");
-        models(profiles, "sat_dock", "block/sat_dock");
         models(profiles, "radio_autocal", "block/radio_autocal");
         models(profiles, "radio_telex", "block/radio_telex_item");
-        models(profiles, "skeleton_holder", "block/skeleton_holder_world");
-        models(profiles, "chimney_brick", "block/chimney_brick");
-        models(profiles, "chimney_industrial", "block/chimney_industrial");
         models(profiles, "heater_firebox", "block/heater_firebox_world", "block/heater_firebox_door");
         models(profiles, "heater_oven", "block/heater_oven_world", "block/heater_oven_door");
         models(profiles, "heater_oilburner", "block/heater_oilburner");
         models(profiles, "heater_electric", "block/heater_electric");
         models(profiles, "heater_heatex", "block/heater_heatex");
-        models(profiles, "machine_boiler", "block/heat_boiler_world");
-        models(profiles, "machine_industrial_boiler", "block/machine_industrial_boiler_world");
         models(profiles, "machine_solar_boiler", "block/machine_solar_boiler_base");
         models(profiles, "pipe_anchor", "block/pipe_anchor");
         models(profiles, "pipe_anchor_exhaust", "block/pipe_anchor_exhaust"); // [parity T1: pipe_anchor_exhaust]
@@ -4163,16 +3885,10 @@ public final class ObjMachineItemRenderer extends BlockEntityWithoutLevelRendere
         models(profiles, "network_separator", "block/network_separator"); // [parity U1: network_separator]
         models(profiles, "piston_inserter", "block/piston_inserter");
         models(profiles, "solar_mirror", "block/solar_mirror_base", "block/solar_mirror_mirror");
-        models(profiles, "machine_condenser_powered", "block/machine_condenser_powered");
-        models(profiles, "machine_tower_small", "block/machine_tower_small_world");
-        models(profiles, "machine_tower_large", "block/machine_tower_large_world");
-        models(profiles, "machine_blast_furnace", "block/machine_blast_furnace");
         models(profiles, "furnace_combination", "block/furnace_combination");
         models(profiles, "furnace_iron", "block/furnace_iron_main", "block/furnace_iron_off");
         models(profiles, "furnace_steel", "block/furnace_steel");
         models(profiles, "gear_large", "block/gear_large_1710", "block/gear_large_steel_1710");
-        models(profiles, "barrel_corroded", "block/barrel_corroded");
-        models(profiles, "barrel_antimatter", "block/barrel_antimatter");
         models(profiles, "machine_well", "block/machine_well");
         models(profiles, "machine_pumpjack", "block/machine_pumpjack");
         models(profiles, "machine_fracking_tower", "block/machine_fracking_tower");
@@ -4188,7 +3904,6 @@ public final class ObjMachineItemRenderer extends BlockEntityWithoutLevelRendere
         models(profiles, "machine_catalytic_reformer", "block/machine_catalytic_reformer");
         models(profiles, "machine_hydrotreater", "block/machine_hydrotreater");
         models(profiles, "deco_computer", "block/deco_computer");
-        models(profiles, "boat", "block/boat");
         models(profiles, "deco_crt_clean", "block/deco_crt_clean_monitor", "block/deco_crt_clean_screen");
         models(profiles, "deco_crt_broken", "block/deco_crt_broken_monitor", "block/deco_crt_broken_screen");
         models(profiles, "deco_crt_blinking", "block/deco_crt_blinking_monitor", "block/deco_crt_blinking_screen");

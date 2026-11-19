@@ -46,7 +46,10 @@ public class RbmkComponentBlockItem extends BlockItem {
         // [parity l1] consoles: ItemRenderLibrary ItemRenderBase (U4LegacyItemRenderSetup); mini panels:
         // RBMKMiniPanelBase#renderInventoryBlock baked as plain item models
         if (this.kind == RbmkComponentBlock.Kind.CONSOLE || this.kind == RbmkComponentBlock.Kind.CRANE_CONSOLE
-                || this.kind.isMiniPanel()) {
+                || this.kind.isMiniPanel()
+                // [parity m1] loader / steam inlet / outlet: plain cubes (renderType 0); autoloader: RenderRBMKAutoloader
+                || this.kind == RbmkComponentBlock.Kind.LOADER || this.kind == RbmkComponentBlock.Kind.STEAM_INLET
+                || this.kind == RbmkComponentBlock.Kind.STEAM_OUTLET || this.kind == RbmkComponentBlock.Kind.AUTOLOADER) {
             return;
         }
         consumer.accept(new IClientItemExtensions() {

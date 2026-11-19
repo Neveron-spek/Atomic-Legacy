@@ -24,12 +24,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
-import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 
-import java.util.function.Consumer;
 
 /** Construction boltgun retained because legacy multiblock assembly requires it. */
-public final class BoltgunItem extends Item {
+public final class BoltgunItem extends Item
+        implements IAnimatedItem<com.atomiclegacy.render.anim.AnimationEnums.ToolAnimation> { // [parity m1]
     private static final ResourceLocation BOLT_SPIKE = ResourceLocation.fromNamespaceAndPath("atomiclegacy", "bolt_spike");
 
     public BoltgunItem(Properties properties) {
@@ -58,6 +57,7 @@ public final class BoltgunItem extends Item {
             level.playSound(null, player.getX(), player.getY(), player.getZ(),
                     HbmSoundEvents.BOLT_GUN.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
             player.inventoryMenu.broadcastChanges();
+            playAnimation(player, com.atomiclegacy.render.anim.AnimationEnums.ToolAnimation.SWING); // [parity m1]
         }
         Vec3 hit = context.getClickLocation();
         Direction dir = context.getClickedFace();
@@ -99,6 +99,7 @@ public final class BoltgunItem extends Item {
                     }
                     largeExplode(level, entity.getX(), entity.getY() + entity.getBbHeight() / 2.0D, entity.getZ(),
                             entity.getX(), entity.getY(), entity.getZ());
+                    playAnimation(player, com.atomiclegacy.render.anim.AnimationEnums.ToolAnimation.SWING); // [parity m1]
                 }
                 return true;
             }
@@ -135,8 +136,25 @@ public final class BoltgunItem extends Item {
         return id != null && id.getNamespace().equals("atomiclegacy") && id.getPath().equals(path);
     }
 
+    // [parity m1] item renderer: ItemRenderBoltgun via U4LegacyItemRenderSetup (M1LegacyItemRenderers.Boltgun)
+
+    /** ItemBoltgun#getAnimation: RECOIL (1, 0, 1) over 50 ms, back to 0 over 100 ms. */
     @Override
-    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        ObjMachineBlockItem.installRenderer(consumer);
+    public com.atomiclegacy.render.anim.BusAnimation getAnimation(
+            com.atomiclegacy.render.anim.AnimationEnums.ToolAnimation type, ItemStack stack) {
+        return new com.atomiclegacy.render.anim.BusAnimation()
+                .addBus("RECOIL", new com.atomiclegacy.render.anim.BusAnimationSequence()
+                        .addPos(1, 0, 1, 50)
+                        .addPos(0, 0, 1, 100));
+    }
+
+    @Override
+    public boolean shouldPlayerModelAim(ItemStack stack) {
+        return false;
+    }
+
+    @Override
+    public Class<com.atomiclegacy.render.anim.AnimationEnums.ToolAnimation> getEnum() {
+        return com.atomiclegacy.render.anim.AnimationEnums.ToolAnimation.class;
     }
 }
