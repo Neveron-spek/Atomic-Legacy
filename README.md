@@ -29,8 +29,8 @@ The jar is written to `build/libs/atomiclegacy-<version>.jar`.
 
 ## Reporting bugs
 
-Please include the Minecraft and NeoForge versions, the list of other mods, steps to reproduce and, for crashes, the file from `crash-reports/`.
+Open an issue at https://github.com/Neveron-spek/Atomic-Legacy/issues and include the Minecraft and NeoForge versions, the list of other mods, steps to reproduce and, for crashes, the file from `crash-reports/`.
 
 ## License
 
-Like the original mod, this project is free software under the **GNU Lesser General Public License v3** (see [`LICENSE`](LICENSE) and [`LICENSE.LESSER`](LICENSE.LESSER); the base port is GPL-3.0). Modified versions must stay under a free license and keep the credits above.
+This project is free software under the **GNU General Public License v3** (see [`LICENSE`](LICENSE)). It includes code from HBM's Nuclear Tech Mod, licensed under the GNU LGPL v3 (see [`LICENSE.LESSER`](LICENSE.LESSER)). Modified versions must stay under the GPL and keep the credits above.

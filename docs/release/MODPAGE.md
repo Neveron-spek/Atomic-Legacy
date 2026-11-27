@@ -83,5 +83,6 @@ Atomic Legacy turns Minecraft into a nuclear-age industrial survival game. You m
 Atomic Legacy is an **unofficial** project and is not affiliated with or endorsed by the original authors.
 
 ## Links and license
-- Source code and bug reports: *(GitHub link)*
+- Source code: https://github.com/Neveron-spek/Atomic-Legacy
+- Bug reports: https://github.com/Neveron-spek/Atomic-Legacy/issues
 - License: **GNU GPL v3**. The source code is open.

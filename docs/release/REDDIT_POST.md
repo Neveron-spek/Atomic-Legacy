@@ -14,14 +14,14 @@ Most of the content is in and the build passes a large set of automated checks, 
 - Server testing is very welcome too.
 
 **How to report**
-- GitHub Issues: *(link)* — please include Minecraft/NeoForge version, other mods, steps, and the crash report or `latest.log` if there is one.
+- GitHub Issues: https://github.com/Neveron-spek/Atomic-Legacy/issues — please include Minecraft/NeoForge version, other mods, steps, and the crash report or `latest.log` if there is one.
 
-**Download:** *(GitHub Releases link)* — `atomiclegacy-0.2.0-alpha.jar`
+**Download:** https://github.com/Neveron-spek/Atomic-Legacy/releases — `atomiclegacy-0.2.0-alpha.jar`
 
 **Important**
 - Alpha: use a separate world and keep backups.
 - Requires Minecraft 1.21.1, NeoForge 21.1.250+, Java 21. JEI recommended.
 
-Credits: HBM's Nuclear Tech Mod by HbmMods and contributors. The project started as a fork of Reinhardt's HBM NeoPort (SakurakoujiSaika1926) and has been largely rewritten since. Source is open under LGPL/GPL.
+Credits: HBM's Nuclear Tech Mod by HbmMods and contributors. The project started as a fork of Reinhardt's HBM NeoPort (SakurakoujiSaika1926) and has been largely rewritten since. Source is open under GPL v3.
 
 Thanks!
