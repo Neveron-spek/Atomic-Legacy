@@ -114,6 +114,12 @@ neoForge {
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
 
+        // Client that joins the local test server (scripts/run-test-server.bat) right after start.
+        joinTest {
+            client()
+            gameDirectory = project.file('run-visual')
+            programArguments.addAll '--width', '854', '--height', '480', '--quickPlayMultiplayer', 'localhost:25565'
+        }
         itemRenderAudit {
             client()
             gameDirectory = project.file('run-visual')

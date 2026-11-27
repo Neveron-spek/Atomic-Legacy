@@ -774,6 +774,11 @@ public final class HbmLegacyNbtTemplate {
                 && (tag.contains("Count") || tag.contains("count") || tag.contains("Slot") || tag.contains("slot") || tag.contains("Damage"));
     }
 
+    /** Diagnostics hook: migrates one 1.7.10 item stack tag in place; false when the stack has no item. */
+    public static boolean diagnosticMigrateItem(CompoundTag tag) {
+        return migrateLegacyItemStack(tag, Map.of());
+    }
+
     static boolean migrateLegacyItemStack(CompoundTag tag, Map<Short, String> itemPalette) {
         if (tag.contains("id", Tag.TAG_STRING)) {
             tag.putString("id", normalizeItemId(tag.getString("id")));
@@ -806,7 +811,11 @@ public final class HbmLegacyNbtTemplate {
 
     private static void migrateLegacyWrittenBook(CompoundTag stack) {
         CompoundTag legacyData = stack.getCompound("tag");
-        ListTag pages = legacyData.getList("pages", Tag.TAG_STRING).copy();
+        // 1.7.10 pages are plain text; 1.21.1 written_book_content pages are JSON text components.
+        ListTag pages = new ListTag();
+        for (Tag page : legacyData.getList("pages", Tag.TAG_STRING)) {
+            pages.add(net.minecraft.nbt.StringTag.valueOf(new com.google.gson.JsonPrimitive(page.getAsString()).toString()));
+        }
 
         CompoundTag content = new CompoundTag();
         content.putString("title", legacyData.getString("title"));

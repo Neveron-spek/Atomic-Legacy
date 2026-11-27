@@ -63,10 +63,32 @@ final class ParityK1bDiagnostics {
             reactor(problems, cases);
             glyphidWaypoint(level, problems, cases);
             pigeon(level, problems, cases);
+            legacyBook(level, problems, cases);
         } catch (RuntimeException | ReflectiveOperationException exception) {
             problems.add("K1b: diagnostics failed: " + exception);
         }
         return cases[0];
+    }
+
+    /** 1.7.10 written book (short id 386, plain-text pages) of the lighthouse chest must load as a 1.21.1 stack. */
+    private static void legacyBook(ServerLevel level, List<String> problems, int[] cases) {
+        net.minecraft.nbt.CompoundTag stack = new net.minecraft.nbt.CompoundTag();
+        stack.putShort("id", (short) 386);
+        stack.putByte("Count", (byte) 1);
+        net.minecraft.nbt.CompoundTag data = new net.minecraft.nbt.CompoundTag();
+        data.putString("title", "Log");
+        data.putString("author", "Keeper");
+        net.minecraft.nbt.ListTag pages = new net.minecraft.nbt.ListTag();
+        pages.add(net.minecraft.nbt.StringTag.valueOf("We keep the light turning.\n\"It's\" late."));
+        data.put("pages", pages);
+        stack.put("tag", data);
+        boolean kept = com.atomiclegacy.worldgen.structure.HbmLegacyNbtTemplate.diagnosticMigrateItem(stack);
+        net.minecraft.world.item.ItemStack parsed = net.minecraft.world.item.ItemStack.parseOptional(level.registryAccess(), stack);
+        var content = parsed.get(net.minecraft.core.component.DataComponents.WRITTEN_BOOK_CONTENT);
+        check(problems, cases, kept && parsed.is(net.minecraft.world.item.Items.WRITTEN_BOOK) && content != null
+                && content.pages().size() == 1
+                && content.pages().getFirst().raw().getString().equals("We keep the light turning.\n\"It's\" late."),
+                "legacy written book loads with its page text: " + parsed + " " + content);
     }
 
     private static void check(List<String> problems, int[] cases, boolean ok, String message) {
